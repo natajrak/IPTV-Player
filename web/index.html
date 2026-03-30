@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BKL Play</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="app-header">
+    <span class="logo">▶ BKL Play</span>
+    <nav id="breadcrumb" aria-label="breadcrumb"></nav>
+  </header>
+
+  <!-- Main content -->
+  <main id="app-main">
+    <div id="loading" class="center-screen">
+      <div class="spinner"></div>
+      <p>กำลังโหลด...</p>
+    </div>
+    <div id="error-view" class="center-screen hidden">
+      <div class="error-icon">⚠️</div>
+      <p id="error-message"></p>
+    </div>
+    <div id="grid-view" class="hidden"></div>
+  </main>
+
+  <!-- Video Player Overlay -->
+  <div id="player-overlay" class="hidden">
+    <button id="player-close" title="ปิด (Esc)">✕</button>
+    <video id="player-video" controls autoplay></video>
+    <div id="player-info">
+      <span id="player-title"></span>
+    </div>
+    <!-- Up Next toast -->
+    <div id="upnext-toast" class="hidden">
+      <div id="upnext-content">
+        <img id="upnext-thumb" src="" alt="" />
+        <div class="upnext-text">
+          <small>เล่นถัดไปใน <span id="upnext-countdown">5</span> วินาที</small>
+          <strong id="upnext-title"></strong>
+        </div>
+        <div class="upnext-buttons">
+          <button id="upnext-play-now">เล่นเลย</button>
+          <button id="upnext-cancel">ยกเลิก</button>
+        </div>
+      </div>
+      <div id="upnext-bar"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
