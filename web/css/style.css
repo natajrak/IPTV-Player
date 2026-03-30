@@ -680,6 +680,11 @@ button:focus-visible,
   display: block;
 }
 
+#btn-fullscreen i {
+  font-size: 14px;
+  line-height: 1;
+}
+
 #player-btn-row button:hover { background: rgba(255,255,255,.15); }
 #player-btn-row button:disabled { opacity: 0.3; cursor: default; }
 #player-btn-row button:disabled:hover { background: none; }

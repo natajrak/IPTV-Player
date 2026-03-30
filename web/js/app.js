@@ -850,15 +850,9 @@ function updateVolumeUI() {
 btnFullscreen.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     playerOverlay.requestFullscreen?.();
-    btnFullscreen.textContent = "⊠";
   } else {
     document.exitFullscreen?.();
-    btnFullscreen.textContent = "⛶";
   }
-});
-
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) btnFullscreen.textContent = "⛶";
 });
 
 /* ===== Auto-hide UI ===== */
