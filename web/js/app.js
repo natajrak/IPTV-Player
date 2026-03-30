@@ -1,4 +1,4 @@
-/* ===== Config ===== */
+﻿/* ===== Config ===== */
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const PLAYLIST_URL = `${SITE_BASE_PATH}/playlist/main.txt`;
@@ -886,43 +886,28 @@ function formatTime(secs) {
 }
 
 function splitEpisodeLabel(name, index) {
-  const fallbackEp = `ตอนที่ ${index}`;
+  const fallbackEp = `Ep. ${index}`;
   if (!name) return { ep: fallbackEp, title: "" };
 
   const trimmed = String(name).trim();
-  const epDashSplit = trimmed.match(/^(EP\.?\s*\d+)\s*[-–—]\s*(.+)$/i);
-  if (epDashSplit) {
-    return { ep: epDashSplit[1].toUpperCase().replace(/\s+/g, " "), title: epDashSplit[2] };
+  const enMatch = trimmed.match(/^(?:ep|episode)\.?\s*(\d+)(?:\s*[-–—]\s*(.+)|\s+(.+))?$/i);
+  if (enMatch) {
+    const ep = `Ep. ${enMatch[1]}`;
+    const title = (enMatch[2] || enMatch[3] || "").trim();
+    return { ep, title };
   }
 
-  const dashSplit = trimmed.match(/^(ตอนที่\s*\d+)\s*[-–—]\s*(.+)$/i);
-  if (dashSplit) {
-    return { ep: dashSplit[1], title: dashSplit[2] };
+  const thMatch = trimmed.match(/^(?:ตอนที่|ตอน)\s*(\d+)(?:\s*[-–—]\s*(.+)|\s+(.+))?$/u);
+  if (thMatch) {
+    const ep = `ตอน ${thMatch[1]}`;
+    const title = (thMatch[2] || thMatch[3] || "").trim();
+    return { ep, title };
   }
 
-  const epOnlyEn = trimmed.match(/^(EP\.?\s*\d+)$/i);
-  if (epOnlyEn) {
-    return { ep: epOnlyEn[1].toUpperCase().replace(/\s+/g, " "), title: "" };
-  }
-
-  const epOnlyTh = trimmed.match(/^(ตอนที่\s*\d+)$/i);
-  if (epOnlyTh) {
-    return { ep: epOnlyTh[1], title: "" };
-  }
-
-  const epSpaceSplit = trimmed.match(/^(EP\.?\s*\d+)\s+(.+)$/i);
-  if (epSpaceSplit) {
-    return { ep: epSpaceSplit[1].toUpperCase().replace(/\s+/g, " "), title: epSpaceSplit[2] };
-  }
-
-  const spaceSplit = trimmed.match(/^(ตอนที่\s*\d+)\s+(.+)$/i);
-  if (spaceSplit) {
-    return { ep: spaceSplit[1], title: spaceSplit[2] };
-  }
-
-  return { ep: fallbackEp, title: "" };
+  // Unknown format: keep full label as title.
+  const hasThai = /[\u0E00-\u0E7F]/.test(trimmed);
+  return { ep: hasThai ? `ตอน ${index}` : fallbackEp, title: trimmed };
 }
-
 /* ===== Auto-next (Up Next toast) ===== */
 function scheduleNext(inheritedReferer) {
   const nextIndex = currentIndex + 1;
