@@ -2,8 +2,10 @@
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const PLAYLIST_URL = `${SITE_BASE_PATH}/playlist/main.txt`;
+const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
+const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost";
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 15;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
 const SECTION_BACK_ICON = `<i class="fi fi-br-arrow-left" aria-hidden="true"></i>`;
@@ -138,7 +140,8 @@ fetchAndRender(PLAYLIST_URL, "Home");
 async function fetchAndRender(url, title, pushHistory = false, previousNode = null) {
   showLoading();
   try {
-    const node = normalizePlaylistNode(await fetchJSON(url));
+    const { data, sourceUrl } = await fetchJSON(url);
+    const node = normalizePlaylistNode(data, sourceUrl);
     if (pushHistory && previousNode) {
       navHistory.push({ node: previousNode, title });
     }
@@ -152,32 +155,52 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
 async function fetchJSON(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  const data = await res.json();
+  return { data, sourceUrl: res.url || url };
 }
 
-function normalizeUrlByBase(url) {
+function normalizeUrlByBase(url, sourceUrl = null) {
   if (typeof url !== "string") return url;
-  if (url.startsWith("/web/") || url.startsWith("/playlist/")) {
-    return `${SITE_BASE_PATH}${url}`;
+
+  const normalizedUrl = url.trim();
+  if (!normalizedUrl) return normalizedUrl;
+
+  if (IS_LOCAL_DEV && normalizedUrl.startsWith(RAW_GITHUB_BASE)) {
+    const repoPath = normalizedUrl.slice(RAW_GITHUB_BASE.length).replace(/^\/+/, "");
+    return `${SITE_BASE_PATH}/${repoPath}`;
   }
-  return url;
+
+  if (/^(?:https?:|data:|blob:|javascript:)/i.test(normalizedUrl)) {
+    return normalizedUrl;
+  }
+
+  if (normalizedUrl.startsWith("/")) {
+    return `${SITE_BASE_PATH}${normalizedUrl}`;
+  }
+
+  try {
+    const base = sourceUrl || window.location.href;
+    return new URL(normalizedUrl, base).toString();
+  } catch (_) {
+    return normalizedUrl;
+  }
 }
 
-function normalizePlaylistNode(node) {
+function normalizePlaylistNode(node, sourceUrl = null) {
   if (!node || typeof node !== "object") return node;
 
   const cloned = Array.isArray(node) ? [...node] : { ...node };
 
   if (!Array.isArray(cloned)) {
-    if (typeof cloned.image === "string") cloned.image = normalizeUrlByBase(cloned.image);
-    if (typeof cloned.url === "string") cloned.url = normalizeUrlByBase(cloned.url);
+    if (typeof cloned.image === "string") cloned.image = normalizeUrlByBase(cloned.image, sourceUrl);
+    if (typeof cloned.url === "string") cloned.url = normalizeUrlByBase(cloned.url, sourceUrl);
   }
 
   Object.keys(cloned).forEach((key) => {
     const value = cloned[key];
     if (!value) return;
-    if (Array.isArray(value)) cloned[key] = value.map(normalizePlaylistNode);
-    else if (typeof value === "object") cloned[key] = normalizePlaylistNode(value);
+    if (Array.isArray(value)) cloned[key] = value.map((item) => normalizePlaylistNode(item, sourceUrl));
+    else if (typeof value === "object") cloned[key] = normalizePlaylistNode(value, sourceUrl);
   });
 
   return cloned;
