@@ -7,7 +7,7 @@ const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
 
-const PAGE_SIZE = 15;
+const PAGE_SIZE = 20;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
 const SECTION_BACK_ICON = `<i class="fi fi-br-arrow-left" aria-hidden="true"></i>`;
@@ -33,7 +33,12 @@ let hls = null;
 let upnextCountdown = null;
 let upnextCancelled = false;
 let searchIndex = [];
+let searchIndexPromise = null;
+let searchIndexRootNode = null;
+const searchIndexVisitedUrls = new Set();
+const searchIndexEntryKeys = new Set();
 let currentPage = 0;
+let currentSortOrder = "az";
 let currentGroups = [];
 let currentGroupTitle = "";
 let currentGroupParent = null;
@@ -45,6 +50,7 @@ let epPanelSeasonFilter = "";
 let currentSeasonTitle = "";
 let activeSearchIdx = -1;
 let preSearchState = null;   // saved state before search
+let searchReturnState = null;
 let lastNode = null;
 let lastTitle = "Home";
 let focusRefreshTimer = null;
@@ -151,9 +157,12 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
     const { data, sourceUrl } = await fetchJSON(url);
     const node = normalizePlaylistNode(data, sourceUrl);
     if (pushHistory && previousNode) {
-      navHistory.push({ node: previousNode, title });
+      navHistory.push({ node: previousNode, title, page: currentPage, sort: currentSortOrder });
     }
-    if (searchIndex.length === 0) buildSearchIndex(node, [{ node, title: "Home" }]);
+    if (!searchIndexRootNode && title === "Home") {
+      searchIndexRootNode = node;
+      searchIndexPromise = buildSearchIndexRecursive(node, [{ node, title: "Home" }]).catch(() => {});
+    }
     renderNode(node, title);
   } catch (err) {
     showError(err.message || "โหลดข้อมูลไม่สำเร็จ");
@@ -215,37 +224,79 @@ function normalizePlaylistNode(node, sourceUrl = null) {
 }
 
 /* ===== Search Index ===== */
-function buildSearchIndex(node, historyChain) {
-  (node.groups || []).forEach(group => {
-    const name = group.name || group.info || "";
-    if (!name) return;
-    searchIndex.push({
-      name,
-      image: group.image || null,
-      node: group,
-      path: historyChain.map(h => h.title),
-      historyChain: [...historyChain],
-    });
-    if (group.groups) {
-      buildSearchIndex(group, [...historyChain, { node: group, title: name }]);
-    }
+function pushSearchIndexEntry(group, historyChain) {
+  const name = group.name || group.info || "";
+  if (!name) return;
+  const key = `${name}::${group.url || ""}::${historyChain.map((h) => h.title).join(">")}`;
+  if (searchIndexEntryKeys.has(key)) return;
+  searchIndexEntryKeys.add(key);
+  searchIndex.push({
+    name,
+    image: group.image || null,
+    node: group,
+    path: historyChain.map((h) => h.title),
+    historyChain: [...historyChain],
   });
 }
 
+async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
+  const groups = node?.groups || [];
+  for (const group of groups) {
+    pushSearchIndexEntry(group, historyChain);
+    const nextTitle = group.name || group.info || "...";
+    const nextHistory = [...historyChain, { node: group, title: nextTitle }];
+
+    if (group.groups?.length) {
+      await buildSearchIndexRecursive(group, nextHistory, sourceUrl);
+      continue;
+    }
+
+    if (group.url && !group.stations) {
+      const resolvedUrl = normalizeUrlByBase(group.url, sourceUrl);
+      if (!resolvedUrl || searchIndexVisitedUrls.has(resolvedUrl)) continue;
+      searchIndexVisitedUrls.add(resolvedUrl);
+      try {
+        const { data, sourceUrl: childSourceUrl } = await fetchJSON(resolvedUrl);
+        const childNode = normalizePlaylistNode(data, childSourceUrl);
+        // For search navigation, keep a renderable parent-node chain.
+        // If this group is URL-based, store its loaded node in history instead of the lightweight link object.
+        const loadedHistory = [...historyChain, { node: childNode, title: nextTitle }];
+        await buildSearchIndexRecursive(childNode, loadedHistory, childSourceUrl);
+      } catch (_) {
+        // Skip broken child playlist URLs in search index.
+      }
+    }
+  }
+}
+
 /* ===== Search UI ===== */
-searchInput.addEventListener("input", () => {
+searchInput.addEventListener("input", async () => {
   const q = searchInput.value.trim();
   activeSearchIdx = -1;
 
   // save state before first search action
   if (q && !preSearchState) {
-    preSearchState = { node: lastNode, title: lastTitle, history: [...navHistory] };
+    preSearchState = {
+      node: lastNode,
+      title: lastTitle,
+      history: [...navHistory],
+      page: currentPage,
+      sort: currentSortOrder,
+      query: q,
+    };
   }
 
   // toggle clear button
   searchClear.classList.toggle("hidden", q.length === 0);
 
   if (!q) { closeSearch(); return; }
+
+  if (searchIndexPromise) {
+    await searchIndexPromise;
+  } else if (searchIndexRootNode) {
+    searchIndexPromise = buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
+    await searchIndexPromise;
+  }
 
   const results = searchIndex
     .filter(e => e.name.toLowerCase().includes(q.toLowerCase()))
@@ -274,7 +325,7 @@ searchClear.addEventListener("click", () => {
   closeSearch();
   if (preSearchState) {
     navHistory = preSearchState.history;
-    renderNode(preSearchState.node, preSearchState.title);
+    renderNode(preSearchState.node, preSearchState.title, { page: preSearchState.page, sort: preSearchState.sort });
     preSearchState = null;
   }
 });
@@ -320,6 +371,17 @@ function renderSearchResults(results, q) {
 }
 
 function navigateToSearchResult(entry) {
+  if (preSearchState) {
+    searchReturnState = {
+      node: preSearchState.node,
+      title: preSearchState.title,
+      history: [...preSearchState.history],
+      page: preSearchState.page,
+      sort: preSearchState.sort,
+      query: preSearchState.query || searchInput.value.trim(),
+    };
+  }
+
   // Set navHistory to reconstruct proper breadcrumb
   navHistory = [...entry.historyChain];
   closeSearch();
@@ -332,6 +394,11 @@ function navigateToSearchResult(entry) {
   } else {
     renderNode(group, group.name || "...");
   }
+}
+
+function clearSearchReturnState() {
+  searchReturnState = null;
+  preSearchState = null;
 }
 
 function closeSearch() {
@@ -459,13 +526,15 @@ function queueFocusRefresh() {
 }
 
 /* ===== Render node ===== */
-function renderNode(node, title) {
+function renderNode(node, title, options = {}) {
+  const { page = null, sort = null } = options;
   lastNode = node;
   lastTitle = title;
   updateBreadcrumb(title);
 
   if (node.groups?.length) {
-    currentPage = 0;
+    currentPage = typeof page === "number" ? page : 0;
+    currentSortOrder = sort === "za" ? "za" : "az";
     renderGroups(node.groups, title, node);
   } else if (node.stations?.length) {
     renderStations(node.stations, node.referer, title);
@@ -481,15 +550,20 @@ function renderGroups(groups, sectionTitle, parentNode) {
   currentGroups = groups;
   currentGroupTitle = sectionTitle;
   currentGroupParent = parentNode;
+  const sortedGroups = [...groups].sort((a, b) => {
+    const nameA = String(a?.name || a?.info || "").toLowerCase();
+    const nameB = String(b?.name || b?.info || "").toLowerCase();
+    return currentSortOrder === "za" ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
+  });
 
-  const total = groups.length;
+  const total = sortedGroups.length;
   const totalPages = Math.ceil(total / PAGE_SIZE);
   currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
   const start = currentPage * PAGE_SIZE;
-  const pageGroups = groups.slice(start, start + PAGE_SIZE);
+  const pageGroups = sortedGroups.slice(start, start + PAGE_SIZE);
   const pageItems = getPaginationItems(totalPages, currentPage);
 
-  gridView.innerHTML = `${renderSectionHeader(sectionTitle)}
+  gridView.innerHTML = `${renderSectionHeader(sectionTitle, { withSort: true, sort: currentSortOrder })}
     <div class="card-grid portrait"></div>
     ${totalPages > 1 ? `<nav id="pagination" aria-label="Pagination">
       <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""} aria-label="หน้าก่อนหน้า">
@@ -519,12 +593,13 @@ function renderGroups(groups, sectionTitle, parentNode) {
     });
 
     card.addEventListener("click", () => {
+      if (searchReturnState) clearSearchReturnState();
       const prevNode = { groups, referer: null };
       if (group.url && !group.groups && !group.stations) {
-        navHistory.push({ node: prevNode, title: sectionTitle });
+        navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder });
         fetchAndRender(group.url, group.name || "...");
       } else {
-        navHistory.push({ node: prevNode, title: sectionTitle });
+        navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder });
         renderNode(group, group.name || "...");
       }
     });
@@ -556,6 +631,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
       });
     });
   }
+
+  gridView.querySelector(".sort-order-toggle")?.addEventListener("click", () => {
+    currentSortOrder = currentSortOrder === "az" ? "za" : "az";
+    currentPage = 0;
+    renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
+    showGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 
 function getPaginationItems(totalPages, activePageIdx) {
@@ -567,22 +650,42 @@ function getPaginationItems(totalPages, activePageIdx) {
   return Array.from({ length: windowSize }, (_, i) => start + i + 1);
 }
 
-function renderSectionHeader(title) {
+function renderSectionHeader(title, options = {}) {
+  const { withSort = false, sort = "az" } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
+  const sortIcon = sort === "za"
+    ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
+    : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
+  const sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
   return `<div class="section-header">
     ${canGoBack ? `<button id="section-back" class="section-back-btn" aria-label="ย้อนกลับ">${SECTION_BACK_ICON}</button>` : ""}
     <h2 class="section-title">
       <span class="section-title-main">${esc(splitTitle.main)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
+    ${withSort ? `<div class="section-header-right"><button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button></div>` : ""}
   </div>`;
 }
 
 function goBackOneStep() {
+  if (searchReturnState) {
+    const state = searchReturnState;
+    searchReturnState = null;
+    preSearchState = null;
+    navHistory = state.history;
+    renderNode(state.node, state.title, { page: state.page, sort: state.sort });
+    searchInput.value = state.query || "";
+    searchClear.classList.toggle("hidden", !searchInput.value.trim());
+    closeSearch();
+    showGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
   const prev = navHistory.pop();
   if (!prev) return;
-  renderNode(prev.node, prev.title);
+  renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
   showGrid();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -604,6 +707,7 @@ function renderStations(stations, referer, sectionTitle) {
     });
 
     card.addEventListener("click", () => {
+      if (searchReturnState) clearSearchReturnState();
       openPlayer(stations, i, referer, sectionTitle);
     });
 
@@ -675,7 +779,7 @@ function updateBreadcrumb(currentTitle) {
     span.setAttribute("role", "button");
     span.addEventListener("click", () => {
       navHistory = navHistory.slice(0, i);
-      renderNode(entry.node, entry.title);
+      renderNode(entry.node, entry.title, { page: entry.page, sort: entry.sort });
     });
     span.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {

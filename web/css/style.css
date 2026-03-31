@@ -273,6 +273,39 @@ button:focus-visible,
   padding: 0 40px 20px;
 }
 
+.section-header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.sort-order-toggle {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 10px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.sort-order-toggle:hover {
+  color: #fff;
+  background: rgba(255,255,255,.2);
+  border-color: rgba(255,255,255,.5);
+  transform: translateY(-1px);
+}
+
+.sort-order-toggle i {
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+}
+
 .section-title {
   display: flex;
   flex-direction: column;
@@ -1050,6 +1083,8 @@ button:focus-visible,
   #app-header { padding: 0 16px; gap: 10px; }
   #search-container { width: 160px; }
   .section-header { padding: 0 16px 16px; gap: 6px; }
+  .section-header { flex-wrap: wrap; }
+  .section-header-right { width: 100%; justify-content: flex-end; }
   .card-grid { padding: 0 16px; gap: 16px; }
   .card-grid.portrait  { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   .card-grid.landscape { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
