@@ -563,7 +563,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
   const pageGroups = sortedGroups.slice(start, start + PAGE_SIZE);
   const pageItems = getPaginationItems(totalPages, currentPage);
 
-  gridView.innerHTML = `${renderSectionHeader(sectionTitle, { withSort: true, sort: currentSortOrder })}
+  const normalizedSectionTitle = String(sectionTitle || "").trim().toLowerCase();
+  const showCountInTitle = (normalizedSectionTitle === "the series") || (normalizedSectionTitle === "the movies") || (normalizedSectionTitle === "movies") || (normalizedSectionTitle === "series");
+
+  gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
+    withSort: true,
+    sort: currentSortOrder,
+    count: showCountInTitle ? total : null,
+  })}
     <div class="card-grid portrait"></div>
     ${totalPages > 1 ? `<nav id="pagination" aria-label="Pagination">
       <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""} aria-label="หน้าก่อนหน้า">
@@ -651,9 +658,10 @@ function getPaginationItems(totalPages, activePageIdx) {
 }
 
 function renderSectionHeader(title, options = {}) {
-  const { withSort = false, sort = "az" } = options;
+  const { withSort = false, sort = "az", count = null } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
+  const titleMain = typeof count === "number" ? `${splitTitle.main} (${count})` : splitTitle.main;
   const sortIcon = sort === "za"
     ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
     : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
@@ -661,7 +669,7 @@ function renderSectionHeader(title, options = {}) {
   return `<div class="section-header">
     ${canGoBack ? `<button id="section-back" class="section-back-btn" aria-label="ย้อนกลับ">${SECTION_BACK_ICON}</button>` : ""}
     <h2 class="section-title">
-      <span class="section-title-main">${esc(splitTitle.main)}</span>
+      <span class="section-title-main">${esc(titleMain)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
     ${withSort ? `<div class="section-header-right"><button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button></div>` : ""}
