@@ -62,6 +62,7 @@ const args = process.argv.slice(2);
 const seriesUrl = args.find((a) => a.startsWith("http"));
 const tmdbKey = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const idPrefixArg = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
 const TRACK_MAP = { th: "พากย์ไทย", subth: "ซับไทย" };
@@ -375,13 +376,22 @@ function updateIndex(seriesTitle, posterUrl, filename, { upsert = false } = {}) 
   console.log(`✅ ${action} index.txt แล้ว (เรียงตามชื่อ A–Z)`);
 }
 
+// ───── Helper: resolve playlist file by name or *-name pattern ─────
+function resolvePlaylistFile(fname) {
+  if (fs.existsSync(path.resolve(PLAYLIST_DIR, fname))) return fname;
+  const files = fs.readdirSync(PLAYLIST_DIR);
+  const match = files.find(f => f === fname || f.endsWith(`-${fname}`));
+  return match || fname;
+}
+
 // ───── Update meta only ─────
 async function runUpdateMeta() {
   if (!tmdbKey) { console.error("❌ ต้องมี TMDB_API_KEY ใน .env"); process.exit(1); }
   if (!customOutput) { console.error("❌ ต้องระบุ --output=FILENAME.txt"); process.exit(1); }
 
   const outputFile = customOutput.endsWith(".txt") ? customOutput : `${customOutput}.txt`;
-  const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
+  const resolvedOutput = resolvePlaylistFile(outputFile);
+  const outputPath = path.resolve(PLAYLIST_DIR, resolvedOutput);
   if (!fs.existsSync(outputPath)) { console.error(`❌ ไม่พบไฟล์: ${outputPath}`); process.exit(1); }
 
   const doPoster = updateMetaMode === "all" || updateMetaMode === "poster";
@@ -470,7 +480,7 @@ async function runUpdateMeta() {
   fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
   console.log(`\n📁 อัปเดตไฟล์: ${outputPath}`);
 
-  updateIndex(tmdbName, tmdbPoster, outputFile, { upsert: true });
+  updateIndex(tmdbName, tmdbPoster, resolvedOutput, { upsert: true });
 
   console.log("🎉 เสร็จสิ้น!");
 }
@@ -492,6 +502,7 @@ async function main() {
     let posterUrl = rawPoster;
     let seasonPosterUrl = rawPoster; // season-specific poster (season.image, track.image)
     let tmdbEpisodes = [];
+    let tmdbShow = null;
 
     if (tmdbKey) {
       let tmdbResult;
@@ -511,6 +522,7 @@ async function main() {
           ? `https://image.tmdb.org/t/p/original${tmdbResult.poster_path}`
           : rawPoster;
         console.log(`✅ พบใน TMDB: "${tmdbName}" (ID: ${tmdbResult.id})`);
+        tmdbShow = tmdbResult;
         seriesTitle = tmdbName;
         posterUrl = tmdbPoster;
         seasonPosterUrl = tmdbPoster; // default to show-level, override below if season poster exists
@@ -570,7 +582,9 @@ async function main() {
 
     // Build / merge playlist
     const slug = customOutput || slugify(seriesTitle.replace(/\[.*?\]/g, "").replace(/\(.*?\)/g, "").trim());
-    const outputFile = slug.endsWith(".txt") ? slug : `${slug}.txt`;
+    const slugFile = slug.endsWith(".txt") ? slug : `${slug}.txt`;
+    const resolvedIdPrefix = idPrefixArg || String(tmdbShow?.id || "");
+    const outputFile = resolvedIdPrefix ? `${resolvedIdPrefix}-${slugFile}` : slugFile;
     const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
     const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName);

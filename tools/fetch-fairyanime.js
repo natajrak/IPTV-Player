@@ -7,7 +7,7 @@
  *   <url>              URL ตอนแรกบน fairyanime.net (จำเป็น ยกเว้นใช้ --update-meta)
  *   --track=th|subth  th = พากย์ไทย, subth = ซับไทย (default: subth)
  *   --season=N        ระบุ season ที่จะ fetch หรืออัปเดต (default: 1)
- *   --output=FILE     ชื่อไฟล์ผลลัพธ์ใน playlist/Anime/Series/
+ *   --output=FILE     ชื่อไฟล์ผลลัพธ์ใน playlist/anime/series
  *   --tmdb-id=N       ระบุ TMDB TV ID ตรงๆ (ใช้เมื่อ search ได้ผลผิด)
  *   --update-meta[=poster|cover|title]
  *                     อัปเดต metadata จาก TMDB โดยไม่ fetch stream URLs ใหม่
@@ -57,7 +57,9 @@ if (fs.existsSync(envPath)) {
 const args = process.argv.slice(2);
 const firstEpUrl = args.find((a) => a.startsWith("http"));
 const tmdbKey = process.env.TMDB_API_KEY || "";
+const hlsProxy = (process.env.HLS_PROXY_URL || "").replace(/\/$/, "");
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const idPrefixArg = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
 const TRACK_MAP = { th: "พากย์ไทย", subth: "ซับไทย" };
@@ -83,9 +85,9 @@ if (!firstEpUrl && !updateMeta) {
 }
 
 // ───── Config ─────
-const PLAYLIST_DIR = path.resolve(__dirname, "../playlist/Anime/Series");
+const PLAYLIST_DIR = path.resolve(__dirname, "../playlist/anime/series");
 const INDEX_PATH = path.resolve(PLAYLIST_DIR, "index.txt");
-const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/Anime/Series/";
+const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/anime/series/";
 const FAIRY_BASE = "https://fairyanime.net";
 const MAX_EPISODES = 200;
 
@@ -438,13 +440,22 @@ function updateIndex(seriesTitle, posterUrl, filename, { upsert = false } = {}) 
   console.log(`✅ ${action} index.txt แล้ว (เรียงตามชื่อ A–Z)`);
 }
 
+// ───── Helper: resolve playlist file by name or *-name pattern ─────
+function resolvePlaylistFile(fname) {
+  if (fs.existsSync(path.resolve(PLAYLIST_DIR, fname))) return fname;
+  const files = fs.readdirSync(PLAYLIST_DIR);
+  const match = files.find(f => f === fname || f.endsWith(`-${fname}`));
+  return match || fname;
+}
+
 // ───── Update meta only ─────
 async function runUpdateMeta() {
   if (!tmdbKey) { console.error("❌ ต้องมี TMDB_API_KEY ใน .env"); process.exit(1); }
   if (!customOutput) { console.error("❌ ต้องระบุ --output=FILENAME.txt"); process.exit(1); }
 
   const outputFile = customOutput.endsWith(".txt") ? customOutput : `${customOutput}.txt`;
-  const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
+  const resolvedOutput = resolvePlaylistFile(outputFile);
+  const outputPath = path.resolve(PLAYLIST_DIR, resolvedOutput);
   if (!fs.existsSync(outputPath)) { console.error(`❌ ไม่พบไฟล์: ${outputPath}`); process.exit(1); }
 
   const doPoster = updateMetaMode === "all" || updateMetaMode === "poster";
@@ -534,7 +545,7 @@ async function runUpdateMeta() {
   fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
   console.log(`\n📁 อัปเดตไฟล์: ${outputPath}`);
 
-  updateIndex(tmdbName, tmdbPoster, outputFile, { upsert: true });
+  updateIndex(tmdbName, tmdbPoster, resolvedOutput, { upsert: true });
 
   console.log("🎉 เสร็จสิ้น!");
 }
@@ -557,6 +568,7 @@ async function main() {
     let posterUrl = rawPoster;
     let seasonPosterUrl = rawPoster;
     let tmdbEpisodes = [];
+    let tmdbShow = null;
 
     if (tmdbKey) {
       let tmdbResult;
@@ -576,6 +588,7 @@ async function main() {
           ? `https://image.tmdb.org/t/p/original${tmdbResult.poster_path}`
           : rawPoster;
         console.log(`✅ พบใน TMDB: "${tmdbName}" (ID: ${tmdbResult.id})`);
+        tmdbShow = tmdbResult;
         seriesTitle = tmdbName;
         posterUrl = tmdbPoster;
         seasonPosterUrl = tmdbPoster;
@@ -625,11 +638,18 @@ async function main() {
         ? `https://image.tmdb.org/t/p/original${tmdbEp.still_path}`
         : "";
 
+      let finalUrl = streamUrl || ep.url;
+      let finalReferer = streamReferer || ep.url;
+      if (streamUrl && hlsProxy) {
+        finalUrl = `${hlsProxy}/?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(streamReferer)}`;
+        finalReferer = "";
+      }
+
       const station = {
         name: buildStationName(epNum, epTitle, isDubbedTrack),
         ...(epThumb && { image: epThumb }),
-        url: streamUrl || ep.url,
-        referer: streamReferer || ep.url,
+        url: finalUrl,
+        referer: finalReferer,
       };
       stations.push(station);
 
@@ -638,7 +658,9 @@ async function main() {
 
     // Phase 4: build / merge playlist
     const slug = customOutput || slugify(seriesTitle.replace(/\[.*?\]/g, "").replace(/\(.*?\)/g, "").trim());
-    const outputFile = slug.endsWith(".txt") ? slug : `${slug}.txt`;
+    const slugFile = slug.endsWith(".txt") ? slug : `${slug}.txt`;
+    const resolvedIdPrefix = idPrefixArg || String(tmdbShow?.id || "");
+    const outputFile = resolvedIdPrefix ? `${resolvedIdPrefix}-${slugFile}` : slugFile;
     const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
     const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName);
@@ -648,7 +670,7 @@ async function main() {
     updateIndex(seriesTitle, posterUrl, outputFile);
 
     console.log("\n🎉 เสร็จสิ้น!");
-    console.log(`   ไฟล์: playlist/Anime/Series/${outputFile}`);
+    console.log(`   ไฟล์: playlist/anime/series/${outputFile}`);
     console.log(`   จำนวนตอน: ${stations.length}`);
   } catch (err) {
     console.error(`\n❌ Error: ${err.message}`);

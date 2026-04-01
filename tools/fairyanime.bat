@@ -36,9 +36,9 @@ echo  Track:
 echo    1 = th    (dubbed)
 echo    2 = subth (subbed)
 echo.
-set "TRACK_CHOICE=2"
-set /p TRACK_CHOICE=Select track [2]:
-if "%TRACK_CHOICE%"=="" set "TRACK_CHOICE=2"
+set "TRACK_CHOICE=1"
+set /p TRACK_CHOICE=Select track [1]:
+if "%TRACK_CHOICE%"=="" set "TRACK_CHOICE=1"
 if "%TRACK_CHOICE%"=="1" (set "TRACK=th") else (set "TRACK=subth")
 
 echo.
@@ -47,13 +47,14 @@ set /p SEASON=Season number [1]:
 if "%SEASON%"=="" set "SEASON=1"
 
 echo.
-set "OUTPUT="
-set /p OUTPUT=Output filename (e.g. my-anime.txt):
-if "%OUTPUT%"=="" goto FETCH
+set "FNAME="
+set /p FNAME=Filename (without .txt, e.g. my-anime):
+if "%FNAME%"=="" goto FETCH
+set "OUTPUT=%FNAME%.txt"
 
 echo.
 set "TMDB_ID="
-set /p TMDB_ID=TMDB ID (leave blank = auto search):
+set /p TMDB_ID=TMDB ID (leave blank = auto):
 
 echo.
 set "CMD=node fetch-fairyanime.js %URL% --track=%TRACK% --season=%SEASON% --output=%OUTPUT%"
@@ -71,9 +72,10 @@ echo ==========================================
 echo   Update Metadata (TMDB)
 echo ==========================================
 echo.
-set "OUTPUT="
-set /p OUTPUT=Filename (e.g. my-anime.txt):
-if "%OUTPUT%"=="" goto UPDATE
+set "FNAME="
+set /p FNAME=Filename (without .txt, e.g. my-anime):
+if "%FNAME%"=="" goto UPDATE
+set "OUTPUT=%FNAME%.txt"
 
 echo.
 echo  Mode:
@@ -103,15 +105,10 @@ if "%TRACK_CHOICE%"=="" set "TRACK_CHOICE=0"
 if "%TRACK_CHOICE%"=="1" (set "TRACK_OPT=--track=th") else if "%TRACK_CHOICE%"=="2" (set "TRACK_OPT=--track=subth") else (set "TRACK_OPT=")
 
 echo.
-set "TMDB_ID="
-set /p TMDB_ID=TMDB ID (leave blank = auto search):
-
-echo.
 set "CMD=node fetch-fairyanime.js"
 if "%META_MODE%"=="all" (set "CMD=%CMD% --update-meta") else (set "CMD=%CMD% --update-meta=%META_MODE%")
 if not "%SEASON%"=="" set "CMD=%CMD% --season=%SEASON%"
 if not "%TRACK_OPT%"=="" set "CMD=%CMD% %TRACK_OPT%"
-if not "%TMDB_ID%"=="" set "CMD=%CMD% --tmdb-id=%TMDB_ID%"
 set "CMD=%CMD% --output=%OUTPUT%"
 
 echo  ^ %CMD%
