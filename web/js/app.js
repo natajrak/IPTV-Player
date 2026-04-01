@@ -2,7 +2,7 @@
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
-const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.hostname === "192.168.1.187";
 const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
@@ -1012,20 +1012,6 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "") {
   queueFocusRefresh();
 }
 
-function isLocalPlaybackOrigin() {
-  const host = String(window.location.hostname || "").toLowerCase();
-  return host === "localhost" || host === "127.0.0.1";
-}
-
-function isAnimeKimiProxyUrl(url) {
-  try {
-    const parsed = new URL(String(url || ""), window.location.href);
-    return /(^|\.)anime-kimi\.com$/i.test(parsed.hostname) && /hls_proxy\.php$/i.test(parsed.pathname);
-  } catch (_) {
-    return false;
-  }
-}
-
 function showPlayerNotice(message, ms = 7000) {
   if (!playerNotice) return;
   clearTimeout(playerNoticeTimer);
@@ -1071,15 +1057,14 @@ function playEpisode(index, inheritedReferer) {
   resetProgress();
   hidePlayerNotice();
 
-  if (isAnimeKimiProxyUrl(url) && !isLocalPlaybackOrigin()) {
-    showPlayerNotice("แหล่งวิดีโอนี้ถูกบล็อกเมื่อเปิดจากโดเมนนี้ กรุณาใช้ localhost/127.0.0.1 หรือเปลี่ยน source", 0);
-    return;
-  }
-
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
+  const isDirectMediaUrl = /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
   const hasHlsRuntime = typeof Hls !== "undefined";
+  const shouldTryHls = hasHlsRuntime && Hls.isSupported() && (isHlsUrl || !isDirectMediaUrl);
 
-  if (hasHlsRuntime && Hls.isSupported() && isHlsUrl) {
+  if (shouldTryHls) {
+    let networkRetries = 0;
+    let mediaRetries = 0;
     hls = new Hls({
       xhrSetup: referer
         ? (xhr) => {
@@ -1094,16 +1079,22 @@ function playEpisode(index, inheritedReferer) {
     hls.on(Hls.Events.MANIFEST_PARSED, () => playerVideo.play().catch(err => {
       if (err.name !== "AbortError") console.error(err);
       if (err.name === "NotSupportedError") {
-        showPlayerNotice("เล่นวิดีโอไม่ได้จากแหล่งนี้บนโดเมนปัจจุบัน (NotSupportedError)");
+        showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
       }
     }));
     hls.on(Hls.Events.ERROR, (_event, data) => {
       if (!data?.fatal) return;
       if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-        hls.startLoad();
-        return;
+        if (networkRetries < 1) {
+          networkRetries += 1;
+          hls.startLoad();
+          return;
+        }
+        const statusCode = Number(data?.response?.code || 0);
+        if (statusCode >= 400) showPlayerNotice(`โหลดวิดีโอไม่สำเร็จ (HTTP ${statusCode})`);
       }
-      if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+      if (data.type === Hls.ErrorTypes.MEDIA_ERROR && mediaRetries < 1) {
+        mediaRetries += 1;
         hls.recoverMediaError();
         return;
       }
@@ -1111,7 +1102,7 @@ function playEpisode(index, inheritedReferer) {
       playerVideo.src = url;
       playerVideo.play().catch((err) => {
         if (err?.name === "NotSupportedError") {
-          showPlayerNotice("เล่นวิดีโอไม่ได้จากแหล่งนี้บนโดเมนปัจจุบัน (NotSupportedError)");
+          showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
         }
       });
     });
@@ -1125,7 +1116,7 @@ function playEpisode(index, inheritedReferer) {
     playerVideo.play().catch(err => {
       if (err.name !== "AbortError") console.error(err);
       if (err.name === "NotSupportedError") {
-        showPlayerNotice("เล่นวิดีโอไม่ได้จากแหล่งนี้บนโดเมนปัจจุบัน (NotSupportedError)");
+        showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
       }
     });
   }
@@ -1222,9 +1213,19 @@ btnNextEp.addEventListener("click", () => {
 playerVideo.addEventListener("play",  () => { btnPlayPause.innerHTML = PLAYER_ICON_PAUSE; showPlayerUI(); });
 playerVideo.addEventListener("pause", () => { btnPlayPause.innerHTML = PLAYER_ICON_PLAY; showPlayerUI(); });
 playerVideo.addEventListener("error", () => {
-  if (isAnimeKimiProxyUrl(playerVideo.currentSrc || playerVideo.src) && !isLocalPlaybackOrigin()) {
-    showPlayerNotice("แหล่งวิดีโอนี้ถูกบล็อกเมื่อเปิดจากโดเมนนี้ กรุณาใช้ localhost/127.0.0.1 หรือเปลี่ยน source");
+  const mediaErr = playerVideo.error;
+  if (!mediaErr) {
+    showPlayerNotice("เล่นวิดีโอไม่สำเร็จ");
+    return;
   }
+  const codeMap = {
+    1: "การเล่นถูกยกเลิก",
+    2: "เกิดปัญหาเครือข่ายขณะโหลดวิดีโอ",
+    3: "ข้อมูลวิดีโอเสียหายหรืออ่านไม่ได้",
+    4: "ไม่พบวิดีโอหรือรูปแบบไม่รองรับ",
+  };
+  const label = codeMap[mediaErr.code] || "เล่นวิดีโอไม่สำเร็จ";
+  showPlayerNotice(label);
 });
 
 playerVideo.addEventListener("timeupdate", () => {
