@@ -109,21 +109,39 @@ const server = http.createServer(async (req, res) => {
 
   // ── GET /api/playlist-files?tab=... ───────────────────────────
   if (req.method === 'GET' && pathname === '/api/playlist-files') {
-    const dir = PLAYLIST_DIRS[parsed.query.tab || ''];
+    const tabKey = parsed.query.tab || '';
+    const dir    = PLAYLIST_DIRS[tabKey];
     if (!dir) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end('[]');
       return;
     }
-    fs.readdir(path.join(ROOT, dir), (err, files) => {
+    const dirPath   = path.join(ROOT, dir);
+    const indexPath = path.join(dirPath, 'index.txt');
+
+    // Build slug → title map from index.txt
+    let nameMap = {};
+    try {
+      const indexData = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+      (indexData.groups || []).forEach(g => {
+        if (g.url && g.name) {
+          const fname = g.url.split('/').pop().replace(/\.txt$/i, '');
+          const m     = fname.match(/^(\d+)-(.+)$/);
+          const slug  = m ? m[2] : fname;
+          nameMap[slug] = g.name;
+        }
+      });
+    } catch {}
+
+    fs.readdir(dirPath, (err, files) => {
       const list = (err ? [] : files)
         .filter(f => f.endsWith('.txt') && f !== 'index.txt')
         .map(f => {
-          const name = f.replace(/\.txt$/, '');
-          const m = name.match(/^(\d+)-(.+)$/);
-          return m
-            ? { full: name, slug: m[2], tmdbId: m[1] }
-            : { full: name, slug: name, tmdbId: '' };
+          const base = f.replace(/\.txt$/, '');
+          const m    = base.match(/^(\d+)-(.+)$/);
+          const slug   = m ? m[2] : base;
+          const tmdbId = m ? m[1] : '';
+          return { full: base, slug, tmdbId, name: nameMap[slug] || '' };
         })
         .sort((a, b) => a.slug.localeCompare(b.slug));
       res.writeHead(200, { 'Content-Type': 'application/json' });

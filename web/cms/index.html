@@ -149,7 +149,6 @@
     td.c-title { max-width: 320px; }
     td.c-szn  { color: var(--text2); white-space: nowrap; font-size: 13px; }
     td.c-trk  { white-space: nowrap; }
-    td.c-ep   { text-align: center; width: 60px; color: var(--text2); font-size: 13px; }
     td.c-tmdb a { color: var(--blue); text-decoration: none; font-size: 12px; font-variant-numeric: tabular-nums; }
     td.c-tmdb a:hover { text-decoration: underline; }
     td.c-slug {
@@ -496,10 +495,6 @@
     </div>
     <div class="modal-body">
       <div class="fm-row">
-        <label>Script</label>
-        <select id="um-script"></select>
-      </div>
-      <div class="fm-row">
         <label>Mode</label>
         <div class="fm-radio-grp">
           <label><input type="radio" name="um-mode" value="all" checked> all</label>
@@ -552,10 +547,6 @@
       <button class="modal-close" id="bm-close">✕</button>
     </div>
     <div class="modal-body">
-      <div class="fm-row">
-        <label>Script</label>
-        <select id="bm-script"></select>
-      </div>
       <div class="fm-row">
         <label>Mode</label>
         <div class="fm-radio-grp">
@@ -851,7 +842,6 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       <th>ชื่อเรื่อง</th>
       <th>Season</th>
       <th>Track</th>
-      <th class="c-ep">Ep.</th>
       <th>TMDB ID</th>
       <th>Playlist Name</th>
     </tr></thead><tbody>`;
@@ -872,7 +862,6 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-title">${titleHtml(title)}</td>
         <td class="c-szn" style="color:var(--text3)">—${updBtn(slug, 0, tabId, title)}</td>
         <td class="c-trk" style="color:var(--text3)">—</td>
-        <td class="c-ep"  style="color:var(--text3)">—</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
         <td class="c-slug">${slugCell(slug)}</td>
       </tr>`;
@@ -886,7 +875,6 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         const ep = t.stations?.length || 0;
         return `${badge(t.name)}<span class="badge-ep">${ep}</span>`;
       }).join(' ');
-      const maxEp = tracks.reduce((m, t) => Math.max(m, t.stations?.length || 0), 0);
       const sznName = season.name || `Season ${si + 1}`;
 
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
@@ -897,7 +885,6 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
           : `<span class="title-cont">↳ ${esc(sznName)}</span>`}</td>
         <td class="c-szn">${esc(sznName)}${updBtn(slug, si + 1, tabId, title)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
-        <td class="c-ep">${maxEp || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
         <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
       </tr>`;
@@ -976,7 +963,8 @@ const TAB_LABELS = {
   'series':       'Series',
 };
 
-let modalTab = 'anime-series';
+let modalTab    = 'anime-series';
+let addFileList = [];   // [{slug, tmdbId, full}] ของ tab ปัจจุบัน
 
 function buildAddButtons() {
   if (!IS_LOCAL) return;
@@ -1044,14 +1032,15 @@ async function openAddModal(tabId) {
     const r = await fetch(`/api/playlist-files?tab=${tabId}`);
     if (r.ok) {
       const files = await r.json();
+      addFileList = files;
       files.forEach(f => {
         const opt = document.createElement('option');
-        opt.value = f.slug;
-        opt.label = f.tmdbId ? `${f.tmdbId}  ${f.slug}` : f.slug;
+        opt.value = f.name || f.slug;                                      // title เป็น top line
+        opt.label = (f.tmdbId ? f.tmdbId + '  ' : '') + f.slug;           // "42942  angel-beats" เป็น hint
         datalist.appendChild(opt);
       });
     }
-  } catch {}
+  } catch { addFileList = []; }
 
   updateCmd();
   document.getElementById('add-modal').classList.remove('hidden');
@@ -1164,11 +1153,10 @@ async function runFetch() {
 // ── Update Metadata Modal ────────────────────────────────────────
 let updateCtx = { slug: '', season: 0, tabId: '', title: '' };
 
+const UPDATE_SCRIPT = 'fetch-indy-anime.js';
+
 function buildUpdateCmd() {
-  const scripts   = ADD_SCRIPTS[updateCtx.tabId] || [];
-  const selVal    = document.getElementById('um-script').value;
-  const scriptObj = scripts.find(s => s.id === selVal) || scripts[0];
-  if (!scriptObj || !updateCtx.slug) return null;
+  if (!updateCtx.slug) return null;
   const mode   = document.querySelector('input[name="um-mode"]:checked')?.value || 'all';
   const season = document.getElementById('um-season').value.trim();
   const track  = document.querySelector('input[name="um-track"]:checked')?.value || '';
@@ -1176,7 +1164,7 @@ function buildUpdateCmd() {
   if (season) args.push(`--season=${season}`);
   if (track)  args.push(`--track=${track}`);
   args.push(`--output=${updateCtx.slug}.txt`);
-  return { script: scriptObj.file, args, cmd: `node ${scriptObj.file} ${args.join(' ')}` };
+  return { script: UPDATE_SCRIPT, args, cmd: `node ${UPDATE_SCRIPT} ${args.join(' ')}` };
 }
 
 function refreshUpdateCmd() {
@@ -1188,13 +1176,8 @@ function refreshUpdateCmd() {
 
 function openUpdateModal(slug, season, tabId, title) {
   updateCtx = { slug, season, tabId, title };
-  const scripts  = ADD_SCRIPTS[tabId] || [];
   const isSeries = TABS[tabId]?.kind === 'series';
   document.getElementById('um-hint').textContent = title ? ` — ${splitTitle(title).en}` : '';
-  const sel = document.getElementById('um-script');
-  sel.innerHTML = scripts.length
-    ? scripts.map(s => `<option value="${s.id}">${s.label}</option>`).join('')
-    : '<option value="">—</option>';
   document.getElementById('um-season-row').style.display = isSeries ? '' : 'none';
   document.getElementById('um-season').value = season > 0 ? season : '';
   document.querySelector('input[name="um-mode"][value="all"]').checked = true;
@@ -1228,7 +1211,7 @@ async function runUpdate() {
 document.getElementById('um-run-btn').addEventListener('click', runUpdate);
 document.getElementById('um-close').addEventListener('click', () => document.getElementById('update-modal').classList.add('hidden'));
 document.getElementById('um-log-clear').addEventListener('click', () => { document.getElementById('um-log-body').textContent = ''; document.getElementById('um-log').classList.add('hidden'); });
-['um-script','um-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshUpdateCmd));
+document.getElementById('um-season').addEventListener('input', refreshUpdateCmd);
 document.querySelectorAll('input[name="um-mode"],input[name="um-track"]').forEach(r => r.addEventListener('change', refreshUpdateCmd));
 document.getElementById('update-modal').addEventListener('click', e => { if (e.target === document.getElementById('update-modal')) document.getElementById('update-modal').classList.add('hidden'); });
 
@@ -1237,12 +1220,7 @@ let batchTab = '';
 
 async function openBatchModal(tabId) {
   batchTab = tabId;
-  const scripts = ADD_SCRIPTS[tabId] || [];
   document.getElementById('bm-hint').textContent = ` — ${TAB_LABELS[tabId] || tabId}`;
-  const sel = document.getElementById('bm-script');
-  sel.innerHTML = scripts.length
-    ? scripts.map(s => `<option value="${s.id}">${s.label}</option>`).join('')
-    : '<option value="">—</option>';
   document.querySelector('input[name="bm-mode"][value="all"]').checked = true;
   document.querySelector('input[name="bm-track"][value=""]').checked   = true;
   document.getElementById('bm-season').value = '';
@@ -1259,10 +1237,6 @@ async function openBatchModal(tabId) {
 }
 
 async function runBatchUpdate() {
-  const scripts   = ADD_SCRIPTS[batchTab] || [];
-  const selVal    = document.getElementById('bm-script').value;
-  const scriptObj = scripts.find(s => s.id === selVal) || scripts[0];
-  if (!scriptObj) return;
   const logEl  = document.getElementById('bm-log');
   const bodyEl = document.getElementById('bm-log-body');
   const runBtn = document.getElementById('bm-run-btn');
@@ -1289,7 +1263,7 @@ async function runBatchUpdate() {
     if (season) args.push(`--season=${season}`);
     if (track)  args.push(`--track=${track}`);
     args.push(`--output=${f.slug}.txt`);
-    const code = await runScript(scriptObj.file, args, bodyEl);
+    const code = await runScript(UPDATE_SCRIPT, args, bodyEl);
     if (code === 0) ok++; else fail++;
     append(code === 0 ? '✓\n' : `✗ (exit ${code})\n`, code === 0 ? 'log-done' : 'log-fail');
   }
@@ -1319,6 +1293,25 @@ document.addEventListener('keydown', e => {
 });
 ['fm-script', 'fm-url', 'fm-fname', 'fm-tmdb', 'fm-season'].forEach(id => {
   document.getElementById(id).addEventListener('input', updateCmd);
+});
+// Auto-fill: เมื่อเลือกจาก datalist (ค่าอาจเป็น title หรือ slug)
+document.getElementById('fm-fname').addEventListener('input', () => {
+  const val      = document.getElementById('fm-fname').value.trim();
+  const fnameEl  = document.getElementById('fm-fname');
+  // ถ้าตรงกับ name (title) → แปลงเป็น slug แล้ว fill TMDB
+  const byName = addFileList.find(f => f.name && f.name === val);
+  if (byName) {
+    fnameEl.value = byName.slug;
+    if (byName.tmdbId) document.getElementById('fm-tmdb').value = byName.tmdbId;
+    updateCmd();
+    return;
+  }
+  // backward compat: ตรงกับ slug โดยตรง
+  const bySlug = addFileList.find(f => f.slug === val);
+  if (bySlug?.tmdbId) {
+    document.getElementById('fm-tmdb').value = bySlug.tmdbId;
+    updateCmd();
+  }
 });
 document.querySelectorAll('input[name="fm-track"]').forEach(r => {
   r.addEventListener('change', updateCmd);
