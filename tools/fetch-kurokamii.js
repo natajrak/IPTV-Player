@@ -287,8 +287,8 @@ function buildStationName(epNum, epTitle, isDubbed) {
 }
 
 // ───── Step 5: Build / merge playlist JSON ─────
-function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName) {
-  const newTrack = { name: trackName, image: seasonPosterUrl, stations };
+function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, trackReferer = null) {
+  const newTrack = { name: trackName, image: seasonPosterUrl, ...(trackReferer && { referer: trackReferer }), stations };
 
   if (fs.existsSync(outputPath)) {
     let existing;
@@ -334,13 +334,13 @@ function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUr
 }
 
 // ── Build / update part file ({tmdbId}-{slug}.txt) ──────────────
-function buildPartFile(outputPath, season, posterUrl, trackName, streamUrl, streamReferer) {
+function buildPartFile(outputPath, season, posterUrl, trackName, streamUrl, streamReferer, sourceUrl = null) {
   const partName   = `ภาค ${season}`;
   const newStation = {
     name:  trackName,
     image: posterUrl,
     url:   streamUrl,
-    ...(streamReferer && { referer: streamReferer }),
+    ...(sourceUrl    && { referer: sourceUrl }),
   };
 
   let playlist;
@@ -703,7 +703,7 @@ async function main() {
 
       const partSeason   = seasonNum || 1;
       // Part file: {tmdbId}-{slug}.txt
-      const partPlaylist = buildPartFile(outputPath, partSeason, posterUrl, trackName, s.url, s.referer);
+      const partPlaylist = buildPartFile(outputPath, partSeason, posterUrl, trackName, s.url, s.referer, seriesUrl);
       fs.writeFileSync(outputPath, JSON.stringify(partPlaylist, null, 4), "utf-8");
       console.log(`\n📁 บันทึก part file: ${outputPath}`);
 
@@ -717,7 +717,7 @@ async function main() {
 
       updateIndex(seriesTitle, posterUrl, mainFile);
     } else {
-      const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName);
+      const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, seriesUrl);
       fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
       console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
       updateIndex(seriesTitle, posterUrl, outputFile);

@@ -81,6 +81,7 @@ const btnForward   = document.getElementById("btn-forward");
 const btnNextEp    = document.getElementById("btn-next-ep");
 const btnMute       = document.getElementById("btn-mute");
 const volumeSlider  = document.getElementById("volume-slider");
+const btnAirPlay    = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes   = document.getElementById("btn-episodes");
 const epPanel       = document.getElementById("ep-panel");
@@ -1080,7 +1081,11 @@ function playEpisode(index, inheritedReferer) {
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
   const isDirectMediaUrl = /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
   const hasHlsRuntime = typeof Hls !== "undefined";
-  const shouldTryHls = hasHlsRuntime && Hls.isSupported() && (isHlsUrl || !isDirectMediaUrl);
+  // Safari รองรับ HLS native → ใช้ video.src โดยตรง (เพื่อให้ AirPlay ทำงาน)
+  // Chrome/Firefox ไม่รองรับ HLS native → ใช้ HLS.js
+  const canPlayHlsNatively = playerVideo.canPlayType("application/vnd.apple.mpegurl") !== ""
+                           || playerVideo.canPlayType("audio/mpegurl") !== "";
+  const shouldTryHls = hasHlsRuntime && Hls.isSupported() && !canPlayHlsNatively && (isHlsUrl || !isDirectMediaUrl);
 
   if (shouldTryHls) {
     let networkRetries = 0;
@@ -1391,6 +1396,48 @@ function updateVolumeUI() {
   btnMute.innerHTML = playerVideo.muted || v === 0 ? VOL_ICONS.mute : v < 0.5 ? VOL_ICONS.low : VOL_ICONS.high;
 }
 
+// AirPlay / Remote Playback
+(function initAirPlay() {
+  // WebKit AirPlay API — Safari on macOS / iOS → Apple TV, AirPlay speakers
+  if (typeof playerVideo.webkitShowPlaybackTargetPicker === "function") {
+    playerVideo.addEventListener("webkitplaybacktargetavailabilitychanged", (e) => {
+      btnAirPlay.hidden = e.availability !== "available";
+    });
+    playerVideo.addEventListener("webkitcurrentplaybacktargetiswirelesschanged", () => {
+      btnAirPlay.classList.toggle("casting", !!playerVideo.webkitCurrentPlaybackTargetIsWireless);
+      btnAirPlay.title = playerVideo.webkitCurrentPlaybackTargetIsWireless
+        ? "กำลัง Cast อยู่ — คลิกเพื่อหยุด"
+        : "AirPlay / Cast to TV";
+    });
+    btnAirPlay.addEventListener("click", () => {
+      playerVideo.webkitShowPlaybackTargetPicker();
+    });
+  }
+  // W3C Remote Playback API — Chrome (รองรับ AirPlay บน macOS ผ่าน system picker)
+  else if (playerVideo.remote) {
+    playerVideo.remote.watchAvailability((available) => {
+      btnAirPlay.hidden = !available;
+    }).catch(() => {
+      btnAirPlay.hidden = false;
+    });
+    playerVideo.remote.addEventListener("connecting", () => {
+      btnAirPlay.classList.add("casting");
+      btnAirPlay.title = "กำลังเชื่อมต่อ...";
+    });
+    playerVideo.remote.addEventListener("connect", () => {
+      btnAirPlay.classList.add("casting");
+      btnAirPlay.title = "กำลัง Cast อยู่ — คลิกเพื่อหยุด";
+    });
+    playerVideo.remote.addEventListener("disconnect", () => {
+      btnAirPlay.classList.remove("casting");
+      btnAirPlay.title = "AirPlay / Cast to TV";
+    });
+    btnAirPlay.addEventListener("click", () => {
+      playerVideo.remote.prompt().catch(console.warn);
+    });
+  }
+})();
+
 // Fullscreen
 btnFullscreen.addEventListener("click", () => {
   if (!document.fullscreenElement) {
@@ -1415,10 +1462,47 @@ function showPlayerUI() {
 }
 
 playerOverlay.addEventListener("mousemove", showPlayerUI);
-playerOverlay.addEventListener("touchstart", showPlayerUI);
+playerOverlay.addEventListener("touchstart", showPlayerUI, { passive: true });
 
-// Click on video toggles play/pause
-playerVideo.addEventListener("click", togglePlayPause);
+// Swipe left/right บน player → real-time scrub (max 90s per full-width swipe)
+let _swipeStart = null;   // { x, y, time }
+let _swipeHandled = false;
+let _swipeWasPlaying = false;
+
+playerOverlay.addEventListener("touchstart", (e) => {
+  if (e.touches.length !== 1) return;
+  _swipeStart = { x: e.touches[0].clientX, y: e.touches[0].clientY, time: playerVideo.currentTime };
+  _swipeHandled = false;
+}, { passive: true });
+
+playerOverlay.addEventListener("touchmove", (e) => {
+  if (!_swipeStart || e.touches.length !== 1) return;
+  const dx = e.touches[0].clientX - _swipeStart.x;
+  const dy = e.touches[0].clientY - _swipeStart.y;
+
+  if (!_swipeHandled) {
+    if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    _swipeHandled = true;
+    _swipeWasPlaying = !playerVideo.paused;
+    if (_swipeWasPlaying) playerVideo.pause();
+  }
+
+  e.preventDefault();
+  const secs = dx / window.innerWidth * 90;
+  playerVideo.currentTime = Math.max(0, Math.min(playerVideo.duration || 0, _swipeStart.time + secs));
+}, { passive: false });
+
+playerOverlay.addEventListener("touchend", () => {
+  _swipeStart = null;
+  if (!_swipeHandled) return;
+  if (_swipeWasPlaying) playerVideo.play();
+}, { passive: true });
+
+// Click on video toggles play/pause (ยกเว้นหลัง swipe)
+playerVideo.addEventListener("click", () => {
+  if (_swipeHandled) { _swipeHandled = false; return; }
+  togglePlayPause();
+});
 
 function resetProgress() {
   playerSeek.value = 0;

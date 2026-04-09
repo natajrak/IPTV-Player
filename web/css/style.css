@@ -767,6 +767,10 @@ button:focus-visible,
   line-height: 1;
 }
 
+#btn-airplay svg { display: block; }
+#btn-airplay.casting svg { stroke: #4fc3f7; }
+#btn-airplay.casting { color: #4fc3f7; }
+
 #player-btn-row button:hover { background: rgba(255,255,255,.15); }
 #player-btn-row button:disabled { opacity: 0.3; cursor: default; }
 #player-btn-row button:disabled:hover { background: none; }

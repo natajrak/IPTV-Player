@@ -29,6 +29,9 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-fairyanime.js',
   'fetch-indy-anime.js',
   'fetch-kurokamii.js',
+  'fetch-7hd.js',
+  'fetch-nunghd4k.js',
+  'fetch-123hds.js',
 ]);
 
 const PLAYLIST_DIRS = {
@@ -39,6 +42,18 @@ const PLAYLIST_DIRS = {
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
+function removeFromIndex(indexPath, file) {
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    const idx = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
+    idx.groups = (idx.groups || []).filter(g => {
+      const f = (g.url || '').split('/').pop().replace(/\.txt$/i, '');
+      return f !== file;
+    });
+    fs.writeFileSync(indexPath, JSON.stringify(idx, null, 2));
+  } catch {}
+}
+
 function cors(res) {
   res.setHeader('Access-Control-Allow-Origin',  '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -144,6 +159,125 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end('{"ok":true}');
     });
+    return;
+  }
+
+  // ── POST /api/delete ──────────────────────────────────────────
+  if (req.method === 'POST' && pathname === '/api/delete') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { tab, file, partFile, level, season, trackName } = body;
+    const dir = PLAYLIST_DIRS[tab];
+
+    if (!dir
+      || typeof file !== 'string' || !/^[\w-]+$/.test(file)
+      || (partFile && !/^[\w-]+$/.test(partFile))
+      || !['title', 'season', 'track'].includes(level)) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Invalid request');
+      return;
+    }
+
+    const dirPath   = path.join(ROOT, dir);
+    const mainPath  = path.join(dirPath, file + '.txt');
+    const partPath  = partFile ? path.join(dirPath, partFile + '.txt') : null;
+    const indexPath = path.join(dirPath, 'index.txt');
+    const safe      = p => p.startsWith(dirPath + path.sep);
+
+    if (!safe(mainPath) || (partPath && !safe(partPath))) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('Forbidden');
+      return;
+    }
+
+    try {
+      const si = Math.max(0, (season || 1) - 1);
+
+      if (level === 'title') {
+        // Delete referenced part files (isMainFile format) then main file
+        if (fs.existsSync(mainPath)) {
+          try {
+            const pl = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+            (pl.groups || []).forEach(g => {
+              if (g.url) {
+                const pf = g.url.split('/').pop();
+                const pp = path.join(dirPath, pf);
+                if (safe(pp) && pp !== mainPath && fs.existsSync(pp)) fs.unlinkSync(pp);
+              }
+            });
+          } catch {}
+          fs.unlinkSync(mainPath);
+        }
+        removeFromIndex(indexPath, file);
+
+      } else if (level === 'season') {
+        if (partPath && fs.existsSync(partPath)) fs.unlinkSync(partPath);
+        if (fs.existsSync(mainPath)) {
+          const pl = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+          pl.groups = (pl.groups || []);
+          pl.groups.splice(si, 1);
+          if (pl.groups.length === 0) {
+            fs.unlinkSync(mainPath);
+            removeFromIndex(indexPath, file);
+          } else {
+            fs.writeFileSync(mainPath, JSON.stringify(pl, null, 4));
+          }
+        }
+
+      } else if (level === 'track') {
+        const targetPath = partPath || mainPath;
+        if (!fs.existsSync(targetPath)) throw new Error('File not found');
+        const pl = JSON.parse(fs.readFileSync(targetPath, 'utf-8'));
+
+        if (partPath) {
+          // isMainFile: track is station in part file
+          pl.stations = (pl.stations || []).filter(s => s.name !== trackName);
+          if (pl.stations.length === 0) {
+            fs.unlinkSync(partPath);
+            if (fs.existsSync(mainPath)) {
+              const mainPl = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+              mainPl.groups = (mainPl.groups || []);
+              mainPl.groups.splice(si, 1);
+              if (mainPl.groups.length === 0) {
+                fs.unlinkSync(mainPath);
+                removeFromIndex(indexPath, file);
+              } else {
+                fs.writeFileSync(mainPath, JSON.stringify(mainPl, null, 4));
+              }
+            }
+          } else {
+            fs.writeFileSync(targetPath, JSON.stringify(pl, null, 4));
+          }
+        } else {
+          const seasonGroup = (pl.groups || [])[si];
+          if (seasonGroup) {
+            if (Array.isArray(seasonGroup.groups)) {
+              // Series: track in season.groups
+              seasonGroup.groups = seasonGroup.groups.filter(g => g.name !== trackName);
+              if (seasonGroup.groups.length === 0) pl.groups.splice(si, 1);
+            } else if (Array.isArray(seasonGroup.stations)) {
+              // Movie inline: track in part.stations
+              seasonGroup.stations = seasonGroup.stations.filter(s => s.name !== trackName);
+              if (seasonGroup.stations.length === 0) pl.groups.splice(si, 1);
+            }
+          }
+          if ((pl.groups || []).length === 0) {
+            fs.unlinkSync(mainPath);
+            removeFromIndex(indexPath, file);
+          } else {
+            fs.writeFileSync(mainPath, JSON.stringify(pl, null, 4));
+          }
+        }
+      }
+
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end('{"ok":true}');
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end(err.message);
+    }
     return;
   }
 

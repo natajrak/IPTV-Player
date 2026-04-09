@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
   <style>
     :root {
       --bg:     #0d0d0d;
@@ -246,6 +247,57 @@
     .badge-th  { background: #132d4a; color: #6ab0e0; }
     .badge-sub { background: #2e1e0a; color: #d09050; }
     .badge-ep  { color: var(--text3); font-size: 11px; }
+    .badge-refetchable { cursor: pointer; transition: filter .15s; }
+    .badge-refetchable:hover { filter: brightness(1.5); outline: 1px solid currentColor; }
+
+    /* ── Delete button ───────────────────────────────── */
+    .del-btn-icon {
+      background: none; border: none;
+      color: var(--text3); cursor: pointer;
+      padding: 4px 6px; font-size: 13px;
+      border-radius: 4px; line-height: 1;
+      transition: color .15s, background .15s;
+      color: var(--text3);
+    }
+    .del-btn-icon:hover { color: #e05050; background: rgba(224,80,80,.1); }
+    .del-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: none; border: 1px solid var(--border, #333);
+      color: var(--text2); cursor: pointer;
+      padding: 3px 8px; font-size: 11px; border-radius: 4px;
+      line-height: 1; transition: color .15s, border-color .15s;
+      white-space: nowrap;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .del-btn i { font-size: 8px; }
+    .del-btn:hover { color: #e05050; border-color: #e05050; }
+    .edit-title-btn + .del-btn { margin-left: 6px; }
+    .c-act {
+      width: 55px;
+      text-align: right;
+    }
+    .btn-cancel {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 18px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text2);
+      font-size: 13px; cursor: pointer;
+      transition: all .15s;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .btn-cancel:hover { background: var(--bg4); }
+    .btn-delete {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 18px;
+      background: #4a1010; border: 1px solid #7a2020;
+      border-radius: 6px; color: #e07070;
+      font-size: 13px; cursor: pointer;
+      transition: all .15s;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .btn-delete:hover:not(:disabled) { background: #5a1818; border-color: #9a3030; color: #f09090; }
+    .btn-delete:disabled { opacity: .45; cursor: not-allowed; }
+    .btn-delete i { font-size: 13px; }
 
     /* ── Loading / Empty ─────────────────────────────── */
     .loading, .empty, .err {
@@ -627,6 +679,85 @@
   </div>
 </div>
 
+<!-- Refetch Streams Modal -->
+<div id="refetch-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center">
+        <h2>Refetch Streams</h2>
+        <span class="modal-tab-hint" id="rf-hint"></span>
+      </div>
+      <button class="modal-close" id="rf-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="fm-row">
+        <label>Script</label>
+        <select id="rf-script"></select>
+      </div>
+      <div class="fm-row">
+        <label>URL</label>
+        <input type="text" id="rf-url" placeholder="https://...">
+      </div>
+      <div class="fm-row">
+        <label>Track</label>
+        <div class="fm-radio-grp">
+          <label><input type="radio" name="rf-track" value="th" checked> พากย์ไทย</label>
+          <label><input type="radio" name="rf-track" value="subth"> ซับไทย</label>
+        </div>
+      </div>
+      <div class="fm-row" id="rf-season-row">
+        <label>Season</label>
+        <input type="number" id="rf-season" value="1" min="1">
+      </div>
+      <div class="fm-row">
+        <label>Output <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ไม่ต้องมี .txt)</span></label>
+        <input type="text" id="rf-fname" placeholder="เช่น 12345-my-anime">
+      </div>
+      <div class="cmd-box">
+        <div class="cmd-box-hd">
+          <span class="cmd-label">Command</span>
+          <span class="cmd-dir">📂 <code style="color:var(--text2)">tools/</code></span>
+        </div>
+        <div class="cmd-text placeholder" id="rf-cmd">(กรุณากรอก URL และ Output)</div>
+      </div>
+      <div class="run-log hidden" id="rf-log">
+        <div class="run-log-hd">
+          <span>Output</span>
+          <button class="run-log-clear" id="rf-log-clear">ล้าง</button>
+        </div>
+        <pre class="run-log-body" id="rf-log-body"></pre>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn-run" id="rf-run-btn"><i class="fi fi-sr-play"></i> Run</button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div id="delete-modal" class="modal-overlay hidden">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center">
+        <h2>ลบรายการ</h2>
+        <span class="modal-tab-hint" id="dm-hint"></span>
+      </div>
+      <button class="modal-close" id="dm-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p id="dm-title-text" style="font-size:14px;font-weight:500;color:var(--text);line-height:1.5"></p>
+      <div class="fm-row" style="margin-top:8px">
+        <label>เลือกสิ่งที่ต้องการลบ</label>
+        <div id="dm-options" style="display:flex;flex-direction:column;gap:10px;margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button id="dm-cancel-btn" class="btn-cancel" style="margin-right:auto">ยกเลิก</button>
+      <button id="dm-confirm-btn" class="btn-delete"><i class="fi fi-br-trash"></i> ยืนยันลบ</button>
+    </div>
+  </div>
+</div>
+
 <!-- Add Modal -->
 <div id="add-modal" class="modal-overlay hidden">
   <div class="modal">
@@ -812,9 +943,16 @@ function parseFile(url) {
   return m ? { tmdbId: m[1], slug: m[2] } : { tmdbId: '', slug: name };
 }
 
-function badge(name) {
+function badge(name, rf = null) {
   const isSub = /ซับ|sub/i.test(name);
-  return `<span class="badge ${isSub ? 'badge-sub' : 'badge-th'}">${esc(name)}</span>`;
+  const cls   = `badge ${isSub ? 'badge-sub' : 'badge-th'}`;
+  if (rf && rf.referer && IS_LOCAL) {
+    const track = isSub ? 'subth' : 'th';
+    return `<span class="${cls} badge-refetchable" title="Refetch stream URLs"
+      data-refetch="${esc(rf.referer)}" data-slug="${esc(rf.filename)}"
+      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}">${esc(name)}</span>`;
+  }
+  return `<span class="${cls}">${esc(name)}</span>`;
 }
 
 function artTag(src, first) {
@@ -899,6 +1037,14 @@ function editTitleBtn(slug, tabId, title) {
   return `<button class="edit-title-btn" data-slug="${esc(slug)}" data-tab="${esc(tabId)}" data-title="${esc(title)}"><i class="fi fi-rr-edit"></i> แก้ไข</button>`;
 }
 
+function delBtn(payload, station = 'series') {
+  if (!IS_LOCAL) return '';
+  if (station === 'movie') {
+    return `<button class="del-btn" title="ลบ" data-del="${esc(JSON.stringify(payload))}"><i class="fi fi-rr-trash"></i> ลบ</button>`;
+  }
+  return `<button class="del-btn-icon" title="ลบ" data-del="${esc(JSON.stringify(payload))}"><i class="fi fi-rr-trash"></i></button>`;
+}
+
 function updBtn(slug, season, tabId, title, partTmdbId = '') {
   return `<button class="upd-btn" data-slug="${esc(slug)}" data-season="${season}" data-tab="${esc(tabId)}" data-title="${esc(title)}" data-part-tmdb="${esc(partTmdbId)}" title="Update Metadata"><i class="fi fi-sr-rotate-right"></i></button>`;
 }
@@ -913,6 +1059,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       <th>Track</th>
       <th>TMDB ID</th>
       <th>Playlist Name</th>
+      ${IS_LOCAL ? '<th class="c-act"></th>' : ''}
     </tr></thead><tbody>`;
 
   items.forEach(({ g, pl }, idx) => {
@@ -925,6 +1072,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
 
     if (!seasons.length) {
       // No season data
+      const filename = tmdbId ? `${tmdbId}-${slug}` : slug;
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
         <td class="c-no">${gid}</td>
         <td class="c-art">${artTag(poster, true)}</td>
@@ -933,6 +1081,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-trk" style="color:var(--text3)">—</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
         <td class="c-slug">${slugCell(slug)}</td>
+        ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: 0, title, tabId })}</td>` : ''}
       </tr>`;
       return;
     }
@@ -940,9 +1089,11 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
     seasons.forEach((season, si) => {
       const isFirst  = si === 0;
       const tracks   = season.groups || [];
+      const filename = tmdbId ? `${tmdbId}-${slug}` : slug;
       const trackBadges = tracks.map(t => {
         const ep = t.stations?.length || 0;
-        return `${badge(t.name)}<span class="badge-ep">${ep}</span>`;
+        const rf = t.referer ? { referer: t.referer, filename, season: si + 1, tabId } : null;
+        return `${badge(t.name, rf)}<span class="badge-ep">${ep}</span>`;
       }).join(' ');
       const sznName = season.name || `Season ${si + 1}`;
 
@@ -956,6 +1107,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
         <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
+        ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: si + 1, sznName, trackNames: tracks.map(t => t.name), title, tabId })}</td>` : ''}
       </tr>`;
     });
   });
@@ -976,7 +1128,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
       <th>Track</th>
       <th>TMDB ID</th>
       <th>Playlist Name</th>
-      ${IS_LOCAL ? '<th style="width:32px"></th>' : ''}
+      ${IS_LOCAL ? '<th class="c-act" style="width:130px"></th>' : ''}
     </tr></thead><tbody>`;
 
   items.forEach(({ g, pl }, idx) => {
@@ -991,8 +1143,9 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
     // Old groups-with-stations format
     const hasInlineGroups = Array.isArray(pl.groups) && pl.groups.length > 0 && Array.isArray(pl.groups[0]?.stations);
 
-    const actCell = (isHeader) =>
-      IS_LOCAL ? `<td class="c-act">${isHeader ? editTitleBtn(slug, tabId, title) : ''}</td>` : '';
+    const mainFile = tmdbId ? `${tmdbId}-${slug}` : slug;
+    const actCell = (isHeader, delPayload = null) =>
+      IS_LOCAL ? `<td class="c-act">${isHeader ? editTitleBtn(slug, tabId, title) : ''}${delPayload ? delBtn(delPayload, 'movie') : ''}</td>` : '';
 
     if (isMainFile) {
       // Header row (title / art / no / slug only — no part data)
@@ -1004,7 +1157,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-trk"></td>
         <td class="c-tmdb"></td>
         <td class="c-slug">${slugCell(slug)}</td>
-        ${actCell(true)}
+        ${actCell(true, { file: mainFile, season: 0, title, tabId })}
       </tr>`;
 
       // One row per part
@@ -1015,8 +1168,10 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const partTmdbId  = partFile.match(/^(\d+)-/)?.[1] || '';
         const partSlug    = partFile.replace(/^\d+-/, '');
         const partStations = group._partPl?.stations || [];
-        const trackBadges = partStations.map(s => badge(s.name)).join(' ')
-                          || '<span style="color:var(--text3)">—</span>';
+        const trackBadges = partStations.map(s => {
+          const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId } : null;
+          return badge(s.name, rf);
+        }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
         html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="">
           <td class="c-no"></td>
@@ -1026,14 +1181,18 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
           <td class="c-trk">${trackBadges}</td>
           <td class="c-tmdb">${partTmdbId ? tmdbCell(partTmdbId, tmdbKind) : ''}</td>
           <td class="c-slug"></td>
-          ${actCell(false)}
+          ${actCell(false, { file: mainFile, partFile, season: gi + 1, sznName: badgeName, trackNames: partStations.map(s => s.name), title, tabId })}
         </tr>`;
       });
     } else if (hasInlineGroups) {
       pl.groups.forEach((group, gi) => {
         const isFirst  = gi === 0;
         const partName = group.name || `ภาค ${gi + 1}`;
-        const trackBadges = (group.stations || []).map(s => badge(s.name)).join(' ') || '<span style="color:var(--text3)">—</span>';
+        const filename = tmdbId ? `${tmdbId}-${slug}` : slug;
+        const trackBadges = (group.stations || []).map(s => {
+          const rf = s.referer ? { referer: s.referer, filename, season: gi + 1, tabId } : null;
+          return badge(s.name, rf);
+        }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
         html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
           <td class="c-no">${isFirst ? gid : ''}</td>
@@ -1045,13 +1204,16 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
           <td class="c-trk">${trackBadges}</td>
           <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
           <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
-          ${actCell(isFirst)}
+          ${actCell(isFirst, { file: mainFile, season: gi + 1, sznName: partName, trackNames: (group.stations || []).map(s => s.name), title, tabId })}
         </tr>`;
       });
     } else {
       // Old flat format (backward compat): stations at root
       const stations = pl.stations || [];
-      const trackBadges = stations.map(s => badge(s.name)).join(' ') || '<span style="color:var(--text3)">—</span>';
+      const trackBadges = stations.map(s => {
+        const rf = s.referer ? { referer: s.referer, filename: mainFile, season: 1, tabId } : null;
+        return badge(s.name, rf);
+      }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
         <td class="c-no">${gid}</td>
@@ -1061,7 +1223,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-trk">${trackBadges}</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
         <td class="c-slug">${slugCell(slug)}</td>
-        ${actCell(true)}
+        ${actCell(true, { file: mainFile, season: 0, title, tabId })}
       </tr>`;
     }
   });
@@ -1519,6 +1681,176 @@ document.getElementById('bm-run-btn').addEventListener('click', runBatchUpdate);
 document.getElementById('bm-close').addEventListener('click', () => document.getElementById('batch-modal').classList.add('hidden'));
 document.getElementById('bm-log-clear').addEventListener('click', () => { document.getElementById('bm-log-body').textContent = ''; document.getElementById('bm-log').classList.add('hidden'); });
 document.getElementById('batch-modal').addEventListener('click', e => { if (e.target === document.getElementById('batch-modal')) document.getElementById('batch-modal').classList.add('hidden'); });
+
+// ── Refetch Streams Modal ────────────────────────────────────────
+let rfCtx = {};
+
+function scriptFromReferer(url) {
+  if (!url) return null;
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '');
+    if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
+    if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
+    if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
+    if (host.includes('7hd'))                               return 'fetch-7hd.js';
+    if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
+    if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
+  } catch {}
+  return null;
+}
+
+function openRefetchModal(referer, filename, season, track, tabId) {
+  const isSeries  = TABS[tabId]?.kind === 'series';
+  const m = filename.match(/^(\d+)-(.+)$/);
+  const tmdbId = m ? m[1] : '';
+  const slug   = m ? m[2] : filename;
+  rfCtx = { tabId, tmdbId };
+  const detected  = scriptFromReferer(referer);
+  const scripts   = ADD_SCRIPTS[tabId] || [];
+
+  const sel = document.getElementById('rf-script');
+  sel.innerHTML = scripts.map(s => `<option value="${s.file}" ${s.file === detected ? 'selected' : ''}>${s.label}</option>`).join('');
+
+  document.getElementById('rf-hint').textContent   = filename ? ` — ${filename}` : '';
+  document.getElementById('rf-url').value          = referer;
+  document.getElementById('rf-season').value       = season;
+  document.getElementById('rf-season-row').style.display = isSeries ? '' : 'none';
+  document.querySelector(`input[name="rf-track"][value="${track}"]`).checked = true;
+  document.getElementById('rf-fname').value        = slug;
+  document.getElementById('rf-log').classList.add('hidden');
+  document.getElementById('rf-log-body').textContent = '';
+  refreshRfCmd();
+  document.getElementById('refetch-modal').classList.remove('hidden');
+}
+
+function buildRfCmd() {
+  const script = document.getElementById('rf-script').value;
+  const url    = document.getElementById('rf-url').value.trim();
+  const fname  = document.getElementById('rf-fname').value.trim();
+  if (!script || !url || !fname) return null;
+  const track  = document.querySelector('input[name="rf-track"]:checked')?.value || 'th';
+  const season = document.getElementById('rf-season').value.trim() || '1';
+  const args   = [url, `--track=${track}`, `--type=${rfCtx.tabId}`, `--season=${season}`, `--output=${fname}.txt`];
+  if (rfCtx.tmdbId) args.push(`--tmdb-id=${rfCtx.tmdbId}`);
+  return { script, args, cmd: `node ${script} ${args.join(' ')}` };
+}
+
+function refreshRfCmd() {
+  const cmdEl = document.getElementById('rf-cmd');
+  const p = buildRfCmd();
+  cmdEl.textContent = p ? p.cmd : '(กรุณากรอก URL และ Output)';
+  cmdEl.className   = p ? 'cmd-text' : 'cmd-text placeholder';
+}
+
+async function runRefetch() {
+  const payload = buildRfCmd();
+  if (!payload) return;
+  const logEl  = document.getElementById('rf-log');
+  const bodyEl = document.getElementById('rf-log-body');
+  const runBtn = document.getElementById('rf-run-btn');
+  logEl.classList.remove('hidden');
+  bodyEl.textContent = '';
+  runBtn.disabled    = true;
+  runBtn.innerHTML   = '<span class="run-spin"></span> Running...';
+  const code = await runScript(payload.script, payload.args, bodyEl);
+  bodyEl.appendChild(Object.assign(document.createElement('span'), {
+    className:   code === 0 ? 'log-done' : 'log-fail',
+    textContent: code === 0 ? '\n✓ เสร็จสิ้น\n' : `\n✗ ล้มเหลว (exit ${code})\n`,
+  }));
+  if (code === 0) { loaded.delete(rfCtx.tabId); loadTab(rfCtx.tabId); }
+  runBtn.disabled  = false;
+  runBtn.innerHTML = '<i class="fi fi-sr-play"></i> Run';
+}
+
+document.getElementById('rf-run-btn').addEventListener('click', runRefetch);
+document.getElementById('rf-close').addEventListener('click', () => document.getElementById('refetch-modal').classList.add('hidden'));
+document.getElementById('rf-log-clear').addEventListener('click', () => { document.getElementById('rf-log-body').textContent = ''; document.getElementById('rf-log').classList.add('hidden'); });
+document.getElementById('refetch-modal').addEventListener('click', e => { if (e.target === document.getElementById('refetch-modal')) document.getElementById('refetch-modal').classList.add('hidden'); });
+['rf-script','rf-url','rf-fname','rf-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
+document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
+
+// Badge click → open refetch modal
+document.addEventListener('click', e => {
+  const b = e.target.closest('.badge-refetchable[data-refetch]');
+  if (!b || !IS_LOCAL) return;
+  e.stopPropagation();
+  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '');
+});
+
+// ── Delete Modal ─────────────────────────────────────────────────
+let dmCtx = null;
+
+function openDeleteModal(data) {
+  dmCtx = data;
+  const { file, season, sznName, trackNames = [], title, tabId } = data;
+  const isSeries = TABS[tabId]?.kind === 'series';
+
+  document.getElementById('dm-hint').textContent = ` — ${file}`;
+  document.getElementById('dm-title-text').textContent = title;
+
+  const opts = [{ value: 'title', label: 'ลบทั้งเรื่อง (ลบออกจาก index + ลบไฟล์)' }];
+  if (season > 0 && sznName) {
+    opts.push({ value: 'season', label: `ลบ ${sznName} เท่านั้น` });
+    trackNames.forEach(name => {
+      opts.push({ value: `track:${name}`, label: `ลบ "${name}" ใน ${sznName}` });
+    });
+  }
+
+  document.getElementById('dm-options').innerHTML = opts.map((opt, i) =>
+    `<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">
+      <input type="radio" name="dm-level" value="${esc(opt.value)}" ${i === 0 ? 'checked' : ''}>
+      ${esc(opt.label)}
+    </label>`
+  ).join('');
+
+  document.getElementById('delete-modal').classList.remove('hidden');
+}
+
+async function executeDelete() {
+  const selected = document.querySelector('input[name="dm-level"]:checked')?.value;
+  if (!selected || !dmCtx) return;
+  const { file, partFile, season, tabId } = dmCtx;
+
+  let level, trackName;
+  if (selected === 'title')              { level = 'title'; }
+  else if (selected === 'season')        { level = 'season'; }
+  else if (selected.startsWith('track:')){ level = 'track'; trackName = selected.slice(6); }
+  else return;
+
+  const btn = document.getElementById('dm-confirm-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fi fi-br-trash"></i> กำลังลบ...';
+
+  try {
+    const r = await fetch('/api/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tab: tabId, file, partFile, level, season, trackName }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    document.getElementById('delete-modal').classList.add('hidden');
+    loaded.delete(tabId);
+    loadTab(tabId);
+  } catch (err) {
+    alert(`ลบไม่สำเร็จ: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fi fi-br-trash"></i> ยืนยันลบ';
+  }
+}
+
+document.getElementById('dm-confirm-btn').addEventListener('click', executeDelete);
+document.getElementById('dm-cancel-btn').addEventListener('click', () => document.getElementById('delete-modal').classList.add('hidden'));
+document.getElementById('dm-close').addEventListener('click',      () => document.getElementById('delete-modal').classList.add('hidden'));
+document.getElementById('delete-modal').addEventListener('click',  e => { if (e.target === document.getElementById('delete-modal')) document.getElementById('delete-modal').classList.add('hidden'); });
+
+// Del button click → open delete modal
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.del-btn-icon[data-del], .del-btn[data-del]');
+  if (!btn || !IS_LOCAL) return;
+  e.stopPropagation();
+  try { openDeleteModal(JSON.parse(btn.dataset.del)); } catch {}
+});
 
 // Event listeners
 document.getElementById('fm-run-btn').addEventListener('click', runFetch);
