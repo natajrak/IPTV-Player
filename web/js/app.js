@@ -1118,13 +1118,18 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
   if (hasHlsRuntime) {
     try { hlsJsSupported = Hls.isSupported(); } catch (_) { hlsJsSupported = false; }
   }
+  // Safari WebKit (iOS + macOS) มี native HLS + native AirPlay ที่เสถียรมาก →
+  // ต้องใช้ native source เสมอ ไม่แตะ HLS.js/MSE/blob: URL เลย มิฉะนั้น AirPlay
+  // session จะพังตอนเปลี่ยนตอน/เปลี่ยนเรื่อง (blob URL serialize ไป Apple TV ไม่ได้)
+  // Detect ผ่าน webkitShowPlaybackTargetPicker — มีเฉพาะใน WebKit ที่รองรับ AirPlay
+  // (เชื่อถือได้กว่า canPlayType ที่ Chrome 146+ return "maybe" ทั้งที่เล่น HLS ไม่ได้)
+  const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
   // ใช้ Hls.isSupported() เป็น gate หลักแทน canPlayType
   // เหตุผล: Chrome 146+ บน desktop เริ่ม return "maybe" สำหรับ application/vnd.apple.mpegurl
   // ทั้งที่จริงๆ เล่น HLS native ไม่ได้ → canPlayType ไม่น่าเชื่อถืออีกต่อไป
-  // HLS.js ทำงานได้ดีในทุก browser ที่มี MSE (Chrome, Firefox, Edge, Safari desktop)
-  // จะ fallback ไป native ก็ต่อเมื่อ HLS.js จริงๆ ไม่ทำงาน (เช่น iOS Safari ที่ไม่มี MSE)
-  // forceNative = true จะข้าม HLS.js (ใช้ตอน AirPlay/Cast)
-  const shouldTryHls = !forceNative && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
+  // HLS.js ทำงานได้ดีในทุก browser ที่มี MSE ยกเว้น Safari (ต้อง native เพื่อ AirPlay)
+  // จะ fallback ไป native ก็ต่อเมื่อ: Safari, HLS.js ไม่ทำงาน, หรือ forceNative = true
+  const shouldTryHls = !forceNative && !isSafariWebKit && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
 
   if (shouldTryHls) {
     // HLS.js path: ต้อง destroy instance เดิมก่อนสร้างใหม่ เพื่อไม่ให้ attach ซ้อน
@@ -1490,8 +1495,14 @@ function updateVolumeUI() {
 // พอ disconnect ก็สลับกลับมาใช้ HLS.js สำหรับเล่น local ต่อ (เพราะ Chrome desktop
 // เล่น native HLS ไม่ได้แน่นอนเนื่องจาก canPlayType="maybe" แต่จริงๆ ไม่รองรับ)
 (function initAirPlay() {
-  // Helper: ยิงก่อนกด picker — สลับไปใช้ native source พร้อม preserve เวลาและ play state
+  // Safari WebKit ใช้ native HLS อยู่แล้ว (setupVideoSource มี gate) →
+  // ไม่ต้อง swap source ก่อน/หลัง cast. video element ต่อ stream เดิมตลอด
+  // AirPlay session จึงเสถียร แม้เปลี่ยนตอน/เรื่องระหว่าง cast
+  const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
+
+  // Helper: ยิงก่อนกด picker — สลับไปใช้ native source (เฉพาะ Chrome/Edge/Firefox)
   function prepareForCast() {
+    if (isSafariWebKit) return true;   // Safari: ไม่ต้องทำอะไร source เป็น native อยู่แล้ว
     const station = currentStations[currentIndex];
     if (!station) return false;
     const savedTime  = playerVideo.currentTime || 0;
@@ -1504,8 +1515,9 @@ function updateVolumeUI() {
     return true;
   }
 
-  // Helper: สลับกลับไปใช้ HLS.js สำหรับเล่น local หลัง disconnect
+  // Helper: สลับกลับไปใช้ HLS.js สำหรับเล่น local หลัง disconnect (Chrome path)
   function restoreLocalPlayback() {
+    if (isSafariWebKit) return;        // Safari: stream ต่อเนื่องเอง ไม่ต้อง swap
     const station = currentStations[currentIndex];
     if (!station) return;
     const savedTime  = playerVideo.currentTime || 0;
@@ -1532,11 +1544,8 @@ function updateVolumeUI() {
       if (!casting) restoreLocalPlayback();
     });
     btnAirPlay.addEventListener("click", () => {
-      prepareForCast();
-      // ให้ video element รับ src ใหม่ก่อน แล้วค่อยเปิด picker
-      setTimeout(() => {
-        try { playerVideo.webkitShowPlaybackTargetPicker(); } catch (e) { console.warn(e); }
-      }, 50);
+      // Safari: prepareForCast() เป็น no-op (native HLS อยู่แล้ว) → เปิด picker ตรงๆ
+      try { playerVideo.webkitShowPlaybackTargetPicker(); } catch (e) { console.warn(e); }
     });
   }
   // W3C Remote Playback API — Chrome (รองรับ AirPlay บน macOS ผ่าน system picker)
