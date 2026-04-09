@@ -1074,9 +1074,27 @@ function playEpisode(index, inheritedReferer) {
   if (!epPanel.classList.contains("hidden")) renderEpPanel();
 
   cancelUpnext();
-  destroyHls();
   resetProgress();
   hidePlayerNotice();
+
+  setupVideoSource(url, referer);
+
+  playerVideo.onended = () => scheduleNext();
+}
+
+/**
+ * Set up the <video> element to play `url`, using HLS.js (MSE) by default.
+ * ใช้ `forceNative: true` ตอนต้องการใช้ native HLS (เช่น AirPlay/Cast) เพราะ
+ * MSE-based playback (blob: URL) ส่งผ่านไปที่ cast target ไม่ได้
+ * → audio streams แต่ภาพค้างดำ
+ *
+ * options:
+ *   forceNative  — บังคับใช้ native source แทน HLS.js
+ *   startTime    — วินาที สำหรับ seek หลัง metadata โหลดเสร็จ (0 = เริ่มต้น)
+ *   autoplay     — true = เรียก play() หลัง source พร้อม (default true)
+ */
+function setupVideoSource(url, referer, { forceNative = false, startTime = 0, autoplay = true } = {}) {
+  destroyHls();
 
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
   const isDirectMediaUrl = /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
@@ -1090,7 +1108,8 @@ function playEpisode(index, inheritedReferer) {
   // ทั้งที่จริงๆ เล่น HLS native ไม่ได้ → canPlayType ไม่น่าเชื่อถืออีกต่อไป
   // HLS.js ทำงานได้ดีในทุก browser ที่มี MSE (Chrome, Firefox, Edge, Safari desktop)
   // จะ fallback ไป native ก็ต่อเมื่อ HLS.js จริงๆ ไม่ทำงาน (เช่น iOS Safari ที่ไม่มี MSE)
-  const shouldTryHls = hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
+  // forceNative = true จะข้าม HLS.js (ใช้ตอน AirPlay/Cast)
+  const shouldTryHls = !forceNative && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
 
   if (shouldTryHls) {
     let networkRetries = 0;
@@ -1106,12 +1125,18 @@ function playEpisode(index, inheritedReferer) {
     });
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
-    hls.on(Hls.Events.MANIFEST_PARSED, () => playerVideo.play().catch(err => {
-      if (err.name !== "AbortError") console.error("[player] play() rejected:", err);
-      if (err.name === "NotSupportedError") {
-        showPlayerNotice("เล่นวิดีโอไม่ได้: codec ของสตรีมไม่รองรับ (play/NotSupportedError)");
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      if (startTime > 0) {
+        try { playerVideo.currentTime = startTime; } catch (_) {}
       }
-    }));
+      if (!autoplay) return;
+      playerVideo.play().catch(err => {
+        if (err.name !== "AbortError") console.error("[player] play() rejected:", err);
+        if (err.name === "NotSupportedError") {
+          showPlayerNotice("เล่นวิดีโอไม่ได้: codec ของสตรีมไม่รองรับ (play/NotSupportedError)");
+        }
+      });
+    });
     hls.on(Hls.Events.ERROR, (_event, data) => {
       // Log every error, fatal or not, for diagnostics
       console.warn("[HLS error]", {
@@ -1154,21 +1179,32 @@ function playEpisode(index, inheritedReferer) {
       showPlayerNotice(`เล่นสตรีมไม่สำเร็จ: ${data?.type || "UNKNOWN"} / ${details}`, 10000);
     });
   } else {
-    if (isHlsUrl && !hasHlsRuntime) {
-      console.warn("HLS runtime is missing. Falling back to native video playback.");
-    } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
-      console.warn("HLS.js is loaded but Media Source Extensions are not supported in this browser.");
+    if (!forceNative) {
+      if (isHlsUrl && !hasHlsRuntime) {
+        console.warn("HLS runtime is missing. Falling back to native video playback.");
+      } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
+        console.warn("HLS.js is loaded but Media Source Extensions are not supported in this browser.");
+      }
     }
     playerVideo.src = url;
-    playerVideo.play().catch(err => {
-      if (err.name !== "AbortError") console.error(err);
-      if (err.name === "NotSupportedError") {
-        showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
+    const onReady = () => {
+      if (startTime > 0) {
+        try { playerVideo.currentTime = startTime; } catch (_) {}
       }
-    });
+      if (!autoplay) return;
+      playerVideo.play().catch(err => {
+        if (err.name !== "AbortError") console.error(err);
+        if (err.name === "NotSupportedError" && !forceNative) {
+          showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
+        }
+      });
+    };
+    if (startTime > 0) {
+      playerVideo.addEventListener("loadedmetadata", onReady, { once: true });
+    } else {
+      onReady();
+    }
   }
-
-  playerVideo.onended = () => scheduleNext();
 }
 
 function seekBySeconds(delta) {
@@ -1419,20 +1455,64 @@ function updateVolumeUI() {
 }
 
 // AirPlay / Remote Playback
+//
+// ปัญหาที่แก้ที่นี่: HLS.js ต่อวิดีโอผ่าน Media Source Extensions (MSE) โดยทำให้
+// playerVideo.src = blob: URL ชี้ไปที่ MediaSource. blob: URL serialize ข้ามเครือข่าย
+// ไปหา Apple TV / cast receiver ไม่ได้ → AirPlay เลย mirror ได้แค่ audio stream
+// จากระบบเสียง ส่วนภาพค้างดำ (อาการที่ user เจอ)
+//
+// วิธีแก้: ก่อนเปิด picker ให้ tear down HLS.js แล้วตั้ง playerVideo.src = ไฟล์ m3u8
+// ตรงๆ (native source) — Apple TV decode HLS ได้เอง เลยเล่นได้ทั้งภาพและเสียง.
+// พอ disconnect ก็สลับกลับมาใช้ HLS.js สำหรับเล่น local ต่อ (เพราะ Chrome desktop
+// เล่น native HLS ไม่ได้แน่นอนเนื่องจาก canPlayType="maybe" แต่จริงๆ ไม่รองรับ)
 (function initAirPlay() {
+  // Helper: ยิงก่อนกด picker — สลับไปใช้ native source พร้อม preserve เวลาและ play state
+  function prepareForCast() {
+    const station = currentStations[currentIndex];
+    if (!station) return false;
+    const savedTime  = playerVideo.currentTime || 0;
+    const wasPlaying = !playerVideo.paused;
+    setupVideoSource(station.url, inheritedRefererCache, {
+      forceNative: true,
+      startTime:   savedTime,
+      autoplay:    wasPlaying,
+    });
+    return true;
+  }
+
+  // Helper: สลับกลับไปใช้ HLS.js สำหรับเล่น local หลัง disconnect
+  function restoreLocalPlayback() {
+    const station = currentStations[currentIndex];
+    if (!station) return;
+    const savedTime  = playerVideo.currentTime || 0;
+    const wasPlaying = !playerVideo.paused;
+    setupVideoSource(station.url, inheritedRefererCache, {
+      forceNative: false,
+      startTime:   savedTime,
+      autoplay:    wasPlaying,
+    });
+  }
+
   // WebKit AirPlay API — Safari on macOS / iOS → Apple TV, AirPlay speakers
   if (typeof playerVideo.webkitShowPlaybackTargetPicker === "function") {
     playerVideo.addEventListener("webkitplaybacktargetavailabilitychanged", (e) => {
       btnAirPlay.hidden = e.availability !== "available";
     });
     playerVideo.addEventListener("webkitcurrentplaybacktargetiswirelesschanged", () => {
-      btnAirPlay.classList.toggle("casting", !!playerVideo.webkitCurrentPlaybackTargetIsWireless);
-      btnAirPlay.title = playerVideo.webkitCurrentPlaybackTargetIsWireless
+      const casting = !!playerVideo.webkitCurrentPlaybackTargetIsWireless;
+      btnAirPlay.classList.toggle("casting", casting);
+      btnAirPlay.title = casting
         ? "กำลัง Cast อยู่ — คลิกเพื่อหยุด"
         : "AirPlay / Cast to TV";
+      // Disconnect → สลับกลับไป HLS.js เพื่อเล่น local ต่อ
+      if (!casting) restoreLocalPlayback();
     });
     btnAirPlay.addEventListener("click", () => {
-      playerVideo.webkitShowPlaybackTargetPicker();
+      prepareForCast();
+      // ให้ video element รับ src ใหม่ก่อน แล้วค่อยเปิด picker
+      setTimeout(() => {
+        try { playerVideo.webkitShowPlaybackTargetPicker(); } catch (e) { console.warn(e); }
+      }, 50);
     });
   }
   // W3C Remote Playback API — Chrome (รองรับ AirPlay บน macOS ผ่าน system picker)
@@ -1453,9 +1533,19 @@ function updateVolumeUI() {
     playerVideo.remote.addEventListener("disconnect", () => {
       btnAirPlay.classList.remove("casting");
       btnAirPlay.title = "AirPlay / Cast to TV";
+      restoreLocalPlayback();
     });
     btnAirPlay.addEventListener("click", () => {
-      playerVideo.remote.prompt().catch(console.warn);
+      prepareForCast();
+      setTimeout(() => {
+        playerVideo.remote.prompt().catch((err) => {
+          // ผู้ใช้กดยกเลิก picker → สลับกลับไป HLS.js เพราะ Chrome desktop
+          // ไม่สามารถเล่น native HLS ได้ (canPlayType lies) — ถ้าไม่ swap กลับ
+          // local playback จะค้าง
+          if (err && err.name !== "NotAllowedError") console.warn(err);
+          restoreLocalPlayback();
+        });
+      }, 50);
     });
   }
 })();
