@@ -714,7 +714,7 @@ async function main() {
         let streamUrl = null;
         try {
           const hash = await getStreamHash(postId, server, epEpisode, nonce);
-          streamUrl  = `https://main.24playerhd.com/newplaylist/${hash}/${hash}.m3u8`;
+          streamUrl  = proxyUrl(`https://main.24playerhd.com/newplaylist/${hash}/${hash}.m3u8`, STREAM_REFERER);
           process.stdout.write(` ✅\n`);
         } catch (err) {
           process.stdout.write(` ⚠️  ${err.message}\n`);
@@ -729,7 +729,6 @@ async function main() {
           name:    buildStationName(epNum, epTitle, isDubbedTrack),
           ...(epThumb && { image: epThumb }),
           url:     streamUrl || epUrl,
-          referer: STREAM_REFERER,
         });
 
         if (i < epEntries.length - 1) await sleep(600);
