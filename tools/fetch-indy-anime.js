@@ -71,8 +71,8 @@ const isDubbedTrack = trackName === "พากย์ไทย";
 const filterTrack = trackArg ? trackName : null;
 
 const seasonArg = args.find((a) => a.startsWith("--season="));
-const seasonNum = seasonArg ? (parseInt(seasonArg.replace("--season=", "")) || 1) : null;
-const seasonName = seasonNum ? `Season ${seasonNum}` : null;
+const seasonNum = seasonArg ? (parseInt(seasonArg.replace("--season=", "")) ?? null) : null;
+const seasonName = seasonNum != null ? (seasonNum === 0 ? "Specials" : `Season ${seasonNum}`) : null;
 
 const updateMetaArg = args.find((a) => a === "--update-meta" || a.startsWith("--update-meta="));
 const updateMeta = !!updateMetaArg;
@@ -669,7 +669,7 @@ async function runUpdateMeta() {
   }
 
   for (const season of seasonsToUpdate) {
-    const sNum = parseInt(season.name?.match(/\d+/)?.[0]) || 1;
+    const sNum = /specials/i.test(season.name) ? 0 : (parseInt(season.name?.match(/\d+/)?.[0]) || 1);
 
     let enEps = [];
     let thEps = [];

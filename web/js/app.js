@@ -102,6 +102,9 @@ const searchInput   = document.getElementById("search-input");
 const searchClear   = document.getElementById("search-clear");
 const searchResults = document.getElementById("search-results");
 
+let avActiveGenre = null;
+let avActiveActress = null;
+
 /* ===== Init ===== */
 logo.addEventListener("click", () => {
   navHistory = [];
@@ -313,8 +316,23 @@ searchInput.addEventListener("input", async () => {
   // toggle clear button
   searchClear.classList.toggle("hidden", q.length === 0);
 
-  if (!q) { closeSearch(); return; }
+  if (!q) {
+    closeSearch();
+    // If on AV browsable page, reapply filters (without text search)
+    if (lastNode?.browsable && browseAllStations.length) {
+      applyAvFilters();
+    }
+    return;
+  }
 
+  // AV browsable page: use combined filter (search + genre + actress)
+  if (lastNode?.browsable && browseAllStations.length) {
+    closeSearch();
+    applyAvFilters();
+    return;
+  }
+
+  // Normal search for non-AV pages
   if (searchIndexPromise) {
     await searchIndexPromise;
   } else if (searchIndexRootNode) {
@@ -362,11 +380,145 @@ searchClear.addEventListener("click", () => {
   searchInput.value = "";
   searchClear.classList.add("hidden");
   closeSearch();
+  // AV browsable: reapply filters (without text search)
+  if (lastNode?.browsable && browseAllStations.length) {
+    applyAvFilters();
+    return;
+  }
   if (preSearchState) {
     navHistory = preSearchState.history;
     renderNode(preSearchState.node, preSearchState.title, { page: preSearchState.page, sort: preSearchState.sort });
     preSearchState = null;
   }
+});
+
+/* ===== AV Filter (inline in section header) ===== */
+function closeAvDropdowns() {
+  document.getElementById("av-filter-genre-dropdown")?.classList.add("hidden");
+  document.getElementById("av-filter-actress-dropdown")?.classList.add("hidden");
+}
+function resetAvFilters() {
+  avActiveGenre = null;
+  avActiveActress = null;
+}
+
+function buildAvDropdown(dropdownEl, items, onSelect) {
+  dropdownEl.innerHTML = `<input type="search" placeholder="ค้นหา..." autocomplete="off" />`
+    + items.map(it =>
+      `<div class="av-filter-option" data-value="${esc(it.name)}">${esc(it.name)}<span class="av-filter-count">${it.count}</span></div>`
+    ).join("");
+
+  const searchBox = dropdownEl.querySelector("input");
+  const options = dropdownEl.querySelectorAll(".av-filter-option");
+
+  searchBox.addEventListener("input", () => {
+    const q = searchBox.value.trim().toLowerCase();
+    options.forEach(opt => {
+      opt.style.display = opt.dataset.value.toLowerCase().includes(q) ? "" : "none";
+    });
+  });
+  searchBox.addEventListener("keydown", e => e.stopPropagation());
+
+  options.forEach(opt => {
+    opt.addEventListener("click", () => {
+      onSelect(opt.dataset.value);
+      closeAvDropdowns();
+    });
+  });
+}
+
+function applyAvFilters() {
+  if (!browseAllStations.length) return;
+  const q = searchInput.value.trim().toLowerCase();
+  let filtered = browseAllStations;
+
+  if (q) {
+    filtered = filtered.filter(s => {
+      if ((s.name || "").toLowerCase().includes(q)) return true;
+      const actresses = s.meta?.actresses;
+      if (actresses && (Array.isArray(actresses) ? actresses : [actresses]).some(a => a.toLowerCase().includes(q))) return true;
+      const genres = s.meta?.genres;
+      if (genres && (Array.isArray(genres) ? genres : [genres]).some(g => g.toLowerCase().includes(q))) return true;
+      return false;
+    });
+  }
+  if (avActiveGenre) {
+    filtered = filtered.filter(s => {
+      const genres = s.meta?.genres;
+      return genres && (Array.isArray(genres) ? genres : [genres]).some(g => g === avActiveGenre);
+    });
+  }
+  if (avActiveActress) {
+    filtered = filtered.filter(s => {
+      const actresses = s.meta?.actresses;
+      return actresses && (Array.isArray(actresses) ? actresses : [actresses]).some(a => a === avActiveActress);
+    });
+  }
+
+  currentPage = 0;
+  renderBrowsableStations(filtered, browseTitle, browseParentNode, { isFilter: true });
+}
+
+function collectAvMeta(field) {
+  const countMap = {};
+  browseAllStations.forEach(s => {
+    const values = s.meta?.[field];
+    if (!values) return;
+    (Array.isArray(values) ? values : [values]).forEach(v => {
+      countMap[v] = (countMap[v] || 0) + 1;
+    });
+  });
+  return Object.entries(countMap)
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+function wireAvFilterButtons() {
+  const genreBtn = document.getElementById("av-filter-genre-btn");
+  const genreDd = document.getElementById("av-filter-genre-dropdown");
+  const actressBtn = document.getElementById("av-filter-actress-btn");
+  const actressDd = document.getElementById("av-filter-actress-dropdown");
+  const clearBtn = document.getElementById("av-filter-clear");
+  if (!genreBtn) return;
+
+  genreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (avActiveGenre) { avActiveGenre = null; applyAvFilters(); return; }
+    const wasOpen = !genreDd.classList.contains("hidden");
+    closeAvDropdowns();
+    if (wasOpen) return;
+    buildAvDropdown(genreDd, collectAvMeta("genres"), (val) => {
+      avActiveGenre = val;
+      applyAvFilters();
+    });
+    genreDd.classList.remove("hidden");
+    genreDd.querySelector("input")?.focus();
+  });
+
+  actressBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (avActiveActress) { avActiveActress = null; applyAvFilters(); return; }
+    const wasOpen = !actressDd.classList.contains("hidden");
+    closeAvDropdowns();
+    if (wasOpen) return;
+    buildAvDropdown(actressDd, collectAvMeta("actresses"), (val) => {
+      avActiveActress = val;
+      applyAvFilters();
+    });
+    actressDd.classList.remove("hidden");
+    actressDd.querySelector("input")?.focus();
+  });
+
+  clearBtn?.addEventListener("click", () => {
+    avActiveGenre = null;
+    avActiveActress = null;
+    applyAvFilters();
+  });
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".av-filter-group")) closeAvDropdowns();
 });
 
 function updateActiveSearch(items) {
@@ -663,8 +815,8 @@ function renderNode(node, title, options = {}) {
     currentPage = typeof page === "number" ? page : 0;
     currentSortOrder = sort === "za" ? "za" : "az";
     renderGroups(renderableNode.groups, title, renderableNode);
-  } else if (node.stations?.length && node.stations.some(s => s.referer)) {
-    // Browsable station list (e.g. AV) — items have individual referer = standalone collection
+  } else if (node.stations?.length && node.browsable) {
+    // Browsable station list (e.g. AV) — explicitly flagged with "browsable": true
     currentPage = typeof page === "number" ? page : 0;
     currentSortOrder = sort === "za" ? "za" : "az";
     renderBrowsableStations(node.stations, title, node);
@@ -797,7 +949,7 @@ function getPaginationItems(totalPages, activePageIdx) {
 }
 
 function renderSectionHeader(title, options = {}) {
-  const { withSort = false, sort = "az", count = null } = options;
+  const { withSort = false, sort = "az", count = null, withFilter = false } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
   const titleMain = typeof count === "number" ? `${splitTitle.main} (${count})` : splitTitle.main;
@@ -805,13 +957,26 @@ function renderSectionHeader(title, options = {}) {
     ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
     : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
   const sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
+
+  const filterHtml = withFilter ? `
+    <div class="av-filter-group">
+      <button id="av-filter-genre-btn" class="av-filter-btn${avActiveGenre ? " active" : ""}">${avActiveGenre ? esc(avActiveGenre) + " ✕" : "หมวดหมู่ ▾"}</button>
+      <div id="av-filter-genre-dropdown" class="av-filter-dropdown hidden"></div>
+    </div>
+    <div class="av-filter-group">
+      <button id="av-filter-actress-btn" class="av-filter-btn${avActiveActress ? " active" : ""}">${avActiveActress ? esc(avActiveActress) + " ✕" : "นักแสดง ▾"}</button>
+      <div id="av-filter-actress-dropdown" class="av-filter-dropdown hidden"></div>
+    </div>
+    ${avActiveGenre || avActiveActress ? `<button id="av-filter-clear" class="av-filter-clear-btn">ล้าง</button>` : ""}
+  ` : "";
+
   return `<div class="section-header">
     ${canGoBack ? `<button id="section-back" class="section-back-btn" aria-label="ย้อนกลับ">${SECTION_BACK_ICON}</button>` : ""}
     <h2 class="section-title">
       <span class="section-title-main">${esc(titleMain)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
-    ${withSort ? `<div class="section-header-right"><button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button></div>` : ""}
+    ${withSort || withFilter ? `<div class="section-header-right">${filterHtml}${withSort ? `<button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button>` : ""}</div>` : ""}
   </div>`;
 }
 
@@ -863,12 +1028,14 @@ function renderStations(stations, referer, sectionTitle) {
 }
 
 /* ===== Render browsable stations (AV-like) with sort, pagination ===== */
-let browseAllStations = [];
+let browseAllStations = [];     // original full list (never overwritten by search filter)
+let browseFilteredStations = []; // currently displayed (filtered or full)
 let browseTitle = "";
 let browseParentNode = null;
 
-function renderBrowsableStations(stations, sectionTitle, parentNode) {
-  browseAllStations = stations;
+function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter = false } = {}) {
+  if (!isFilter) browseAllStations = stations;  // only update full list when NOT a search filter
+  browseFilteredStations = stations;
   browseTitle = sectionTitle;
   browseParentNode = parentNode;
 
@@ -888,6 +1055,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode) {
 
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
     withSort: true,
+    withFilter: true,
     sort: currentSortOrder,
     count: total,
   })}
@@ -909,14 +1077,25 @@ function renderBrowsableStations(stations, sectionTitle, parentNode) {
 
   const grid = gridView.querySelector(".card-grid");
   document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
+  wireAvFilterButtons();
 
   pageStations.forEach((station) => {
     const globalIdx = stations.indexOf(station);
+    const meta = station.meta;
+    // Subtitle: actresses only
+    let sub = null;
+    if (meta?.actresses) {
+      sub = Array.isArray(meta.actresses) ? meta.actresses.join(", ") : meta.actresses;
+    }
+    // Badge: top-level key e.g. "Uncensored Leaked"
+    const badge = station.badge || null;
+
     const card = makeCard({
       name: station.name || "ไม่มีชื่อ",
       image: station.image,
-      sub: null,
+      sub,
       landscape: true,
+      badge,
     });
 
     card.addEventListener("click", () => {
@@ -927,11 +1106,11 @@ function renderBrowsableStations(stations, sectionTitle, parentNode) {
     grid.appendChild(card);
   });
 
-  // Pagination
+  // Pagination (use filtered list to keep search results intact)
   if (totalPages > 1) {
     const goToPage = (p) => {
       currentPage = Math.max(0, Math.min(p, totalPages - 1));
-      renderBrowsableStations(browseAllStations, browseTitle, browseParentNode);
+      renderBrowsableStations(browseFilteredStations, browseTitle, browseParentNode, { isFilter: true });
       showGrid();
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -946,7 +1125,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode) {
   gridView.querySelector(".sort-order-toggle")?.addEventListener("click", () => {
     currentSortOrder = currentSortOrder === "az" ? "za" : "az";
     currentPage = 0;
-    renderBrowsableStations(browseAllStations, browseTitle, browseParentNode);
+    renderBrowsableStations(browseFilteredStations, browseTitle, browseParentNode, { isFilter: true });
     showGrid();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });

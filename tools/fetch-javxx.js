@@ -1,22 +1,39 @@
 #!/usr/bin/env node
 /**
  * fetch-javxx.js
- * สร้าง / อัปเดต playlist JSON จาก javxx.com
+ * สร้าง / อัปเดต playlist JSON จาก javxx.com + ดึง metadata จาก JavDB
  *
  * ─── Flags ───────────────────────────────────────────────────────────────
  *   <url>              URL หน้าวิดีโอบน javxx.com (เช่น https://javxx.com/th/v/skmj-408)
  *   --output=FILE      ชื่อไฟล์ผลลัพธ์ใน playlist/av/ (ไม่ต้องใส่ path)
+ *   --update-meta      อัปเดต metadata ของ entries ที่มีอยู่แล้วใน index.txt
+ *                      ไม่ต้องใส่ URL — จะวนอัปเดตทุกรายการที่ยังไม่มี metadata
+ *   --update-meta=all  อัปเดต metadata ทุกรายการ (ทับข้อมูลเดิม)
+ *   --code=SKMJ-408    อัปเดตเฉพาะรหัสที่ระบุ
  *
  * ─── Workflow ────────────────────────────────────────────────────────────
  *
+ *   # เพิ่มวิดีโอใหม่
  *   node fetch-javxx.js https://javxx.com/th/v/skmj-408
- *   node fetch-javxx.js https://javxx.com/th/v/skmj-408 --output=skmj-408.txt
+ *
+ *   # อัปเดต metadata ทุกรายการที่ยังไม่มี
+ *   node fetch-javxx.js --update-meta
+ *
+ *   # อัปเดต metadata ทุกรายการ (ทับเดิม)
+ *   node fetch-javxx.js --update-meta=all
+ *
+ *   # อัปเดตเฉพาะรหัสที่ระบุ
+ *   node fetch-javxx.js --update-meta --code=SKMJ-408
  *
  * ─── Stream extraction flow ──────────────────────────────────────────────
  *   1. Fetch javxx page → extract title, cover, video code, encrypted data-url(s)
  *   2. Fetch app bundle JS → extract & run simpleDecrypt via vm module
  *   3. Decrypt data-url → surrit.store embed URL
  *   4. Fetch surrit.store embed → find wowstream.cloud m3u8 URL
+ *
+ * ─── Metadata sources ────────────────────────────────────────────────────
+ *   1. javxx.com    — title, cover (og:image), tags
+ *   2. JavDB.com    — title (JP/EN), actresses, genres, studio, duration, date, rating
  */
 
 const cheerio = require("cheerio");
@@ -31,10 +48,19 @@ const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace
 const streamUrlOverride = (args.find((a) => a.startsWith("--stream-url=")) || "").replace("--stream-url=", "");
 const debugMode = args.includes("--debug");
 
-if (!pageUrl) {
+const updateMetaArg = args.find((a) => a === "--update-meta" || a.startsWith("--update-meta="));
+const updateMeta = !!updateMetaArg;
+const updateMetaMode = updateMetaArg?.includes("=") ? updateMetaArg.split("=")[1] : "missing";
+const targetCode = (args.find((a) => a.startsWith("--code=")) || "").replace("--code=", "").toUpperCase();
+
+if (!pageUrl && !updateMeta) {
   console.error("Usage: node fetch-javxx.js <url> [--output=FILE.txt] [--stream-url=M3U8_URL] [--debug]");
+  console.error("       node fetch-javxx.js --update-meta[=all] [--code=CODE]");
   console.error("");
   console.error("  --stream-url=URL   ระบุ m3u8 URL ตรงๆ (copy จาก Network tab)");
+  console.error("  --update-meta      อัปเดต metadata (เฉพาะรายการที่ยังไม่มี)");
+  console.error("  --update-meta=all  อัปเดต metadata ทั้งหมด (ทับเดิม)");
+  console.error("  --code=CODE        อัปเดตเฉพาะรหัสที่ระบุ");
   console.error("  --debug            บันทึก embed HTML / player JS ลงไฟล์ debug");
   process.exit(1);
 }
@@ -83,7 +109,10 @@ async function parseVideoPage(url) {
   const h1 = $("h1").first().text().trim();
   const urlCode = url.match(/\/v\/([^/?#]+)/)?.[1] || "";
   const dtagCode = $("d-tag#player").attr("code") || "";
-  const code = (dtagCode || urlCode).toUpperCase();
+  const rawCode = (dtagCode || urlCode).toUpperCase();
+  // Clean code: strip numeric prefix + trailing tags (e.g. "110FSET-249-UNCENSORED-LEAKED" → "FSET-249")
+  const codeClean = rawCode.match(/\d*([A-Z]+-\d+)/i);
+  const code = codeClean ? codeClean[1].toUpperCase() : rawCode;
   console.log(`  รหัส: ${code}`);
 
   // Cover image
@@ -91,6 +120,51 @@ async function parseVideoPage(url) {
   const dtagCover = $("d-tag#player").attr("cover") || "";
   const cover = ogImage || dtagCover || "";
   console.log(`  ปก: ${cover}`);
+
+  // Extract metadata from javxx detail section
+  // DOM structure: <div class="meta"> → <div> per field → <label>Label:</label> <a>value</a>, ...
+  // Strategy: find smallest element whose .text() matches label AND has actual value content after it
+  function findFieldValue($, valueRegex) {
+    let best = null;
+    let bestLen = Infinity;
+    $("*").each((_, el) => {
+      const text = $(el).text().trim();
+      const m = text.match(valueRegex);
+      if (m && m[1]?.trim() && text.length < bestLen) {
+        best = m[1].trim();
+        bestLen = text.length;
+      }
+    });
+    return best;
+  }
+
+  // Actresses (require actual colon, not just space)
+  const actresses = [];
+  const actressVal = findFieldValue($, /(?:นักแสดงหญิง|นักแสดง)\s*[:：]\s*(.+)/i);
+  if (actressVal) {
+    actressVal.split(/[,、，]/).forEach(n => {
+      const name = n.trim();
+      if (name && name.length > 1) actresses.push(name);
+    });
+  }
+
+  // Release date
+  const date = findFieldValue($, /วันที่วางจำหน่าย\s*[:：]\s*(\d{4}-\d{2}-\d{2})/i) || "";
+
+  // Genres / Categories
+  const categories = [];
+  const genreVal = findFieldValue($, /หมวดหมู่\s*[:：]\s*(.+)/i);
+  if (genreVal) {
+    genreVal.split(/[,、，]/).forEach(c => {
+      const cat = c.trim();
+      if (cat && cat.length > 1) categories.push(cat);
+    });
+  }
+
+  console.log(`  รหัส: ${code}`);
+  if (actresses.length) console.log(`  นักแสดงหญิง: ${actresses.join(", ")}`);
+  if (date) console.log(`  วันที่วางจำหน่าย: ${date}`);
+  if (categories.length) console.log(`  หมวดหมู่: ${categories.join(", ")}`);
 
   // Encrypted data-url attributes
   const dataUrls = [];
@@ -106,7 +180,143 @@ async function parseVideoPage(url) {
   const appScript = scripts.find((s) => s.includes("/assets/") && s.includes("script"));
   console.log(`  App script: ${appScript || "NOT FOUND"}`);
 
-  return { code, cover, dataUrls, appScript, html };
+  return { code, cover, dataUrls, appScript, html, actresses, release_date: date, genres: categories };
+}
+
+// ───── Fetch metadata from JavDB ─────
+async function fetchJavDBMeta(code) {
+  console.log(`\n🔍 ค้นหา metadata จาก JavDB: ${code}`);
+  try {
+    // Search by code
+    const searchUrl = `https://javdb.com/search?q=${encodeURIComponent(code)}&f=all`;
+    const searchHtml = await fetchText(searchUrl, {
+      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      Referer: "https://javdb.com/",
+    });
+    const $s = cheerio.load(searchHtml);
+
+    // Find the detail page link from search results
+    let detailPath = "";
+    $s(".movie-list .item a, .grid-item a, a.box").each((_, el) => {
+      const href = $s(el).attr("href") || "";
+      const itemCode = $s(el).find(".video-title strong, .uid, .tag").text().trim().toUpperCase();
+      if (!detailPath && (itemCode.includes(code) || href)) {
+        detailPath = href;
+      }
+    });
+
+    // Fallback: find first result link
+    if (!detailPath) {
+      detailPath = $s('a[href^="/v/"]').first().attr("href") || "";
+    }
+
+    if (!detailPath) {
+      console.log(`  ⚠️  ไม่พบ ${code} บน JavDB`);
+      return null;
+    }
+
+    const detailUrl = detailPath.startsWith("http") ? detailPath : `https://javdb.com${detailPath}`;
+    console.log(`  📄 Detail page: ${detailUrl}`);
+
+    const detailHtml = await fetchText(detailUrl, {
+      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      Referer: searchUrl,
+    });
+    const $d = cheerio.load(detailHtml);
+
+    const meta = {};
+
+    // Title
+    const pageTitle = $d("h2.title, .video-title, h1").first().text().trim();
+    if (pageTitle) meta.title = pageTitle.replace(code, "").replace(/^\s*[-–]\s*/, "").trim();
+
+    // Cover image (high-res)
+    const coverImg = $d('.video-cover img, img.video-cover, .column-video-cover img, meta[property="og:image"]');
+    const coverUrl = coverImg.attr("src") || coverImg.attr("content") || "";
+    if (coverUrl) meta.coverHD = coverUrl.startsWith("http") ? coverUrl : `https://javdb.com${coverUrl}`;
+
+    // Parse info panel (dt/dd pairs or label/value rows)
+    $d(".movie-panel-info .panel-block, .video-meta-panel .panel-block").each((_, el) => {
+      const text = $d(el).text().trim();
+      const value = $d(el).find("a, .value, span:last-child").text().trim() ||
+                    text.split(/[:：]/)[1]?.trim() || "";
+
+      if (/番號|ID|Code/i.test(text)) meta.code = value.toUpperCase();
+      if (/日期|Released|Date/i.test(text)) meta.date = value;
+      if (/時長|Duration|Runtime/i.test(text)) meta.duration = value;
+      if (/導演|Director/i.test(text)) meta.director = value;
+      if (/片商|Studio|Maker/i.test(text)) meta.studio = value;
+      if (/發行|Label|Publisher/i.test(text)) meta.label = value;
+      if (/評分|Rating|Score/i.test(text)) meta.rating = value;
+      if (/系列|Series/i.test(text)) meta.series = value;
+    });
+
+    // Actresses
+    const actresses = [];
+    $d('.movie-panel-info a[href*="/actors/"], .panel-block a[href*="/actors/"], a[href*="/stars/"]').each((_, el) => {
+      const name = $d(el).text().trim();
+      if (name && !actresses.includes(name)) actresses.push(name);
+    });
+    if (actresses.length) meta.actresses = actresses;
+
+    // Genres / Tags
+    const genres = [];
+    $d('.movie-panel-info a[href*="/tags"], .panel-block a[href*="/tags"]').each((_, el) => {
+      const g = $d(el).text().trim();
+      if (g && !genres.includes(g)) genres.push(g);
+    });
+    if (genres.length) meta.genres = genres;
+
+    console.log(`  ✅ JavDB metadata:`, JSON.stringify(meta, null, 2).substring(0, 500));
+    return meta;
+  } catch (e) {
+    console.log(`  ⚠️  JavDB fetch error: ${e.message}`);
+    return null;
+  }
+}
+
+// ───── Merge metadata into station entry ─────
+function enrichStation(station, javxxMeta, javdbMeta) {
+  const rawName = station.name || "";
+  const referer = station.referer || "";
+
+  // Extract clean CODE: strip numeric prefix + tags
+  // JAV code pattern: optional digits + LETTERS-DIGITS (e.g. SKMJ-408, 110FSET-249 → FSET-249)
+  const codeMatch = rawName.match(/\d*([A-Z]+-\d+)/i);
+  const cleanCode = codeMatch ? codeMatch[1].toUpperCase() : rawName.replace(/\s+.+$/, "").toUpperCase();
+
+  // Extract special tags from name + URL slug
+  // e.g. name: "FSET-249 [UNCENSORED LEAKED]" or URL: ".../110fset-249-uncensored-leaked"
+  const tagSource = `${rawName} ${referer}`;
+  const specialTags = [];
+  // Check combined patterns (more specific first)
+  if (/uncensored.?leaked/i.test(tagSource)) {
+    specialTags.push("UNCENSORED LEAKED");
+  } else {
+    if (/uncensored/i.test(tagSource)) specialTags.push("UNCENSORED");
+    if (/leaked/i.test(tagSource)) specialTags.push("LEAKED");
+  }
+  if (/\b4K\b/i.test(tagSource)) specialTags.push("4K");
+
+  // Build metadata object — only actresses, release_date, genres
+  const meta = {};
+  const actresses = javdbMeta?.actresses || javxxMeta?.actresses || [];
+  if (actresses.length) meta.actresses = actresses;
+  const releaseDate = javxxMeta?.release_date || javdbMeta?.date || "";
+  if (releaseDate) meta.release_date = releaseDate;
+  const genres = javxxMeta?.genres || javdbMeta?.genres || [];
+  if (genres.length) meta.genres = genres;
+
+  // Badge: title-case, top-level key (e.g. "UNCENSORED LEAKED" → "Uncensored Leaked")
+  const badge = specialTags.length
+    ? specialTags.map(t => t.split(/\s+/).map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(" ")).join(", ")
+    : undefined;
+
+  const result = { ...station, name: cleanCode };
+  // Always overwrite badge and meta (remove old data if no new data)
+  if (badge) result.badge = badge; else delete result.badge;
+  if (Object.keys(meta).length) result.meta = meta; else delete result.meta;
+  return result;
 }
 
 // ───── Extract simpleDecrypt from app bundle using vm ─────
@@ -545,34 +755,182 @@ async function getStreamFromEmbed(embedUrl, debug = false) {
   return null;
 }
 
-// ───── Update index.txt (flat stations format) ─────
-function updateIndex(code, cover, streamUrl, pageUrl) {
-  let index = { name: "AV", image: "", stations: [] };
+// ───── Read/Write index.txt ─────
+function readIndex() {
+  let index = { name: "AV", image: "", browsable: true, stations: [] };
   if (fs.existsSync(INDEX_PATH)) {
     try {
       const raw = JSON.parse(fs.readFileSync(INDEX_PATH, "utf-8"));
-      // migrate: ถ้ามี groups เดิม ให้ลบทิ้ง ใช้ stations อย่างเดียว
       index.name = raw.name || "AV";
       index.image = raw.image || "";
+      index.browsable = true;
       index.stations = raw.stations || [];
     } catch {}
   }
-  const existing = index.stations.findIndex((s) => s.name === code);
-  const entry = { url: streamUrl, name: code, image: cover, referer: pageUrl };
+  return index;
+}
+
+function writeIndex(index) {
+  fs.writeFileSync(INDEX_PATH, JSON.stringify(index, null, 4), "utf-8");
+}
+
+// ───── Update index.txt (flat stations format) ─────
+function updateIndex(code, cover, streamUrl, pageUrl, extraMeta) {
+  const index = readIndex();
+  // Extract base code (without title suffix) for matching
+  const existing = index.stations.findIndex((s) => extractCode(s.name) === code);
+  let entry = { url: streamUrl, name: code, image: cover, referer: pageUrl };
+  if (extraMeta) {
+    entry = enrichStation(entry, extraMeta.javxx, extraMeta.javdb);
+  }
   if (existing >= 0) {
+    // Preserve existing meta if not overwriting
+    const prev = index.stations[existing];
+    entry.url = streamUrl || prev.url;
+    entry.referer = pageUrl || prev.referer;
     index.stations[existing] = entry;
   } else {
     index.stations.push(entry);
   }
-  fs.writeFileSync(INDEX_PATH, JSON.stringify(index, null, 4), "utf-8");
-  console.log(`📋 อัปเดต index: "${code}"`);
+  writeIndex(index);
+  console.log(`📋 อัปเดต index: "${entry.name}"`);
+}
+
+// ───── Extract code from display name (e.g. "SKMJ-408 Title here" → "SKMJ-408") ─────
+function extractCode(displayName) {
+  // JAV codes: optional numeric prefix + LETTERS-DIGITS (e.g. "110FSET-249" → "FSET-249")
+  const m = displayName.match(/\d*([A-Z]+-\d+)/i);
+  return m ? m[1].toUpperCase() : displayName.toUpperCase();
+}
+
+// ───── Update metadata for existing entries ─────
+async function runUpdateMeta() {
+  const index = readIndex();
+  if (!index.stations.length) {
+    console.error("❌ ไม่มีรายการใน index.txt");
+    process.exit(1);
+  }
+
+  // Filter targets
+  let targets = index.stations;
+  if (targetCode) {
+    targets = targets.filter((s) => extractCode(s.name) === targetCode);
+    if (!targets.length) {
+      console.error(`❌ ไม่พบรหัส ${targetCode} ใน index.txt`);
+      process.exit(1);
+    }
+  }
+
+  const forceAll = updateMetaMode === "all";
+  let updated = 0;
+  let skipped = 0;
+  let failed = 0;
+
+  for (let i = 0; i < targets.length; i++) {
+    const station = targets[i];
+    const code = extractCode(station.name);
+    const idx = index.stations.findIndex((s) => s === station);
+
+    // Skip if already has metadata (unless force all)
+    if (!forceAll && station.meta) {
+      console.log(`⏭️  [${i + 1}/${targets.length}] ${code} — มี metadata แล้ว, ข้าม`);
+      skipped++;
+      continue;
+    }
+
+    console.log(`\n━━━ [${i + 1}/${targets.length}] ${code} ━━━`);
+
+    try {
+      // Fetch actresses from javxx page (using referer URL)
+      let javxxMeta = null;
+      if (station.referer) {
+        try {
+          console.log(`📡 Fetch javxx page: ${station.referer}`);
+          const html = await fetchText(station.referer);
+          const $ = cheerio.load(html);
+
+          // Parse metadata: find smallest element with label AND actual value
+          function findFieldValue(valueRegex) {
+            let best = null, bestLen = Infinity;
+            $("*").each((_, el) => {
+              const text = $(el).text().trim();
+              const m = text.match(valueRegex);
+              if (m && m[1]?.trim() && text.length < bestLen) {
+                best = m[1].trim(); bestLen = text.length;
+              }
+            });
+            return best;
+          }
+
+          const actresses = [];
+          const actressVal = findFieldValue(/(?:นักแสดงหญิง|นักแสดง)\s*[:：]\s*(.+)/i);
+          if (actressVal) {
+            actressVal.split(/[,、，]/).forEach(n => {
+              const name = n.trim();
+              if (name && name.length > 1) actresses.push(name);
+            });
+          }
+
+          const releaseDate = findFieldValue(/วันที่วางจำหน่าย\s*[:：]\s*(\d{4}-\d{2}-\d{2})/i) || "";
+
+          const genres = [];
+          const genreVal = findFieldValue(/หมวดหมู่\s*[:：]\s*(.+)/i);
+          if (genreVal) {
+            genreVal.split(/[,、，]/).forEach(c => {
+              const cat = c.trim();
+              if (cat && cat.length > 1) genres.push(cat);
+            });
+          }
+
+          javxxMeta = { actresses, release_date: releaseDate, genres };
+          console.log(`  ✅ นักแสดงหญิง: ${actresses.length ? actresses.join(", ") : "(ไม่พบ)"}`);
+          if (releaseDate) console.log(`  ✅ วันที่วางจำหน่าย: ${releaseDate}`);
+          if (genres.length) console.log(`  ✅ หมวดหมู่: ${genres.join(", ")}`);
+        } catch (e) {
+          console.log(`  ⚠️  javxx error: ${e.message}`);
+        }
+      }
+
+      // Enrich and update (no JavDB needed — javxx has actresses)
+      const enriched = enrichStation(station, javxxMeta, null);
+      if (javxxMeta?.actresses?.length || javxxMeta?.release_date || javxxMeta?.genres?.length || enriched.badge) {
+        index.stations[idx] = enriched;
+        updated++;
+        console.log(`  ✅ อัปเดต: "${enriched.name}"${enriched.badge ? ` [${enriched.badge}]` : ""}`);
+      } else {
+        // Still update name cleanup even without actresses
+        index.stations[idx] = enriched;
+        updated++;
+        console.log(`  ✅ อัปเดต: "${enriched.name}" (ไม่พบ actresses)`);
+      }
+
+      // Rate limit: wait between requests
+      if (i < targets.length - 1) await sleep(1500);
+    } catch (e) {
+      console.log(`  ❌ Error: ${e.message}`);
+      failed++;
+    }
+  }
+
+  writeIndex(index);
+  console.log(`\n━━━ สรุป ━━━`);
+  console.log(`  ✅ อัปเดต: ${updated}`);
+  console.log(`  ⏭️  ข้าม: ${skipped}`);
+  console.log(`  ❌ ล้มเหลว: ${failed}`);
+  process.exit(0);
 }
 
 // ───── Main ─────
 async function main() {
+  // Handle --update-meta mode
+  if (updateMeta) {
+    await runUpdateMeta();
+    return;
+  }
+
   try {
     // Step 1: Parse the video page
-    const { code, cover, dataUrls, appScript, html } = await parseVideoPage(pageUrl);
+    const { code, cover, dataUrls, appScript, html, actresses, release_date, genres } = await parseVideoPage(pageUrl);
 
     if (!code) {
       console.error("❌ ไม่พบข้อมูลวิดีโอ ตรวจสอบ URL อีกครั้ง");
@@ -660,13 +1018,22 @@ async function main() {
     console.log(`\n✅ พบ ${parts.length} stream(s)`);
     parts.forEach((p, i) => console.log(`  [${i}] ${p.name}: ${p.url}`));
 
-    // Step 4: Save to index.txt (flat stations format — ไม่แยกไฟล์)
+    // Step 4: Use metadata from javxx (actresses already parsed above)
+    console.log(`\n📋 Metadata จาก javxx...`);
+    if (actresses.length) console.log(`  นักแสดงหญิง: ${actresses.join(", ")}`);
+    if (release_date) console.log(`  วันที่วางจำหน่าย: ${release_date}`);
+    if (genres.length) console.log(`  หมวดหมู่: ${genres.join(", ")}`);
+    const javxxMeta = { actresses, release_date, genres };
+
+    // Step 5: Save to index.txt (flat stations format — ไม่แยกไฟล์)
     if (!fs.existsSync(PLAYLIST_DIR)) fs.mkdirSync(PLAYLIST_DIR, { recursive: true });
 
     // ใช้ stream แรก (ปกติมีแค่ 1 part)
     const streamUrl = parts[0].url;
+    const hasMeta = actresses.length || release_date || genres.length;
+    const extraMeta = hasMeta ? { javxx: javxxMeta, javdb: null } : null;
 
-    updateIndex(code, cover, streamUrl, pageUrl);
+    updateIndex(code, cover, streamUrl, pageUrl, extraMeta);
     console.log(`\n🎉 เสร็จสิ้น!`);
     console.log(`  เพิ่ม "${code}" ลง index.txt`);
     console.log(`  stream: ${streamUrl}`);

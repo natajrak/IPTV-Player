@@ -59,8 +59,8 @@ const trackName = TRACK_MAP[trackArg] || trackArg || "พากย์ไทย";
 const isDubbedTrack = trackName === "พากย์ไทย";
 
 const seasonArg  = args.find((a) => a.startsWith("--season="));
-const seasonNum  = seasonArg ? (parseInt(seasonArg.replace("--season=", "")) || 1) : null;
-const seasonName = seasonNum ? `Season ${seasonNum}` : null;
+const seasonNum  = seasonArg ? (parseInt(seasonArg.replace("--season=", "")) ?? null) : null;
+const seasonName = seasonNum != null ? (seasonNum === 0 ? "Specials" : `Season ${seasonNum}`) : null;
 
 const updateMetaArg  = args.find((a) => a === "--update-meta" || a.startsWith("--update-meta="));
 const updateMeta     = !!updateMetaArg;

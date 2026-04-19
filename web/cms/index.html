@@ -641,8 +641,8 @@
         </div>
       </div>
       <div class="fm-row" id="um-season-row">
-        <label>Season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = ทุก season)</span></label>
-        <input type="number" id="um-season" min="1" placeholder="ว่าง = ทุก season" style="width:120px">
+        <label>Season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = ทุก season, 0 = Specials)</span></label>
+        <input type="number" id="um-season" min="0" placeholder="ว่าง = ทุก season" style="width:120px">
       </div>
       <div class="fm-row">
         <label>TMDB ID <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = auto)</span></label>
@@ -677,6 +677,48 @@
   </div>
 </div>
 
+<!-- AV Update Metadata Modal -->
+<div id="av-update-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center">
+        <h2>Update AV Metadata</h2>
+        <span class="modal-tab-hint" id="av-um-hint"></span>
+      </div>
+      <button class="modal-close" id="av-um-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="fm-row">
+        <label>Mode</label>
+        <div class="fm-radio-grp">
+          <label><input type="radio" name="av-um-mode" value="missing" id="av-um-mode-missing" checked> เฉพาะที่ยังไม่มี metadata</label>
+          <label><input type="radio" name="av-um-mode" value="all"> ทั้งหมด (ทับเดิม)</label>
+        </div>
+      </div>
+      <div class="fm-row">
+        <label>Code <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = ทุกรายการ)</span></label>
+        <input type="text" id="av-um-code" placeholder="เช่น SKMJ-408" style="width:180px">
+      </div>
+      <div class="cmd-box">
+        <div class="cmd-head">
+          <span class="cmd-label">Command</span>
+        </div>
+        <div class="cmd-text" id="av-um-cmd">(กำลังโหลด...)</div>
+      </div>
+      <div class="run-log hidden" id="av-um-log">
+        <div class="run-log-hd">
+          <span>Output</span>
+          <button class="run-log-clear" id="av-um-log-clear">ล้าง</button>
+        </div>
+        <pre class="run-log-body" id="av-um-log-body"></pre>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn-run" id="av-um-run-btn"><i class="fi fi-sr-rotate-right"></i> Update</button>
+    </div>
+  </div>
+</div>
+
 <!-- Batch Update Modal -->
 <div id="batch-modal" class="modal-overlay hidden">
   <div class="modal">
@@ -698,8 +740,8 @@
         </div>
       </div>
       <div class="fm-row">
-        <label>Season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = ทุก season)</span></label>
-        <input type="number" id="bm-season" min="1" placeholder="ว่าง = ทุก season" style="width:120px">
+        <label>Season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = ทุก season, 0 = Specials)</span></label>
+        <input type="number" id="bm-season" min="0" placeholder="ว่าง = ทุก season" style="width:120px">
       </div>
       <div class="fm-row">
         <label>Track</label>
@@ -1180,12 +1222,14 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       const isFirst  = si === 0;
       const tracks   = season.groups || [];
       const filename = tmdbId ? `${tmdbId}-${slug}` : slug;
+      const sznName = season.name || `Season ${si + 1}`;
+      // Map season name to TMDB season number: "Specials" → 0, "Season N" → N
+      const sznNum = /specials/i.test(sznName) ? 0 : (parseInt(sznName.match(/\d+/)?.[0]) || (si + 1));
       const trackBadges = tracks.map(t => {
         const ep = t.stations?.length || 0;
-        const rf = t.referer ? { referer: t.referer, filename, season: si + 1, tabId } : null;
+        const rf = t.referer ? { referer: t.referer, filename, season: sznNum, tabId } : null;
         return `${badge(t.name, rf)}<span class="badge-ep">${ep}</span>`;
       }).join(' ');
-      const sznName = season.name || `Season ${si + 1}`;
 
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
         <td class="c-no">${isFirst ? gid : ''}</td>
@@ -1193,11 +1237,11 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-title">${isFirst
           ? titleHtml(title)
           : `<span class="title-cont">↳ ${esc(sznName)}</span>`}</td>
-        <td class="c-szn">${esc(sznName)}${updBtn(slug, si + 1, tabId, title)}</td>
+        <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
         <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
-        ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: si + 1, sznName, trackNames: tracks.map(t => t.name), title, tabId })}</td>` : ''}
+        ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: sznNum, sznName, trackNames: tracks.map(t => t.name), title, tabId })}</td>` : ''}
       </tr>`;
     });
   });
@@ -1346,9 +1390,10 @@ function renderAV(wrap, stats, stations, tabId) {
       <th class="c-no">No</th>
       <th style="width:80px"></th>
       <th>ชื่อ</th>
+      <th>Metadata</th>
       <th>Referer</th>
       <th>Stream URL</th>
-      ${IS_LOCAL ? '<th class="c-act" style="width:60px"></th>' : ''}
+      ${IS_LOCAL ? '<th class="c-act" style="width:80px"></th>' : ''}
     </tr></thead><tbody>`;
 
   stations.forEach((s, idx) => {
@@ -1356,6 +1401,7 @@ function renderAV(wrap, stats, stations, tabId) {
     const image   = s.image || '';
     const url     = s.url || '';
     const referer = s.referer || '';
+    const meta    = s.meta || null;
     const gid     = idx + 1;
     const titleKey = name.toLowerCase();
 
@@ -1363,13 +1409,27 @@ function renderAV(wrap, stats, stations, tabId) {
       ? `<a href="${esc(referer)}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;word-break:break-all">${esc(referer)}</a>${cp(referer)}`
       : '<span style="color:var(--text3)">—</span>';
 
+    // Metadata summary cell
+    let metaHtml = '<span style="color:var(--text3)">—</span>';
+    if (meta && Object.keys(meta).length) {
+      const parts = [];
+      const actressStr = Array.isArray(meta.actresses) ? meta.actresses.join(', ') : (meta.actresses || '');
+      if (actressStr) parts.push(`<span style="color:var(--accent)">♀ ${esc(actressStr)}</span>`);
+      if (s.badge) parts.push(`<span style="display:inline-block;background:#e50914;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px">${esc(s.badge)}</span>`);
+      metaHtml = parts.length ? `<div style="font-size:11px;line-height:1.5">${parts.join('<br>')}</div>` : '<span style="color:var(--text3)">—</span>';
+    }
+
     html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
       <td class="c-no">${gid}</td>
       <td class="c-art">${avArtTag(image)}</td>
       <td class="c-title"><span class="title-main"><span class="title-en">${esc(name)}${cp(name)}</span></span></td>
+      <td style="min-width:160px;max-width:240px">${metaHtml}</td>
       <td class="c-slug" style="max-width:220px">${refCell}</td>
       <td class="c-slug" style="max-width:300px">${url ? `<span style="font-size:11px">${esc(url.substring(0, 60))}${url.length > 60 ? '...' : ''}</span>${cp(url)}` : '—'}</td>
-      ${IS_LOCAL ? `<td class="c-act"><button class="del-btn-icon" title="ลบ" data-av-del="${esc(name)}"><i class="fi fi-rr-trash"></i></button></td>` : ''}
+      ${IS_LOCAL ? `<td class="c-act">
+        <button class="upd-btn" data-av-update="${esc(name)}" title="Update Metadata"><i class="fi fi-sr-rotate-right"></i></button>
+        <button class="del-btn-icon" title="ลบ" data-av-del="${esc(name)}"><i class="fi fi-rr-trash"></i></button>
+      </td>` : ''}
     </tr>`;
   });
 
@@ -1377,6 +1437,71 @@ function renderAV(wrap, stats, stations, tabId) {
   wrap.innerHTML = html;
   if (stats) stats.textContent = `${stations.length} รายการ`;
 }
+
+// ── AV Update Metadata handler ─────────────────────────────────
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-av-update]');
+  if (!btn) return;
+  const code = btn.dataset.avUpdate;
+  // Extract JAV code from display name (e.g. "SKMJ-408 Title" → "SKMJ-408")
+  const javCode = code.match(/^([A-Z]+-\d+)/i)?.[1]?.toUpperCase() || code;
+  openAvUpdateModal(javCode);
+});
+
+function openAvUpdateModal(code) {
+  const modal = document.getElementById('av-update-modal');
+  document.getElementById('av-um-hint').textContent = code ? ` — ${code}` : '';
+  document.getElementById('av-um-code').value = code || '';
+  document.getElementById('av-um-mode-missing').checked = true;
+  document.getElementById('av-um-log').classList.add('hidden');
+  document.getElementById('av-um-log-body').textContent = '';
+  refreshAvUpdateCmd();
+  modal.classList.remove('hidden');
+}
+
+function buildAvUpdateCmd() {
+  const mode = document.querySelector('input[name="av-um-mode"]:checked')?.value || 'missing';
+  const code = document.getElementById('av-um-code').value.trim().toUpperCase();
+  const args = [mode === 'all' ? '--update-meta=all' : '--update-meta'];
+  if (code) args.push(`--code=${code}`);
+  return { script: 'fetch-javxx.js', args, cmd: `node fetch-javxx.js ${args.join(' ')}` };
+}
+
+function refreshAvUpdateCmd() {
+  const cmdEl = document.getElementById('av-um-cmd');
+  const p = buildAvUpdateCmd();
+  cmdEl.textContent = p.cmd;
+  cmdEl.className = 'cmd-text';
+}
+
+async function runAvUpdate() {
+  const payload = buildAvUpdateCmd();
+  const logEl  = document.getElementById('av-um-log');
+  const bodyEl = document.getElementById('av-um-log-body');
+  const runBtn = document.getElementById('av-um-run-btn');
+  logEl.classList.remove('hidden');
+  bodyEl.textContent = '';
+  runBtn.disabled = true;
+  runBtn.innerHTML = '<i class="fi fi-sr-rotate-right spin"></i> Running...';
+  const code = await runScript(payload.script, payload.args, bodyEl);
+  runBtn.disabled = false;
+  runBtn.innerHTML = '<i class="fi fi-sr-rotate-right"></i> Update';
+  if (code === 0) { loaded.delete('av'); loadTab('av'); }
+}
+
+document.getElementById('av-um-run-btn').addEventListener('click', runAvUpdate);
+document.getElementById('av-um-close').addEventListener('click', () => document.getElementById('av-update-modal').classList.add('hidden'));
+document.getElementById('av-um-log-clear').addEventListener('click', () => { document.getElementById('av-um-log-body').textContent = ''; document.getElementById('av-um-log').classList.add('hidden'); });
+document.getElementById('av-um-code').addEventListener('input', refreshAvUpdateCmd);
+document.querySelectorAll('input[name="av-um-mode"]').forEach(r => r.addEventListener('change', refreshAvUpdateCmd));
+document.getElementById('av-update-modal').addEventListener('click', e => { if (e.target === document.getElementById('av-update-modal')) document.getElementById('av-update-modal').classList.add('hidden'); });
+
+// ── AV Batch Update button in toolbar ──────────────────────────
+document.addEventListener('click', e => {
+  if (e.target.closest('#av-batch-update-btn')) {
+    openAvUpdateModal(''); // empty code = update all
+  }
+});
 
 // ── AV delete handler ───────────────────────────────────────────
 document.addEventListener('click', async e => {
@@ -1481,11 +1606,17 @@ function buildAddButtons() {
   document.querySelectorAll('.tab-pane').forEach(pane => {
     const bar = pane.querySelector('.pane-bar');
     if (!bar) return;
+    const isAV = pane.id === 'av';
     // Batch update button
     const batchBtn = document.createElement('button');
     batchBtn.className = 'btn-batch';
-    batchBtn.innerHTML = '<i class="fi fi-sr-rotate-right"></i> อัพเดททั้งหมด';
-    batchBtn.addEventListener('click', () => openBatchModal(pane.id));
+    batchBtn.innerHTML = '<i class="fi fi-sr-rotate-right"></i> อัพเดท Metadata';
+    if (isAV) {
+      batchBtn.id = 'av-batch-update-btn';
+      batchBtn.addEventListener('click', () => openAvUpdateModal(''));
+    } else {
+      batchBtn.addEventListener('click', () => openBatchModal(pane.id));
+    }
     bar.appendChild(batchBtn);
     // Add new button
     const addBtn = document.createElement('button');
@@ -1795,7 +1926,7 @@ function openUpdateModal(slug, season, tabId, title, partTmdbId = '') {
   const isSeries = TABS[tabId]?.kind === 'series';
   document.getElementById('um-hint').textContent = title ? ` — ${splitTitle(title).en}` : '';
   document.getElementById('um-season-row').style.display = isSeries ? '' : 'none';
-  document.getElementById('um-season').value = season > 0 ? season : '';
+  document.getElementById('um-season').value = season >= 0 ? season : '';
   document.getElementById('um-tmdb').value = partTmdbId || '';
   document.querySelector('input[name="um-mode"][value="all"]').checked = true;
   document.querySelector('input[name="um-track"][value=""]').checked   = true;
