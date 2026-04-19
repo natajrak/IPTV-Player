@@ -80,6 +80,14 @@ const updateMetaMode = updateMetaArg?.includes("=") ? updateMetaArg.split("=")[1
 const tmdbIdArg = args.find((a) => a.startsWith("--tmdb-id="));
 const forceTmdbId = tmdbIdArg ? parseInt(tmdbIdArg.replace("--tmdb-id=", "")) || null : null;
 
+// TMDB season override: use different TMDB season than playlist season
+const tmdbSeasonArg = args.find((a) => a.startsWith("--tmdb-season="));
+const tmdbSeasonNum = tmdbSeasonArg ? (parseInt(tmdbSeasonArg.replace("--tmdb-season=", "")) || null) : null;
+
+// Episode offset: shift TMDB episode matching
+const epOffsetArg = args.find((a) => a.startsWith("--ep-offset="));
+let epOffset = epOffsetArg ? (parseInt(epOffsetArg.replace("--ep-offset=", "")) || 0) : 0;
+
 const typeArg     = (args.find((a) => a.startsWith("--type=")) || "").replace("--type=", "");
 const contentType = ['anime-series','anime-movie','movie','series'].includes(typeArg) ? typeArg : 'anime-series';
 const isMovie     = contentType === 'anime-movie' || contentType === 'movie';
@@ -228,8 +236,59 @@ async function getStreamInfo(epUrl) {
   };
 }
 
+// ───── Parse listing page for episode links ─────
+async function parseListingPage(listingUrl) {
+  console.log(`\n📄 ตรวจพบหน้า listing: ${listingUrl}`);
+  const html = await fetchText(listingUrl, { Referer: FAIRY_BASE + "/" });
+  const $ = cheerio.load(html);
+
+  const rawTitle = $("title").first().text().trim();
+  const seriesTitle = cleanSiteTitle(rawTitle);
+  const posterImg =
+    $('meta[property="og:image"]').attr("content") ||
+    $('meta[name="og:image"]').attr("content") ||
+    $(".poster img, .thumb img").first().attr("src") ||
+    "";
+
+  // Collect all episode links (pointing to /watch/ pages)
+  const epLinks = [];
+  $('a[href*="/watch/"]').each((_, el) => {
+    const href = $(el).attr("href");
+    if (!href) return;
+    const fullUrl = href.startsWith("http") ? href : `${FAIRY_BASE}${href}`;
+    const text = $(el).text().trim();
+    // Skip navigation links like "ถัดไป" / "ก่อนหน้า"
+    if (/ถัดไป|next|ก่อนหน้า|prev/i.test(text)) return;
+    // Avoid duplicates
+    if (!epLinks.find(e => e.url === fullUrl)) {
+      const epNum = extractEpNum(text);
+      epLinks.push({ url: fullUrl, rawTitle: text, epNum });
+    }
+  });
+
+  // Assign epNum from sequential order if not found in text
+  epLinks.forEach((ep, i) => {
+    if (!ep.epNum) ep.epNum = i + 1;
+    ep.pageId = extractPageId(ep.url) || "";
+  });
+
+  // Sort by epNum
+  epLinks.sort((a, b) => a.epNum - b.epNum);
+
+  console.log(`✅ Series: "${seriesTitle}"`);
+  console.log(`✅ พบ ${epLinks.length} ตอนจากหน้า listing`);
+  epLinks.forEach(ep => console.log(`  ตอนที่ ${ep.epNum} — ${ep.url}`));
+
+  return { episodes: epLinks, seriesTitle, posterImg };
+}
+
 // ───── Crawl all episodes ─────
 async function crawlEpisodes(startUrl) {
+  // Detect listing page (no /watch/ in URL) vs episode page
+  if (!startUrl.includes("/watch/")) {
+    return parseListingPage(startUrl);
+  }
+
   console.log(`\n📄 เริ่ม crawl จาก: ${startUrl}`);
 
   const episodes = [];
@@ -381,8 +440,8 @@ async function getTmdbMovieNameTh(movieId, apiKey) {
 }
 
 // ───── Build / merge playlist JSON ─────
-function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName) {
-  const newTrack = { name: trackName, image: seasonPosterUrl, stations };
+function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, trackReferer = null) {
+  const newTrack = { name: trackName, image: seasonPosterUrl, ...(trackReferer && { referer: trackReferer }), stations };
 
   if (fs.existsSync(outputPath)) {
     let existing;
@@ -412,8 +471,32 @@ function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUr
       }
 
       season.groups = season.groups || [];
-      season.groups = season.groups.filter((g) => g.name !== trackName);
-      season.groups.push(newTrack);
+
+      // When epOffset > 0, append new stations to existing track instead of replacing
+      const existingTrack = season.groups.find((g) => g.name === trackName);
+      if (epOffset > 0 && existingTrack && Array.isArray(existingTrack.stations)) {
+        const merged = [...existingTrack.stations, ...stations];
+        merged.sort((a, b) => {
+          const aNum = parseInt(a.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
+          const bNum = parseInt(b.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
+          return aNum - bNum;
+        });
+        existingTrack.stations = merged;
+        existingTrack.image = seasonPosterUrl;
+        // Merge referer: combine source URLs with comma
+        if (trackReferer && existingTrack.referer) {
+          const oldRefs = existingTrack.referer.split(",").map(s => s.trim());
+          if (!oldRefs.includes(trackReferer)) {
+            existingTrack.referer = oldRefs.concat(trackReferer).join(",");
+          }
+        } else if (trackReferer) {
+          existingTrack.referer = trackReferer;
+        }
+        console.log(`\n🔀 Append ${stations.length} ตอนเข้า "${trackName}" (รวม ${merged.length} ตอน)`);
+      } else {
+        season.groups = season.groups.filter((g) => g.name !== trackName);
+        season.groups.push(newTrack);
+      }
 
       season.groups.sort((a, b) => {
         if (a.name === "พากย์ไทย") return -1;
@@ -685,9 +768,10 @@ async function runUpdateMeta() {
       const tmdbEps = dubbed ? thEps : enEps;
 
       track.stations.forEach((station, i) => {
-        const tmdbEp = tmdbEps[i];
+        const stationEpNum = i + 1;
+        const tmdbEp = tmdbEps.find(e => e.episode_number === stationEpNum) || tmdbEps[i];
         if (doTitle && tmdbEp?.name) {
-          station.name = buildStationName(i + 1, tmdbEp.name, dubbed);
+          station.name = buildStationName(stationEpNum, tmdbEp.name, dubbed);
         }
         if (doCover && tmdbEp?.still_path) {
           station.image = `https://image.tmdb.org/t/p/original${tmdbEp.still_path}`;
@@ -712,8 +796,29 @@ async function main() {
   if (updateMeta) { await runUpdateMeta(); return; }
 
   try {
-    // Phase 1: crawl episode list
-    const { episodes, seriesTitle: rawSeriesTitle, posterImg: rawPoster } = await crawlEpisodes(firstEpUrl);
+    // Phase 1: crawl episode list (supports comma-separated URLs for multi-part)
+    const urls = firstEpUrl.split(",").map(u => u.trim()).filter(Boolean);
+    const isMultiUrl = urls.length > 1;
+    let rawSeriesTitle = "", rawPoster = "";
+    let episodes = [];
+
+    for (let ui = 0; ui < urls.length; ui++) {
+      if (isMultiUrl) console.log(`\n📡 Fetch part ${ui + 1}/${urls.length}: ${urls[ui]}`);
+      const result = await crawlEpisodes(urls[ui]);
+      if (ui === 0) { rawSeriesTitle = result.seriesTitle; rawPoster = result.posterImg; }
+
+      const offset = episodes.length;
+      for (const ep of result.episodes) {
+        if (offset > 0) {
+          ep.epNum = ep.epNum + offset;
+        }
+        episodes.push(ep);
+      }
+      if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
+    }
+
+    // Multi-URL: offset already baked into epNum, reset epOffset
+    if (isMultiUrl && !epOffsetArg) epOffset = 0;
 
     if (episodes.length === 0) {
       console.error("❌ ไม่พบ episode ใดเลย ตรวจสอบ URL อีกครั้ง");
@@ -772,16 +877,25 @@ async function main() {
           posterUrl       = tmdbPoster;
           seasonPosterUrl = tmdbPoster;
 
+          // Use tmdbSeasonNum if specified, otherwise fallback to seasonNum
+          const lookupSeason = tmdbSeasonNum || seasonNum || 1;
+          if (tmdbSeasonNum && tmdbSeasonNum !== (seasonNum || 1)) {
+            console.log(`📌 TMDB Season override: playlist Season ${seasonNum || 1} → TMDB Season ${tmdbSeasonNum}`);
+          }
+          if (epOffset > 0) {
+            console.log(`📌 Episode offset: +${epOffset} (source ep 1 → TMDB ep ${epOffset + 1})`);
+          }
+
           if (isDubbedTrack) {
-            const biData = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, seasonNum || 1);
+            const biData = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, lookupSeason);
             tmdbEpisodes    = biData.thEpisodes;
             if (biData.poster) seasonPosterUrl = biData.poster;
-            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${seasonNum || 1}, th-TH w/ EN fallback) จาก TMDB`);
+            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, th-TH w/ EN fallback) จาก TMDB`);
           } else {
-            const seasonData = await getTmdbSeason(tmdbResult.id, tmdbKey, seasonNum || 1, "en-US");
+            const seasonData = await getTmdbSeason(tmdbResult.id, tmdbKey, lookupSeason, "en-US");
             tmdbEpisodes    = seasonData.episodes;
             if (seasonData.poster) seasonPosterUrl = seasonData.poster;
-            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${seasonNum || 1}, en-US) จาก TMDB`);
+            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, en-US) จาก TMDB`);
           }
           console.log(`✅ poster: show-level=${posterUrl !== rawPoster} season-specific=${seasonPosterUrl !== posterUrl}`);
         } else {
@@ -791,6 +905,9 @@ async function main() {
     } else {
       console.warn("⚠️  ไม่มี TMDB_API_KEY ข้าม TMDB lookup");
     }
+
+    // Phase 2.5: sort episodes by episode number (crawl order may not match)
+    episodes.sort((a, b) => a.epNum - b.epNum);
 
     // Phase 3: fetch stream URLs
     console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
@@ -812,7 +929,9 @@ async function main() {
         console.warn(` ⚠️  ${err.message}`);
       }
 
-      const tmdbEp = tmdbEpisodes[i];
+      // Match TMDB episode by episode_number (with offset), not array index
+      const tmdbEpNum = epNum + epOffset;
+      const tmdbEp = tmdbEpisodes.find(e => e.episode_number === tmdbEpNum) || tmdbEpisodes[epNum - 1 + epOffset];
       const epTitle = tmdbEp?.name || "";
       const epThumb = tmdbEp?.still_path
         ? `https://image.tmdb.org/t/p/original${tmdbEp.still_path}`
@@ -863,7 +982,7 @@ async function main() {
 
       updateIndex(seriesTitle, posterUrl, mainFile);
     } else {
-      const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName);
+      const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, firstEpUrl);
       fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
       console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
       updateIndex(seriesTitle, posterUrl, outputFile);

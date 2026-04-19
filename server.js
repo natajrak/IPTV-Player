@@ -32,6 +32,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-7hd.js',
   'fetch-nunghd4k.js',
   'fetch-123hds.js',
+  'fetch-javxx.js',
 ]);
 
 const PLAYLIST_DIRS = {
@@ -39,6 +40,7 @@ const PLAYLIST_DIRS = {
   'anime-movie':  'playlist/anime/movies',
   'movie':        'playlist/movies',
   'series':       'playlist/series',
+  'av':           'playlist/av',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────

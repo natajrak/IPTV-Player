@@ -47,10 +47,21 @@
       border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
+    .header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .header-logo img { height: 26px; width: auto; object-fit: contain; display: block; }
     header h1 { font-size: 17px; font-weight: 600; letter-spacing: .2px; }
     header .dot { color: var(--accent); }
     header .sub { color: var(--text3); font-size: 12px; margin-left: 4px; display: flex; align-items: center; gap: 5px; }
     header .sub i { font-size: 14px; }
+    .header-nav { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+    .header-nav .nav-link {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--text3); text-decoration: none;
+      font-size: 12px; padding: 5px 12px;
+      border-radius: 6px; transition: all .15s;
+    }
+    .header-nav .nav-link:hover { color: var(--text); background: var(--bg3); }
+    .header-nav .nav-link i { font-size: 14px; line-height: 1; }
 
     /* ── Tabs ────────────────────────────────────────── */
     .tabs {
@@ -177,6 +188,45 @@
       height: 46px;
       background: var(--bg4);
       border-radius: 3px;
+    }
+
+    /* ── AV landscape thumbnail ─────────────────────── */
+    .art-av {
+      width: 72px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 3px;
+      background: var(--bg4);
+      display: block;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .art-av:hover { opacity: .8; }
+    .art-av-ph {
+      width: 72px;
+      height: 42px;
+      background: var(--bg4);
+      border-radius: 3px;
+    }
+
+    /* ── Image preview overlay ──────────────────────── */
+    #img-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      backdrop-filter: blur(4px);
+    }
+    #img-preview-overlay.hidden { display: none; }
+    #img-preview-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
     }
 
     .title-main { color: var(--text); font-weight: 500; line-height: 1.4; }
@@ -484,8 +534,12 @@
 <body>
 
 <header>
-  <h1><span class="dot">▌</span> BKL Play</h1>
+  <a href="../" class="header-logo" title="BKL Play"><img src="../images/logo/logo.png" alt="BKL Play" /></a>
+  <h1><span class="dot">▌</span> CMS</h1>
   <span class="sub" id="data-source"></span>
+  <nav class="header-nav">
+    <a href="../" class="nav-link" title="Player"><i class="fi fi-sr-play-circle" aria-hidden="true"></i><span>Player</span></a>
+  </nav>
 </header>
 
 <div class="tabs" id="tab-nav">
@@ -493,6 +547,7 @@
   <button class="tab-btn"        data-tab="anime-movie">Anime Movie</button>
   <button class="tab-btn"        data-tab="movie">Movie</button>
   <button class="tab-btn"        data-tab="series">Series</button>
+  <button class="tab-btn"        data-tab="av">AV</button>
 </div>
 
 <!-- Anime Series -->
@@ -548,6 +603,20 @@
   </div>
   <div class="table-scroll">
     <div id="tbl-series" class="loading"><div class="spinner"></div><span>Loading...</span></div>
+  </div>
+</div>
+
+<!-- AV -->
+<div id="av" class="tab-pane">
+  <div class="pane-bar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+      <input type="text" class="s-inp" data-tab="av" placeholder="ค้นหา...">
+    </div>
+    <span class="pane-stats" id="stats-av"></span>
+  </div>
+  <div class="table-scroll">
+    <div id="tbl-av" class="loading"><div class="spinner"></div><span>Loading...</span></div>
   </div>
 </div>
 
@@ -780,7 +849,7 @@
         <input type="text" id="fm-url" placeholder="https://...">
       </div>
 
-      <div class="fm-row">
+      <div class="fm-row" id="fm-track-row">
         <label>Track</label>
         <div class="fm-radio-grp">
           <label><input type="radio" name="fm-track" value="th" checked> พากย์ไทย</label>
@@ -793,16 +862,19 @@
         <input type="number" id="fm-season" value="1" min="1">
       </div>
 
-      <div class="fm-row">
+      <div class="fm-row" id="fm-fname-row">
         <label>Filename <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ไม่ต้องมี .txt)</span></label>
         <input type="text" id="fm-fname" list="fm-fname-list" placeholder="เช่น my-anime" autocomplete="off">
         <datalist id="fm-fname-list"></datalist>
       </div>
 
-      <div class="fm-row">
+      <div class="fm-row" id="fm-tmdb-row">
         <label>TMDB ID <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ว่าง = auto)</span></label>
         <input type="text" id="fm-tmdb" placeholder="">
       </div>
+
+      <input type="hidden" id="fm-tmdb-season" value="">
+      <input type="hidden" id="fm-ep-offset" value="0">
 
       <div class="cmd-box">
         <div class="cmd-box-hd">
@@ -827,6 +899,11 @@
       </button>
     </div>
   </div>
+</div>
+
+<!-- Image Preview Overlay -->
+<div id="img-preview-overlay" class="hidden">
+  <img id="img-preview-img" src="" alt="Preview" />
 </div>
 
 <script>
@@ -855,6 +932,7 @@ const TABS = {
   'anime-movie':  { index: 'playlist/anime/movies/index.txt', kind: 'movie',  tmdbKind: 'movie' },
   'movie':        { index: 'playlist/movies/index.txt',       kind: 'movie',  tmdbKind: 'movie' },
   'series':       { index: 'playlist/series/index.txt',       kind: 'series', tmdbKind: 'tv' },
+  'av':           { index: 'playlist/av/index.txt',          kind: 'av',     tmdbKind: null },
 };
 
 const loaded = new Set();
@@ -957,7 +1035,7 @@ function badge(name, rf = null) {
 
 function artTag(src, first) {
   if (!first) return '';
-  if (src) return `<img class="art" src="${esc(src)}" loading="lazy" onerror="this.style.display='none'">`;
+  if (src) return `<img class="art" src="${esc(src)}" loading="lazy" data-preview="${esc(src)}" style="cursor:pointer" title="คลิกเพื่อดูภาพ" onerror="this.style.display='none'">`;
   return '<div class="art-ph"></div>';
 }
 
@@ -978,6 +1056,18 @@ async function loadTab(tabId) {
 
   try {
     const index  = await getJSON(resolveUrl(cfg.index));
+
+    // AV: flat stations format — render directly
+    if (cfg.kind === 'av') {
+      const stations = index.stations || [];
+      if (!stations.length) {
+        wrap.innerHTML = '<div class="empty"><span>ไม่มีข้อมูล</span></div>';
+        return;
+      }
+      renderAV(wrap, stats, stations, tabId);
+      return;
+    }
+
     const groups = index.groups || [];
 
     if (!groups.length) {
@@ -1244,6 +1334,100 @@ document.addEventListener('click', e => {
   });
 });
 
+// ── Render AV table (flat stations) ─────────────────────────────
+function avArtTag(src) {
+  if (src) return `<img class="art-av" src="${esc(src)}" loading="lazy" data-preview="${esc(src)}" onerror="this.style.display='none'" title="คลิกเพื่อดูภาพ">`;
+  return '<div class="art-av-ph"></div>';
+}
+
+function renderAV(wrap, stats, stations, tabId) {
+  let html = `<table>
+    <thead><tr>
+      <th class="c-no">No</th>
+      <th style="width:80px"></th>
+      <th>ชื่อ</th>
+      <th>Referer</th>
+      <th>Stream URL</th>
+      ${IS_LOCAL ? '<th class="c-act" style="width:60px"></th>' : ''}
+    </tr></thead><tbody>`;
+
+  stations.forEach((s, idx) => {
+    const name    = s.name || '(ไม่มีชื่อ)';
+    const image   = s.image || '';
+    const url     = s.url || '';
+    const referer = s.referer || '';
+    const gid     = idx + 1;
+    const titleKey = name.toLowerCase();
+
+    const refCell = referer
+      ? `<a href="${esc(referer)}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;word-break:break-all">${esc(referer)}</a>${cp(referer)}`
+      : '<span style="color:var(--text3)">—</span>';
+
+    html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
+      <td class="c-no">${gid}</td>
+      <td class="c-art">${avArtTag(image)}</td>
+      <td class="c-title"><span class="title-main"><span class="title-en">${esc(name)}${cp(name)}</span></span></td>
+      <td class="c-slug" style="max-width:220px">${refCell}</td>
+      <td class="c-slug" style="max-width:300px">${url ? `<span style="font-size:11px">${esc(url.substring(0, 60))}${url.length > 60 ? '...' : ''}</span>${cp(url)}` : '—'}</td>
+      ${IS_LOCAL ? `<td class="c-act"><button class="del-btn-icon" title="ลบ" data-av-del="${esc(name)}"><i class="fi fi-rr-trash"></i></button></td>` : ''}
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+  if (stats) stats.textContent = `${stations.length} รายการ`;
+}
+
+// ── AV delete handler ───────────────────────────────────────────
+document.addEventListener('click', async e => {
+  const btn = e.target.closest('[data-av-del]');
+  if (!btn) return;
+  const name = btn.dataset.avDel;
+  if (!confirm(`ลบ "${name}" ออกจาก AV?`)) return;
+
+  try {
+    const cfg = TABS['av'];
+    const index = await getJSON(resolveUrl(cfg.index));
+    index.stations = (index.stations || []).filter(s => s.name !== name);
+    const resp = await fetch('/api/save-file', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filePath: cfg.index, data: index }),
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    loaded.delete('av');
+    loadTab('av');
+  } catch (err) {
+    alert('ลบไม่สำเร็จ: ' + err.message);
+  }
+});
+
+// ── Image preview ───────────────────────────────────────────────
+{
+  const overlay = document.getElementById('img-preview-overlay');
+  const previewImg = document.getElementById('img-preview-img');
+
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-preview]');
+    if (!el) return;
+    e.stopPropagation();
+    previewImg.src = el.dataset.preview;
+    overlay.classList.remove('hidden');
+  });
+
+  overlay.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    previewImg.src = '';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+      overlay.classList.add('hidden');
+      previewImg.src = '';
+    }
+  });
+}
+
 // ── Add Modal (local only) ───────────────────────────────────────
 const ADD_SCRIPTS = {
   'anime-series': [
@@ -1276,6 +1460,9 @@ const ADD_SCRIPTS = {
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
   ],
+  'av': [
+    { id: 'javxx',      label: 'javxx',      file: 'fetch-javxx.js'      },
+  ],
 };
 
 const TAB_LABELS = {
@@ -1283,6 +1470,7 @@ const TAB_LABELS = {
   'anime-movie':  'Anime Movie',
   'movie':        'Movie',
   'series':       'Series',
+  'av':           'AV',
 };
 
 let modalTab    = 'anime-series';
@@ -1411,14 +1599,25 @@ async function openAddModal(tabId) {
     sel.closest('.fm-row').style.display = 'none';
   }
 
-  // Season / ภาค label & visibility (always show)
-  document.querySelector('#fm-season-row label').textContent = isSeries ? 'Season' : 'ภาค';
-  document.getElementById('fm-season-row').style.display = '';
+  const isAV = tabId === 'av';
+
+  // AV: ซ่อน Track, Season, Filename, TMDB (ใช้แค่ URL)
+  document.querySelector('#fm-track-row').style.display = isAV ? 'none' : '';
+  document.getElementById('fm-season-row').style.display = isAV ? 'none' : '';
+  document.getElementById('fm-fname-row').style.display = isAV ? 'none' : '';
+  document.getElementById('fm-tmdb-row').style.display = isAV ? 'none' : '';
+
+  // Season / ภาค label
+  if (!isAV) {
+    document.querySelector('#fm-season-row label').textContent = isSeries ? 'Season' : 'ภาค';
+  }
 
   // Reset fields
   document.getElementById('fm-url').value    = '';
   document.getElementById('fm-fname').value  = '';
   document.getElementById('fm-tmdb').value   = '';
+  document.getElementById('fm-tmdb-season').value = '';
+  document.getElementById('fm-ep-offset').value   = '0';
   document.getElementById('fm-season').value = '1';
   document.querySelector('input[name="fm-track"][value="th"]').checked = true;
 
@@ -1460,17 +1659,30 @@ function buildPayload() {
   if (!script) return null;
 
   const urlVal   = document.getElementById('fm-url').value.trim();
+  if (!urlVal) return null;
+
+  // AV: ใช้แค่ URL
+  if (modalTab === 'av') {
+    const args = [urlVal];
+    return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
+  }
+
   const fname    = document.getElementById('fm-fname').value.trim();
-  if (!urlVal || !fname) return null;
+  if (!fname) return null;
 
   const track    = document.querySelector('input[name="fm-track"]:checked')?.value || 'th';
   const season   = document.getElementById('fm-season').value.trim() || '1';
   const tmdb     = document.getElementById('fm-tmdb').value.trim();
   const isSeries = TABS[modalTab].kind === 'series';
 
+  const tmdbSeason = document.getElementById('fm-tmdb-season').value.trim();
+  const epOffsetVal = document.getElementById('fm-ep-offset').value.trim();
+
   const args = [urlVal, `--track=${track}`, `--type=${modalTab}`, `--season=${season}`];
   args.push(`--output=${fname}.txt`);
   if (tmdb) args.push(`--tmdb-id=${tmdb}`);
+  if (tmdbSeason) args.push(`--tmdb-season=${tmdbSeason}`);
+  if (epOffsetVal && epOffsetVal !== '0') args.push(`--ep-offset=${epOffsetVal}`);
 
   return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
 }
@@ -1480,7 +1692,9 @@ function updateCmd() {
   const payload = buildPayload();
   if (!payload) {
     const hasScript = (ADD_SCRIPTS[modalTab] || []).length > 0;
-    cmdEl.textContent = hasScript ? '(กรุณากรอก URL และ Filename)' : '(ไม่มี script สำหรับประเภทนี้)';
+    const placeholder = !hasScript ? '(ไม่มี script สำหรับประเภทนี้)'
+      : modalTab === 'av' ? '(กรุณากรอก URL)' : '(กรุณากรอก URL และ Filename)';
+    cmdEl.textContent = placeholder;
     cmdEl.className   = 'cmd-text placeholder';
   } else {
     cmdEl.textContent = payload.cmd;
@@ -1865,7 +2079,7 @@ document.getElementById('add-modal').addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeAddModal();
 });
-['fm-script', 'fm-url', 'fm-fname', 'fm-tmdb', 'fm-season'].forEach(id => {
+['fm-script', 'fm-url', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset'].forEach(id => {
   document.getElementById(id).addEventListener('input', updateCmd);
 });
 // Auto-fill: เมื่อเลือกจาก datalist (ค่าอาจเป็น title หรือ slug)

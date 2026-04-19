@@ -81,6 +81,16 @@ const updateMetaMode = updateMetaArg?.includes("=") ? updateMetaArg.split("=")[1
 const tmdbIdArg = args.find((a) => a.startsWith("--tmdb-id="));
 const forceTmdbId = tmdbIdArg ? parseInt(tmdbIdArg.replace("--tmdb-id=", "")) || null : null;
 
+// TMDB season override: use different TMDB season than playlist season
+// e.g. --tmdb-season=1 --season=2 → puts in Season 2 but pulls metadata from TMDB Season 1
+const tmdbSeasonArg = args.find((a) => a.startsWith("--tmdb-season="));
+const tmdbSeasonNum = tmdbSeasonArg ? (parseInt(tmdbSeasonArg.replace("--tmdb-season=", "")) || null) : null;
+
+// Episode offset: shift TMDB episode matching
+// e.g. --ep-offset=12 → source ep 1 maps to TMDB ep 13
+const epOffsetArg = args.find((a) => a.startsWith("--ep-offset="));
+let epOffset = epOffsetArg ? (parseInt(epOffsetArg.replace("--ep-offset=", "")) || 0) : 0;
+
 const typeArg     = (args.find((a) => a.startsWith("--type=")) || "").replace("--type=", "");
 const contentType = ['anime-series','anime-movie','movie','series'].includes(typeArg) ? typeArg : 'anime-series';
 const isMovie     = contentType === 'anime-movie' || contentType === 'movie';
@@ -156,15 +166,63 @@ async function parseSeriesPage(url) {
 
     const thumb = $(el).find("img").attr("src") || "";
     const epTitle = $(el).text().trim();
-    episodes.push({ url: epUrl, thumb, epTitle });
+
+    // Extract episode number from multiple sources
+    // Priority: URL patterns → link text → sequential fallback
+    const decodedUrl = decodeURIComponent(epUrl);
+    let slug = "";
+    let sortKey = 9000;
+    let epLabel = "";
+
+    // 1. Try URL: episode-N or ep-N → grab the number/keyword right after
+    //    e.g. episode-1-sound-th → "1", ep-7-dub-thai → "7", episode-ova1 → "ova1"
+    const urlMatch = decodedUrl.match(/(?:episode|ep)[-–](\d+)/i)
+      || decodedUrl.match(/(?:episode|ep)[-–](ova\d*|sp\d*)\b/i)
+      // 2. Try URL: Thai pattern ตอนที่-NN
+      || decodedUrl.match(/ตอนที่[-–](\d+)/);
+    if (urlMatch) slug = urlMatch[1];
+
+    // 3. Fallback: extract from link text (e.g. "ตอนที่ 5", "Episode 3")
+    if (!slug) {
+      const textNum = epTitle.match(/ตอนที่\s*([\d.]+)/i) || epTitle.match(/episode\s*(\d+)/i);
+      if (textNum) slug = textNum[1];
+    }
+
+    // Classify the slug
+    if (/^ova(\d*)/i.test(slug)) {
+      const ovaNum = parseInt(slug.match(/\d+/)?.[0] || "1");
+      sortKey = 9000 + ovaNum;
+      epLabel = `OVA${ovaNum > 1 ? " " + ovaNum : ""}`;
+    } else if (/^sp(\d*)/i.test(slug)) {
+      const spNum = parseInt(slug.match(/\d+/)?.[0] || "1");
+      sortKey = 9500 + spNum;
+      epLabel = `SP${spNum > 1 ? " " + spNum : ""}`;
+    } else if (/^[\d.]+$/.test(slug)) {
+      const num = parseFloat(slug);
+      // Check if text says something like "5.5" but URL has "55"
+      if (Number.isInteger(num)) {
+        const textMatch = epTitle.match(/ตอนที่\s*([\d.]+)/);
+        if (textMatch && textMatch[1].includes(".")) {
+          sortKey = parseFloat(textMatch[1]);
+          epLabel = textMatch[1];
+        } else {
+          sortKey = num;
+          epLabel = String(num);
+        }
+      } else {
+        sortKey = num;
+        epLabel = String(num);
+      }
+    } else {
+      // No number found — use "SP" as fallback
+      epLabel = slug || "SP";
+    }
+
+    episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel });
   });
 
-  // Sort by episode number extracted from URL
-  episodes.sort((a, b) => {
-    const numA = parseInt((a.url.match(/episode[-–](\d+)/i) || [])[1] || 0);
-    const numB = parseInt((b.url.match(/episode[-–](\d+)/i) || [])[1] || 0);
-    return numA - numB;
-  });
+  // Sort by sortKey (regular eps by number, specials at the end)
+  episodes.sort((a, b) => a.sortKey - b.sortKey);
 
   console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
   return { title, posterImg, episodes };
@@ -337,8 +395,33 @@ function buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUr
       }
 
       season.groups = season.groups || [];
-      season.groups = season.groups.filter((g) => g.name !== trackName);
-      season.groups.push(newTrack);
+
+      // When epOffset > 0, append new stations to existing track instead of replacing
+      const existingTrack = season.groups.find((g) => g.name === trackName);
+      if (epOffset > 0 && existingTrack && Array.isArray(existingTrack.stations)) {
+        // Merge: keep existing stations + add new ones, sort by episode number
+        const merged = [...existingTrack.stations, ...stations];
+        merged.sort((a, b) => {
+          const aNum = parseInt(a.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
+          const bNum = parseInt(b.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
+          return aNum - bNum;
+        });
+        existingTrack.stations = merged;
+        existingTrack.image = seasonPosterUrl;
+        // Merge referer: combine source URLs with comma
+        if (trackReferer && existingTrack.referer) {
+          const oldRefs = existingTrack.referer.split(",").map(s => s.trim());
+          if (!oldRefs.includes(trackReferer)) {
+            existingTrack.referer = oldRefs.concat(trackReferer).join(",");
+          }
+        } else if (trackReferer) {
+          existingTrack.referer = trackReferer;
+        }
+        console.log(`\n🔀 Append ${stations.length} ตอนเข้า "${trackName}" (รวม ${merged.length} ตอน)`);
+      } else {
+        season.groups = season.groups.filter((g) => g.name !== trackName);
+        season.groups.push(newTrack);
+      }
 
       // พากย์ไทย always first
       season.groups.sort((a, b) => {
@@ -611,9 +694,15 @@ async function runUpdateMeta() {
       const tmdbEps = dubbed ? thEps : enEps;
 
       track.stations.forEach((station, i) => {
-        const tmdbEp = tmdbEps[i];
+        // Extract episode number from station name for TMDB matching
+        const nameMatch = station.name.match(/(?:ตอน|Ep\.?)\s*([\d.]+)/i);
+        const stationEpNum = nameMatch ? parseInt(nameMatch[1]) : (i + 1);
+        const stationLabel = nameMatch ? nameMatch[1] : String(i + 1);
+        const tmdbEp = !isNaN(stationEpNum)
+          ? (tmdbEps.find(e => e.episode_number === stationEpNum) || tmdbEps[i])
+          : tmdbEps[i];
         if (doTitle && tmdbEp?.name) {
-          station.name = buildStationName(i + 1, tmdbEp.name, dubbed);
+          station.name = buildStationName(stationLabel, tmdbEp.name, dubbed);
         }
         if (doCover && tmdbEp?.still_path) {
           station.image = `https://image.tmdb.org/t/p/original${tmdbEp.still_path}`;
@@ -638,7 +727,33 @@ async function main() {
   if (updateMeta) { await runUpdateMeta(); return; }
 
   try {
-    const { title: rawTitle, posterImg: rawPoster, episodes } = await parseSeriesPage(seriesUrl);
+    // Support comma-separated URLs for multi-part series
+    const urls = seriesUrl.split(",").map(u => u.trim()).filter(Boolean);
+    const isMultiUrl = urls.length > 1;
+    let rawTitle = "", rawPoster = "";
+    let episodes = [];
+
+    for (let ui = 0; ui < urls.length; ui++) {
+      if (isMultiUrl) console.log(`\n📡 Fetch part ${ui + 1}/${urls.length}: ${urls[ui]}`);
+      const result = await parseSeriesPage(urls[ui]);
+      if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
+
+      const offset = episodes.length;
+      for (const ep of result.episodes) {
+        if (offset > 0) {
+          const origNum = parseInt(ep.epLabel);
+          if (!isNaN(origNum)) {
+            ep.epLabel = String(origNum + offset);
+            ep.sortKey = origNum + offset;
+          }
+        }
+        episodes.push(ep);
+      }
+      if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
+    }
+
+    // Multi-URL: offset already baked into epLabel, reset epOffset
+    if (isMultiUrl && !epOffsetArg) epOffset = 0;
 
     if (episodes.length === 0) {
       console.error("❌ ไม่พบ episode ใดเลย ตรวจสอบ URL อีกครั้ง");
@@ -697,16 +812,25 @@ async function main() {
           posterUrl       = tmdbPoster;
           seasonPosterUrl = tmdbPoster;
 
+          // Use tmdbSeasonNum if specified, otherwise fallback to seasonNum
+          const lookupSeason = tmdbSeasonNum || seasonNum || 1;
+          if (tmdbSeasonNum && tmdbSeasonNum !== (seasonNum || 1)) {
+            console.log(`📌 TMDB Season override: playlist Season ${seasonNum || 1} → TMDB Season ${tmdbSeasonNum}`);
+          }
+          if (epOffset > 0) {
+            console.log(`📌 Episode offset: +${epOffset} (source ep 1 → TMDB ep ${epOffset + 1})`);
+          }
+
           if (isDubbedTrack) {
-            const biData = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, seasonNum || 1);
+            const biData = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, lookupSeason);
             tmdbEpisodes    = biData.thEpisodes;
             if (biData.poster) seasonPosterUrl = biData.poster;
-            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${seasonNum || 1}, th-TH w/ EN fallback) จาก TMDB`);
+            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, th-TH w/ EN fallback) จาก TMDB`);
           } else {
-            const seasonData = await getTmdbSeason(tmdbResult.id, tmdbKey, seasonNum || 1, "en-US");
+            const seasonData = await getTmdbSeason(tmdbResult.id, tmdbKey, lookupSeason, "en-US");
             tmdbEpisodes    = seasonData.episodes;
             if (seasonData.poster) seasonPosterUrl = seasonData.poster;
-            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${seasonNum || 1}, en-US) จาก TMDB`);
+            console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, en-US) จาก TMDB`);
           }
           console.log(`✅ poster: show-level=${posterUrl !== rawPoster} season-specific=${seasonPosterUrl !== posterUrl}`);
         } else {
@@ -721,8 +845,9 @@ async function main() {
 
     for (let i = 0; i < episodes.length; i++) {
       const ep = episodes[i];
-      const epNum = i + 1;
-      process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
+      const epLabel = ep.epLabel || String(i + 1);
+      const epNumInt = parseInt(epLabel);  // NaN for OVA/SP
+      process.stdout.write(`  ตอน ${epLabel}/${episodes.length}...`);
 
       let streamUrl = null;
       try {
@@ -732,13 +857,17 @@ async function main() {
         console.warn(` ⚠️  ${err.message}`);
       }
 
-      const tmdbEp = tmdbEpisodes[i];
+      // Match TMDB episode by episode_number (with offset), fallback to index
+      const tmdbEpNum = !isNaN(epNumInt) ? epNumInt + epOffset : NaN;
+      const tmdbEp = !isNaN(tmdbEpNum)
+        ? (tmdbEpisodes.find(e => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset])
+        : null;
       const epTitle = tmdbEp?.name || "";
       const epThumb = tmdbEp?.still_path
         ? `https://image.tmdb.org/t/p/original${tmdbEp.still_path}`
         : ep.thumb || "";
 
-      const stationName = buildStationName(epNum, epTitle, isDubbedTrack);
+      const stationName = buildStationName(epLabel, epTitle, isDubbedTrack);
 
       stations.push({
         name: stationName,

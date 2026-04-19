@@ -40,6 +40,7 @@ const searchIndexVisitedUrls = new Set();
 const searchIndexEntryKeys = new Set();
 let currentPage = 0;
 let currentSortOrder = "az";
+let avUnlocked = false;
 let currentGroups = [];
 let currentGroupTitle = "";
 let currentGroupParent = null;
@@ -285,6 +286,17 @@ async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
 searchInput.addEventListener("input", async () => {
   const q = searchInput.value.trim();
   activeSearchIdx = -1;
+
+  // Secret code to unlock AV category
+  if (q === "000000" && !avUnlocked) {
+    avUnlocked = true;
+    searchInput.value = "";
+    searchClear.classList.add("hidden");
+    closeSearch();
+    // Re-render current view to show AV
+    if (lastNode) renderNode(lastNode, lastTitle);
+    return;
+  }
 
   // save state before first search action
   if (q && !preSearchState) {
@@ -641,9 +653,21 @@ function renderNode(node, title, options = {}) {
   updateBreadcrumb(title);
 
   if (node.groups?.length) {
+    // Hide AV category until unlocked
+    const visibleGroups = avUnlocked
+      ? node.groups
+      : node.groups.filter(g => !/^AV$/i.test(g.name));
+    const renderableNode = visibleGroups.length !== node.groups.length
+      ? { ...node, groups: visibleGroups }
+      : node;
     currentPage = typeof page === "number" ? page : 0;
     currentSortOrder = sort === "za" ? "za" : "az";
-    renderGroups(node.groups, title, node);
+    renderGroups(renderableNode.groups, title, renderableNode);
+  } else if (node.stations?.length && node.stations.some(s => s.referer)) {
+    // Browsable station list (e.g. AV) — items have individual referer = standalone collection
+    currentPage = typeof page === "number" ? page : 0;
+    currentSortOrder = sort === "za" ? "za" : "az";
+    renderBrowsableStations(node.stations, title, node);
   } else if (node.stations?.length) {
     renderStations(node.stations, node.referer, title);
   } else {
@@ -835,6 +859,96 @@ function renderStations(stations, referer, sectionTitle) {
     });
 
     grid.appendChild(card);
+  });
+}
+
+/* ===== Render browsable stations (AV-like) with sort, pagination ===== */
+let browseAllStations = [];
+let browseTitle = "";
+let browseParentNode = null;
+
+function renderBrowsableStations(stations, sectionTitle, parentNode) {
+  browseAllStations = stations;
+  browseTitle = sectionTitle;
+  browseParentNode = parentNode;
+
+  // Sort
+  const sorted = [...stations].sort((a, b) => {
+    const nameA = (a.name || "").toLowerCase();
+    const nameB = (b.name || "").toLowerCase();
+    return currentSortOrder === "za" ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
+  });
+
+  const total = sorted.length;
+  const totalPages = Math.ceil(total / PAGE_SIZE) || 1;
+  currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
+  const start = currentPage * PAGE_SIZE;
+  const pageItems = getPaginationItems(totalPages, currentPage);
+  const pageStations = sorted.slice(start, start + PAGE_SIZE);
+
+  gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
+    withSort: true,
+    sort: currentSortOrder,
+    count: total,
+  })}
+    <div class="card-grid landscape"></div>
+    ${totalPages > 1 ? `<nav id="pagination" aria-label="Pagination">
+      <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""}>
+        ${PAGINATION_ICON_PREV}
+      </button>
+      <div id="page-numbers">
+        ${pageItems.map(p => {
+          const isActive = p === currentPage + 1;
+          return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}">${p}</button>`;
+        }).join("")}
+      </div>
+      <button class="page-btn page-nav" id="page-next" ${currentPage >= totalPages - 1 ? "disabled" : ""}>
+        ${PAGINATION_ICON_NEXT}
+      </button>
+    </nav>` : ""}`;
+
+  const grid = gridView.querySelector(".card-grid");
+  document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
+
+  pageStations.forEach((station) => {
+    const globalIdx = stations.indexOf(station);
+    const card = makeCard({
+      name: station.name || "ไม่มีชื่อ",
+      image: station.image,
+      sub: null,
+      landscape: true,
+    });
+
+    card.addEventListener("click", () => {
+      if (searchReturnState) clearSearchReturnState();
+      openPlayer(stations, globalIdx, null, sectionTitle);
+    });
+
+    grid.appendChild(card);
+  });
+
+  // Pagination
+  if (totalPages > 1) {
+    const goToPage = (p) => {
+      currentPage = Math.max(0, Math.min(p, totalPages - 1));
+      renderBrowsableStations(browseAllStations, browseTitle, browseParentNode);
+      showGrid();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    document.getElementById("page-prev")?.addEventListener("click", () => goToPage(currentPage - 1));
+    document.getElementById("page-next")?.addEventListener("click", () => goToPage(currentPage + 1));
+    gridView.querySelectorAll(".page-number").forEach(btn => {
+      btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
+    });
+  }
+
+  // Sort toggle
+  gridView.querySelector(".sort-order-toggle")?.addEventListener("click", () => {
+    currentSortOrder = currentSortOrder === "az" ? "za" : "az";
+    currentPage = 0;
+    renderBrowsableStations(browseAllStations, browseTitle, browseParentNode);
+    showGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
