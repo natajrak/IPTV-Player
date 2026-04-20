@@ -33,6 +33,8 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-nunghd4k.js',
   'fetch-123hds.js',
   'fetch-javxx.js',
+  'fetch-allinhd.js',
+  'fetch-037hdd.js',
 ]);
 
 const PLAYLIST_DIRS = {

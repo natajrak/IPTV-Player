@@ -50,6 +50,7 @@ let crossSeasonIndex = -1;
 let crossSeasonSeasons = [];
 let epPanelSeasonFilter = "";
 let currentSeasonTitle = "";
+let playerSectionTitle = "";   // sectionTitle from renderStations (movie part name for movies)
 let playerNoticeTimer = null;
 let searchDownLastAt = 0;
 let activeSearchIdx = -1;
@@ -836,7 +837,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
   currentGroupParent = parentNode;
   const extractNum = (name) => { const m = String(name || "").match(/\d+/); return m ? parseInt(m[0]) : null; };
   const allNumeric = groups.every(g => extractNum(g?.name || g?.info) !== null);
+  const hasBadges  = groups.some(g => g.badge);
   const sortedGroups = [...groups].sort((a, b) => {
+    // ถ้ามี badge (เช่น "ภาค 1", "ภาค 2") → sort ตาม badge number ก่อน
+    if (hasBadges) {
+      const ba = extractNum(a.badge) ?? Infinity;
+      const bb = extractNum(b.badge) ?? Infinity;
+      if (ba !== bb) return currentSortOrder === "za" ? bb - ba : ba - bb;
+    }
     const nameA = String(a?.name || a?.info || "").toLowerCase();
     const nameB = String(b?.name || b?.info || "").toLowerCase();
     if (allNumeric) {
@@ -965,7 +973,7 @@ function renderSectionHeader(title, options = {}) {
     </div>
     <div class="av-filter-group">
       <button id="av-filter-actress-btn" class="av-filter-btn${avActiveActress ? " active" : ""}">${avActiveActress ? esc(avActiveActress) + " ✕" : "นักแสดง ▾"}</button>
-      <div id="av-filter-actress-dropdown" class="av-filter-dropdown hidden"></div>
+      <div id="av-filter-actress-dropdown" class="av-filter-dropdown right hidden"></div>
     </div>
     ${avActiveGenre || avActiveActress ? `<button id="av-filter-clear" class="av-filter-clear-btn">ล้าง</button>` : ""}
   ` : "";
@@ -1306,6 +1314,7 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "") {
   currentIndex = index;
   upnextCancelled = false;
   inheritedRefererCache = inheritedReferer;
+  playerSectionTitle = languageTitle;
   const crossSeasonData = buildCrossSeasonQueue(languageTitle, inheritedReferer);
   crossSeasonQueue = crossSeasonData.queue;
   crossSeasonSeasons = crossSeasonData.seasons;
@@ -1360,7 +1369,25 @@ function playEpisode(index, inheritedReferer) {
   }
 
   const episodeTitle = station.name || `ตอนที่ ${index + 1}`;
-  playerTitle.innerHTML = `<span class="player-title-main">${esc(episodeTitle)}</span>${currentSeasonTitle ? `<span class="player-title-sub">${esc(currentSeasonTitle)}</span>` : ""}`;
+
+  // Movie/Anime-Movie: station name เป็นชื่อ track type (พากย์ไทย/ซับไทย) → สลับให้ part title เป็น main, track เป็น sub
+  const isTrackLabel = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(episodeTitle);
+  // AV: แสดงชื่อ + นักแสดง เหมือน card
+  const actresses = station.meta?.actresses;
+  const actressSub = Array.isArray(actresses) ? actresses.join(", ") : (typeof actresses === "string" ? actresses : "");
+  let displayMain, displaySub;
+  if (actressSub) {
+    // AV mode: name = "ABF-114", sub = "Suzumori Remu"
+    displayMain = episodeTitle;
+    displaySub = actressSub;
+  } else if (isTrackLabel && playerSectionTitle) {
+    displayMain = playerSectionTitle;
+    displaySub = episodeTitle;
+  } else {
+    displayMain = episodeTitle;
+    displaySub = currentSeasonTitle;
+  }
+  playerTitle.innerHTML = `<span class="player-title-main">${esc(displayMain)}</span>${displaySub ? `<span class="player-title-sub">${esc(displaySub)}</span>` : ""}`;
   btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
   btnNextEp.disabled = !resolveAdjacentEpisode(1);
   btnEpisodes.innerHTML = `${EPISODES_ICON}<span>${index + 1}/${currentStations.length}</span>`;
@@ -2019,9 +2046,16 @@ function scheduleNext() {
     return;
   }
 
-  const upnextLabel = formatSeasonEpisodeMeta(nextSeasonTitle, next.name, nextLabelIndex);
   upnextThumb.src = next.image || "";
-  upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
+  // AV: แสดงชื่อ + นักแสดง แทน season/episode format
+  const nextActresses = next.meta?.actresses;
+  const nextActressSub = Array.isArray(nextActresses) ? nextActresses.join(", ") : (typeof nextActresses === "string" ? nextActresses : "");
+  if (nextActressSub) {
+    upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(next.name || "")}</span><span class="upnext-title-name">${esc(nextActressSub)}</span>`;
+  } else {
+    const upnextLabel = formatSeasonEpisodeMeta(nextSeasonTitle, next.name, nextLabelIndex);
+    upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
+  }
   upnextToast.classList.remove("hidden");
 
   let secs = 5;
@@ -2076,6 +2110,7 @@ function closePlayer() {
   crossSeasonSeasons = [];
   epPanelSeasonFilter = "";
   currentSeasonTitle = "";
+  playerSectionTitle = "";
   queueFocusRefresh();
 }
 

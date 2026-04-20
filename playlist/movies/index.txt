@@ -1,66 +1,76 @@
 {
-  "name": "Movies",
-  "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/index.txt",
-  "groups": [
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/avatar-fire-and-ash.txt",
-      "name": "Avatar: Fire and Ash [อวตาร: อัคนีและธุลีดิน]",
-      "image": "https://image.tmdb.org/t/p/original/aabwWZWx6z1aYP4PX2ADvbDKktd.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/captain-america-brave-new-world.txt",
-      "name": "Captain America: Brave New World [กัปตัน อเมริกา: ศึกฮีโร่จักรวาลใหม่]",
-      "image": "https://image.tmdb.org/t/p/original/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/cells-at-work.txt",
-      "name": "Cells at Work! [เซลล์ขยันพันธุ์เดือด]",
-      "image": "https://image.tmdb.org/t/p/original/kr67sOdZFPimMYLAmg6eTembFVQ.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/deadpool-wolverine.txt",
-      "name": "Deadpool & Wolverine [เดดพูล & วูล์ฟเวอรีน]",
-      "image": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/jurassic-world-rebirth.txt",
-      "name": "Jurassic World Rebirth [จูราสสิค เวิลด์: กำเนิดชีวิตใหม่]",
-      "image": "https://image.tmdb.org/t/p/original/1RICxzeoNCAO5NpcRMIgg1XT6fm.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/predator-badlands.txt",
-      "name": "Predator: Badlands [พรีเดเตอร์: แดนเถื่อน]",
-      "image": "https://image.tmdb.org/t/p/original/erTRAi241eYF4K8KoGGOI8kFPox.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/sonic-the-hedgehog.txt",
-      "name": "Sonic the Hedgehog [โซนิค เดอะ เฮดจ์ฮ็อก]",
-      "image": "https://image.tmdb.org/t/p/original/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/superman.txt",
-      "name": "Superman [ซูเปอร์แมน]",
-      "image": "https://image.tmdb.org/t/p/original/ldyfo0BKmz5rWtJJKCvwaNS4cJT.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/the-fantastic-4-first-steps.txt",
-      "name": "The Fantastic 4: First Steps [เดอะ แฟนแทสติก 4 จุดเริ่มต้นปฐมบทใหม่]",
-      "image": "https://image.tmdb.org/t/p/original/nf5qaSEvyYSNeFH0YhSs5EsBLX9.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/super-mario-bros.txt",
-      "name": "The Super Mario Bros. Movie [เดอะ ซูเปอร์ มาริโอ้ บราเธอร์ส มูฟวี่]",
-      "image": "https://image.tmdb.org/t/p/original/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/thunderbolts.txt",
-      "name": "Thunderbolts* [ธันเดอร์โบลต์ส*]",
-      "image": "https://image.tmdb.org/t/p/original/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/tron-ares.txt",
-      "name": "TRON: Ares [ทรอน แอรีส]",
-      "image": "https://image.tmdb.org/t/p/original/chpWmskl3aKm1aTZqUHRCtviwPy.jpg"
-    }
-  ]
+    "name": "Movies",
+    "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/index.txt",
+    "groups": [
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/avatar.txt",
+            "name": "Avatar [อวตาร]",
+            "image": "https://image.tmdb.org/t/p/w600_and_h900_face/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/captain-america-brave-new-world.txt",
+            "name": "Captain America: Brave New World [กัปตัน อเมริกา: ศึกฮีโร่จักรวาลใหม่]",
+            "image": "https://image.tmdb.org/t/p/original/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/cells-at-work.txt",
+            "name": "Cells at Work! [เซลล์ขยันพันธุ์เดือด]",
+            "image": "https://image.tmdb.org/t/p/original/kr67sOdZFPimMYLAmg6eTembFVQ.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/deadpool-wolverine.txt",
+            "name": "Deadpool & Wolverine [เดดพูล & วูล์ฟเวอรีน]",
+            "image": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/harry-potter.txt",
+            "name": "Harry Potter [แฮร์รี่ พอตเตอร์]",
+            "image": "https://image.tmdb.org/t/p/original/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/jurassic-world-rebirth.txt",
+            "name": "Jurassic World Rebirth [จูราสสิค เวิลด์: กำเนิดชีวิตใหม่]",
+            "image": "https://image.tmdb.org/t/p/original/1RICxzeoNCAO5NpcRMIgg1XT6fm.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/predator-badlands.txt",
+            "name": "Predator: Badlands [พรีเดเตอร์: แดนเถื่อน]",
+            "image": "https://image.tmdb.org/t/p/original/erTRAi241eYF4K8KoGGOI8kFPox.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/sonic-the-hedgehog.txt",
+            "name": "Sonic the Hedgehog [โซนิค เดอะ เฮดจ์ฮ็อก]",
+            "image": "https://image.tmdb.org/t/p/original/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/superman.txt",
+            "name": "Superman [ซูเปอร์แมน]",
+            "image": "https://image.tmdb.org/t/p/original/ldyfo0BKmz5rWtJJKCvwaNS4cJT.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/the-fantastic-4-first-steps.txt",
+            "name": "The Fantastic 4: First Steps [เดอะ แฟนแทสติก 4 จุดเริ่มต้นปฐมบทใหม่]",
+            "image": "https://image.tmdb.org/t/p/original/nf5qaSEvyYSNeFH0YhSs5EsBLX9.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/super-mario-bros.txt",
+            "name": "The Super Mario Bros. Movie [เดอะ ซูเปอร์ มาริโอ้ บราเธอร์ส มูฟวี่]",
+            "image": "https://image.tmdb.org/t/p/original/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/thunderbolts.txt",
+            "name": "Thunderbolts* [ธันเดอร์โบลต์ส*]",
+            "image": "https://image.tmdb.org/t/p/original/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/tron.txt",
+            "name": "TRON [ทรอน]",
+            "image": "https://image.tmdb.org/t/p/original/chpWmskl3aKm1aTZqUHRCtviwPy.jpg"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/movies/zootopia.txt",
+            "name": "Zootopia [นครสัตว์มหาสนุก]",
+            "image": "https://image.tmdb.org/t/p/original/hlK0e0wAQ3VLuJcsfIYPvb4JVud.jpg"
+        }
+    ]
 }

@@ -1562,6 +1562,8 @@ const ADD_SCRIPTS = {
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
+    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
+    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
   ],
   'anime-movie': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1570,6 +1572,8 @@ const ADD_SCRIPTS = {
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
+    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
+    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
   ],
   'movie': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1577,6 +1581,8 @@ const ADD_SCRIPTS = {
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
+    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
+    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
   ],
   'series': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1584,6 +1590,8 @@ const ADD_SCRIPTS = {
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
+    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
+    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
   ],
   'av': [
     { id: 'javxx',      label: 'javxx',      file: 'fetch-javxx.js'      },
@@ -1910,6 +1918,7 @@ function buildUpdateCmd() {
   if (season) args.push(`--season=${season}`);
   if (track)  args.push(`--track=${track}`);
   if (tmdb)   args.push(`--tmdb-id=${tmdb}`);
+  if (updateCtx.tabId) args.push(`--type=${updateCtx.tabId}`);
   args.push(`--output=${updateCtx.slug}.txt`);
   return { script: UPDATE_SCRIPT, args, cmd: `node ${UPDATE_SCRIPT} ${args.join(' ')}` };
 }
@@ -2011,6 +2020,7 @@ async function runBatchUpdate() {
     const args = [mode === 'all' ? '--update-meta' : `--update-meta=${mode}`];
     if (season) args.push(`--season=${season}`);
     if (track)  args.push(`--track=${track}`);
+    args.push(`--type=${batchTab}`);
     args.push(`--output=${f.slug}.txt`);
     const code = await runScript(UPDATE_SCRIPT, args, bodyEl);
     if (code === 0) ok++; else fail++;
@@ -2040,6 +2050,8 @@ function scriptFromReferer(url) {
     if (host.includes('7hd'))                               return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
     if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
+    if (host.includes('allinhd'))                          return 'fetch-allinhd.js';
+    if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
   } catch {}
   return null;
 }

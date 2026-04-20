@@ -200,7 +200,7 @@ button:focus-visible,
   display: flex;
   align-items: center;
   gap: 6px;
-  min-width: 150px;
+  min-width: 120px;
 }
 .av-filter-btn:hover { border-color: rgba(255,255,255,.25); background: var(--surface); }
 .av-filter-btn.active { border-color: var(--accent); color: #fff; }
@@ -220,6 +220,7 @@ button:focus-visible,
   z-index: 200;
   padding: 4px 0;
 }
+.av-filter-dropdown.right { left: auto; right: 0; }
 .av-filter-dropdown.hidden { display: none; }
 
 .av-filter-dropdown input[type="search"] {
@@ -1242,7 +1243,7 @@ button:focus-visible,
   .av-filter-clear-btn { padding: 5px 10px; font-size: 0.76rem; }
   .section-header { padding: 0 16px 16px; gap: 6px; }
   .section-header { flex-wrap: wrap; }
-  .section-header-right { width: 100%; justify-content: space-between; }
+  .section-header-right { justify-content: space-between; }
   .card-grid { padding: 0 16px; gap: 16px; }
   .card-grid.portrait  { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   .card-grid.landscape { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
