@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * fetch-037hdd.js
- * สร้าง / อัปเดต playlist JSON จาก 037hddmovie.com พร้อม metadata จาก TMDB
+ * fetch-v8hdd.js
+ * สร้าง / อัปเดต playlist JSON จาก v8-hdd.com พร้อม metadata จาก TMDB
  *
  * ─── Flags ───────────────────────────────────────────────────────────────
- *   <url>              URL หน้าหนังบน 037hddmovie.com
- *                      เช่น https://www.037hddmovie.com/2016/09/22/tron-legacy-2010-.../
+ *   <url>              URL หน้าหนัง/ซีรีส์บน v8-hdd.com
+ *                      เช่น https://www.v8-hdd.com/xxxxx/
  *   --track=th|subth   th = พากย์ไทย, subth = ซับไทย (default: th)
  *   --season=N         ระบุ season/ภาค (default: 1)
  *   --output=FILE      ชื่อไฟล์ผลลัพธ์ (ไม่ต้องใส่ path)
@@ -17,15 +17,16 @@
  *
  * ─── Workflow ────────────────────────────────────────────────────────────
  *   Movie:
- *     page → iframe leoplayer7.com/watch?v={id} → API /api/analogy/mediahls3/{id} → hash
- *     stream: https://master.streamhls.com/hls/{hash}/master
+ *     page → iframe stream1688.com/v8movie.php?v={id}&lang=...&langtwo=...&sub=...
+ *     → fetch iframe HTML → extract 32-char hex hashes → streamhls.com/hls/{hash}/master
  *
  *   Series:
- *     series page → episode links → each episode page → iframe → API → hash
+ *     page → iframe steamseries88.com/v8movie.php?vid={id}&ss={seasonId}
+ *     → fetch iframe HTML → extract hashes per episode
  *
  * ─── Stream URL Pattern ──────────────────────────────────────────────────
- *   leoplayer7 API → hash → https://master.streamhls.com/hls/{hash}/master
- *   ไม่มี token/expiry — URL ถาวร
+ *   iframe HTML → hash → https://master.streamhls.com/hls/{hash}/master
+ *   streamhls.com has CORS enabled — NO proxy needed, direct URL
  */
 
 const cheerio = require("cheerio");
@@ -78,8 +79,8 @@ const isMovie     = contentType === 'anime-movie' || contentType === 'movie';
 const isSeries    = contentType === 'anime-series' || contentType === 'series';
 
 if (!pageUrl && !updateMeta) {
-  console.error("Usage: node fetch-037hdd.js <url> [--track=th|subth] [--type=movie|series] [--output=FILE]");
-  console.error("       node fetch-037hdd.js --update-meta[=poster|cover|title] --output=FILE.txt");
+  console.error("Usage: node fetch-v8hdd.js <url> [--track=th|subth] [--type=movie|series] [--output=FILE]");
+  console.error("       node fetch-v8hdd.js --update-meta[=poster|cover|title] --output=FILE.txt");
   process.exit(1);
 }
 
@@ -94,7 +95,7 @@ const PLAYLIST_DIR    = path.resolve(__dirname, TYPE_CONFIG[contentType].dir);
 const INDEX_PATH      = path.resolve(PLAYLIST_DIR, 'index.txt');
 const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/${TYPE_CONFIG[contentType].base}`;
 
-const STREAM_REFERER  = "https://www.037hddmovie.com/";
+const STREAM_REFERER  = "https://www.v8-hdd.com/";
 
 const HEADERS = {
   "User-Agent":      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
@@ -103,8 +104,8 @@ const HEADERS = {
 };
 
 // ───── Helpers ─────
-async function fetchHtml(url) {
-  const res = await fetch(url, { headers: HEADERS });
+async function fetchHtml(url, extraHeaders = {}) {
+  const res = await fetch(url, { headers: { ...HEADERS, ...extraHeaders } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return res.text();
 }
@@ -121,42 +122,146 @@ function slugify(name) {
   return name.replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-").toLowerCase();
 }
 
-// ───── 037hdd-specific functions ─────
+// ───── v8-hdd-specific functions ─────
 
 /**
- * Extract leoplayer7 video IDs from 037hddmovie page.
- * Returns array of IDs; first = พากย์ไทย, second = ซับไทย
+ * Extract iframe src from v8-hdd page.
+ * Movie: <iframe id="movie" src="https://www.stream1688.com/v8movie.php?v={id}&lang=...&langtwo=...&sub=...">
+ * Series: <iframe id="movie" src="https://www.steamseries88.com/v8movie.php?vid={id}&ss={seasonId}">
  */
-function extractLeoPlayerIds($) {
-  const ids = [];
+function extractIframeSrc($) {
+  const iframe = $('#movie');
+  if (iframe.length) return iframe.attr('src') || '';
+  // Fallback: find any iframe with stream1688 or steamseries88
+  let src = '';
   $('iframe').each((_, el) => {
-    const src = $(el).attr("src") || "";
-    if (src.includes("leoplayer")) {
-      const m = src.match(/[?&]v=([^&]+)/);
-      if (m) ids.push(m[1]);
+    const s = $(el).attr('src') || '';
+    if (s.includes('stream1688') || s.includes('steamseries88')) {
+      src = s;
+      return false;
     }
   });
-  return ids;
+  return src;
 }
 
 /**
- * Call leoplayer7 API to get stream hash.
- * API: GET https://www.leoplayer7.com/api/analogy/mediahls3/{id}
- * Response: { data: { source: { url: "https://master.streamhls.com/p2p/{hash}" } } }
+ * Determine if iframe is movie or series based on domain.
+ * stream1688.com = movie, steamseries88.com = series
  */
-async function getStreamHash(leoId) {
-  const apiUrl = `https://www.leoplayer7.com/api/analogy/mediahls3/${leoId}`;
+function isMovieIframe(iframeSrc) {
+  return iframeSrc.includes('stream1688');
+}
+
+function isSeriesIframe(iframeSrc) {
+  return iframeSrc.includes('steamseries88');
+}
+
+/**
+ * Parse iframe URL params for movie.
+ * Returns { videoId, lang, langtwo, sub }
+ */
+function parseMovieIframeParams(iframeSrc) {
   try {
-    const resp = await fetchJson(apiUrl);
-    const data = typeof resp.data === "string" ? JSON.parse(resp.data) : resp.data;
-    const sourceUrl = data?.source?.url || "";
-    // Extract hash from URL path: /p2p/{hash}
-    const m = sourceUrl.match(/\/p2p\/([a-f0-9]+)/i) || sourceUrl.match(/\/([a-f0-9]{32})/);
-    return m ? m[1] : null;
-  } catch (err) {
-    console.warn(`  ⚠️ API error for ID ${leoId}: ${err.message}`);
-    return null;
+    const url = new URL(iframeSrc);
+    return {
+      videoId: url.searchParams.get('v') || '',
+      lang:    url.searchParams.get('lang') || '',
+      langtwo: url.searchParams.get('langtwo') || '',
+      sub:     url.searchParams.get('sub') || '',
+    };
+  } catch {
+    return { videoId: '', lang: '', langtwo: '', sub: '' };
   }
+}
+
+/**
+ * Parse iframe URL params for series.
+ * Returns { videoId, seasonId }
+ */
+function parseSeriesIframeParams(iframeSrc) {
+  try {
+    const url = new URL(iframeSrc);
+    return {
+      videoId:  url.searchParams.get('vid') || '',
+      seasonId: url.searchParams.get('ss') || '',
+    };
+  } catch {
+    return { videoId: '', seasonId: '' };
+  }
+}
+
+/**
+ * Extract 32-char hex hashes from iframe HTML.
+ * Filters out common non-stream hashes (CSS colors, WordPress IDs, etc.)
+ */
+function extractStreamHashes(html) {
+  // First try: look for streamhls.com URLs with hashes
+  const streamhlsMatches = html.match(/streamhls\.com\/hls\/([a-f0-9]{32})/gi) || [];
+  const fromUrls = streamhlsMatches.map(m => {
+    const match = m.match(/([a-f0-9]{32})/i);
+    return match ? match[1].toLowerCase() : null;
+  }).filter(Boolean);
+
+  if (fromUrls.length > 0) {
+    // Deduplicate while preserving order
+    return [...new Set(fromUrls)];
+  }
+
+  // Second try: look for ArtPlayer or player config containing hashes
+  // Common patterns: url: ".../{hash}/master", source: ".../{hash}..."
+  const playerConfigMatches = html.match(/(?:url|source|src|file)\s*[:=]\s*['"][^'"]*\/([a-f0-9]{32})(?:\/|['"])/gi) || [];
+  const fromConfig = playerConfigMatches.map(m => {
+    const match = m.match(/([a-f0-9]{32})/i);
+    return match ? match[1].toLowerCase() : null;
+  }).filter(Boolean);
+
+  if (fromConfig.length > 0) {
+    return [...new Set(fromConfig)];
+  }
+
+  // Third try: extract all 32-char hex strings and filter
+  const allHexMatches = html.match(/\b[a-f0-9]{32}\b/gi) || [];
+  // Deduplicate
+  const unique = [...new Set(allHexMatches.map(h => h.toLowerCase()))];
+
+  // Filter out likely non-stream hashes:
+  // - Hashes that appear in CSS (color values are 3/6 chars, not 32)
+  // - Hashes in WordPress nonce/action contexts
+  // - md5 of common strings
+  // Keep hashes that appear near stream-related keywords
+  if (unique.length <= 4) {
+    // Few enough to be all stream hashes
+    return unique;
+  }
+
+  // If too many, try to filter by context
+  const streamRelated = [];
+  for (const hash of unique) {
+    // Check if hash appears near stream keywords
+    const idx = html.toLowerCase().indexOf(hash);
+    if (idx >= 0) {
+      const context = html.substring(Math.max(0, idx - 200), Math.min(html.length, idx + 200)).toLowerCase();
+      if (context.includes('stream') || context.includes('hls') || context.includes('master')
+          || context.includes('player') || context.includes('artplayer') || context.includes('video')
+          || context.includes('source') || context.includes('url')) {
+        streamRelated.push(hash);
+      }
+    }
+  }
+
+  return streamRelated.length > 0 ? [...new Set(streamRelated)] : unique;
+}
+
+/**
+ * Normalize track name from iframe params.
+ * "พากย์ไทย" → พากย์ไทย
+ * "Soundtrack ซับ" or "ซับไทย" → ซับไทย
+ */
+function normalizeTrackName(paramValue) {
+  if (!paramValue) return null;
+  if (paramValue.includes('พากย์')) return 'พากย์ไทย';
+  if (paramValue.includes('ซับ')) return 'ซับไทย';
+  return paramValue;
 }
 
 /** Build m3u8 stream URL from hash */
@@ -164,17 +269,131 @@ function buildStreamUrl(hash) {
   return `https://master.streamhls.com/hls/${hash}/master`;
 }
 
-/** Extract title from 037hddmovie page */
+/**
+ * Parse `movieList` JavaScript variable from steamseries88 iframe HTML.
+ * Returns the parsed object or null if not found.
+ *
+ * Structure:
+ *   movieList.seasonName  = { "800": "Season 2", "845": "Season 1", ... }
+ *   movieList.seasonList  = {
+ *     "800": {
+ *       name: "Season 2",
+ *       epName: { epId: "Episode 1", ... },
+ *       epList: {
+ *         epId: {
+ *           name: "Episode 1",
+ *           link: {
+ *             thai: [{ MU_group, MU_url, MU_sound, ... }],
+ *             sub:  [{ MU_group, MU_url, MU_sound, ... }]
+ *           }
+ *         }
+ *       }
+ *     }
+ *   }
+ */
+function parseMovieList(html) {
+  // Find "let movieList = {" then use brace counting to find the matching "}"
+  const marker = html.indexOf('let movieList');
+  if (marker < 0) return null;
+
+  const braceStart = html.indexOf('{', marker);
+  if (braceStart < 0) return null;
+
+  let depth = 0;
+  let braceEnd = -1;
+  for (let i = braceStart; i < html.length; i++) {
+    if (html[i] === '{') depth++;
+    else if (html[i] === '}') { depth--; if (depth === 0) { braceEnd = i; break; } }
+  }
+  if (braceEnd < 0) return null;
+
+  let raw = html.substring(braceStart, braceEnd + 1);
+
+  // Clean trailing commas (invalid JSON but valid JS)
+  raw = raw.replace(/,\s*([\]}])/g, '$1');
+
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    // Fallback: use Function constructor (handles JS object literals)
+    try {
+      return new Function('return ' + raw)();
+    } catch {
+      console.warn("⚠️  ไม่สามารถ parse movieList ได้:", e.message);
+      return null;
+    }
+  }
+}
+
+/**
+ * Extract episodes for a specific season from movieList.
+ * @param {object} movieList - parsed movieList object
+ * @param {number} seasonNum - season number (1, 2, 3, ...)
+ * @param {string} soundKey  - "thai" or "sub"
+ * @returns {{ seasonId: string, seasonName: string, episodes: Array<{name, hash, streamUrl}> }}
+ */
+function extractSeasonEpisodes(movieList, seasonNum, soundKey) {
+  // Build Season N → seasonId mapping
+  const seasonList = movieList.seasonList || {};
+  let targetSeasonId = null;
+  let targetSeasonName = null;
+
+  for (const [sid, sdata] of Object.entries(seasonList)) {
+    const m = (sdata.name || '').match(/Season\s*(\d+)/i);
+    if (m && parseInt(m[1]) === seasonNum) {
+      targetSeasonId = sid;
+      targetSeasonName = sdata.name;
+      break;
+    }
+  }
+
+  if (!targetSeasonId) {
+    // List available seasons for user
+    const available = Object.values(seasonList).map(s => s.name).join(', ');
+    throw new Error(`ไม่พบ Season ${seasonNum} ใน movieList (มี: ${available})`);
+  }
+
+  const seasonData = seasonList[targetSeasonId];
+  const epList = seasonData.epList || {};
+  const episodes = [];
+
+  for (const [epId, epData] of Object.entries(epList)) {
+    const links = (epData.link && epData.link[soundKey]) || [];
+    // Prefer P2P group (streamhls.com)
+    const p2pLink = links.find(l => l.MU_group === 'P2P') || links[0];
+    if (!p2pLink) continue;
+
+    // Extract hash from MU_url
+    const hashMatch = p2pLink.MU_url.match(/\/([a-f0-9]{32})/i);
+    const hash = hashMatch ? hashMatch[1].toLowerCase() : null;
+    if (!hash) continue;
+
+    episodes.push({
+      name: epData.name || `Episode ${episodes.length + 1}`,
+      hash,
+      streamUrl: buildStreamUrl(hash),
+    });
+  }
+
+  return { seasonId: targetSeasonId, seasonName: targetSeasonName, episodes };
+}
+
+/** Extract title from v8-hdd page */
 function extractTitle($) {
   let title = $("h1").first().text().trim()
     || $(".entry-title").first().text().trim()
-    || $("title").text().split("-")[0].trim();
+    || $("title").text().split("-")[0].trim()
+    || $("title").text().split("|")[0].trim();
   // Remove site name suffix
-  title = title.replace(/\s*[-|]?\s*(ดูหนัง|037HDD).*$/i, "").trim();
+  title = title.replace(/\s*[-|]?\s*(ดูหนัง|v8-hdd|v8hdd|V8|ดูซีรีส์).*$/i, "").trim();
+  // Remove "Season N" and keep for later parsing
+  title = title.replace(/\s*Season\s*\d+\s*/i, " ").trim();
   // Remove year in parentheses at end
   title = title.replace(/\s*\(\d{4}\)\s*$/, "").trim();
   // Remove track labels and HD markers
-  title = title.replace(/\s*(พากย์ไทย|ซับไทย|บรรยายไทย|เต็มเรื่อง|HD|มาสเตอร์)\s*/g, " ").trim();
+  title = title.replace(/\s*(พากย์ไทย|ซับไทย|บรรยายไทย|เต็มเรื่อง|HD|มาสเตอร์|4K|BluRay)\s*/gi, " ").trim();
+  // Clean up extra spaces
+  title = title.replace(/\s+/g, " ").trim();
   return title;
 }
 
@@ -183,6 +402,13 @@ function extractYear($) {
   const text = $("h1").text() + " " + $("title").text();
   const m = text.match(/\((\d{4})\)/);
   return m ? m[1] : null;
+}
+
+/** Extract season number from page title */
+function extractSeasonFromTitle($) {
+  const text = $("h1").text() + " " + $("title").text();
+  const m = text.match(/Season\s*(\d+)/i);
+  return m ? parseInt(m[1]) : null;
 }
 
 /** Extract poster image from page */
@@ -283,10 +509,10 @@ function buildStationName(epNum, epTitle, isDubbed) {
   return isDubbed ? `ตอน ${epNum} - ${epTitle}` : `Ep. ${epNum} - ${epTitle}`;
 }
 
-// ───── Parse 037hddmovie page ─────
+// ───── Parse v8-hdd page ─────
 
 /** Parse movie page → get stream URLs for both tracks */
-async function parsePage(url) {
+async function parseMoviePage(url) {
   console.log(`\n📄 กำลัง fetch: ${url}`);
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
@@ -295,200 +521,100 @@ async function parsePage(url) {
   const poster = extractPoster($);
   const year   = extractYear($);
 
-  // Extract leoplayer7 IDs (first = พากย์ไทย, second = ซับไทย)
-  const leoIds = extractLeoPlayerIds($);
-  if (leoIds.length === 0) {
-    throw new Error("ไม่พบ leoplayer iframe ในหน้านี้ — ตรวจสอบ URL อีกครั้ง");
+  // Extract iframe src
+  const iframeSrc = extractIframeSrc($);
+  if (!iframeSrc) {
+    throw new Error("ไม่พบ iframe ในหน้านี้ — ตรวจสอบ URL อีกครั้ง");
   }
 
   console.log(`  ✅ title: ${title}`);
-  console.log(`  ✅ leoplayer IDs: ${leoIds.join(", ")}`);
+  console.log(`  ✅ iframe: ${iframeSrc}`);
 
-  // Get stream hashes from API
-  const tracks = [];
-  // ถ้ามี iframe เดียว → ใช้ --track ที่ระบุ (default: พากย์ไทย)
-  // ถ้ามี 2 iframe → แรก = พากย์ไทย, สอง = ซับไทย
-  const trackLabels = leoIds.length === 1
-    ? [trackName]
-    : ["พากย์ไทย", "ซับไทย"];
-  for (let i = 0; i < leoIds.length; i++) {
-    const label = trackLabels[i] || `Track ${i + 1}`;
-    process.stdout.write(`  🔗 ${label} (ID: ${leoIds[i]})...`);
-    const hash = await getStreamHash(leoIds[i]);
-    if (hash) {
-      // ถ้า hash ซ้ำกับ track ก่อนหน้า → ข้าม (เป็น track เดียวกัน)
-      if (tracks.some(t => t.hash === hash)) {
-        console.log(` ⚠️ hash ซ้ำกับ "${tracks.find(t => t.hash === hash).name}" → ข้าม`);
-      } else {
-        const streamUrl = buildStreamUrl(hash);
-        tracks.push({ name: label, streamUrl, hash });
-        console.log(` ✅ ${hash}`);
-      }
-    } else {
-      console.log(` ⚠️ ไม่พบ hash`);
-    }
-    if (i < leoIds.length - 1) await sleep(300);
+  // Parse iframe params for track names
+  const params = parseMovieIframeParams(iframeSrc);
+  const lang1 = normalizeTrackName(params.lang);
+  const lang2 = normalizeTrackName(params.langtwo);
+  console.log(`  ✅ tracks: lang="${params.lang}" → ${lang1 || '(none)'}, langtwo="${params.langtwo}" → ${lang2 || '(none)'}`);
+
+  // Fetch iframe page to extract stream hashes
+  console.log(`  🔗 กำลัง fetch iframe page...`);
+  const iframeHtml = await fetchHtml(iframeSrc, { Referer: "https://www.v8-hdd.com/" });
+  const hashes = extractStreamHashes(iframeHtml);
+  console.log(`  ✅ พบ ${hashes.length} hash(es): ${hashes.map(h => h.substring(0, 12) + '...').join(', ')}`);
+
+  if (hashes.length === 0) {
+    throw new Error("ไม่พบ stream hash ใน iframe page");
   }
 
-  return { title, poster, year, tracks, leoIds };
+  // Map hashes to tracks
+  const tracks = [];
+  if (hashes.length === 1) {
+    // Single hash → use --track arg or lang1
+    const label = lang1 || trackName;
+    tracks.push({ name: label, streamUrl: buildStreamUrl(hashes[0]), hash: hashes[0] });
+  } else {
+    // Multiple hashes: first = lang (พากย์ไทย), second = langtwo (ซับไทย)
+    if (lang1 && hashes[0]) {
+      tracks.push({ name: lang1, streamUrl: buildStreamUrl(hashes[0]), hash: hashes[0] });
+    }
+    if (lang2 && hashes[1]) {
+      // Skip if same hash as first track
+      if (hashes[1] !== hashes[0]) {
+        tracks.push({ name: lang2, streamUrl: buildStreamUrl(hashes[1]), hash: hashes[1] });
+      } else {
+        console.log(`  ⚠️ hash ที่ 2 ซ้ำกับ "${lang1}" → ข้าม`);
+      }
+    }
+    // If there are more hashes beyond the first two, log them
+    if (hashes.length > 2) {
+      console.log(`  ℹ️ พบ hash เพิ่มเติมอีก ${hashes.length - 2} รายการ (ข้าม)`);
+    }
+  }
+
+  for (const t of tracks) {
+    console.log(`  ✅ ${t.name}: ${t.hash}`);
+  }
+
+  return { title, poster, year, tracks };
 }
 
-/** Parse series page → find episode links */
+/** Parse series page → get iframe info and episode hashes */
 async function parseSeriesPage(url) {
   console.log(`\n📄 กำลัง fetch series: ${url}`);
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
-  const title  = extractTitle($);
-  const poster = extractPoster($);
+  const title    = extractTitle($);
+  const poster   = extractPoster($);
+  const pageSeason = extractSeasonFromTitle($);
 
-  // Find episode links
-  const episodeLinks = [];
-  const baseHost = new URL(url).origin;
-
-  // Pattern 1: links with /episode/ path
-  $('a[href*="/episode/"]').each((_, el) => {
-    const href = $(el).attr("href");
-    const text = $(el).text().trim();
-    if (href && !episodeLinks.find(e => e.url === href)) {
-      const fullUrl = href.startsWith("http") ? href : baseHost + href;
-      episodeLinks.push({ url: fullUrl, text });
-    }
-  });
-
-  // Pattern 2: links with "ตอนที่" text
-  if (episodeLinks.length === 0) {
-    $('a').each((_, el) => {
-      const text = $(el).text().trim();
-      const href = $(el).attr("href");
-      if (href && /ตอนที่\s*\d/.test(text) && !episodeLinks.find(e => e.url === href)) {
-        const fullUrl = href.startsWith("http") ? href : baseHost + href;
-        episodeLinks.push({ url: fullUrl, text });
-      }
-    });
+  // Extract iframe src
+  const iframeSrc = extractIframeSrc($);
+  if (!iframeSrc) {
+    throw new Error("ไม่พบ iframe ในหน้านี้ — ตรวจสอบ URL อีกครั้ง");
   }
-
-  // Sort by episode number
-  episodeLinks.sort((a, b) => {
-    const na = parseInt(a.text.match(/\d+/)?.[0]) || 0;
-    const nb = parseInt(b.text.match(/\d+/)?.[0]) || 0;
-    return na - nb;
-  });
 
   console.log(`  📺 title: ${title}`);
-  console.log(`  📺 พบ ${episodeLinks.length} ตอน`);
-  return { title, poster, episodeLinks };
-}
+  console.log(`  📺 iframe: ${iframeSrc}`);
+  if (pageSeason) console.log(`  📺 season from title: ${pageSeason}`);
 
-/** Parse a single episode page → get leoplayer ID for the specified track */
-async function parseEpisodePage(url, trackIndex = 0) {
-  const html = await fetchHtml(url);
-  const $ = cheerio.load(html);
-  const leoIds = extractLeoPlayerIds($);
-  // trackIndex: 0 = พากย์ไทย, 1 = ซับไทย
-  return leoIds[trackIndex] || leoIds[0] || null;
-}
+  const params = parseSeriesIframeParams(iframeSrc);
+  console.log(`  📺 videoId: ${params.videoId}, seasonId: ${params.seasonId}`);
 
-/** Extract series037.php iframe src from episode page */
-function extractSeriesIframeSrc($) {
-  let src = '';
-  $('iframe').each((_, el) => {
-    const s = $(el).attr('src') || '';
-    if (s.includes('series037') || s.includes('steamseries')) {
-      src = s;
-      return false;
-    }
-  });
-  return src;
-}
+  // Fetch iframe page to extract episode hashes
+  console.log(`  🔗 กำลัง fetch iframe page...`);
+  const iframeHtml = await fetchHtml(iframeSrc, { Referer: "https://www.v8-hdd.com/" });
 
-/**
- * Parse `movieList` JavaScript variable from series player iframe HTML.
- * Uses brace counting to handle large nested objects (40KB+).
- */
-function parseMovieList(html) {
-  const marker = html.indexOf('let movieList');
-  if (marker < 0) return null;
+  // Extract all stream hashes — each hash = one episode
+  const hashes = extractStreamHashes(iframeHtml);
+  console.log(`  ✅ พบ ${hashes.length} hash(es) (= ${hashes.length} ตอน)`);
 
-  const braceStart = html.indexOf('{', marker);
-  if (braceStart < 0) return null;
-
-  let depth = 0;
-  let braceEnd = -1;
-  for (let i = braceStart; i < html.length; i++) {
-    if (html[i] === '{') depth++;
-    else if (html[i] === '}') { depth--; if (depth === 0) { braceEnd = i; break; } }
-  }
-  if (braceEnd < 0) return null;
-
-  let raw = html.substring(braceStart, braceEnd + 1);
-  raw = raw.replace(/,\s*([\]}])/g, '$1');
-
-  try {
-    return JSON.parse(raw);
-  } catch {
-    try {
-      return new Function('return ' + raw)();
-    } catch (e2) {
-      console.warn("⚠️  ไม่สามารถ parse movieList ได้:", e2.message);
-      return null;
-    }
-  }
-}
-
-/**
- * Extract episodes for a specific season from movieList.
- * @param {object} movieListData - parsed movieList object
- * @param {number} targetSeasonNum - season number (1, 2, 3, ...)
- * @param {string} soundKey  - "thai" or "sub"
- */
-function extractSeasonEpisodes(movieListData, targetSeasonNum, soundKey) {
-  const seasonList = movieListData.seasonList || {};
-  let targetSeasonId = null;
-  let targetSeasonName = null;
-
-  for (const [sid, sdata] of Object.entries(seasonList)) {
-    const m = (sdata.name || '').match(/Season\s*(\d+)/i);
-    if (m && parseInt(m[1]) === targetSeasonNum) {
-      targetSeasonId = sid;
-      targetSeasonName = sdata.name;
-      break;
-    }
+  if (hashes.length === 0) {
+    console.warn("  ⚠️ ไม่พบ stream hash ใน iframe page");
+    console.warn("  ℹ️ อาจต้อง fetch แต่ละตอนแยก หรือ iframe structure ต่างออกไป");
   }
 
-  // If only one season, use it regardless of name
-  const keys = Object.keys(seasonList);
-  if (!targetSeasonId && keys.length === 1) {
-    targetSeasonId = keys[0];
-    targetSeasonName = seasonList[keys[0]].name;
-  }
-
-  if (!targetSeasonId) {
-    const available = Object.values(seasonList).map(s => s.name).join(', ');
-    throw new Error(`ไม่พบ Season ${targetSeasonNum} ใน movieList (มี: ${available})`);
-  }
-
-  const seasonData = seasonList[targetSeasonId];
-  const epList = seasonData.epList || {};
-  const episodes = [];
-
-  for (const [epId, epData] of Object.entries(epList)) {
-    const links = (epData.link && epData.link[soundKey]) || [];
-    const p2pLink = links.find(l => l.MU_group === 'P2P') || links[0];
-    if (!p2pLink) continue;
-
-    const hashMatch = p2pLink.MU_url.match(/\/([a-f0-9]{32})/i);
-    const hash = hashMatch ? hashMatch[1].toLowerCase() : null;
-    if (!hash) continue;
-
-    episodes.push({
-      name: epData.name || `Episode ${episodes.length + 1}`,
-      hash,
-      streamUrl: buildStreamUrl(hash),
-    });
-  }
-
-  return { seasonId: targetSeasonId, seasonName: targetSeasonName, episodes };
+  return { title, poster, pageSeason, hashes, iframeHtml };
 }
 
 // ───── Playlist file operations ─────
@@ -679,9 +805,78 @@ async function main() {
   if (updateMeta) { await runUpdateMeta(); return; }
 
   try {
-    if (isMovie) {
+    // First, detect if page is movie or series by checking the iframe
+    console.log(`\n📄 กำลัง fetch: ${pageUrl}`);
+    const html = await fetchHtml(pageUrl);
+    const $ = cheerio.load(html);
+    const iframeSrc = extractIframeSrc($);
+
+    if (!iframeSrc) {
+      throw new Error("ไม่พบ iframe ในหน้านี้ — ตรวจสอบ URL อีกครั้ง");
+    }
+
+    // Auto-detect series vs movie from iframe domain if --type not explicitly set
+    const detectedSeries = isSeriesIframe(iframeSrc);
+    const detectedMovie  = isMovieIframe(iframeSrc);
+
+    if (!typeArg && detectedSeries) {
+      console.log(`  ℹ️ ตรวจพบ iframe series (steamseries88) — ใช้ series flow`);
+    } else if (!typeArg && detectedMovie) {
+      console.log(`  ℹ️ ตรวจพบ iframe movie (stream1688) — ใช้ movie flow`);
+    }
+
+    // Use explicit --type if set, otherwise auto-detect
+    const useSeriesFlow = typeArg ? isSeries : detectedSeries;
+
+    if (!useSeriesFlow) {
       // ── Movie flow ──
-      const { title, poster, year, tracks } = await parsePage(pageUrl);
+      const title  = extractTitle($);
+      const poster = extractPoster($);
+      const year   = extractYear($);
+
+      console.log(`  ✅ title: ${title}`);
+      console.log(`  ✅ iframe: ${iframeSrc}`);
+
+      // Parse iframe params for track names
+      const params = parseMovieIframeParams(iframeSrc);
+      const lang1 = normalizeTrackName(params.lang);
+      const lang2 = normalizeTrackName(params.langtwo);
+      console.log(`  ✅ tracks: lang="${params.lang}" → ${lang1 || '(none)'}, langtwo="${params.langtwo}" → ${lang2 || '(none)'}`);
+
+      // Fetch iframe page to extract stream hashes
+      console.log(`  🔗 กำลัง fetch iframe page...`);
+      const iframeHtml = await fetchHtml(iframeSrc, { Referer: "https://www.v8-hdd.com/" });
+      const hashes = extractStreamHashes(iframeHtml);
+      console.log(`  ✅ พบ ${hashes.length} hash(es): ${hashes.map(h => h.substring(0, 12) + '...').join(', ')}`);
+
+      if (hashes.length === 0) {
+        throw new Error("ไม่พบ stream hash ใน iframe page");
+      }
+
+      // Map hashes to tracks
+      const tracks = [];
+      if (hashes.length === 1) {
+        const label = lang1 || trackName;
+        tracks.push({ name: label, streamUrl: buildStreamUrl(hashes[0]), hash: hashes[0] });
+      } else {
+        if (lang1 && hashes[0]) {
+          tracks.push({ name: lang1, streamUrl: buildStreamUrl(hashes[0]), hash: hashes[0] });
+        }
+        if (lang2 && hashes[1]) {
+          if (hashes[1] !== hashes[0]) {
+            tracks.push({ name: lang2, streamUrl: buildStreamUrl(hashes[1]), hash: hashes[1] });
+          } else {
+            console.log(`  ⚠️ hash ที่ 2 ซ้ำกับ "${lang1}" → ข้าม`);
+          }
+        }
+        if (hashes.length > 2) {
+          console.log(`  ℹ️ พบ hash เพิ่มเติมอีก ${hashes.length - 2} รายการ (ข้าม)`);
+        }
+      }
+
+      for (const t of tracks) {
+        console.log(`  ✅ ${t.name}: ${t.hash}`);
+      }
 
       if (tracks.length === 0) {
         console.error("❌ ไม่พบ stream URL ใดเลย");
@@ -712,7 +907,7 @@ async function main() {
           tmdbShow = tmdbResult;
           console.log(`✅ พบใน TMDB: "${seriesTitle}" (ID: ${tmdbResult.id})`);
         } else {
-          console.warn("⚠️  ไม่พบใน TMDB ใช้ข้อมูลจาก 037hdd แทน");
+          console.warn("⚠️  ไม่พบใน TMDB ใช้ข้อมูลจาก v8-hdd แทน");
         }
       }
 
@@ -726,13 +921,11 @@ async function main() {
       const partFile = resolvedId ? `${resolvedId}-${slugFile}` : slugFile;
       const partPath = path.resolve(PLAYLIST_DIR, partFile);
 
-      // Add all tracks (พากย์ไทย + ซับไทย) to the same part file
-      // If --track is specified, only add that track
+      // Add tracks to the same part file
       const tracksToAdd = trackArg
         ? tracks.filter(t => t.name === trackName)
         : tracks;
 
-      // Build part file with all tracks as stations
       let partPlaylist;
       if (fs.existsSync(partPath)) {
         try { partPlaylist = JSON.parse(fs.readFileSync(partPath, "utf-8")); }
@@ -779,105 +972,77 @@ async function main() {
 
     } else {
       // ── Series flow ──
-      const { title, poster, episodeLinks } = await parseSeriesPage(pageUrl);
+      const title    = extractTitle($);
+      const poster   = extractPoster($);
+      const pageSeason = extractSeasonFromTitle($);
 
-      if (episodeLinks.length === 0) {
-        console.error("❌ ไม่พบ episode links");
+      console.log(`  📺 title: ${title}`);
+      console.log(`  📺 iframe: ${iframeSrc}`);
+      if (pageSeason) console.log(`  📺 season from title: ${pageSeason}`);
+
+      const seriesParams = parseSeriesIframeParams(iframeSrc);
+      console.log(`  📺 videoId: ${seriesParams.videoId}, seasonId: ${seriesParams.seasonId}`);
+
+      // Fetch iframe page
+      console.log(`  🔗 กำลัง fetch iframe page...`);
+      const iframeHtml = await fetchHtml(iframeSrc, { Referer: "https://www.v8-hdd.com/" });
+
+      // Parse movieList from iframe HTML (structured data with seasons & episodes)
+      const movieListData = parseMovieList(iframeHtml);
+
+      // Determine which season to extract
+      const targetSeasonNum = seasonNum || pageSeason || 1;
+      // Map --track arg to movieList sound key: th → "thai", subth → "sub"
+      const soundKey = isDubbedTrack ? "thai" : "sub";
+
+      let episodes;
+      if (movieListData) {
+        // ── Structured approach: use movieList ──
+        const availableSeasons = Object.values(movieListData.seasonList || {}).map(s => s.name).join(', ');
+        console.log(`  📋 movieList พบ seasons: ${availableSeasons}`);
+
+        const seasonResult = extractSeasonEpisodes(movieListData, targetSeasonNum, soundKey);
+        episodes = seasonResult.episodes;
+        console.log(`  ✅ Season ${targetSeasonNum} (id: ${seasonResult.seasonId}): ${episodes.length} ตอน (${soundKey})`);
+
+        if (episodes.length === 0) {
+          // Try the other sound key as fallback
+          const altKey = soundKey === "thai" ? "sub" : "thai";
+          console.log(`  ⚠️ ไม่พบ "${soundKey}" — ลอง "${altKey}"...`);
+          const altResult = extractSeasonEpisodes(movieListData, targetSeasonNum, altKey);
+          if (altResult.episodes.length > 0) {
+            episodes = altResult.episodes;
+            console.log(`  ✅ พบ ${episodes.length} ตอน ใน "${altKey}"`);
+          }
+        }
+      } else {
+        // ── Fallback: regex hash extraction (old approach) ──
+        console.log("  ⚠️ ไม่พบ movieList — ใช้ regex hash extraction แทน");
+        const hashes = extractStreamHashes(iframeHtml);
+        console.log(`  ✅ พบ ${hashes.length} hash(es)`);
+        episodes = hashes.map((h, i) => ({
+          name: `Episode ${i + 1}`,
+          hash: h,
+          streamUrl: buildStreamUrl(h),
+        }));
+      }
+
+      if (episodes.length === 0) {
+        console.error("❌ ไม่พบ episode สำหรับ season นี้");
         process.exit(1);
       }
 
-      // Try movieList approach: fetch first episode page → find series iframe → parse movieList
-      let stations = [];
-      let usedMovieList = false;
-
-      console.log(`\n🔗 กำลัง fetch episode 1 เพื่อหา iframe...`);
-      try {
-        const ep1Html = await fetchHtml(episodeLinks[0].url);
-        const $ep1 = cheerio.load(ep1Html);
-        const seriesIframe = extractSeriesIframeSrc($ep1);
-
-        if (seriesIframe) {
-          console.log(`  📺 พบ series iframe: ${seriesIframe.split('?')[0]}...`);
-          const iframeHtml = await fetchHtml(seriesIframe, { Referer: pageUrl });
-          const movieListData = parseMovieList(iframeHtml);
-
-          if (movieListData) {
-            const targetSeasonNum = seasonNum || 1;
-            const soundKey = isDubbedTrack ? "thai" : "sub";
-            const availableSeasons = Object.values(movieListData.seasonList || {}).map(s => s.name).join(', ');
-            console.log(`  📋 movieList พบ seasons: ${availableSeasons}`);
-
-            let seasonResult = extractSeasonEpisodes(movieListData, targetSeasonNum, soundKey);
-            let episodes = seasonResult.episodes;
-            console.log(`  ✅ Season ${targetSeasonNum}: ${episodes.length} ตอน (${soundKey})`);
-
-            if (episodes.length === 0) {
-              const altKey = soundKey === "thai" ? "sub" : "thai";
-              console.log(`  ⚠️ ไม่พบ "${soundKey}" — ลอง "${altKey}"...`);
-              const altResult = extractSeasonEpisodes(movieListData, targetSeasonNum, altKey);
-              if (altResult.episodes.length > 0) {
-                episodes = altResult.episodes;
-                console.log(`  ✅ พบ ${episodes.length} ตอน ใน "${altKey}"`);
-              }
-            }
-
-            if (episodes.length > 0) {
-              usedMovieList = true;
-              for (let i = 0; i < episodes.length; i++) {
-                const epNum = i + 1 + epOffset;
-                stations.push({
-                  name:    buildStationName(epNum, "", isDubbedTrack),
-                  image:   "",
-                  url:     episodes[i].streamUrl,
-                  referer: STREAM_REFERER,
-                });
-                console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
-              }
-            }
-          }
-        }
-      } catch (err) {
-        console.log(`  ⚠️ movieList approach failed: ${err.message}`);
-      }
-
-      // Fallback: fetch each episode page individually (old approach)
-      if (!usedMovieList) {
-        console.log(`\n🔗 ใช้วิธี fetch ทีละตอน (${episodeLinks.length} ตอน, ${trackName})...`);
-        const trackIndex = isDubbedTrack ? 0 : 1;
-
-        for (let i = 0; i < episodeLinks.length; i++) {
-          const ep = episodeLinks[i];
-          const epNum = i + 1 + epOffset;
-          process.stdout.write(`  ตอน ${epNum}/${episodeLinks.length + epOffset}...`);
-
-          try {
-            const leoId = await parseEpisodePage(ep.url, trackIndex);
-            if (leoId) {
-              const hash = await getStreamHash(leoId);
-              if (hash) {
-                const streamUrl = buildStreamUrl(hash);
-                stations.push({
-                  name:    buildStationName(epNum, "", isDubbedTrack),
-                  image:   "",
-                  url:     streamUrl,
-                  referer: STREAM_REFERER,
-                });
-                console.log(` ✅ ${hash.substring(0, 12)}...`);
-              } else {
-                stations.push({ name: buildStationName(epNum, "", isDubbedTrack), image: "", url: "", referer: "" });
-                console.log(` ⚠️ ไม่พบ hash`);
-              }
-            } else {
-              stations.push({ name: buildStationName(epNum, "", isDubbedTrack), image: "", url: "", referer: "" });
-              console.log(` ⚠️ ไม่พบ leoplayer ID`);
-            }
-          } catch (err) {
-            stations.push({ name: buildStationName(epNum, "", isDubbedTrack), image: "", url: "", referer: "" });
-            console.log(` ⚠️ ${err.message}`);
-          }
-
-          if (i < episodeLinks.length - 1) await sleep(500);
-        }
+      // Build stations from episodes
+      const stations = [];
+      for (let i = 0; i < episodes.length; i++) {
+        const epNum = i + 1 + epOffset;
+        stations.push({
+          name:    buildStationName(epNum, "", isDubbedTrack),
+          image:   "",
+          url:     episodes[i].streamUrl,
+          referer: STREAM_REFERER,
+        });
+        console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
       }
 
       // TMDB lookup
@@ -907,7 +1072,7 @@ async function main() {
           console.log(`✅ พบ: "${seriesTitle}" (ID: ${tmdbResult.id})`);
 
           // Get episode names + stills
-          const sNum = tmdbSeasonNum || seasonNum || 1;
+          const sNum = tmdbSeasonNum || seasonNum || pageSeason || 1;
           const { thEpisodes, poster: sPoster } = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
           tmdbEpisodes = thEpisodes;
           if (sPoster) seasonPosterUrl = sPoster;
@@ -921,7 +1086,7 @@ async function main() {
             }
           });
         } else {
-          console.warn("⚠️  ไม่พบใน TMDB ใช้ข้อมูลจาก 037hdd แทน");
+          console.warn("⚠️  ไม่พบใน TMDB ใช้ข้อมูลจาก v8-hdd แทน");
         }
       }
 
@@ -932,7 +1097,7 @@ async function main() {
       const outputFile = resolvedId ? `${resolvedId}-${slugFile}` : slugFile;
       const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
-      const targetSeason = seasonName || "Season 1";
+      const targetSeason = seasonName || (pageSeason ? (pageSeason === 0 ? "Specials" : `Season ${pageSeason}`) : "Season 1");
       const newTrack = { name: trackName, image: seasonPosterUrl, stations };
 
       let playlist;

@@ -58,6 +58,7 @@ let preSearchState = null;   // saved state before search
 let searchReturnState = null;
 let lastNode = null;
 let lastTitle = "Home";
+let lastFetchUrl = null;
 let focusRefreshTimer = null;
 
 /* ===== DOM refs ===== */
@@ -174,12 +175,13 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
     const { data, sourceUrl } = await fetchJSON(url);
     const node = normalizePlaylistNode(data, sourceUrl);
     if (pushHistory && previousNode) {
-      navHistory.push({ node: previousNode, title, page: currentPage, sort: currentSortOrder });
+      navHistory.push({ node: previousNode, title, page: currentPage, sort: currentSortOrder, url: null });
     }
     if (!searchIndexRootNode && title === "Home") {
       searchIndexRootNode = node;
       searchIndexPromise = buildSearchIndexRecursive(node, [{ node, title: "Home" }]).catch(() => {});
     }
+    lastFetchUrl = url;
     renderNode(node, title);
   } catch (err) {
     showError(err.message || "โหลดข้อมูลไม่สำเร็จ");
@@ -187,7 +189,9 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
 }
 
 async function fetchJSON(url) {
-  const res = await fetch(url);
+  // Add cache-busting for local dev to always get fresh data
+  const fetchUrl = IS_LOCAL_DEV ? url + (url.includes('?') ? '&' : '?') + '_t=' + Date.now() : url;
+  const res = await fetch(fetchUrl);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
   return { data, sourceUrl: res.url || url };
@@ -901,11 +905,11 @@ function renderGroups(groups, sectionTitle, parentNode) {
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       const prevNode = { groups, referer: null };
+      navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder, url: lastFetchUrl || null });
       if (group.url && !group.groups && !group.stations) {
-        navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder });
         fetchAndRender(group.url, group.name || "...");
       } else {
-        navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder });
+        lastFetchUrl = null;  // inline sub-group, no URL to re-fetch
         renderNode(group, group.name || "...");
       }
     });
@@ -1005,8 +1009,12 @@ function goBackOneStep() {
 
   const prev = navHistory.pop();
   if (!prev) return;
-  renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
-  showGrid();
+  if (prev.url) {
+    fetchAndRender(prev.url, prev.title);
+  } else {
+    renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
+    showGrid();
+  }
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -1216,7 +1224,13 @@ function updateBreadcrumb(currentTitle) {
     span.setAttribute("role", "button");
     span.addEventListener("click", () => {
       navHistory = navHistory.slice(0, i);
-      renderNode(entry.node, entry.title, { page: entry.page, sort: entry.sort });
+      if (entry.url) {
+        currentPage = entry.page || 0;
+        currentSortOrder = entry.sort || "az";
+        fetchAndRender(entry.url, entry.title);
+      } else {
+        renderNode(entry.node, entry.title, { page: entry.page, sort: entry.sort });
+      }
     });
     span.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -1501,6 +1515,21 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
         if (networkRetries < 1 && details !== "manifestLoadError") {
           networkRetries += 1;
           hls.startLoad();
+          return;
+        }
+        // Fallback: ถ้า HLS.js โหลดไม่ได้ (เช่น CORS block) ลอง native HLS แทน
+        // จะใช้ได้ใน browser ที่รองรับ native HLS (Safari, บาง Chrome)
+        if (isHlsUrl && playerVideo.canPlayType("application/vnd.apple.mpegurl")) {
+          console.warn("[HLS fallback] HLS.js network error → trying native HLS");
+          destroyHls();
+          playerVideo.src = url;
+          playerVideo.load();
+          if (startTime > 0) {
+            playerVideo.addEventListener("loadedmetadata", () => {
+              try { playerVideo.currentTime = startTime; } catch (_) {}
+            }, { once: true });
+          }
+          if (autoplay) playerVideo.play().catch(() => {});
           return;
         }
         destroyHls();
@@ -1976,10 +2005,11 @@ function resetProgress() {
 }
 
 function formatTime(secs) {
-  if (!isFinite(secs)) return "0:00";
-  const m = Math.floor(secs / 60);
+  if (!isFinite(secs)) return "0:00:00";
+  const h = Math.floor(secs / 3600);
+  const m = Math.floor((secs % 3600) / 60).toString().padStart(2, "0");
   const s = Math.floor(secs % 60).toString().padStart(2, "0");
-  return `${m}:${s}`;
+  return `${h}:${m}:${s}`;
 }
 
 function splitEpisodeLabel(name, index) {

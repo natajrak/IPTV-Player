@@ -35,6 +35,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-javxx.js',
   'fetch-allinhd.js',
   'fetch-037hdd.js',
+  'fetch-v8hdd.js',
 ]);
 
 const PLAYLIST_DIRS = {
@@ -44,6 +45,19 @@ const PLAYLIST_DIRS = {
   'series':       'playlist/series',
   'av':           'playlist/av',
 };
+
+const CUSTOM_TABS_PATH = path.join(ROOT, 'playlist', 'custom-tabs.json');
+
+/** Load custom tabs and merge with built-in PLAYLIST_DIRS */
+function getPlaylistDir(tabKey) {
+  if (PLAYLIST_DIRS[tabKey]) return PLAYLIST_DIRS[tabKey];
+  try {
+    const customs = JSON.parse(fs.readFileSync(CUSTOM_TABS_PATH, 'utf-8'));
+    const found = customs.find(c => c.key === tabKey);
+    if (found) return found.dir;
+  } catch {}
+  return null;
+}
 
 // ── Helpers ──────────────────────────────────────────────────────
 function removeFromIndex(indexPath, file) {
@@ -173,7 +187,7 @@ const server = http.createServer(async (req, res) => {
     catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
 
     const { tab, file, partFile, level, season, trackName } = body;
-    const dir = PLAYLIST_DIRS[tab];
+    const dir = getPlaylistDir(tab);
 
     if (!dir
       || typeof file !== 'string' || !/^[\w-]+$/.test(file)
@@ -288,7 +302,7 @@ const server = http.createServer(async (req, res) => {
   // ── GET /api/playlist-files?tab=... ───────────────────────────
   if (req.method === 'GET' && pathname === '/api/playlist-files') {
     const tabKey = parsed.searchParams.get('tab') || '';
-    const dir    = PLAYLIST_DIRS[tabKey];
+    const dir    = getPlaylistDir(tabKey);
     if (!dir) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end('[]');
@@ -311,6 +325,26 @@ const server = http.createServer(async (req, res) => {
       });
     } catch {}
 
+    // Build per-part title map from main files (2-file pattern: slug.txt → groups[].url → name)
+    // e.g. transformers.txt groups → "38356-transformers" → "Transformers: Dark of the Moon [...]"
+    let partNameMap = {};
+    try {
+      const allFiles = fs.readdirSync(dirPath).filter(f => f.endsWith('.txt') && f !== 'index.txt');
+      allFiles.forEach(f => {
+        const base = f.replace(/\.txt$/, '');
+        if (/^\d+-/.test(base)) return; // skip part files (have TMDB prefix)
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(dirPath, f), 'utf8'));
+          (data.groups || []).forEach(g => {
+            if (g.url && g.name) {
+              const partFname = g.url.split('/').pop().replace(/\.txt$/i, '');
+              partNameMap[partFname] = g.name;
+            }
+          });
+        } catch {}
+      });
+    } catch {}
+
     fs.readdir(dirPath, (err, files) => {
       const list = (err ? [] : files)
         .filter(f => f.endsWith('.txt') && f !== 'index.txt')
@@ -319,12 +353,102 @@ const server = http.createServer(async (req, res) => {
           const m    = base.match(/^(\d+)-(.+)$/);
           const slug   = m ? m[2] : base;
           const tmdbId = m ? m[1] : '';
-          return { full: base, slug, tmdbId, name: nameMap[slug] || '' };
+          return { full: base, slug, tmdbId, name: partNameMap[base] || nameMap[slug] || '' };
         })
         .sort((a, b) => a.slug.localeCompare(b.slug));
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(list));
     });
+    return;
+  }
+
+  // ── GET /api/custom-tabs ────────────────────────────────────────
+  if (req.method === 'GET' && pathname === '/api/custom-tabs') {
+    try {
+      const data = fs.readFileSync(CUSTOM_TABS_PATH, 'utf-8');
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(data);
+    } catch {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end('[]');
+    }
+    return;
+  }
+
+  // ── POST /api/add-category ────────────────────────────────────
+  if (req.method === 'POST' && pathname === '/api/add-category') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { key, name, kind, image } = body;
+    if (!key || !name || !['series', 'movie'].includes(kind)) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Invalid: need key, name, kind (series|movie)');
+      return;
+    }
+    if (!/^[a-z0-9-]+$/.test(key)) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Invalid key: use lowercase a-z, 0-9, hyphens only');
+      return;
+    }
+
+    // Check no collision with built-in
+    if (PLAYLIST_DIRS[key]) {
+      res.writeHead(409, { 'Content-Type': 'text/plain' });
+      res.end('Key already exists as built-in');
+      return;
+    }
+
+    // Read existing customs
+    let customs = [];
+    try { customs = JSON.parse(fs.readFileSync(CUSTOM_TABS_PATH, 'utf-8')); } catch {}
+    if (customs.find(c => c.key === key)) {
+      res.writeHead(409, { 'Content-Type': 'text/plain' });
+      res.end('Key already exists');
+      return;
+    }
+
+    const dir = `playlist/${key}`;
+    const dirPath = path.join(ROOT, dir);
+    const tmdbKind = kind === 'series' ? 'tv' : 'movie';
+
+    // Create directory
+    fs.mkdirSync(dirPath, { recursive: true });
+
+    // Create empty index.txt
+    const indexData = { name, image: image || '', groups: [] };
+    fs.writeFileSync(path.join(dirPath, 'index.txt'), JSON.stringify(indexData, null, 4));
+
+    // Save to custom-tabs.json
+    customs.push({ key, name, dir, kind, tmdbKind });
+    fs.writeFileSync(CUSTOM_TABS_PATH, JSON.stringify(customs, null, 2));
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true, tab: customs[customs.length - 1] }));
+    return;
+  }
+
+  // ── POST /api/delete-category ─────────────────────────────────
+  if (req.method === 'POST' && pathname === '/api/delete-category') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { key } = body;
+    if (!key || PLAYLIST_DIRS[key]) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Cannot delete built-in or invalid key');
+      return;
+    }
+
+    let customs = [];
+    try { customs = JSON.parse(fs.readFileSync(CUSTOM_TABS_PATH, 'utf-8')); } catch {}
+    customs = customs.filter(c => c.key !== key);
+    fs.writeFileSync(CUSTOM_TABS_PATH, JSON.stringify(customs, null, 2));
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end('{"ok":true}');
     return;
   }
 

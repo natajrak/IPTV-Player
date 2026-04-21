@@ -385,6 +385,30 @@
     .btn-add:hover { background: #c0070f; }
     .btn-add i { font-size: 11px; }
 
+    /* ── Add Category tab button ────────────────────── */
+    .tab-btn-station {
+      margin-left: auto;
+      background: transparent;
+      border: 1px dashed var(--text3);
+      color: var(--text3);
+      font-size: 12px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .tab-btn-station:hover { border-color: var(--accent); color: var(--accent); background: rgba(229,9,20,.08); }
+    .tab-btn-station i { font-size: 10px; }
+
+    /* ── Custom tab button with delete ──────────────── */
+    .tab-btn-custom { position: relative; padding-right: 26px; }
+    .tab-btn-custom .tab-del {
+      position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: var(--text3);
+      font-size: 10px; cursor: pointer; padding: 2px 3px;
+      line-height: 1; opacity: 0; transition: opacity .15s, color .15s;
+      border-radius: 3px;
+    }
+    .tab-btn-custom:hover .tab-del { opacity: .7; }
+    .tab-btn-custom .tab-del:hover { opacity: 1; color: #e05050; background: rgba(224,80,80,.1); }
+
     /* ── Modal ───────────────────────────────────────── */
     .modal-overlay {
       position: fixed; inset: 0;
@@ -548,6 +572,7 @@
   <button class="tab-btn"        data-tab="movie">Movie</button>
   <button class="tab-btn"        data-tab="series">Series</button>
   <button class="tab-btn"        data-tab="av">AV</button>
+  <button class="tab-btn tab-btn-station" id="add-cat-tab-btn"><i class="fi fi-sr-plus-small"></i> Add Category</button>
 </div>
 
 <!-- Anime Series -->
@@ -943,6 +968,46 @@
   </div>
 </div>
 
+<!-- Add Category Modal -->
+<div id="cat-modal" class="modal-overlay hidden">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-hd">
+      <h2>เพิ่ม Category</h2>
+      <button class="modal-close" id="cat-close">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="fm-row">
+        <label>ชื่อ Category</label>
+        <input type="text" id="cat-name" placeholder="เช่น ละคร, Korean Drama">
+      </div>
+
+      <div class="fm-row">
+        <label>Key <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(a-z, ตัวเลข, - เท่านั้น — ใช้เป็นชื่อโฟลเดอร์)</span></label>
+        <input type="text" id="cat-key" placeholder="เช่น lakorn, korean-drama" style="font-family:monospace">
+      </div>
+
+      <div class="fm-row">
+        <label>ประเภท</label>
+        <div class="fm-radio-grp">
+          <label><input type="radio" name="cat-kind" value="series" checked> Series <span style="color:var(--text3);font-size:11px">(season → track → episodes)</span></label>
+          <label><input type="radio" name="cat-kind" value="movie"> Movie <span style="color:var(--text3);font-size:11px">(ภาค → tracks)</span></label>
+        </div>
+      </div>
+
+      <div class="fm-row">
+        <label>Image <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(รูปปก category — optional)</span></label>
+        <input type="text" id="cat-image" placeholder="https://...jpg">
+      </div>
+
+    </div>
+    <div class="modal-ft">
+      <span id="cat-status" style="flex:1;font-size:12px;color:var(--text3)"></span>
+      <button class="btn-run" id="cat-save-btn"><i class="fi fi-sr-plus"></i> สร้าง</button>
+    </div>
+  </div>
+</div>
+
 <!-- Image Preview Overlay -->
 <div id="img-preview-overlay" class="hidden">
   <img id="img-preview-img" src="" alt="Preview" />
@@ -957,6 +1022,12 @@ const IS_LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
 document.getElementById('data-source').innerHTML = IS_LOCAL
   ? '<i class="fi fi-ss-folder-tree"></i> Local'
   : '<i class="fi fi-sr-cloud-code"></i> GitHub';
+
+// Hide local-only UI
+if (!IS_LOCAL) {
+  const catBtn = document.getElementById('add-cat-tab-btn');
+  if (catBtn) catBtn.style.display = 'none';
+}
 
 /** Build URL for a playlist path (relative to repo root) */
 function resolveUrl(path) {
@@ -980,7 +1051,7 @@ const TABS = {
 const loaded = new Set();
 
 // ── Tab switching ────────────────────────────────────────────────
-document.querySelectorAll('.tab-btn').forEach(btn => {
+document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
   btn.addEventListener('click', () => {
     const id = btn.dataset.tab;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1564,6 +1635,7 @@ const ADD_SCRIPTS = {
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
     { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
     { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
+    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
   ],
   'anime-movie': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1574,6 +1646,7 @@ const ADD_SCRIPTS = {
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
     { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
     { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
+    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
   ],
   'movie': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1583,6 +1656,7 @@ const ADD_SCRIPTS = {
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
     { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
     { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
+    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
   ],
   'series': [
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
@@ -1592,6 +1666,7 @@ const ADD_SCRIPTS = {
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
     { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
     { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
+    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
   ],
   'av': [
     { id: 'javxx',      label: 'javxx',      file: 'fetch-javxx.js'      },
@@ -2249,6 +2324,217 @@ document.querySelectorAll('input[name="fm-track"]').forEach(r => {
 });
 
 buildAddButtons();
+
+// ── Add Category Modal + Dynamic Custom Tabs ────────────────────
+{
+  const catModal   = document.getElementById('cat-modal');
+  const catName    = document.getElementById('cat-name');
+  const catKey     = document.getElementById('cat-key');
+  const catImage   = document.getElementById('cat-image');
+  const catStatus  = document.getElementById('cat-status');
+  const catSaveBtn = document.getElementById('cat-save-btn');
+
+  // Auto-generate key from name
+  catName.addEventListener('input', () => {
+    const v = catName.value.trim().toLowerCase()
+      .replace(/[ก-๙]+/g, '')           // strip Thai chars
+      .replace(/[^a-z0-9]+/g, '-')      // non-alnum → hyphen
+      .replace(/^-+|-+$/g, '')          // trim leading/trailing hyphens
+      .replace(/-{2,}/g, '-');           // collapse double hyphens
+    if (!catKey.dataset.manual) catKey.value = v;
+  });
+  catKey.addEventListener('input', () => { catKey.dataset.manual = '1'; });
+
+  function openCatModal() {
+    if (!IS_LOCAL) { alert('ใช้ได้เฉพาะ Local Dev เท่านั้น'); return; }
+    catName.value = ''; catKey.value = ''; catImage.value = '';
+    delete catKey.dataset.manual;
+    catStatus.textContent = ''; catStatus.style.color = '';
+    document.querySelector('input[name="cat-kind"][value="series"]').checked = true;
+    catModal.classList.remove('hidden');
+    setTimeout(() => catName.focus(), 50);
+  }
+
+  async function saveCategory() {
+    const name  = catName.value.trim();
+    const key   = catKey.value.trim();
+    const kind  = document.querySelector('input[name="cat-kind"]:checked')?.value || 'series';
+    const image = catImage.value.trim();
+
+    if (!name) { catStatus.textContent = '⚠ กรุณากรอกชื่อ Category'; return; }
+    if (!key || !/^[a-z0-9-]+$/.test(key)) { catStatus.textContent = '⚠ Key ต้องเป็น a-z, 0-9, - เท่านั้น'; return; }
+
+    catSaveBtn.disabled = true;
+    catStatus.textContent = 'กำลังสร้าง...'; catStatus.style.color = '';
+
+    try {
+      const r = await fetch('/api/add-category', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key, name, kind, image }),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      const result = await r.json();
+
+      // Update index image if provided
+      if (image) {
+        await fetch('/api/save-file', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filePath: `playlist/${key}/index.txt`, data: { name, image, groups: [] } }),
+        });
+      }
+
+      // Dynamically add the new tab
+      addCustomTab(result.tab);
+
+      catStatus.style.color = '#6de06d';
+      catStatus.textContent = `✓ สร้าง "${name}" เรียบร้อย`;
+      setTimeout(() => catModal.classList.add('hidden'), 1200);
+    } catch (err) {
+      catStatus.style.color = '#e07070';
+      catStatus.textContent = '⚠ ' + err.message;
+    } finally {
+      catSaveBtn.disabled = false;
+    }
+  }
+
+  /** Create a tab button + pane for a custom tab, wire it up */
+  function addCustomTab(tab) {
+    const { key, name, kind, tmdbKind, dir } = tab;
+
+    // Register in TABS so all existing logic works
+    TABS[key] = { index: `${dir}/index.txt`, kind, tmdbKind: tmdbKind || (kind === 'series' ? 'tv' : 'movie') };
+
+    // Register in ADD_SCRIPTS (copy from series/movie lists)
+    if (!ADD_SCRIPTS[key]) {
+      const baseScripts = kind === 'series' ? ADD_SCRIPTS['series'] : ADD_SCRIPTS['movie'];
+      ADD_SCRIPTS[key] = baseScripts ? [...baseScripts] : [];
+    }
+
+    // Register in TAB_LABELS
+    TAB_LABELS[key] = name;
+
+    // Create tab button (insert before the + button)
+    const tabNav  = document.getElementById('tab-nav');
+    const addBtn  = document.getElementById('add-cat-tab-btn');
+    const btn     = document.createElement('button');
+    btn.className = 'tab-btn tab-btn-custom';
+    btn.dataset.tab = key;
+    btn.innerHTML = `${esc(name)}<span class="tab-del" data-del-cat="${esc(key)}" title="ลบ category">✕</span>`;
+    tabNav.insertBefore(btn, addBtn);
+
+    // Delete custom tab handler
+    btn.querySelector('.tab-del').addEventListener('click', async (e) => {
+      e.stopPropagation();
+      if (!confirm(`ลบ category "${name}"? (ไฟล์ playlist จะยังอยู่)`)) return;
+      try {
+        const r = await fetch('/api/delete-category', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key }),
+        });
+        if (!r.ok) throw new Error(await r.text());
+        // Remove tab + pane from DOM
+        btn.remove();
+        const paneEl = document.getElementById(key);
+        if (paneEl) paneEl.remove();
+        delete TABS[key];
+        delete ADD_SCRIPTS[key];
+        delete TAB_LABELS[key];
+        loaded.delete(key);
+        // Activate first tab
+        const firstTab = document.querySelector('.tab-btn[data-tab]');
+        if (firstTab) firstTab.click();
+      } catch (err) { alert('ลบไม่สำเร็จ: ' + err.message); }
+    });
+
+    // Tab click handler
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(key).classList.add('active');
+      loadTab(key);
+    });
+
+    // Create pane
+    const pane = document.createElement('div');
+    pane.id = key;
+    pane.className = 'tab-pane';
+    pane.innerHTML = `
+      <div class="pane-bar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+          <input type="text" class="s-inp" data-tab="${esc(key)}" placeholder="ค้นหาชื่อเรื่อง...">
+        </div>
+        <span class="pane-stats" id="stats-${esc(key)}"></span>
+      </div>
+      <div class="table-scroll">
+        <div id="tbl-${esc(key)}" class="loading"><div class="spinner"></div><span>Loading...</span></div>
+      </div>`;
+    // Insert pane before the modals (after the last tab-pane)
+    const lastPane = document.querySelector('.tab-pane:last-of-type');
+    lastPane.parentNode.insertBefore(pane, lastPane.nextSibling);
+
+    // Wire search
+    pane.querySelector('.s-inp').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      const wrap = document.getElementById('tbl-' + key);
+      if (!wrap) return;
+      const map = {};
+      wrap.querySelectorAll('tbody tr[data-group]').forEach(row => {
+        const g = row.dataset.group;
+        if (!map[g]) map[g] = { title: row.dataset.title || '', rows: [] };
+        map[g].rows.push(row);
+      });
+      let shown = 0, total = 0;
+      Object.values(map).forEach(({ title, rows }) => {
+        total++;
+        const match = !q || title.includes(q);
+        rows.forEach(r => r.classList.toggle('hidden', !match));
+        if (match) shown++;
+      });
+      const stats = document.getElementById('stats-' + key);
+      if (stats) stats.textContent = q ? `${shown} / ${total} รายการ` : `${total} รายการ`;
+    });
+
+    // Add buttons (batch + add) to pane bar
+    if (IS_LOCAL) {
+      const bar = pane.querySelector('.pane-bar');
+      const batchBtn = document.createElement('button');
+      batchBtn.className = 'btn-batch';
+      batchBtn.innerHTML = '<i class="fi fi-sr-rotate-right"></i> อัพเดท Metadata';
+      batchBtn.addEventListener('click', () => openBatchModal(key));
+      bar.appendChild(batchBtn);
+
+      const addBtn2 = document.createElement('button');
+      addBtn2.className = 'btn-add';
+      addBtn2.innerHTML = '<i class="fi fi-sr-plus"></i> เพิ่ม';
+      addBtn2.addEventListener('click', () => openAddModal(key));
+      bar.appendChild(addBtn2);
+    }
+  }
+
+  // Load custom tabs on boot
+  async function loadCustomTabs() {
+    if (!IS_LOCAL) return;
+    try {
+      const r = await fetch('/api/custom-tabs');
+      const tabs = r.ok ? await r.json() : [];
+      tabs.forEach(addCustomTab);
+    } catch {}
+  }
+
+  // Event listeners
+  document.getElementById('add-cat-tab-btn').addEventListener('click', openCatModal);
+  catSaveBtn.addEventListener('click', saveCategory);
+  document.getElementById('cat-close').addEventListener('click', () => catModal.classList.add('hidden'));
+  catModal.addEventListener('click', e => { if (e.target === catModal) catModal.classList.add('hidden'); });
+
+  // Boot: load custom tabs
+  loadCustomTabs();
+}
 
 // ── Boot ─────────────────────────────────────────────────────────
 loadTab('anime-series');
