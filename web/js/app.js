@@ -33,6 +33,8 @@ let currentIndex = 0;
 let hls = null;
 let upnextCountdown = null;
 let upnextCancelled = false;
+let shuffleMode = false;
+let shuffleHistory = [];   // track played indices to avoid repeats
 let searchIndex = [];
 let searchIndexPromise = null;
 let searchIndexRootNode = null;
@@ -84,9 +86,11 @@ const btnForward   = document.getElementById("btn-forward");
 const btnNextEp    = document.getElementById("btn-next-ep");
 const btnMute       = document.getElementById("btn-mute");
 const volumeSlider  = document.getElementById("volume-slider");
+const btnPip        = document.getElementById("btn-pip");
 const btnAirPlay    = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes   = document.getElementById("btn-episodes");
+const btnShuffle    = document.getElementById("btn-shuffle");
 const epPanel       = document.getElementById("ep-panel");
 const epPanelTabs   = document.getElementById("ep-panel-tabs");
 const epPanelGrid   = document.getElementById("ep-panel-grid");
@@ -1299,6 +1303,25 @@ function buildCrossSeasonQueue(languageTitle, inheritedReferer) {
 }
 
 function resolveAdjacentEpisode(step) {
+  // Shuffle mode: pick a random unplayed station from currentStations
+  if (shuffleMode && step > 0 && currentStations.length > 1) {
+    const unplayed = [];
+    for (let i = 0; i < currentStations.length; i++) {
+      if (!shuffleHistory.includes(i)) unplayed.push(i);
+    }
+    // If all played, reset history (but exclude current)
+    if (unplayed.length === 0) {
+      shuffleHistory = [currentIndex];
+      for (let i = 0; i < currentStations.length; i++) {
+        if (i !== currentIndex) unplayed.push(i);
+      }
+    }
+    if (unplayed.length > 0) {
+      const pick = unplayed[Math.floor(Math.random() * unplayed.length)];
+      return { type: "local", index: pick };
+    }
+  }
+
   const localIndex = currentIndex + step;
   if (localIndex >= 0 && localIndex < currentStations.length) {
     return { type: "local", index: localIndex };
@@ -1327,6 +1350,9 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "") {
   currentStations = stations;
   currentIndex = index;
   upnextCancelled = false;
+  // Reset shuffle history for new player session (keep mode on/off as user set it)
+  shuffleHistory = shuffleMode ? [index] : [];
+  btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
   const crossSeasonData = buildCrossSeasonQueue(languageTitle, inheritedReferer);
@@ -1372,6 +1398,8 @@ function playEpisode(index, inheritedReferer) {
   if (!station) { closePlayer(); return; }
 
   currentIndex = index;
+  // Track in shuffle history
+  if (shuffleMode && !shuffleHistory.includes(index)) shuffleHistory.push(index);
   const referer = station.referer ?? inheritedReferer ?? null;
   inheritedRefererCache = referer;
   const url = station.url;
@@ -1671,6 +1699,16 @@ btnNextEp.addEventListener("click", () => {
   else playEpisodeFromQueue(target.queueIndex);
 });
 
+btnShuffle.addEventListener("click", () => {
+  shuffleMode = !shuffleMode;
+  btnShuffle.classList.toggle("active", shuffleMode);
+  shuffleHistory = shuffleMode ? [currentIndex] : [];
+  showPlayerNotice(shuffleMode ? "สุ่มเล่น: เปิด" : "สุ่มเล่น: ปิด", 2000);
+  // Update next button state (shuffle always has a next)
+  if (shuffleMode && currentStations.length > 1) btnNextEp.disabled = false;
+  else btnNextEp.disabled = !resolveAdjacentEpisode(1);
+});
+
 playerVideo.addEventListener("play",  () => { btnPlayPause.innerHTML = PLAYER_ICON_PAUSE; showPlayerUI(); });
 playerVideo.addEventListener("pause", () => { btnPlayPause.innerHTML = PLAYER_ICON_PLAY; showPlayerUI(); });
 playerVideo.addEventListener("error", () => {
@@ -1941,6 +1979,117 @@ btnFullscreen.addEventListener("click", () => {
   }
 });
 
+/* ===== Picture-in-Picture ===== */
+// Prefer Document PiP (resizable, with controls) → fallback to Video PiP
+const hasDocPip = typeof documentPictureInPicture !== "undefined";
+const hasVideoPip = typeof playerVideo.requestPictureInPicture === "function";
+if (hasDocPip || hasVideoPip) btnPip.hidden = false;
+
+let docPipWindow = null;
+
+async function togglePip() {
+  // If already in Document PiP → close it
+  if (docPipWindow) {
+    docPipWindow.close();
+    docPipWindow = null;
+    btnPip.classList.remove("active");
+    return;
+  }
+  // If already in Video PiP → exit
+  if (document.pictureInPictureElement) {
+    await document.exitPictureInPicture();
+    btnPip.classList.remove("active");
+    return;
+  }
+
+  // Try Document PiP first (resizable, custom controls)
+  if (hasDocPip) {
+    try {
+      docPipWindow = await documentPictureInPicture.requestWindow({
+        width: 480,
+        height: 270,
+      });
+
+      // Copy stylesheets for controls styling
+      const pipDoc = docPipWindow.document;
+      pipDoc.documentElement.style.cssText = "margin:0;padding:0;background:#000;overflow:hidden;height:100%";
+      pipDoc.body.style.cssText = "margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100%;position:relative";
+
+      // Move video to PiP window
+      const wrapper = pipDoc.createElement("div");
+      wrapper.style.cssText = "width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;background:#000";
+
+      // Style the video in PiP
+      playerVideo.style.cssText = "width:100%;height:100%;object-fit:contain";
+      wrapper.appendChild(playerVideo);
+
+      // Simple overlay controls
+      const controls = pipDoc.createElement("div");
+      controls.style.cssText = "position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,.8));opacity:0;transition:opacity .2s";
+      wrapper.addEventListener("mouseenter", () => controls.style.opacity = "1");
+      wrapper.addEventListener("mouseleave", () => controls.style.opacity = "0");
+
+      const makeBtn = (label, onClick) => {
+        const b = pipDoc.createElement("button");
+        b.textContent = label;
+        b.style.cssText = "background:rgba(255,255,255,.15);border:none;color:#fff;font-size:16px;cursor:pointer;padding:6px 10px;border-radius:6px";
+        b.addEventListener("click", onClick);
+        return b;
+      };
+
+      controls.appendChild(makeBtn("⏮", () => {
+        const t = resolveAdjacentEpisode(-1);
+        if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
+        else if (t) playEpisodeFromQueue(t.queueIndex);
+      }));
+      controls.appendChild(makeBtn("⏪", rewind10));
+      const playPauseBtn = makeBtn(playerVideo.paused ? "▶" : "⏸", () => togglePlayPause());
+      controls.appendChild(playPauseBtn);
+      playerVideo.addEventListener("play",  () => playPauseBtn.textContent = "⏸");
+      playerVideo.addEventListener("pause", () => playPauseBtn.textContent = "▶");
+      controls.appendChild(makeBtn("⏩", forward10));
+      controls.appendChild(makeBtn("⏭", () => {
+        const t = resolveAdjacentEpisode(1);
+        if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
+        else if (t) playEpisodeFromQueue(t.queueIndex);
+      }));
+
+      wrapper.appendChild(controls);
+      pipDoc.body.appendChild(wrapper);
+
+      btnPip.classList.add("active");
+
+      // When PiP window closes → move video back
+      docPipWindow.addEventListener("pagehide", () => {
+        playerVideo.style.cssText = "";
+        const notice = document.getElementById("player-notice");
+        playerOverlay.insertBefore(playerVideo, notice);
+        docPipWindow = null;
+        btnPip.classList.remove("active");
+      });
+      return;
+    } catch (e) {
+      console.warn("Document PiP failed, trying video PiP:", e);
+    }
+  }
+
+  // Fallback: standard Video PiP
+  if (hasVideoPip) {
+    try {
+      await playerVideo.requestPictureInPicture();
+      btnPip.classList.add("active");
+    } catch (e) {
+      showPlayerNotice("PiP ไม่รองรับในเบราว์เซอร์นี้", 3000);
+    }
+  }
+}
+
+btnPip.addEventListener("click", togglePip);
+
+// Track video PiP state changes (for standard PiP fallback)
+playerVideo.addEventListener("enterpictureinpicture", () => btnPip.classList.add("active"));
+playerVideo.addEventListener("leavepictureinpicture", () => btnPip.classList.remove("active"));
+
 /* ===== Auto-hide UI ===== */
 let idleTimer = null;
 
@@ -2126,6 +2275,10 @@ function cancelUpnext() {
 
 function closePlayer() {
   cancelUpnext();
+  // Close PiP if open
+  if (docPipWindow) { docPipWindow.close(); docPipWindow = null; }
+  if (document.pictureInPictureElement) document.exitPictureInPicture().catch(() => {});
+  btnPip.classList.remove("active");
   destroyHls();
   hidePlayerNotice();
   playerVideo.pause();
@@ -2138,6 +2291,7 @@ function closePlayer() {
   crossSeasonQueue = [];
   crossSeasonIndex = -1;
   crossSeasonSeasons = [];
+  shuffleHistory = [];
   epPanelSeasonFilter = "";
   currentSeasonTitle = "";
   playerSectionTitle = "";
