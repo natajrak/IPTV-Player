@@ -64,7 +64,7 @@
     <div id="ep-panel" class="hidden">
       <div id="ep-panel-header">
         <span id="ep-panel-title">เลือกตอน</span>
-        <button id="ep-panel-close">✕</button>
+        <button id="ep-panel-close"><i class="fi fi-sr-cross"></i></button>
       </div>
       <div id="ep-panel-tabs" class="hidden"></div>
       <div id="ep-panel-grid"></div>
@@ -75,6 +75,10 @@
       <!-- Progress -->
       <div id="player-progress-row">
         <input type="range" id="player-seek" min="0" max="100" step="0.01" value="0" />
+        <div id="seek-preview" class="hidden">
+          <div id="seek-preview-thumb"></div>
+          <span id="seek-preview-time"></span>
+        </div>
       </div>
       <!-- Buttons -->
       <div id="player-btn-row">
@@ -87,11 +91,11 @@
           <span id="player-time">0:00 / 0:00</span>
         </div>
         <div class="bar-group">
-          <button id="btn-shuffle" title="สุ่มเล่น"><i class="fi fi-rr-shuffle" aria-hidden="true"></i></button>
+          <button id="btn-shuffle" title="สุ่มเล่น" hidden><i class="fi fi-rr-shuffle" aria-hidden="true"></i></button>
           <button id="btn-episodes" title="เลือกตอน"><i class="fi fi-rr-list" aria-hidden="true"></i><span>EP</span></button>
-          <button id="btn-mute" title="ปิด/เปิดเสียง">🔊</button>
+          <button id="btn-mute" title="ปิด/เปิดเสียง"><i class="fi fi-rr-volume" aria-hidden="true"></i></button>
           <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" title="ระดับเสียง" />
-          <button id="btn-pip" title="Picture in Picture" hidden><i class="fi fi-rr-picture" aria-hidden="true"></i></button>
+          <button id="btn-pip" title="Picture in Picture" hidden><i class="fi fi-rr-resize"></i></button>
           <button id="btn-airplay" title="AirPlay / Cast to TV" hidden><i class="fi fi-br-airplay"></i></button>
           <button id="btn-fullscreen" title="เต็มหน้าจอ"><i class="fi fi-sr-expand" aria-hidden="true"></i></button>
         </div>
@@ -117,15 +121,10 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
-  <script src="js/app.js?v=14"></script>
+  <script src="js/app.js?v=22"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("sw.js").catch((err) => {
           console.error("Service worker registration failed:", err);
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+        }

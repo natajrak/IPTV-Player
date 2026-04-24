@@ -35,6 +35,7 @@ let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
 let shuffleHistory = [];   // track played indices to avoid repeats
+let isAvMode = false;
 let searchIndex = [];
 let searchIndexPromise = null;
 let searchIndexRootNode = null;
@@ -78,6 +79,9 @@ const playerTitle   = document.getElementById("player-title");
 const playerNotice  = document.getElementById("player-notice");
 const playerSeek    = document.getElementById("player-seek");
 const playerTime    = document.getElementById("player-time");
+const seekPreview     = document.getElementById("seek-preview");
+const seekPreviewThumb = document.getElementById("seek-preview-thumb");
+const seekPreviewTime  = document.getElementById("seek-preview-time");
 
 const btnPrevEp    = document.getElementById("btn-prev-ep");
 const btnRewind    = document.getElementById("btn-rewind");
@@ -92,6 +96,7 @@ const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes   = document.getElementById("btn-episodes");
 const btnShuffle    = document.getElementById("btn-shuffle");
 const epPanel       = document.getElementById("ep-panel");
+const epPanelTitle  = document.getElementById("ep-panel-title");
 const epPanelTabs   = document.getElementById("ep-panel-tabs");
 const epPanelGrid   = document.getElementById("ep-panel-grid");
 const epPanelClose  = document.getElementById("ep-panel-close");
@@ -965,14 +970,22 @@ function getPaginationItems(totalPages, activePageIdx) {
 }
 
 function renderSectionHeader(title, options = {}) {
-  const { withSort = false, sort = "az", count = null, withFilter = false } = options;
+  const { withSort = false, sort = "az", count = null, withFilter = false, sortMode = "alpha" } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
   const titleMain = typeof count === "number" ? `${splitTitle.main} (${count})` : splitTitle.main;
-  const sortIcon = sort === "za"
-    ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
-    : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
-  const sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
+  let sortIcon, sortLabel;
+  if (sortMode === "date") {
+    sortIcon = sort === "za"
+      ? `<i class="fi fi-rr-calendar-arrow-up" aria-hidden="true"></i>`
+      : `<i class="fi fi-rr-calendar-arrow-down" aria-hidden="true"></i>`;
+    sortLabel = sort === "za" ? "เก่าสุดก่อน" : "ใหม่สุดก่อน";
+  } else {
+    sortIcon = sort === "za"
+      ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
+      : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
+    sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
+  }
 
   const filterHtml = withFilter ? `
     <div class="av-filter-group">
@@ -1059,11 +1072,11 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
   browseTitle = sectionTitle;
   browseParentNode = parentNode;
 
-  // Sort
+  // Sort by release_date (newest first = default "az", oldest first = "za")
   const sorted = [...stations].sort((a, b) => {
-    const nameA = (a.name || "").toLowerCase();
-    const nameB = (b.name || "").toLowerCase();
-    return currentSortOrder === "za" ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
+    const dateA = a.meta?.release_date || "0000-00-00";
+    const dateB = b.meta?.release_date || "0000-00-00";
+    return currentSortOrder === "za" ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
   });
 
   const total = sorted.length;
@@ -1076,6 +1089,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
     withSort: true,
     withFilter: true,
+    sortMode: "date",
     sort: currentSortOrder,
     count: total,
   })}
@@ -1120,7 +1134,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
 
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
-      openPlayer(stations, globalIdx, null, sectionTitle);
+      openPlayer(stations, globalIdx, null, sectionTitle, { allowShuffle: true });
     });
 
     grid.appendChild(card);
@@ -1346,11 +1360,14 @@ function playEpisodeFromQueue(queueIndex) {
   playEpisode(item.localIndex, item.referer);
 }
 
-function openPlayer(stations, index, inheritedReferer, languageTitle = "") {
+function openPlayer(stations, index, inheritedReferer, languageTitle = "", { allowShuffle = false } = {}) {
   currentStations = stations;
   currentIndex = index;
   upnextCancelled = false;
-  // Reset shuffle history for new player session (keep mode on/off as user set it)
+  // Shuffle only available for AV (browsable) playlists
+  isAvMode = allowShuffle;
+  btnShuffle.hidden = !allowShuffle;
+  if (!allowShuffle) shuffleMode = false;
   shuffleHistory = shuffleMode ? [index] : [];
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
@@ -1438,6 +1455,7 @@ function playEpisode(index, inheritedReferer) {
   cancelUpnext();
   resetProgress();
   hidePlayerNotice();
+  loadSeekPreview();
 
   // ถ้ากำลัง AirPlay/Cast อยู่ ต้องข้าม HLS.js → ใช้ native source ต่อเนื่อง
   // เพื่อไม่ให้ blob: URL (MSE) ไป kill cast session — ไม่งั้นจอทีวีจะกระพริบ
@@ -1741,7 +1759,132 @@ playerSeek.addEventListener("input", () => {
   }
 });
 
+// ===== Seek Preview (VTT sprite thumbnails — AV only) =====
+let seekPreviewCues = null;    // [{start, end, url, x, y, w, h}] หรือ null
+let seekPreviewSpriteUrl = ""; // URL ของ sprite image
+let seekPreviewLoading = false;
+
+/** แปลง VTT timestamp "HH:MM:SS.mmm" เป็น seconds */
+function parseVttTime(str) {
+  const parts = str.split(":");
+  if (parts.length === 3) return +parts[0] * 3600 + +parts[1] * 60 + parseFloat(parts[2]);
+  if (parts.length === 2) return +parts[0] * 60 + parseFloat(parts[1]);
+  return parseFloat(str);
+}
+
+/** Parse VTT text → array of cues with sprite coordinates */
+function parseVttThumbnails(vttText, baseUrl) {
+  const cues = [];
+  // Split by double-newline (cue blocks)
+  const blocks = vttText.replace(/\r\n/g, "\n").split(/\n\n+/);
+  for (const block of blocks) {
+    const lines = block.trim().split("\n");
+    // Find timestamp line: "00:00:00.000 --> 00:05:00.000"
+    const tsLine = lines.find(l => l.includes("-->"));
+    if (!tsLine) continue;
+    const [startStr, endStr] = tsLine.split("-->").map(s => s.trim());
+    const start = parseVttTime(startStr);
+    const end = parseVttTime(endStr);
+    // Find image line: "preview.jpg#xywh=0,0,160,90" or full URL
+    const imgLine = lines.find(l => l.includes("#xywh=") || /\.(jpg|jpeg|png|webp)/i.test(l));
+    if (!imgLine) continue;
+    const [imgPath, fragment] = imgLine.trim().split("#xywh=");
+    const url = imgPath.startsWith("http") ? imgPath : baseUrl + imgPath;
+    let x = 0, y = 0, w = 160, h = 90;
+    if (fragment) {
+      const coords = fragment.split(",").map(Number);
+      if (coords.length >= 4) { x = coords[0]; y = coords[1]; w = coords[2]; h = coords[3]; }
+    }
+    cues.push({ start, end, url, x, y, w, h });
+  }
+  return cues;
+}
+
+/** Derive preview VTT/sprite URLs จาก stream URL (AV wowstream pattern) */
+function getPreviewUrls(streamUrl) {
+  if (!streamUrl) return null;
+  const match = streamUrl.match(/^(https?:\/\/.+\/)video\.m3u8/);
+  if (!match) return null;
+  const base = match[1];
+  return { vtt: base + "preview.vtt", sprite: base + "preview.jpg", base };
+}
+
+/** โหลด VTT ของ episode ปัจจุบัน (AV เท่านั้น) */
+function loadSeekPreview() {
+  seekPreviewCues = null;
+  seekPreviewSpriteUrl = "";
+  if (!isAvMode) return;
+  const station = currentStations?.[currentIndex];
+  if (!station) return;
+  const urls = getPreviewUrls(station.url);
+  if (!urls) return;
+
+  seekPreviewLoading = true;
+  fetch(urls.vtt)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(text => {
+      seekPreviewCues = parseVttThumbnails(text, urls.base);
+      seekPreviewSpriteUrl = urls.sprite;
+      // Preload sprite image
+      if (seekPreviewCues.length > 0) {
+        const img = new Image();
+        img.src = seekPreviewSpriteUrl;
+      }
+    })
+    .catch(() => { /* no preview available — fail silently */ })
+    .finally(() => { seekPreviewLoading = false; });
+}
+
+/** หา cue ที่ตรงกับ time */
+function findPreviewCue(time) {
+  if (!seekPreviewCues) return null;
+  return seekPreviewCues.find(c => time >= c.start && time < c.end) || null;
+}
+
+const progressRow = document.getElementById("player-progress-row");
+
+progressRow.addEventListener("mousemove", (e) => {
+  if (!playerVideo.duration || !seekPreviewCues || seekPreviewCues.length === 0) return;
+  const rect = playerSeek.getBoundingClientRect();
+  const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+  const pct = x / rect.width;
+  const time = pct * playerVideo.duration;
+
+  const cue = findPreviewCue(time);
+  if (!cue) { seekPreview.classList.add("hidden"); return; }
+
+  // Position tooltip
+  const previewW = 160;
+  const rowRect = progressRow.getBoundingClientRect();
+  let left = e.clientX - rowRect.left;
+  left = Math.max(previewW / 2 + 4, Math.min(left, rowRect.width - previewW / 2 - 4));
+  seekPreview.style.left = left + "px";
+  seekPreviewTime.textContent = formatTime(time);
+
+  // Show sprite tile at native pixel coordinates
+  seekPreviewThumb.style.width = cue.w + "px";
+  seekPreviewThumb.style.height = cue.h + "px";
+  seekPreviewThumb.style.backgroundImage = `url(${cue.url})`;
+  seekPreviewThumb.style.backgroundPosition = `-${cue.x}px -${cue.y}px`;
+
+  seekPreview.classList.remove("hidden");
+});
+
+progressRow.addEventListener("mouseleave", () => {
+  seekPreview.classList.add("hidden");
+});
+
 // Episode picker
+const TRACK_LABEL_RE = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i;
+
+function getEpPanelLabel() {
+  if (isAvMode) return "เลือกเรื่อง";
+  // Movie: stations are track labels (พากย์ไทย/ซับไทย)
+  const hasTrackLabels = currentStations?.some(s => TRACK_LABEL_RE.test(s.name));
+  if (hasTrackLabels) return "เลือกแทร็กเสียง";
+  return "เลือกตอน";
+}
+
 btnEpisodes.addEventListener("click", (e) => {
   e.stopPropagation();
   const isOpen = !epPanel.classList.contains("hidden");
@@ -1750,6 +1893,7 @@ btnEpisodes.addEventListener("click", (e) => {
     btnEpisodes.focus({ preventScroll: true });
     return;
   }
+  epPanelTitle.textContent = getEpPanelLabel();
   renderEpPanel();
   epPanel.classList.remove("hidden");
   showPlayerUI();
@@ -1806,7 +1950,21 @@ function renderEpPanel() {
       ? `<img class="ep-card-thumb" src="${esc(station.image)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=ep-card-thumb-ph>▶</div>'">`
       : `<div class="ep-card-thumb-ph">▶</div>`;
 
-    const label = splitEpisodeLabel(station.name, i + 1);
+    const isTrack = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(station.name);
+    const actresses = station.meta?.actresses;
+    const actressStr = Array.isArray(actresses) ? actresses.join(", ") : (typeof actresses === "string" ? actresses : "");
+    let label;
+    if (actressStr) {
+      // AV: show name as main, actresses as sub
+      label = { ep: station.name || `Ep. ${i + 1}`, title: actressStr };
+    } else if (isTrack && playerSectionTitle) {
+      label = { ep: playerSectionTitle, title: station.name };
+    } else if (isAvMode) {
+      // AV without actress data: show station name directly
+      label = { ep: station.name || `Ep. ${i + 1}`, title: "" };
+    } else {
+      label = splitEpisodeLabel(station.name, i + 1);
+    }
     const playingBadge = isActive ? `<span class="ep-card-playing">กำลังเล่น</span>` : "";
 
     const titleEl = label.title ? `<div class="ep-card-title">${esc(label.title)}</div>` : "";
@@ -2293,6 +2451,9 @@ function closePlayer() {
   crossSeasonSeasons = [];
   shuffleHistory = [];
   epPanelSeasonFilter = "";
+  seekPreviewCues = null;
+  seekPreviewSpriteUrl = "";
+  seekPreview.classList.add("hidden");
   currentSeasonTitle = "";
   playerSectionTitle = "";
   queueFocusRefresh();
