@@ -48,6 +48,7 @@ const args         = process.argv.slice(2);
 const pageUrl      = args.find((a) => a.startsWith("http"));
 const tmdbKey      = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const mainSlugArg  = (args.find((a) => a.startsWith("--main-slug=")) || "").replace("--main-slug=", "");
 const idPrefixArg  = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg      = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
@@ -150,6 +151,35 @@ async function getStreamHash(leoId) {
     const resp = await fetchJson(apiUrl);
     const data = typeof resp.data === "string" ? JSON.parse(resp.data) : resp.data;
     const sourceUrl = data?.source?.url || "";
+
+    if (!sourceUrl) {
+      // Try alternative API endpoints
+      const altApis = [
+        `https://www.leoplayer7.com/api/analogy/mediahls4/${leoId}`,
+        `https://www.leoplayer7.com/api/analogy/mediahls2/${leoId}`,
+        `https://www.leoplayer7.com/api/analogy/mediahls/${leoId}`,
+      ];
+      for (const altUrl of altApis) {
+        try {
+          const altResp = await fetchJson(altUrl);
+          const altData = typeof altResp.data === "string" ? JSON.parse(altResp.data) : altResp.data;
+          const altSourceUrl = altData?.source?.url || "";
+          if (altSourceUrl) {
+            console.log(`\n    🔄 พบ hash จาก ${altUrl.split('/api/')[1]}`);
+            const am = altSourceUrl.match(/\/p2p\/([a-f0-9]+)/i) || altSourceUrl.match(/\/([a-f0-9]{32})/);
+            if (am) return am[1];
+          }
+        } catch {}
+      }
+      // Log debug info for investigation
+      console.warn(`\n    🔍 DEBUG: API response for ID ${leoId}:`);
+      console.warn(`       resp keys: ${JSON.stringify(Object.keys(resp))}`);
+      if (resp.data) console.warn(`       data: ${JSON.stringify(resp.data).substring(0, 300)}`);
+      if (resp.source) console.warn(`       resp.source: ${JSON.stringify(resp.source).substring(0, 300)}`);
+      if (resp.url) console.warn(`       resp.url: ${resp.url}`);
+      return null;
+    }
+
     // Extract hash from URL path: /p2p/{hash}
     const m = sourceUrl.match(/\/p2p\/([a-f0-9]+)/i) || sourceUrl.match(/\/([a-f0-9]{32})/);
     return m ? m[1] : null;
@@ -159,9 +189,14 @@ async function getStreamHash(leoId) {
   }
 }
 
-/** Build m3u8 stream URL from hash */
+/** CF Worker proxy — rewrite Content-Type สำหรับ segments ที่ใช้ extension ปลอม (.jpg/.html)
+ *  เพื่อให้ Safari iOS native HLS เล่นได้ */
+const CF_WORKER = "https://shy-haze-2452.natajrak-p.workers.dev/";
+
+/** Build m3u8 stream URL from hash, wrapped through CF Worker proxy */
 function buildStreamUrl(hash) {
-  return `https://master.streamhls.com/hls/${hash}/master`;
+  const raw = `https://master.streamhls.com/hls/${hash}/master`;
+  return `${CF_WORKER}?url=${encodeURIComponent(raw)}&referer=${encodeURIComponent("https://www.leoplayer7.com/")}`;
 }
 
 /** Extract title from 037hddmovie page */
@@ -752,7 +787,7 @@ async function main() {
           name:    t.name,
           image:   posterUrl,
           url:     t.streamUrl,
-          referer: STREAM_REFERER,
+          referer: pageUrl,
         });
       }
       // Sort: พากย์ไทย first
@@ -766,13 +801,14 @@ async function main() {
       console.log(`\n📁 บันทึก part file: ${partPath}`);
 
       // ── Main file: {slug}.txt ──
-      const mainPath     = path.resolve(PLAYLIST_DIR, slugFile);
+      const mainFileSlug = mainSlugArg ? (mainSlugArg.endsWith(".txt") ? mainSlugArg : `${mainSlugArg}.txt`) : slugFile;
+      const mainPath     = path.resolve(PLAYLIST_DIR, mainFileSlug);
       const partRawUrl   = `${GITHUB_RAW_BASE}${partFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
 
-      updateIndex(seriesTitle, posterUrl, slugFile);
+      updateIndex(seriesTitle, posterUrl, mainFileSlug);
       console.log("\n🎉 เสร็จสิ้น!");
       console.log(`   Part: ${TYPE_CONFIG[contentType].base}${partFile}`);
       console.log(`   Main: ${TYPE_CONFIG[contentType].base}${slugFile}`);
@@ -829,7 +865,7 @@ async function main() {
                   name:    buildStationName(epNum, "", isDubbedTrack),
                   image:   "",
                   url:     episodes[i].streamUrl,
-                  referer: STREAM_REFERER,
+                  referer: pageUrl,
                 });
                 console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
               }
@@ -860,7 +896,7 @@ async function main() {
                   name:    buildStationName(epNum, "", isDubbedTrack),
                   image:   "",
                   url:     streamUrl,
-                  referer: STREAM_REFERER,
+                  referer: pageUrl,
                 });
                 console.log(` ✅ ${hash.substring(0, 12)}...`);
               } else {

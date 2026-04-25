@@ -1139,9 +1139,10 @@ function badge(name, rf = null) {
   const cls   = `badge ${isSub ? 'badge-sub' : 'badge-th'}`;
   if (rf && rf.referer && IS_LOCAL) {
     const track = isSub ? 'subth' : 'th';
+    const mainAttr = rf.mainSlug ? ` data-main-slug="${esc(rf.mainSlug)}"` : '';
     return `<span class="${cls} badge-refetchable" title="Refetch stream URLs"
       data-refetch="${esc(rf.referer)}" data-slug="${esc(rf.filename)}"
-      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}">${esc(name)}</span>`;
+      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}"${mainAttr}>${esc(name)}</span>`;
   }
   return `<span class="${cls}">${esc(name)}</span>`;
 }
@@ -1170,9 +1171,13 @@ async function loadTab(tabId) {
   try {
     const index  = await getJSON(resolveUrl(cfg.index));
 
-    // AV: flat stations format — render directly
+    // AV: flat stations format — sort by release_date (latest first), render directly
     if (cfg.kind === 'av') {
-      const stations = index.stations || [];
+      const stations = (index.stations || []).slice().sort((a, b) => {
+        const da = a.meta?.release_date || '0000-00-00';
+        const db = b.meta?.release_date || '0000-00-00';
+        return db.localeCompare(da);
+      });
       if (!stations.length) {
         wrap.innerHTML = '<div class="empty"><span>ไม่มีข้อมูล</span></div>';
         return;
@@ -1374,7 +1379,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const partSlug    = partFile.replace(/^\d+-/, '');
         const partStations = group._partPl?.stations || [];
         const trackBadges = partStations.map(s => {
-          const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId } : null;
+          const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId, mainSlug: slug } : null;
           return badge(s.name, rf);
         }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
@@ -1484,16 +1489,18 @@ function renderAV(wrap, stats, stations, tabId) {
     let metaHtml = '<span style="color:var(--text3)">—</span>';
     if (meta && Object.keys(meta).length) {
       const parts = [];
+      if (meta.release_date) parts.push(`<span style="color:var(--text2)">${esc(meta.release_date)}</span>`);
       const actressStr = Array.isArray(meta.actresses) ? meta.actresses.join(', ') : (meta.actresses || '');
-      if (actressStr) parts.push(`<span style="color:var(--accent)">♀ ${esc(actressStr)}</span>`);
-      if (s.badge) parts.push(`<span style="display:inline-block;background:#e50914;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px">${esc(s.badge)}</span>`);
+      if (actressStr) parts.push(`<span style="color:var(--accent)">${esc(actressStr)}</span>`);
       metaHtml = parts.length ? `<div style="font-size:11px;line-height:1.5">${parts.join('<br>')}</div>` : '<span style="color:var(--text3)">—</span>';
     }
+
+    const badgeHtml = s.badge ? `<span style="display:inline-block;background:#e50914;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-top:2px">${esc(s.badge)}</span>` : '';
 
     html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
       <td class="c-no">${gid}</td>
       <td class="c-art">${avArtTag(image)}</td>
-      <td class="c-title"><span class="title-main"><span class="title-en">${esc(name)}${cp(name)}</span></span></td>
+      <td class="c-title"><span class="title-main"><span class="title-en">${esc(name)}${cp(name)}</span></span>${badgeHtml}</td>
       <td style="min-width:160px;max-width:240px">${metaHtml}</td>
       <td class="c-slug" style="max-width:220px">${refCell}</td>
       <td class="c-slug" style="max-width:300px">${url ? `<span style="font-size:11px">${esc(url.substring(0, 60))}${url.length > 60 ? '...' : ''}</span>${cp(url)}` : '—'}</td>
@@ -2122,21 +2129,22 @@ function scriptFromReferer(url) {
     if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
-    if (host.includes('7hd'))                               return 'fetch-7hd.js';
+    if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
+    if (host.includes('v8hdd'))                            return 'fetch-v8hdd.js';
+    if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
     if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
     if (host.includes('allinhd'))                          return 'fetch-allinhd.js';
-    if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
   } catch {}
   return null;
 }
 
-function openRefetchModal(referer, filename, season, track, tabId) {
+function openRefetchModal(referer, filename, season, track, tabId, mainSlug = '') {
   const isSeries  = TABS[tabId]?.kind === 'series';
   const m = filename.match(/^(\d+)-(.+)$/);
   const tmdbId = m ? m[1] : '';
   const slug   = m ? m[2] : filename;
-  rfCtx = { tabId, tmdbId };
+  rfCtx = { tabId, tmdbId, mainSlug };
   const detected  = scriptFromReferer(referer);
   const scripts   = ADD_SCRIPTS[tabId] || [];
 
@@ -2164,6 +2172,7 @@ function buildRfCmd() {
   const season = document.getElementById('rf-season').value.trim() || '1';
   const args   = [url, `--track=${track}`, `--type=${rfCtx.tabId}`, `--season=${season}`, `--output=${fname}.txt`];
   if (rfCtx.tmdbId) args.push(`--tmdb-id=${rfCtx.tmdbId}`);
+  if (rfCtx.mainSlug) args.push(`--main-slug=${rfCtx.mainSlug}`);
   return { script, args, cmd: `node ${script} ${args.join(' ')}` };
 }
 
@@ -2206,7 +2215,7 @@ document.addEventListener('click', e => {
   const b = e.target.closest('.badge-refetchable[data-refetch]');
   if (!b || !IS_LOCAL) return;
   e.stopPropagation();
-  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '');
+  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '');
 });
 
 // ── Delete Modal ─────────────────────────────────────────────────

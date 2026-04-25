@@ -84,10 +84,26 @@ export default {
       });
     }
 
+    // Detect TS/media segments disguised with fake extensions (.jpg, .html, .png, etc.)
+    // TS sync byte = 0x47 (G), repeats every 188 bytes
+    // fMP4 starts with ftyp or moof box
+    let resolvedType = contentType || "application/octet-stream";
+    if (bytes.length > 188) {
+      if (bytes[0] === 0x47 && bytes[188] === 0x47) {
+        // MPEG-TS stream
+        resolvedType = "video/mp2t";
+      } else if (bytes.length > 8) {
+        const boxType = new TextDecoder().decode(bytes.slice(4, 8));
+        if (boxType === "ftyp" || boxType === "moof" || boxType === "moov") {
+          resolvedType = "video/mp4";
+        }
+      }
+    }
+
     return new Response(buffer, {
       status: resp.status,
       headers: {
-        "Content-Type": contentType || "application/octet-stream",
+        "Content-Type": resolvedType,
         "Access-Control-Allow-Origin": "*",
         "Cache-Control": "no-cache",
       },

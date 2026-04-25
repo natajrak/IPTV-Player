@@ -58,6 +58,9 @@
 
     <!-- Video -->
     <video id="player-video" autoplay></video>
+    <div id="player-loading" class="player-loading">
+      <div class="player-spinner"></div>
+    </div>
     <div id="player-notice" class="hidden" role="status" aria-live="polite"></div>
 
     <!-- Episode picker panel -->
@@ -121,7 +124,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
-  <script src="js/app.js?v=22"></script>
+  <script src="js/app.js?v=23"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

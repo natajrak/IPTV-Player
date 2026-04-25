@@ -52,6 +52,7 @@ const pageUrl      = args.find((a) => a.startsWith("http"));
 const tmdbKey      = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
 const idPrefixArg  = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
+const mainSlugArg  = (args.find((a) => a.startsWith("--main-slug=")) || "").replace("--main-slug=", "");
 
 const trackArg  = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
 const TRACK_MAP = { th: "พากย์ไทย", subth: "ซับไทย" };
@@ -691,12 +692,13 @@ async function main() {
       fs.writeFileSync(outputPath, JSON.stringify(partPlaylist, null, 4), "utf-8");
       console.log(`\n📁 บันทึก part file: ${outputPath}`);
 
-      const mainPath    = path.resolve(PLAYLIST_DIR, slugFile);
+      const mainFileSlug = mainSlugArg ? (mainSlugArg.endsWith(".txt") ? mainSlugArg : `${mainSlugArg}.txt`) : slugFile;
+      const mainPath    = path.resolve(PLAYLIST_DIR, mainFileSlug);
       const partRawUrl  = `${GITHUB_RAW_BASE}${outputFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
-      updateIndex(PLAYLIST_DIR, GITHUB_RAW_BASE, seriesTitle, posterUrl, slugFile);
+      updateIndex(PLAYLIST_DIR, GITHUB_RAW_BASE, seriesTitle, posterUrl, mainFileSlug);
     } else {
       const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, pageUrl);
       fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");

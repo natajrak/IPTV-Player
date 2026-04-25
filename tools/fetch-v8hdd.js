@@ -49,6 +49,7 @@ const args         = process.argv.slice(2);
 const pageUrl      = args.find((a) => a.startsWith("http"));
 const tmdbKey      = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const mainSlugArg  = (args.find((a) => a.startsWith("--main-slug=")) || "").replace("--main-slug=", "");
 const idPrefixArg  = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg      = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
@@ -945,7 +946,7 @@ async function main() {
           name:    t.name,
           image:   posterUrl,
           url:     t.streamUrl,
-          referer: STREAM_REFERER,
+          referer: pageUrl,
         });
       }
       // Sort: พากย์ไทย first
@@ -959,13 +960,14 @@ async function main() {
       console.log(`\n📁 บันทึก part file: ${partPath}`);
 
       // ── Main file: {slug}.txt ──
-      const mainPath     = path.resolve(PLAYLIST_DIR, slugFile);
+      const mainFileSlug = mainSlugArg ? (mainSlugArg.endsWith(".txt") ? mainSlugArg : `${mainSlugArg}.txt`) : slugFile;
+      const mainPath     = path.resolve(PLAYLIST_DIR, mainFileSlug);
       const partRawUrl   = `${GITHUB_RAW_BASE}${partFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
 
-      updateIndex(seriesTitle, posterUrl, slugFile);
+      updateIndex(seriesTitle, posterUrl, mainFileSlug);
       console.log("\n🎉 เสร็จสิ้น!");
       console.log(`   Part: ${TYPE_CONFIG[contentType].base}${partFile}`);
       console.log(`   Main: ${TYPE_CONFIG[contentType].base}${slugFile}`);
@@ -1040,7 +1042,7 @@ async function main() {
           name:    buildStationName(epNum, "", isDubbedTrack),
           image:   "",
           url:     episodes[i].streamUrl,
-          referer: STREAM_REFERER,
+          referer: pageUrl,
         });
         console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
       }

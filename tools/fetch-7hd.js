@@ -45,6 +45,7 @@ const args         = process.argv.slice(2);
 const pageUrl      = args.find((a) => a.startsWith("http"));
 const tmdbKey      = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const mainSlugArg  = (args.find((a) => a.startsWith("--main-slug=")) || "").replace("--main-slug=", "");
 const idPrefixArg  = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg  = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
@@ -152,12 +153,22 @@ async function getStreamFromEmbed(embedUrl) {
   try { config = JSON.parse(m[1]); }
   catch (e) { throw new Error(`parse playerConfig ไม่ได้: ${e.message}`); }
 
-  const asset   = config.asset;
-  const mediaId = config.medias?.original;
+  const asset  = config.asset;
+  const medias = config.medias || {};
+  // เลือก quality สูงสุดที่มี: original > 1080 > 720 > 480 > 360
+  const preferOrder = ["original", "1080", "720", "480", "360"];
+  const bestKey = preferOrder.find((k) => medias[k]) || Object.keys(medias).pop();
+  const mediaId = bestKey ? medias[bestKey] : null;
   if (!asset || !mediaId) throw new Error(`ไม่พบ asset/mediaId ใน playerConfig`);
 
+  console.log(`    📺 quality: ${bestKey} (มี: ${Object.keys(medias).join(", ")})`);
+
+  // Wrap through CF Worker proxy เพื่อ fix Content-Type ของ segments ที่ใช้ extension ปลอม
+  // ทำให้ Safari iOS native HLS เล่นได้
+  const rawUrl = `https://${asset}/${mediaId}/video.m3u8`;
+  const CF_WORKER = "https://shy-haze-2452.natajrak-p.workers.dev/";
   return {
-    url:     `https://${asset}/${mediaId}/playlist.m3u8`,
+    url:     `${CF_WORKER}?url=${encodeURIComponent(rawUrl)}&referer=${encodeURIComponent(WEPLAYHLS_REFERER)}`,
     referer: WEPLAYHLS_REFERER,
   };
 }
@@ -627,12 +638,13 @@ async function main() {
       fs.writeFileSync(outputPath, JSON.stringify(partPlaylist, null, 4), "utf-8");
       console.log(`\n📁 บันทึก part file: ${outputPath}`);
 
-      const mainPath    = path.resolve(PLAYLIST_DIR, slugFile);
+      const mainFileSlug = mainSlugArg ? (mainSlugArg.endsWith(".txt") ? mainSlugArg : `${mainSlugArg}.txt`) : slugFile;
+      const mainPath    = path.resolve(PLAYLIST_DIR, mainFileSlug);
       const partRawUrl  = `${GITHUB_RAW_BASE}${outputFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
-      updateIndex(PLAYLIST_DIR, GITHUB_RAW_BASE, seriesTitle, posterUrl, slugFile);
+      updateIndex(PLAYLIST_DIR, GITHUB_RAW_BASE, seriesTitle, posterUrl, mainFileSlug);
     } else {
       const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, pageUrl);
       fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");

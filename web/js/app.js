@@ -72,9 +72,10 @@ const gridView   = document.getElementById("grid-view");
 const breadcrumb = document.getElementById("breadcrumb");
 const logo       = document.querySelector(".logo");
 
-const playerOverlay = document.getElementById("player-overlay");
-const playerVideo   = document.getElementById("player-video");
-const playerBack    = document.getElementById("player-back");
+const playerOverlay  = document.getElementById("player-overlay");
+const playerVideo    = document.getElementById("player-video");
+const playerLoading  = document.getElementById("player-loading");
+const playerBack     = document.getElementById("player-back");
 const playerTitle   = document.getElementById("player-title");
 const playerNotice  = document.getElementById("player-notice");
 const playerSeek    = document.getElementById("player-seek");
@@ -178,7 +179,7 @@ document.addEventListener("click", (e) => {
 fetchAndRender(PLAYLIST_URL, "Home");
 
 /* ===== Fetch & Render ===== */
-async function fetchAndRender(url, title, pushHistory = false, previousNode = null) {
+async function fetchAndRender(url, title, pushHistory = false, previousNode = null, { page = null, sort = null } = {}) {
   showLoading();
   try {
     const { data, sourceUrl } = await fetchJSON(url);
@@ -191,7 +192,7 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
       searchIndexPromise = buildSearchIndexRecursive(node, [{ node, title: "Home" }]).catch(() => {});
     }
     lastFetchUrl = url;
-    renderNode(node, title);
+    renderNode(node, title, { page, sort });
   } catch (err) {
     showError(err.message || "โหลดข้อมูลไม่สำเร็จ");
   }
@@ -272,6 +273,9 @@ function pushSearchIndexEntry(group, historyChain) {
 async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
   const groups = node?.groups || [];
   for (const group of groups) {
+    // Skip AV category until unlocked — ไม่ต้อง fetch ไฟล์ใหญ่ตอน load หน้าแรก
+    if (!avUnlocked && /^AV$/i.test(group.name)) continue;
+
     pushSearchIndexEntry(group, historyChain);
     const nextTitle = group.name || group.info || "...";
     const nextHistory = [...historyChain, { node: group, title: nextTitle }];
@@ -312,6 +316,11 @@ searchInput.addEventListener("input", async () => {
     closeSearch();
     // Re-render current view to show AV
     if (lastNode) renderNode(lastNode, lastTitle);
+    // Build search index for AV now that it's unlocked
+    if (searchIndexRootNode) {
+      const avGroup = searchIndexRootNode.groups?.find(g => /^AV$/i.test(g.name));
+      if (avGroup) buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
+    }
     return;
   }
 
@@ -1027,7 +1036,7 @@ function goBackOneStep() {
   const prev = navHistory.pop();
   if (!prev) return;
   if (prev.url) {
-    fetchAndRender(prev.url, prev.title);
+    fetchAndRender(prev.url, prev.title, false, null, { page: prev.page, sort: prev.sort });
   } else {
     renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
     showGrid();
@@ -1455,6 +1464,7 @@ function playEpisode(index, inheritedReferer) {
   cancelUpnext();
   resetProgress();
   hidePlayerNotice();
+  showPlayerLoading();
   loadSeekPreview();
 
   // ถ้ากำลัง AirPlay/Cast อยู่ ต้องข้าม HLS.js → ใช้ native source ต่อเนื่อง
@@ -2439,6 +2449,7 @@ function closePlayer() {
   btnPip.classList.remove("active");
   destroyHls();
   hidePlayerNotice();
+  hidePlayerLoading();
   playerVideo.pause();
   playerVideo.src = "";
   playerVideo.onended = null;
@@ -2464,6 +2475,18 @@ function destroyHls() {
 }
 
 playerBack.addEventListener("click", closePlayer);
+
+/* ===== Player loading spinner ===== */
+function showPlayerLoading() { playerLoading.classList.remove("hidden"); }
+function hidePlayerLoading() { playerLoading.classList.add("hidden"); }
+
+playerVideo.addEventListener("loadstart",  showPlayerLoading);
+playerVideo.addEventListener("waiting",    showPlayerLoading);
+playerVideo.addEventListener("seeking",    showPlayerLoading);
+playerVideo.addEventListener("canplay",    hidePlayerLoading);
+playerVideo.addEventListener("playing",    hidePlayerLoading);
+playerVideo.addEventListener("seeked",     hidePlayerLoading);
+playerVideo.addEventListener("error",      hidePlayerLoading);
 
 /* ===== UI state helpers ===== */
 function showLoading() {

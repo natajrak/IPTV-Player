@@ -51,6 +51,7 @@ const args         = process.argv.slice(2);
 const pageUrl      = args.find((a) => a.startsWith("http"));
 const tmdbKey      = (args.find((a) => a.startsWith("--tmdb-key=")) || "").replace("--tmdb-key=", "") || process.env.TMDB_API_KEY || "";
 const customOutput = (args.find((a) => a.startsWith("--output=")) || "").replace("--output=", "");
+const mainSlugArg  = (args.find((a) => a.startsWith("--main-slug=")) || "").replace("--main-slug=", "");
 const idPrefixArg  = (args.find((a) => a.startsWith("--id-prefix=")) || "").replace("--id-prefix=", "");
 
 const trackArg     = (args.find((a) => a.startsWith("--track=")) || "").replace("--track=", "");
@@ -601,18 +602,19 @@ async function main() {
       const partFile = resolvedId ? `${resolvedId}-${slugFile}` : slugFile;
       const partPath = path.resolve(PLAYLIST_DIR, partFile);
 
-      const partPlaylist = buildPartFile(partPath, partSeason, posterUrl, track, streamUrl, STREAM_REFERER);
+      const partPlaylist = buildPartFile(partPath, partSeason, posterUrl, track, streamUrl, pageUrl);
       fs.writeFileSync(partPath, JSON.stringify(partPlaylist, null, 4), "utf-8");
       console.log(`\n📁 บันทึก part file: ${partPath}`);
 
       // ── Main file: {slug}.txt (index รวมทุกภาค) ──
-      const mainPath     = path.resolve(PLAYLIST_DIR, slugFile);
+      const mainFileSlug = mainSlugArg ? (mainSlugArg.endsWith(".txt") ? mainSlugArg : `${mainSlugArg}.txt`) : slugFile;
+      const mainPath     = path.resolve(PLAYLIST_DIR, mainFileSlug);
       const partRawUrl   = `${GITHUB_RAW_BASE}${partFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
 
-      updateIndex(seriesTitle, posterUrl, slugFile);
+      updateIndex(seriesTitle, posterUrl, mainFileSlug);
       console.log("\n🎉 เสร็จสิ้น!");
       console.log(`   Part: ${TYPE_CONFIG[contentType].base}${partFile}`);
       console.log(`   Main: ${TYPE_CONFIG[contentType].base}${slugFile}`);
@@ -720,7 +722,7 @@ async function main() {
           name:  stationName,
           ...(epThumb && { image: epThumb }),
           url:   buildStreamUrl(ep.movieId),
-          referer: STREAM_REFERER,
+          referer: pageUrl,
         };
       });
 
@@ -732,7 +734,7 @@ async function main() {
       const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
       const targetSeason = seasonName || "Season 1";
-      const newTrack = { name: track, image: seasonPosterUrl, referer: STREAM_REFERER, stations };
+      const newTrack = { name: track, image: seasonPosterUrl, referer: pageUrl, stations };
 
       let playlist;
       if (fs.existsSync(outputPath)) {
