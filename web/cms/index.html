@@ -2130,7 +2130,7 @@ function scriptFromReferer(url) {
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
-    if (host.includes('v8hdd'))                            return 'fetch-v8hdd.js';
+    if (host.includes('v8hdd') || host.includes('v8-hdd'))   return 'fetch-v8hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
     if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
@@ -2550,3 +2550,4 @@ loadTab('anime-series');
 </script>
 </body>
 </html>
+         

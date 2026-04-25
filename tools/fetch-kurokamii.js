@@ -750,7 +750,7 @@ async function main() {
         name:    stationName,
         ...(epThumb && { image: epThumb }),
         url:     streamUrl || ep.url,
-        referer: PLAYER_REFERER,
+        referer: "https://kurokamii.com/",
       });
 
       console.log(` ✅`);

@@ -939,17 +939,15 @@ async function main() {
         : "";
 
       let finalUrl = streamUrl || ep.url;
-      let finalReferer = streamReferer || ep.url;
       if (streamUrl && hlsProxy) {
         finalUrl = `${hlsProxy}/?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(streamReferer)}`;
-        finalReferer = "";
       }
 
       const station = {
         name: buildStationName(epNum, epTitle, isDubbedTrack),
         ...(epThumb && { image: epThumb }),
         url: finalUrl,
-        referer: finalReferer,
+        referer: "https://fairyanime.net/",
       };
       stations.push(station);
 

@@ -722,7 +722,7 @@ async function main() {
           name:  stationName,
           ...(epThumb && { image: epThumb }),
           url:   buildStreamUrl(ep.movieId),
-          referer: pageUrl,
+          referer: STREAM_REFERER,
         };
       });
 

@@ -1042,7 +1042,7 @@ async function main() {
           name:    buildStationName(epNum, "", isDubbedTrack),
           image:   "",
           url:     episodes[i].streamUrl,
-          referer: pageUrl,
+          referer: STREAM_REFERER,
         });
         console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
       }
@@ -1075,16 +1075,17 @@ async function main() {
 
           // Get episode names + stills
           const sNum = tmdbSeasonNum || seasonNum || pageSeason || 1;
-          const { thEpisodes, poster: sPoster } = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
-          tmdbEpisodes = thEpisodes;
+          const { enEpisodes, thEpisodes, poster: sPoster } = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
+          tmdbEpisodes = isDubbedTrack ? thEpisodes : enEpisodes;
           if (sPoster) seasonPosterUrl = sPoster;
 
           // Update station names and images from TMDB
           stations.forEach((st, i) => {
             const ep = tmdbEpisodes[i + epOffset];
+            const thEp = thEpisodes[i + epOffset];
             if (ep) {
               st.name  = buildStationName(i + 1 + epOffset, ep.name || "", isDubbedTrack);
-              if (ep.still_path) st.image = `https://image.tmdb.org/t/p/original${ep.still_path}`;
+              if (thEp?.still_path) st.image = `https://image.tmdb.org/t/p/original${thEp.still_path}`;
             }
           });
         } else {
@@ -1100,7 +1101,7 @@ async function main() {
       const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
       const targetSeason = seasonName || (pageSeason ? (pageSeason === 0 ? "Specials" : `Season ${pageSeason}`) : "Season 1");
-      const newTrack = { name: trackName, image: seasonPosterUrl, stations };
+      const newTrack = { name: trackName, image: seasonPosterUrl, referer: pageUrl, stations };
 
       let playlist;
       if (fs.existsSync(outputPath)) {

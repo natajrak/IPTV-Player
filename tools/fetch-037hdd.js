@@ -507,13 +507,33 @@ function extractSeasonEpisodes(movieListData, targetSeasonNum, soundKey) {
   const epList = seasonData.epList || {};
   const episodes = [];
 
+  // Debug: show available sound keys and link structure from first episode
+  const firstEp = Object.values(epList)[0];
+  if (firstEp?.link) {
+    const availableKeys = Object.keys(firstEp.link);
+    console.log(`    🔍 sound keys ใน episode 1: ${availableKeys.join(', ')}`);
+    const firstLinks = firstEp.link[soundKey];
+    if (Array.isArray(firstLinks) && firstLinks.length > 0) {
+      console.log(`    🔍 link[${soundKey}][0]: ${JSON.stringify(firstLinks[0]).substring(0, 200)}`);
+    } else {
+      console.log(`    🔍 link[${soundKey}]: ${JSON.stringify(firstLinks).substring(0, 200)}`);
+    }
+  }
+
   for (const [epId, epData] of Object.entries(epList)) {
     const links = (epData.link && epData.link[soundKey]) || [];
     const p2pLink = links.find(l => l.MU_group === 'P2P') || links[0];
     if (!p2pLink) continue;
 
-    const hashMatch = p2pLink.MU_url.match(/\/([a-f0-9]{32})/i);
-    const hash = hashMatch ? hashMatch[1].toLowerCase() : null;
+    // Extract hash: /p2p/{32hex} or UUID format {8-4-4-4-12}
+    let hash = null;
+    const hexMatch = p2pLink.MU_url.match(/\/([a-f0-9]{32})/i);
+    if (hexMatch) {
+      hash = hexMatch[1].toLowerCase();
+    } else {
+      const uuidMatch = p2pLink.MU_url.match(/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/i);
+      if (uuidMatch) hash = uuidMatch[1].replace(/-/g, '').toLowerCase();
+    }
     if (!hash) continue;
 
     episodes.push({
@@ -817,22 +837,28 @@ async function main() {
       // ── Series flow ──
       const { title, poster, episodeLinks } = await parseSeriesPage(pageUrl);
 
-      if (episodeLinks.length === 0) {
-        console.error("❌ ไม่พบ episode links");
-        process.exit(1);
-      }
-
-      // Try movieList approach: fetch first episode page → find series iframe → parse movieList
+      // Try movieList approach:
+      // 1) หา series iframe จากหน้าหลักก่อน
+      // 2) ถ้าไม่มี ลองหาจากหน้า episode แรก
       let stations = [];
       let usedMovieList = false;
 
-      console.log(`\n🔗 กำลัง fetch episode 1 เพื่อหา iframe...`);
-      try {
+      // Re-fetch main page to find series iframe directly
+      console.log(`\n🔗 กำลังหา series iframe...`);
+      const mainHtml = await fetchHtml(pageUrl);
+      const $main = cheerio.load(mainHtml);
+      let seriesIframe = extractSeriesIframeSrc($main);
+
+      // Fallback: try first episode page if no series iframe on main page
+      if (!seriesIframe && episodeLinks.length > 0) {
+        console.log(`  ℹ️ ไม่พบ series iframe ในหน้าหลัก — ลองหน้า episode 1...`);
         const ep1Html = await fetchHtml(episodeLinks[0].url);
         const $ep1 = cheerio.load(ep1Html);
-        const seriesIframe = extractSeriesIframeSrc($ep1);
+        seriesIframe = extractSeriesIframeSrc($ep1);
+      }
 
-        if (seriesIframe) {
+      if (seriesIframe) {
+        try {
           console.log(`  📺 พบ series iframe: ${seriesIframe.split('?')[0]}...`);
           const iframeHtml = await fetchHtml(seriesIframe, { Referer: pageUrl });
           const movieListData = parseMovieList(iframeHtml);
@@ -865,19 +891,19 @@ async function main() {
                   name:    buildStationName(epNum, "", isDubbedTrack),
                   image:   "",
                   url:     episodes[i].streamUrl,
-                  referer: pageUrl,
+                  referer: STREAM_REFERER,
                 });
                 console.log(`  ตอน ${epNum}: ${episodes[i].hash.substring(0, 12)}...`);
               }
             }
           }
+        } catch (err) {
+          console.log(`  ⚠️ movieList approach failed: ${err.message}`);
         }
-      } catch (err) {
-        console.log(`  ⚠️ movieList approach failed: ${err.message}`);
       }
 
       // Fallback: fetch each episode page individually (old approach)
-      if (!usedMovieList) {
+      if (!usedMovieList && episodeLinks.length > 0) {
         console.log(`\n🔗 ใช้วิธี fetch ทีละตอน (${episodeLinks.length} ตอน, ${trackName})...`);
         const trackIndex = isDubbedTrack ? 0 : 1;
 
@@ -896,7 +922,7 @@ async function main() {
                   name:    buildStationName(epNum, "", isDubbedTrack),
                   image:   "",
                   url:     streamUrl,
-                  referer: pageUrl,
+                  referer: STREAM_REFERER,
                 });
                 console.log(` ✅ ${hash.substring(0, 12)}...`);
               } else {
@@ -914,6 +940,11 @@ async function main() {
 
           if (i < episodeLinks.length - 1) await sleep(500);
         }
+      }
+
+      if (stations.length === 0) {
+        console.error("❌ ไม่พบ episode ใดเลย — ไม่พบ series iframe หรือ episode links");
+        process.exit(1);
       }
 
       // TMDB lookup
@@ -944,16 +975,17 @@ async function main() {
 
           // Get episode names + stills
           const sNum = tmdbSeasonNum || seasonNum || 1;
-          const { thEpisodes, poster: sPoster } = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
-          tmdbEpisodes = thEpisodes;
+          const { enEpisodes, thEpisodes, poster: sPoster } = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
+          tmdbEpisodes = isDubbedTrack ? thEpisodes : enEpisodes;
           if (sPoster) seasonPosterUrl = sPoster;
 
           // Update station names and images from TMDB
           stations.forEach((st, i) => {
             const ep = tmdbEpisodes[i + epOffset];
+            const thEp = thEpisodes[i + epOffset];
             if (ep) {
               st.name  = buildStationName(i + 1 + epOffset, ep.name || "", isDubbedTrack);
-              if (ep.still_path) st.image = `https://image.tmdb.org/t/p/original${ep.still_path}`;
+              if (thEp?.still_path) st.image = `https://image.tmdb.org/t/p/original${thEp.still_path}`;
             }
           });
         } else {
@@ -969,7 +1001,7 @@ async function main() {
       const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
       const targetSeason = seasonName || "Season 1";
-      const newTrack = { name: trackName, image: seasonPosterUrl, stations };
+      const newTrack = { name: trackName, image: seasonPosterUrl, referer: pageUrl, stations };
 
       let playlist;
       if (fs.existsSync(outputPath)) {
