@@ -71,8 +71,7 @@ const tmdbIdArg   = args.find((a) => a.startsWith("--tmdb-id="));
 const forceTmdbId = tmdbIdArg ? parseInt(tmdbIdArg.replace("--tmdb-id=", "")) || null : null;
 
 const typeArg    = (args.find((a) => a.startsWith("--type=")) || "").replace("--type=", "");
-const validTypes = ["anime-series", "series", "anime-movie", "movie"];
-const forceType  = validTypes.includes(typeArg) ? typeArg : null;
+const BUILTIN_TYPES = ["anime-series", "series", "anime-movie", "movie"];
 
 if (!pageUrl && !updateMeta) {
   console.error("Usage: node fetch-nunghd4k.js <url> [--track=th|subth] [--season=N] [--output=FILE]");
@@ -82,11 +81,24 @@ if (!pageUrl && !updateMeta) {
 
 // ───── Config ─────
 const TYPE_CONFIG = {
-  "anime-series": { dir: "../playlist/anime/series", base: "playlist/anime/series/" },
-  "anime-movie":  { dir: "../playlist/anime/movies", base: "playlist/anime/movies/"  },
-  "movie":        { dir: "../playlist/movies",       base: "playlist/movies/"        },
-  "series":       { dir: "../playlist/series",       base: "playlist/series/"        },
+  "anime-series": { dir: "../playlist/anime/series", base: "playlist/anime/series/", kind: "series" },
+  "anime-movie":  { dir: "../playlist/anime/movies", base: "playlist/anime/movies/", kind: "movie"  },
+  "movie":        { dir: "../playlist/movies",       base: "playlist/movies/",       kind: "movie"  },
+  "series":       { dir: "../playlist/series",       base: "playlist/series/",       kind: "series" },
 };
+
+// Support custom types from custom-tabs.json
+if (typeArg && !BUILTIN_TYPES.includes(typeArg)) {
+  try {
+    const customs = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../playlist/custom-tabs.json'), 'utf-8'));
+    const custom = customs.find(c => c.key === typeArg);
+    if (custom) {
+      TYPE_CONFIG[typeArg] = { dir: `../${custom.dir}`, base: `${custom.dir}/`, kind: custom.kind };
+    }
+  } catch {}
+}
+
+const forceType  = TYPE_CONFIG[typeArg] ? typeArg : null;
 
 const SITE_ORIGIN  = "https://www.nunghd4k.com";
 const DOOPLAY_REFERER = "https://www.nunghd4k.com/";
@@ -543,7 +555,7 @@ async function main() {
     if (!contentType) {
       contentType = pageInfo.isMovie ? "movie" : "series";
     }
-    const isMovie = contentType === "movie" || contentType === "anime-movie";
+    const isMovie = (TYPE_CONFIG[contentType]?.kind || contentType) === "movie" || contentType === "anime-movie";
     const cfg     = TYPE_CONFIG[contentType];
     const PLAYLIST_DIR    = path.resolve(__dirname, cfg.dir);
     const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/${cfg.base}`;

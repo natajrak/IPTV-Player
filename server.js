@@ -424,6 +424,18 @@ const server = http.createServer(async (req, res) => {
     customs.push({ key, name, dir, kind, tmdbKind });
     fs.writeFileSync(CUSTOM_TABS_PATH, JSON.stringify(customs, null, 2));
 
+    // Add to main.txt so Player homepage shows it
+    const mainPath = path.join(ROOT, 'playlist', 'main.txt');
+    try {
+      const mainData = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const indexUrl = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/${dir}/index.txt`;
+      const exists = mainData.groups.some(g => g.url === indexUrl);
+      if (!exists) {
+        mainData.groups.push({ name, image: image || '', url: indexUrl });
+        fs.writeFileSync(mainPath, JSON.stringify(mainData, null, 2));
+      }
+    } catch (e) { console.error('Failed to update main.txt:', e.message); }
+
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ok: true, tab: customs[customs.length - 1] }));
     return;
@@ -447,8 +459,103 @@ const server = http.createServer(async (req, res) => {
     customs = customs.filter(c => c.key !== key);
     fs.writeFileSync(CUSTOM_TABS_PATH, JSON.stringify(customs, null, 2));
 
+    // Remove from main.txt
+    const mainPath = path.join(ROOT, 'playlist', 'main.txt');
+    try {
+      const mainData = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const indexUrl = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/${key}/index.txt`;
+      mainData.groups = mainData.groups.filter(g => g.url !== indexUrl);
+      fs.writeFileSync(mainPath, JSON.stringify(mainData, null, 2));
+    } catch (e) { console.error('Failed to update main.txt:', e.message); }
+
+    // Delete uploaded cover image (if stored locally in web/images/covers/)
+    const catDir = path.join(ROOT, 'playlist', key);
+    try {
+      const idxPath = path.join(catDir, 'index.txt');
+      const idxData = JSON.parse(fs.readFileSync(idxPath, 'utf-8'));
+      if (idxData.image) {
+        // Match local covers: /web/images/covers/xxx or full GitHub raw URL pointing to web/images/covers/
+        const coverPrefix = '/web/images/covers/';
+        const rawPrefix = 'https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/web/images/covers/';
+        let coverFile = null;
+        if (idxData.image.startsWith(coverPrefix)) coverFile = idxData.image.slice(coverPrefix.length);
+        else if (idxData.image.startsWith(rawPrefix)) coverFile = idxData.image.slice(rawPrefix.length);
+        if (coverFile) {
+          const coverPath = path.join(ROOT, 'web', 'images', 'covers', coverFile);
+          if (fs.existsSync(coverPath)) fs.unlinkSync(coverPath);
+        }
+      }
+    } catch {}
+
+    // Delete playlist folder (playlist/{key}/)
+    try { fs.rmSync(catDir, { recursive: true, force: true }); } catch {}
+
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end('{"ok":true}');
+    return;
+  }
+
+  // ── POST /api/upload-image ─────────────────────────────────────
+  if (req.method === 'POST' && pathname === '/api/upload-image') {
+    const contentType = req.headers['content-type'] || '';
+    const boundaryMatch = contentType.match(/boundary=(.+)/);
+    if (!boundaryMatch) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('No boundary'); return;
+    }
+    const boundary = boundaryMatch[1];
+
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    const buf = Buffer.concat(chunks);
+
+    // Parse multipart: find the file part
+    const boundaryBuf = Buffer.from('--' + boundary);
+    let start = 0;
+    let fileData = null;
+    let origName = 'upload.png';
+
+    while (start < buf.length) {
+      const idx = buf.indexOf(boundaryBuf, start);
+      if (idx === -1) break;
+      const headerEnd = buf.indexOf('\r\n\r\n', idx);
+      if (headerEnd === -1) break;
+      const headers = buf.slice(idx, headerEnd).toString();
+      const nextBound = buf.indexOf(boundaryBuf, headerEnd + 4);
+      if (nextBound === -1) break;
+
+      if (headers.includes('filename=')) {
+        const fnMatch = headers.match(/filename="([^"]+)"/);
+        if (fnMatch) origName = fnMatch[1];
+        // data is between headerEnd+4 and nextBound-2 (strip trailing \r\n)
+        fileData = buf.slice(headerEnd + 4, nextBound - 2);
+      }
+      start = nextBound + boundaryBuf.length;
+    }
+
+    if (!fileData) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('No file found'); return;
+    }
+
+    // Determine extension from original filename
+    const ext = path.extname(origName).toLowerCase() || '.png';
+    const allowed = ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
+    if (!allowed.includes(ext)) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('File type not allowed'); return;
+    }
+
+    // Save to web/images/covers/ with UUID filename
+    const destDir = path.join(ROOT, 'web', 'images', 'covers');
+    fs.mkdirSync(destDir, { recursive: true });
+
+    const { randomUUID } = require('crypto');
+    const uuid = randomUUID();
+    const saveName = uuid + ext;
+    const destPath = path.join(destDir, saveName);
+    fs.writeFileSync(destPath, fileData);
+
+    const publicUrl = `/web/images/covers/${saveName}`;
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true, url: publicUrl, filename: saveName }));
     return;
   }
 

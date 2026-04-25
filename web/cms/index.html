@@ -471,6 +471,32 @@
       text-transform: none; letter-spacing: 0;
     }
 
+    /* Upload area */
+    .cat-upload-area {
+      display: flex; align-items: center; justify-content: center;
+      border: 2px dashed #444; border-radius: 8px;
+      padding: 14px 12px; cursor: pointer;
+      color: var(--text3); font-size: 13px;
+      transition: border-color .2s, background .2s;
+    }
+    .cat-upload-area:hover, .cat-upload-area.dragover {
+      border-color: var(--accent, #6de06d); background: rgba(109,224,109,.06);
+    }
+    .cat-upload-area.uploading { opacity: .5; pointer-events: none; }
+    .cat-preview {
+      width: 72px; height: 72px; border-radius: 8px; overflow: hidden;
+      position: relative; flex-shrink: 0; border: 1px solid #333;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1a1a;
+    }
+    .cat-preview img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+    }
+    .cat-preview img.hidden { display: none; }
+    .cat-preview .fi-rr-picture { font-size: 28px; color: #444; }
+    .cat-preview .fi-rr-picture.hidden { display: none; }
+
     .cmd-box {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -997,7 +1023,19 @@
 
       <div class="fm-row">
         <label>Image <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(รูปปก category — optional)</span></label>
-        <input type="text" id="cat-image" placeholder="https://...jpg">
+        <div style="display:flex;gap:8px;align-items:flex-start">
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+            <label class="cat-upload-area" id="cat-upload-area" tabindex="0">
+              <input type="file" id="cat-file" accept="image/*" hidden>
+              <span id="cat-upload-label"><i class="fi fi-sr-cloud-upload-alt" style="margin-right:6px"></i>เลือกรูป หรือลากมาวาง</span>
+            </label>
+            <input type="text" id="cat-image" placeholder="หรือวาง URL ตรงนี้...">
+          </div>
+          <div id="cat-preview" class="cat-preview">
+            <i class="fi fi-rr-picture" id="cat-preview-icon"></i>
+            <img id="cat-preview-img" src="" alt="preview" class="hidden">
+          </div>
+        </div>
       </div>
 
     </div>
@@ -2342,6 +2380,71 @@ buildAddButtons();
   const catImage   = document.getElementById('cat-image');
   const catStatus  = document.getElementById('cat-status');
   const catSaveBtn = document.getElementById('cat-save-btn');
+  const catFile    = document.getElementById('cat-file');
+  const catUploadArea  = document.getElementById('cat-upload-area');
+  const catUploadLabel = document.getElementById('cat-upload-label');
+  const catPreview     = document.getElementById('cat-preview');
+  const catPreviewImg  = document.getElementById('cat-preview-img');
+  const catPreviewIcon = document.getElementById('cat-preview-icon');
+
+  // ── Image upload helpers ───────────────────────────────────────
+  async function uploadFile(file) {
+    const allowedTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/svg+xml'];
+    if (!allowedTypes.includes(file.type)) {
+      catStatus.textContent = '⚠ รองรับเฉพาะ PNG, JPG, WebP, GIF, SVG';
+      catStatus.style.color = '#e07070';
+      return;
+    }
+    catUploadArea.classList.add('uploading');
+    catUploadLabel.textContent = 'กำลังอัปโหลด...';
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+      const r = await fetch('/api/upload-image', { method: 'POST', body: fd });
+      if (!r.ok) throw new Error(await r.text());
+      const { url } = await r.json();
+      catImage.value = url;
+      showPreview(url);
+      catStatus.textContent = '';
+    } catch (err) {
+      catStatus.textContent = '⚠ อัปโหลดล้มเหลว: ' + err.message;
+      catStatus.style.color = '#e07070';
+    } finally {
+      catUploadArea.classList.remove('uploading');
+      catUploadLabel.innerHTML = '<i class="fi fi-sr-cloud-upload-alt" style="margin-right:6px"></i>เลือกรูป หรือลากมาวาง';
+    }
+  }
+
+  function showPreview(src) {
+    catPreviewImg.src = src;
+    catPreviewImg.classList.remove('hidden');
+    catPreviewIcon.classList.add('hidden');
+  }
+  function clearPreview() {
+    catImage.value = '';
+    catPreviewImg.src = '';
+    catPreviewImg.classList.add('hidden');
+    catPreviewIcon.classList.remove('hidden');
+    catFile.value = '';
+  }
+
+  catFile.addEventListener('change', () => {
+    if (catFile.files[0]) uploadFile(catFile.files[0]);
+  });
+
+  // Drag & drop
+  catUploadArea.addEventListener('dragover', e => { e.preventDefault(); catUploadArea.classList.add('dragover'); });
+  catUploadArea.addEventListener('dragleave', () => catUploadArea.classList.remove('dragover'));
+  catUploadArea.addEventListener('drop', e => {
+    e.preventDefault(); catUploadArea.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) uploadFile(e.dataTransfer.files[0]);
+  });
+
+  // URL input → preview
+  catImage.addEventListener('change', () => {
+    const v = catImage.value.trim();
+    if (v) showPreview(v); else clearPreview();
+  });
 
   // Auto-generate key from name
   catName.addEventListener('input', () => {
@@ -2357,6 +2460,7 @@ buildAddButtons();
   function openCatModal() {
     if (!IS_LOCAL) { alert('ใช้ได้เฉพาะ Local Dev เท่านั้น'); return; }
     catName.value = ''; catKey.value = ''; catImage.value = '';
+    clearPreview();
     delete catKey.dataset.manual;
     catStatus.textContent = ''; catStatus.style.color = '';
     document.querySelector('input[name="cat-kind"][value="series"]').checked = true;
@@ -2368,7 +2472,9 @@ buildAddButtons();
     const name  = catName.value.trim();
     const key   = catKey.value.trim();
     const kind  = document.querySelector('input[name="cat-kind"]:checked')?.value || 'series';
-    const image = catImage.value.trim();
+    let image = catImage.value.trim();
+    // Convert local upload path → GitHub raw URL for portability
+    if (image.startsWith('/web/')) image = RAW + image.slice(1);
 
     if (!name) { catStatus.textContent = '⚠ กรุณากรอกชื่อ Category'; return; }
     if (!key || !/^[a-z0-9-]+$/.test(key)) { catStatus.textContent = '⚠ Key ต้องเป็น a-z, 0-9, - เท่านั้น'; return; }
@@ -2482,9 +2588,14 @@ buildAddButtons();
       <div class="table-scroll">
         <div id="tbl-${esc(key)}" class="loading"><div class="spinner"></div><span>Loading...</span></div>
       </div>`;
-    // Insert pane before the modals (after the last tab-pane)
-    const lastPane = document.querySelector('.tab-pane:last-of-type');
-    lastPane.parentNode.insertBefore(pane, lastPane.nextSibling);
+    // Insert pane after the last existing tab-pane
+    const allPanes = document.querySelectorAll('.tab-pane');
+    const lastPane = allPanes[allPanes.length - 1];
+    if (lastPane) {
+      lastPane.after(pane);
+    } else {
+      document.querySelector('.tabs').after(pane);
+    }
 
     // Wire search
     pane.querySelector('.s-inp').addEventListener('input', function() {

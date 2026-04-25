@@ -76,9 +76,7 @@ const epOffsetArg = args.find((a) => a.startsWith("--ep-offset="));
 let epOffset = epOffsetArg ? (parseInt(epOffsetArg.replace("--ep-offset=", "")) || 0) : 0;
 
 const typeArg     = (args.find((a) => a.startsWith("--type=")) || "").replace("--type=", "");
-const contentType = ['anime-series','anime-movie','movie','series'].includes(typeArg) ? typeArg : 'movie';
-const isMovie     = contentType === 'anime-movie' || contentType === 'movie';
-const isSeries    = contentType === 'anime-series' || contentType === 'series';
+const BUILTIN_TYPES = ['anime-series','anime-movie','movie','series'];
 
 if (!pageUrl && !updateMeta) {
   console.error("Usage: node fetch-allinhd.js <url> [--track=th|subth] [--type=movie|series|anime-series|anime-movie] [--output=FILE]");
@@ -88,11 +86,27 @@ if (!pageUrl && !updateMeta) {
 
 // ───── Config ─────
 const TYPE_CONFIG = {
-  'anime-series': { dir: '../playlist/anime/series', base: 'playlist/anime/series/'  },
-  'anime-movie':  { dir: '../playlist/anime/movies', base: 'playlist/anime/movies/'  },
-  'movie':        { dir: '../playlist/movies',       base: 'playlist/movies/'        },
-  'series':       { dir: '../playlist/series',       base: 'playlist/series/'        },
+  'anime-series': { dir: '../playlist/anime/series', base: 'playlist/anime/series/', kind: 'series' },
+  'anime-movie':  { dir: '../playlist/anime/movies', base: 'playlist/anime/movies/', kind: 'movie'  },
+  'movie':        { dir: '../playlist/movies',       base: 'playlist/movies/',       kind: 'movie'  },
+  'series':       { dir: '../playlist/series',       base: 'playlist/series/',       kind: 'series' },
 };
+
+// Support custom types from custom-tabs.json
+if (typeArg && !BUILTIN_TYPES.includes(typeArg)) {
+  try {
+    const customs = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../playlist/custom-tabs.json'), 'utf-8'));
+    const custom = customs.find(c => c.key === typeArg);
+    if (custom) {
+      TYPE_CONFIG[typeArg] = { dir: `../${custom.dir}`, base: `${custom.dir}/`, kind: custom.kind };
+    }
+  } catch {}
+}
+
+const contentType = TYPE_CONFIG[typeArg] ? typeArg : 'movie';
+const isMovie     = (TYPE_CONFIG[contentType].kind || contentType) === 'movie'
+                 || contentType === 'anime-movie';
+const isSeries    = !isMovie;
 const PLAYLIST_DIR    = path.resolve(__dirname, TYPE_CONFIG[contentType].dir);
 const INDEX_PATH      = path.resolve(PLAYLIST_DIR, 'index.txt');
 const GITHUB_RAW_BASE = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/${TYPE_CONFIG[contentType].base}`;
