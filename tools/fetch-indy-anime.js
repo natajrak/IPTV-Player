@@ -188,6 +188,12 @@ async function parseSeriesPage(url) {
       if (textNum) slug = textNum[1];
     }
 
+    // 4. Fallback: trailing number in URL path (e.g. /watch/mar-heaven-1/ → "1")
+    if (!slug) {
+      const trailingNum = decodedUrl.match(/[-–](\d+)\/?(?:\?.*)?$/);
+      if (trailingNum) slug = trailingNum[1];
+    }
+
     // Classify the slug
     if (/^ova(\d*)/i.test(slug)) {
       const ovaNum = parseInt(slug.match(/\d+/)?.[0] || "1");
@@ -213,9 +219,13 @@ async function parseSeriesPage(url) {
         sortKey = num;
         epLabel = String(num);
       }
+    } else if (slug) {
+      // Non-numeric slug (e.g. "ova", "sp" without number)
+      epLabel = slug;
     } else {
-      // No number found — use "SP" as fallback
-      epLabel = slug || "SP";
+      // No pattern matched — use sequential index as fallback
+      epLabel = String(episodes.length + 1);
+      sortKey = episodes.length + 1;
     }
 
     episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel });
