@@ -43,7 +43,7 @@ const searchIndexVisitedUrls = new Set();
 const searchIndexEntryKeys = new Set();
 let currentPage = 0;
 let currentSortOrder = "az";
-let avUnlocked = false;
+let privateUnlocked = false;   // unlocks all private categories at once
 let currentGroups = [];
 let currentGroupTitle = "";
 let currentGroupParent = null;
@@ -273,8 +273,8 @@ function pushSearchIndexEntry(group, historyChain) {
 async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
   const groups = node?.groups || [];
   for (const group of groups) {
-    // Skip AV category until unlocked — ไม่ต้อง fetch ไฟล์ใหญ่ตอน load หน้าแรก
-    if (!avUnlocked && /^AV$/i.test(group.name)) continue;
+    // Skip private categories until unlocked
+    if (!privateUnlocked && group.private) continue;
 
     pushSearchIndexEntry(group, historyChain);
     const nextTitle = group.name || group.info || "...";
@@ -308,18 +308,17 @@ searchInput.addEventListener("input", async () => {
   const q = searchInput.value.trim();
   activeSearchIdx = -1;
 
-  // Secret code to unlock AV category
-  if (q === "000000" && !avUnlocked) {
-    avUnlocked = true;
+  // Secret code to unlock private categories
+  if (q === "000000" && !privateUnlocked) {
+    privateUnlocked = true;
     searchInput.value = "";
     searchClear.classList.add("hidden");
     closeSearch();
-    // Re-render current view to show AV
+    // Re-render current view to show private categories
     if (lastNode) renderNode(lastNode, lastTitle);
-    // Build search index for AV now that it's unlocked
+    // Build search index for newly unlocked private categories
     if (searchIndexRootNode) {
-      const avGroup = searchIndexRootNode.groups?.find(g => /^AV$/i.test(g.name));
-      if (avGroup) buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
+      buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
     }
     return;
   }
@@ -828,10 +827,10 @@ function renderNode(node, title, options = {}) {
   updateBreadcrumb(title);
 
   if (node.groups?.length) {
-    // Hide AV category until unlocked
-    const visibleGroups = avUnlocked
+    // Hide private categories until unlocked
+    const visibleGroups = privateUnlocked
       ? node.groups
-      : node.groups.filter(g => !/^AV$/i.test(g.name));
+      : node.groups.filter(g => !g.private);
     const renderableNode = visibleGroups.length !== node.groups.length
       ? { ...node, groups: visibleGroups }
       : node;

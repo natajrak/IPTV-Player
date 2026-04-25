@@ -382,6 +382,7 @@ const server = http.createServer(async (req, res) => {
     catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
 
     const { key, name, kind, image } = body;
+    const isPrivate = !!body.private;
     if (!key || !name || !['series', 'movie'].includes(kind)) {
       res.writeHead(400, { 'Content-Type': 'text/plain' });
       res.end('Invalid: need key, name, kind (series|movie)');
@@ -421,7 +422,9 @@ const server = http.createServer(async (req, res) => {
     fs.writeFileSync(path.join(dirPath, 'index.txt'), JSON.stringify(indexData, null, 4));
 
     // Save to custom-tabs.json
-    customs.push({ key, name, dir, kind, tmdbKind });
+    const tabEntry = { key, name, dir, kind, tmdbKind };
+    if (isPrivate) tabEntry.private = true;
+    customs.push(tabEntry);
     fs.writeFileSync(CUSTOM_TABS_PATH, JSON.stringify(customs, null, 2));
 
     // Add to main.txt so Player homepage shows it
@@ -431,7 +434,9 @@ const server = http.createServer(async (req, res) => {
       const indexUrl = `https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/${dir}/index.txt`;
       const exists = mainData.groups.some(g => g.url === indexUrl);
       if (!exists) {
-        mainData.groups.push({ name, image: image || '', url: indexUrl });
+        const mainEntry = { name, image: image || '', url: indexUrl };
+        if (isPrivate) mainEntry.private = true;
+        mainData.groups.push(mainEntry);
         fs.writeFileSync(mainPath, JSON.stringify(mainData, null, 2));
       }
     } catch (e) { console.error('Failed to update main.txt:', e.message); }

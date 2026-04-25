@@ -1022,6 +1022,14 @@
       </div>
 
       <div class="fm-row">
+        <label>การแสดงผล</label>
+        <div class="fm-radio-grp">
+          <label><input type="radio" name="cat-visibility" value="public" checked> Public <span style="color:var(--text3);font-size:11px">(แสดงปกติ)</span></label>
+          <label><input type="radio" name="cat-visibility" value="private"> Private <span style="color:var(--text3);font-size:11px">(ต้องกรอกรหัสเพื่อแสดง)</span></label>
+        </div>
+      </div>
+
+      <div class="fm-row">
         <label>Image <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(รูปปก category — optional)</span></label>
         <div style="display:flex;gap:8px;align-items:flex-start">
           <div style="flex:1;display:flex;flex-direction:column;gap:6px">
@@ -2464,6 +2472,7 @@ buildAddButtons();
     delete catKey.dataset.manual;
     catStatus.textContent = ''; catStatus.style.color = '';
     document.querySelector('input[name="cat-kind"][value="series"]').checked = true;
+    document.querySelector('input[name="cat-visibility"][value="public"]').checked = true;
     catModal.classList.remove('hidden');
     setTimeout(() => catName.focus(), 50);
   }
@@ -2472,6 +2481,7 @@ buildAddButtons();
     const name  = catName.value.trim();
     const key   = catKey.value.trim();
     const kind  = document.querySelector('input[name="cat-kind"]:checked')?.value || 'series';
+    const isPrivate = document.querySelector('input[name="cat-visibility"]:checked')?.value === 'private';
     let image = catImage.value.trim();
     // Convert local upload path → GitHub raw URL for portability
     if (image.startsWith('/web/')) image = RAW + image.slice(1);
@@ -2486,7 +2496,7 @@ buildAddButtons();
       const r = await fetch('/api/add-category', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key, name, kind, image }),
+        body: JSON.stringify({ key, name, kind, image, private: isPrivate }),
       });
       if (!r.ok) throw new Error(await r.text());
       const result = await r.json();
