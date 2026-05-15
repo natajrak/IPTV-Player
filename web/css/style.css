@@ -92,6 +92,23 @@ body {
   pointer-events: none;
 }
 
+.breadcrumb-item.active.has-subline {
+  white-space: normal;
+  max-width: none;
+  overflow: visible;
+  text-overflow: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-items: flex-start;
+}
+
+.breadcrumb-item-th {
+  font-size: 0.75em;
+  color: var(--text-dim);
+  line-height: 1.2;
+}
+
 button:focus-visible,
 .card:focus-visible,
 .ep-card:focus-visible,

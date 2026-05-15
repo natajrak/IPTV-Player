@@ -911,23 +911,30 @@ function renderGroups(groups, sectionTitle, parentNode) {
   document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
 
   pageGroups.forEach((group) => {
+    const sn = group.season_name;
+    const displayName = sn?.en
+      ? (sn.th ? `${sn.en} [${sn.th}]` : sn.en)
+      : (group.name || group.info || "ไม่มีชื่อ");
     const card = makeCard({
-      name: group.name || group.info || "ไม่มีชื่อ",
+      name: displayName,
       image: group.image,
       sub: group.author && group.author !== "Bank_" ? group.author : null,
       landscape: false,
-      badge: group.badge || null,
+      badge: group.badge || (sn?.en ? (group.name || null) : null),
     });
 
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       const prevNode = { groups, referer: null };
       navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder, url: lastFetchUrl || null });
+      const navTitle = sn?.en
+        ? (sn.th ? `${sn.en} [${sn.th}]` : sn.en)
+        : (group.name || "...");
       if (group.url && !group.groups && !group.stations) {
-        fetchAndRender(group.url, group.name || "...");
+        fetchAndRender(group.url, navTitle);
       } else {
         lastFetchUrl = null;  // inline sub-group, no URL to re-fetch
-        renderNode(group, group.name || "...");
+        renderNode(group, navTitle);
       }
     });
 
@@ -1245,7 +1252,7 @@ function updateBreadcrumb(currentTitle) {
   navHistory.forEach((entry, i) => {
     const span = document.createElement("span");
     span.className = "breadcrumb-item";
-    span.textContent = entry.title;
+    span.textContent = splitCardTitle(entry.title).main;
     span.tabIndex = 0;
     span.setAttribute("role", "button");
     span.addEventListener("click", () => {
@@ -1273,8 +1280,13 @@ function updateBreadcrumb(currentTitle) {
   });
 
   const current = document.createElement("span");
-  current.className = "breadcrumb-item active";
-  current.textContent = currentTitle;
+  const splitCurrent = splitCardTitle(currentTitle);
+  current.className = "breadcrumb-item active" + (splitCurrent.th ? " has-subline" : "");
+  if (splitCurrent.th) {
+    current.innerHTML = `${esc(splitCurrent.main)}<span class="breadcrumb-item-th">${esc(splitCurrent.th)}</span>`;
+  } else {
+    current.textContent = currentTitle;
+  }
   breadcrumb.appendChild(current);
 }
 
