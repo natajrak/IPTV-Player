@@ -1287,6 +1287,78 @@ let browseFilteredStations = []; // currently displayed (filtered or full)
 let browseTitle = "";
 let browseParentNode = null;
 
+/* ===== Hover preview for AV cards ===== */
+const PREVIEW_BLOB_CACHE = new Map(); // previewUrl → blob URL (session lifetime)
+const PREVIEW_HOVER_DELAY = 400;
+
+function derivePreviewUrl(coverUrl) {
+  if (!coverUrl) return null;
+  const m = String(coverUrl).match(/^(https?:\/\/[^/]+)\/img2\/([a-f0-9]+)\/([^/]+)\/cover\.[a-z]+$/i);
+  if (!m) return null;
+  return `${m[1]}/preview/${m[2]}/${m[3]}/preview.mp4`;
+}
+
+async function loadPreviewBlobUrl(previewUrl) {
+  if (PREVIEW_BLOB_CACHE.has(previewUrl)) return PREVIEW_BLOB_CACHE.get(previewUrl);
+  const res = await fetch(previewUrl);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const buf = await res.arrayBuffer();
+  const blob = new Blob([buf], { type: "video/mp4" });
+  const url = URL.createObjectURL(blob);
+  PREVIEW_BLOB_CACHE.set(previewUrl, url);
+  return url;
+}
+
+function attachHoverPreview(card, coverUrl) {
+  const previewUrl = derivePreviewUrl(coverUrl);
+  if (!previewUrl) return;
+
+  let timer = null;
+  let video = null;
+  let token = 0;
+
+  const teardown = () => {
+    if (timer) { clearTimeout(timer); timer = null; }
+    token++;
+    if (video) {
+      try { video.pause(); } catch {}
+      video.remove();
+      video = null;
+    }
+  };
+
+  card.addEventListener("mouseenter", () => {
+    if (timer) clearTimeout(timer);
+    const myToken = ++token;
+    timer = setTimeout(async () => {
+      try {
+        const blobUrl = await loadPreviewBlobUrl(previewUrl);
+        if (myToken !== token) return;
+
+        const thumb = card.querySelector("img.card-thumb, .card-thumb-placeholder");
+        if (!thumb) return;
+        const wrap = thumb.parentElement;
+        if (!wrap) return;
+        if (getComputedStyle(wrap).position === "static") wrap.style.position = "relative";
+
+        video = document.createElement("video");
+        video.className = "card-preview-video";
+        video.src = blobUrl;
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        wrap.appendChild(video);
+        video.play().catch(() => {});
+      } catch {
+        /* silent fail: 404 / network */
+      }
+    }, PREVIEW_HOVER_DELAY);
+  });
+
+  card.addEventListener("mouseleave", teardown);
+}
+
 function renderBrowsableStations(
   stations,
   sectionTitle,
@@ -1370,6 +1442,8 @@ function renderBrowsableStations(
       badge,
     });
 
+    attachHoverPreview(card, station.image);
+
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       openPlayer(stations, globalIdx, null, sectionTitle, {
@@ -1450,27 +1524,22 @@ function makeCard({ name, image, sub, landscape, badge, status }) {
   }
 
   const hasStatus = status === "completed" || status === "ongoing";
-  if (badge || hasStatus) {
-    thumb.style.position = "relative";
-    const wrapper = document.createElement("div");
-    wrapper.className = "card-thumb-wrap";
-    wrapper.appendChild(thumb);
-    if (badge) {
-      const badgeEl = document.createElement("div");
-      badgeEl.className = "card-badge";
-      badgeEl.textContent = badge;
-      wrapper.appendChild(badgeEl);
-    }
-    if (hasStatus) {
-      const statusEl = document.createElement("div");
-      statusEl.className = `card-status-badge card-status-${status}`;
-      statusEl.textContent = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
-      wrapper.appendChild(statusEl);
-    }
-    card.appendChild(wrapper);
-  } else {
-    card.appendChild(thumb);
+  const wrapper = document.createElement("div");
+  wrapper.className = "card-thumb-wrap";
+  wrapper.appendChild(thumb);
+  if (badge) {
+    const badgeEl = document.createElement("div");
+    badgeEl.className = "card-badge";
+    badgeEl.textContent = badge;
+    wrapper.appendChild(badgeEl);
   }
+  if (hasStatus) {
+    const statusEl = document.createElement("div");
+    statusEl.className = `card-status-badge card-status-${status}`;
+    statusEl.textContent = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
+    wrapper.appendChild(statusEl);
+  }
+  card.appendChild(wrapper);
 
   const info = document.createElement("div");
   info.className = "card-info";
