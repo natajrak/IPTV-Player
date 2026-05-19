@@ -258,6 +258,10 @@
     .title-th   { display: block; color: var(--text3); font-size: 12px; font-weight: 400; margin-top: 1px; }
     .title-cont { color: var(--text3); font-size: 12px; padding-left: 8px; }
 
+    .row-head, .row-cont { display: contents; }
+    tbody tr:not(.grp-top) .row-head { display: none; }
+    tbody tr.grp-top .row-cont { display: none; }
+
     /* ── Update button (per-row) ────────────────────── */
     .upd-btn {
       background: none; border: none;
@@ -1166,14 +1170,16 @@ function applyTabFilter(tabId) {
   Object.values(map).forEach(({ title, rows }) => {
     total++;
     const titleMatch = !q || title.includes(q);
-    let groupHasVisible = false;
+    let firstVisible = null;
     rows.forEach(r => {
       const statusMatch = !sf || r.dataset.status === sf;
       const visible = titleMatch && statusMatch;
       r.classList.toggle('hidden', !visible);
-      if (visible) groupHasVisible = true;
+      if (visible && !firstVisible) firstVisible = r;
     });
-    if (groupHasVisible) shown++;
+    // Promote first visible row to header (image + title + tmdb + slug)
+    rows.forEach(r => r.classList.toggle('grp-top', r === firstVisible));
+    if (firstVisible) shown++;
   });
 
   const stats = document.getElementById('stats-' + tabId);
@@ -1419,15 +1425,13 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
 
       const rowStatus = tracks.length && tracks.every(t => t.status === 'completed') ? 'completed' : 'ongoing';
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-status="${rowStatus}" class="${isFirst ? 'grp-top' : ''}">
-        <td class="c-no">${isFirst ? gid : ''}</td>
-        <td class="c-art">${artTag(poster, isFirst)}</td>
-        <td class="c-title">${isFirst
-          ? titleHtml(title)
-          : `<span class="title-cont">↳ ${esc(sznName)}</span>`}</td>
+        <td class="c-no"><span class="row-head">${gid}</span></td>
+        <td class="c-art"><span class="row-head">${artTag(poster, true)}</span></td>
+        <td class="c-title"><span class="row-head">${titleHtml(title)}</span><span class="row-cont"><span class="title-cont">↳ ${esc(sznName)}</span></span></td>
         <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
-        <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
-        <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
+        <td class="c-tmdb"><span class="row-head">${tmdbCell(tmdbId, tmdbKind)}</span></td>
+        <td class="c-slug"><span class="row-head">${slugCell(slug)}</span></td>
         ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: sznNum, sznName, trackNames: tracks.map(t => t.name), title, tabId })}</td>` : ''}
       </tr>`;
     });
