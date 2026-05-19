@@ -1,8 +1,12 @@
 ﻿/* ===== Config ===== */
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
-const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
-const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.hostname === "192.168.1.101";
+const RAW_GITHUB_BASE =
+  "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
+const IS_LOCAL_DEV =
+  location.hostname === "127.0.0.1" ||
+  location.hostname === "localhost" ||
+  location.hostname === "192.168.1.101";
 const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
@@ -34,7 +38,7 @@ let hls = null;
 let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
-let shuffleHistory = [];   // track played indices to avoid repeats
+let shuffleHistory = []; // track played indices to avoid repeats
 let isAvMode = false;
 let searchIndex = [];
 let searchIndexPromise = null;
@@ -43,7 +47,7 @@ const searchIndexVisitedUrls = new Set();
 const searchIndexEntryKeys = new Set();
 let currentPage = 0;
 let currentSortOrder = "az";
-let privateUnlocked = false;   // unlocks all private categories at once
+let privateUnlocked = false; // unlocks all private categories at once
 let currentGroups = [];
 let currentGroupTitle = "";
 let currentGroupParent = null;
@@ -53,11 +57,11 @@ let crossSeasonIndex = -1;
 let crossSeasonSeasons = [];
 let epPanelSeasonFilter = "";
 let currentSeasonTitle = "";
-let playerSectionTitle = "";   // sectionTitle from renderStations (movie part name for movies)
+let playerSectionTitle = ""; // sectionTitle from renderStations (movie part name for movies)
 let playerNoticeTimer = null;
 let searchDownLastAt = 0;
 let activeSearchIdx = -1;
-let preSearchState = null;   // saved state before search
+let preSearchState = null; // saved state before search
 let searchReturnState = null;
 let lastNode = null;
 let lastTitle = "Home";
@@ -65,53 +69,53 @@ let lastFetchUrl = null;
 let focusRefreshTimer = null;
 
 /* ===== DOM refs ===== */
-const loading    = document.getElementById("loading");
-const errorView  = document.getElementById("error-view");
-const errorMsg   = document.getElementById("error-message");
-const gridView   = document.getElementById("grid-view");
+const loading = document.getElementById("loading");
+const errorView = document.getElementById("error-view");
+const errorMsg = document.getElementById("error-message");
+const gridView = document.getElementById("grid-view");
 const breadcrumb = document.getElementById("breadcrumb");
-const logo       = document.querySelector(".logo");
+const logo = document.querySelector(".logo");
 
-const playerOverlay  = document.getElementById("player-overlay");
-const playerVideo    = document.getElementById("player-video");
-const playerLoading  = document.getElementById("player-loading");
-const playerBack     = document.getElementById("player-back");
-const playerTitle   = document.getElementById("player-title");
-const playerNotice  = document.getElementById("player-notice");
-const playerSeek    = document.getElementById("player-seek");
-const playerTime    = document.getElementById("player-time");
-const seekPreview     = document.getElementById("seek-preview");
+const playerOverlay = document.getElementById("player-overlay");
+const playerVideo = document.getElementById("player-video");
+const playerLoading = document.getElementById("player-loading");
+const playerBack = document.getElementById("player-back");
+const playerTitle = document.getElementById("player-title");
+const playerNotice = document.getElementById("player-notice");
+const playerSeek = document.getElementById("player-seek");
+const playerTime = document.getElementById("player-time");
+const seekPreview = document.getElementById("seek-preview");
 const seekPreviewThumb = document.getElementById("seek-preview-thumb");
-const seekPreviewTime  = document.getElementById("seek-preview-time");
+const seekPreviewTime = document.getElementById("seek-preview-time");
 
-const btnPrevEp    = document.getElementById("btn-prev-ep");
-const btnRewind    = document.getElementById("btn-rewind");
+const btnPrevEp = document.getElementById("btn-prev-ep");
+const btnRewind = document.getElementById("btn-rewind");
 const btnPlayPause = document.getElementById("btn-playpause");
-const btnForward   = document.getElementById("btn-forward");
-const btnNextEp    = document.getElementById("btn-next-ep");
-const btnMute       = document.getElementById("btn-mute");
-const volumeSlider  = document.getElementById("volume-slider");
-const btnPip        = document.getElementById("btn-pip");
-const btnAirPlay    = document.getElementById("btn-airplay");
+const btnForward = document.getElementById("btn-forward");
+const btnNextEp = document.getElementById("btn-next-ep");
+const btnMute = document.getElementById("btn-mute");
+const volumeSlider = document.getElementById("volume-slider");
+const btnPip = document.getElementById("btn-pip");
+const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
-const btnEpisodes   = document.getElementById("btn-episodes");
-const btnShuffle    = document.getElementById("btn-shuffle");
-const epPanel       = document.getElementById("ep-panel");
-const epPanelTitle  = document.getElementById("ep-panel-title");
-const epPanelTabs   = document.getElementById("ep-panel-tabs");
-const epPanelGrid   = document.getElementById("ep-panel-grid");
-const epPanelClose  = document.getElementById("ep-panel-close");
+const btnEpisodes = document.getElementById("btn-episodes");
+const btnShuffle = document.getElementById("btn-shuffle");
+const epPanel = document.getElementById("ep-panel");
+const epPanelTitle = document.getElementById("ep-panel-title");
+const epPanelTabs = document.getElementById("ep-panel-tabs");
+const epPanelGrid = document.getElementById("ep-panel-grid");
+const epPanelClose = document.getElementById("ep-panel-close");
 
-const upnextToast     = document.getElementById("upnext-toast");
-const upnextThumb     = document.getElementById("upnext-thumb");
-const upnextTitle     = document.getElementById("upnext-title");
-const upnextCountEl   = document.getElementById("upnext-countdown");
-const upnextBar       = document.getElementById("upnext-bar");
-const upnextPlayBtn   = document.getElementById("upnext-play-now");
+const upnextToast = document.getElementById("upnext-toast");
+const upnextThumb = document.getElementById("upnext-thumb");
+const upnextTitle = document.getElementById("upnext-title");
+const upnextCountEl = document.getElementById("upnext-countdown");
+const upnextBar = document.getElementById("upnext-bar");
+const upnextPlayBtn = document.getElementById("upnext-play-now");
 const upnextCancelBtn = document.getElementById("upnext-cancel");
 
-const searchInput   = document.getElementById("search-input");
-const searchClear   = document.getElementById("search-clear");
+const searchInput = document.getElementById("search-input");
+const searchClear = document.getElementById("search-clear");
 const searchResults = document.getElementById("search-results");
 
 let avActiveGenre = null;
@@ -166,30 +170,49 @@ window.addEventListener("keydown", (e) => {
     }
   }
 
-  if (e.key === " " && !playerOverlay.classList.contains("hidden") && document.activeElement === playerVideo) {
+  if (
+    e.key === " " &&
+    !playerOverlay.classList.contains("hidden") &&
+    document.activeElement === playerVideo
+  ) {
     e.preventDefault();
     togglePlayPause();
   }
 });
 
 document.addEventListener("click", (e) => {
-  if (!document.getElementById("search-container").contains(e.target)) closeSearch();
+  if (!document.getElementById("search-container").contains(e.target))
+    closeSearch();
 });
 
 fetchAndRender(PLAYLIST_URL, "Home");
 
 /* ===== Fetch & Render ===== */
-async function fetchAndRender(url, title, pushHistory = false, previousNode = null, { page = null, sort = null } = {}) {
+async function fetchAndRender(
+  url,
+  title,
+  pushHistory = false,
+  previousNode = null,
+  { page = null, sort = null } = {},
+) {
   showLoading();
   try {
     const { data, sourceUrl } = await fetchJSON(url);
     const node = normalizePlaylistNode(data, sourceUrl);
     if (pushHistory && previousNode) {
-      navHistory.push({ node: previousNode, title, page: currentPage, sort: currentSortOrder, url: null });
+      navHistory.push({
+        node: previousNode,
+        title,
+        page: currentPage,
+        sort: currentSortOrder,
+        url: null,
+      });
     }
     if (!searchIndexRootNode && title === "Home") {
       searchIndexRootNode = node;
-      searchIndexPromise = buildSearchIndexRecursive(node, [{ node, title: "Home" }]).catch(() => {});
+      searchIndexPromise = buildSearchIndexRecursive(node, [
+        { node, title: "Home" },
+      ]).catch(() => {});
     }
     lastFetchUrl = url;
     renderNode(node, title, { page, sort });
@@ -200,7 +223,9 @@ async function fetchAndRender(url, title, pushHistory = false, previousNode = nu
 
 async function fetchJSON(url) {
   // Add cache-busting for local dev to always get fresh data
-  const fetchUrl = IS_LOCAL_DEV ? url + (url.includes('?') ? '&' : '?') + '_t=' + Date.now() : url;
+  const fetchUrl = IS_LOCAL_DEV
+    ? url + (url.includes("?") ? "&" : "?") + "_t=" + Date.now()
+    : url;
   const res = await fetch(fetchUrl);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
@@ -214,7 +239,9 @@ function normalizeUrlByBase(url, sourceUrl = null) {
   if (!normalizedUrl) return normalizedUrl;
 
   if (IS_LOCAL_DEV && normalizedUrl.startsWith(RAW_GITHUB_BASE)) {
-    const repoPath = normalizedUrl.slice(RAW_GITHUB_BASE.length).replace(/^\/+/, "");
+    const repoPath = normalizedUrl
+      .slice(RAW_GITHUB_BASE.length)
+      .replace(/^\/+/, "");
     return `${SITE_BASE_PATH}/${repoPath}`;
   }
 
@@ -240,15 +267,19 @@ function normalizePlaylistNode(node, sourceUrl = null) {
   const cloned = Array.isArray(node) ? [...node] : { ...node };
 
   if (!Array.isArray(cloned)) {
-    if (typeof cloned.image === "string") cloned.image = normalizeUrlByBase(cloned.image, sourceUrl);
-    if (typeof cloned.url === "string") cloned.url = normalizeUrlByBase(cloned.url, sourceUrl);
+    if (typeof cloned.image === "string")
+      cloned.image = normalizeUrlByBase(cloned.image, sourceUrl);
+    if (typeof cloned.url === "string")
+      cloned.url = normalizeUrlByBase(cloned.url, sourceUrl);
   }
 
   Object.keys(cloned).forEach((key) => {
     const value = cloned[key];
     if (!value) return;
-    if (Array.isArray(value)) cloned[key] = value.map((item) => normalizePlaylistNode(item, sourceUrl));
-    else if (typeof value === "object") cloned[key] = normalizePlaylistNode(value, sourceUrl);
+    if (Array.isArray(value))
+      cloned[key] = value.map((item) => normalizePlaylistNode(item, sourceUrl));
+    else if (typeof value === "object")
+      cloned[key] = normalizePlaylistNode(value, sourceUrl);
   });
 
   return cloned;
@@ -290,12 +321,20 @@ async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
       if (!resolvedUrl || searchIndexVisitedUrls.has(resolvedUrl)) continue;
       searchIndexVisitedUrls.add(resolvedUrl);
       try {
-        const { data, sourceUrl: childSourceUrl } = await fetchJSON(resolvedUrl);
+        const { data, sourceUrl: childSourceUrl } =
+          await fetchJSON(resolvedUrl);
         const childNode = normalizePlaylistNode(data, childSourceUrl);
         // For search navigation, keep a renderable parent-node chain.
         // If this group is URL-based, store its loaded node in history instead of the lightweight link object.
-        const loadedHistory = [...historyChain, { node: childNode, title: nextTitle }];
-        await buildSearchIndexRecursive(childNode, loadedHistory, childSourceUrl);
+        const loadedHistory = [
+          ...historyChain,
+          { node: childNode, title: nextTitle },
+        ];
+        await buildSearchIndexRecursive(
+          childNode,
+          loadedHistory,
+          childSourceUrl,
+        );
       } catch (_) {
         // Skip broken child playlist URLs in search index.
       }
@@ -318,7 +357,9 @@ searchInput.addEventListener("input", async () => {
     if (lastNode) renderNode(lastNode, lastTitle);
     // Build search index for newly unlocked private categories
     if (searchIndexRootNode) {
-      buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
+      buildSearchIndexRecursive(searchIndexRootNode, [
+        { node: searchIndexRootNode, title: "Home" },
+      ]).catch(() => {});
     }
     return;
   }
@@ -358,12 +399,14 @@ searchInput.addEventListener("input", async () => {
   if (searchIndexPromise) {
     await searchIndexPromise;
   } else if (searchIndexRootNode) {
-    searchIndexPromise = buildSearchIndexRecursive(searchIndexRootNode, [{ node: searchIndexRootNode, title: "Home" }]).catch(() => {});
+    searchIndexPromise = buildSearchIndexRecursive(searchIndexRootNode, [
+      { node: searchIndexRootNode, title: "Home" },
+    ]).catch(() => {});
     await searchIndexPromise;
   }
 
   const results = searchIndex
-    .filter(e => e.name.toLowerCase().includes(q.toLowerCase()))
+    .filter((e) => e.name.toLowerCase().includes(q.toLowerCase()))
     .slice(0, 8);
   renderSearchResults(results, q);
 });
@@ -409,7 +452,10 @@ searchClear.addEventListener("click", () => {
   }
   if (preSearchState) {
     navHistory = preSearchState.history;
-    renderNode(preSearchState.node, preSearchState.title, { page: preSearchState.page, sort: preSearchState.sort });
+    renderNode(preSearchState.node, preSearchState.title, {
+      page: preSearchState.page,
+      sort: preSearchState.sort,
+    });
     preSearchState = null;
   }
 });
@@ -417,7 +463,9 @@ searchClear.addEventListener("click", () => {
 /* ===== AV Filter (inline in section header) ===== */
 function closeAvDropdowns() {
   document.getElementById("av-filter-genre-dropdown")?.classList.add("hidden");
-  document.getElementById("av-filter-actress-dropdown")?.classList.add("hidden");
+  document
+    .getElementById("av-filter-actress-dropdown")
+    ?.classList.add("hidden");
 }
 function resetAvFilters() {
   avActiveGenre = null;
@@ -425,23 +473,29 @@ function resetAvFilters() {
 }
 
 function buildAvDropdown(dropdownEl, items, onSelect) {
-  dropdownEl.innerHTML = `<input type="search" placeholder="ค้นหา..." autocomplete="off" />`
-    + items.map(it =>
-      `<div class="av-filter-option" data-value="${esc(it.name)}">${esc(it.name)}<span class="av-filter-count">${it.count}</span></div>`
-    ).join("");
+  dropdownEl.innerHTML =
+    `<input type="search" placeholder="ค้นหา..." autocomplete="off" />` +
+    items
+      .map(
+        (it) =>
+          `<div class="av-filter-option" data-value="${esc(it.name)}">${esc(it.name)}<span class="av-filter-count">${it.count}</span></div>`,
+      )
+      .join("");
 
   const searchBox = dropdownEl.querySelector("input");
   const options = dropdownEl.querySelectorAll(".av-filter-option");
 
   searchBox.addEventListener("input", () => {
     const q = searchBox.value.trim().toLowerCase();
-    options.forEach(opt => {
-      opt.style.display = opt.dataset.value.toLowerCase().includes(q) ? "" : "none";
+    options.forEach((opt) => {
+      opt.style.display = opt.dataset.value.toLowerCase().includes(q)
+        ? ""
+        : "none";
     });
   });
-  searchBox.addEventListener("keydown", e => e.stopPropagation());
+  searchBox.addEventListener("keydown", (e) => e.stopPropagation());
 
-  options.forEach(opt => {
+  options.forEach((opt) => {
     opt.addEventListener("click", () => {
       onSelect(opt.dataset.value);
       closeAvDropdowns();
@@ -455,38 +509,62 @@ function applyAvFilters() {
   let filtered = browseAllStations;
 
   if (q) {
-    filtered = filtered.filter(s => {
+    filtered = filtered.filter((s) => {
       if ((s.name || "").toLowerCase().includes(q)) return true;
       const actresses = s.meta?.actresses;
-      if (actresses && (Array.isArray(actresses) ? actresses : [actresses]).some(a => a.toLowerCase().includes(q))) return true;
+      if (
+        actresses &&
+        (Array.isArray(actresses) ? actresses : [actresses]).some((a) =>
+          a.toLowerCase().includes(q),
+        )
+      )
+        return true;
       const genres = s.meta?.genres;
-      if (genres && (Array.isArray(genres) ? genres : [genres]).some(g => g.toLowerCase().includes(q))) return true;
+      if (
+        genres &&
+        (Array.isArray(genres) ? genres : [genres]).some((g) =>
+          g.toLowerCase().includes(q),
+        )
+      )
+        return true;
       return false;
     });
   }
   if (avActiveGenre) {
-    filtered = filtered.filter(s => {
+    filtered = filtered.filter((s) => {
       const genres = s.meta?.genres;
-      return genres && (Array.isArray(genres) ? genres : [genres]).some(g => g === avActiveGenre);
+      return (
+        genres &&
+        (Array.isArray(genres) ? genres : [genres]).some(
+          (g) => g === avActiveGenre,
+        )
+      );
     });
   }
   if (avActiveActress) {
-    filtered = filtered.filter(s => {
+    filtered = filtered.filter((s) => {
       const actresses = s.meta?.actresses;
-      return actresses && (Array.isArray(actresses) ? actresses : [actresses]).some(a => a === avActiveActress);
+      return (
+        actresses &&
+        (Array.isArray(actresses) ? actresses : [actresses]).some(
+          (a) => a === avActiveActress,
+        )
+      );
     });
   }
 
   currentPage = 0;
-  renderBrowsableStations(filtered, browseTitle, browseParentNode, { isFilter: true });
+  renderBrowsableStations(filtered, browseTitle, browseParentNode, {
+    isFilter: true,
+  });
 }
 
 function collectAvMeta(field) {
   const countMap = {};
-  browseAllStations.forEach(s => {
+  browseAllStations.forEach((s) => {
     const values = s.meta?.[field];
     if (!values) return;
-    (Array.isArray(values) ? values : [values]).forEach(v => {
+    (Array.isArray(values) ? values : [values]).forEach((v) => {
       countMap[v] = (countMap[v] || 0) + 1;
     });
   });
@@ -505,7 +583,11 @@ function wireAvFilterButtons() {
 
   genreBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (avActiveGenre) { avActiveGenre = null; applyAvFilters(); return; }
+    if (avActiveGenre) {
+      avActiveGenre = null;
+      applyAvFilters();
+      return;
+    }
     const wasOpen = !genreDd.classList.contains("hidden");
     closeAvDropdowns();
     if (wasOpen) return;
@@ -519,7 +601,11 @@ function wireAvFilterButtons() {
 
   actressBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (avActiveActress) { avActiveActress = null; applyAvFilters(); return; }
+    if (avActiveActress) {
+      avActiveActress = null;
+      applyAvFilters();
+      return;
+    }
     const wasOpen = !actressDd.classList.contains("hidden");
     closeAvDropdowns();
     if (wasOpen) return;
@@ -544,21 +630,24 @@ document.addEventListener("click", (e) => {
 });
 
 function updateActiveSearch(items) {
-  items.forEach((el, i) => el.classList.toggle("active", i === activeSearchIdx));
+  items.forEach((el, i) =>
+    el.classList.toggle("active", i === activeSearchIdx),
+  );
 }
 
 function renderSearchResults(results, q) {
   if (results.length === 0) {
     searchResults.innerHTML = `<div class="search-no-result">ไม่พบ "${esc(q)}"</div>`;
   } else {
-    searchResults.innerHTML = results.map((r, i) => {
-      const thumb = r.image
-        ? `<img class="search-thumb" src="${esc(r.image)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-        : "";
-      const ph = `<div class="search-thumb-ph" style="${r.image ? "display:none" : ""}">🎬</div>`;
-      const pathStr = r.path.length ? esc(r.path.join(" › ")) : "";
-      const title = splitCardTitle(r.name);
-      return `<div class="search-item" data-idx="${i}" tabindex="0" role="button">${thumb}${ph}
+    searchResults.innerHTML = results
+      .map((r, i) => {
+        const thumb = r.image
+          ? `<img class="search-thumb" src="${esc(r.image)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+          : "";
+        const ph = `<div class="search-thumb-ph" style="${r.image ? "display:none" : ""}">🎬</div>`;
+        const pathStr = r.path.length ? esc(r.path.join(" › ")) : "";
+        const title = splitCardTitle(r.name);
+        return `<div class="search-item" data-idx="${i}" tabindex="0" role="button">${thumb}${ph}
         <div class="search-item-info">
           <div class="search-item-name">
             <div class="search-item-name-main">${esc(title.main)}</div>
@@ -566,7 +655,8 @@ function renderSearchResults(results, q) {
           </div>
           ${pathStr ? `<div class="search-item-path">${pathStr}</div>` : ""}
         </div></div>`;
-    }).join("");
+      })
+      .join("");
 
     searchResults.querySelectorAll(".search-item").forEach((el, i) => {
       el.addEventListener("click", () => {
@@ -622,7 +712,12 @@ function closeSearch() {
 function isTypingTarget(target) {
   if (!target) return false;
   const tag = target.tagName;
-  return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
+  return (
+    tag === "INPUT" ||
+    tag === "TEXTAREA" ||
+    tag === "SELECT" ||
+    target.isContentEditable
+  );
 }
 
 function isTVBackKey(e) {
@@ -658,19 +753,32 @@ function isElementVisible(el) {
   if (!el || !el.isConnected) return false;
   if (el.classList?.contains("hidden")) return false;
   const style = window.getComputedStyle(el);
-  if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") return false;
+  if (
+    style.display === "none" ||
+    style.visibility === "hidden" ||
+    style.opacity === "0"
+  )
+    return false;
   if (el.offsetParent === null && style.position !== "fixed") return false;
   return true;
 }
 
 function isTVFocusable(el) {
-  return !!(el && el.matches && el.matches(TV_FOCUSABLE_SELECTOR) && isElementVisible(el));
+  return !!(
+    el &&
+    el.matches &&
+    el.matches(TV_FOCUSABLE_SELECTOR) &&
+    isElementVisible(el)
+  );
 }
 
 function getTVFocusableElements() {
-  const root = playerOverlay.classList.contains("hidden") ? document : playerOverlay;
-  return Array.from(root.querySelectorAll(TV_FOCUSABLE_SELECTOR))
-    .filter(isTVFocusable);
+  const root = playerOverlay.classList.contains("hidden")
+    ? document
+    : playerOverlay;
+  return Array.from(root.querySelectorAll(TV_FOCUSABLE_SELECTOR)).filter(
+    isTVFocusable,
+  );
 }
 
 function focusTVElement(el) {
@@ -716,13 +824,22 @@ function hasDirectionalCandidate(current, candidates, directionKey) {
 function getDirectionalCandidates(current, directionKey, elements) {
   const zone = getFocusZone(current);
   const cards = elements.filter((el) => getFocusZone(el) === "card");
-  const paginations = elements.filter((el) => getFocusZone(el) === "pagination");
+  const paginations = elements.filter(
+    (el) => getFocusZone(el) === "pagination",
+  );
   const sections = elements.filter((el) => getFocusZone(el) === "section");
   const headers = elements.filter((el) => getFocusZone(el) === "header");
 
   if (zone === "card") {
-    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight" || directionKey === "ArrowDown") {
-      if (directionKey === "ArrowDown" && !hasDirectionalCandidate(current, cards, directionKey)) {
+    if (
+      directionKey === "ArrowLeft" ||
+      directionKey === "ArrowRight" ||
+      directionKey === "ArrowDown"
+    ) {
+      if (
+        directionKey === "ArrowDown" &&
+        !hasDirectionalCandidate(current, cards, directionKey)
+      ) {
         return [...paginations, ...cards];
       }
       return cards;
@@ -734,7 +851,8 @@ function getDirectionalCandidates(current, directionKey, elements) {
   }
 
   if (zone === "pagination") {
-    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return paginations;
+    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
+      return paginations;
     if (directionKey === "ArrowDown") return paginations;
     if (directionKey === "ArrowUp") {
       if (hasDirectionalCandidate(current, cards, directionKey)) return cards;
@@ -743,14 +861,18 @@ function getDirectionalCandidates(current, directionKey, elements) {
   }
 
   if (zone === "section") {
-    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return sections;
-    if (directionKey === "ArrowDown") return [...cards, ...paginations, ...sections];
+    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
+      return sections;
+    if (directionKey === "ArrowDown")
+      return [...cards, ...paginations, ...sections];
     if (directionKey === "ArrowUp") return [...headers, ...sections];
   }
 
   if (zone === "header") {
-    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return headers;
-    if (directionKey === "ArrowDown") return [...sections, ...cards, ...paginations];
+    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
+      return headers;
+    if (directionKey === "ArrowDown")
+      return [...sections, ...cards, ...paginations];
     if (directionKey === "ArrowUp") return headers;
   }
 
@@ -761,17 +883,28 @@ function moveTVFocus(directionKey) {
   const elements = getTVFocusableElements();
   if (!elements.length) return;
 
-  const current = isTVFocusable(document.activeElement) ? document.activeElement : null;
+  const current = isTVFocusable(document.activeElement)
+    ? document.activeElement
+    : null;
   if (!current) {
     focusTVElement(elements[0]);
     return;
   }
 
-  const directionalCandidates = getDirectionalCandidates(current, directionKey, elements);
-  const scanElements = directionalCandidates.length ? directionalCandidates : elements;
+  const directionalCandidates = getDirectionalCandidates(
+    current,
+    directionKey,
+    elements,
+  );
+  const scanElements = directionalCandidates.length
+    ? directionalCandidates
+    : elements;
 
   const currentRect = current.getBoundingClientRect();
-  const currentCenter = { x: currentRect.left + currentRect.width / 2, y: currentRect.top + currentRect.height / 2 };
+  const currentCenter = {
+    x: currentRect.left + currentRect.width / 2,
+    y: currentRect.top + currentRect.height / 2,
+  };
 
   let best = null;
   let bestScore = Number.POSITIVE_INFINITY;
@@ -779,17 +912,28 @@ function moveTVFocus(directionKey) {
   scanElements.forEach((el) => {
     if (el === current) return;
     const rect = el.getBoundingClientRect();
-    const center = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+    const center = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    };
     const dx = center.x - currentCenter.x;
     const dy = center.y - currentCenter.y;
 
     let primary = 0;
     let cross = 0;
-    if (directionKey === "ArrowRight" && dx > 2) { primary = dx; cross = Math.abs(dy); }
-    else if (directionKey === "ArrowLeft" && dx < -2) { primary = -dx; cross = Math.abs(dy); }
-    else if (directionKey === "ArrowDown" && dy > 2) { primary = dy; cross = Math.abs(dx); }
-    else if (directionKey === "ArrowUp" && dy < -2) { primary = -dy; cross = Math.abs(dx); }
-    else return;
+    if (directionKey === "ArrowRight" && dx > 2) {
+      primary = dx;
+      cross = Math.abs(dy);
+    } else if (directionKey === "ArrowLeft" && dx < -2) {
+      primary = -dx;
+      cross = Math.abs(dy);
+    } else if (directionKey === "ArrowDown" && dy > 2) {
+      primary = dy;
+      cross = Math.abs(dx);
+    } else if (directionKey === "ArrowUp" && dy < -2) {
+      primary = -dy;
+      cross = Math.abs(dx);
+    } else return;
 
     const score = primary * 1000 + cross;
     if (score < bestScore) {
@@ -808,12 +952,15 @@ function queueFocusRefresh() {
     if (!elements.length) return;
 
     const preferred = !playerOverlay.classList.contains("hidden")
-      ? (!epPanel.classList.contains("hidden")
-        ? epPanelGrid.querySelector(".ep-card.active") || epPanelGrid.querySelector(".ep-card")
-        : btnPlayPause)
+      ? !epPanel.classList.contains("hidden")
+        ? epPanelGrid.querySelector(".ep-card.active") ||
+          epPanelGrid.querySelector(".ep-card")
+        : btnPlayPause
       : gridView.classList.contains("hidden")
         ? logo
-        : document.querySelector(".card") || document.querySelector(".section-back-btn") || logo;
+        : document.querySelector(".card") ||
+          document.querySelector(".section-back-btn") ||
+          logo;
 
     focusTVElement(isTVFocusable(preferred) ? preferred : elements[0]);
   }, 0);
@@ -830,10 +977,11 @@ function renderNode(node, title, options = {}) {
     // Hide private categories until unlocked
     const visibleGroups = privateUnlocked
       ? node.groups
-      : node.groups.filter(g => !g.private);
-    const renderableNode = visibleGroups.length !== node.groups.length
-      ? { ...node, groups: visibleGroups }
-      : node;
+      : node.groups.filter((g) => !g.private);
+    const renderableNode =
+      visibleGroups.length !== node.groups.length
+        ? { ...node, groups: visibleGroups }
+        : node;
     currentPage = typeof page === "number" ? page : 0;
     currentSortOrder = sort === "za" ? "za" : "az";
     renderGroups(renderableNode.groups, title, renderableNode);
@@ -856,9 +1004,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
   currentGroups = groups;
   currentGroupTitle = sectionTitle;
   currentGroupParent = parentNode;
-  const extractNum = (name) => { const m = String(name || "").match(/\d+/); return m ? parseInt(m[0]) : null; };
-  const allNumeric = groups.every(g => extractNum(g?.name || g?.info) !== null);
-  const hasBadges  = groups.some(g => g.badge);
+  const extractNum = (name) => {
+    const m = String(name || "").match(/\d+/);
+    return m ? parseInt(m[0]) : null;
+  };
+  const allNumeric = groups.every(
+    (g) => extractNum(g?.name || g?.info) !== null,
+  );
+  const hasBadges = groups.some((g) => g.badge);
   const sortedGroups = [...groups].sort((a, b) => {
     // ถ้ามี badge (เช่น "ภาค 1", "ภาค 2") → sort ตาม badge number ก่อน
     if (hasBadges) {
@@ -872,7 +1025,9 @@ function renderGroups(groups, sectionTitle, parentNode) {
       const diff = extractNum(nameA) - extractNum(nameB);
       return currentSortOrder === "za" ? -diff : diff;
     }
-    return currentSortOrder === "za" ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
+    return currentSortOrder === "za"
+      ? nameB.localeCompare(nameA)
+      : nameA.localeCompare(nameB);
   });
 
   const total = sortedGroups.length;
@@ -882,8 +1037,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
   const pageGroups = sortedGroups.slice(start, start + PAGE_SIZE);
   const pageItems = getPaginationItems(totalPages, currentPage);
 
-  const normalizedSectionTitle = String(sectionTitle || "").trim().toLowerCase();
-  const showCountInTitle = (normalizedSectionTitle === "the series") || (normalizedSectionTitle === "the movies") || (normalizedSectionTitle === "movies") || (normalizedSectionTitle === "series");
+  const normalizedSectionTitle = String(sectionTitle || "")
+    .trim()
+    .toLowerCase();
+  const showCountInTitle =
+    normalizedSectionTitle === "the series" ||
+    normalizedSectionTitle === "the movies" ||
+    normalizedSectionTitle === "movies" ||
+    normalizedSectionTitle === "series";
 
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
     withSort: true,
@@ -891,49 +1052,73 @@ function renderGroups(groups, sectionTitle, parentNode) {
     count: showCountInTitle ? total : null,
   })}
     <div class="card-grid portrait"></div>
-    ${totalPages > 1 ? `<nav id="pagination" aria-label="Pagination">
+    ${
+      totalPages > 1
+        ? `<nav id="pagination" aria-label="Pagination">
       <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""} aria-label="หน้าก่อนหน้า">
         ${PAGINATION_ICON_PREV}
       </button>
       <div id="page-numbers">
-        ${pageItems.map(item => {
-          const pageNum = Number(item);
-          const isActive = pageNum === currentPage + 1;
-          return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${pageNum - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${pageNum}">${pageNum}</button>`;
-        }).join("")}
+        ${pageItems
+          .map((item) => {
+            const pageNum = Number(item);
+            const isActive = pageNum === currentPage + 1;
+            return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${pageNum - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${pageNum}">${pageNum}</button>`;
+          })
+          .join("")}
       </div>
       <button class="page-btn page-nav" id="page-next" ${currentPage >= totalPages - 1 ? "disabled" : ""} aria-label="หน้าถัดไป">
         ${PAGINATION_ICON_NEXT}
       </button>
-    </nav>` : ""}`;
+    </nav>`
+        : ""
+    }`;
 
   const grid = gridView.querySelector(".card-grid");
-  document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
+  document
+    .getElementById("section-back")
+    ?.addEventListener("click", goBackOneStep);
 
   pageGroups.forEach((group) => {
     const sn = group.season_name;
     const displayName = sn?.en
-      ? (sn.th ? `${sn.en} [${sn.th}]` : sn.en)
-      : (group.name || group.info || "ไม่มีชื่อ");
+      ? sn.th
+        ? `${sn.en} [${sn.th}]`
+        : sn.en
+      : group.name || group.info || "ไม่มีชื่อ";
+    const isTrack = Array.isArray(group.stations) && !group.groups;
     const card = makeCard({
       name: displayName,
       image: group.image,
       sub: group.author && group.author !== "Bank_" ? group.author : null,
       landscape: false,
-      badge: group.badge || (sn?.en ? (group.name || null) : null),
+      badge: group.badge || (sn?.en ? group.name || null : null),
+      status: isTrack
+        ? group.status === "completed"
+          ? "completed"
+          : "ongoing"
+        : null,
     });
 
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       const prevNode = { groups, referer: null };
-      navHistory.push({ node: prevNode, title: sectionTitle, page: currentPage, sort: currentSortOrder, url: lastFetchUrl || null });
+      navHistory.push({
+        node: prevNode,
+        title: sectionTitle,
+        page: currentPage,
+        sort: currentSortOrder,
+        url: lastFetchUrl || null,
+      });
       const navTitle = sn?.en
-        ? (sn.th ? `${sn.en} [${sn.th}]` : sn.en)
-        : (group.name || "...");
+        ? sn.th
+          ? `${sn.en} [${sn.th}]`
+          : sn.en
+        : group.name || "...";
       if (group.url && !group.groups && !group.stations) {
         fetchAndRender(group.url, navTitle);
       } else {
-        lastFetchUrl = null;  // inline sub-group, no URL to re-fetch
+        lastFetchUrl = null; // inline sub-group, no URL to re-fetch
         renderNode(group, navTitle);
       }
     });
@@ -966,18 +1151,21 @@ function renderGroups(groups, sectionTitle, parentNode) {
     });
   }
 
-  gridView.querySelector(".sort-order-toggle")?.addEventListener("click", () => {
-    currentSortOrder = currentSortOrder === "az" ? "za" : "az";
-    currentPage = 0;
-    renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
-    showGrid();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  gridView
+    .querySelector(".sort-order-toggle")
+    ?.addEventListener("click", () => {
+      currentSortOrder = currentSortOrder === "az" ? "za" : "az";
+      currentPage = 0;
+      renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
+      showGrid();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 }
 
 function getPaginationItems(totalPages, activePageIdx) {
   const windowSize = 5;
-  if (totalPages <= windowSize) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  if (totalPages <= windowSize)
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
 
   let start = activePageIdx - Math.floor(windowSize / 2);
   start = Math.max(0, Math.min(start, totalPages - windowSize));
@@ -985,24 +1173,36 @@ function getPaginationItems(totalPages, activePageIdx) {
 }
 
 function renderSectionHeader(title, options = {}) {
-  const { withSort = false, sort = "az", count = null, withFilter = false, sortMode = "alpha" } = options;
+  const {
+    withSort = false,
+    sort = "az",
+    count = null,
+    withFilter = false,
+    sortMode = "alpha",
+  } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
-  const titleMain = typeof count === "number" ? `${splitTitle.main} (${count})` : splitTitle.main;
+  const titleMain =
+    typeof count === "number"
+      ? `${splitTitle.main} (${count})`
+      : splitTitle.main;
   let sortIcon, sortLabel;
   if (sortMode === "date") {
-    sortIcon = sort === "za"
-      ? `<i class="fi fi-rr-calendar-arrow-up" aria-hidden="true"></i>`
-      : `<i class="fi fi-rr-calendar-arrow-down" aria-hidden="true"></i>`;
+    sortIcon =
+      sort === "za"
+        ? `<i class="fi fi-rr-calendar-arrow-up" aria-hidden="true"></i>`
+        : `<i class="fi fi-rr-calendar-arrow-down" aria-hidden="true"></i>`;
     sortLabel = sort === "za" ? "เก่าสุดก่อน" : "ใหม่สุดก่อน";
   } else {
-    sortIcon = sort === "za"
-      ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
-      : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
+    sortIcon =
+      sort === "za"
+        ? `<i class="fi fi-sr-sort-alpha-up" aria-hidden="true"></i>`
+        : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
     sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
   }
 
-  const filterHtml = withFilter ? `
+  const filterHtml = withFilter
+    ? `
     <div class="av-filter-group">
       <button id="av-filter-genre-btn" class="av-filter-btn${avActiveGenre ? " active" : ""}">${avActiveGenre ? esc(avActiveGenre) + " ✕" : "หมวดหมู่ ▾"}</button>
       <div id="av-filter-genre-dropdown" class="av-filter-dropdown hidden"></div>
@@ -1012,7 +1212,8 @@ function renderSectionHeader(title, options = {}) {
       <div id="av-filter-actress-dropdown" class="av-filter-dropdown right hidden"></div>
     </div>
     ${avActiveGenre || avActiveActress ? `<button id="av-filter-clear" class="av-filter-clear-btn">ล้าง</button>` : ""}
-  ` : "";
+  `
+    : "";
 
   return `<div class="section-header">
     ${canGoBack ? `<button id="section-back" class="section-back-btn" aria-label="ย้อนกลับ">${SECTION_BACK_ICON}</button>` : ""}
@@ -1042,7 +1243,10 @@ function goBackOneStep() {
   const prev = navHistory.pop();
   if (!prev) return;
   if (prev.url) {
-    fetchAndRender(prev.url, prev.title, false, null, { page: prev.page, sort: prev.sort });
+    fetchAndRender(prev.url, prev.title, false, null, {
+      page: prev.page,
+      sort: prev.sort,
+    });
   } else {
     renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
     showGrid();
@@ -1056,7 +1260,9 @@ function renderStations(stations, referer, sectionTitle) {
     <div class="card-grid landscape"></div>`;
 
   const grid = gridView.querySelector(".card-grid");
-  document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
+  document
+    .getElementById("section-back")
+    ?.addEventListener("click", goBackOneStep);
 
   stations.forEach((station, i) => {
     const card = makeCard({
@@ -1076,13 +1282,18 @@ function renderStations(stations, referer, sectionTitle) {
 }
 
 /* ===== Render browsable stations (AV-like) with sort, pagination ===== */
-let browseAllStations = [];     // original full list (never overwritten by search filter)
+let browseAllStations = []; // original full list (never overwritten by search filter)
 let browseFilteredStations = []; // currently displayed (filtered or full)
 let browseTitle = "";
 let browseParentNode = null;
 
-function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter = false } = {}) {
-  if (!isFilter) browseAllStations = stations;  // only update full list when NOT a search filter
+function renderBrowsableStations(
+  stations,
+  sectionTitle,
+  parentNode,
+  { isFilter = false } = {},
+) {
+  if (!isFilter) browseAllStations = stations; // only update full list when NOT a search filter
   browseFilteredStations = stations;
   browseTitle = sectionTitle;
   browseParentNode = parentNode;
@@ -1091,7 +1302,9 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
   const sorted = [...stations].sort((a, b) => {
     const dateA = a.meta?.release_date || "0000-00-00";
     const dateB = b.meta?.release_date || "0000-00-00";
-    return currentSortOrder === "za" ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+    return currentSortOrder === "za"
+      ? dateA.localeCompare(dateB)
+      : dateB.localeCompare(dateA);
   });
 
   const total = sorted.length;
@@ -1109,23 +1322,31 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
     count: total,
   })}
     <div class="card-grid landscape"></div>
-    ${totalPages > 1 ? `<nav id="pagination" aria-label="Pagination">
+    ${
+      totalPages > 1
+        ? `<nav id="pagination" aria-label="Pagination">
       <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""}>
         ${PAGINATION_ICON_PREV}
       </button>
       <div id="page-numbers">
-        ${pageItems.map(p => {
-          const isActive = p === currentPage + 1;
-          return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}">${p}</button>`;
-        }).join("")}
+        ${pageItems
+          .map((p) => {
+            const isActive = p === currentPage + 1;
+            return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}">${p}</button>`;
+          })
+          .join("")}
       </div>
       <button class="page-btn page-nav" id="page-next" ${currentPage >= totalPages - 1 ? "disabled" : ""}>
         ${PAGINATION_ICON_NEXT}
       </button>
-    </nav>` : ""}`;
+    </nav>`
+        : ""
+    }`;
 
   const grid = gridView.querySelector(".card-grid");
-  document.getElementById("section-back")?.addEventListener("click", goBackOneStep);
+  document
+    .getElementById("section-back")
+    ?.addEventListener("click", goBackOneStep);
   wireAvFilterButtons();
 
   pageStations.forEach((station) => {
@@ -1134,7 +1355,9 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
     // Subtitle: actresses only
     let sub = null;
     if (meta?.actresses) {
-      sub = Array.isArray(meta.actresses) ? meta.actresses.join(", ") : meta.actresses;
+      sub = Array.isArray(meta.actresses)
+        ? meta.actresses.join(", ")
+        : meta.actresses;
     }
     // Badge: top-level key e.g. "Uncensored Leaked"
     const badge = station.badge || null;
@@ -1149,7 +1372,9 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
 
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
-      openPlayer(stations, globalIdx, null, sectionTitle, { allowShuffle: true });
+      openPlayer(stations, globalIdx, null, sectionTitle, {
+        allowShuffle: true,
+      });
     });
 
     grid.appendChild(card);
@@ -1159,29 +1384,45 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, { isFilter 
   if (totalPages > 1) {
     const goToPage = (p) => {
       currentPage = Math.max(0, Math.min(p, totalPages - 1));
-      renderBrowsableStations(browseFilteredStations, browseTitle, browseParentNode, { isFilter: true });
+      renderBrowsableStations(
+        browseFilteredStations,
+        browseTitle,
+        browseParentNode,
+        { isFilter: true },
+      );
       showGrid();
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    document.getElementById("page-prev")?.addEventListener("click", () => goToPage(currentPage - 1));
-    document.getElementById("page-next")?.addEventListener("click", () => goToPage(currentPage + 1));
-    gridView.querySelectorAll(".page-number").forEach(btn => {
+    document
+      .getElementById("page-prev")
+      ?.addEventListener("click", () => goToPage(currentPage - 1));
+    document
+      .getElementById("page-next")
+      ?.addEventListener("click", () => goToPage(currentPage + 1));
+    gridView.querySelectorAll(".page-number").forEach((btn) => {
       btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
     });
   }
 
   // Sort toggle
-  gridView.querySelector(".sort-order-toggle")?.addEventListener("click", () => {
-    currentSortOrder = currentSortOrder === "az" ? "za" : "az";
-    currentPage = 0;
-    renderBrowsableStations(browseFilteredStations, browseTitle, browseParentNode, { isFilter: true });
-    showGrid();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  gridView
+    .querySelector(".sort-order-toggle")
+    ?.addEventListener("click", () => {
+      currentSortOrder = currentSortOrder === "az" ? "za" : "az";
+      currentPage = 0;
+      renderBrowsableStations(
+        browseFilteredStations,
+        browseTitle,
+        browseParentNode,
+        { isFilter: true },
+      );
+      showGrid();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 }
 
 /* ===== Make Card element ===== */
-function makeCard({ name, image, sub, landscape, badge }) {
+function makeCard({ name, image, sub, landscape, badge, status }) {
   const card = document.createElement("div");
   card.className = "card";
   card.title = name || "";
@@ -1208,15 +1449,24 @@ function makeCard({ name, image, sub, landscape, badge }) {
     thumb.textContent = landscape ? "▶" : "🎬";
   }
 
-  if (badge) {
-    const badgeEl = document.createElement("div");
-    badgeEl.className = "card-badge";
-    badgeEl.textContent = badge;
+  const hasStatus = status === "completed" || status === "ongoing";
+  if (badge || hasStatus) {
     thumb.style.position = "relative";
     const wrapper = document.createElement("div");
     wrapper.className = "card-thumb-wrap";
     wrapper.appendChild(thumb);
-    wrapper.appendChild(badgeEl);
+    if (badge) {
+      const badgeEl = document.createElement("div");
+      badgeEl.className = "card-badge";
+      badgeEl.textContent = badge;
+      wrapper.appendChild(badgeEl);
+    }
+    if (hasStatus) {
+      const statusEl = document.createElement("div");
+      statusEl.className = `card-status-badge card-status-${status}`;
+      statusEl.textContent = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
+      wrapper.appendChild(statusEl);
+    }
     card.appendChild(wrapper);
   } else {
     card.appendChild(thumb);
@@ -1262,7 +1512,10 @@ function updateBreadcrumb(currentTitle) {
         currentSortOrder = entry.sort || "az";
         fetchAndRender(entry.url, entry.title);
       } else {
-        renderNode(entry.node, entry.title, { page: entry.page, sort: entry.sort });
+        renderNode(entry.node, entry.title, {
+          page: entry.page,
+          sort: entry.sort,
+        });
       }
     });
     span.addEventListener("keydown", (e) => {
@@ -1281,7 +1534,8 @@ function updateBreadcrumb(currentTitle) {
 
   const current = document.createElement("span");
   const splitCurrent = splitCardTitle(currentTitle);
-  current.className = "breadcrumb-item active" + (splitCurrent.th ? " has-subline" : "");
+  current.className =
+    "breadcrumb-item active" + (splitCurrent.th ? " has-subline" : "");
   if (splitCurrent.th) {
     current.innerHTML = `${esc(splitCurrent.main)}<span class="breadcrumb-item-th">${esc(splitCurrent.th)}</span>`;
   } else {
@@ -1303,8 +1557,10 @@ function buildCrossSeasonQueue(languageTitle, inheritedReferer) {
   const seasonEntry = navHistory[navHistory.length - 1];
   const seriesEntry = navHistory[navHistory.length - 2];
   const seasonGroups = seriesEntry?.node?.groups;
-  if (!Array.isArray(seasonGroups) || seasonGroups.length === 0) return { queue: [], seasons: [] };
-  if (!Array.isArray(seasonEntry?.node?.groups)) return { queue: [], seasons: [] };
+  if (!Array.isArray(seasonGroups) || seasonGroups.length === 0)
+    return { queue: [], seasons: [] };
+  if (!Array.isArray(seasonEntry?.node?.groups))
+    return { queue: [], seasons: [] };
 
   const langKey = normalizeKey(languageTitle);
   const queue = [];
@@ -1312,11 +1568,20 @@ function buildCrossSeasonQueue(languageTitle, inheritedReferer) {
 
   seasonGroups.forEach((season) => {
     const langs = Array.isArray(season?.groups) ? season.groups : [];
-    const matchedLang = langs.find((lang) => normalizeKey(lang.name || lang.info) === langKey);
-    if (!matchedLang || !Array.isArray(matchedLang.stations) || matchedLang.stations.length === 0) return;
+    const matchedLang = langs.find(
+      (lang) => normalizeKey(lang.name || lang.info) === langKey,
+    );
+    if (
+      !matchedLang ||
+      !Array.isArray(matchedLang.stations) ||
+      matchedLang.stations.length === 0
+    )
+      return;
 
-    const groupReferer = matchedLang.referer ?? season.referer ?? inheritedReferer ?? null;
-    const seasonTitle = season.name || season.info || `Season ${seasons.length + 1}`;
+    const groupReferer =
+      matchedLang.referer ?? season.referer ?? inheritedReferer ?? null;
+    const seasonTitle =
+      season.name || season.info || `Season ${seasons.length + 1}`;
     seasons.push({
       title: seasonTitle,
       stations: matchedLang.stations,
@@ -1380,7 +1645,13 @@ function playEpisodeFromQueue(queueIndex) {
   playEpisode(item.localIndex, item.referer);
 }
 
-function openPlayer(stations, index, inheritedReferer, languageTitle = "", { allowShuffle = false } = {}) {
+function openPlayer(
+  stations,
+  index,
+  inheritedReferer,
+  languageTitle = "",
+  { allowShuffle = false } = {},
+) {
   currentStations = stations;
   currentIndex = index;
   upnextCancelled = false;
@@ -1392,15 +1663,22 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", { all
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
-  const crossSeasonData = buildCrossSeasonQueue(languageTitle, inheritedReferer);
+  const crossSeasonData = buildCrossSeasonQueue(
+    languageTitle,
+    inheritedReferer,
+  );
   crossSeasonQueue = crossSeasonData.queue;
   crossSeasonSeasons = crossSeasonData.seasons;
-  crossSeasonIndex = crossSeasonQueue.findIndex((item) => item.stations === stations && item.localIndex === index);
+  crossSeasonIndex = crossSeasonQueue.findIndex(
+    (item) => item.stations === stations && item.localIndex === index,
+  );
   currentSeasonTitle = navHistory[navHistory.length - 1]?.title || "";
   if (crossSeasonIndex >= 0) {
-    currentSeasonTitle = crossSeasonQueue[crossSeasonIndex].seasonTitle || currentSeasonTitle;
+    currentSeasonTitle =
+      crossSeasonQueue[crossSeasonIndex].seasonTitle || currentSeasonTitle;
   }
-  epPanelSeasonFilter = currentSeasonTitle || crossSeasonSeasons[0]?.title || "";
+  epPanelSeasonFilter =
+    currentSeasonTitle || crossSeasonSeasons[0]?.title || "";
 
   playerOverlay.classList.remove("hidden");
   document.body.style.overflow = "hidden";
@@ -1432,28 +1710,42 @@ function hidePlayerNotice() {
 
 function playEpisode(index, inheritedReferer) {
   const station = currentStations[index];
-  if (!station) { closePlayer(); return; }
+  if (!station) {
+    closePlayer();
+    return;
+  }
 
   currentIndex = index;
   // Track in shuffle history
-  if (shuffleMode && !shuffleHistory.includes(index)) shuffleHistory.push(index);
+  if (shuffleMode && !shuffleHistory.includes(index))
+    shuffleHistory.push(index);
   const referer = station.referer ?? inheritedReferer ?? null;
   inheritedRefererCache = referer;
   const url = station.url;
-  const matchedQueueIdx = crossSeasonQueue.findIndex((item) => item.stations === currentStations && item.localIndex === index);
+  const matchedQueueIdx = crossSeasonQueue.findIndex(
+    (item) => item.stations === currentStations && item.localIndex === index,
+  );
   if (matchedQueueIdx >= 0) {
     crossSeasonIndex = matchedQueueIdx;
-    currentSeasonTitle = crossSeasonQueue[matchedQueueIdx].seasonTitle || currentSeasonTitle;
+    currentSeasonTitle =
+      crossSeasonQueue[matchedQueueIdx].seasonTitle || currentSeasonTitle;
     epPanelSeasonFilter = currentSeasonTitle || epPanelSeasonFilter;
   }
 
   const episodeTitle = station.name || `ตอนที่ ${index + 1}`;
 
   // Movie/Anime-Movie: station name เป็นชื่อ track type (พากย์ไทย/ซับไทย) → สลับให้ part title เป็น main, track เป็น sub
-  const isTrackLabel = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(episodeTitle);
+  const isTrackLabel =
+    /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(
+      episodeTitle,
+    );
   // AV: แสดงชื่อ + นักแสดง เหมือน card
   const actresses = station.meta?.actresses;
-  const actressSub = Array.isArray(actresses) ? actresses.join(", ") : (typeof actresses === "string" ? actresses : "");
+  const actressSub = Array.isArray(actresses)
+    ? actresses.join(", ")
+    : typeof actresses === "string"
+      ? actresses
+      : "";
   let displayMain, displaySub;
   if (actressSub) {
     // AV mode: name = "ABF-114", sub = "Suzumori Remu"
@@ -1511,26 +1803,40 @@ function isCurrentlyCasting() {
  *   startTime    — วินาที สำหรับ seek หลัง metadata โหลดเสร็จ (0 = เริ่มต้น)
  *   autoplay     — true = เรียก play() หลัง source พร้อม (default true)
  */
-function setupVideoSource(url, referer, { forceNative = false, startTime = 0, autoplay = true } = {}) {
+function setupVideoSource(
+  url,
+  referer,
+  { forceNative = false, startTime = 0, autoplay = true } = {},
+) {
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
-  const isDirectMediaUrl = /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
+  const isDirectMediaUrl =
+    /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
   const hasHlsRuntime = typeof Hls !== "undefined";
   let hlsJsSupported = false;
   if (hasHlsRuntime) {
-    try { hlsJsSupported = Hls.isSupported(); } catch (_) { hlsJsSupported = false; }
+    try {
+      hlsJsSupported = Hls.isSupported();
+    } catch (_) {
+      hlsJsSupported = false;
+    }
   }
   // Safari WebKit (iOS + macOS) มี native HLS + native AirPlay ที่เสถียรมาก →
   // ต้องใช้ native source เสมอ ไม่แตะ HLS.js/MSE/blob: URL เลย มิฉะนั้น AirPlay
   // session จะพังตอนเปลี่ยนตอน/เปลี่ยนเรื่อง (blob URL serialize ไป Apple TV ไม่ได้)
   // Detect ผ่าน webkitShowPlaybackTargetPicker — มีเฉพาะใน WebKit ที่รองรับ AirPlay
   // (เชื่อถือได้กว่า canPlayType ที่ Chrome 146+ return "maybe" ทั้งที่เล่น HLS ไม่ได้)
-  const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
+  const isSafariWebKit =
+    typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
   // ใช้ Hls.isSupported() เป็น gate หลักแทน canPlayType
   // เหตุผล: Chrome 146+ บน desktop เริ่ม return "maybe" สำหรับ application/vnd.apple.mpegurl
   // ทั้งที่จริงๆ เล่น HLS native ไม่ได้ → canPlayType ไม่น่าเชื่อถืออีกต่อไป
   // HLS.js ทำงานได้ดีในทุก browser ที่มี MSE ยกเว้น Safari (ต้อง native เพื่อ AirPlay)
   // จะ fallback ไป native ก็ต่อเมื่อ: Safari, HLS.js ไม่ทำงาน, หรือ forceNative = true
-  const shouldTryHls = !forceNative && !isSafariWebKit && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
+  const shouldTryHls =
+    !forceNative &&
+    !isSafariWebKit &&
+    hlsJsSupported &&
+    (isHlsUrl || !isDirectMediaUrl);
 
   if (shouldTryHls) {
     // HLS.js path: ต้อง destroy instance เดิมก่อนสร้างใหม่ เพื่อไม่ให้ attach ซ้อน
@@ -1550,13 +1856,18 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       if (startTime > 0) {
-        try { playerVideo.currentTime = startTime; } catch (_) {}
+        try {
+          playerVideo.currentTime = startTime;
+        } catch (_) {}
       }
       if (!autoplay) return;
-      playerVideo.play().catch(err => {
-        if (err.name !== "AbortError") console.error("[player] play() rejected:", err);
+      playerVideo.play().catch((err) => {
+        if (err.name !== "AbortError")
+          console.error("[player] play() rejected:", err);
         if (err.name === "NotSupportedError") {
-          showPlayerNotice("เล่นวิดีโอไม่ได้: codec ของสตรีมไม่รองรับ (play/NotSupportedError)");
+          showPlayerNotice(
+            "เล่นวิดีโอไม่ได้: codec ของสตรีมไม่รองรับ (play/NotSupportedError)",
+          );
         }
       });
     });
@@ -1576,7 +1887,9 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
 
       const details = String(data?.details || "");
       const statusCode = Number(data?.response?.code || 0);
-      const errLine = statusCode ? `HTTP ${statusCode}` : (data?.err?.message || data?.reason || "network/codec");
+      const errLine = statusCode
+        ? `HTTP ${statusCode}`
+        : data?.err?.message || data?.reason || "network/codec";
 
       if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
         if (networkRetries < 1 && details !== "manifestLoadError") {
@@ -1586,15 +1899,26 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
         }
         // Fallback: ถ้า HLS.js โหลดไม่ได้ (เช่น CORS block) ลอง native HLS แทน
         // จะใช้ได้ใน browser ที่รองรับ native HLS (Safari, บาง Chrome)
-        if (isHlsUrl && playerVideo.canPlayType("application/vnd.apple.mpegurl")) {
-          console.warn("[HLS fallback] HLS.js network error → trying native HLS");
+        if (
+          isHlsUrl &&
+          playerVideo.canPlayType("application/vnd.apple.mpegurl")
+        ) {
+          console.warn(
+            "[HLS fallback] HLS.js network error → trying native HLS",
+          );
           destroyHls();
           playerVideo.src = url;
           playerVideo.load();
           if (startTime > 0) {
-            playerVideo.addEventListener("loadedmetadata", () => {
-              try { playerVideo.currentTime = startTime; } catch (_) {}
-            }, { once: true });
+            playerVideo.addEventListener(
+              "loadedmetadata",
+              () => {
+                try {
+                  playerVideo.currentTime = startTime;
+                } catch (_) {}
+              },
+              { once: true },
+            );
           }
           if (autoplay) playerVideo.play().catch(() => {});
           return;
@@ -1606,7 +1930,9 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
       if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
         if (mediaRetries < 1) {
           mediaRetries += 1;
-          try { hls.recoverMediaError(); } catch (_) {}
+          try {
+            hls.recoverMediaError();
+          } catch (_) {}
           return;
         }
         destroyHls();
@@ -1614,14 +1940,21 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
         return;
       }
       destroyHls();
-      showPlayerNotice(`เล่นสตรีมไม่สำเร็จ: ${data?.type || "UNKNOWN"} / ${details}`, 10000);
+      showPlayerNotice(
+        `เล่นสตรีมไม่สำเร็จ: ${data?.type || "UNKNOWN"} / ${details}`,
+        10000,
+      );
     });
   } else {
     if (!forceNative) {
       if (isHlsUrl && !hasHlsRuntime) {
-        console.warn("HLS runtime is missing. Falling back to native video playback.");
+        console.warn(
+          "HLS runtime is missing. Falling back to native video playback.",
+        );
       } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
-        console.warn("HLS.js is loaded but Media Source Extensions are not supported in this browser.");
+        console.warn(
+          "HLS.js is loaded but Media Source Extensions are not supported in this browser.",
+        );
       }
     }
     // Native path: ตั้ง src ใหม่ก่อน แล้วค่อย destroy HLS.js
@@ -1634,13 +1967,17 @@ function setupVideoSource(url, referer, { forceNative = false, startTime = 0, au
     destroyHls();
     const onReady = () => {
       if (startTime > 0) {
-        try { playerVideo.currentTime = startTime; } catch (_) {}
+        try {
+          playerVideo.currentTime = startTime;
+        } catch (_) {}
       }
       if (!autoplay) return;
-      playerVideo.play().catch(err => {
+      playerVideo.play().catch((err) => {
         if (err.name !== "AbortError") console.error(err);
         if (err.name === "NotSupportedError" && !forceNative) {
-          showPlayerNotice("เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)");
+          showPlayerNotice(
+            "เล่นวิดีโอไม่ได้: รูปแบบสตรีมไม่รองรับ (NotSupportedError)",
+          );
         }
       });
     };
@@ -1663,7 +2000,10 @@ function seekBySeconds(delta) {
 }
 
 function adjustVolumeBy(delta) {
-  const next = Math.min(1, Math.max(0, (Number(playerVideo.volume) || 0) + delta));
+  const next = Math.min(
+    1,
+    Math.max(0, (Number(playerVideo.volume) || 0) + delta),
+  );
   playerVideo.volume = next;
   playerVideo.muted = next === 0;
   updateVolumeUI();
@@ -1673,7 +2013,8 @@ function handlePlayerKeyboardShortcuts(e) {
   if (e.ctrlKey && e.key === "ArrowRight") {
     const target = resolveAdjacentEpisode(1);
     if (!target) return true;
-    if (target.type === "local") playEpisode(target.index, inheritedRefererCache);
+    if (target.type === "local")
+      playEpisode(target.index, inheritedRefererCache);
     else playEpisodeFromQueue(target.queueIndex);
     return true;
   }
@@ -1681,7 +2022,8 @@ function handlePlayerKeyboardShortcuts(e) {
   if (e.ctrlKey && e.key === "ArrowLeft") {
     const target = resolveAdjacentEpisode(-1);
     if (!target) return true;
-    if (target.type === "local") playEpisode(target.index, inheritedRefererCache);
+    if (target.type === "local")
+      playEpisode(target.index, inheritedRefererCache);
     else playEpisodeFromQueue(target.queueIndex);
     return true;
   }
@@ -1719,8 +2061,16 @@ function togglePlayPause() {
   else playerVideo.pause();
 }
 
-function rewind10()  { playerVideo.currentTime = Math.max(0, playerVideo.currentTime - 10); }
-function forward10() { if (playerVideo.duration) playerVideo.currentTime = Math.min(playerVideo.duration, playerVideo.currentTime + 10); }
+function rewind10() {
+  playerVideo.currentTime = Math.max(0, playerVideo.currentTime - 10);
+}
+function forward10() {
+  if (playerVideo.duration)
+    playerVideo.currentTime = Math.min(
+      playerVideo.duration,
+      playerVideo.currentTime + 10,
+    );
+}
 
 btnPlayPause.addEventListener("click", togglePlayPause);
 btnRewind.addEventListener("click", rewind10);
@@ -1748,8 +2098,14 @@ btnShuffle.addEventListener("click", () => {
   else btnNextEp.disabled = !resolveAdjacentEpisode(1);
 });
 
-playerVideo.addEventListener("play",  () => { btnPlayPause.innerHTML = PLAYER_ICON_PAUSE; showPlayerUI(); });
-playerVideo.addEventListener("pause", () => { btnPlayPause.innerHTML = PLAYER_ICON_PLAY; showPlayerUI(); });
+playerVideo.addEventListener("play", () => {
+  btnPlayPause.innerHTML = PLAYER_ICON_PAUSE;
+  showPlayerUI();
+});
+playerVideo.addEventListener("pause", () => {
+  btnPlayPause.innerHTML = PLAYER_ICON_PLAY;
+  showPlayerUI();
+});
 playerVideo.addEventListener("error", () => {
   const mediaErr = playerVideo.error;
   if (!mediaErr) {
@@ -1781,14 +2137,15 @@ playerSeek.addEventListener("input", () => {
 });
 
 // ===== Seek Preview (VTT sprite thumbnails — AV only) =====
-let seekPreviewCues = null;    // [{start, end, url, x, y, w, h}] หรือ null
+let seekPreviewCues = null; // [{start, end, url, x, y, w, h}] หรือ null
 let seekPreviewSpriteUrl = ""; // URL ของ sprite image
 let seekPreviewLoading = false;
 
 /** แปลง VTT timestamp "HH:MM:SS.mmm" เป็น seconds */
 function parseVttTime(str) {
   const parts = str.split(":");
-  if (parts.length === 3) return +parts[0] * 3600 + +parts[1] * 60 + parseFloat(parts[2]);
+  if (parts.length === 3)
+    return +parts[0] * 3600 + +parts[1] * 60 + parseFloat(parts[2]);
   if (parts.length === 2) return +parts[0] * 60 + parseFloat(parts[1]);
   return parseFloat(str);
 }
@@ -1801,20 +2158,30 @@ function parseVttThumbnails(vttText, baseUrl) {
   for (const block of blocks) {
     const lines = block.trim().split("\n");
     // Find timestamp line: "00:00:00.000 --> 00:05:00.000"
-    const tsLine = lines.find(l => l.includes("-->"));
+    const tsLine = lines.find((l) => l.includes("-->"));
     if (!tsLine) continue;
-    const [startStr, endStr] = tsLine.split("-->").map(s => s.trim());
+    const [startStr, endStr] = tsLine.split("-->").map((s) => s.trim());
     const start = parseVttTime(startStr);
     const end = parseVttTime(endStr);
     // Find image line: "preview.jpg#xywh=0,0,160,90" or full URL
-    const imgLine = lines.find(l => l.includes("#xywh=") || /\.(jpg|jpeg|png|webp)/i.test(l));
+    const imgLine = lines.find(
+      (l) => l.includes("#xywh=") || /\.(jpg|jpeg|png|webp)/i.test(l),
+    );
     if (!imgLine) continue;
     const [imgPath, fragment] = imgLine.trim().split("#xywh=");
     const url = imgPath.startsWith("http") ? imgPath : baseUrl + imgPath;
-    let x = 0, y = 0, w = 160, h = 90;
+    let x = 0,
+      y = 0,
+      w = 160,
+      h = 90;
     if (fragment) {
       const coords = fragment.split(",").map(Number);
-      if (coords.length >= 4) { x = coords[0]; y = coords[1]; w = coords[2]; h = coords[3]; }
+      if (coords.length >= 4) {
+        x = coords[0];
+        y = coords[1];
+        w = coords[2];
+        h = coords[3];
+      }
     }
     cues.push({ start, end, url, x, y, w, h });
   }
@@ -1842,8 +2209,11 @@ function loadSeekPreview() {
 
   seekPreviewLoading = true;
   fetch(urls.vtt)
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(text => {
+    .then((r) => {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    })
+    .then((text) => {
       seekPreviewCues = parseVttThumbnails(text, urls.base);
       seekPreviewSpriteUrl = urls.sprite;
       // Preload sprite image
@@ -1852,33 +2222,44 @@ function loadSeekPreview() {
         img.src = seekPreviewSpriteUrl;
       }
     })
-    .catch(() => { /* no preview available — fail silently */ })
-    .finally(() => { seekPreviewLoading = false; });
+    .catch(() => {
+      /* no preview available — fail silently */
+    })
+    .finally(() => {
+      seekPreviewLoading = false;
+    });
 }
 
 /** หา cue ที่ตรงกับ time */
 function findPreviewCue(time) {
   if (!seekPreviewCues) return null;
-  return seekPreviewCues.find(c => time >= c.start && time < c.end) || null;
+  return seekPreviewCues.find((c) => time >= c.start && time < c.end) || null;
 }
 
 const progressRow = document.getElementById("player-progress-row");
 
 progressRow.addEventListener("mousemove", (e) => {
-  if (!playerVideo.duration || !seekPreviewCues || seekPreviewCues.length === 0) return;
+  if (!playerVideo.duration || !seekPreviewCues || seekPreviewCues.length === 0)
+    return;
   const rect = playerSeek.getBoundingClientRect();
   const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
   const pct = x / rect.width;
   const time = pct * playerVideo.duration;
 
   const cue = findPreviewCue(time);
-  if (!cue) { seekPreview.classList.add("hidden"); return; }
+  if (!cue) {
+    seekPreview.classList.add("hidden");
+    return;
+  }
 
   // Position tooltip
   const previewW = 160;
   const rowRect = progressRow.getBoundingClientRect();
   let left = e.clientX - rowRect.left;
-  left = Math.max(previewW / 2 + 4, Math.min(left, rowRect.width - previewW / 2 - 4));
+  left = Math.max(
+    previewW / 2 + 4,
+    Math.min(left, rowRect.width - previewW / 2 - 4),
+  );
   seekPreview.style.left = left + "px";
   seekPreviewTime.textContent = formatTime(time);
 
@@ -1896,12 +2277,15 @@ progressRow.addEventListener("mouseleave", () => {
 });
 
 // Episode picker
-const TRACK_LABEL_RE = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i;
+const TRACK_LABEL_RE =
+  /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i;
 
 function getEpPanelLabel() {
   if (isAvMode) return "เลือกเรื่อง";
   // Movie: stations are track labels (พากย์ไทย/ซับไทย)
-  const hasTrackLabels = currentStations?.some(s => TRACK_LABEL_RE.test(s.name));
+  const hasTrackLabels = currentStations?.some((s) =>
+    TRACK_LABEL_RE.test(s.name),
+  );
   if (hasTrackLabels) return "เลือกแทร็กเสียง";
   return "เลือกตอน";
 }
@@ -1932,15 +2316,23 @@ epPanel.addEventListener("click", (e) => {
 });
 
 function renderEpPanel() {
-  const seasonTabs = crossSeasonSeasons.filter((season) => Array.isArray(season.stations) && season.stations.length > 0);
+  const seasonTabs = crossSeasonSeasons.filter(
+    (season) => Array.isArray(season.stations) && season.stations.length > 0,
+  );
   if (epPanelTabs && seasonTabs.length > 1) {
-    const hasSelectedSeason = seasonTabs.some((season) => season.title === epPanelSeasonFilter);
-    if (!hasSelectedSeason) epPanelSeasonFilter = currentSeasonTitle || seasonTabs[0].title;
+    const hasSelectedSeason = seasonTabs.some(
+      (season) => season.title === epPanelSeasonFilter,
+    );
+    if (!hasSelectedSeason)
+      epPanelSeasonFilter = currentSeasonTitle || seasonTabs[0].title;
 
-    epPanelTabs.innerHTML = seasonTabs.map((season) => {
-      const activeClass = season.title === epPanelSeasonFilter ? " active" : "";
-      return `<button class="ep-season-tab${activeClass}" data-season="${esc(season.title)}">${esc(season.title)}</button>`;
-    }).join("");
+    epPanelTabs.innerHTML = seasonTabs
+      .map((season) => {
+        const activeClass =
+          season.title === epPanelSeasonFilter ? " active" : "";
+        return `<button class="ep-season-tab${activeClass}" data-season="${esc(season.title)}">${esc(season.title)}</button>`;
+      })
+      .join("");
     epPanelTabs.classList.remove("hidden");
 
     epPanelTabs.querySelectorAll(".ep-season-tab").forEach((btn, idx) => {
@@ -1955,7 +2347,9 @@ function renderEpPanel() {
     epPanelTabs.innerHTML = "";
   }
 
-  const selectedSeason = seasonTabs.find((season) => season.title === epPanelSeasonFilter);
+  const selectedSeason = seasonTabs.find(
+    (season) => season.title === epPanelSeasonFilter,
+  );
   const panelStations = selectedSeason?.stations || currentStations;
   const panelReferer = selectedSeason?.referer ?? inheritedRefererCache;
 
@@ -1971,9 +2365,16 @@ function renderEpPanel() {
       ? `<img class="ep-card-thumb" src="${esc(station.image)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=ep-card-thumb-ph>▶</div>'">`
       : `<div class="ep-card-thumb-ph">▶</div>`;
 
-    const isTrack = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(station.name);
+    const isTrack =
+      /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(
+        station.name,
+      );
     const actresses = station.meta?.actresses;
-    const actressStr = Array.isArray(actresses) ? actresses.join(", ") : (typeof actresses === "string" ? actresses : "");
+    const actressStr = Array.isArray(actresses)
+      ? actresses.join(", ")
+      : typeof actresses === "string"
+        ? actresses
+        : "";
     let label;
     if (actressStr) {
       // AV: show name as main, actresses as sub
@@ -1986,15 +2387,19 @@ function renderEpPanel() {
     } else {
       label = splitEpisodeLabel(station.name, i + 1);
     }
-    const playingBadge = isActive ? `<span class="ep-card-playing">กำลังเล่น</span>` : "";
+    const playingBadge = isActive
+      ? `<span class="ep-card-playing">กำลังเล่น</span>`
+      : "";
 
-    const titleEl = label.title ? `<div class="ep-card-title">${esc(label.title)}</div>` : "";
+    const titleEl = label.title
+      ? `<div class="ep-card-title">${esc(label.title)}</div>`
+      : "";
     card.innerHTML = `<div class="ep-card-media">${thumbEl}${playingBadge}</div><div class="ep-card-content"><div class="ep-card-label"><div class="ep-card-epno">${esc(label.ep)}</div>${titleEl}</div></div>`;
 
     card.addEventListener("click", () => {
       currentStations = panelStations;
       playEpisode(i, panelReferer);
-      renderEpPanel();  // refresh active state
+      renderEpPanel(); // refresh active state
     });
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -2008,7 +2413,9 @@ function renderEpPanel() {
 
   // scroll active card into view
   setTimeout(() => {
-    epPanelGrid.querySelector(".ep-card.active")?.scrollIntoView({ block: "nearest" });
+    epPanelGrid
+      .querySelector(".ep-card.active")
+      ?.scrollIntoView({ block: "nearest" });
   }, 50);
 }
 
@@ -2046,7 +2453,12 @@ function updateVolumeUI() {
   volumeSlider.value = v;
   const pct = v * 100;
   volumeSlider.style.background = `linear-gradient(to right, rgba(255,255,255,.9) ${pct}%, rgba(255,255,255,.3) ${pct}%)`;
-  btnMute.innerHTML = playerVideo.muted || v === 0 ? VOL_ICONS.mute : v < 0.5 ? VOL_ICONS.low : VOL_ICONS.high;
+  btnMute.innerHTML =
+    playerVideo.muted || v === 0
+      ? VOL_ICONS.mute
+      : v < 0.5
+        ? VOL_ICONS.low
+        : VOL_ICONS.high;
 }
 
 // AirPlay / Remote Playback
@@ -2064,63 +2476,76 @@ function updateVolumeUI() {
   // Safari WebKit ใช้ native HLS อยู่แล้ว (setupVideoSource มี gate) →
   // ไม่ต้อง swap source ก่อน/หลัง cast. video element ต่อ stream เดิมตลอด
   // AirPlay session จึงเสถียร แม้เปลี่ยนตอน/เรื่องระหว่าง cast
-  const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
+  const isSafariWebKit =
+    typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
 
   // Helper: ยิงก่อนกด picker — สลับไปใช้ native source (เฉพาะ Chrome/Edge/Firefox)
   function prepareForCast() {
-    if (isSafariWebKit) return true;   // Safari: ไม่ต้องทำอะไร source เป็น native อยู่แล้ว
+    if (isSafariWebKit) return true; // Safari: ไม่ต้องทำอะไร source เป็น native อยู่แล้ว
     const station = currentStations[currentIndex];
     if (!station) return false;
-    const savedTime  = playerVideo.currentTime || 0;
+    const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
     setupVideoSource(station.url, inheritedRefererCache, {
       forceNative: true,
-      startTime:   savedTime,
-      autoplay:    wasPlaying,
+      startTime: savedTime,
+      autoplay: wasPlaying,
     });
     return true;
   }
 
   // Helper: สลับกลับไปใช้ HLS.js สำหรับเล่น local หลัง disconnect (Chrome path)
   function restoreLocalPlayback() {
-    if (isSafariWebKit) return;        // Safari: stream ต่อเนื่องเอง ไม่ต้อง swap
+    if (isSafariWebKit) return; // Safari: stream ต่อเนื่องเอง ไม่ต้อง swap
     const station = currentStations[currentIndex];
     if (!station) return;
-    const savedTime  = playerVideo.currentTime || 0;
+    const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
     setupVideoSource(station.url, inheritedRefererCache, {
       forceNative: false,
-      startTime:   savedTime,
-      autoplay:    wasPlaying,
+      startTime: savedTime,
+      autoplay: wasPlaying,
     });
   }
 
   // WebKit AirPlay API — Safari on macOS / iOS → Apple TV, AirPlay speakers
   if (typeof playerVideo.webkitShowPlaybackTargetPicker === "function") {
-    playerVideo.addEventListener("webkitplaybacktargetavailabilitychanged", (e) => {
-      btnAirPlay.hidden = e.availability !== "available";
-    });
-    playerVideo.addEventListener("webkitcurrentplaybacktargetiswirelesschanged", () => {
-      const casting = !!playerVideo.webkitCurrentPlaybackTargetIsWireless;
-      btnAirPlay.classList.toggle("casting", casting);
-      btnAirPlay.title = casting
-        ? "กำลัง Cast อยู่ — คลิกเพื่อหยุด"
-        : "AirPlay / Cast to TV";
-      // Disconnect → สลับกลับไป HLS.js เพื่อเล่น local ต่อ
-      if (!casting) restoreLocalPlayback();
-    });
+    playerVideo.addEventListener(
+      "webkitplaybacktargetavailabilitychanged",
+      (e) => {
+        btnAirPlay.hidden = e.availability !== "available";
+      },
+    );
+    playerVideo.addEventListener(
+      "webkitcurrentplaybacktargetiswirelesschanged",
+      () => {
+        const casting = !!playerVideo.webkitCurrentPlaybackTargetIsWireless;
+        btnAirPlay.classList.toggle("casting", casting);
+        btnAirPlay.title = casting
+          ? "กำลัง Cast อยู่ — คลิกเพื่อหยุด"
+          : "AirPlay / Cast to TV";
+        // Disconnect → สลับกลับไป HLS.js เพื่อเล่น local ต่อ
+        if (!casting) restoreLocalPlayback();
+      },
+    );
     btnAirPlay.addEventListener("click", () => {
       // Safari: prepareForCast() เป็น no-op (native HLS อยู่แล้ว) → เปิด picker ตรงๆ
-      try { playerVideo.webkitShowPlaybackTargetPicker(); } catch (e) { console.warn(e); }
+      try {
+        playerVideo.webkitShowPlaybackTargetPicker();
+      } catch (e) {
+        console.warn(e);
+      }
     });
   }
   // W3C Remote Playback API — Chrome (รองรับ AirPlay บน macOS ผ่าน system picker)
   else if (playerVideo.remote) {
-    playerVideo.remote.watchAvailability((available) => {
-      btnAirPlay.hidden = !available;
-    }).catch(() => {
-      btnAirPlay.hidden = false;
-    });
+    playerVideo.remote
+      .watchAvailability((available) => {
+        btnAirPlay.hidden = !available;
+      })
+      .catch(() => {
+        btnAirPlay.hidden = false;
+      });
     playerVideo.remote.addEventListener("connecting", () => {
       btnAirPlay.classList.add("casting");
       btnAirPlay.title = "กำลังเชื่อมต่อ...";
@@ -2191,12 +2616,15 @@ async function togglePip() {
 
       // Copy stylesheets for controls styling
       const pipDoc = docPipWindow.document;
-      pipDoc.documentElement.style.cssText = "margin:0;padding:0;background:#000;overflow:hidden;height:100%";
-      pipDoc.body.style.cssText = "margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100%;position:relative";
+      pipDoc.documentElement.style.cssText =
+        "margin:0;padding:0;background:#000;overflow:hidden;height:100%";
+      pipDoc.body.style.cssText =
+        "margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100%;position:relative";
 
       // Move video to PiP window
       const wrapper = pipDoc.createElement("div");
-      wrapper.style.cssText = "width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;background:#000";
+      wrapper.style.cssText =
+        "width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;background:#000";
 
       // Style the video in PiP
       playerVideo.style.cssText = "width:100%;height:100%;object-fit:contain";
@@ -2204,34 +2632,54 @@ async function togglePip() {
 
       // Simple overlay controls
       const controls = pipDoc.createElement("div");
-      controls.style.cssText = "position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,.8));opacity:0;transition:opacity .2s";
-      wrapper.addEventListener("mouseenter", () => controls.style.opacity = "1");
-      wrapper.addEventListener("mouseleave", () => controls.style.opacity = "0");
+      controls.style.cssText =
+        "position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,.8));opacity:0;transition:opacity .2s";
+      wrapper.addEventListener(
+        "mouseenter",
+        () => (controls.style.opacity = "1"),
+      );
+      wrapper.addEventListener(
+        "mouseleave",
+        () => (controls.style.opacity = "0"),
+      );
 
       const makeBtn = (label, onClick) => {
         const b = pipDoc.createElement("button");
         b.textContent = label;
-        b.style.cssText = "background:rgba(255,255,255,.15);border:none;color:#fff;font-size:16px;cursor:pointer;padding:6px 10px;border-radius:6px";
+        b.style.cssText =
+          "background:rgba(255,255,255,.15);border:none;color:#fff;font-size:16px;cursor:pointer;padding:6px 10px;border-radius:6px";
         b.addEventListener("click", onClick);
         return b;
       };
 
-      controls.appendChild(makeBtn("⏮", () => {
-        const t = resolveAdjacentEpisode(-1);
-        if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
-        else if (t) playEpisodeFromQueue(t.queueIndex);
-      }));
+      controls.appendChild(
+        makeBtn("⏮", () => {
+          const t = resolveAdjacentEpisode(-1);
+          if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
+          else if (t) playEpisodeFromQueue(t.queueIndex);
+        }),
+      );
       controls.appendChild(makeBtn("⏪", rewind10));
-      const playPauseBtn = makeBtn(playerVideo.paused ? "▶" : "⏸", () => togglePlayPause());
+      const playPauseBtn = makeBtn(playerVideo.paused ? "▶" : "⏸", () =>
+        togglePlayPause(),
+      );
       controls.appendChild(playPauseBtn);
-      playerVideo.addEventListener("play",  () => playPauseBtn.textContent = "⏸");
-      playerVideo.addEventListener("pause", () => playPauseBtn.textContent = "▶");
+      playerVideo.addEventListener(
+        "play",
+        () => (playPauseBtn.textContent = "⏸"),
+      );
+      playerVideo.addEventListener(
+        "pause",
+        () => (playPauseBtn.textContent = "▶"),
+      );
       controls.appendChild(makeBtn("⏩", forward10));
-      controls.appendChild(makeBtn("⏭", () => {
-        const t = resolveAdjacentEpisode(1);
-        if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
-        else if (t) playEpisodeFromQueue(t.queueIndex);
-      }));
+      controls.appendChild(
+        makeBtn("⏭", () => {
+          const t = resolveAdjacentEpisode(1);
+          if (t?.type === "local") playEpisode(t.index, inheritedRefererCache);
+          else if (t) playEpisodeFromQueue(t.queueIndex);
+        }),
+      );
 
       wrapper.appendChild(controls);
       pipDoc.body.appendChild(wrapper);
@@ -2266,8 +2714,12 @@ async function togglePip() {
 btnPip.addEventListener("click", togglePip);
 
 // Track video PiP state changes (for standard PiP fallback)
-playerVideo.addEventListener("enterpictureinpicture", () => btnPip.classList.add("active"));
-playerVideo.addEventListener("leavepictureinpicture", () => btnPip.classList.remove("active"));
+playerVideo.addEventListener("enterpictureinpicture", () =>
+  btnPip.classList.add("active"),
+);
+playerVideo.addEventListener("leavepictureinpicture", () =>
+  btnPip.classList.remove("active"),
+);
 
 /* ===== Auto-hide UI ===== */
 let idleTimer = null;
@@ -2287,42 +2739,64 @@ playerOverlay.addEventListener("mousemove", showPlayerUI);
 playerOverlay.addEventListener("touchstart", showPlayerUI, { passive: true });
 
 // Swipe left/right บน player → real-time scrub (max 90s per full-width swipe)
-let _swipeStart = null;   // { x, y, time }
+let _swipeStart = null; // { x, y, time }
 let _swipeHandled = false;
 let _swipeWasPlaying = false;
 
-playerOverlay.addEventListener("touchstart", (e) => {
-  if (e.touches.length !== 1) return;
-  _swipeStart = { x: e.touches[0].clientX, y: e.touches[0].clientY, time: playerVideo.currentTime };
-  _swipeHandled = false;
-}, { passive: true });
+playerOverlay.addEventListener(
+  "touchstart",
+  (e) => {
+    if (e.touches.length !== 1) return;
+    _swipeStart = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+      time: playerVideo.currentTime,
+    };
+    _swipeHandled = false;
+  },
+  { passive: true },
+);
 
-playerOverlay.addEventListener("touchmove", (e) => {
-  if (!_swipeStart || e.touches.length !== 1) return;
-  const dx = e.touches[0].clientX - _swipeStart.x;
-  const dy = e.touches[0].clientY - _swipeStart.y;
+playerOverlay.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!_swipeStart || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - _swipeStart.x;
+    const dy = e.touches[0].clientY - _swipeStart.y;
 
-  if (!_swipeHandled) {
-    if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-    _swipeHandled = true;
-    _swipeWasPlaying = !playerVideo.paused;
-    if (_swipeWasPlaying) playerVideo.pause();
-  }
+    if (!_swipeHandled) {
+      if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      _swipeHandled = true;
+      _swipeWasPlaying = !playerVideo.paused;
+      if (_swipeWasPlaying) playerVideo.pause();
+    }
 
-  e.preventDefault();
-  const secs = dx / window.innerWidth * 90;
-  playerVideo.currentTime = Math.max(0, Math.min(playerVideo.duration || 0, _swipeStart.time + secs));
-}, { passive: false });
+    e.preventDefault();
+    const secs = (dx / window.innerWidth) * 90;
+    playerVideo.currentTime = Math.max(
+      0,
+      Math.min(playerVideo.duration || 0, _swipeStart.time + secs),
+    );
+  },
+  { passive: false },
+);
 
-playerOverlay.addEventListener("touchend", () => {
-  _swipeStart = null;
-  if (!_swipeHandled) return;
-  if (_swipeWasPlaying) playerVideo.play();
-}, { passive: true });
+playerOverlay.addEventListener(
+  "touchend",
+  () => {
+    _swipeStart = null;
+    if (!_swipeHandled) return;
+    if (_swipeWasPlaying) playerVideo.play();
+  },
+  { passive: true },
+);
 
 // Click on video toggles play/pause (ยกเว้นหลัง swipe)
 playerVideo.addEventListener("click", () => {
-  if (_swipeHandled) { _swipeHandled = false; return; }
+  if (_swipeHandled) {
+    _swipeHandled = false;
+    return;
+  }
   togglePlayPause();
 });
 
@@ -2335,8 +2809,12 @@ function resetProgress() {
 function formatTime(secs) {
   if (!isFinite(secs)) return "0:00:00";
   const h = Math.floor(secs / 3600);
-  const m = Math.floor((secs % 3600) / 60).toString().padStart(2, "0");
-  const s = Math.floor(secs % 60).toString().padStart(2, "0");
+  const m = Math.floor((secs % 3600) / 60)
+    .toString()
+    .padStart(2, "0");
+  const s = Math.floor(secs % 60)
+    .toString()
+    .padStart(2, "0");
   return `${h}:${m}:${s}`;
 }
 
@@ -2349,14 +2827,18 @@ function splitEpisodeLabel(name, index) {
     .replace(/\s+/g, " ")
     .replace(/[‐‑‒–—−]/g, "-")
     .trim();
-  const enMatch = normalized.match(/^(?:ep|episode)\.?\s*(\d+)(?:\s*[-:]\s*(.+)|\s+(.+))?$/i);
+  const enMatch = normalized.match(
+    /^(?:ep|episode)\.?\s*(\d+)(?:\s*[-:]\s*(.+)|\s+(.+))?$/i,
+  );
   if (enMatch) {
     const ep = `Ep. ${enMatch[1]}`;
     const title = (enMatch[2] || enMatch[3] || "").trim();
     return { ep, title };
   }
 
-  const thMatch = normalized.match(/^(?:ตอนที่|ตอน)\s*(\d+)(?:\s*[-:]\s*(.+)|\s+(.+))?$/u);
+  const thMatch = normalized.match(
+    /^(?:ตอนที่|ตอน)\s*(\d+)(?:\s*[-:]\s*(.+)|\s+(.+))?$/u,
+  );
   if (thMatch) {
     const ep = `ตอน ${thMatch[1]}`;
     let title = (thMatch[2] || thMatch[3] || "").trim();
@@ -2390,15 +2872,20 @@ function scheduleNext() {
     return;
   }
 
-  const next = target.type === "local"
-    ? currentStations[target.index]
-    : crossSeasonQueue[target.queueIndex]?.station;
-  const nextLabelIndex = target.type === "local"
-    ? target.index + 1
-    : (crossSeasonQueue[target.queueIndex]?.localIndex ?? 0) + 1;
-  const nextSeasonTitle = target.type === "local"
-    ? (currentSeasonTitle || "Season")
-    : (crossSeasonQueue[target.queueIndex]?.seasonTitle || currentSeasonTitle || "Season");
+  const next =
+    target.type === "local"
+      ? currentStations[target.index]
+      : crossSeasonQueue[target.queueIndex]?.station;
+  const nextLabelIndex =
+    target.type === "local"
+      ? target.index + 1
+      : (crossSeasonQueue[target.queueIndex]?.localIndex ?? 0) + 1;
+  const nextSeasonTitle =
+    target.type === "local"
+      ? currentSeasonTitle || "Season"
+      : crossSeasonQueue[target.queueIndex]?.seasonTitle ||
+        currentSeasonTitle ||
+        "Season";
   if (!next) {
     closePlayer();
     return;
@@ -2407,11 +2894,19 @@ function scheduleNext() {
   upnextThumb.src = next.image || "";
   // AV: แสดงชื่อ + นักแสดง แทน season/episode format
   const nextActresses = next.meta?.actresses;
-  const nextActressSub = Array.isArray(nextActresses) ? nextActresses.join(", ") : (typeof nextActresses === "string" ? nextActresses : "");
+  const nextActressSub = Array.isArray(nextActresses)
+    ? nextActresses.join(", ")
+    : typeof nextActresses === "string"
+      ? nextActresses
+      : "";
   if (nextActressSub) {
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(next.name || "")}</span><span class="upnext-title-name">${esc(nextActressSub)}</span>`;
   } else {
-    const upnextLabel = formatSeasonEpisodeMeta(nextSeasonTitle, next.name, nextLabelIndex);
+    const upnextLabel = formatSeasonEpisodeMeta(
+      nextSeasonTitle,
+      next.name,
+      nextLabelIndex,
+    );
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
   upnextToast.classList.remove("hidden");
@@ -2434,17 +2929,22 @@ function scheduleNext() {
     if (secs <= 0) {
       clearInterval(upnextCountdown);
       upnextToast.classList.add("hidden");
-      if (target.type === "local") playEpisode(target.index, inheritedRefererCache);
+      if (target.type === "local")
+        playEpisode(target.index, inheritedRefererCache);
       else playEpisodeFromQueue(target.queueIndex);
     }
   }, 1000);
 
   upnextPlayBtn.onclick = () => {
     cancelUpnext();
-    if (target.type === "local") playEpisode(target.index, inheritedRefererCache);
+    if (target.type === "local")
+      playEpisode(target.index, inheritedRefererCache);
     else playEpisodeFromQueue(target.queueIndex);
   };
-  upnextCancelBtn.onclick = () => { upnextCancelled = true; cancelUpnext(); };
+  upnextCancelBtn.onclick = () => {
+    upnextCancelled = true;
+    cancelUpnext();
+  };
 }
 
 function cancelUpnext() {
@@ -2455,8 +2955,12 @@ function cancelUpnext() {
 function closePlayer() {
   cancelUpnext();
   // Close PiP if open
-  if (docPipWindow) { docPipWindow.close(); docPipWindow = null; }
-  if (document.pictureInPictureElement) document.exitPictureInPicture().catch(() => {});
+  if (docPipWindow) {
+    docPipWindow.close();
+    docPipWindow = null;
+  }
+  if (document.pictureInPictureElement)
+    document.exitPictureInPicture().catch(() => {});
   btnPip.classList.remove("active");
   destroyHls();
   hidePlayerNotice();
@@ -2482,22 +2986,29 @@ function closePlayer() {
 }
 
 function destroyHls() {
-  if (hls) { hls.destroy(); hls = null; }
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
 }
 
 playerBack.addEventListener("click", closePlayer);
 
 /* ===== Player loading spinner ===== */
-function showPlayerLoading() { playerLoading.classList.remove("hidden"); }
-function hidePlayerLoading() { playerLoading.classList.add("hidden"); }
+function showPlayerLoading() {
+  playerLoading.classList.remove("hidden");
+}
+function hidePlayerLoading() {
+  playerLoading.classList.add("hidden");
+}
 
-playerVideo.addEventListener("loadstart",  showPlayerLoading);
-playerVideo.addEventListener("waiting",    showPlayerLoading);
-playerVideo.addEventListener("seeking",    showPlayerLoading);
-playerVideo.addEventListener("canplay",    hidePlayerLoading);
-playerVideo.addEventListener("playing",    hidePlayerLoading);
-playerVideo.addEventListener("seeked",     hidePlayerLoading);
-playerVideo.addEventListener("error",      hidePlayerLoading);
+playerVideo.addEventListener("loadstart", showPlayerLoading);
+playerVideo.addEventListener("waiting", showPlayerLoading);
+playerVideo.addEventListener("seeking", showPlayerLoading);
+playerVideo.addEventListener("canplay", hidePlayerLoading);
+playerVideo.addEventListener("playing", hidePlayerLoading);
+playerVideo.addEventListener("seeked", hidePlayerLoading);
+playerVideo.addEventListener("error", hidePlayerLoading);
 
 /* ===== UI state helpers ===== */
 function showLoading() {

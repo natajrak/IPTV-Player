@@ -130,6 +130,30 @@
       white-space: nowrap;
     }
 
+    .status-filter {
+      display: inline-flex;
+      gap: 4px;
+      padding: 3px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+    }
+    .sf-btn {
+      background: transparent;
+      border: none;
+      color: var(--text3);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .sf-btn:hover { color: var(--text); }
+    .sf-btn.active { background: var(--bg4); color: var(--text); }
+    .sf-btn.active[data-status="completed"] { color: #6de06d; }
+    .sf-btn.active[data-status="ongoing"]   { color: #d09050; }
+
     /* ── Table ───────────────────────────────────────── */
     .table-scroll { flex: 1; overflow: auto; }
     table { width: 100%; border-collapse: collapse; }
@@ -297,6 +321,10 @@
     .badge-th  { background: #132d4a; color: #6ab0e0; }
     .badge-sub { background: #2e1e0a; color: #d09050; }
     .badge-ep  { color: var(--text3); font-size: 11px; }
+    .badge-ep.clickable { cursor: pointer; transition: color .15s; padding: 0 3px; border-radius: 4px; }
+    .badge-ep.clickable:hover { color: var(--text); background: #1a1a1a; }
+    .badge-ep.completed { color: #6de06d; }
+    .badge-ep.completed.clickable:hover { color: #8aef8a; }
     .badge-refetchable { cursor: pointer; transition: filter .15s; }
     .badge-refetchable:hover { filter: brightness(1.5); outline: 1px solid currentColor; }
 
@@ -607,6 +635,11 @@
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
       <input type="text" class="s-inp" data-tab="anime-series" placeholder="ค้นหาชื่อเรื่อง...">
     </div>
+    <div class="status-filter" data-tab="anime-series">
+      <button class="sf-btn active" data-status="">ทั้งหมด</button>
+      <button class="sf-btn" data-status="completed">จบแล้ว</button>
+      <button class="sf-btn" data-status="ongoing">ยังไม่จบ</button>
+    </div>
     <span class="pane-stats" id="stats-anime-series"></span>
   </div>
   <div class="table-scroll">
@@ -648,6 +681,11 @@
     <div class="search-wrap">
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
       <input type="text" class="s-inp" data-tab="series" placeholder="ค้นหาชื่อเรื่อง...">
+    </div>
+    <div class="status-filter" data-tab="series">
+      <button class="sf-btn active" data-status="">ทั้งหมด</button>
+      <button class="sf-btn" data-status="completed">จบแล้ว</button>
+      <button class="sf-btn" data-status="ongoing">ยังไม่จบ</button>
     </div>
     <span class="pane-stats" id="stats-series"></span>
   </div>
@@ -1107,32 +1145,53 @@ document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
   });
 });
 
-// ── Instant search ───────────────────────────────────────────────
+// ── Instant search + status filter ───────────────────────────────
+const statusFilters = {};
+
+function applyTabFilter(tabId) {
+  const inp = document.querySelector(`.s-inp[data-tab="${tabId}"]`);
+  const q = (inp?.value || '').toLowerCase().trim();
+  const sf = statusFilters[tabId] || '';
+  const wrap = document.getElementById('tbl-' + tabId);
+  if (!wrap) return;
+
+  const map = {};
+  wrap.querySelectorAll('tbody tr[data-group]').forEach(row => {
+    const g = row.dataset.group;
+    if (!map[g]) map[g] = { title: row.dataset.title || '', rows: [] };
+    map[g].rows.push(row);
+  });
+
+  let shown = 0, total = 0;
+  Object.values(map).forEach(({ title, rows }) => {
+    total++;
+    const titleMatch = !q || title.includes(q);
+    let groupHasVisible = false;
+    rows.forEach(r => {
+      const statusMatch = !sf || r.dataset.status === sf;
+      const visible = titleMatch && statusMatch;
+      r.classList.toggle('hidden', !visible);
+      if (visible) groupHasVisible = true;
+    });
+    if (groupHasVisible) shown++;
+  });
+
+  const stats = document.getElementById('stats-' + tabId);
+  if (stats) stats.textContent = (q || sf) ? `${shown} / ${total} รายการ` : `${total} รายการ`;
+}
+
 document.querySelectorAll('.s-inp').forEach(inp => {
-  inp.addEventListener('input', () => {
-    const tabId = inp.dataset.tab;
-    const q = inp.value.toLowerCase().trim();
-    const wrap = document.getElementById('tbl-' + tabId);
-    if (!wrap) return;
+  inp.addEventListener('input', () => applyTabFilter(inp.dataset.tab));
+});
 
-    // Collect rows grouped by data-group
-    const map = {};
-    wrap.querySelectorAll('tbody tr[data-group]').forEach(row => {
-      const g = row.dataset.group;
-      if (!map[g]) map[g] = { title: row.dataset.title || '', rows: [] };
-      map[g].rows.push(row);
-    });
-
-    let shown = 0, total = 0;
-    Object.values(map).forEach(({ title, rows }) => {
-      total++;
-      const match = !q || title.includes(q);
-      rows.forEach(r => r.classList.toggle('hidden', !match));
-      if (match) shown++;
-    });
-
-    const stats = document.getElementById('stats-' + tabId);
-    if (stats) stats.textContent = q ? `${shown} / ${total} รายการ` : `${total} รายการ`;
+document.querySelectorAll('.status-filter').forEach(group => {
+  const tabId = group.dataset.tab;
+  group.addEventListener('click', e => {
+    const btn = e.target.closest('.sf-btn');
+    if (!btn) return;
+    group.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b === btn));
+    statusFilters[tabId] = btn.dataset.status || '';
+    applyTabFilter(tabId);
   });
 });
 
@@ -1277,6 +1336,7 @@ async function loadTab(tabId) {
 
     if (cfg.kind === 'series') renderSeries(wrap, stats, items, cfg.tmdbKind, tabId);
     else                       renderMovies(wrap, stats, items, cfg.tmdbKind, tabId);
+    applyTabFilter(tabId);
 
   } catch (e) {
     wrap.innerHTML = `<div class="err"><span>⚠ โหลดข้อมูลล้มเหลว: ${esc(e.message)}</span></div>`;
@@ -1349,10 +1409,16 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       const trackBadges = tracks.map(t => {
         const ep = t.stations?.length || 0;
         const rf = t.referer ? { referer: t.referer, filename, season: sznNum, tabId } : null;
-        return `${badge(t.name, rf)}<span class="badge-ep">${ep}</span>`;
+        const completed = t.status === 'completed';
+        const cls = `badge-ep${completed ? ' completed' : ''}${IS_LOCAL ? ' clickable' : ''}`;
+        const epAttrs = IS_LOCAL
+          ? ` data-toggle-status data-file="${esc(filename)}" data-tab="${esc(tabId)}" data-season-name="${esc(sznName)}" data-track-name="${esc(t.name)}" title="${completed ? 'จบแล้ว — คลิกเพื่อเปลี่ยนเป็น ยังไม่จบ' : 'ยังไม่จบ — คลิกเพื่อเปลี่ยนเป็น จบแล้ว'}"`
+          : '';
+        return `${badge(t.name, rf)}<span class="${cls}"${epAttrs}>${ep}</span>`;
       }).join(' ');
 
-      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
+      const rowStatus = tracks.length && tracks.every(t => t.status === 'completed') ? 'completed' : 'ongoing';
+      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-status="${rowStatus}" class="${isFirst ? 'grp-top' : ''}">
         <td class="c-no">${isFirst ? gid : ''}</td>
         <td class="c-art">${artTag(poster, isFirst)}</td>
         <td class="c-title">${isFirst
@@ -2261,6 +2327,43 @@ document.addEventListener('click', e => {
   if (!b || !IS_LOCAL) return;
   e.stopPropagation();
   openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '');
+});
+
+// Episode-count click → toggle track status (ongoing ↔ completed)
+document.addEventListener('click', async e => {
+  const el = e.target.closest('[data-toggle-status]');
+  if (!el || !IS_LOCAL) return;
+  e.stopPropagation();
+
+  const { file, tab, seasonName, trackName } = el.dataset;
+  const cfg = TABS[tab];
+  if (!cfg) return;
+
+  const dir = cfg.index.replace(/index\.txt$/, '');
+  const filePath = `${dir}${file}.txt`;
+
+  el.style.opacity = '0.5';
+  try {
+    const data = await getJSON(resolveUrl(filePath));
+    const season = (data.groups || []).find(g => g.name === seasonName);
+    const track  = season?.groups?.find(g => g.name === trackName);
+    if (!track) throw new Error(`ไม่พบ track "${trackName}" ใน "${seasonName}"`);
+
+    track.status = track.status === 'completed' ? 'ongoing' : 'completed';
+
+    const resp = await fetch('/api/save-file', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filePath, data }),
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+
+    loaded.delete(tab);
+    loadTab(tab);
+  } catch (err) {
+    alert('เปลี่ยนสถานะไม่สำเร็จ: ' + err.message);
+    el.style.opacity = '';
+  }
 });
 
 // ── Delete Modal ─────────────────────────────────────────────────
