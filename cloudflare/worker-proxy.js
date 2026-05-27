@@ -14,6 +14,33 @@
 //   - m3u8 URL rewrite: absolute / protocol-relative (//) / relative path (/)
 //   - Binary passthrough สำหรับ TS segments
 //   - รองรับ Referer + Origin header spoofing
+//   - Retry on transient 403/429/5xx (เช่น CDN rate-limit ที่ตอบสุ่ม)
+//   - Edge cache สำหรับ 2xx responses (ลด hammer CDN)
+
+const MAX_RETRIES   = 3;          // รวม initial → ยิงสูงสุด 3 ครั้ง
+const RETRY_DELAYS  = [120, 350]; // ms ระหว่าง retry
+const RETRYABLE     = new Set([403, 408, 425, 429, 500, 502, 503, 504]);
+const CACHE_TTL     = 300;        // วินาที — cache 2xx ที่ edge
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function fetchWithRetry(targetUrl, headers) {
+  let last;
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    try {
+      const r = await fetch(targetUrl, { headers, redirect: "follow" });
+      if (!RETRYABLE.has(r.status)) return r;
+      last = r;
+    } catch (e) {
+      last = e;
+    }
+    if (attempt < MAX_RETRIES - 1) {
+      await sleep(RETRY_DELAYS[attempt] || 500);
+    }
+  }
+  if (last instanceof Response) return last;
+  throw last;
+}
 
 export default {
   async fetch(request) {
@@ -34,6 +61,12 @@ export default {
       });
     }
 
+    // Edge cache lookup
+    const cache    = caches.default;
+    const cacheKey = new Request(request.url, { method: "GET" });
+    const cached   = await cache.match(cacheKey);
+    if (cached) return cached;
+
     const headers = {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
       "Referer": referer,
@@ -43,7 +76,7 @@ export default {
       try { headers["Origin"] = new URL(referer).origin; } catch (_) {}
     }
 
-    const resp = await fetch(targetUrl, { headers, redirect: "follow" });
+    const resp = await fetchWithRetry(targetUrl, headers);
     const contentType = resp.headers.get("content-type") || "";
 
     const buffer = await resp.arrayBuffer();
@@ -75,13 +108,15 @@ export default {
         return `${workerOrigin}/?url=${enc}&referer=${ref}`;
       }).join("\n");
 
-      return new Response(body, {
+      const out = new Response(body, {
         headers: {
           "Content-Type": "application/vnd.apple.mpegurl",
           "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "no-cache",
+          "Cache-Control": `public, max-age=${CACHE_TTL}`,
         },
       });
+      if (resp.ok) await cache.put(cacheKey, out.clone());
+      return out;
     }
 
     // Detect TS/media segments disguised with fake extensions (.jpg, .html, .png, etc.)
@@ -100,14 +135,16 @@ export default {
       }
     }
 
-    return new Response(buffer, {
+    const out = new Response(buffer, {
       status: resp.status,
       headers: {
         "Content-Type": resolvedType,
         "Access-Control-Allow-Origin": "*",
-        "Cache-Control": "no-cache",
+        "Cache-Control": resp.ok ? `public, max-age=${CACHE_TTL * 12}` : "no-cache",
       },
     });
+    if (resp.ok) await cache.put(cacheKey, out.clone());
+    return out;
   },
 };
 
