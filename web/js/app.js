@@ -46,7 +46,8 @@ let searchIndexRootNode = null;
 const searchIndexVisitedUrls = new Set();
 const searchIndexEntryKeys = new Set();
 let currentPage = 0;
-let currentSortOrder = "az";
+let currentSortOrder = "za";   // default: descending (newest first for series/movies)
+let currentSortMode = "updated"; // 'alpha' | 'release' | 'updated' — series/movie tabs only
 let privateUnlocked = false; // unlocks all private categories at once
 let currentGroups = [];
 let currentGroupTitle = "";
@@ -983,7 +984,7 @@ function renderNode(node, title, options = {}) {
         ? { ...node, groups: visibleGroups }
         : node;
     currentPage = typeof page === "number" ? page : 0;
-    currentSortOrder = sort === "za" ? "za" : "az";
+    currentSortOrder = sort === "az" ? "az" : "za";
     renderGroups(renderableNode.groups, title, renderableNode);
   } else if (node.stations?.length && node.browsable) {
     // Browsable station list (e.g. AV) — explicitly flagged with "browsable": true
@@ -1012,20 +1013,43 @@ function renderGroups(groups, sectionTitle, parentNode) {
     (g) => extractNum(g?.name || g?.info) !== null,
   );
   const hasBadges = groups.some((g) => g.badge);
+  // Detect navigation/category pages (no items have date data) → use fixed name asc, hide sort UI
+  const hasAnyDateData = groups.some((g) => g && (g.release_date || g.updated_at));
+  const effectiveSortMode  = hasAnyDateData ? currentSortMode  : "alpha";
+  const effectiveSortOrder = hasAnyDateData ? currentSortOrder : "az";
+  const dateKey =
+    effectiveSortMode === "release"
+      ? "release_date"
+      : effectiveSortMode === "updated"
+        ? "updated_at"
+        : null;
+  const dateAvailable = dateKey && groups.some((g) => g && g[dateKey]);
   const sortedGroups = [...groups].sort((a, b) => {
+    // Date modes — only when this list actually has date data (root show list)
+    if (dateAvailable) {
+      const da = (a && a[dateKey]) || "";
+      const db = (b && b[dateKey]) || "";
+      if (da || db) {
+        if (!da) return 1; // items without date → end
+        if (!db) return -1;
+        const diff = da.localeCompare(db);
+        if (diff !== 0) return effectiveSortOrder === "za" ? -diff : diff;
+      }
+      // tie → fall through to name sort
+    }
     // ถ้ามี badge (เช่น "ภาค 1", "ภาค 2") → sort ตาม badge number ก่อน
     if (hasBadges) {
       const ba = extractNum(a.badge) ?? Infinity;
       const bb = extractNum(b.badge) ?? Infinity;
-      if (ba !== bb) return currentSortOrder === "za" ? bb - ba : ba - bb;
+      if (ba !== bb) return effectiveSortOrder === "za" ? bb - ba : ba - bb;
     }
     const nameA = String(a?.name || a?.info || "").toLowerCase();
     const nameB = String(b?.name || b?.info || "").toLowerCase();
     if (allNumeric) {
       const diff = extractNum(nameA) - extractNum(nameB);
-      return currentSortOrder === "za" ? -diff : diff;
+      return effectiveSortOrder === "za" ? -diff : diff;
     }
-    return currentSortOrder === "za"
+    return effectiveSortOrder === "za"
       ? nameB.localeCompare(nameA)
       : nameA.localeCompare(nameB);
   });
@@ -1047,8 +1071,10 @@ function renderGroups(groups, sectionTitle, parentNode) {
     normalizedSectionTitle === "series";
 
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
-    withSort: true,
-    sort: currentSortOrder,
+    withSort: hasAnyDateData,
+    sort: effectiveSortOrder,
+    sortMode: effectiveSortMode,
+    withSortMode: hasAnyDateData,
     count: showCountInTitle ? total : null,
   })}
     <div class="card-grid portrait"></div>
@@ -1151,6 +1177,14 @@ function renderGroups(groups, sectionTitle, parentNode) {
     });
   }
 
+  gridView.querySelector(".sort-mode-toggle")?.addEventListener("click", () => {
+    const modes = ["alpha", "release", "updated"];
+    const i = modes.indexOf(currentSortMode);
+    currentSortMode = modes[(i + 1) % modes.length];
+    currentPage = 0;
+    renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
+  });
+
   gridView
     .querySelector(".sort-order-toggle")
     ?.addEventListener("click", () => {
@@ -1179,6 +1213,7 @@ function renderSectionHeader(title, options = {}) {
     count = null,
     withFilter = false,
     sortMode = "alpha",
+    withSortMode = false,
   } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
@@ -1187,7 +1222,7 @@ function renderSectionHeader(title, options = {}) {
       ? `${splitTitle.main} (${count})`
       : splitTitle.main;
   let sortIcon, sortLabel;
-  if (sortMode === "date") {
+  if (sortMode === "release" || sortMode === "updated" || sortMode === "date") {
     sortIcon =
       sort === "za"
         ? `<i class="fi fi-rr-calendar-arrow-up" aria-hidden="true"></i>`
@@ -1200,6 +1235,16 @@ function renderSectionHeader(title, options = {}) {
         : `<i class="fi fi-sr-sort-alpha-down" aria-hidden="true"></i>`;
     sortLabel = sort === "za" ? "เรียง Z ไป A" : "เรียง A ไป Z";
   }
+
+  const sortModeMeta = {
+    alpha: { icon: "fi-rr-text", label: "ชื่อ" },
+    release: { icon: "fi-rr-calendar", label: "วันออกอากาศ" },
+    updated: { icon: "fi-rr-time-quarter-past", label: "อัปเดตล่าสุด" },
+  };
+  const modeInfo = sortModeMeta[sortMode] || sortModeMeta.alpha;
+  const modeBtnHtml = withSortMode
+    ? `<button class="sort-mode-toggle" aria-label="โหมดเรียง: ${modeInfo.label}" title="โหมดเรียง: ${modeInfo.label}"><i class="fi ${modeInfo.icon}" aria-hidden="true"></i></button>`
+    : "";
 
   const filterHtml = withFilter
     ? `
@@ -1221,7 +1266,7 @@ function renderSectionHeader(title, options = {}) {
       <span class="section-title-main">${esc(titleMain)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
-    ${withSort || withFilter ? `<div class="section-header-right">${filterHtml}${withSort ? `<button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button>` : ""}</div>` : ""}
+    ${withSort || withFilter ? `<div class="section-header-right">${filterHtml}${modeBtnHtml}${withSort ? `<button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button>` : ""}</div>` : ""}
   </div>`;
 }
 
@@ -1293,13 +1338,16 @@ const PREVIEW_HOVER_DELAY = 400;
 
 function derivePreviewUrl(coverUrl) {
   if (!coverUrl) return null;
-  const m = String(coverUrl).match(/^(https?:\/\/[^/]+)\/img2\/([a-f0-9]+)\/([^/]+)\/cover\.[a-z]+$/i);
+  const m = String(coverUrl).match(
+    /^(https?:\/\/[^/]+)\/img2\/([a-f0-9]+)\/([^/]+)\/cover\.[a-z]+$/i,
+  );
   if (!m) return null;
   return `${m[1]}/preview/${m[2]}/${m[3]}/preview.mp4`;
 }
 
 async function loadPreviewBlobUrl(previewUrl) {
-  if (PREVIEW_BLOB_CACHE.has(previewUrl)) return PREVIEW_BLOB_CACHE.get(previewUrl);
+  if (PREVIEW_BLOB_CACHE.has(previewUrl))
+    return PREVIEW_BLOB_CACHE.get(previewUrl);
   const res = await fetch(previewUrl);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = await res.arrayBuffer();
@@ -1318,10 +1366,15 @@ function attachHoverPreview(card, coverUrl) {
   let token = 0;
 
   const teardown = () => {
-    if (timer) { clearTimeout(timer); timer = null; }
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
     token++;
     if (video) {
-      try { video.pause(); } catch {}
+      try {
+        video.pause();
+      } catch {}
       video.remove();
       video = null;
     }
@@ -1335,11 +1388,14 @@ function attachHoverPreview(card, coverUrl) {
         const blobUrl = await loadPreviewBlobUrl(previewUrl);
         if (myToken !== token) return;
 
-        const thumb = card.querySelector("img.card-thumb, .card-thumb-placeholder");
+        const thumb = card.querySelector(
+          "img.card-thumb, .card-thumb-placeholder",
+        );
         if (!thumb) return;
         const wrap = thumb.parentElement;
         if (!wrap) return;
-        if (getComputedStyle(wrap).position === "static") wrap.style.position = "relative";
+        if (getComputedStyle(wrap).position === "static")
+          wrap.style.position = "relative";
 
         video = document.createElement("video");
         video.className = "card-preview-video";

@@ -4,11 +4,11 @@
     "groups": [
         {
             "name": "Season 1",
-            "image": "https://image.tmdb.org/t/p/original/xMybvQFv4XOwqRTgkmvIrclPhD4.jpg",
+            "image": "https://image.tmdb.org/t/p/original/hjHY1jwScKAcUix34sI1RKqUdP2.jpg",
             "groups": [
                 {
                     "name": "พากย์ไทย",
-                    "image": "https://image.tmdb.org/t/p/original/xMybvQFv4XOwqRTgkmvIrclPhD4.jpg",
+                    "image": "https://image.tmdb.org/t/p/original/hjHY1jwScKAcUix34sI1RKqUdP2.jpg",
                     "stations": [
                         {
                             "name": "ตอน 1 - The World of Swords",
@@ -163,7 +163,12 @@
                     ],
                     "status": "completed"
                 }
-            ]
+            ],
+            "season_name": {
+                "en": "Sword Art Online"
+            },
+            "release_date": "2012-07-08",
+            "updated_at": "2012-07-08T00:00:00.000Z"
         },
         {
             "name": "Season 2",
@@ -325,7 +330,12 @@
                     ],
                     "status": "completed"
                 }
-            ]
+            ],
+            "season_name": {
+                "en": "Sword Art Online II"
+            },
+            "release_date": "2014-07-05",
+            "updated_at": "2014-07-05T00:00:00.000Z"
         },
         {
             "name": "Season 3",
@@ -482,7 +492,15 @@
                     ],
                     "status": "completed"
                 }
-            ]
+            ],
+            "season_name": {
+                "en": "Sword Art Online Alicization",
+                "th": "อลิซิเซชั่น"
+            },
+            "release_date": "2018-10-07",
+            "updated_at": "2018-10-07T00:00:00.000Z"
         }
-    ]
+    ],
+    "release_date": "2012-07-08",
+    "updated_at": "2018-10-07T00:00:00.000Z"
 }

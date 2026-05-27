@@ -189,6 +189,13 @@
     td.c-trk  { white-space: nowrap; }
     td.c-tmdb a { color: var(--blue); text-decoration: none; font-size: 12px; font-variant-numeric: tabular-nums; }
     td.c-tmdb a:hover { text-decoration: underline; }
+    th.c-release, td.c-release {
+      color: var(--text3); font-size: 12px; white-space: nowrap;
+      font-variant-numeric: tabular-nums; width: 92px;
+    }
+    th.c-updated, td.c-updated {
+      color: var(--text3); font-size: 12px; white-space: nowrap; width: 110px;
+    }
     td.c-slug {
       color: var(--text3);
       font-size: 11px;
@@ -874,6 +881,13 @@
         <label>TH</label>
         <input type="text" id="et-th" style="flex:1" placeholder="ชื่อไทย">
       </div>
+      <div class="fm-row" id="et-lock-row" style="align-items:center">
+        <label>Lock</label>
+        <label style="flex:1;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0">
+          <input type="checkbox" id="et-lock-cb">
+          <span>ล็อกชื่อ — Update All จะไม่เปลี่ยนชื่อนี้</span>
+        </label>
+      </div>
     </div>
     <div class="modal-ft">
       <span id="et-status" style="flex:1;font-size:12px;color:var(--text3)"></span>
@@ -1218,6 +1232,35 @@ function cp(text) {
   return `<button class="cp-btn" data-copy="${esc(text)}" title="Copy"><i class="fi fi-rr-copy-alt"></i></button>`;
 }
 
+function fmtDate(iso) {
+  if (!iso) return '';
+  return String(iso).slice(0, 10);
+}
+
+function fmtRelative(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d)) return String(iso).slice(0, 10);
+  const diff = Date.now() - d.getTime();
+  const sec = Math.floor(diff / 1000);
+  if (sec < 0) return d.toISOString().slice(0, 10);
+  if (sec < 60) return 'เมื่อสักครู่';
+  const min = Math.floor(sec / 60);
+  if (min < 60) return `${min} นาทีก่อน`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr} ชม.ก่อน`;
+  const day = Math.floor(hr / 24);
+  if (day < 30) return `${day} วันก่อน`;
+  if (day < 365) return `${Math.floor(day / 30)} เดือนก่อน`;
+  return `${Math.floor(day / 365)} ปีก่อน`;
+}
+
+function dateCell(iso, mode = 'date') {
+  if (!iso) return '<span style="color:var(--text3)">—</span>';
+  const display = mode === 'relative' ? fmtRelative(iso) : fmtDate(iso);
+  return `<span title="${esc(iso)}">${esc(display)}</span>`;
+}
+
 /** Render title cell content (2-line if Thai part exists) */
 function titleHtml(title) {
   const { en, th } = splitTitle(title);
@@ -1377,6 +1420,8 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       <th>Season</th>
       <th>Track</th>
       <th>TMDB ID</th>
+      <th class="c-release">ออกอากาศ</th>
+      <th class="c-updated">อัปเดต</th>
       <th>Playlist Name</th>
       ${IS_LOCAL ? '<th class="c-act"></th>' : ''}
     </tr></thead><tbody>`;
@@ -1399,6 +1444,8 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-szn" style="color:var(--text3)">—${updBtn(slug, 0, tabId, title)}</td>
         <td class="c-trk" style="color:var(--text3)">—</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
+        <td class="c-release">${dateCell(pl.release_date)}</td>
+        <td class="c-updated">${dateCell(pl.updated_at, 'relative')}</td>
         <td class="c-slug">${slugCell(slug)}</td>
         ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: 0, title, tabId })}</td>` : ''}
       </tr>`;
@@ -1431,6 +1478,8 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb"><span class="row-head">${tmdbCell(tmdbId, tmdbKind)}</span></td>
+        <td class="c-release">${dateCell(season.release_date)}</td>
+        <td class="c-updated"><span class="row-head">${dateCell(pl.updated_at, 'relative')}</span></td>
         <td class="c-slug"><span class="row-head">${slugCell(slug)}</span></td>
         ${IS_LOCAL ? `<td class="c-act">${delBtn({ file: filename, season: sznNum, sznName, trackNames: tracks.map(t => t.name), title, tabId })}</td>` : ''}
       </tr>`;
@@ -1452,6 +1501,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
       <th>ภาค</th>
       <th>Track</th>
       <th>TMDB ID</th>
+      <th class="c-release">ออกอากาศ</th>
+      <th class="c-updated">อัปเดต</th>
       <th>Playlist Name</th>
       ${IS_LOCAL ? '<th class="c-act" style="width:130px"></th>' : ''}
     </tr></thead><tbody>`;
@@ -1473,7 +1524,12 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
       IS_LOCAL ? `<td class="c-act">${isHeader ? editTitleBtn(slug, tabId, title) : ''}${delPayload ? delBtn(delPayload, 'movie') : ''}</td>` : '';
 
     if (isMainFile) {
-      // Header row (title / art / no / slug only — no part data)
+      // Title row: release_date blank; updated_at = latest across main + all parts
+      let latestUpdated = pl.updated_at || '';
+      (pl.groups || []).forEach(gr => {
+        const u = gr && gr._partPl && gr._partPl.updated_at;
+        if (u && (!latestUpdated || u > latestUpdated)) latestUpdated = u;
+      });
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
         <td class="c-no">${gid}</td>
         <td class="c-art">${artTag(poster, true)}</td>
@@ -1481,6 +1537,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-szn"></td>
         <td class="c-trk"></td>
         <td class="c-tmdb"></td>
+        <td class="c-release"></td>
+        <td class="c-updated">${dateCell(latestUpdated, 'relative')}</td>
         <td class="c-slug">${slugCell(slug)}</td>
         ${actCell(true, { file: mainFile, season: 0, title, tabId })}
       </tr>`;
@@ -1492,7 +1550,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const partFile    = partUrl.split('/').pop().replace(/\.txt$/i, '');
         const partTmdbId  = partFile.match(/^(\d+)-/)?.[1] || '';
         const partSlug    = partFile.replace(/^\d+-/, '');
-        const partStations = group._partPl?.stations || [];
+        const partPl      = group._partPl || {};
+        const partStations = partPl.stations || [];
         const trackBadges = partStations.map(s => {
           const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId, mainSlug: slug } : null;
           return badge(s.name, rf);
@@ -1505,6 +1564,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
           <td class="c-szn">${esc(badgeName)}${updBtn(partSlug, gi + 1, tabId, title, partTmdbId)}</td>
           <td class="c-trk">${trackBadges}</td>
           <td class="c-tmdb">${partTmdbId ? tmdbCell(partTmdbId, tmdbKind) : ''}</td>
+          <td class="c-release">${dateCell(partPl.release_date)}</td>
+          <td class="c-updated">${dateCell(partPl.updated_at, 'relative')}</td>
           <td class="c-slug"></td>
           ${actCell(false, { file: mainFile, partFile, season: gi + 1, sznName: badgeName, trackNames: partStations.map(s => s.name), title, tabId })}
         </tr>`;
@@ -1528,6 +1589,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
           <td class="c-szn">${esc(partName)}${updBtn(slug, gi + 1, tabId, title)}</td>
           <td class="c-trk">${trackBadges}</td>
           <td class="c-tmdb">${isFirst ? tmdbCell(tmdbId, tmdbKind) : ''}</td>
+          <td class="c-release">${dateCell(group.release_date || (isFirst ? pl.release_date : ''))}</td>
+          <td class="c-updated">${isFirst ? dateCell(pl.updated_at, 'relative') : ''}</td>
           <td class="c-slug">${isFirst ? slugCell(slug) : ''}</td>
           ${actCell(isFirst, { file: mainFile, season: gi + 1, sznName: partName, trackNames: (group.stations || []).map(s => s.name), title, tabId })}
         </tr>`;
@@ -1547,6 +1610,8 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-szn" style="color:var(--text3)">—${updBtn(slug, 0, tabId, title)}</td>
         <td class="c-trk">${trackBadges}</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
+        <td class="c-release">${dateCell(pl.release_date)}</td>
+        <td class="c-updated">${dateCell(pl.updated_at, 'relative')}</td>
         <td class="c-slug">${slugCell(slug)}</td>
         ${actCell(true, { file: mainFile, season: 0, title, tabId })}
       </tr>`;
@@ -1752,6 +1817,7 @@ const ADD_SCRIPTS = {
     { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
     { id: 'indy-anime', label: 'indy-anime', file: 'fetch-indy-anime.js' },
     { id: 'kurokamii',  label: 'kurokamii',  file: 'fetch-kurokamii.js'  },
+    { id: 'animeruka',  label: 'animeruka',  file: 'fetch-animeruka.js'  },
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
@@ -1850,19 +1916,31 @@ document.addEventListener('click', e => {
   openEditTitleModal(btn.dataset.slug, btn.dataset.tab, btn.dataset.title);
 });
 
-function openEditTitleModal(slug, tabId, title) {
+async function openEditTitleModal(slug, tabId, title) {
   etCtx = { slug, tabId, title };
   const { en, th } = splitTitle(title);
   document.getElementById('et-en').value = en;
   document.getElementById('et-th').value = th;
   document.getElementById('et-status').textContent = '';
+  const lockCb = document.getElementById('et-lock-cb');
+  lockCb.checked = false;
+  lockCb.disabled = true;
   document.getElementById('edit-title-modal').classList.remove('hidden');
   document.getElementById('et-en').focus();
+
+  // Fetch current playlist to read lock state
+  try {
+    const dir = TABS[tabId].index.replace(/\/index\.txt$/, '');
+    const pl = await getJSON('/' + dir + '/' + slug + '.txt');
+    lockCb.checked = !!pl._name_locked;
+  } catch { /* leave unchecked on error */ }
+  lockCb.disabled = false;
 }
 
 document.getElementById('et-close').addEventListener('click', () => {
   document.getElementById('edit-title-modal').classList.add('hidden');
 });
+
 
 document.getElementById('edit-title-modal').addEventListener('click', e => {
   if (e.target === e.currentTarget)
@@ -1886,9 +1964,14 @@ document.getElementById('et-save-btn').addEventListener('click', async () => {
   document.getElementById('et-save-btn').disabled = true;
 
   try {
-    // 1. Update playlist file
+    // 1. Update playlist file (apply lock state from checkbox)
     const pl = await getJSON('/' + filePath);
     pl.name = newTitle;
+    if (document.getElementById('et-lock-cb').checked) {
+      pl._name_locked = true;
+    } else {
+      delete pl._name_locked;
+    }
     await fetch('/api/save-file', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -2203,8 +2286,17 @@ async function runBatchUpdate() {
     bodyEl.appendChild(cls ? Object.assign(document.createElement('span'), { className: cls, textContent: text }) : document.createTextNode(text));
     bodyEl.scrollTop = bodyEl.scrollHeight;
   };
+  // Use index.txt entries only (canonical mains) — avoid processing part files,
+  // which would trigger TMDB search with bad query ("ภาค 1") and corrupt main groups via sync
   let files = [];
-  try { const r = await fetch(`/api/playlist-files?tab=${batchTab}`); files = r.ok ? await r.json() : []; } catch {}
+  try {
+    const idx = await getJSON(resolveUrl(TABS[batchTab].index));
+    files = (idx.groups || []).map(g => {
+      const fname = (g.url || '').split('/').pop().replace(/\.txt$/i, '');
+      const m = fname.match(/^(\d+)-(.+)$/);
+      return { full: fname, slug: m ? m[2] : fname, tmdbId: m ? m[1] : '', name: g.name || '' };
+    }).filter(f => f.slug);
+  } catch {}
   if (!files.length) { append('ไม่พบไฟล์\n', 'log-fail'); runBtn.disabled = false; runBtn.innerHTML = '<i class="fi fi-sr-rotate-right"></i> Run All'; return; }
 
   const mode   = document.querySelector('input[name="bm-mode"]:checked')?.value || 'all';
@@ -2218,6 +2310,7 @@ async function runBatchUpdate() {
     if (season) args.push(`--season=${season}`);
     if (track)  args.push(`--track=${track}`);
     args.push(`--type=${batchTab}`);
+    args.push(`--no-touch`); // batch refresh: don't bump updated_at
     args.push(`--output=${f.slug}.txt`);
     const code = await runScript(UPDATE_SCRIPT, args, bodyEl);
     if (code === 0) ok++; else fail++;
@@ -2243,6 +2336,7 @@ function scriptFromReferer(url) {
     const host = new URL(url).hostname.replace(/^www\./, '');
     if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
+    if (host.includes('animeruka'))                         return 'fetch-animeruka.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('v8hdd') || host.includes('v8-hdd'))   return 'fetch-v8hdd.js';
@@ -2354,6 +2448,7 @@ document.addEventListener('click', async e => {
     if (!track) throw new Error(`ไม่พบ track "${trackName}" ใน "${seasonName}"`);
 
     track.status = track.status === 'completed' ? 'ongoing' : 'completed';
+    data.updated_at = new Date().toISOString();
 
     const resp = await fetch('/api/save-file', {
       method: 'POST',
@@ -2361,6 +2456,21 @@ document.addEventListener('click', async e => {
       body: JSON.stringify({ filePath, data }),
     });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+
+    // Rollup updated_at to index.txt entry (so player can sort by latest update)
+    try {
+      const indexData = await getJSON(resolveUrl(cfg.index));
+      const entry = (indexData.groups || []).find(g => g.url && g.url.endsWith(`/${file}.txt`));
+      if (entry) {
+        entry.updated_at = data.updated_at;
+        if (data.release_date) entry.release_date = data.release_date;
+        await fetch('/api/save-file', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filePath: cfg.index, data: indexData }),
+        });
+      }
+    } catch { /* index rollup is best-effort */ }
 
     loaded.delete(tab);
     loadTab(tab);

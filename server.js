@@ -29,6 +29,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-fairyanime.js',
   'fetch-indy-anime.js',
   'fetch-kurokamii.js',
+  'fetch-animeruka.js',
   'fetch-7hd.js',
   'fetch-nunghd4k.js',
   'fetch-123hds.js',

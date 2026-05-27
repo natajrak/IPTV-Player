@@ -77,6 +77,7 @@ const seasonName = seasonNum != null ? (seasonNum === 0 ? "Specials" : `Season $
 
 const updateMetaArg = args.find((a) => a === "--update-meta" || a.startsWith("--update-meta="));
 const updateMeta = !!updateMetaArg;
+const noTouch = args.includes("--no-touch"); // skip stamping updated_at (used by batch updates)
 const updateMetaMode = updateMetaArg?.includes("=") ? updateMetaArg.split("=")[1] : "all";
 
 const tmdbIdArg = args.find((a) => a.startsWith("--tmdb-id="));
@@ -144,6 +145,61 @@ async function fetchHtml(url) {
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
+}
+
+function asMidnightUtc(dateStr) {
+  return dateStr ? String(dateStr).slice(0, 10) + 'T00:00:00.000Z' : '';
+}
+
+/**
+ * For a part file with TMDB prefix (e.g. "671-harry-potter.txt"), find the
+ * main file (without prefix) whose groups[] references this part's URL.
+ * Returns the main filename, or null if not a part of any main file.
+ */
+function findMainFileFor(partFilename) {
+  if (!/^\d+-/.test(partFilename)) return null;
+  const partRawUrl = `${GITHUB_RAW_BASE}${partFilename}`;
+  let files;
+  try { files = fs.readdirSync(PLAYLIST_DIR); } catch { return null; }
+  for (const fname of files) {
+    if (fname === 'index.txt' || !fname.endsWith('.txt')) continue;
+    if (/^\d+-/.test(fname)) continue;
+    try {
+      const data = JSON.parse(fs.readFileSync(path.resolve(PLAYLIST_DIR, fname), 'utf-8'));
+      if (Array.isArray(data.groups) && data.groups.some(g => g && g.url === partRawUrl)) {
+        return fname;
+      }
+    } catch { /* skip unparseable */ }
+  }
+  return null;
+}
+
+function stampPlaylist(playlist, tmdbResult, isMovie) {
+  // For series: prefer earliest season's release_date (rollup from seasons)
+  if (!isMovie && Array.isArray(playlist.groups) && playlist.groups.length > 0) {
+    const seasonDates = playlist.groups.map(g => g && g.release_date).filter(Boolean);
+    if (seasonDates.length > 0) {
+      playlist.release_date = seasonDates.slice().sort()[0];
+    } else if (tmdbResult && tmdbResult.first_air_date) {
+      playlist.release_date = tmdbResult.first_air_date;
+    }
+  } else if (tmdbResult) {
+    const rd = isMovie ? tmdbResult.release_date : tmdbResult.first_air_date;
+    if (rd) playlist.release_date = rd;
+  }
+  if (noTouch) {
+    // Batch mode: derive updated_at from children or release_date
+    if (!isMovie && Array.isArray(playlist.groups)) {
+      const upd = playlist.groups.map(g => g && g.updated_at).filter(Boolean).slice().sort();
+      if (upd.length > 0) playlist.updated_at = upd[upd.length - 1];
+      else if (playlist.release_date) playlist.updated_at = asMidnightUtc(playlist.release_date);
+    } else if (playlist.release_date) {
+      playlist.updated_at = asMidnightUtc(playlist.release_date);
+    }
+  } else {
+    playlist.updated_at = new Date().toISOString();
+  }
+  return playlist;
 }
 
 function slugify(name) {
@@ -324,12 +380,13 @@ function formatSeriesTitle(enName, thName) {
 async function getTmdbSeason(tvId, apiKey, season = 1, language = "en-US") {
   const url = `https://api.themoviedb.org/3/tv/${tvId}/season/${season}?language=${language}&api_key=${apiKey}`;
   const res = await fetch(url);
-  if (!res.ok) return { episodes: [], poster: null, name: "" };
+  if (!res.ok) return { episodes: [], poster: null, name: "", air_date: "" };
   const data = await res.json();
   return {
     episodes: data.episodes || [],
     poster: data.poster_path ? `https://image.tmdb.org/t/p/original${data.poster_path}` : null,
     name: data.name || "",
+    air_date: data.air_date || "",
   };
 }
 
@@ -368,6 +425,7 @@ async function getTmdbSeasonBilingual(tvId, apiKey, season = 1) {
     thEpisodes: thEps,
     poster: enData.poster,
     seasonName,
+    air_date: enData.air_date || "",
   };
 }
 
@@ -557,7 +615,7 @@ function upsertMainFile(mainPath, franchiseName, franchisePoster, partTitle, par
 }
 
 // ───── Step 5: Update index.txt ─────
-function updateIndex(seriesTitle, posterUrl, filename, { upsert = false } = {}) {
+function updateIndex(seriesTitle, posterUrl, filename, { upsert = false, releaseDate = "", updatedAt = "" } = {}) {
   if (!fs.existsSync(INDEX_PATH)) {
     console.warn("⚠️  ไม่พบ index.txt ข้าม...");
     return;
@@ -575,23 +633,23 @@ function updateIndex(seriesTitle, posterUrl, filename, { upsert = false } = {}) 
   const existing = index.groups.find((g) => g.url === fileUrl);
 
   if (existing) {
-    if (!upsert) {
+    if (!upsert && !updatedAt && !releaseDate) {
       console.log(`ℹ️  มีอยู่ใน index.txt แล้ว (${existing.name}) ข้าม...`);
-      return;
-    }
-    const changed = existing.name !== seriesTitle || existing.image !== posterUrl;
-    if (!changed) {
-      console.log(`ℹ️  index.txt ไม่มีการเปลี่ยนแปลง ข้าม...`);
       return;
     }
     existing.name = seriesTitle;
     existing.image = posterUrl;
+    if (releaseDate) existing.release_date = releaseDate;
+    if (updatedAt) existing.updated_at = updatedAt;
   } else {
     const dupByName = index.groups.find((g) => g.name === seriesTitle);
     if (dupByName) {
       console.warn(`⚠️  ชื่อ "${seriesTitle}" ซ้ำกับรายการที่มีอยู่ (${dupByName.url})`);
     }
-    index.groups.push({ url: fileUrl, name: seriesTitle, image: posterUrl });
+    const entry = { url: fileUrl, name: seriesTitle, image: posterUrl };
+    if (releaseDate) entry.release_date = releaseDate;
+    if (updatedAt) entry.updated_at = updatedAt;
+    index.groups.push(entry);
   }
 
   index.groups.sort((a, b) =>
@@ -630,7 +688,12 @@ async function runUpdateMeta() {
 
   const playlist = JSON.parse(fs.readFileSync(outputPath, "utf-8"));
   const rawTitle = playlist.name || "";
-  const isMovieStructure = Array.isArray(playlist.stations);
+  const isLegacyMovie   = Array.isArray(playlist.stations);
+  const isMovieMainFile = !isLegacyMovie && Array.isArray(playlist.groups)
+                       && playlist.groups.length > 0 && playlist.groups[0]?.url
+                       && !playlist.groups[0]?.stations;
+  // Route to movie branch when --type=movie/anime-movie, or when file structure is movie
+  const isMovieStructure = isMovie || isLegacyMovie || isMovieMainFile;
 
   let tmdbResult;
   if (isMovieStructure) {
@@ -649,30 +712,98 @@ async function runUpdateMeta() {
     const tmdbThName = await getTmdbMovieNameTh(tmdbResult.id, tmdbKey);
     const tmdbName   = formatSeriesTitle(tmdbEnName, tmdbThName);
     console.log(`✅ พบ: "${tmdbName}" (ID: ${tmdbResult.id})`);
-    if (doPoster) {
-      // Part file: update image only, keep name as "ภาค N"
-      playlist.image = tmdbPoster;
-      (playlist.stations || []).forEach(s => { s.image = tmdbPoster; });
+
+    let cascadePartUpdates = null; // collect part updated_at for main rollup (batch mode)
+    if (isMovieMainFile) {
+      // Modern main file: update name + image only (parts have their own TMDB IDs)
+      if (doPoster) {
+        if (!playlist._name_locked) playlist.name = tmdbName;
+        playlist.image = tmdbPoster;
+      }
+      // Cascade: for each part, fetch its TMDB, stamp dates on part file, and SELF-HEAL main's group entry
+      cascadePartUpdates = [];
+      for (const group of (playlist.groups || [])) {
+        if (!group.url) continue;
+        const partFile = group.url.split('/').pop();
+        const m = partFile.match(/^(\d+)-/);
+        if (!m) continue;
+        const partTmdbId = m[1];
+        const partPath = path.resolve(PLAYLIST_DIR, partFile);
+        if (!fs.existsSync(partPath)) continue;
+        try {
+          const partData  = JSON.parse(fs.readFileSync(partPath, 'utf-8'));
+          const partTmdb  = await getTmdbMovieDetail(partTmdbId, tmdbKey, 'en-US');
+          if (!partTmdb) { console.warn(`  ⚠️  TMDB ${partTmdbId} ไม่พบ — ข้าม ${partFile}`); continue; }
+          // Self-heal: update main's group.name + group.image from part's TMDB (correct source of truth)
+          const partTmdbEn = partTmdb.title || '';
+          const partTmdbTh = await getTmdbMovieNameTh(partTmdbId, tmdbKey);
+          const partTmdbName = formatSeriesTitle(partTmdbEn, partTmdbTh);
+          const partTmdbPoster = partTmdb.poster_path ? `https://image.tmdb.org/t/p/original${partTmdb.poster_path}` : '';
+          if (doPoster) {
+            if (partTmdbName) group.name = partTmdbName;
+            if (partTmdbPoster) group.image = partTmdbPoster;
+          }
+          stampPlaylist(partData, partTmdb, true);
+          fs.writeFileSync(partPath, JSON.stringify(partData, null, 4), 'utf-8');
+          if (partData.updated_at) cascadePartUpdates.push(partData.updated_at);
+          console.log(`  ✅ part: ${partFile} → "${partTmdbName}" (${partData.release_date || '-'})`);
+        } catch (e) {
+          console.warn(`  ⚠️  ${partFile}: ${e.message}`);
+        }
+      }
+    } else if (isLegacyMovie) {
+      // Legacy: stations at root — update image only, keep name as "ภาค N"
+      if (doPoster) {
+        playlist.image = tmdbPoster;
+        (playlist.stations || []).forEach(s => { s.image = tmdbPoster; });
+      }
+    } else {
+      // Modern part file: groups[0].stations — update root + inner images
+      if (doPoster) {
+        playlist.image = tmdbPoster;
+        (playlist.groups || []).forEach(g => {
+          if (g.image !== undefined) g.image = tmdbPoster;
+          if (Array.isArray(g.stations)) g.stations.forEach(s => { s.image = tmdbPoster; });
+        });
+      }
     }
 
-    // Sync back to main file group entry
-    const mainSlug   = resolvedOutput.replace(/^\d+-/, "");
-    const mainPath   = path.resolve(PLAYLIST_DIR, mainSlug);
-    if (fs.existsSync(mainPath)) {
+    // Detect if this is a part file by scanning for a main file that references its URL
+    const partMainFile = findMainFileFor(resolvedOutput);
+    const isPartFile   = !!partMainFile;
+    const mainSlug     = partMainFile;
+    const mainPath     = partMainFile ? path.resolve(PLAYLIST_DIR, partMainFile) : null;
+
+    let mainStamped = null;
+    if (isPartFile) {
       try {
         const main = JSON.parse(fs.readFileSync(mainPath, "utf-8"));
         const partRawUrl = `${GITHUB_RAW_BASE}${resolvedOutput}`;
         const grp = (main.groups || []).find(g => g.url === partRawUrl);
         if (grp) {
           if (doPoster) { grp.name = tmdbName; grp.image = tmdbPoster; }
+          stampPlaylist(main, tmdbResult, true);
           fs.writeFileSync(mainPath, JSON.stringify(main, null, 4), "utf-8");
+          mainStamped = main;
           console.log(`✅ อัปเดต main file group: ${mainSlug}`);
         }
       } catch { /* ignore if main file missing/corrupt */ }
     }
+
+    stampPlaylist(playlist, tmdbResult, true);
+    // For movie main file batch: override main updated_at with MAX of parts (cascade collected)
+    if (noTouch && cascadePartUpdates && cascadePartUpdates.length > 0) {
+      playlist.updated_at = cascadePartUpdates.slice().sort().pop();
+    }
     fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
     console.log(`\n📁 อัปเดตไฟล์: ${outputPath}`);
-    updateIndex(tmdbName, tmdbPoster, resolvedOutput, { upsert: true });
+
+    // Index rollup: part files roll up to MAIN entry; main/legacy files update their own entry
+    if (isPartFile && mainStamped) {
+      updateIndex(mainStamped.name || tmdbName, mainStamped.image || tmdbPoster, mainSlug, { releaseDate: mainStamped.release_date || "", updatedAt: mainStamped.updated_at });
+    } else if (!isPartFile) {
+      updateIndex(playlist.name || tmdbName, tmdbPoster, resolvedOutput, { upsert: true, releaseDate: playlist.release_date || "", updatedAt: playlist.updated_at });
+    }
     console.log("🎉 เสร็จสิ้น!");
     return;
   }
@@ -707,7 +838,7 @@ async function runUpdateMeta() {
   console.log(`\n📂 จะอัปเดต: ${seasonsToUpdate.map((s) => s.name).join(", ")}${filterTrack ? ` › ${filterTrack}` : " (ทุก track)"}`);
 
   if (doPoster && !seasonName) {
-    playlist.name = tmdbName;
+    if (!playlist._name_locked) playlist.name = tmdbName;
     playlist.image = tmdbPoster;
   }
 
@@ -724,6 +855,16 @@ async function runUpdateMeta() {
       if (tmdbSeason.poster) seasonPoster = tmdbSeason.poster;
       if (tmdbSeason.seasonName) season.season_name = tmdbSeason.seasonName;
       else delete season.season_name;
+      if (tmdbSeason.air_date) season.release_date = tmdbSeason.air_date;
+      // Batch mode: set updated_at = release_date for completed seasons (rollup to main happens in stampPlaylist)
+      // Season is "completed" if season.status === 'completed' OR all its tracks are completed
+      const seasonCompleted = season.status === 'completed' || (
+        Array.isArray(season.groups) && season.groups.length > 0 &&
+        season.groups.every(t => t && t.status === 'completed')
+      );
+      if (noTouch && seasonCompleted && season.release_date) {
+        season.updated_at = asMidnightUtc(season.release_date);
+      }
       console.log(`\n✅ Season ${sNum}: ${enEps.length} ตอน | poster: ${seasonPoster !== tmdbPoster ? "season-specific" : "show-level"}`);
     }
 
@@ -759,10 +900,11 @@ async function runUpdateMeta() {
     }
   }
 
+  stampPlaylist(playlist, tmdbResult, false);
   fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
   console.log(`\n📁 อัปเดตไฟล์: ${outputPath}`);
 
-  updateIndex(tmdbName, tmdbPoster, resolvedOutput, { upsert: true });
+  updateIndex(playlist.name || tmdbName, tmdbPoster, resolvedOutput, { upsert: true, releaseDate: playlist.release_date || "", updatedAt: playlist.updated_at });
 
   console.log("🎉 เสร็จสิ้น!");
 }
@@ -812,6 +954,7 @@ async function main() {
     let tmdbEpisodes = [];
     let tmdbSeasonName = null;
     let tmdbShow = null;
+    let seasonAirDate = "";
 
     if (tmdbKey) {
       let tmdbResult;
@@ -872,12 +1015,14 @@ async function main() {
             tmdbEpisodes    = biData.thEpisodes;
             if (biData.poster) seasonPosterUrl = biData.poster;
             tmdbSeasonName  = biData.seasonName;
+            seasonAirDate   = biData.air_date || "";
             console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, th-TH w/ EN fallback) จาก TMDB`);
           } else {
             const biData = await getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, lookupSeason);
             tmdbEpisodes    = biData.enEpisodes;
             if (biData.poster) seasonPosterUrl = biData.poster;
             tmdbSeasonName  = biData.seasonName;
+            seasonAirDate   = biData.air_date || "";
             console.log(`✅ ดึงข้อมูล ${tmdbEpisodes.length} ตอน (Season ${lookupSeason}, en-US) จาก TMDB`);
           }
           console.log(`✅ poster: show-level=${posterUrl !== rawPoster} season-specific=${seasonPosterUrl !== posterUrl}`);
@@ -942,6 +1087,7 @@ async function main() {
       const partSeason   = seasonNum || 1;
       // Part file: {tmdbId}-{slug}.txt
       const partPlaylist = buildPartFile(outputPath, partSeason, posterUrl, trackName, s.url, s.referer, seriesUrl);
+      stampPlaylist(partPlaylist, tmdbShow, true);
       fs.writeFileSync(outputPath, JSON.stringify(partPlaylist, null, 4), "utf-8");
       console.log(`\n📁 บันทึก part file: ${outputPath}`);
 
@@ -950,15 +1096,22 @@ async function main() {
       const mainPath    = path.resolve(PLAYLIST_DIR, mainFile);
       const partRawUrl  = `${GITHUB_RAW_BASE}${outputFile}`;
       const mainPlaylist = upsertMainFile(mainPath, seriesTitle, posterUrl, seriesTitle, posterUrl, partRawUrl, partSeason);
+      stampPlaylist(mainPlaylist, tmdbShow, true);
       fs.writeFileSync(mainPath, JSON.stringify(mainPlaylist, null, 4), "utf-8");
       console.log(`📁 บันทึก main file: ${mainPath}`);
 
-      updateIndex(seriesTitle, posterUrl, mainFile);
+      updateIndex(seriesTitle, posterUrl, mainFile, { upsert: true, releaseDate: mainPlaylist.release_date || "", updatedAt: mainPlaylist.updated_at });
     } else {
       const playlist = buildOrMergePlaylist(outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations, trackName, seriesUrl, tmdbSeasonName);
+      if (seasonAirDate) {
+        const targetSeasonName = seasonName || "Season 1";
+        const affectedSeason = (playlist.groups || []).find(g => g.name === targetSeasonName);
+        if (affectedSeason) affectedSeason.release_date = seasonAirDate;
+      }
+      stampPlaylist(playlist, tmdbShow, false);
       fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), "utf-8");
       console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
-      updateIndex(seriesTitle, posterUrl, outputFile);
+      updateIndex(seriesTitle, posterUrl, outputFile, { upsert: true, releaseDate: playlist.release_date || "", updatedAt: playlist.updated_at });
     }
 
     console.log("\n🎉 เสร็จสิ้น!");
