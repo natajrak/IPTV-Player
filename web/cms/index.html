@@ -1814,10 +1814,11 @@ document.addEventListener('click', async e => {
 // ── Add Modal (local only) ───────────────────────────────────────
 const ADD_SCRIPTS = {
   'anime-series': [
-    { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
-    { id: 'indy-anime', label: 'indy-anime', file: 'fetch-indy-anime.js' },
-    { id: 'kurokamii',  label: 'kurokamii',  file: 'fetch-kurokamii.js'  },
-    { id: 'animeruka',  label: 'animeruka',  file: 'fetch-animeruka.js'  },
+    { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js'    },
+    { id: 'indy-anime',    label: 'indy-anime',    file: 'fetch-indy-anime.js'    },
+    { id: 'kurokamii',     label: 'kurokamii',     file: 'fetch-kurokamii.js'     },
+    { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js'     },
+    { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js'  },
     { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
     { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
     { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
@@ -2337,6 +2338,7 @@ function scriptFromReferer(url) {
     if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('animeruka'))                         return 'fetch-animeruka.js';
+    if (host.includes('anime-hdzero'))                      return 'fetch-anime-hdzero.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('v8hdd') || host.includes('v8-hdd'))   return 'fetch-v8hdd.js';
