@@ -14,6 +14,9 @@ const PLAYLIST_URL = IS_LOCAL_DEV
 const PAGE_SIZE = 20;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
+const PAGINATION_ICON_FIRST = `<i class="fi fi-br-angle-double-small-left" aria-hidden="true"></i>`;
+const PAGINATION_ICON_LAST = `<i class="fi fi-br-angle-double-small-right" aria-hidden="true"></i>`;
+const PAGINATION_FIRST_LAST_THRESHOLD = 5; // show First/Last only when more than this many pages
 const SECTION_BACK_ICON = `<i class="fi fi-br-arrow-left" aria-hidden="true"></i>`;
 const PLAYER_ICON_PLAY = `<i class="fi fi-sr-play" aria-hidden="true"></i>`;
 const PLAYER_ICON_PAUSE = `<i class="fi fi-sr-pause" aria-hidden="true"></i>`;
@@ -49,6 +52,21 @@ let currentPage = 0;
 let currentSortOrder = "za";   // default: descending (newest first for series/movies)
 let currentSortMode = "updated"; // 'alpha' | 'release' | 'updated' — series/movie tabs only
 let privateUnlocked = false; // unlocks all private categories at once
+
+// Salted SHA-256 of the unlock code — hides the literal code from anyone reading the source.
+// To rotate the code: `node -e "const c=require('crypto'); console.log(c.createHash('sha256').update('<new-code>' + '<salt-below>').digest('hex'));"`
+// Then paste the result into PRIVATE_UNLOCK_HASH below.
+const PRIVATE_UNLOCK_SALT = "bkl-play-2026-private-v1";
+const PRIVATE_UNLOCK_HASH =
+  "185f94f034c271ba3a165be96f9c54fde01ddfef46f9de140e33102d0ce8fbfe";
+async function sha256Hex(text) {
+  const buf = new TextEncoder().encode(text);
+  const hash = await crypto.subtle.digest("SHA-256", buf);
+  return Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 let currentGroups = [];
 let currentGroupTitle = "";
 let currentGroupParent = null;
@@ -348,21 +366,25 @@ searchInput.addEventListener("input", async () => {
   const q = searchInput.value.trim();
   activeSearchIdx = -1;
 
-  // Secret code to unlock private categories
-  if (q === "000000" && !privateUnlocked) {
-    privateUnlocked = true;
-    searchInput.value = "";
-    searchClear.classList.add("hidden");
-    closeSearch();
-    // Re-render current view to show private categories
-    if (lastNode) renderNode(lastNode, lastTitle);
-    // Build search index for newly unlocked private categories
-    if (searchIndexRootNode) {
-      buildSearchIndexRecursive(searchIndexRootNode, [
-        { node: searchIndexRootNode, title: "Home" },
-      ]).catch(() => {});
+  // Secret code (hashed) to unlock private categories.
+  // Only run the hash check for plausible inputs (skip empty / too-short / too-long).
+  if (!privateUnlocked && q.length >= 4 && q.length <= 32) {
+    const candidate = await sha256Hex(q + PRIVATE_UNLOCK_SALT);
+    if (candidate === PRIVATE_UNLOCK_HASH) {
+      privateUnlocked = true;
+      searchInput.value = "";
+      searchClear.classList.add("hidden");
+      closeSearch();
+      // Re-render current view to show private categories
+      if (lastNode) renderNode(lastNode, lastTitle);
+      // Build search index for newly unlocked private categories
+      if (searchIndexRootNode) {
+        buildSearchIndexRecursive(searchIndexRootNode, [
+          { node: searchIndexRootNode, title: "Home" },
+        ]).catch(() => {});
+      }
+      return;
     }
-    return;
   }
 
   // save state before first search action
@@ -1059,7 +1081,6 @@ function renderGroups(groups, sectionTitle, parentNode) {
   currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
   const start = currentPage * PAGE_SIZE;
   const pageGroups = sortedGroups.slice(start, start + PAGE_SIZE);
-  const pageItems = getPaginationItems(totalPages, currentPage);
 
   const normalizedSectionTitle = String(sectionTitle || "")
     .trim()
@@ -1078,27 +1099,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
     count: showCountInTitle ? total : null,
   })}
     <div class="card-grid portrait"></div>
-    ${
-      totalPages > 1
-        ? `<nav id="pagination" aria-label="Pagination">
-      <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""} aria-label="หน้าก่อนหน้า">
-        ${PAGINATION_ICON_PREV}
-      </button>
-      <div id="page-numbers">
-        ${pageItems
-          .map((item) => {
-            const pageNum = Number(item);
-            const isActive = pageNum === currentPage + 1;
-            return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${pageNum - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${pageNum}">${pageNum}</button>`;
-          })
-          .join("")}
-      </div>
-      <button class="page-btn page-nav" id="page-next" ${currentPage >= totalPages - 1 ? "disabled" : ""} aria-label="หน้าถัดไป">
-        ${PAGINATION_ICON_NEXT}
-      </button>
-    </nav>`
-        : ""
-    }`;
+    ${renderPaginationNav(currentPage, totalPages)}`;
 
   const grid = gridView.querySelector(".card-grid");
   document
@@ -1119,6 +1120,8 @@ function renderGroups(groups, sectionTitle, parentNode) {
       sub: group.author && group.author !== "Bank_" ? group.author : null,
       landscape: false,
       badge: group.badge || (sn?.en ? group.name || null : null),
+      seasonCount: typeof group.season_count === "number" ? group.season_count : null,
+      completion: group.completion || null,
       status: isTrack
         ? group.status === "completed"
           ? "completed"
@@ -1161,20 +1164,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
       showGrid();
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-
-    document.getElementById("page-prev")?.addEventListener("click", () => {
-      goToPage(currentPage - 1);
-    });
-
-    document.getElementById("page-next")?.addEventListener("click", () => {
-      goToPage(currentPage + 1);
-    });
-
-    gridView.querySelectorAll(".page-number").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        goToPage(Number(btn.dataset.page));
-      });
-    });
+    wirePaginationButtons(goToPage, totalPages);
   }
 
   gridView.querySelector(".sort-mode-toggle")?.addEventListener("click", () => {
@@ -1204,6 +1194,47 @@ function getPaginationItems(totalPages, activePageIdx) {
   let start = activePageIdx - Math.floor(windowSize / 2);
   start = Math.max(0, Math.min(start, totalPages - windowSize));
   return Array.from({ length: windowSize }, (_, i) => start + i + 1);
+}
+
+// Returns `<nav id="pagination">...</nav>` markup, or "" if totalPages <= 1.
+// First/Last buttons appear only when totalPages > PAGINATION_FIRST_LAST_THRESHOLD.
+function renderPaginationNav(currentPage, totalPages) {
+  if (totalPages <= 1) return "";
+  const pageItems = getPaginationItems(totalPages, currentPage);
+  const atFirst = currentPage === 0;
+  const atLast = currentPage >= totalPages - 1;
+  const showFirstLast = totalPages > PAGINATION_FIRST_LAST_THRESHOLD;
+  const firstBtn = showFirstLast
+    ? `<button class="page-btn page-nav" id="page-first" ${atFirst ? "disabled" : ""} aria-label="หน้าแรก">${PAGINATION_ICON_FIRST}</button>`
+    : "";
+  const lastBtn = showFirstLast
+    ? `<button class="page-btn page-nav" id="page-last" ${atLast ? "disabled" : ""} aria-label="หน้าสุดท้าย">${PAGINATION_ICON_LAST}</button>`
+    : "";
+  const nums = pageItems
+    .map((p) => {
+      const isActive = p === currentPage + 1;
+      return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${p}">${p}</button>`;
+    })
+    .join("");
+  return `<nav id="pagination" aria-label="Pagination">
+      ${firstBtn}
+      <button class="page-btn page-nav" id="page-prev" ${atFirst ? "disabled" : ""} aria-label="หน้าก่อนหน้า">${PAGINATION_ICON_PREV}</button>
+      <div id="page-numbers">${nums}</div>
+      <button class="page-btn page-nav" id="page-next" ${atLast ? "disabled" : ""} aria-label="หน้าถัดไป">${PAGINATION_ICON_NEXT}</button>
+      ${lastBtn}
+    </nav>`;
+}
+
+// Wire click handlers for pagination buttons (First/Prev/Numbers/Next/Last).
+// `goToPage(pageIdx)` is the caller's per-render-context handler.
+function wirePaginationButtons(goToPage, totalPages) {
+  document.getElementById("page-first")?.addEventListener("click", () => goToPage(0));
+  document.getElementById("page-prev")?.addEventListener("click", () => goToPage(currentPage - 1));
+  document.getElementById("page-next")?.addEventListener("click", () => goToPage(currentPage + 1));
+  document.getElementById("page-last")?.addEventListener("click", () => goToPage(totalPages - 1));
+  gridView.querySelectorAll(".page-number").forEach((btn) => {
+    btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
+  });
 }
 
 function renderSectionHeader(title, options = {}) {
@@ -1439,7 +1470,6 @@ function renderBrowsableStations(
   const totalPages = Math.ceil(total / PAGE_SIZE) || 1;
   currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
   const start = currentPage * PAGE_SIZE;
-  const pageItems = getPaginationItems(totalPages, currentPage);
   const pageStations = sorted.slice(start, start + PAGE_SIZE);
 
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
@@ -1450,26 +1480,7 @@ function renderBrowsableStations(
     count: total,
   })}
     <div class="card-grid landscape"></div>
-    ${
-      totalPages > 1
-        ? `<nav id="pagination" aria-label="Pagination">
-      <button class="page-btn page-nav" id="page-prev" ${currentPage === 0 ? "disabled" : ""}>
-        ${PAGINATION_ICON_PREV}
-      </button>
-      <div id="page-numbers">
-        ${pageItems
-          .map((p) => {
-            const isActive = p === currentPage + 1;
-            return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}">${p}</button>`;
-          })
-          .join("")}
-      </div>
-      <button class="page-btn page-nav" id="page-next" ${currentPage >= totalPages - 1 ? "disabled" : ""}>
-        ${PAGINATION_ICON_NEXT}
-      </button>
-    </nav>`
-        : ""
-    }`;
+    ${renderPaginationNav(currentPage, totalPages)}`;
 
   const grid = gridView.querySelector(".card-grid");
   document
@@ -1523,15 +1534,7 @@ function renderBrowsableStations(
       showGrid();
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    document
-      .getElementById("page-prev")
-      ?.addEventListener("click", () => goToPage(currentPage - 1));
-    document
-      .getElementById("page-next")
-      ?.addEventListener("click", () => goToPage(currentPage + 1));
-    gridView.querySelectorAll(".page-number").forEach((btn) => {
-      btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
-    });
+    wirePaginationButtons(goToPage, totalPages);
   }
 
   // Sort toggle
@@ -1552,7 +1555,25 @@ function renderBrowsableStations(
 }
 
 /* ===== Make Card element ===== */
-function makeCard({ name, image, sub, landscape, badge, status }) {
+// Build the completion-status badge text from a `completion` object.
+// completion = { status: 'completed' } → "จบแล้ว"
+// completion = { status: 'incomplete', season: N, track: 'th'|'sub'|null }
+//   single season (N===1): "ยังไม่จบ" or "(th) ยังไม่จบ" / "(sub) ยังไม่จบ"
+//   multi-season: "S{N} ยังไม่จบ" or "S{N} (th) ยังไม่จบ" / "S{N} (sub) ยังไม่จบ"
+function buildCompletionText(completion, seasonCount) {
+  if (!completion) return null;
+  if (completion.status === "completed") return "จบแล้ว";
+  if (completion.status !== "incomplete") return null;
+  const trackQual = completion.track === "th" ? "(th) "
+                  : completion.track === "sub" ? "(sub) "
+                  : "";
+  const sPrefix = (seasonCount && seasonCount > 1 && completion.season)
+    ? `S${completion.season} `
+    : "";
+  return `${sPrefix}${trackQual}ยังไม่จบ`;
+}
+
+function makeCard({ name, image, sub, landscape, badge, status, seasonCount, completion }) {
   const card = document.createElement("div");
   card.className = "card";
   card.title = name || "";
@@ -1579,20 +1600,35 @@ function makeCard({ name, image, sub, landscape, badge, status }) {
     thumb.textContent = landscape ? "▶" : "🎬";
   }
 
-  const hasStatus = status === "completed" || status === "ongoing";
   const wrapper = document.createElement("div");
   wrapper.className = "card-thumb-wrap";
   wrapper.appendChild(thumb);
-  if (badge) {
+
+  // Top-left badge: season count for series (preferred), or generic `badge` text
+  const seasonBadgeText = (typeof seasonCount === "number" && seasonCount > 0)
+    ? (seasonCount === 1 ? "1 Season" : `${seasonCount} Seasons`)
+    : null;
+  const displayBadge = seasonBadgeText || badge;
+  if (displayBadge) {
     const badgeEl = document.createElement("div");
     badgeEl.className = "card-badge";
-    badgeEl.textContent = badge;
+    badgeEl.textContent = displayBadge;
     wrapper.appendChild(badgeEl);
   }
-  if (hasStatus) {
+
+  // Bottom-right status badge — prefer `completion` (richer), fall back to legacy `status`
+  let statusText = null, statusKind = null;
+  if (completion) {
+    statusText = buildCompletionText(completion, seasonCount);
+    statusKind = completion.status === "completed" ? "completed" : "ongoing";
+  } else if (status === "completed" || status === "ongoing") {
+    statusText = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
+    statusKind = status;
+  }
+  if (statusText) {
     const statusEl = document.createElement("div");
-    statusEl.className = `card-status-badge card-status-${status}`;
-    statusEl.textContent = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
+    statusEl.className = `card-status-badge card-status-${statusKind}`;
+    statusEl.textContent = statusText;
     wrapper.appendChild(statusEl);
   }
   card.appendChild(wrapper);

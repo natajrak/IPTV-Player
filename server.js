@@ -37,7 +37,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-javxx.js',
   'fetch-allinhd.js',
   'fetch-037hdd.js',
-  'fetch-v8hdd.js',
+  'fetch-fairyanime.js',
 ]);
 
 const PLAYLIST_DIRS = {
@@ -587,8 +587,13 @@ const server = http.createServer(async (req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) { res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not found'); return; }
-    const mime = MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': mime });
+    const ext = path.extname(filePath).toLowerCase();
+    const mime = MIME[ext] || 'application/octet-stream';
+    // .txt playlist files mutate often after update-meta; tell browser never to cache them
+    // so the CMS Art-column thumbnails reflect the latest poster immediately.
+    const headers = { 'Content-Type': mime };
+    if (ext === '.txt') headers['Cache-Control'] = 'no-store, must-revalidate';
+    res.writeHead(200, headers);
     res.end(data);
   });
 });

@@ -339,6 +339,21 @@
     .badge-ep.completed.clickable:hover { color: #8aef8a; }
     .badge-refetchable { cursor: pointer; transition: filter .15s; }
     .badge-refetchable:hover { filter: brightness(1.5); outline: 1px solid currentColor; }
+    .badge-source {
+      display: inline-block;
+      padding: 2px 6px;
+      margin: 1px 0 1px 2px;
+      background: var(--bg3);
+      color: var(--text2);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color .15s, color .15s;
+      vertical-align: middle;
+    }
+    .badge-source:hover { background: var(--bg4); color: var(--blue); text-decoration: underline; }
 
     /* ── Delete button ───────────────────────────────── */
     .del-btn-icon {
@@ -503,6 +518,20 @@
     .fm-row input:focus, .fm-row select:focus { border-color: #444; }
     .fm-row input::placeholder { color: var(--text3); }
     .fm-row input[type=number] { width: 80px; }
+
+    /* Script dropdown row: select on left, homepage link on right */
+    .fm-script-row { display: flex; gap: 8px; align-items: stretch; }
+    .fm-script-row > select { flex: 1; min-width: 0; }
+    .fm-script-home {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--blue);
+      font-size: 12px; text-decoration: none; white-space: nowrap;
+      transition: background-color .15s, color .15s;
+    }
+    .fm-script-home:hover { background: var(--bg4); }
+    .fm-script-home.hidden { display: none; }
 
     .fm-radio-grp { display: flex; gap: 18px; }
     .fm-radio-grp label {
@@ -911,7 +940,12 @@
     <div class="modal-body">
       <div class="fm-row">
         <label>Script</label>
-        <select id="rf-script"></select>
+        <div class="fm-script-row">
+          <select id="rf-script"></select>
+          <a id="rf-script-home" class="fm-script-home hidden" target="_blank" rel="noopener" title="เปิดหน้าเว็บแหล่งข้อมูล">
+            <span>↗</span><span></span>
+          </a>
+        </div>
       </div>
       <div class="fm-row">
         <label>URL</label>
@@ -991,7 +1025,12 @@
 
       <div class="fm-row">
         <label>Script</label>
-        <select id="fm-script"></select>
+        <div class="fm-script-row">
+          <select id="fm-script"></select>
+          <a id="fm-script-home" class="fm-script-home hidden" target="_blank" rel="noopener" title="เปิดหน้าเว็บแหล่งข้อมูล">
+            <span>↗</span><span></span>
+          </a>
+        </div>
       </div>
 
       <div class="fm-row">
@@ -1302,6 +1341,42 @@ function badge(name, rf = null) {
   return `<span class="${cls}">${esc(name)}</span>`;
 }
 
+// Map a referer URL → short source label (e.g. "indy-anime", "kurokamii"),
+// rendered as a clickable chip next to each track badge. Empty string if no/unknown referer.
+function sourceTag(refererUrl) {
+  if (!refererUrl) return '';
+  const first = String(refererUrl).split(',')[0].trim();
+  let host = '';
+  try { host = new URL(first).hostname.replace(/^www\./, ''); } catch { return ''; }
+  // hostname substring → label
+  const map = [
+    ['indy-anime',    'indy-anime'],
+    ['animeindy',     'indy-anime'],
+    ['team-indy',     'indy-anime'],
+    ['kurokamii',     'kurokamii'],
+    ['akuma-player',  'kurokamii'],
+    ['fairyanime',    'fairyanime'],
+    ['tonytonychopper','fairyanime'],
+    ['animeruka',     'animeruka'],
+    ['animemami',     'animeruka'],
+    ['anime-hdzero',  'anime-hdzero'],
+    ['037hdd',        '037hdd'],
+    ['7-hd',          '7-hd'],
+    ['7hd',           '7-hd'],
+    ['weplayhls',     '7-hd'],
+    ['nunghd4k',      'nunghd4k'],
+    ['123-hds',       '123-hds'],
+    ['123hds',        '123-hds'],
+    ['allinhd',       'allinhd'],
+    ['fastfastcdn',   'allinhd'],
+    ['javxx',         'javxx'],
+  ];
+  let label = '';
+  for (const [needle, val] of map) { if (host.includes(needle)) { label = val; break; } }
+  if (!label) label = host;
+  return `<a class="badge-source" href="${esc(first)}" target="_blank" rel="noopener" title="${esc(first)}" onclick="event.stopPropagation()">${esc(label)}</a>`;
+}
+
 function artTag(src, first) {
   if (!first) return '';
   if (src) return `<img class="art" src="${esc(src)}" loading="lazy" data-preview="${esc(src)}" style="cursor:pointer" title="คลิกเพื่อดูภาพ" onerror="this.style.display='none'">`;
@@ -1469,7 +1544,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         const epAttrs = IS_LOCAL
           ? ` data-toggle-status data-file="${esc(filename)}" data-tab="${esc(tabId)}" data-season-name="${esc(sznName)}" data-track-name="${esc(t.name)}" title="${completed ? 'จบแล้ว — คลิกเพื่อเปลี่ยนเป็น ยังไม่จบ' : 'ยังไม่จบ — คลิกเพื่อเปลี่ยนเป็น จบแล้ว'}"`
           : '';
-        return `${badge(t.name, rf)}<span class="${cls}"${epAttrs}>${ep}</span>`;
+        return `${badge(t.name, rf)}${sourceTag(t.referer)}<span class="${cls}"${epAttrs}>${ep}</span>`;
       }).join(' ');
 
       const rowStatus = tracks.length && tracks.every(t => t.status === 'completed') ? 'completed' : 'ongoing';
@@ -1556,7 +1631,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const partStations = partPl.stations || [];
         const trackBadges = partStations.map(s => {
           const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId, mainSlug: slug } : null;
-          return badge(s.name, rf);
+          return `${badge(s.name, rf)}${sourceTag(s.referer)}`;
         }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
         html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="">
@@ -1579,7 +1654,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const filename = tmdbId ? `${tmdbId}-${slug}` : slug;
         const trackBadges = (group.stations || []).map(s => {
           const rf = s.referer ? { referer: s.referer, filename, season: gi + 1, tabId } : null;
-          return badge(s.name, rf);
+          return `${badge(s.name, rf)}${sourceTag(s.referer)}`;
         }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
         html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
@@ -1814,55 +1889,47 @@ document.addEventListener('click', async e => {
 }
 
 // ── Add Modal (local only) ───────────────────────────────────────
+// Tab → allowed fetch scripts (sources per content type)
+// Anime tabs share anime sources; series/movie tabs share live-action sources; av is standalone.
+// `url` = homepage of the source (shown as clickable link next to the script dropdown).
+const ANIME_SOURCES = [
+  { id: 'indy-anime',    label: 'indy-anime',    file: 'fetch-indy-anime.js',    url: 'https://indy-anime.net/'   },
+  { id: 'kurokamii',     label: 'kurokamii',     file: 'fetch-kurokamii.js',     url: 'https://kurokamii.com/'    },
+  { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js',    url: 'https://fairyanime.net/'   },
+  { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js',     url: 'https://animeruka.com/'    },
+  { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://anime-hdzero.com/' },
+];
+const LIVE_SOURCES = [
+  { id: '037hdd',   label: '037hdd',   file: 'fetch-037hdd.js',   url: 'https://www.037hddmovie.com/' },
+  { id: 'nunghd4k', label: 'nunghd4k', file: 'fetch-nunghd4k.js', url: 'https://www.nunghd4k.com/'    },
+  { id: 'allinhd',  label: 'allinhd',  file: 'fetch-allinhd.js',  url: 'https://allinhd.com/'         },
+  { id: '123hds',   label: '123-hds',  file: 'fetch-123hds.js',   url: 'https://www.123-hds.com/'     },
+  { id: '7hd',      label: '7-hd',     file: 'fetch-7hd.js',      url: 'https://7-hd.com/'            },
+];
 const ADD_SCRIPTS = {
-  'anime-series': [
-    { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js'    },
-    { id: 'indy-anime',    label: 'indy-anime',    file: 'fetch-indy-anime.js'    },
-    { id: 'kurokamii',     label: 'kurokamii',     file: 'fetch-kurokamii.js'     },
-    { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js'     },
-    { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js'  },
-    { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
-    { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
-    { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
-    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
-    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
-    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
-  ],
-  'anime-movie': [
-    { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
-    { id: 'indy-anime', label: 'indy-anime', file: 'fetch-indy-anime.js' },
-    { id: 'kurokamii',  label: 'kurokamii',  file: 'fetch-kurokamii.js'  },
-    { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
-    { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
-    { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
-    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
-    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
-    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
-  ],
-  'movie': [
-    { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
-    { id: 'indy-anime', label: 'indy-anime', file: 'fetch-indy-anime.js' },
-    { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
-    { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
-    { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
-    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
-    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
-    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
-  ],
-  'series': [
-    { id: 'fairyanime', label: 'fairyanime', file: 'fetch-fairyanime.js' },
-    { id: 'indy-anime', label: 'indy-anime', file: 'fetch-indy-anime.js' },
-    { id: '7hd',        label: '7-hd',       file: 'fetch-7hd.js'        },
-    { id: 'nunghd4k',   label: 'nunghd4k',   file: 'fetch-nunghd4k.js'   },
-    { id: '123hds',     label: '123-hds',    file: 'fetch-123hds.js'     },
-    { id: 'allinhd',    label: 'allinhd',    file: 'fetch-allinhd.js'    },
-    { id: '037hdd',     label: '037hdd',     file: 'fetch-037hdd.js'     },
-    { id: 'v8hdd',      label: 'v8-hdd',     file: 'fetch-v8hdd.js'      },
-  ],
-  'av': [
-    { id: 'javxx',      label: 'javxx',      file: 'fetch-javxx.js'      },
-  ],
+  'anime-series': ANIME_SOURCES,
+  'anime-movie':  ANIME_SOURCES,
+  'series':       LIVE_SOURCES,
+  'movie':        LIVE_SOURCES,
+  'av':           [{ id: 'javxx', label: 'javxx', file: 'fetch-javxx.js', url: 'https://javxx.com/' }],
 };
+
+// Update the homepage-link chip next to a script <select>.
+// `selectKey` is whichever option-value the select uses ('id' for fm-script, 'file' for rf-script).
+function updateScriptHome(selectId, linkId, sources, selectKey) {
+  const sel = document.getElementById(selectId);
+  const link = document.getElementById(linkId);
+  if (!sel || !link) return;
+  const src = (sources || []).find(s => s[selectKey] === sel.value);
+  const url = src?.url || '';
+  if (url) {
+    link.href = url;
+    link.querySelector('span:last-child').textContent = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    link.classList.remove('hidden');
+  } else {
+    link.classList.add('hidden');
+  }
+}
 
 const TAB_LABELS = {
   'anime-series': 'Anime Series',
@@ -2020,6 +2087,7 @@ async function openAddModal(tabId) {
     sel.innerHTML = '';
     sel.closest('.fm-row').style.display = 'none';
   }
+  updateScriptHome('fm-script', 'fm-script-home', scripts, 'id');
 
   const isAV = tabId === 'av';
 
@@ -2189,7 +2257,10 @@ async function runFetch() {
 // ── Update Metadata Modal ────────────────────────────────────────
 let updateCtx = { slug: '', season: 0, tabId: '', title: '' };
 
-const UPDATE_SCRIPT = 'fetch-indy-anime.js';
+// Per-tab default script for update-meta (av uses JavDB, others use TMDB-based indy-anime)
+function updateScriptForTab(tabId) {
+  return tabId === 'av' ? 'fetch-javxx.js' : 'fetch-indy-anime.js';
+}
 
 function buildUpdateCmd() {
   if (!updateCtx.slug) return null;
@@ -2203,7 +2274,8 @@ function buildUpdateCmd() {
   if (tmdb)   args.push(`--tmdb-id=${tmdb}`);
   if (updateCtx.tabId) args.push(`--type=${updateCtx.tabId}`);
   args.push(`--output=${updateCtx.slug}.txt`);
-  return { script: UPDATE_SCRIPT, args, cmd: `node ${UPDATE_SCRIPT} ${args.join(' ')}` };
+  const script = updateScriptForTab(updateCtx.tabId);
+  return { script, args, cmd: `node ${script} ${args.join(' ')}` };
 }
 
 function refreshUpdateCmd() {
@@ -2315,7 +2387,7 @@ async function runBatchUpdate() {
     args.push(`--type=${batchTab}`);
     args.push(`--no-touch`); // batch refresh: don't bump updated_at
     args.push(`--output=${f.slug}.txt`);
-    const code = await runScript(UPDATE_SCRIPT, args, bodyEl);
+    const code = await runScript(updateScriptForTab(batchTab), args, bodyEl);
     if (code === 0) ok++; else fail++;
     append(code === 0 ? '✓\n' : `✗ (exit ${code})\n`, code === 0 ? 'log-done' : 'log-fail');
   }
@@ -2343,7 +2415,6 @@ function scriptFromReferer(url) {
     if (host.includes('anime-hdzero'))                      return 'fetch-anime-hdzero.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
-    if (host.includes('v8hdd') || host.includes('v8-hdd'))   return 'fetch-v8hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
     if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
@@ -2363,6 +2434,7 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
 
   const sel = document.getElementById('rf-script');
   sel.innerHTML = scripts.map(s => `<option value="${s.file}" ${s.file === detected ? 'selected' : ''}>${s.label}</option>`).join('');
+  updateScriptHome('rf-script', 'rf-script-home', scripts, 'file');
 
   document.getElementById('rf-hint').textContent   = filename ? ` — ${filename}` : '';
   document.getElementById('rf-url').value          = referer;
@@ -2422,6 +2494,9 @@ document.getElementById('rf-log-clear').addEventListener('click', () => { docume
 document.getElementById('refetch-modal').addEventListener('click', e => { if (e.target === document.getElementById('refetch-modal')) document.getElementById('refetch-modal').classList.add('hidden'); });
 ['rf-script','rf-url','rf-fname','rf-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
 document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
+document.getElementById('rf-script').addEventListener('change', () => {
+  updateScriptHome('rf-script', 'rf-script-home', ADD_SCRIPTS[rfCtx.tabId] || [], 'file');
+});
 
 // Badge click → open refetch modal
 document.addEventListener('click', e => {
@@ -2574,6 +2649,9 @@ document.addEventListener('keydown', e => {
 });
 ['fm-script', 'fm-url', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset'].forEach(id => {
   document.getElementById(id).addEventListener('input', updateCmd);
+});
+document.getElementById('fm-script').addEventListener('change', () => {
+  updateScriptHome('fm-script', 'fm-script-home', ADD_SCRIPTS[modalTab] || [], 'id');
 });
 // Auto-fill: เมื่อเลือกจาก datalist (ค่าอาจเป็น title หรือ slug)
 document.getElementById('fm-fname').addEventListener('input', () => {
