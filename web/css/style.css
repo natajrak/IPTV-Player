@@ -182,6 +182,7 @@ button:focus-visible,
   border-radius: 8px;
   color: var(--text);
   padding: 7px 36px 7px 14px;
+  font-family: inherit;
   font-size: 0.88rem;
   outline: none;
   transition: border-color var(--transition), background var(--transition);
