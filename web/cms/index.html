@@ -1360,6 +1360,8 @@ function sourceTag(refererUrl) {
     ['animeruka',     'animeruka'],
     ['animemami',     'animeruka'],
     ['anime-hdzero',  'anime-hdzero'],
+    ['anifume',       'anifume'],
+    ['rukoluo',       'anifume'],
     ['037hdd',        '037hdd'],
     ['7-hd',          '7-hd'],
     ['7hd',           '7-hd'],
@@ -1898,6 +1900,7 @@ const ANIME_SOURCES = [
   { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js',    url: 'https://fairyanime.net/'   },
   { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js',     url: 'https://animeruka.com/'    },
   { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://anime-hdzero.com/' },
+  { id: 'anifume',       label: 'anifume',       file: 'fetch-anifume.js',       url: 'https://anifume.com/'      },
 ];
 const LIVE_SOURCES = [
   { id: '037hdd',   label: '037hdd',   file: 'fetch-037hdd.js',   url: 'https://www.037hddmovie.com/' },
@@ -2413,6 +2416,7 @@ function scriptFromReferer(url) {
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('animeruka'))                         return 'fetch-animeruka.js';
     if (host.includes('anime-hdzero'))                      return 'fetch-anime-hdzero.js';
+    if (host.includes('anifume'))                           return 'fetch-anifume.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
