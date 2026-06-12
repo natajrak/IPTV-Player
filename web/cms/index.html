@@ -2657,6 +2657,28 @@ document.addEventListener('keydown', e => {
 document.getElementById('fm-script').addEventListener('change', () => {
   updateScriptHome('fm-script', 'fm-script-home', ADD_SCRIPTS[modalTab] || [], 'id');
 });
+// Convert any free-text title (e.g. "Zetsuen no Tempest") into a filename-safe slug
+// ("zetsuen-no-tempest") — matches the Node-side slugify behavior plus lowercase.
+function slugifyFilename(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
+// On blur: if the user typed a title-like string, slugify it.
+// (Not on every keystroke — that would jump the cursor mid-typing.)
+document.getElementById('fm-fname').addEventListener('blur', () => {
+  const el = document.getElementById('fm-fname');
+  const slug = slugifyFilename(el.value);
+  if (slug && slug !== el.value) {
+    el.value = slug;
+    updateCmd();
+  }
+});
+
 // Auto-fill: เมื่อเลือกจาก datalist (ค่าอาจเป็น title หรือ slug)
 document.getElementById('fm-fname').addEventListener('input', () => {
   const val      = document.getElementById('fm-fname').value.trim();

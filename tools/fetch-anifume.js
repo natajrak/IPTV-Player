@@ -18,9 +18,15 @@
  *   --type=KIND       anime-series | anime-movie | movie | series | av
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
- *   - หน้า anime มีทั้ง sub และ dub episode links ในที่หน้าเดียว
- *     • URL pattern "/<id>/<slug>-NN"     → ซับไทย
- *     • URL pattern "/<id>/<slug>-th-NN"  → พากย์ไทย
+ *   - หน้า anime มีทั้ง sub/dub และอาจมีหลาย season ในที่หน้าเดียว
+ *     URL pattern (suffix):
+ *       /<id>/<slug>-NN          → S1, ep NN, ซับไทย     (single-season)
+ *       /<id>/<slug>-th-NN       → S1, ep NN, พากย์ไทย   (single-season)
+ *       /<id>/<slug>-S-NN        → S{S}, ep NN, ซับไทย   (multi-season — Fairy Tail)
+ *       /<id>/<slug>-S-th-NN     → S{S}, ep NN, พากย์ไทย (multi-season — K-On)
+ *   - Multi-season: ใช้ --season=N filter เพื่อดึงเฉพาะ season นั้น
+ *   - EP numbering ใน station name = index ภายใน season (reset ที่ 1 ต่อ season)
+ *   - Track detection: ดู text label "พากย์ไทย"/"ซับไทย" เป็นหลัก, URL `-th-` เป็น fallback
  *   - Episode page → iframe ของ JWPlayer → parse "file":"https://..." ตรงๆ
  *   - Stream เป็น MP4 + has time-based signature (e=timestamp) → ใช้ได้ระยะหนึ่ง
  *   - ไม่มี Origin block, CORS friendly → ใช้ raw URL ใน playlist ได้เลย
@@ -82,22 +88,40 @@ async function fetchHtml(url, extraHeaders = {}) {
   return res.text();
 }
 
-// ───── Source-specific: Parse anime page → sections (track-grouped episode lists) ─────
+// ───── Source-specific: Parse anime page → sections (track + season grouped) ─────
 /**
- * คืน { title, posterImg, sections: [{ track, name, episodes }] }
+ * Parse URL suffix → { isDub, season, epNum } | null
+ *   - "Liar-Game-01"      → { isDub:false, season:1, epNum:1 }
+ *   - "Liar-Game-th-01"   → { isDub:true,  season:1, epNum:1 }
+ *   - "Fairy-Tail-1-01"   → { isDub:false, season:1, epNum:1 }
+ *   - "Fairy-Tail-2-49"   → { isDub:false, season:2, epNum:49 }
+ *   - "K-On-2-th-01"      → { isDub:true,  season:2, epNum:1 }
  *
- * Anifume page structure:
- *   - <a href="/<id>/<slug>-NN">ตอนที่ N ซับไทย</a>         → subth
- *   - <a href="/<id>/<slug>-th-NN">ตอนที่ N พากย์ไทย</a>   → th
+ * Pattern: optional "-{season}" → optional "-th" → required "-{ep}"
+ *   (season ก่อน th- เสมอ — confirmed จาก K-On + Fairy Tail)
  */
-async function parseAnimePage(url) {
+function parseUrlSuffix(href) {
+  const m = href.match(/-(?:(\d+)-)?(th-)?(\d+)$/i);
+  if (!m) return null;
+  const season = m[1] ? parseInt(m[1]) : 1;
+  const isDub  = !!m[2];
+  const epNum  = parseInt(m[3]);
+  if (!Number.isFinite(epNum)) return null;
+  return { isDub, season, epNum };
+}
+
+/**
+ * คืน { title, posterImg, sections: [{ track, season, name, episodes }] }
+ *
+ * แต่ละ section = 1 (track, season) combination — ทำให้ pickSection() เลือกได้ตรงตาม --season + --track
+ */
+async function parseAnimePage(url, wantSeason = null) {
   console.log(`\n📄 กำลัง fetch หน้า anime: ${url}`);
   const html = await fetchHtml(url);
   const $    = cheerio.load(html);
 
   const title = ($('h1.post-title').first().text() || $('title').first().text() || '').trim();
 
-  // หา cover/poster — เอา <img> แรกในเนื้อหา (ไม่ใช่ favicon/logo)
   let posterImg = '';
   $('img').each((_, img) => {
     if (posterImg) return;
@@ -107,12 +131,11 @@ async function parseAnimePage(url) {
     }
   });
 
-  // Parse episode links — URL pattern: https://anifume.com/{id}/{slug}-NN  หรือ  -th-NN
   const idMatch = url.match(/\/(\d+)(?:\/?$)/);
   const animeId = idMatch ? idMatch[1] : null;
 
-  const subEps = [];
-  const dubEps = [];
+  // Group by (track, season)
+  const buckets = new Map();  // key = "track:season" → episodes[]
   const seenUrls = new Set();
 
   $('a').each((_, a) => {
@@ -121,41 +144,71 @@ async function parseAnimePage(url) {
     if (!href || !text) return;
     if (animeId && !href.includes(`/${animeId}/`)) return;
     const cleanHref = href.replace(/\/$/, '');
-
-    // Match: ลงท้ายด้วย -NN (เลขล้วน)
-    const m = cleanHref.match(/-(\d+)$/);
-    if (!m) return;
     if (seenUrls.has(cleanHref)) return;
+
+    const parsed = parseUrlSuffix(cleanHref);
+    if (!parsed) return;
     seenUrls.add(cleanHref);
 
-    const isDub = /-th-\d+$/i.test(cleanHref) || /พากย์/i.test(text);
-    const epNum = parseInt(m[1]);
-    if (!Number.isFinite(epNum)) return;
+    // Track: text label "พากย์ไทย"/"ซับไทย" override URL `-th-` (text เชื่อถือกว่า เพราะ Fairy Tail URL ไม่มี `-th-`)
+    let isDub = parsed.isDub;
+    if (/พากย์/i.test(text)) isDub = true;
+    else if (/ซับ/i.test(text)) isDub = false;
 
-    const epObj = { url: cleanHref, epNum, label: text, thumb: '' };
-    (isDub ? dubEps : subEps).push(epObj);
+    const track = isDub ? 'th' : 'subth';
+    const key = `${track}:${parsed.season}`;
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push({
+      url: cleanHref,
+      epNum: parsed.epNum,    // absolute (จาก URL)
+      label: text,
+      thumb: '',
+    });
   });
 
-  subEps.sort((a, b) => a.epNum - b.epNum);
-  dubEps.sort((a, b) => a.epNum - b.epNum);
-
+  // Sort episodes within each bucket, then build sections array
   const sections = [];
-  if (dubEps.length) sections.push({ track: 'th',    name: 'พากย์ไทย', episodes: dubEps });
-  if (subEps.length) sections.push({ track: 'subth', name: 'ซับไทย',   episodes: subEps });
+  for (const [key, eps] of buckets) {
+    eps.sort((a, b) => a.epNum - b.epNum);
+    const [track, seasonStr] = key.split(':');
+    const season = parseInt(seasonStr);
+    sections.push({
+      track,
+      season,
+      name: track === 'th' ? 'พากย์ไทย' : 'ซับไทย',
+      episodes: eps,
+    });
+  }
+
+  // Sort sections: dub-first (matches CMS convention), then by season asc
+  sections.sort((a, b) => {
+    if (a.track !== b.track) return a.track === 'th' ? -1 : 1;
+    return a.season - b.season;
+  });
 
   if (!sections.length) throw new Error('ไม่พบ episode link ในหน้านี้ — ตรวจสอบ URL อีกครั้ง');
   console.log(`✅ พบ: "${title}" — ${sections.length} section(s)`);
-  sections.forEach((s) => console.log(`   • ${s.name} (${s.track}) — ${s.episodes.length} ตอน`));
+  sections.forEach((s) => console.log(`   • ${s.name} (${s.track}) S${s.season} — ${s.episodes.length} ตอน`));
   return { title, posterImg, sections };
 }
 
-/** เลือก section ที่ match track ที่ user ระบุ; fallback ถ้ามี section เดียว */
-function pickSection(sections, wantTrack) {
-  const matched = sections.find((s) => s.track === wantTrack);
+/** เลือก section ที่ match (track, season); fallback ถ้ามี section เดียว */
+function pickSection(sections, wantTrack, wantSeason = null) {
+  // หา section ที่ match ทั้ง track + season
+  let matched = sections.find((s) => s.track === wantTrack && (wantSeason == null || s.season === wantSeason));
   if (matched) return matched;
+  // ถ้าระบุ season แต่ track ไม่ตรง → ลองหา season ใดก็ได้
+  if (wantSeason != null) {
+    const sameSeason = sections.find((s) => s.season === wantSeason);
+    if (sameSeason) {
+      console.warn(`⚠️  Season ${wantSeason} มีเฉพาะ track "${sameSeason.name}" (${sameSeason.track}) — ใช้ section นี้แทน`);
+      return sameSeason;
+    }
+  }
+  // Fallback: section เดียวเท่านั้น
   if (sections.length === 1) {
     const only = sections[0];
-    console.warn(`⚠️  หน้านี้มี section เดียว (${only.name}, ${only.track}) แต่ขอ --track=${wantTrack}`);
+    console.warn(`⚠️  หน้านี้มี section เดียว (${only.name}, S${only.season}) แต่ขอ --track=${wantTrack}${wantSeason ? `, --season=${wantSeason}` : ''}`);
     console.warn(`    ใช้ section นี้แทน — ตรวจสอบว่า URL ถูกต้องสำหรับ track ที่ต้องการ`);
     return only;
   }
@@ -213,13 +266,14 @@ async function main() {
       const result = await parseAnimePage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const chosen = pickSection(result.sections, wantTrack);
+      const wantSeason = seasonNum != null ? seasonNum : null;
+      const chosen = pickSection(result.sections, wantTrack, wantSeason);
       if (!chosen) {
-        console.error(`❌ ไม่พบ section ที่ตรงกับ --track=${wantTrack} ใน ${urls[ui]}`);
-        console.error(`   มี: ${result.sections.map((s) => `${s.name}(${s.track})`).join(', ')}`);
+        console.error(`❌ ไม่พบ section ที่ตรงกับ --track=${wantTrack}${wantSeason ? `, --season=${wantSeason}` : ''} ใน ${urls[ui]}`);
+        console.error(`   มี: ${result.sections.map((s) => `${s.name}(${s.track}) S${s.season}`).join(', ')}`);
         process.exit(1);
       }
-      console.log(`📌 ใช้ section: "${chosen.name}" (${chosen.track}) — ${chosen.episodes.length} ตอน`);
+      console.log(`📌 ใช้ section: "${chosen.name}" (${chosen.track}) S${chosen.season} — ${chosen.episodes.length} ตอน`);
 
       const offset = episodes.length;
       for (const ep of chosen.episodes) {
