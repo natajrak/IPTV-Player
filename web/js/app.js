@@ -11,7 +11,7 @@ const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 24;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
 const PAGINATION_ICON_FIRST = `<i class="fi fi-br-angle-double-small-left" aria-hidden="true"></i>`;
@@ -52,7 +52,8 @@ let playEpisodeEpoch = 0; // bumps per playEpisode call — async resolvers chec
 const STREAM_RESOLVERS = {
   anifume: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anifume",
   kurokamii: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/kurokamii",
-  "anime-hdzero": "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anime-hdzero",
+  "anime-hdzero":
+    "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anime-hdzero",
 };
 
 /** Resolve station ที่มี `resolver` flag → fresh stream URL */
@@ -63,7 +64,8 @@ async function resolveStreamUrl(station) {
   const resp = await fetch(url, { method: "GET" });
   if (!resp.ok) throw new Error(`resolver HTTP ${resp.status}`);
   const data = await resp.json();
-  if (!data || !data.stream) throw new Error(data?.error || "no stream in resolver response");
+  if (!data || !data.stream)
+    throw new Error(data?.error || "no stream in resolver response");
   return data.stream;
 }
 let isAvMode = false;
@@ -73,7 +75,7 @@ let searchIndexRootNode = null;
 const searchIndexVisitedUrls = new Set();
 const searchIndexEntryKeys = new Set();
 let currentPage = 0;
-let currentSortOrder = "za";   // default: descending (newest first for series/movies)
+let currentSortOrder = "za"; // default: descending (newest first for series/movies)
 let currentSortMode = "updated"; // 'alpha' | 'release' | 'updated' — series/movie tabs only
 let privateUnlocked = false; // unlocks all private categories at once
 
@@ -1060,8 +1062,10 @@ function renderGroups(groups, sectionTitle, parentNode) {
   );
   const hasBadges = groups.some((g) => g.badge);
   // Detect navigation/category pages (no items have date data) → use fixed name asc, hide sort UI
-  const hasAnyDateData = groups.some((g) => g && (g.release_date || g.updated_at));
-  const effectiveSortMode  = hasAnyDateData ? currentSortMode  : "alpha";
+  const hasAnyDateData = groups.some(
+    (g) => g && (g.release_date || g.updated_at),
+  );
+  const effectiveSortMode = hasAnyDateData ? currentSortMode : "alpha";
   const effectiveSortOrder = hasAnyDateData ? currentSortOrder : "az";
   const dateKey =
     effectiveSortMode === "release"
@@ -1154,9 +1158,10 @@ function renderGroups(groups, sectionTitle, parentNode) {
       const complete = group.groups
         .filter((t) => t.status === "completed")
         .map((t) => t.name || "");
-      seasonCompletion = incomplete.length === 0
-        ? { status: "completed" }
-        : { status: "incomplete", incomplete, complete };
+      seasonCompletion =
+        incomplete.length === 0
+          ? { status: "completed" }
+          : { status: "incomplete", incomplete, complete };
     }
     const card = makeCard({
       name: displayName,
@@ -1164,7 +1169,8 @@ function renderGroups(groups, sectionTitle, parentNode) {
       sub: group.author && group.author !== "Bank_" ? group.author : null,
       landscape: false,
       badge: group.badge || (sn?.en ? group.name || null : null),
-      seasonCount: typeof group.season_count === "number" ? group.season_count : null,
+      seasonCount:
+        typeof group.season_count === "number" ? group.season_count : null,
       partCount: typeof group.part_count === "number" ? group.part_count : null,
       completion: group.completion || null,
       seasonCompletion,
@@ -1274,10 +1280,18 @@ function renderPaginationNav(currentPage, totalPages) {
 // Wire click handlers for pagination buttons (First/Prev/Numbers/Next/Last).
 // `goToPage(pageIdx)` is the caller's per-render-context handler.
 function wirePaginationButtons(goToPage, totalPages) {
-  document.getElementById("page-first")?.addEventListener("click", () => goToPage(0));
-  document.getElementById("page-prev")?.addEventListener("click", () => goToPage(currentPage - 1));
-  document.getElementById("page-next")?.addEventListener("click", () => goToPage(currentPage + 1));
-  document.getElementById("page-last")?.addEventListener("click", () => goToPage(totalPages - 1));
+  document
+    .getElementById("page-first")
+    ?.addEventListener("click", () => goToPage(0));
+  document
+    .getElementById("page-prev")
+    ?.addEventListener("click", () => goToPage(currentPage - 1));
+  document
+    .getElementById("page-next")
+    ?.addEventListener("click", () => goToPage(currentPage + 1));
+  document
+    .getElementById("page-last")
+    ?.addEventListener("click", () => goToPage(totalPages - 1));
   gridView.querySelectorAll(".page-number").forEach((btn) => {
     btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
   });
@@ -1610,16 +1624,31 @@ function buildCompletionText(completion, seasonCount) {
   if (!completion) return null;
   if (completion.status === "completed") return "จบแล้ว";
   if (completion.status !== "incomplete") return null;
-  const trackQual = completion.track === "th" ? "(th) "
-                  : completion.track === "sub" ? "(sub) "
-                  : "";
-  const sPrefix = (seasonCount && seasonCount > 1 && completion.season)
-    ? `S${completion.season} `
-    : "";
+  const trackQual =
+    completion.track === "th"
+      ? "(th) "
+      : completion.track === "sub"
+        ? "(sub) "
+        : "";
+  const sPrefix =
+    seasonCount && seasonCount > 1 && completion.season
+      ? `S${completion.season} `
+      : "";
   return `${sPrefix}${trackQual}ยังไม่จบ`;
 }
 
-function makeCard({ name, image, sub, landscape, badge, status, seasonCount, partCount, completion, seasonCompletion }) {
+function makeCard({
+  name,
+  image,
+  sub,
+  landscape,
+  badge,
+  status,
+  seasonCount,
+  partCount,
+  completion,
+  seasonCompletion,
+}) {
   const card = document.createElement("div");
   card.className = "card";
   card.title = name || "";
@@ -1669,7 +1698,8 @@ function makeCard({ name, image, sub, landscape, badge, status, seasonCount, par
   //   completion (top-level meta from index.txt, with S{n} prefix)
   //   > seasonCompletion (per-season summary inside a series)
   //   > legacy status (innermost track card)
-  let statusText = null, statusKind = null;
+  let statusText = null,
+    statusKind = null;
   if (completion) {
     statusText = buildCompletionText(completion, seasonCount);
     statusKind = completion.status === "completed" ? "completed" : "ongoing";
@@ -1683,9 +1713,10 @@ function makeCard({ name, image, sub, landscape, badge, status, seasonCount, par
       // If both tracks incomplete (or only 1 track in season), fall back to plain "ยังไม่จบ".
       const inc = seasonCompletion.incomplete || [];
       const comp = seasonCompletion.complete || [];
-      statusText = (inc.length === 1 && comp.length >= 1)
-        ? `${inc[0]} ยังไม่จบ`
-        : "ยังไม่จบ";
+      statusText =
+        inc.length === 1 && comp.length >= 1
+          ? `${inc[0]} ยังไม่จบ`
+          : "ยังไม่จบ";
       statusKind = "ongoing";
     }
   } else if (status === "completed" || status === "ongoing") {
