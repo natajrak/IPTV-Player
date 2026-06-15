@@ -253,6 +253,7 @@ async function main() {
         releaseDate: mainPlaylist.release_date || '',
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
+        partCount: mainPlaylist.part_count ?? null,
       });
 
       console.log('\n🎉 เสร็จสิ้น!');

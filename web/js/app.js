@@ -51,6 +51,8 @@ let playEpisodeEpoch = 0; // bumps per playEpisode call — async resolvers chec
  */
 const STREAM_RESOLVERS = {
   anifume: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anifume",
+  kurokamii: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/kurokamii",
+  "anime-hdzero": "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anime-hdzero",
 };
 
 /** Resolve station ที่มี `resolver` flag → fresh stream URL */
@@ -1136,6 +1138,26 @@ function renderGroups(groups, sectionTitle, parentNode) {
         : sn.en
       : group.name || group.info || "ไม่มีชื่อ";
     const isTrack = Array.isArray(group.stations) && !group.groups;
+    // Season-level card: this `group` is a season with nested tracks (each carrying stations).
+    // Derive a per-season completion summary so the card shows "จบแล้ว" / "ยังไม่จบ" /
+    // "{trackName} ยังไม่จบ" based on which tracks are/aren't done.
+    const isSeasonGroup =
+      !isTrack &&
+      Array.isArray(group.groups) &&
+      group.groups.length > 0 &&
+      group.groups.every((t) => t && Array.isArray(t.stations));
+    let seasonCompletion = null;
+    if (isSeasonGroup) {
+      const incomplete = group.groups
+        .filter((t) => t.status !== "completed")
+        .map((t) => t.name || "");
+      const complete = group.groups
+        .filter((t) => t.status === "completed")
+        .map((t) => t.name || "");
+      seasonCompletion = incomplete.length === 0
+        ? { status: "completed" }
+        : { status: "incomplete", incomplete, complete };
+    }
     const card = makeCard({
       name: displayName,
       image: group.image,
@@ -1143,7 +1165,9 @@ function renderGroups(groups, sectionTitle, parentNode) {
       landscape: false,
       badge: group.badge || (sn?.en ? group.name || null : null),
       seasonCount: typeof group.season_count === "number" ? group.season_count : null,
+      partCount: typeof group.part_count === "number" ? group.part_count : null,
       completion: group.completion || null,
+      seasonCompletion,
       status: isTrack
         ? group.status === "completed"
           ? "completed"
@@ -1595,7 +1619,7 @@ function buildCompletionText(completion, seasonCount) {
   return `${sPrefix}${trackQual}ยังไม่จบ`;
 }
 
-function makeCard({ name, image, sub, landscape, badge, status, seasonCount, completion }) {
+function makeCard({ name, image, sub, landscape, badge, status, seasonCount, partCount, completion, seasonCompletion }) {
   const card = document.createElement("div");
   card.className = "card";
   card.title = name || "";
@@ -1626,11 +1650,14 @@ function makeCard({ name, image, sub, landscape, badge, status, seasonCount, com
   wrapper.className = "card-thumb-wrap";
   wrapper.appendChild(thumb);
 
-  // Top-left badge: season count for series (preferred), or generic `badge` text
-  const seasonBadgeText = (typeof seasonCount === "number" && seasonCount > 0)
-    ? (seasonCount === 1 ? "1 Season" : `${seasonCount} Seasons`)
-    : null;
-  const displayBadge = seasonBadgeText || badge;
+  // Top-left badge: season count (series), part count (movie franchise), or generic `badge` text
+  let countBadgeText = null;
+  if (typeof seasonCount === "number" && seasonCount > 0) {
+    countBadgeText = seasonCount === 1 ? "1 Season" : `${seasonCount} Seasons`;
+  } else if (typeof partCount === "number" && partCount > 0) {
+    countBadgeText = `${partCount} ภาค`;
+  }
+  const displayBadge = countBadgeText || badge;
   if (displayBadge) {
     const badgeEl = document.createElement("div");
     badgeEl.className = "card-badge";
@@ -1638,11 +1665,29 @@ function makeCard({ name, image, sub, landscape, badge, status, seasonCount, com
     wrapper.appendChild(badgeEl);
   }
 
-  // Bottom-right status badge — prefer `completion` (richer), fall back to legacy `status`
+  // Bottom-right status badge — precedence:
+  //   completion (top-level meta from index.txt, with S{n} prefix)
+  //   > seasonCompletion (per-season summary inside a series)
+  //   > legacy status (innermost track card)
   let statusText = null, statusKind = null;
   if (completion) {
     statusText = buildCompletionText(completion, seasonCount);
     statusKind = completion.status === "completed" ? "completed" : "ongoing";
+  } else if (seasonCompletion) {
+    if (seasonCompletion.status === "completed") {
+      statusText = "จบแล้ว";
+      statusKind = "completed";
+    } else {
+      // Show "{trackName} ยังไม่จบ" only when exactly ONE track is incomplete AND another is
+      // complete — that's the case the user wants to call out (e.g. "ซับไทย ยังไม่จบ").
+      // If both tracks incomplete (or only 1 track in season), fall back to plain "ยังไม่จบ".
+      const inc = seasonCompletion.incomplete || [];
+      const comp = seasonCompletion.complete || [];
+      statusText = (inc.length === 1 && comp.length >= 1)
+        ? `${inc[0]} ยังไม่จบ`
+        : "ยังไม่จบ";
+      statusKind = "ongoing";
+    }
   } else if (status === "completed" || status === "ongoing") {
     statusText = status === "completed" ? "จบแล้ว" : "ยังไม่จบ";
     statusKind = status;

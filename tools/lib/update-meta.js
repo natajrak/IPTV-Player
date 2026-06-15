@@ -181,6 +181,7 @@ async function runUpdateMeta(ctx) {
         releaseDate: mainStamped.release_date || '',
         updatedAt: mainStamped.updated_at,
         seasonCount: null, completion: null,
+        partCount: mainStamped.part_count ?? null,
       });
     } else if (!isPartFile) {
       io.updateIndex({
@@ -192,6 +193,7 @@ async function runUpdateMeta(ctx) {
         releaseDate: playlist.release_date || '',
         updatedAt: playlist.updated_at,
         seasonCount: null, completion: null,
+        partCount: playlist.part_count ?? null,
       });
     }
     console.log('🎉 เสร็จสิ้น!');

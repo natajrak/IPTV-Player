@@ -18,9 +18,10 @@
  *   --type=KIND       anime-series | anime-movie | movie | series
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
- *   - Stream ผ่าน CF Worker: https://shy-haze-2452.natajrak-p.workers.dev/
- *   - UUID มาจาก iframe akuma-player.xyz/play/{uuid}
- *   - Stream URL: files.akuma-player.xyz/view/{uuid}
+ *   - Domain: anime-hd-zero.com (migrated from anime-hdzero.com)
+ *   - cur.player_url = https://app.akuma-stream.com/watch/{uuid} (signed/expiring)
+ *   - Stations carry the player_url + `resolver: 'anime-hdzero'` → Player resolves
+ *     fresh m3u8 at play time via /resolve/anime-hdzero on the CF worker
  *   - Default --track = th (พากย์ไทย)
  *   - Shared logic อยู่ใน tools/lib/ (env, utils, tmdb, playlist-io, update-meta)
  */
@@ -62,9 +63,10 @@ if (!seriesUrl && !updateMeta) {
 const { isMovie, playlistDir: PLAYLIST_DIR, indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE } =
   makePaths({ typeArg, scriptDir: __dirname });
 
-const CF_PROXY = 'https://shy-haze-2452.natajrak-p.workers.dev/';
-const PLAYER_REFERER = 'https://akuma-player.xyz/';
-const REFERER = 'https://anime-hdzero.com/';
+// anime-hdzero.com → anime-hd-zero.com migration (Dec 2025) + backend swap to akuma-stream.
+// Stream URLs are now signed/expiring — playlist stores the player page URL + resolver flag,
+// Player resolves via /resolve/anime-hdzero on the CF worker at play time.
+const REFERER = 'https://anime-hd-zero.com/';
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36',
@@ -104,12 +106,6 @@ async function fetchInertia(url, version) {
   return res.json();
 }
 
-/** แปลง UUID → stream URL ผ่าน CF proxy */
-function buildStreamUrl(uuid) {
-  const streamUrl = `https://files.akuma-player.xyz/view/${uuid}`;
-  return `${CF_PROXY}?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(PLAYER_REFERER)}`;
-}
-
 // ───── Source-specific: Parse anime page (Inertia) ─────
 async function parseAnimePage(url) {
   console.log(`\n📄 กำลัง fetch หน้า anime: ${url}`);
@@ -126,7 +122,7 @@ async function parseAnimePage(url) {
   const catId = anime.cat_id;
 
   const episodes = (anime.episode_list || []).map((ep) => ({
-    url: `https://anime-hdzero.com/anime/${catId}/episode/${ep.list_id}`,
+    url: `https://anime-hd-zero.com/anime/${catId}/episode/${ep.list_id}`,
     epTitle: ep.list_title || '',
     listId: ep.list_id,
   }));
@@ -138,18 +134,16 @@ async function parseAnimePage(url) {
   return { title, posterImg, episodes, version };
 }
 
-// ───── Source-specific: Get UUID from episode page (Inertia) ─────
-async function getEpisodeUuid(epPageUrl, version) {
+// ───── Source-specific: Get player URL from episode page (Inertia) ─────
+// Returns the akuma-stream watch URL — Player calls /resolve/anime-hdzero at play time to
+// extract the (signed, expiring) m3u8 from that page.
+async function getEpisodePlayerUrl(epPageUrl, version) {
   const data = await fetchInertia(epPageUrl, version);
   const cur = data.props?.currentEpisode;
   if (!cur) throw new Error(`ไม่พบ currentEpisode ใน ${epPageUrl}`);
-
-  // UUID จาก player_url: https://akuma-player.xyz/play/{uuid}
   const playerUrl = cur.player_url || '';
-  const m = playerUrl.match(/akuma-player\.xyz\/play\/([a-f0-9-]+)/i)
-        || (cur.uuid ? [null, cur.uuid] : null);
-  if (!m) throw new Error(`ไม่พบ UUID ใน ${epPageUrl}`);
-  return m[1];
+  if (!playerUrl) throw new Error(`ไม่พบ player_url ใน ${epPageUrl}`);
+  return playerUrl;
 }
 
 // ───── Main ─────
@@ -285,11 +279,10 @@ async function main() {
       const epNum = i + 1;
       process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
 
-      let streamUrl = null;
+      let playerUrl = null;
       try {
-        const uuid = await getEpisodeUuid(ep.url, inertiaVersion);
-        streamUrl = buildStreamUrl(uuid);
-        process.stdout.write(` UUID: ${uuid}`);
+        playerUrl = await getEpisodePlayerUrl(ep.url, inertiaVersion);
+        process.stdout.write(` ${playerUrl}`);
       } catch (err) {
         console.warn(` ⚠️  ${err.message}`);
       }
@@ -305,7 +298,9 @@ async function main() {
       stations.push({
         name: stationName,
         ...(epThumb && { image: epThumb }),
-        url: streamUrl || ep.url,
+        url: playerUrl || ep.url,
+        // Player resolves the signed m3u8 at play time via the anime-hdzero resolver.
+        ...(playerUrl && { resolver: 'anime-hdzero' }),
         referer: REFERER,
         release_date: tmdbEp?.air_date || '',
       });
@@ -354,6 +349,7 @@ async function main() {
         releaseDate: mainPlaylist.release_date || '',
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
+        partCount: mainPlaylist.part_count ?? null,
       });
     } else {
       const playlist = io.buildOrMergePlaylist({

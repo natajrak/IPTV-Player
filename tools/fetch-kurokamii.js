@@ -50,8 +50,6 @@ if (!seriesUrl && !updateMeta) {
 const { isMovie, playlistDir: PLAYLIST_DIR, indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE } =
   makePaths({ typeArg, scriptDir: __dirname });
 
-const CF_PROXY = 'https://shy-haze-2452.natajrak-p.workers.dev/';
-const PLAYER_REFERER = 'https://akuma-player.xyz/';
 const STATION_REFERER = 'https://kurokamii.com/';
 
 const HEADERS = {
@@ -90,10 +88,9 @@ async function fetchInertia(url, version) {
   return res.json();
 }
 
-function buildStreamUrl(uuid) {
-  const streamUrl = `https://files.akuma-player.xyz/view/${uuid}`;
-  return `${CF_PROXY}?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(PLAYER_REFERER)}`;
-}
+// kurokamii migrated to app.akuma-stream.com (Dec 2025) — stream URLs are now signed and
+// expire, so we store the player page URL on each station and mark it with `resolver: 'kurokamii'`.
+// The Player calls /resolve/kurokamii on the worker at play time to get a fresh signed m3u8.
 
 async function parseAnimePage(url) {
   console.log(`\n📄 กำลัง fetch หน้า anime: ${url}`);
@@ -118,15 +115,13 @@ async function parseAnimePage(url) {
   return { title, posterImg, episodes, version };
 }
 
-async function getEpisodeUuid(epPageUrl, version) {
+async function getEpisodePlayerUrl(epPageUrl, version) {
   const data = await fetchInertia(epPageUrl, version);
   const cur = data.props?.currentEpisode;
   if (!cur) throw new Error(`ไม่พบ currentEpisode ใน ${epPageUrl}`);
   const playerUrl = cur.player_url || '';
-  const m = playerUrl.match(/akuma-player\.xyz\/play\/([a-f0-9-]+)/i)
-         || (cur.uuid ? [null, cur.uuid] : null);
-  if (!m) throw new Error(`ไม่พบ UUID ใน ${epPageUrl}`);
-  return m[1];
+  if (!playerUrl) throw new Error(`ไม่พบ player_url ใน ${epPageUrl}`);
+  return playerUrl;
 }
 
 // ───── Main ─────
@@ -222,7 +217,7 @@ async function main() {
       }
     }
 
-    console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
+    console.log(`\n🔗 กำลัง fetch player URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
     for (let i = 0; i < episodes.length; i++) {
@@ -230,11 +225,10 @@ async function main() {
       const epNum = i + 1;
       process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
 
-      let streamUrl = null;
+      let playerUrl = null;
       try {
-        const uuid = await getEpisodeUuid(ep.url, inertiaVersion);
-        streamUrl = buildStreamUrl(uuid);
-        process.stdout.write(` UUID: ${uuid}`);
+        playerUrl = await getEpisodePlayerUrl(ep.url, inertiaVersion);
+        process.stdout.write(` ${playerUrl}`);
       } catch (err) {
         console.warn(` ⚠️  ${err.message}`);
       }
@@ -248,7 +242,10 @@ async function main() {
       stations.push({
         name: stationName,
         ...(epThumb && { image: epThumb }),
-        url: streamUrl || ep.url,
+        url: playerUrl || ep.url,
+        // Player resolves the signed m3u8 at play time via the kurokamii resolver.
+        // (Without `resolver`, station.url is treated as a direct stream URL.)
+        ...(playerUrl && { resolver: 'kurokamii' }),
         referer: STATION_REFERER,
         release_date: tmdbEp?.air_date || '',
       });
@@ -295,6 +292,7 @@ async function main() {
         releaseDate: mainPlaylist.release_date || '',
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
+        partCount: mainPlaylist.part_count ?? null,
       });
     } else {
       const playlist = io.buildOrMergePlaylist({

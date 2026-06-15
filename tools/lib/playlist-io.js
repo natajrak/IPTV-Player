@@ -65,14 +65,21 @@ function stampPlaylist(playlist, tmdbResult, isMovie) {
     playlist.updated_at = asMidnightUtc(playlist.release_date);
   }
 
-  // Stamp series-only completion meta onto playlist (Player + index use these to render badges).
+  // Stamp count/completion meta for the Player + index badges.
+  // Series: season_count + completion. Movie main files (groups with .url to parts): part_count.
+  // Movie part files / legacy flat: nothing (neither field applies).
   if (!isMovie) {
     const meta = deriveCompletionMeta(playlist);
     if (meta.season_count != null) playlist.season_count = meta.season_count;
     else delete playlist.season_count;
     if (meta.completion) playlist.completion = meta.completion;
     else delete playlist.completion;
+    delete playlist.part_count;
   } else {
+    const isMovieMain = Array.isArray(playlist.groups) && playlist.groups.length > 0
+                     && playlist.groups[0]?.url && !playlist.groups[0]?.stations;
+    if (isMovieMain) playlist.part_count = playlist.groups.length;
+    else delete playlist.part_count;
     delete playlist.season_count;
     delete playlist.completion;
   }
@@ -250,11 +257,12 @@ function upsertMainFile({ mainPath, franchiseName, franchisePoster, partTitle, p
 }
 
 // Upsert/update entry in {tab}/index.txt
-// seasonCount + completion are stamped when provided (series only — pass null for movies)
+// seasonCount + completion are stamped for series; partCount is stamped for movie main files.
+// Pass null for fields that don't apply to clear them from the entry.
 function updateIndex({
   indexPath, githubRawBase, seriesTitle, posterUrl, filename,
   upsert = false, releaseDate = '', updatedAt = '',
-  seasonCount = null, completion = null,
+  seasonCount = null, completion = null, partCount = null,
 }) {
   if (!fs.existsSync(indexPath)) {
     console.warn('⚠️  ไม่พบ index.txt ข้าม...');
@@ -272,12 +280,14 @@ function updateIndex({
     if (updatedAt)   entry.updated_at  = updatedAt;
     if (typeof seasonCount === 'number') entry.season_count = seasonCount;
     else if (seasonCount === null && 'season_count' in entry) delete entry.season_count;
+    if (typeof partCount === 'number') entry.part_count = partCount;
+    else if (partCount === null && 'part_count' in entry) delete entry.part_count;
     if (completion) entry.completion = completion;
     else if (completion === null && 'completion' in entry) delete entry.completion;
   };
 
   if (existing) {
-    if (!upsert && !updatedAt && !releaseDate && seasonCount == null && completion == null) {
+    if (!upsert && !updatedAt && !releaseDate && seasonCount == null && completion == null && partCount == null) {
       console.log(`ℹ️  มีอยู่ใน index.txt แล้ว (${existing.name}) ข้าม...`);
       return;
     }
