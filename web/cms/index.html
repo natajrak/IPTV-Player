@@ -155,6 +155,23 @@
     .sf-btn.active[data-status="completed"] { color: #6de06d; }
     .sf-btn.active[data-status="ongoing"]   { color: #d09050; }
 
+    /* ── Source filter dropdown ──────────────────────── */
+    .source-filter-sel {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      padding: 6px 10px;
+      outline: none;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+    .source-filter-sel:focus,
+    .source-filter-sel:hover { border-color: #3a3a3a; }
+    .source-filter-sel.filtered { color: var(--blue); border-color: var(--blue); }
+
     /* ── Table ───────────────────────────────────────── */
     .table-scroll { flex: 1; overflow: auto; }
     table { width: 100%; border-collapse: collapse; }
@@ -682,6 +699,7 @@
       <button class="sf-btn" data-status="completed">จบแล้ว</button>
       <button class="sf-btn" data-status="ongoing">ยังไม่จบ</button>
     </div>
+    <select class="source-filter-sel" data-tab="anime-series" title="กรองตามเว็บ"></select>
     <span class="pane-stats" id="stats-anime-series"></span>
   </div>
   <div class="table-scroll">
@@ -696,6 +714,7 @@
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
       <input type="text" class="s-inp" data-tab="anime-movie" placeholder="ค้นหาชื่อเรื่อง...">
     </div>
+    <select class="source-filter-sel" data-tab="anime-movie" title="กรองตามเว็บ"></select>
     <span class="pane-stats" id="stats-anime-movie"></span>
   </div>
   <div class="table-scroll">
@@ -710,6 +729,7 @@
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
       <input type="text" class="s-inp" data-tab="movie" placeholder="ค้นหาชื่อเรื่อง...">
     </div>
+    <select class="source-filter-sel" data-tab="movie" title="กรองตามเว็บ"></select>
     <span class="pane-stats" id="stats-movie"></span>
   </div>
   <div class="table-scroll">
@@ -729,6 +749,7 @@
       <button class="sf-btn" data-status="completed">จบแล้ว</button>
       <button class="sf-btn" data-status="ongoing">ยังไม่จบ</button>
     </div>
+    <select class="source-filter-sel" data-tab="series" title="กรองตามเว็บ"></select>
     <span class="pane-stats" id="stats-series"></span>
   </div>
   <div class="table-scroll">
@@ -1204,13 +1225,15 @@ document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
   });
 });
 
-// ── Instant search + status filter ───────────────────────────────
+// ── Instant search + status filter + source filter ──────────────
 const statusFilters = {};
+const sourceFilters = {};
 
 function applyTabFilter(tabId) {
   const inp = document.querySelector(`.s-inp[data-tab="${tabId}"]`);
   const q = (inp?.value || '').toLowerCase().trim();
   const sf = statusFilters[tabId] || '';
+  const srcF = sourceFilters[tabId] || '';
   const wrap = document.getElementById('tbl-' + tabId);
   if (!wrap) return;
 
@@ -1228,7 +1251,10 @@ function applyTabFilter(tabId) {
     let firstVisible = null;
     rows.forEach(r => {
       const statusMatch = !sf || r.dataset.status === sf;
-      const visible = titleMatch && statusMatch;
+      // Per-row source check; title rows of movie main files carry the union of all
+      // parts' sources, so they survive filtering when any part matches.
+      const sourceMatch = !srcF || (r.dataset.sources || '').split(',').includes(srcF);
+      const visible = titleMatch && statusMatch && sourceMatch;
       r.classList.toggle('hidden', !visible);
       if (visible && !firstVisible) firstVisible = r;
     });
@@ -1238,7 +1264,8 @@ function applyTabFilter(tabId) {
   });
 
   const stats = document.getElementById('stats-' + tabId);
-  if (stats) stats.textContent = (q || sf) ? `${shown} / ${total} รายการ` : `${total} รายการ`;
+  const hasFilter = q || sf || srcF;
+  if (stats) stats.textContent = hasFilter ? `${shown} / ${total} รายการ` : `${total} รายการ`;
 }
 
 document.querySelectorAll('.s-inp').forEach(inp => {
@@ -1255,6 +1282,24 @@ document.querySelectorAll('.status-filter').forEach(group => {
     applyTabFilter(tabId);
   });
 });
+
+// Source-filter: populate options per tab and apply on change.
+// (ADD_SCRIPTS / sourceFilters are declared higher up — this section just wires the UI.)
+function initSourceFilters() {
+  document.querySelectorAll('.source-filter-sel').forEach(sel => {
+    const tabId = sel.dataset.tab;
+    const sources = ADD_SCRIPTS[tabId] || [];
+    sel.innerHTML = `<option value="">ทุกแหล่ง</option>` +
+      sources.map(s => `<option value="${esc(s.id)}">${esc(s.label)}</option>`).join('');
+    sel.addEventListener('change', () => {
+      sourceFilters[tabId] = sel.value;
+      sel.classList.toggle('filtered', !!sel.value);
+      applyTabFilter(tabId);
+    });
+  });
+}
+// Defer until ADD_SCRIPTS is defined (it's declared further down in the script).
+setTimeout(initSourceFilters, 0);
 
 // ── Helpers ──────────────────────────────────────────────────────
 function esc(s) {
@@ -1341,14 +1386,13 @@ function badge(name, rf = null) {
   return `<span class="${cls}">${esc(name)}</span>`;
 }
 
-// Map a referer URL → short source label (e.g. "indy-anime", "kurokamii"),
-// rendered as a clickable chip next to each track badge. Empty string if no/unknown referer.
-function sourceTag(refererUrl) {
+// Map a referer URL → short source label (e.g. "indy-anime", "kurokamii").
+// Returns hostname as fallback for unknown sources; empty string if URL is invalid/missing.
+function sourceLabelFromReferer(refererUrl) {
   if (!refererUrl) return '';
   const first = String(refererUrl).split(',')[0].trim();
   let host = '';
   try { host = new URL(first).hostname.replace(/^www\./, ''); } catch { return ''; }
-  // hostname substring → label
   const map = [
     ['indy-anime',    'indy-anime'],
     ['animeindy',     'indy-anime'],
@@ -1373,10 +1417,27 @@ function sourceTag(refererUrl) {
     ['fastfastcdn',   'allinhd'],
     ['javxx',         'javxx'],
   ];
-  let label = '';
-  for (const [needle, val] of map) { if (host.includes(needle)) { label = val; break; } }
-  if (!label) label = host;
+  for (const [needle, val] of map) { if (host.includes(needle)) return val; }
+  return host;
+}
+
+// Render a clickable chip showing the source label next to each track badge.
+function sourceTag(refererUrl) {
+  const label = sourceLabelFromReferer(refererUrl);
+  if (!label) return '';
+  const first = String(refererUrl).split(',')[0].trim();
   return `<a class="badge-source" href="${esc(first)}" target="_blank" rel="noopener" title="${esc(first)}" onclick="event.stopPropagation()">${esc(label)}</a>`;
+}
+
+// Collect unique source labels from a list of tracks (or stations) for data-sources stamping.
+function collectSources(items) {
+  if (!Array.isArray(items)) return '';
+  const set = new Set();
+  for (const it of items) {
+    const lbl = sourceLabelFromReferer(it?.referer);
+    if (lbl) set.add(lbl);
+  }
+  return [...set].join(',');
 }
 
 function artTag(src, first) {
@@ -1550,7 +1611,8 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       }).join(' ');
 
       const rowStatus = tracks.length && tracks.every(t => t.status === 'completed') ? 'completed' : 'ongoing';
-      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-status="${rowStatus}" class="${isFirst ? 'grp-top' : ''}">
+      const rowSources = collectSources(tracks);
+      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-status="${rowStatus}" data-sources="${esc(rowSources)}" class="${isFirst ? 'grp-top' : ''}">
         <td class="c-no"><span class="row-head">${gid}</span></td>
         <td class="c-art"><span class="row-head">${artTag(poster, true)}</span></td>
         <td class="c-title"><span class="row-head">${titleHtml(title)}</span><span class="row-cont"><span class="title-cont">↳ ${esc(sznName)}</span></span></td>
@@ -1609,7 +1671,11 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const u = gr && gr._partPl && gr._partPl.updated_at;
         if (u && (!latestUpdated || u > latestUpdated)) latestUpdated = u;
       });
-      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
+      // Title row sources: union of all parts' station sources — so the title row
+      // matches whenever any part matches the source filter.
+      const allStations = (pl.groups || []).flatMap(gr => gr?._partPl?.stations || []);
+      const titleSources = collectSources(allStations);
+      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-sources="${esc(titleSources)}" class="grp-top">
         <td class="c-no">${gid}</td>
         <td class="c-art">${artTag(poster, true)}</td>
         <td class="c-title">${titleHtml(title)}</td>
@@ -1631,12 +1697,13 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
         const partSlug    = partFile.replace(/^\d+-/, '');
         const partPl      = group._partPl || {};
         const partStations = partPl.stations || [];
+        const partSources = collectSources(partStations);
         const trackBadges = partStations.map(s => {
           const rf = s.referer ? { referer: s.referer, filename: partFile, season: gi + 1, tabId, mainSlug: slug } : null;
           return `${badge(s.name, rf)}${sourceTag(s.referer)}`;
         }).join(' ') || '<span style="color:var(--text3)">—</span>';
 
-        html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="">
+        html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-sources="${esc(partSources)}" class="">
           <td class="c-no"></td>
           <td class="c-art"></td>
           <td class="c-title"><span class="title-cont">↳ ${esc(group.name || badgeName)}</span></td>
@@ -1658,8 +1725,9 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
           const rf = s.referer ? { referer: s.referer, filename, season: gi + 1, tabId } : null;
           return `${badge(s.name, rf)}${sourceTag(s.referer)}`;
         }).join(' ') || '<span style="color:var(--text3)">—</span>';
+        const inlineSources = collectSources(group.stations || []);
 
-        html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="${isFirst ? 'grp-top' : ''}">
+        html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-sources="${esc(inlineSources)}" class="${isFirst ? 'grp-top' : ''}">
           <td class="c-no">${isFirst ? gid : ''}</td>
           <td class="c-art">${artTag(poster, isFirst)}</td>
           <td class="c-title">${isFirst
@@ -1679,10 +1747,11 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
       const stations = pl.stations || [];
       const trackBadges = stations.map(s => {
         const rf = s.referer ? { referer: s.referer, filename: mainFile, season: 1, tabId } : null;
-        return badge(s.name, rf);
+        return `${badge(s.name, rf)}${sourceTag(s.referer)}`;
       }).join(' ') || '<span style="color:var(--text3)">—</span>';
+      const legacySources = collectSources(stations);
 
-      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
+      html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-sources="${esc(legacySources)}" class="grp-top">
         <td class="c-no">${gid}</td>
         <td class="c-art">${artTag(poster, true)}</td>
         <td class="c-title">${titleHtml(title)}</td>

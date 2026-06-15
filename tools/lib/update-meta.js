@@ -4,7 +4,7 @@
 //          playlist.updated_at = rollup from season-level fields
 const fs = require('fs');
 const path = require('path');
-const { asMidnightUtc, formatSeriesTitle, buildStationName, markTrackComplete } = require('./utils');
+const { asMidnightUtc, formatSeriesTitle, buildStationName, markTrackComplete, matchesSeasonName } = require('./utils');
 const tmdb = require('./tmdb');
 const io = require('./playlist-io');
 
@@ -217,7 +217,7 @@ async function runUpdateMeta(ctx) {
 
   const allSeasons = playlist.groups || [];
   const seasonsToUpdate = seasonName
-    ? allSeasons.filter((s) => s.name === seasonName)
+    ? allSeasons.filter((s) => matchesSeasonName(s.name, seasonName))
     : allSeasons;
 
   if (seasonName && seasonsToUpdate.length === 0) {

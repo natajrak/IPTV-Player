@@ -18,18 +18,83 @@
 //   - **CF edge cache** (cacheTtl=86400) ลด upstream fetch ซ้ำๆ
 //   - **Streaming pass-through** สำหรับ binary GET ที่ไม่มี Range (first-byte ถึง client ทันที ไม่ต้องรอ buffer ทั้งก้อน)
 //   - **Playlist pre-warm** — เมื่อ m3u8 ถูก fetch, fire-and-forget โหลด 40 segments แรกเข้า CF cache ล่วงหน้า
+//   - **Resolver endpoints** /resolve/<name>?url= — รับ ep page URL คืน fresh signed stream URL
+//     (สำหรับเว็บที่ stream URL หมดอายุเร็ว เช่น anifume — เก็บ ep URL ใน playlist แทน stream URL,
+//      client เรียก resolver ก่อน play เพื่อได้ signature ใหม่ ต่อรอบ)
 
 const PRE_WARM_SEGMENT_LIMIT = 40; // ภายใต้ subrequest limit ของ CF Workers Free tier (50/invocation)
 
+/** JSON response helper สำหรับ resolver endpoints */
+function jsonResponse(body, status = 200, cacheSec = 0) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": cacheSec > 0 ? `public, max-age=${cacheSec}` : "no-cache",
+    },
+  });
+}
+
+// ─── Resolvers: ep page URL → fresh signed stream URL ───
+// คืน { stream: string } | { error: string }
+
+// Retry on transient 403/429/5xx (CF Worker IPs ถูก rate-limit สุ่มที่ anifume + อื่นๆ)
+const RESOLVER_RETRY_STATUSES = new Set([403, 408, 425, 429, 500, 502, 503, 504]);
+const RESOLVER_MAX_ATTEMPTS = 4;
+const RESOLVER_RETRY_DELAYS_MS = [200, 600, 1200]; // ก่อน attempt 2, 3, 4
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function fetchWithRetry(url, options, label = "request") {
+  let lastErr;
+  for (let attempt = 1; attempt <= RESOLVER_MAX_ATTEMPTS; attempt++) {
+    try {
+      const r = await fetch(url, options);
+      if (r.ok) return r;
+      if (!RESOLVER_RETRY_STATUSES.has(r.status)) {
+        throw new Error(`${label} HTTP ${r.status}`);
+      }
+      lastErr = new Error(`${label} HTTP ${r.status}`);
+    } catch (e) {
+      lastErr = e;
+    }
+    if (attempt < RESOLVER_MAX_ATTEMPTS) {
+      await sleep(RESOLVER_RETRY_DELAYS_MS[attempt - 1] || 1500);
+    }
+  }
+  throw lastErr || new Error(`${label} failed after ${RESOLVER_MAX_ATTEMPTS} attempts`);
+}
+
+const RESOLVERS = {
+  async anifume(epUrl) {
+    const epHeaders = {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Referer": "https://anifume.com/",
+    };
+    const epResp = await fetchWithRetry(epUrl, { headers: epHeaders, redirect: "follow" }, "ep page");
+    const epHtml = await epResp.text();
+    const iframeMatch = epHtml.match(/<iframe[^>]+src="(https?:\/\/[^"]*anifume\.com\/player[^"]*)"/i);
+    if (!iframeMatch) throw new Error("ไม่พบ iframe player ใน ep page");
+    const iframeUrl = iframeMatch[1];
+
+    const playerResp = await fetchWithRetry(
+      iframeUrl,
+      { headers: { ...epHeaders, "Referer": epUrl }, redirect: "follow" },
+      "iframe",
+    );
+    const playerHtml = await playerResp.text();
+    const fileMatch = playerHtml.match(/"file"\s*:\s*"([^"]+)"/);
+    if (!fileMatch) throw new Error('ไม่พบ "file" ใน iframe');
+    return { stream: fileMatch[1].replace(/\\\//g, "/") };
+  },
+};
+
 export default {
   async fetch(request, _env, ctx) {
-    const { searchParams } = new URL(request.url);
-    const targetUrl = searchParams.get("url");
-    const referer   = searchParams.get("referer") || "";
-
-    if (!targetUrl) {
-      return new Response("Missing ?url=", { status: 400 });
-    }
+    const url = new URL(request.url);
+    const { searchParams } = url;
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
@@ -39,6 +104,30 @@ export default {
           "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
         },
       });
+    }
+
+    // ─── Resolver routes: /resolve/<name>?url=<ep_url> ───
+    // ตัวอย่าง: /resolve/anifume?url=https%3A%2F%2Fanifume.com%2F29047%2FAccel-World-01
+    const resolverMatch = url.pathname.match(/^\/resolve\/([a-z0-9-]+)$/i);
+    if (resolverMatch) {
+      const name = resolverMatch[1].toLowerCase();
+      const epUrl = searchParams.get("url");
+      const fn = RESOLVERS[name];
+      if (!fn) return jsonResponse({ error: `unknown resolver: ${name}` }, 400);
+      if (!epUrl) return jsonResponse({ error: "missing ?url=" }, 400);
+      try {
+        const result = await fn(epUrl);
+        return jsonResponse(result, 200, /*cacheSec=*/ 1800);
+      } catch (e) {
+        return jsonResponse({ error: String(e.message || e) }, 502);
+      }
+    }
+
+    const targetUrl = searchParams.get("url");
+    const referer   = searchParams.get("referer") || "";
+
+    if (!targetUrl) {
+      return new Response("Missing ?url=", { status: 400 });
     }
 
     const upstreamHeaders = {

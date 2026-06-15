@@ -28,7 +28,10 @@
  *   - EP numbering ใน station name = index ภายใน season (reset ที่ 1 ต่อ season)
  *   - Track detection: ดู text label "พากย์ไทย"/"ซับไทย" เป็นหลัก, URL `-th-` เป็น fallback
  *   - Episode page → iframe ของ JWPlayer → parse "file":"https://..." ตรงๆ
- *   - Stream เป็น MP4 + has time-based signature (e=timestamp) → ใช้ได้ระยะหนึ่ง
+ *   - Stream มี time-based signature (m=HMAC, e=expiration) → URL หมดอายุภายในวัน
+ *   - Hybrid resolver mode: เก็บ ep URL + `resolver: "anifume"` ใน station, ไม่เก็บ stream URL
+ *     player จะเรียก worker `/resolve/anifume?url=<ep>` ตอนเล่น → ได้ fresh signature
+ *     → ไม่ต้อง re-scrape เมื่อ URL signature หมดอายุ
  *   - ไม่มี Origin block, CORS friendly → ใช้ raw URL ใน playlist ได้เลย
  *   - Default --track = th (พากย์ไทย)
  *   - Shared logic อยู่ใน tools/lib/
@@ -363,20 +366,15 @@ async function main() {
       }
     }
 
-    console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
+    // Hybrid resolver mode: เก็บ ep URL + resolver flag ใน playlist
+    // (player จะเรียก worker resolver ตอนเล่นเพื่อได้ fresh signature)
+    // ทำให้ไม่ต้อง re-scrape เมื่อ URL signature หมดอายุ (mp4?m=...&e=...)
+    console.log(`\n🔗 สร้าง station entries (${episodes.length} ตอน) — resolver=anifume...`);
     const stations = [];
 
     for (let i = 0; i < episodes.length; i++) {
       const ep = episodes[i];
       const epNum = i + 1;
-      process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
-
-      let streamUrl = null;
-      try {
-        streamUrl = await getStreamUrl(ep.url);
-      } catch (err) {
-        console.warn(` ⚠️  ${err.message}`);
-      }
 
       const tmdbEpNum = epNum + epOffset;
       const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset];
@@ -389,14 +387,13 @@ async function main() {
       stations.push({
         name: stationName,
         ...(epThumb && { image: epThumb }),
-        url: streamUrl || ep.url,
+        url: ep.url,            // ep page URL — player resolve ตอนเล่น
+        resolver: 'anifume',    // ระบุ resolver ที่ player ต้องเรียก
         referer: REFERER,
         release_date: tmdbEp?.air_date || '',
       });
-
-      console.log(' ✅');
-      if (i < episodes.length - 1) await utils.sleep(800);
     }
+    console.log(`✅ สร้าง ${stations.length} stations (ep URLs)`);
 
     const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
     const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
@@ -447,7 +444,7 @@ async function main() {
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {
         const targetSeasonName = seasonName || 'Season 1';
-        const affectedSeason = (playlist.groups || []).find((g) => g.name === targetSeasonName);
+        const affectedSeason = (playlist.groups || []).find((g) => utils.matchesSeasonName(g.name, targetSeasonName));
         if (affectedSeason) affectedSeason.release_date = seasonAirDate;
       }
       io.stampPlaylist(playlist, tmdbShow, false);

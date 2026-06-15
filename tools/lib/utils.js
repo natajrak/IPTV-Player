@@ -56,6 +56,16 @@ function isSpecialSeasonName(name) {
       || /^ซีซั่น\s*0$/.test(s);
 }
 
+// True when two season names refer to the same season — exact match OR both Special-variants.
+// Used by buildOrMergePlaylist + update-meta + per-script post-build to merge "Special",
+// "Specials", "specials", "ตอนพิเศษ", "Season 0" etc. into a single logical season.
+function matchesSeasonName(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  if (isSpecialSeasonName(a) && isSpecialSeasonName(b)) return true;
+  return false;
+}
+
 function buildStationName(epNum, epTitle, isDubbedTrack) {
   if (!epTitle) return isDubbedTrack ? `ตอน ${epNum}` : `Ep. ${epNum}`;
   return isDubbedTrack ? `ตอน ${epNum} - ${epTitle}` : `Ep. ${epNum} - ${epTitle}`;
@@ -84,6 +94,7 @@ module.exports = {
   isGenericEpisodeName,
   isGenericSeasonName,
   isSpecialSeasonName,
+  matchesSeasonName,
   buildStationName,
   markTrackComplete,
   TRACK_MAP,

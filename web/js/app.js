@@ -42,6 +42,28 @@ let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
 let shuffleHistory = []; // track played indices to avoid repeats
+let playEpisodeEpoch = 0; // bumps per playEpisode call — async resolvers check to abort stale work
+
+/* ===== Stream resolvers =====
+ * Map ชื่อ resolver → worker endpoint. ใช้สำหรับเว็บที่ stream URL หมดอายุเร็ว
+ * (HMAC signature + expiration) — playlist เก็บ ep page URL + `resolver` flag,
+ * player เรียก worker resolve ตอนเล่นเพื่อได้ fresh signed URL.
+ */
+const STREAM_RESOLVERS = {
+  anifume: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anifume",
+};
+
+/** Resolve station ที่มี `resolver` flag → fresh stream URL */
+async function resolveStreamUrl(station) {
+  const endpoint = STREAM_RESOLVERS[station.resolver];
+  if (!endpoint) throw new Error(`unknown resolver: ${station.resolver}`);
+  const url = `${endpoint}?url=${encodeURIComponent(station.url)}`;
+  const resp = await fetch(url, { method: "GET" });
+  if (!resp.ok) throw new Error(`resolver HTTP ${resp.status}`);
+  const data = await resp.json();
+  if (!data || !data.stream) throw new Error(data?.error || "no stream in resolver response");
+  return data.stream;
+}
 let isAvMode = false;
 let searchIndex = [];
 let searchIndexPromise = null;
@@ -1934,7 +1956,25 @@ function playEpisode(index, inheritedReferer) {
   // ถ้ากำลัง AirPlay/Cast อยู่ ต้องข้าม HLS.js → ใช้ native source ต่อเนื่อง
   // เพื่อไม่ให้ blob: URL (MSE) ไป kill cast session — ไม่งั้นจอทีวีจะกระพริบ
   // แล้วภาพหาย (เพราะ cast receiver serialize blob ข้ามเครือข่ายไม่ได้)
-  setupVideoSource(url, referer, { forceNative: isCurrentlyCasting() });
+  // ─── Hybrid resolver: ถ้า station.resolver ระบุ → resolve ep URL → fresh stream URL ก่อนเล่น
+  //     (สำหรับเว็บที่ stream URL มี HMAC signature หมดอายุเร็ว เช่น anifume)
+  const epochAtPlay = ++playEpisodeEpoch;
+  const playerOpts = { forceNative: isCurrentlyCasting() };
+  if (station.resolver) {
+    resolveStreamUrl(station)
+      .then((resolvedUrl) => {
+        if (epochAtPlay !== playEpisodeEpoch) return; // user changed ep — abort
+        setupVideoSource(resolvedUrl, referer, playerOpts);
+      })
+      .catch((err) => {
+        if (epochAtPlay !== playEpisodeEpoch) return;
+        console.error("[player] resolver error:", err);
+        hidePlayerLoading();
+        showPlayerNotice(`โหลดสตรีมไม่สำเร็จ: ${err.message || err}`);
+      });
+  } else {
+    setupVideoSource(url, referer, playerOpts);
+  }
 
   playerVideo.onended = () => scheduleNext();
 }

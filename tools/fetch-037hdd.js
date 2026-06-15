@@ -579,7 +579,7 @@ async function main() {
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {
         const targetSeasonName = seasonName || 'Season 1';
-        const affectedSeason = (playlist.groups || []).find((g) => g.name === targetSeasonName);
+        const affectedSeason = (playlist.groups || []).find((g) => utils.matchesSeasonName(g.name, targetSeasonName));
         if (affectedSeason) affectedSeason.release_date = seasonAirDate;
       }
       io.stampPlaylist(playlist, tmdbShow, false);

@@ -1,7 +1,7 @@
 // Playlist file I/O + builders + index management
 const fs = require('fs');
 const path = require('path');
-const { asMidnightUtc, markTrackComplete, isSpecialSeasonName } = require('./utils');
+const { asMidnightUtc, markTrackComplete, isSpecialSeasonName, matchesSeasonName } = require('./utils');
 
 function loadPlaylist(filePath) {
   if (!fs.existsSync(filePath)) return null;
@@ -100,7 +100,7 @@ function buildOrMergePlaylist({
 
     if (existing) {
       const targetName = seasonName || 'Season 1';
-      let season = existing.groups?.find((g) => g.name === targetName)
+      let season = existing.groups?.find((g) => matchesSeasonName(g.name, targetName))
         ?? (seasonNum ? null : existing.groups?.[0]);
 
       if (!season) {
@@ -373,7 +373,7 @@ function deriveCompletionMeta(playlist) {
 function markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount }) {
   if (!playlist || !tmdbEpCount || tmdbEpCount <= 0) return;
   const targetSeason = seasonName || 'Season 1';
-  const season = (playlist.groups || []).find((g) => g && g.name === targetSeason);
+  const season = (playlist.groups || []).find((g) => g && matchesSeasonName(g.name, targetSeason));
   if (!season) return;
   const tracks = Array.isArray(season.groups) && season.groups.length > 0 ? season.groups : [season];
   const track = tracks.find((t) => t && t.name === trackName);
