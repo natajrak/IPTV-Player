@@ -192,11 +192,14 @@ export default {
 
     const peek  = new TextDecoder().decode(firstChunk.slice(0, Math.min(16, firstChunk.length))).trimStart();
     const isHls = peek.startsWith("#EXTM3U") || peek.startsWith("#EXT-X-");
+    // CDN บางแห่ง (เช่น cdn2.maimeorder.com) detect CF Worker IP แล้วห่อ m3u8
+    // ใน JSON `{"p":"base64(m3u8)"}` เพื่อ break direct proxy. ต้อง unwrap ฝั่ง worker.
+    const isJsonWrappedHls = peek.startsWith('{"p":"');
 
     const requestRange = request.headers.get("Range");
     const isHead       = request.method === "HEAD";
-    // ต้องอ่านทั้งหมดถ้า: เป็น m3u8 (ต้อง rewrite), เป็น Range request (ต้อง slice), หรือเป็น HEAD (ต้องรู้ size)
-    const needFullBuffer = isHls || requestRange != null || isHead;
+    // ต้องอ่านทั้งหมดถ้า: เป็น m3u8 (ต้อง rewrite), JSON wrapped (ต้อง decode), Range, หรือ HEAD
+    const needFullBuffer = isHls || isJsonWrappedHls || requestRange != null || isHead;
 
     // ─── Path A: ต้อง buffer ทั้งก้อน (HLS / Range / HEAD) ───
     if (needFullBuffer) {
@@ -215,9 +218,31 @@ export default {
       for (const c of chunks) { merged.set(c, off); off += c.length; }
       const buffer = merged.buffer;
 
-      // ─── HLS playlist: rewrite URLs + pre-warm cache ───
-      if (isHls) {
+      // ─── HLS playlist (incl. JSON-wrapped): rewrite URLs + pre-warm cache ───
+      if (isHls || isJsonWrappedHls) {
         let body = new TextDecoder("utf-8").decode(buffer);
+
+        // Unwrap JSON `{"p":"base64(m3u8)"}` (CDN anti-scrape protection)
+        if (isJsonWrappedHls) {
+          try {
+            const wrapped = JSON.parse(body);
+            if (!wrapped || typeof wrapped.p !== "string") throw new Error("missing wrapped.p");
+            const decodedBytes = Uint8Array.from(atob(wrapped.p), (c) => c.charCodeAt(0));
+            body = new TextDecoder("utf-8").decode(decodedBytes);
+          } catch (e) {
+            return new Response(`JSON unwrap failed: ${e.message}`, {
+              status: 502,
+              headers: { "Access-Control-Allow-Origin": "*" },
+            });
+          }
+          if (!body.trimStart().startsWith("#EXTM3U")) {
+            return new Response("unwrapped body is not m3u8", {
+              status: 502,
+              headers: { "Access-Control-Allow-Origin": "*" },
+            });
+          }
+        }
+
         const targetParsed = new URL(targetUrl);
         const baseOrigin   = targetParsed.origin;
         const baseDir      = targetUrl.substring(0, targetUrl.lastIndexOf("/") + 1);

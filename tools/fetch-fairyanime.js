@@ -113,23 +113,25 @@ async function fetchInnerId(playbackId, pageId) {
   const url = `https://streaming.tonytonychopper.com/playback/v/${playbackId}/`;
   const referer = `${FAIRY_BASE}/watch/${pageId}.html`;
   const html = await fetchText(url, { Referer: referer });
-  const m = html.match(/anime\.tonytonychopper\.net\/v2\/([A-Za-z0-9_-]+)/);
+  // 2 รูปแบบ: /v2/{id} (ใหม่/1080p) หรือ /v/{id} (เก่า/360p)
+  const m = html.match(/anime\.tonytonychopper\.net\/(v2?)\/([A-Za-z0-9_-]+)/);
   if (!m) throw new Error(`ไม่พบ INNER_ID จาก streaming page (playbackId=${playbackId})`);
-  return m[1];
+  return { versionPath: m[1], innerId: m[2] };
 }
 
 async function getStreamInfo(epUrl) {
   const pageId = extractPageId(epUrl);
   if (!pageId) throw new Error(`ไม่สามารถ extract PAGE_ID จาก ${epUrl}`);
   const playbackId = await fetchPlaybackId(pageId);
-  const innerId = await fetchInnerId(playbackId, pageId);
+  const { versionPath, innerId } = await fetchInnerId(playbackId, pageId);
+  const filePath = versionPath === 'v2' ? 'file2' : 'file';
   return {
-    streamUrl: `https://anime.tonytonychopper.net/file2/${innerId}/`,
-    streamReferer: `https://anime.tonytonychopper.net/v2/${innerId}`,
+    streamUrl: `https://anime.tonytonychopper.net/${filePath}/${innerId}/`,
+    streamReferer: `https://anime.tonytonychopper.net/${versionPath}/${innerId}`,
   };
 }
 
-async function parseListingPage(listingUrl) {
+async function parseListingPage(listingUrl, wantTrack) {
   console.log(`\n📄 ตรวจพบหน้า listing: ${listingUrl}`);
   const html = await fetchText(listingUrl, { Referer: FAIRY_BASE + '/' });
   const $ = cheerio.load(html);
@@ -142,33 +144,68 @@ async function parseListingPage(listingUrl) {
     $('.poster img, .thumb img').first().attr('src') ||
     '';
 
-  const epLinks = [];
+  // Group episode links by track (detect จาก anchor text)
+  // หน้า listing แบบ multi-track: anchor text จะมีคำว่า "พากย์ไทย" หรือ "ซับไทย"/"เสียงไทย"
+  const dubEps = [];
+  const subEps = [];
+  const otherEps = [];
+  const seenUrls = new Set();
+
   $('a[href*="/watch/"]').each((_, el) => {
     const href = $(el).attr('href');
     if (!href) return;
     const fullUrl = href.startsWith('http') ? href : `${FAIRY_BASE}${href}`;
     const text = $(el).text().trim();
     if (/ถัดไป|next|ก่อนหน้า|prev/i.test(text)) return;
-    if (!epLinks.find((e) => e.url === fullUrl)) {
-      const epNum = extractEpNum(text);
-      epLinks.push({ url: fullUrl, rawTitle: text, epNum });
-    }
+    if (seenUrls.has(fullUrl)) return;
+    seenUrls.add(fullUrl);
+
+    const epNum = extractEpNum(text);
+    const epObj = { url: fullUrl, rawTitle: text, epNum };
+    if (/พากย์/i.test(text))                       dubEps.push(epObj);
+    else if (/ซับไทย|เสียงไทย/i.test(text))         subEps.push(epObj);
+    else                                            otherEps.push(epObj);
   });
 
-  epLinks.forEach((ep, i) => {
-    if (!ep.epNum) ep.epNum = i + 1;
-    ep.pageId = extractPageId(ep.url) || '';
-  });
-  epLinks.sort((a, b) => a.epNum - b.epNum);
+  // Build sections + fill epNum/pageId
+  const sections = [];
+  if (dubEps.length) sections.push({ track: 'th',    name: 'พากย์ไทย', episodes: dubEps });
+  if (subEps.length) sections.push({ track: 'subth', name: 'ซับไทย',   episodes: subEps });
+  // ไม่มี marker → ถือเป็น 1 section ทั่วไป (ขึ้นกับ default --track ของ user)
+  if (!sections.length && otherEps.length) {
+    sections.push({ track: wantTrack || 'subth', name: 'all', episodes: otherEps });
+  }
+
+  for (const sec of sections) {
+    sec.episodes.forEach((ep, i) => {
+      if (!ep.epNum) ep.epNum = i + 1;
+      ep.pageId = extractPageId(ep.url) || '';
+    });
+    sec.episodes.sort((a, b) => a.epNum - b.epNum);
+  }
 
   console.log(`✅ Series: "${seriesTitle}"`);
-  console.log(`✅ พบ ${epLinks.length} ตอนจากหน้า listing`);
-  epLinks.forEach((ep) => console.log(`  ตอนที่ ${ep.epNum} — ${ep.url}`));
-  return { episodes: epLinks, seriesTitle, posterImg };
+  console.log(`✅ พบ ${sections.length} section(s):`);
+  sections.forEach((s) => console.log(`   • ${s.name} (${s.track}) — ${s.episodes.length} ตอน`));
+
+  // เลือก section ตาม wantTrack
+  let chosen;
+  if (sections.length === 1) {
+    chosen = sections[0];
+  } else {
+    chosen = sections.find((s) => s.track === wantTrack);
+    if (!chosen) {
+      console.warn(`⚠️  ไม่พบ section ที่ตรงกับ --track=${wantTrack} — ใช้ section แรก (${sections[0].name})`);
+      chosen = sections[0];
+    }
+  }
+  console.log(`📌 ใช้ section: "${chosen.name}" (${chosen.track}) — ${chosen.episodes.length} ตอน`);
+
+  return { episodes: chosen.episodes, seriesTitle, posterImg };
 }
 
-async function crawlEpisodes(startUrl) {
-  if (!startUrl.includes('/watch/')) return parseListingPage(startUrl);
+async function crawlEpisodes(startUrl, wantTrack) {
+  if (!startUrl.includes('/watch/')) return parseListingPage(startUrl, wantTrack);
 
   console.log(`\n📄 เริ่ม crawl จาก: ${startUrl}`);
   const episodes = [];
@@ -222,12 +259,13 @@ async function main() {
   try {
     const urls = firstEpUrl.split(',').map((u) => u.trim()).filter(Boolean);
     const isMultiUrl = urls.length > 1;
+    const wantTrack = cli.trackArg === 'subth' ? 'subth' : 'th';
     let rawSeriesTitle = '', rawPoster = '';
     let episodes = [];
 
     for (let ui = 0; ui < urls.length; ui++) {
       if (isMultiUrl) console.log(`\n📡 Fetch part ${ui + 1}/${urls.length}: ${urls[ui]}`);
-      const result = await crawlEpisodes(urls[ui]);
+      const result = await crawlEpisodes(urls[ui], wantTrack);
       if (ui === 0) { rawSeriesTitle = result.seriesTitle; rawPoster = result.posterImg; }
 
       const offset = episodes.length;
