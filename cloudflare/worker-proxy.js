@@ -66,6 +66,32 @@ async function fetchWithRetry(url, options, label = "request") {
   throw lastErr || new Error(`${label} failed after ${RESOLVER_MAX_ATTEMPTS} attempts`);
 }
 
+// Like fetchWithRetry but for proxy passthrough — returns the last Response (or
+// a synthesized 502) instead of throwing, so 4xx/5xx still pass through to client.
+async function fetchProxyWithRetry(url, options) {
+  let lastResp = null;
+  let lastErr  = null;
+  for (let attempt = 1; attempt <= RESOLVER_MAX_ATTEMPTS; attempt++) {
+    try {
+      const r = await fetch(url, options);
+      // Success or non-retryable status → return immediately (pass 404/416/etc through)
+      if (r.ok || !RESOLVER_RETRY_STATUSES.has(r.status)) return r;
+      lastResp = r;
+    } catch (e) {
+      lastErr = e;
+    }
+    if (attempt < RESOLVER_MAX_ATTEMPTS) {
+      await sleep(RESOLVER_RETRY_DELAYS_MS[attempt - 1] || 1500);
+    }
+  }
+  // All attempts exhausted — return last retryable response if any
+  if (lastResp) return lastResp;
+  return new Response(`Upstream fetch failed: ${lastErr?.message || "unknown"}`, {
+    status: 502,
+    headers: { "Access-Control-Allow-Origin": "*", "Content-Type": "text/plain" },
+  });
+}
+
 // Sites backed by akuma-stream (kurokamii + anime-hdzero, as of Dec 2025) share this resolver.
 //   - Old (akuma-player.xyz): cur.player_url = /play/{uuid} → stable files.akuma-player.xyz/view/{uuid}
 //   - New (app.akuma-stream.com): cur.player_url = /watch/{uuid} → page has
@@ -91,11 +117,23 @@ async function resolveAkumaStream(playerUrl, { workerOrigin }) {
 const RESOLVERS = {
   kurokamii: resolveAkumaStream,
   "anime-hdzero": resolveAkumaStream,
+  // anifume sits behind Cloudflare and rejects "naked" Worker requests with 403 unless we
+  // send a full browser-shaped header set (Sec-Fetch-*, sec-ch-ua-*, Accept-Language, etc.).
   async anifume(epUrl) {
     const epHeaders = {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
-      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+      "Accept-Language": "th-TH,th;q=0.9,en-US;q=0.8,en;q=0.7",
+      "Accept-Encoding": "gzip, deflate, br",
       "Referer": "https://anifume.com/",
+      "sec-ch-ua": '"Chromium";v="131", "Not_A Brand";v="24"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": '"Windows"',
+      "Sec-Fetch-Dest": "document",
+      "Sec-Fetch-Mode": "navigate",
+      "Sec-Fetch-Site": "same-origin",
+      "Sec-Fetch-User": "?1",
+      "Upgrade-Insecure-Requests": "1",
     };
     const epResp = await fetchWithRetry(epUrl, { headers: epHeaders, redirect: "follow" }, "ep page");
     const epHtml = await epResp.text();
@@ -165,7 +203,10 @@ export default {
     }
 
     // CF edge cache: ลด upstream fetch ซ้ำๆ ตอน AVPlayer ทำ Range scrubbing
-    const resp = await fetch(targetUrl, {
+    // Retry on transient 403/429/5xx — สำคัญสำหรับ CF-on-CF traffic ที่ถูก rate-limit สุ่ม
+    // (เช่น akuma-stream / maimeorder ที่ดูว่า request มาจาก CF Worker → ตอบ 503)
+    // ใช้ fetchProxyWithRetry → pass-through 4xx ที่ไม่ใช่ retryable ทันที, retry 5xx/429/403
+    const resp = await fetchProxyWithRetry(targetUrl, {
       headers: upstreamHeaders,
       redirect: "follow",
       cf: { cacheTtl: 86400, cacheEverything: true },

@@ -130,20 +130,35 @@ async function parseAnimePage(url) {
 // ───── Step 2: AJAX get_episode_list → episodes per track ─────
 /**
  * คืน { [trackKey]: { title, episodes: [{id, number, title}] } }
+ *
+ * ⚠️ Filter episodes ตาม flag `has_th_sound` / `has_soundtrack`:
+ *    API คืน list เดียวกันสำหรับทุก track — แต่ละ episode มี flag บอกว่ามี dub/sub จริงไหม
+ *    เช่น Liar Game มี 14 ตอนใน array, แต่ has_th_sound = true แค่ 7 ตอน
+ *    → ต้อง skip ตอนที่ไม่มี track ที่ต้องการ (มิฉะนั้น mix_get_player จะ return ของอีก track)
  */
+const TRACK_FLAG = {
+  'th-sound':   'has_th_sound',
+  'soundtrack': 'has_soundtrack',
+};
+
 async function getEpisodeList(seasonId) {
   const data = await ajaxPost('get_episode_list', { season_id: seasonId });
   const result = {};
   for (const [trackKey, group] of Object.entries(data)) {
     if (!group || !Array.isArray(group.data)) continue;
+    const flag = TRACK_FLAG[trackKey];
     result[trackKey] = {
       title: group.title || trackKey,
-      episodes: group.data.map((e) => ({
-        id: String(e.id),
-        number: parseInt(e.number) || 0,
-        title: e.title || '',
-        fullTitle: e.full_title || '',
-      })).sort((a, b) => a.number - b.number),
+      episodes: group.data
+        // ถ้ารู้ flag ของ track นี้ → กรอง episode ที่ไม่มี track นั้น
+        .filter((e) => !flag || e[flag] === true)
+        .map((e) => ({
+          id: String(e.id),
+          number: parseInt(e.number) || 0,
+          title: e.title || '',
+          fullTitle: e.full_title || '',
+        }))
+        .sort((a, b) => a.number - b.number),
     };
   }
   return result;
@@ -348,7 +363,9 @@ async function main() {
 
     for (let i = 0; i < episodes.length; i++) {
       const ep = episodes[i];
-      const epNum = i + 1; // reset per-season (anime-th `number` ก็อยู่ใน season scope แล้ว)
+      // ใช้ API's `number` แทน loop index — สำคัญตอน filter ทำให้ ep หาย (เช่น ep 5 ขาด dub)
+      // มิฉะนั้น station "ตอน 5" จะใส่ stream ของ ep 6 + TMDB title ของ ep 5 (mismatch)
+      const epNum = ep.number || (i + 1);
       process.stdout.write(`  ตอน ${epNum}/${episodes.length} (id=${ep.id})...`);
 
       let streamUrl = null, streamReferer = null;
@@ -360,7 +377,7 @@ async function main() {
       } catch (err) { console.warn(` ⚠️  ${err.message}`); }
 
       const tmdbEpNum = epNum + epOffset;
-      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset];
+      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum);
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}` : '';
 

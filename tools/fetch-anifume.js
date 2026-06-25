@@ -28,11 +28,12 @@
  *   - EP numbering ใน station name = index ภายใน season (reset ที่ 1 ต่อ season)
  *   - Track detection: ดู text label "พากย์ไทย"/"ซับไทย" เป็นหลัก, URL `-th-` เป็น fallback
  *   - Episode page → iframe ของ JWPlayer → parse "file":"https://..." ตรงๆ
- *   - Stream มี time-based signature (m=HMAC, e=expiration) → URL หมดอายุภายในวัน
- *   - Hybrid resolver mode: เก็บ ep URL + `resolver: "anifume"` ใน station, ไม่เก็บ stream URL
- *     player จะเรียก worker `/resolve/anifume?url=<ep>` ตอนเล่น → ได้ fresh signature
- *     → ไม่ต้อง re-scrape เมื่อ URL signature หมดอายุ
- *   - ไม่มี Origin block, CORS friendly → ใช้ raw URL ใน playlist ได้เลย
+ *   - Stream URL: a13.rukoluo.com/f/<show>/<file>.mp4?m=<HMAC>&e=<expiry-unix-ts> — TTL ~2-3 วัน
+ *   - **Mode: resolve at fetch-time** (ไม่ใช้ resolver pattern แบบ kurokamii)
+ *     เหตุผล: anifume host บน Cloudflare และ block Worker→CF traffic (403)
+ *     → resolve ตอนรัน fetch script บน home network (home IP ผ่าน), save raw mp4 URL ใน playlist
+ *     → ตั้ง cron daily/weekly เพื่อ re-fetch ก่อน URL หมดอายุ
+ *   - ไม่มี Origin block, CORS friendly → Player เล่น raw URL ได้เลย
  *   - Default --track = th (พากย์ไทย)
  *   - Shared logic อยู่ใน tools/lib/
  */
@@ -366,15 +367,26 @@ async function main() {
       }
     }
 
-    // Hybrid resolver mode: เก็บ ep URL + resolver flag ใน playlist
-    // (player จะเรียก worker resolver ตอนเล่นเพื่อได้ fresh signature)
-    // ทำให้ไม่ต้อง re-scrape เมื่อ URL signature หมดอายุ (mp4?m=...&e=...)
-    console.log(`\n🔗 สร้าง station entries (${episodes.length} ตอน) — resolver=anifume...`);
+    // Resolve stream URLs locally during fetch (CF Worker → anifume gets 403 because
+    // anifume sits behind Cloudflare and blocks Worker-shaped traffic; running the resolver
+    // from the user's home IP bypasses this). The mp4 URL signature is valid ~2–3 days
+    // (`?m=...&e={expiry-unix-ts}`) — re-run fetch when streams stop working, or schedule
+    // a daily/weekly cron job to keep the playlist warm.
+    console.log(`\n🔗 กำลัง resolve stream URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
     for (let i = 0; i < episodes.length; i++) {
       const ep = episodes[i];
       const epNum = i + 1;
+      process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
+
+      let streamUrl = null;
+      try {
+        streamUrl = await getStreamUrl(ep.url);
+        process.stdout.write(` ✅`);
+      } catch (err) {
+        console.warn(` ⚠️  ${err.message}`);
+      }
 
       const tmdbEpNum = epNum + epOffset;
       const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset];
@@ -387,13 +399,15 @@ async function main() {
       stations.push({
         name: stationName,
         ...(epThumb && { image: epThumb }),
-        url: ep.url,            // ep page URL — player resolve ตอนเล่น
-        resolver: 'anifume',    // ระบุ resolver ที่ player ต้องเรียก
+        url: streamUrl || ep.url,
         referer: REFERER,
         release_date: tmdbEp?.air_date || '',
       });
+
+      console.log('');
+      if (i < episodes.length - 1) await utils.sleep(800);
     }
-    console.log(`✅ สร้าง ${stations.length} stations (ep URLs)`);
+    console.log(`✅ resolve ${stations.length} stations เสร็จ`);
 
     const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
     const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;

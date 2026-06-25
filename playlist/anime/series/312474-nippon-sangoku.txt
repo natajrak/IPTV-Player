@@ -87,8 +87,16 @@
                             "url": "https://hls.animeindy.com:8443/vid/S6IMpYzjPE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-06-14"
+                        },
+                        {
+                            "name": "ตอน 12 - การล่มสลายของเซอิ",
+                            "image": "https://image.tmdb.org/t/p/original/7tvUTJyzqlsfFobM5brSVRNoYb.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/DSkM87JOAr/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-06-21"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -176,15 +184,15 @@
                 }
             ],
             "release_date": "2026-04-05",
-            "updated_at": "2026-06-14T00:00:00.000Z"
+            "updated_at": "2026-06-21T00:00:00.000Z"
         }
     ],
     "release_date": "2026-04-05",
-    "updated_at": "2026-06-14T00:00:00.000Z",
+    "updated_at": "2026-06-21T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",
         "season": 1,
-        "track": null
+        "track": "sub"
     }
 }

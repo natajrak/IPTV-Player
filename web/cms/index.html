@@ -1408,6 +1408,7 @@ function sourceLabelFromReferer(refererUrl) {
     ['anifume',       'anifume'],
     ['rukoluo',       'anifume'],
     ['anime-th',      'anime-th'],
+    ['anime-hit',     'anime-hit'],
     ['037hdd',        '037hdd'],
     ['7-hd',          '7-hd'],
     ['7hd',           '7-hd'],
@@ -1970,9 +1971,10 @@ const ANIME_SOURCES = [
   { id: 'kurokamii',     label: 'kurokamii',     file: 'fetch-kurokamii.js',     url: 'https://kurokamii.com/'    },
   { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js',    url: 'https://fairyanime.net/'   },
   { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js',     url: 'https://animeruka.com/'    },
-  { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://anime-hdzero.com/' },
+  { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://anime-hd-zero.com/' },
   { id: 'anifume',       label: 'anifume',       file: 'fetch-anifume.js',       url: 'https://anifume.com/'      },
   { id: 'anime-th',      label: 'anime-th',      file: 'fetch-anime-th.js',      url: 'https://anime-th.com/'     },
+  { id: 'anime-hit',     label: 'anime-hit',     file: 'fetch-anime-hit.js',     url: 'https://anime-hit.com/'    },
 ];
 const LIVE_SOURCES = [
   { id: '037hdd',   label: '037hdd',   file: 'fetch-037hdd.js',   url: 'https://www.037hddmovie.com/' },
@@ -2487,9 +2489,10 @@ function scriptFromReferer(url) {
     if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('animeruka'))                         return 'fetch-animeruka.js';
-    if (host.includes('anime-hdzero'))                      return 'fetch-anime-hdzero.js';
+    if (host.includes('anime-hdzero') || host.includes('anime-hd-zero')) return 'fetch-anime-hdzero.js';
     if (host.includes('anifume'))                           return 'fetch-anifume.js';
     if (host.includes('anime-th'))                          return 'fetch-anime-th.js';
+    if (host.includes('anime-hit'))                         return 'fetch-anime-hit.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
