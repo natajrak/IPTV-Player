@@ -5,94 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TV Check</title>
 <style>
-  body { background:#111; color:#eee; font-family:Arial, sans-serif; font-size:22px; line-height:1.5; margin:0; padding:24px; }
-  h1 { font-size:26px; color:#4ea1ff; margin:0 0 12px; }
-  .row { padding:6px 0; border-bottom:1px solid #333; }
+  body { background:#111; color:#eee; font-family:Arial, sans-serif; font-size:20px; line-height:1.4; margin:0; padding:20px; }
+  h1 { font-size:24px; color:#4ea1ff; margin:0 0 10px; }
+  .row { padding:4px 0; border-bottom:1px solid #333; }
   .k { color:#9ad; }
   .ok { color:#5cd65c; font-weight:bold; }
   .no { color:#ff6b6b; font-weight:bold; }
-  #ua { word-break:break-all; color:#ffd479; font-size:18px; }
-  #keylog { margin-top:16px; padding:16px; background:#001a33; border:2px solid #4ea1ff; min-height:120px; }
-  #keylog b { color:#ffd479; font-size:30px; }
-  .hint { color:#888; font-size:18px; }
+  #ua { word-break:break-all; color:#ffd479; font-size:16px; }
+
+  #btns { margin:16px 0; }
+  #btns button, #btns a {
+    display:inline-block; font-size:22px; padding:18px 30px; margin:6px;
+    background:#243; color:#fff; border:3px solid #355; border-radius:8px;
+    text-decoration:none; cursor:pointer;
+  }
+  /* focus indicator — ทั้ง :focus (เก่า) และ :focus-visible (ใหม่) */
+  #btns button:focus, #btns a:focus { outline:5px solid #ffd479; background:#a60; }
+
+  #status { margin-top:16px; padding:14px; background:#001a33; border:2px solid #4ea1ff; }
+  #status b { color:#ffd479; }
+  .big { font-size:26px; }
+  .hint { color:#888; font-size:16px; }
 </style>
 </head>
 <body>
-<h1>BKL Play — TV Diagnostic</h1>
+<h1>BKL Play — TV Diagnostic v2</h1>
 
-<div class="row"><span class="k">User-Agent:</span><br><span id="ua"></span></div>
+<div class="row"><span class="k">User-Agent:</span> <span id="ua"></span></div>
 <div id="feat"></div>
 
-<div id="keylog">
-  <div class="hint">กดปุ่มลูกศร / OK / Back บนรีโมท แล้วดูค่าด้านล่าง:</div>
-  <div><b id="kdisp">—</b></div>
-  <div id="khist" class="hint"></div>
+<div id="btns">
+  <button id="b1">ปุ่ม 1</button>
+  <button id="b2">ปุ่ม 2</button>
+  <button id="b3">ปุ่ม 3</button>
+  <a id="b4" href="javascript:void(0)">ลิงก์ 4</a>
+</div>
+
+<div class="hint">กดลูกศรซ้าย/ขวาบนรีโมท — สังเกตว่ามี "กรอบเหลือง" ย้ายไปมาระหว่างปุ่มไหม / มีลูกศรเมาส์โผล่ไหม</div>
+
+<div id="status">
+  <div class="big">keydown: <b id="kdisp">— (ยังไม่มี)</b></div>
+  <div>โฟกัสตอนนี้: <b id="focusEl">—</b></div>
+  <div>เมาส์ขยับ (pointer): <b id="mouseCnt">0</b> ครั้ง</div>
+  <div>คลิก: <b id="clickCnt">0</b> ครั้ง — ปุ่มล่าสุด: <b id="lastClick">—</b></div>
 </div>
 
 <script>
-/* ES5 only — must run on the oldest TV engines */
+/* ES5 only */
 function esc(s){ return String(s).replace(/[<>&]/g, function(c){ return c==='<'?'&lt;':c==='>'?'&gt;':'&amp;'; }); }
 document.getElementById('ua').innerHTML = esc(navigator.userAgent);
 
-function test(name, fn){
-  var pass;
-  try { pass = !!fn(); } catch(e){ pass = false; }
-  return '<div class="row"><span class="k">'+name+':</span> <span class="'+(pass?'ok':'no')+'">'+(pass?'YES':'NO')+'</span></div>';
-}
+function test(name, fn){ var p; try{ p=!!fn(); }catch(e){ p=false; } return '<div class="row"><span class="k">'+name+':</span> <span class="'+(p?'ok':'no')+'">'+(p?'YES':'NO')+'</span></div>'; }
+function cssSupports(prop, val){ if(window.CSS&&CSS.supports){try{return CSS.supports(prop,val);}catch(e){}} var el=document.createElement('div'); try{el.style[prop]=val;}catch(e){return false;} return el.style[prop]!==''&&el.style[prop]!=null; }
+function flexGap(){ var f=document.createElement('div'); f.style.display='flex'; f.style.flexDirection='column'; f.style.rowGap='1px'; f.style.position='absolute'; f.style.visibility='hidden'; f.appendChild(document.createElement('div')); f.appendChild(document.createElement('div')); document.body.appendChild(f); var ok=f.scrollHeight===1; f.parentNode.removeChild(f); return ok; }
 
-function cssSupports(prop, val){
-  if (window.CSS && CSS.supports) { try { return CSS.supports(prop, val); } catch(e){} }
-  var el = document.createElement('div');
-  try { el.style[prop] = val; } catch(e){ return false; }
-  return el.style[prop] !== '' && el.style[prop] != null;
-}
+var html='';
+html+=test('CSS Grid', function(){ return cssSupports('display','grid'); });
+html+=test('Flexbox gap', function(){ return flexGap(); });
+html+=test('aspect-ratio', function(){ return cssSupports('aspect-ratio','1 / 1'); });
+html+=test('CSS var()', function(){ return cssSupports('color','var(--x)'); });
+html+=test('KeyboardEvent.key', function(){ return ('key' in KeyboardEvent.prototype); });
+html+=test('Optional chaining ?.', function(){ try{ eval('var o={a:1};o?.a'); return true; }catch(e){ return false; } });
+html+=test('fetch', function(){ return typeof fetch!=='undefined'; });
+document.getElementById('feat').innerHTML=html;
 
-function flexGapSupported(){
-  var f = document.createElement('div');
-  f.style.display = 'flex';
-  f.style.flexDirection = 'column';
-  f.style.rowGap = '1px';
-  f.style.position = 'absolute';
-  f.style.visibility = 'hidden';
-  f.appendChild(document.createElement('div'));
-  f.appendChild(document.createElement('div'));
-  document.body.appendChild(f);
-  var ok = f.scrollHeight === 1;
-  f.parentNode.removeChild(f);
-  return ok;
-}
-
-var html = '';
-html += test('CSS Grid (display:grid)', function(){ return cssSupports('display','grid'); });
-html += test('Flexbox gap', function(){ return flexGapSupported(); });
-html += test('aspect-ratio', function(){ return cssSupports('aspect-ratio','1 / 1'); });
-html += test('CSS var()', function(){ return cssSupports('color','var(--x)'); });
-html += test('inset shorthand', function(){ return cssSupports('inset','0'); });
-html += test(':focus-visible', function(){ return cssSupports('selector(:focus-visible)') || (function(){ try{ document.querySelector(':focus-visible'); return true; }catch(e){ return false; } })(); });
-html += test('KeyboardEvent.key รองรับ', function(){ return ('key' in KeyboardEvent.prototype) || ('KeyboardEvent' in window && 'key' in new KeyboardEvent('x')); });
-html += test('Promise', function(){ return typeof Promise !== 'undefined'; });
-html += test('fetch', function(){ return typeof fetch !== 'undefined'; });
-html += test('Set', function(){ return typeof Set !== 'undefined'; });
-html += test('Array.includes', function(){ return !!Array.prototype.includes; });
-html += test('Optional chaining (eval ?.)', function(){ try{ /* eslint-disable */ eval('var o={a:1}; o?.a'); return true; }catch(e){ return false; } });
-html += test('Service Worker', function(){ return 'serviceWorker' in navigator; });
-document.getElementById('feat').innerHTML = html;
-
-var hist = [];
+/* keydown log */
 function onKey(e){
-  var k = (typeof e.key !== 'undefined') ? e.key : '(undefined)';
-  var line = 'key="' + k + '"  keyCode=' + e.keyCode + '  which=' + e.which + '  code=' + (e.code || '-');
-  document.getElementById('kdisp').innerHTML = esc(line);
-  hist.unshift(line);
-  if (hist.length > 6) hist.pop();
-  var out = '';
-  for (var i=0;i<hist.length;i++){ out += esc(hist[i]) + '<br>'; }
-  document.getElementById('khist').innerHTML = out;
-  if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
-    if (e.preventDefault) e.preventDefault();
-  }
+  e = e || window.event;
+  var k=(typeof e.key!=='undefined')?e.key:'(undefined)';
+  document.getElementById('kdisp').innerHTML = esc('key="'+k+'" keyCode='+e.keyCode+' which='+e.which);
+  if(e.keyCode>=37&&e.keyCode<=40){ if(e.preventDefault)e.preventDefault(); }
 }
-window.addEventListener ? window.addEventListener('keydown', onKey, false) : document.attachEvent('onkeydown', function(){ onKey(window.event); });
+if(window.addEventListener){ window.addEventListener('keydown',onKey,false); } else { document.attachEvent('onkeydown',onKey); }
+
+/* focus monitor — เห็นว่า browser ย้าย focus เองไหม (spatial nav) แม้ไม่มี keydown */
+setInterval(function(){
+  var a=document.activeElement;
+  var d = a ? (a.tagName + (a.id?('#'+a.id):'')) : 'none';
+  document.getElementById('focusEl').innerHTML = esc(d);
+}, 200);
+
+/* pointer monitor — เห็นว่ามีเคอร์เซอร์เมาส์ไหม (pointer mode) */
+var mc=0;
+function onMove(){ mc++; document.getElementById('mouseCnt').innerHTML=mc; }
+if(window.addEventListener){ window.addEventListener('mousemove',onMove,false); } else { document.attachEvent('onmousemove',onMove); }
+
+/* click monitor */
+var cc=0;
+function onClick(e){ e=e||window.event; cc++; document.getElementById('clickCnt').innerHTML=cc; var t=e.target||e.srcElement; document.getElementById('lastClick').innerHTML=esc(t.id||t.tagName); }
+if(window.addEventListener){ window.addEventListener('click',onClick,false); } else { document.attachEvent('onclick',onClick); }
 </script>
 </body>
 </html>
