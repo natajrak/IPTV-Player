@@ -1,4 +1,28 @@
-﻿/* ===== Config ===== */
+﻿/* ===== TV browser flex-gap detection =====
+   Smart-TV browsers ก่อน Chromium 84 ไม่รองรับ flexbox gap → ตรวจ runtime
+   แล้วเติม class no-flex-gap ที่ <html> ให้ CSS ใช้ margin fallback แทน
+   (modern browser ได้ class flex-gap → ใช้ gap ตามเดิม ไม่ double-space) */
+(function detectFlexGap() {
+  const docEl = document.documentElement;
+  try {
+    const probe = document.createElement("div");
+    probe.style.display = "flex";
+    probe.style.flexDirection = "column";
+    probe.style.rowGap = "1px";
+    probe.style.position = "absolute";
+    probe.style.visibility = "hidden";
+    probe.appendChild(document.createElement("div"));
+    probe.appendChild(document.createElement("div"));
+    (document.body || docEl).appendChild(probe);
+    const supported = probe.scrollHeight === 1;
+    probe.parentNode.removeChild(probe);
+    docEl.classList.add(supported ? "flex-gap" : "no-flex-gap");
+  } catch (e) {
+    docEl.classList.add("no-flex-gap");
+  }
+})();
+
+/* ===== Config ===== */
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE =

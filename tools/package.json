@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tv": "node build-tv.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,10 @@
   "type": "commonjs",
   "dependencies": {
     "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "regenerator-runtime": "^0.14.1"
   }
 }

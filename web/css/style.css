@@ -135,6 +135,43 @@ button:focus-visible,
   background: var(--surface2);
 }
 
+/* ===== TV browser fallback for :focus-visible (Chromium < 86) =====
+   Smart-TV browsers ก่อนปี 2021 ไม่รองรับ :focus-visible → มองไม่เห็น focus
+   ใช้ plain :focus แสดง ring แทน ส่วน :not(:focus-visible) reset ด้านล่าง
+   browser เก่าจะถือว่า selector ไม่ valid แล้ว drop ทิ้ง (ring คงอยู่)
+   ขณะที่ browser ใหม่จะใช้ reset ตัด ring ตอน mouse focus เหมือน :focus-visible เดิม */
+button:focus,
+.card:focus,
+.ep-card:focus,
+.search-item:focus,
+.breadcrumb-item:focus,
+.logo:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.card:focus {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .6);
+}
+.search-item:focus {
+  background: var(--surface2);
+}
+button:focus:not(:focus-visible),
+.card:focus:not(:focus-visible),
+.ep-card:focus:not(:focus-visible),
+.search-item:focus:not(:focus-visible),
+.breadcrumb-item:focus:not(:focus-visible),
+.logo:focus:not(:focus-visible) {
+  outline: none;
+}
+.card:focus:not(:focus-visible) {
+  transform: none;
+  box-shadow: none;
+}
+.search-item:focus:not(:focus-visible) {
+  background: transparent;
+}
+
 /* ===== Site Nav ===== */
 #app-nav {
   display: flex;
@@ -661,6 +698,25 @@ button:focus-visible,
   aspect-ratio: 16/9;
 }
 
+/* Fallback for TV browsers without aspect-ratio (Chromium < 88): padding-top hack */
+@supports not (aspect-ratio: 1 / 1) {
+  .card-grid.portrait .card-thumb-wrap {
+    height: 0;
+    padding-top: 150%;
+  }
+  .card-grid.landscape .card-thumb-wrap {
+    height: 0;
+    padding-top: 56.25%;
+  }
+  .card-thumb-wrap > .card-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .card-thumb-placeholder {
   display: flex;
   align-items: center;
@@ -691,7 +747,10 @@ button:focus-visible,
 
 .card-preview-video {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -844,7 +903,10 @@ button:focus-visible,
 /* ===== Player Overlay ===== */
 #player-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: #000;
   z-index: 999;
   display: flex;
@@ -867,7 +929,10 @@ button:focus-visible,
 /* Player loading spinner */
 .player-loading {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1676,3 +1741,32 @@ button:focus-visible,
     padding: 8px 9px;
   }
 }
+
+/* ===== TV browser fallback: flexbox gap (Chromium < 84) =====
+   JS เติม class .no-flex-gap ที่ <html> เมื่อ browser ไม่รองรับ flex gap
+   ใช้ adjacent-sibling margin (> * + *) แทน gap — ทิศตาม flex-direction เดิม
+   (row → margin-left, column → margin-top) ค่าตรงกับ gap base (desktop/TV 1920px)
+   grid containers (.card-grid, .ep-card) ไม่ต้องแก้ — grid gap รองรับ Chromium 57+ */
+.no-flex-gap #app-header > * + * { margin-left: 16px; }
+.no-flex-gap #breadcrumb > * + * { margin-left: 6px; }
+.no-flex-gap .breadcrumb-item.active.has-subline > * + * { margin-top: 1px; }
+.no-flex-gap #app-nav > * + * { margin-left: 4px; }
+.no-flex-gap .av-filter-btn > * + * { margin-left: 6px; }
+.no-flex-gap .av-filter-option > * + * { margin-left: 8px; }
+.no-flex-gap .search-item > * + * { margin-left: 12px; }
+.no-flex-gap .search-item-name > * + * { margin-top: 2px; }
+.no-flex-gap .center-screen > * + * { margin-top: 16px; }
+.no-flex-gap .section-header > * + * { margin-left: 8px; }
+.no-flex-gap .section-title > * + * { margin-top: 2px; }
+.no-flex-gap .card-name > * + * { margin-top: 4px; }
+.no-flex-gap #pagination > * + * { margin-left: 10px; }
+.no-flex-gap .page-btn > * + * { margin-left: 6px; }
+.no-flex-gap #page-numbers > * + * { margin-left: 6px; }
+.no-flex-gap #player-header > * + * { margin-left: 12px; }
+.no-flex-gap .bar-group > * + * { margin-left: 4px; }
+.no-flex-gap #btn-episodes > * + * { margin-left: 4px; }
+.no-flex-gap #ep-panel-tabs > * + * { margin-left: 8px; }
+.no-flex-gap #ep-panel-grid > * + * { margin-top: 10px; }
+.no-flex-gap .ep-card-label > * + * { margin-top: 3px; }
+.no-flex-gap #upnext-content > * + * { margin-left: 12px; }
+.no-flex-gap .upnext-buttons > * + * { margin-top: 6px; }

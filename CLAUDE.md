@@ -25,6 +25,12 @@ IPTV-Player/
 ├── CLAUDE.md                  # ไฟล์นี้
 │
 ├── web/
+│   ├── index.html            # หน้า Player หลัก (โหลด js/app.tv.js)
+│   ├── js/
+│   │   ├── app.js            # SOURCE — แก้ที่นี่ (JS สมัยใหม่ได้)
+│   │   └── app.tv.js         # GENERATED — transpile จาก app.js ห้ามแก้มือ
+│   ├── css/style.css
+│   ├── sw.js                  # Service worker (cache app shell)
 │   ├── cms/
 │   │   └── index.html         # หน้า CMS จัดการ playlist
 │   └── images/                # รูป favicon, cover ต่างๆ
@@ -33,11 +39,12 @@ IPTV-Player/
 │   ├── fetch-fairyanime.js    # ดึงจาก fairyanime.net
 │   ├── fetch-indy-anime.js    # ดึงจาก indy-anime.net
 │   ├── fetch-kurokamii.js     # ดึงจาก kurokamii.com (ผ่าน CF proxy)
+│   ├── build-tv.js            # transpile app.js → app.tv.js (npm run build:tv)
 │   ├── fairyanime.bat         # Interactive CLI สำหรับ fairyanime
 │   ├── indy-anime.bat         # Interactive CLI สำหรับ indy-anime
 │   ├── update-meta-all.bat    # Batch update metadata ทุกไฟล์
 │   ├── .env                   # TMDB_API_KEY (ไม่ commit)
-│   └── package.json           # dependency: cheerio
+│   └── package.json           # deps: cheerio | devDeps: @babel/*, regenerator-runtime
 │
 ├── playlist/
 │   ├── anime/
@@ -311,6 +318,32 @@ data: {"t":"done","code":0}    // exit code
 - เมื่อเลือก → แปลงกลับเป็น slug ใส่ช่อง filename + fill TMDB ID อัตโนมัติ
 
 ---
+
+## Smart TV / Browser Compatibility
+
+เว็บ Player รองรับการเปิดผ่าน **browser ของ Smart TV** (Samsung Tizen / LG webOS) ตั้งแต่รุ่นปี 2018+
+
+### หลักการ
+- `app.js` = SOURCE เขียน JS สมัยใหม่ได้เต็มที่ (`?.`, `??`, async/await)
+- `app.tv.js` = ไฟล์ที่ `index.html` โหลดจริง เป็น output ที่ transpile ลงเป็น ES ที่ Chromium 53+ (TV เก่า) รันได้
+- **TV browser เก่า engine ตามหลัง Chrome desktop หลายปี** — `?.`/`??` เป็น syntax error → ถ้าโหลด `app.js` ตรงๆ จอขาวทั้งหน้า
+
+### Workflow บังคับ — แก้ `app.js` แล้วต้อง rebuild เสมอ
+```bash
+cd tools && npm run build:tv      # → regenerate web/js/app.tv.js
+```
+> ห้ามแก้ `app.tv.js` ด้วยมือ (จะถูกเขียนทับ) — `app.tv.js` ต้อง commit ขึ้น git ด้วย
+> เพราะ GitHub Pages serve ไฟล์ตรง ไม่มี build step บน CI
+> เวลา bump version ให้แก้ทั้ง `index.html` (`?v=N`) และ `sw.js` (`CACHE_NAME`)
+
+### CSS fallback สำหรับ TV เก่า (อยู่ใน style.css แล้ว)
+- `aspect-ratio` (Chromium 88+) → มี padding-top hack ใน `@supports not (aspect-ratio)`
+- `inset` shorthand (Chromium 87+) → ใช้ longhand `top/right/bottom/left` แทน (สำคัญกับ `#player-overlay`)
+- `:focus-visible` (Chromium 86+) → มี plain `:focus` fallback ให้เห็น focus บนรีโมท
+
+### TV remote (มีอยู่แล้วใน app.js)
+- D-pad navigation: `moveTVFocus()` + spatial focus ผ่าน tabindex
+- ปุ่ม Back: รองรับ keyCode Tizen (`10009`) และ webOS (`461`)
 
 ## การเพิ่มแหล่งข้อมูลใหม่
 

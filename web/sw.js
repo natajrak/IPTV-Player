@@ -1,9 +1,9 @@
-const CACHE_NAME = "bkl-play";
+const CACHE_NAME = "bkl-play-v24";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/style.css",
-  "./js/app.js",
+  "./js/app.tv.js",
   "./images/logo/logo.png",
   "./images/logo/logo-dark.png",
   "./images/apple-touch-icon.png",
@@ -59,7 +59,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   // Network-first for app shell assets so GitHub Pages updates are picked up quickly.
-  if (url.pathname.endsWith("/index.html") || url.pathname.endsWith("/js/app.js") || url.pathname.endsWith("/css/style.css")) {
+  if (url.pathname.endsWith("/index.html") || url.pathname.endsWith("/js/app.tv.js") || url.pathname.endsWith("/css/style.css")) {
     event.respondWith(
       fetch(req)
         .then((res) => {
