@@ -1772,3 +1772,9 @@ button:focus:not(:focus-visible),
 .no-flex-gap .ep-card-label > * + * { margin-top: 3px; }
 .no-flex-gap #upnext-content > * + * { margin-left: 12px; }
 .no-flex-gap .upnext-buttons > * + * { margin-top: 6px; }
+
+/* คืนค่า margin-left:auto ที่ใช้ดัน element ไปขวา — กัน rule "> * + *" ด้านบนทับ
+   (ต้องอยู่หลัง block ด้านบนเพื่อให้ source-order ชนะที่ specificity เท่ากัน) */
+.no-flex-gap .section-header-right { margin-left: auto; }
+.no-flex-gap .av-filter-option .av-filter-count { margin-left: auto; }
+.no-flex-gap .av-filter-clear-btn { margin-left: auto; }
