@@ -1,4 +1,4 @@
-const CACHE_NAME = "bkl-play-v24";
+const CACHE_NAME = "bkl-play-v25";
 const APP_SHELL = [
   "./",
   "./index.html",

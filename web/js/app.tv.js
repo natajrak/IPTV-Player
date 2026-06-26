@@ -44,6 +44,22 @@ const EPISODES_ICON = `<i class="fi fi-rr-list" aria-hidden="true"></i>`;
 const TV_FOCUSABLE_SELECTOR = ["button:not([disabled]):not(.hidden)", "#search-input:not([disabled])", ".card[tabindex='0']", ".ep-card[tabindex='0']", ".search-item[tabindex='0']", ".breadcrumb-item[tabindex='0']", ".logo[tabindex='0']"].join(", ");
 const TV_BACK_KEYS = new Set(["Escape", "Backspace", "GoBack", "BrowserBack"]);
 const TV_BACK_KEYCODES = new Set([8, 27, 10009, 461]);
+const KEYCODE_TO_KEY = {
+  8: "Backspace",
+  13: "Enter",
+  27: "Escape",
+  32: " ",
+  37: "ArrowLeft",
+  38: "ArrowUp",
+  39: "ArrowRight",
+  40: "ArrowDown"
+};
+const ARROW_KEYS = new Set(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]);
+function eventKey(ev) {
+  const k = ev.key;
+  if (k && k !== "Unidentified") return k;
+  return KEYCODE_TO_KEY[ev.keyCode] || k || "";
+}
 let navHistory = [];
 let currentStations = [];
 let currentIndex = 0;
@@ -176,7 +192,7 @@ logo.tabIndex = 0;
 logo.setAttribute("role", "button");
 logo.setAttribute("aria-label", "กลับหน้าแรก");
 logo.addEventListener("keydown", e => {
-  if (e.key === "Enter" || e.key === " ") {
+  if (eventKey(e) === "Enter" || eventKey(e) === " ") {
     e.preventDefault();
     logo.click();
   }
@@ -193,12 +209,13 @@ window.addEventListener("keydown", e => {
     e.preventDefault();
     return;
   }
-  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+  const navKey = eventKey(e);
+  if (ARROW_KEYS.has(navKey)) {
     e.preventDefault();
-    moveTVFocus(e.key);
+    moveTVFocus(navKey);
     return;
   }
-  if (e.key === "Enter") {
+  if (eventKey(e) === "Enter") {
     const el = document.activeElement;
     if (isTVFocusable(el)) {
       e.preventDefault();
@@ -206,7 +223,7 @@ window.addEventListener("keydown", e => {
       return;
     }
   }
-  if (e.key === " " && !playerOverlay.classList.contains("hidden") && document.activeElement === playerVideo) {
+  if (eventKey(e) === " " && !playerOverlay.classList.contains("hidden") && document.activeElement === playerVideo) {
     e.preventDefault();
     togglePlayPause();
   }
@@ -421,7 +438,7 @@ searchInput.addEventListener("input", _asyncToGenerator(function* () {
 }));
 searchInput.addEventListener("keydown", e => {
   const items = searchResults.querySelectorAll(".search-item");
-  if (e.key === "ArrowDown") {
+  if (eventKey(e) === "ArrowDown") {
     const now = Date.now();
     if (now - searchDownLastAt <= 200) {
       e.preventDefault();
@@ -436,12 +453,12 @@ searchInput.addEventListener("keydown", e => {
     e.preventDefault();
     activeSearchIdx = Math.min(activeSearchIdx + 1, items.length - 1);
     updateActiveSearch(items);
-  } else if (e.key === "ArrowUp") {
+  } else if (eventKey(e) === "ArrowUp") {
     searchDownLastAt = 0;
     e.preventDefault();
     activeSearchIdx = Math.max(activeSearchIdx - 1, -1);
     updateActiveSearch(items);
-  } else if (e.key === "Enter" && activeSearchIdx >= 0) {
+  } else if (eventKey(e) === "Enter" && activeSearchIdx >= 0) {
     var _items$activeSearchId;
     searchDownLastAt = 0;
     (_items$activeSearchId = items[activeSearchIdx]) === null || _items$activeSearchId === void 0 || _items$activeSearchId.click();
@@ -621,7 +638,7 @@ function renderSearchResults(results, q) {
         navigateToSearchResult(results[i]);
       });
       el.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (eventKey(e) === "Enter" || eventKey(e) === " ") {
           e.preventDefault();
           el.click();
         }
@@ -665,7 +682,7 @@ function isTypingTarget(target) {
   return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
 }
 function isTVBackKey(e) {
-  return TV_BACK_KEYS.has(e.key) || TV_BACK_KEYCODES.has(e.keyCode);
+  return TV_BACK_KEYS.has(eventKey(e)) || TV_BACK_KEYCODES.has(e.keyCode);
 }
 function handleTVBack() {
   if (!playerOverlay.classList.contains("hidden")) {
@@ -1356,7 +1373,7 @@ function makeCard({
   card.tabIndex = 0;
   card.setAttribute("role", "button");
   card.addEventListener("keydown", e => {
-    if (e.key === "Enter" || e.key === " ") e.target.click();
+    if (eventKey(e) === "Enter" || eventKey(e) === " ") e.target.click();
   });
   const thumb = document.createElement(image ? "img" : "div");
   thumb.className = "card-thumb" + (image ? "" : " card-thumb-placeholder");
@@ -1465,7 +1482,7 @@ function updateBreadcrumb(currentTitle) {
       }
     });
     span.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
+      if (eventKey(e) === "Enter" || eventKey(e) === " ") {
         e.preventDefault();
         span.click();
       }
@@ -1850,34 +1867,34 @@ function adjustVolumeBy(delta) {
   updateVolumeUI();
 }
 function handlePlayerKeyboardShortcuts(e) {
-  if (e.ctrlKey && e.key === "ArrowRight") {
+  if (e.ctrlKey && eventKey(e) === "ArrowRight") {
     const target = resolveAdjacentEpisode(1);
     if (!target) return true;
     if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
     return true;
   }
-  if (e.ctrlKey && e.key === "ArrowLeft") {
+  if (e.ctrlKey && eventKey(e) === "ArrowLeft") {
     const target = resolveAdjacentEpisode(-1);
     if (!target) return true;
     if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
     return true;
   }
-  if (e.key === "ArrowRight") {
+  if (eventKey(e) === "ArrowRight") {
     seekBySeconds(5);
     showPlayerUI();
     return true;
   }
-  if (e.key === "ArrowLeft") {
+  if (eventKey(e) === "ArrowLeft") {
     seekBySeconds(-5);
     showPlayerUI();
     return true;
   }
-  if (e.key === "ArrowUp") {
+  if (eventKey(e) === "ArrowUp") {
     adjustVolumeBy(0.05);
     showPlayerUI();
     return true;
   }
-  if (e.key === "ArrowDown") {
+  if (eventKey(e) === "ArrowDown") {
     adjustVolumeBy(-0.05);
     showPlayerUI();
     return true;
@@ -2160,7 +2177,7 @@ function renderEpPanel() {
       renderEpPanel();
     });
     card.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
+      if (eventKey(e) === "Enter" || eventKey(e) === " ") {
         e.preventDefault();
         card.click();
       }
