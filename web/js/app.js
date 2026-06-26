@@ -2897,12 +2897,65 @@ function updateVolumeUI() {
   }
 })();
 
-// Fullscreen
+// Fullscreen — รองรับ vendor prefix สำหรับ TV browser เก่า (TizenBrowser/WebKit)
+function getFullscreenElement() {
+  return (
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.webkitCurrentFullScreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement ||
+    null
+  );
+}
+function requestFullscreenOn(el) {
+  const fn =
+    el.requestFullscreen ||
+    el.webkitRequestFullscreen ||
+    el.webkitRequestFullScreen ||
+    el.mozRequestFullScreen ||
+    el.msRequestFullscreen;
+  if (fn) {
+    try {
+      fn.call(el);
+      return true;
+    } catch (e) {}
+  }
+  // WebKit เก่า (Tizen/iOS): fullscreen ได้เฉพาะ <video>
+  if (typeof playerVideo.webkitEnterFullscreen === "function") {
+    try {
+      playerVideo.webkitEnterFullscreen();
+      return true;
+    } catch (e) {}
+  }
+  return false;
+}
+function exitFullscreenNow() {
+  const fn =
+    document.exitFullscreen ||
+    document.webkitExitFullscreen ||
+    document.webkitCancelFullScreen ||
+    document.mozCancelFullScreen ||
+    document.msExitFullscreen;
+  if (fn) {
+    try {
+      fn.call(document);
+      return true;
+    } catch (e) {}
+  }
+  if (typeof playerVideo.webkitExitFullscreen === "function") {
+    try {
+      playerVideo.webkitExitFullscreen();
+      return true;
+    } catch (e) {}
+  }
+  return false;
+}
 btnFullscreen.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    playerOverlay.requestFullscreen?.();
+  if (!getFullscreenElement()) {
+    requestFullscreenOn(playerOverlay);
   } else {
-    document.exitFullscreen?.();
+    exitFullscreenNow();
   }
 });
 

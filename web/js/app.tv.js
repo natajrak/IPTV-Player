@@ -2296,13 +2296,46 @@ function updateVolumeUI() {
     });
   }
 })();
+function getFullscreenElement() {
+  return document.fullscreenElement || document.webkitFullscreenElement || document.webkitCurrentFullScreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+}
+function requestFullscreenOn(el) {
+  const fn = el.requestFullscreen || el.webkitRequestFullscreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+  if (fn) {
+    try {
+      fn.call(el);
+      return true;
+    } catch (e) {}
+  }
+  if (typeof playerVideo.webkitEnterFullscreen === "function") {
+    try {
+      playerVideo.webkitEnterFullscreen();
+      return true;
+    } catch (e) {}
+  }
+  return false;
+}
+function exitFullscreenNow() {
+  const fn = document.exitFullscreen || document.webkitExitFullscreen || document.webkitCancelFullScreen || document.mozCancelFullScreen || document.msExitFullscreen;
+  if (fn) {
+    try {
+      fn.call(document);
+      return true;
+    } catch (e) {}
+  }
+  if (typeof playerVideo.webkitExitFullscreen === "function") {
+    try {
+      playerVideo.webkitExitFullscreen();
+      return true;
+    } catch (e) {}
+  }
+  return false;
+}
 btnFullscreen.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    var _playerOverlay$reques;
-    (_playerOverlay$reques = playerOverlay.requestFullscreen) === null || _playerOverlay$reques === void 0 || _playerOverlay$reques.call(playerOverlay);
+  if (!getFullscreenElement()) {
+    requestFullscreenOn(playerOverlay);
   } else {
-    var _document$exitFullscr, _document;
-    (_document$exitFullscr = (_document = document).exitFullscreen) === null || _document$exitFullscr === void 0 || _document$exitFullscr.call(_document);
+    exitFullscreenNow();
   }
 });
 const hasDocPip = typeof documentPictureInPicture !== "undefined";
