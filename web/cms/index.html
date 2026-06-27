@@ -1409,6 +1409,13 @@ function sourceLabelFromReferer(refererUrl) {
     ['rukoluo',       'anifume'],
     ['anime-th',      'anime-th'],
     ['anime-hit',     'anime-hit'],
+    ['anime108',      'anime108'],
+    ['108player',     'anime108'],
+    ['gg-animes',     'gg-animes'],
+    ['gg-player',     'gg-animes'],
+    ['anime-loki',    'anime-loki'],
+    ['anislime',      'anime-loki'],
+    ['miku-box',      'anime-loki'],
     ['037hdd',        '037hdd'],
     ['7-hd',          '7-hd'],
     ['7hd',           '7-hd'],
@@ -1975,6 +1982,9 @@ const ANIME_SOURCES = [
   { id: 'anifume',       label: 'anifume',       file: 'fetch-anifume.js',       url: 'https://anifume.com/'      },
   { id: 'anime-th',      label: 'anime-th',      file: 'fetch-anime-th.js',      url: 'https://anime-th.com/'     },
   { id: 'anime-hit',     label: 'anime-hit',     file: 'fetch-anime-hit.js',     url: 'https://anime-hit.com/'    },
+  { id: 'anime108',      label: 'anime108',      file: 'fetch-anime108.js',      url: 'https://www.anime108.com/' },
+  { id: 'gg-animes',     label: 'gg-animes',     file: 'fetch-gg-animes.js',     url: 'https://gg-animes.com/'    },
+  { id: 'anime-loki',    label: 'anime-loki',    file: 'fetch-anime-loki.js',    url: 'https://anime-loki.com/'   },
 ];
 const LIVE_SOURCES = [
   { id: '037hdd',   label: '037hdd',   file: 'fetch-037hdd.js',   url: 'https://www.037hddmovie.com/' },
@@ -2493,6 +2503,9 @@ function scriptFromReferer(url) {
     if (host.includes('anifume'))                           return 'fetch-anifume.js';
     if (host.includes('anime-th'))                          return 'fetch-anime-th.js';
     if (host.includes('anime-hit'))                         return 'fetch-anime-hit.js';
+    if (host.includes('anime108') || host.includes('108player')) return 'fetch-anime108.js';
+    if (host.includes('gg-animes') || host.includes('gg-player')) return 'fetch-gg-animes.js';
+    if (host.includes('anime-loki') || host.includes('anislime') || host.includes('miku-box')) return 'fetch-anime-loki.js';
     if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
