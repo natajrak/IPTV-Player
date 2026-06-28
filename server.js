@@ -188,6 +188,40 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // ── POST /api/delete-file ─────────────────────────────────────
+  // Delete a single file inside playlist/ (used by the episode board to remove
+  // orphaned part files when a ภาค is deleted from a two-file movie).
+  if (req.method === 'POST' && pathname === '/api/delete-file') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { filePath } = body;
+    if (typeof filePath !== 'string' || !/^playlist\//.test(filePath) || /\.\./.test(filePath)) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('Forbidden');
+      return;
+    }
+
+    const fullPath = path.join(ROOT, filePath);
+    if (!fullPath.startsWith(ROOT + path.sep) || path.basename(fullPath) === 'index.txt') {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('Forbidden');
+      return;
+    }
+
+    fs.unlink(fullPath, err => {
+      if (err && err.code !== 'ENOENT') {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end(err.message);
+        return;
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end('{"ok":true}');
+    });
+    return;
+  }
+
   // ── POST /api/delete ──────────────────────────────────────────
   if (req.method === 'POST' && pathname === '/api/delete') {
     let body;

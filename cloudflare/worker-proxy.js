@@ -206,10 +206,17 @@ export default {
     // Retry on transient 403/429/5xx — สำคัญสำหรับ CF-on-CF traffic ที่ถูก rate-limit สุ่ม
     // (เช่น akuma-stream / maimeorder ที่ดูว่า request มาจาก CF Worker → ตอบ 503)
     // ใช้ fetchProxyWithRetry → pass-through 4xx ที่ไม่ใช่ retryable ทันที, retry 5xx/429/403
+    //
+    // **HLS playlist (.m3u8/.txt) ไม่ cache** — เพราะ:
+    //  1. ขนาดเล็ก (< 1KB) cache ไม่คุ้ม
+    //  2. ถ้า upstream chunked response transient ส่งกลับ empty → CF cache ค้าง empty ทั้ง 24 ชม.
+    //     ทำให้ตอนนั้นเล่นไม่ได้เลย (เคยเกิดกับ gg-player.xyz/cdn/hls/.../master.txt)
+    // Segments (.ts/.m4s) ยัง cache ปกติเพราะใหญ่ + ไม่มีปัญหาเดิม
+    const isHlsPlaylist = /\.(m3u8|txt)(\?|$)/i.test(targetUrl);
     const resp = await fetchProxyWithRetry(targetUrl, {
       headers: upstreamHeaders,
       redirect: "follow",
-      cf: { cacheTtl: 86400, cacheEverything: true },
+      cf: isHlsPlaylist ? {} : { cacheTtl: 86400, cacheEverything: true },
     });
     const contentType   = resp.headers.get("content-type") || "";
     const upstreamLen   = resp.headers.get("content-length");

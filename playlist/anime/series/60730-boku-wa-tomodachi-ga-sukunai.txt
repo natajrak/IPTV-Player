@@ -3,6 +3,27 @@
     "image": "https://image.tmdb.org/t/p/original/oaKPbowjQgbNgaQsTNBlU7e00FI.jpg",
     "groups": [
         {
+            "name": "Specials",
+            "groups": [
+                {
+                    "name": "พากย์ไทย",
+                    "stations": [
+                        {
+                            "name": "ตอน 2 - A Round-Robin Story's Ending Is Way Extreme",
+                            "url": "https://main.108player.com/newplaylist/8a6fb9be309a5175a19c5c64/8a6fb9be309a5175a19c5c64.m3u8",
+                            "referer": "https://www.anime108.com/",
+                            "release_date": "2012-09-26",
+                            "image": "https://image.tmdb.org/t/p/original/eeL51r5cwVrMAnZNJX4YwaWBsnw.jpg"
+                        }
+                    ],
+                    "image": "https://image.tmdb.org/t/p/original/zTA2GbSqLSd5HaoDq5zAqxktkPO.jpg"
+                }
+            ],
+            "release_date": "2011-09-22",
+            "image": "https://image.tmdb.org/t/p/original/zTA2GbSqLSd5HaoDq5zAqxktkPO.jpg",
+            "updated_at": "2012-09-26T00:00:00.000Z"
+        },
+        {
             "name": "Season 1",
             "image": "https://image.tmdb.org/t/p/original/j1jbEhqAsumN0GeNbpuvPAHrmMb.jpg",
             "groups": [
@@ -94,12 +115,6 @@
                             "url": "https://main.108player.com/newplaylist/4164bd2e33c5aa9c293f31d2/4164bd2e33c5aa9c293f31d2.m3u8",
                             "referer": "https://www.anime108.com/",
                             "release_date": "2011-12-23"
-                        },
-                        {
-                            "name": "ตอน 13",
-                            "url": "https://main.108player.com/newplaylist/8a6fb9be309a5175a19c5c64/8a6fb9be309a5175a19c5c64.m3u8",
-                            "referer": "https://www.anime108.com/",
-                            "release_date": ""
                         }
                     ],
                     "status": "completed"
@@ -212,9 +227,9 @@
             "updated_at": "2013-03-29T00:00:00.000Z"
         }
     ],
-    "release_date": "2011-10-07",
-    "updated_at": "2013-03-29T00:00:00.000Z",
-    "season_count": 2,
+    "release_date": "2011-09-22",
+    "updated_at": "2026-06-28T18:04:12.164Z",
+    "season_count": 3,
     "completion": {
         "status": "completed"
     }

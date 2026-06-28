@@ -666,6 +666,131 @@
       border-radius: 50%;
       animation: run-spin .6s linear infinite;
     }
+
+    /* ── Manage (episode board) entry button ─────────────── */
+    .manage-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: none; border: 1px solid var(--border, #333);
+      color: var(--text2); cursor: pointer;
+      padding: 3px 8px; font-size: 11px; border-radius: 4px;
+      line-height: 1; margin-left: 8px;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap; vertical-align: middle;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .manage-btn i { font-size: 10px; }
+    .manage-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+    /* Clickable series title → opens episode board */
+    .ep-title-link { cursor: pointer; }
+    .ep-title-link:hover .title-en { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── Episode / Part Board Manager ────────────────────── */
+    .eb-modal { width: 1100px; }
+    .eb-body { gap: 14px; }
+    /* Modal grows to full content height; the overlay is the single scroll container
+       and the whole modal (header → content → footer) scrolls through it as one block.
+       Plain block layout avoids the flex-column height collapse. */
+    /* :not(.hidden) so this id-level rule never overrides `.modal-overlay.hidden`
+       (otherwise the empty modal shows on page load). The modal keeps its flex column
+       so the body's gap between sections is preserved; only the scroll moves to the
+       overlay and the height cap is lifted. */
+    #ep-board-modal:not(.hidden) { display: block; overflow-y: auto; padding: 22px 0; }
+    #ep-board-modal .modal { max-height: none; margin: 0 auto; }
+    #ep-board-modal .modal-body { overflow: visible; }
+    .eb-empty { color: var(--text3); text-align: center; padding: 30px; font-size: 13px; }
+    .eb-section {
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); overflow: hidden;
+    }
+    .eb-section-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding: 9px 12px; background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+    }
+    .eb-section-title-wrap { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .eb-section-grip { color: var(--text3); cursor: grab; font-size: 14px; line-height: 1; user-select: none; flex-shrink: 0; }
+    .eb-section-grip:active { cursor: grabbing; }
+    .eb-section.eb-sec-dragging { opacity: .45; }
+    .eb-section.eb-sec-drop-before { box-shadow: 0 -3px 0 0 var(--blue); }
+    .eb-section.eb-sec-drop-after  { box-shadow: 0 3px 0 0 var(--blue); }
+    .eb-section-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .eb-section-sub { font-size: 12px; font-weight: 400; color: var(--text3); }
+    .eb-section-act { display: flex; gap: 6px; flex-shrink: 0; }
+    /* Inline-editable names */
+    .eb-editable { cursor: text; }
+    .eb-section-name.eb-editable:hover { text-decoration: underline dashed; text-underline-offset: 3px; }
+    .eb-lane-name.eb-editable:hover { box-shadow: 0 0 0 1px var(--blue); }
+    .eb-card-name.eb-editable:hover { text-decoration: underline dashed; text-underline-offset: 2px; }
+    .eb-card .eb-name-input { flex: 1 1 auto; min-width: 60px; font-weight: 400; }
+    .eb-name-input {
+      font-size: 13px; font-weight: 600; padding: 2px 7px;
+      background: var(--bg); border: 1px solid var(--blue);
+      border-radius: 4px; color: var(--text);
+      font-family: inherit; outline: none; min-width: 130px; max-width: 280px;
+    }
+    .eb-lanes {
+      display: flex; gap: 12px; padding: 12px;
+      flex-wrap: wrap; align-items: flex-start;
+    }
+    .eb-section-movie .eb-lanes { display: block; }
+    .eb-lane {
+      flex: 0 0 250px; min-width: 250px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; display: flex; flex-direction: column;
+    }
+    .eb-lane-hd {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 9px; border-bottom: 1px solid var(--border);
+    }
+    .eb-lane-name { font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 10px; }
+    .eb-lane-name.th  { background: #132d4a; color: #6ab0e0; }
+    .eb-lane-name.sub { background: #2e1e0a; color: #d09050; }
+    .eb-lane-count { font-size: 11px; color: var(--text3); margin-left: auto; }
+    .eb-lane-body {
+      padding: 8px; display: flex; flex-direction: column; gap: 6px;
+      min-height: 46px;
+    }
+    .eb-section-movie .eb-lane-body { flex-direction: row; flex-wrap: wrap; }
+    .eb-lane-body.eb-drop-over { background: rgba(74,158,255,.05); }
+    .eb-card-placeholder {
+      min-height: 36px; align-self: stretch; box-sizing: border-box;
+      border: 2px dashed var(--blue); border-radius: 5px;
+      background: rgba(74,158,255,.12);
+    }
+    .eb-section-movie .eb-card-placeholder { align-self: auto; min-width: 130px; }
+    .eb-no-lane { color: var(--text3); font-size: 12px; padding: 10px 4px; }
+    .eb-card {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px; background: var(--bg3);
+      border: 1px solid var(--border); border-radius: 5px;
+      cursor: grab; font-size: 12px; color: var(--text);
+    }
+    .eb-section-movie .eb-card { flex: 0 0 auto; max-width: 320px; }
+    .eb-card:hover { border-color: #444; }
+    .eb-card.dragging { opacity: .4; }
+    .eb-card-grip { color: var(--text3); font-size: 13px; cursor: grab; flex-shrink: 0; }
+    .eb-card-img { width: 42px; height: 24px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
+    .eb-card-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .eb-card-del {
+      background: none; border: none; color: var(--text3); cursor: pointer;
+      font-size: 12px; padding: 2px 5px; border-radius: 3px; flex-shrink: 0; line-height: 1;
+    }
+    .eb-card-del:hover { color: #e05050; background: rgba(224,80,80,.1); }
+    .eb-btn {
+      background: var(--bg4); border: 1px solid var(--border);
+      color: var(--text2); cursor: pointer; font-size: 11px;
+      padding: 4px 10px; border-radius: 4px; line-height: 1.2;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .eb-btn:hover { color: var(--text); border-color: #444; }
+    .eb-btn.eb-del:hover { color: #e05050; border-color: #e05050; }
+    .eb-del-lane { padding: 2px 7px; }
+    .eb-renum-lane { padding: 2px 8px; }
+    .eb-renum-lane:hover, .eb-renum-section:hover { color: var(--blue); border-color: var(--blue); }
+    .eb-add-section { display: flex; justify-content: center; padding: 2px; }
+    .eb-btn-add { padding: 8px 22px; }
   </style>
 </head>
 <body>
@@ -1171,6 +1296,25 @@
   </div>
 </div>
 
+<!-- Episode / Part Board Manager -->
+<div id="ep-board-modal" class="modal-overlay hidden">
+  <div class="modal eb-modal">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center;min-width:0">
+        <h2 id="eb-title">จัดการตอน</h2>
+        <span class="modal-tab-hint" id="eb-hint"></span>
+      </div>
+      <button class="modal-close" id="eb-close" title="ปิด">✕</button>
+    </div>
+    <div class="modal-body eb-body" id="eb-board"></div>
+    <div class="modal-ft">
+      <span id="eb-status" style="flex:1;font-size:12px;color:var(--text3)"></span>
+      <button id="eb-cancel" class="btn-cancel">ยกเลิก</button>
+      <button id="eb-save" class="btn-run"><i class="fi fi-sr-disk"></i> บันทึก</button>
+    </div>
+  </div>
+</div>
+
 <!-- Image Preview Overlay -->
 <div id="img-preview-overlay" class="hidden">
   <img id="img-preview-img" src="" alt="Preview" />
@@ -1549,6 +1693,20 @@ function editTitleBtn(slug, tabId, title) {
   return `<button class="edit-title-btn" data-slug="${esc(slug)}" data-tab="${esc(tabId)}" data-title="${esc(title)}"><i class="fi fi-rr-edit"></i> แก้ไข</button>`;
 }
 
+/** Entry button → open the episode/part board manager for a title (local only) */
+function manageBtn(file, tabId, title, kind) {
+  if (!IS_LOCAL) return '';
+  const label = kind === 'series' ? 'จัดการตอน' : 'จัดการภาค';
+  return `<button class="manage-btn" data-file="${esc(file)}" data-tab="${esc(tabId)}" data-title="${esc(title)}" data-kind="${esc(kind)}"><i class="fi fi-rr-list-check"></i> ${label}</button>`;
+}
+
+/** Series title cell — clickable to open the episode board (local only) */
+function seriesTitleCell(title, file, tabId) {
+  const inner = titleHtml(title);
+  if (!IS_LOCAL) return inner;
+  return `<span class="ep-title-link" data-file="${esc(file)}" data-tab="${esc(tabId)}" data-title="${esc(title)}" data-kind="series" title="คลิกเพื่อจัดการตอน">${inner}</span>`;
+}
+
 function delBtn(payload, station = 'series') {
   if (!IS_LOCAL) return '';
   if (station === 'movie') {
@@ -1590,7 +1748,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" class="grp-top">
         <td class="c-no">${gid}</td>
         <td class="c-art">${artTag(poster, true)}</td>
-        <td class="c-title">${titleHtml(title)}</td>
+        <td class="c-title">${seriesTitleCell(title, filename, tabId)}</td>
         <td class="c-szn" style="color:var(--text3)">—${updBtn(slug, 0, tabId, title)}</td>
         <td class="c-trk" style="color:var(--text3)">—</td>
         <td class="c-tmdb">${tmdbCell(tmdbId, tmdbKind)}</td>
@@ -1625,7 +1783,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       html += `<tr data-group="${gid}" data-title="${esc(titleKey)}" data-status="${rowStatus}" data-sources="${esc(rowSources)}" class="${isFirst ? 'grp-top' : ''}">
         <td class="c-no"><span class="row-head">${gid}</span></td>
         <td class="c-art"><span class="row-head">${artTag(poster, true)}</span></td>
-        <td class="c-title"><span class="row-head">${titleHtml(title)}</span><span class="row-cont"><span class="title-cont">↳ ${esc(sznName)}</span></span></td>
+        <td class="c-title"><span class="row-head">${seriesTitleCell(title, filename, tabId)}</span><span class="row-cont"><span class="title-cont">↳ ${esc(sznName)}</span></span></td>
         <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb"><span class="row-head">${tmdbCell(tmdbId, tmdbKind)}</span></td>
@@ -1672,7 +1830,7 @@ function renderMovies(wrap, stats, items, tmdbKind, tabId = '') {
 
     const mainFile = tmdbId ? `${tmdbId}-${slug}` : slug;
     const actCell = (isHeader, delPayload = null) =>
-      IS_LOCAL ? `<td class="c-act">${isHeader ? editTitleBtn(slug, tabId, title) : ''}${delPayload ? delBtn(delPayload, 'movie') : ''}</td>` : '';
+      IS_LOCAL ? `<td class="c-act">${isHeader ? editTitleBtn(slug, tabId, title) + manageBtn(mainFile, tabId, title, 'movie') : ''}${delPayload ? delBtn(delPayload, 'movie') : ''}</td>` : '';
 
     if (isMainFile) {
       // Title row: release_date blank; updated_at = latest across main + all parts
@@ -2155,6 +2313,588 @@ document.getElementById('et-save-btn').addEventListener('click', async () => {
     status.textContent = '⚠ Error: ' + err.message;
   } finally {
     document.getElementById('et-save-btn').disabled = false;
+  }
+});
+
+// ── Episode / Part Board Manager ─────────────────────────────────
+// In-memory editor for a single title. Model is uniform across formats:
+//   sections[] (series=Season, movie=ภาค) → lanes[] (series=track พากย์ไทย/ซับไทย,
+//   movie=single lane) → cards[] (series=episode, movie=track station object).
+// Card/track/season objects are kept by reference so unrelated fields survive a save.
+let ebCtx     = null;   // current board state
+let ebDrag    = null;   // { si, li, ci } source of an in-flight card drag
+let ebSecDrag = null;   // { si } source of an in-flight section (Season/ภาค) drag
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.manage-btn[data-file]');
+  if (!btn) return;
+  e.stopPropagation();
+  openEpBoard(btn.dataset.file, btn.dataset.tab, btn.dataset.title, btn.dataset.kind);
+});
+
+// Series: clicking the title opens the board (copy buttons stopPropagation themselves)
+document.addEventListener('click', e => {
+  if (e.target.closest('.cp-btn')) return;
+  const el = e.target.closest('.ep-title-link[data-file]');
+  if (!el) return;
+  e.stopPropagation();
+  openEpBoard(el.dataset.file, el.dataset.tab, el.dataset.title, el.dataset.kind);
+});
+
+async function openEpBoard(file, tabId, title, kind) {
+  const dir      = TABS[tabId].index.replace(/\/index\.txt$/, '');
+  const filePath = `${dir}/${file}.txt`;
+  const modal    = document.getElementById('ep-board-modal');
+
+  document.getElementById('eb-board').innerHTML = '<div class="eb-empty">กำลังโหลด...</div>';
+  document.getElementById('eb-status').textContent = '';
+  document.getElementById('eb-title').textContent  = kind === 'series' ? 'จัดการตอน' : 'จัดการภาค';
+  document.getElementById('eb-hint').textContent   = '— ' + (splitTitle(title).en || title);
+  modal.classList.remove('hidden');
+
+  try {
+    const pl = await getJSON('/' + filePath);
+    ebCtx = await buildBoardState(pl, { file, tabId, title, kind, dir, filePath });
+    renderBoard();
+  } catch (err) {
+    document.getElementById('eb-board').innerHTML =
+      `<div class="eb-empty">⚠ โหลดไม่สำเร็จ: ${esc(err.message)}</div>`;
+  }
+}
+
+/** Normalize any playlist format → the uniform sections/lanes/cards board model */
+async function buildBoardState(pl, meta) {
+  const { file, tabId, title, kind, dir, filePath } = meta;
+  const s = { pl, file, tabId, title, kind, dir, filePath, format: '', sections: [], origPartFiles: [], dirty: false };
+
+  if (kind === 'series') {
+    s.format = 'series';
+    s.sections = (pl.groups || []).map(season => ({
+      ref: season,
+      name: season.name || 'Season',
+      lanes: (season.groups || []).map(track => ({
+        ref: track,
+        name: track.name || '',
+        cards: (track.stations || []).slice(),
+      })),
+    }));
+    return s;
+  }
+
+  // movie — detect storage shape
+  const g = pl.groups;
+  if (Array.isArray(g) && g[0] && g[0].url && !g[0].stations) {
+    s.format = 'twofile';
+    s.sections = await Promise.all(g.map(async (grp, i) => {
+      const basename = decodeURIComponent((grp.url || '').split('/').pop());
+      s.origPartFiles.push(basename);
+      // Two-file main groups store the ภาค label in `badge`; `name` holds the
+      // per-part title (e.g. a sequel's name). Show the badge, preserve both on save.
+      let partPl = {}, loadFailed = false;
+      try { partPl = await getJSON(toLocal(grp.url)); } catch { loadFailed = true; }
+      const label = grp.badge || grp.name || `ภาค ${i + 1}`;
+      return {
+        ref: grp, partFile: basename, partPl, loadFailed,
+        name: label,
+        subtitle: grp.name && grp.name !== label ? grp.name : '',
+        lanes: [{ ref: null, name: 'tracks', cards: (partPl.stations || []).slice() }],
+      };
+    }));
+  } else if (Array.isArray(g) && g[0] && Array.isArray(g[0].stations)) {
+    s.format = 'inline';
+    s.sections = g.map((grp, i) => ({
+      ref: grp, name: grp.name || `ภาค ${i + 1}`,
+      lanes: [{ ref: null, name: 'tracks', cards: (grp.stations || []).slice() }],
+    }));
+  } else {
+    s.format = 'root';
+    s.sections = [{
+      ref: null, name: pl.name || 'ภาค 1',
+      lanes: [{ ref: null, name: 'tracks', cards: (pl.stations || []).slice() }],
+    }];
+  }
+  return s;
+}
+
+// ── Board rendering ──────────────────────────────────────────────
+function renderBoard() {
+  const s = ebCtx;
+  const board = document.getElementById('eb-board');
+  if (!s) return;
+
+  let html = s.sections.length
+    ? s.sections.map((sec, si) => renderSection(sec, si, s.kind)).join('')
+    : `<div class="eb-empty">ยังไม่มี${s.kind === 'series' ? ' Season' : ' ภาค'} — กดปุ่มด้านล่างเพื่อเพิ่ม</div>`;
+
+  const addLabel = s.kind === 'series' ? '+ เพิ่ม Season' : '+ เพิ่ม ภาค';
+  html += `<div class="eb-add-section"><button class="eb-btn eb-btn-add" id="eb-add-section">${addLabel}</button></div>`;
+  board.innerHTML = html;
+
+  document.getElementById('eb-status').textContent = s.dirty ? '● มีการแก้ไขที่ยังไม่บันทึก' : '';
+}
+
+function renderSection(sec, si, kind) {
+  if (kind === 'series') {
+    const lanes = sec.lanes.map((lane, li) => renderLane(si, lane, li, false)).join('')
+      || '<div class="eb-no-lane">ยังไม่มี track — กด “+ track”</div>';
+    return `<div class="eb-section" data-si="${si}">
+      <div class="eb-section-hd">
+        <span class="eb-section-title-wrap">
+          <span class="eb-section-grip" title="ลากเพื่อสลับลำดับ Season">⠿</span>
+          <span class="eb-section-name eb-editable" data-rename="section" data-si="${si}" title="คลิกเพื่อเปลี่ยนชื่อ Season">${esc(sec.name)}</span>
+        </span>
+        <span class="eb-section-act">
+          <button class="eb-btn eb-renum-section" data-si="${si}" title="ตั้งเลขตอนใหม่ 1,2,3… ตามลำดับปัจจุบัน (ทุก track)"># ตั้งเลขใหม่</button>
+          <button class="eb-btn eb-add-track" data-si="${si}">+ track</button>
+          <button class="eb-btn eb-del eb-del-section" data-si="${si}">ลบ Season</button>
+        </span>
+      </div>
+      <div class="eb-lanes">${lanes}</div>
+    </div>`;
+  }
+  // movie — single lane, no track sub-header
+  const sub = sec.subtitle ? `<span class="eb-section-sub">${esc(splitTitle(sec.subtitle).en)}</span>` : '';
+  return `<div class="eb-section eb-section-movie" data-si="${si}">
+    <div class="eb-section-hd">
+      <span class="eb-section-title-wrap">
+        <span class="eb-section-grip" title="ลากเพื่อสลับลำดับ ภาค">⠿</span>
+        <span class="eb-section-name eb-editable" data-rename="section" data-si="${si}" title="คลิกเพื่อเปลี่ยนชื่อ ภาค">${esc(sec.name)}</span>${sub}
+      </span>
+      <span class="eb-section-act">
+        <button class="eb-btn eb-del eb-del-section" data-si="${si}">ลบ ภาค</button>
+      </span>
+    </div>
+    <div class="eb-lanes">${renderLane(si, sec.lanes[0], 0, true)}</div>
+  </div>`;
+}
+
+function renderLane(si, lane, li, hideHead) {
+  const isSub = /ซับ|sub/i.test(lane.name);
+  const head = hideHead ? '' : `<div class="eb-lane-hd">
+    <span class="eb-lane-name eb-editable ${isSub ? 'sub' : 'th'}" data-rename="lane" data-si="${si}" data-li="${li}" title="คลิกเพื่อเปลี่ยนชื่อ track">${esc(lane.name)}</span>
+    <span class="eb-lane-count">${lane.cards.length} ตอน</span>
+    <button class="eb-btn eb-renum-lane" data-si="${si}" data-li="${li}" title="ตั้งเลขตอนใหม่ 1,2,3… ตามลำดับปัจจุบัน">#</button>
+    <button class="eb-btn eb-del eb-del-lane" data-si="${si}" data-li="${li}" title="ลบ track">✕</button>
+  </div>`;
+  const cards = lane.cards.map((c, ci) => renderCard(c, si, li, ci)).join('');
+  return `<div class="eb-lane">${head}
+    <div class="eb-lane-body" data-si="${si}" data-li="${li}">${cards}</div>
+  </div>`;
+}
+
+function renderCard(card, si, li, ci) {
+  const img = card.image
+    ? `<img class="eb-card-img" src="${esc(card.image)}" loading="lazy" onerror="this.style.display='none'">`
+    : '';
+  return `<div class="eb-card" draggable="true" data-si="${si}" data-li="${li}" data-ci="${ci}">
+    <span class="eb-card-grip">⠿</span>${img}
+    <span class="eb-card-name eb-editable" data-rename="card" data-si="${si}" data-li="${li}" data-ci="${ci}" title="คลิกเพื่อแก้ชื่อ/เลขตอน">${esc(card.name || '(ไม่มีชื่อ)')}</span>
+    <button class="eb-card-del" data-si="${si}" data-li="${li}" data-ci="${ci}" title="ลบ">✕</button>
+  </div>`;
+}
+
+// ── Structural mutations ─────────────────────────────────────────
+function ebMark() { ebCtx.dirty = true; renderBoard(); }
+
+function ebAddSection() {
+  const s = ebCtx;
+  const n = s.sections.length + 1;
+  if (s.kind === 'series') {
+    s.sections.push({ ref: null, name: `Season ${n}`, lanes: [{ ref: null, name: 'พากย์ไทย', cards: [] }] });
+  } else {
+    s.sections.push({ ref: null, name: `ภาค ${n}`, lanes: [{ ref: null, name: 'tracks', cards: [] }] });
+  }
+  ebMark();
+}
+
+function ebAddTrack(si) {
+  const sec = ebCtx.sections[si];
+  const names = sec.lanes.map(l => l.name);
+  let name;
+  if (!names.includes('พากย์ไทย'))      name = 'พากย์ไทย';
+  else if (!names.includes('ซับไทย'))   name = 'ซับไทย';
+  else { name = (prompt('ชื่อ track:', 'พากย์ไทย') || '').trim(); if (!name) return; }
+  sec.lanes.push({ ref: null, name, cards: [] });
+  ebMark();
+}
+
+// Rewrite the episode number inside a card name to `n`, preserving the prefix
+// style ("ตอน", "ตอนที่", "Ep.", "Episode") and the episode title. Names with no
+// leading prefix+number get the first number replaced; numberless names are
+// prefixed with the given fallback (track-appropriate "ตอน"/"Ep.").
+function ebRenumberName(name, n, fallbackPrefix) {
+  const s = String(name || '');
+  const m = s.match(/^(\s*(?:ตอน(?:ที่)?|Ep\.?|Episode)\s*)(\d+)(.*)$/i);
+  if (m) return `${m[1]}${n}${m[3]}`;
+  const m2 = s.match(/^(\D*)(\d+)(.*)$/);
+  if (m2) return `${m2[1]}${n}${m2[3]}`;
+  return s ? `${fallbackPrefix} ${n} - ${s}` : `${fallbackPrefix} ${n}`;
+}
+
+function ebPrefixFor(laneName) {
+  return /ซับ|sub|^ep/i.test(laneName || '') ? 'Ep.' : 'ตอน';
+}
+
+function ebRenumberLane(si, li) {
+  const lane = ebCtx.sections[si].lanes[li];
+  const prefix = ebPrefixFor(lane.name);
+  lane.cards.forEach((c, i) => { c.name = ebRenumberName(c.name, i + 1, prefix); });
+  ebMark();
+}
+
+function ebRenumberSection(si) {
+  ebCtx.sections[si].lanes.forEach((lane, li) => ebRenumberLane(si, li));
+}
+
+// Inline-rename a name span. Swaps it for a text input; commits on Enter/blur,
+// cancels on Esc. `commit(value)` applies the new value, then the board re-renders.
+function ebStartRename(el, current, commit) {
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = current;
+  input.className = 'eb-name-input';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  let done = false;
+  const finish = save => {
+    if (done) return;
+    done = true;
+    if (save) commit(input.value.trim());
+    renderBoard();
+  };
+  input.addEventListener('keydown', e => {
+    e.stopPropagation();
+    if (e.key === 'Enter')  { e.preventDefault(); finish(true);  }
+    if (e.key === 'Escape') { e.preventDefault(); finish(false); }
+  });
+  input.addEventListener('blur', () => finish(true));
+}
+
+// Move a card from its source lane to (tsi, tli) at insertion index `idx`.
+// `idx` is computed against the lane's non-dragging cards, i.e. the post-removal
+// coordinate space — so we splice directly with no further adjustment.
+function ebMoveCard(src, tsi, tli, idx) {
+  const s = ebCtx;
+  const srcLane = s.sections[src.si] && s.sections[src.si].lanes[src.li];
+  const tgtLane = s.sections[tsi] && s.sections[tsi].lanes[tli];
+  if (!srcLane || !tgtLane) return;
+  const card = srcLane.cards.splice(src.ci, 1)[0];
+  if (!card) return;
+  tgtLane.cards.splice(idx, 0, card);
+  s.dirty = true;
+}
+
+// Drop placeholder — an empty slot inserted at the would-be drop position so the
+// cards visibly part to show where the dragged card will land.
+let ebCardPH = null;
+function ebPlaceholder() {
+  if (!ebCardPH) { ebCardPH = document.createElement('div'); ebCardPH.className = 'eb-card-placeholder'; }
+  return ebCardPH;
+}
+function ebRemovePlaceholder() {
+  if (ebCardPH && ebCardPH.parentNode) ebCardPH.parentNode.removeChild(ebCardPH);
+}
+// Insert the placeholder into `body` at the position nearest the pointer.
+function ebPositionPlaceholder(body, clientY) {
+  const ph = ebPlaceholder();
+  const cards = [...body.querySelectorAll('.eb-card:not(.dragging)')];
+  const before = cards.find(c => {
+    const r = c.getBoundingClientRect();
+    return clientY < r.top + r.height / 2;
+  });
+  if (before) body.insertBefore(ph, before);
+  else body.appendChild(ph);
+}
+// Insertion index = non-dragging cards before the placeholder (post-removal space).
+function ebPlaceholderIndex(body) {
+  const ph = body.querySelector('.eb-card-placeholder');
+  let idx = 0;
+  for (const child of body.children) {
+    if (child === ph) break;
+    if (child.classList.contains('eb-card') && !child.classList.contains('dragging')) idx++;
+  }
+  return idx;
+}
+
+// Section (Season/ภาค) reorder — `idx` is in the non-dragging coordinate space.
+function ebSecDropIndex(boardEl, clientY) {
+  const secs = [...boardEl.querySelectorAll('.eb-section:not(.eb-sec-dragging)')];
+  for (let i = 0; i < secs.length; i++) {
+    const r = secs[i].getBoundingClientRect();
+    if (clientY < r.top + r.height / 2) return i;
+  }
+  return secs.length;
+}
+
+function ebMoveSection(fromSi, idx) {
+  const sec = ebCtx.sections.splice(fromSi, 1)[0];
+  if (!sec) return;
+  ebCtx.sections.splice(idx, 0, sec);
+  ebCtx.dirty = true;
+}
+
+function ebClearSecDrag(board) {
+  board.querySelectorAll('.eb-sec-dragging').forEach(el => el.classList.remove('eb-sec-dragging'));
+  board.querySelectorAll('[draggable="true"].eb-section').forEach(el => { el.draggable = false; });
+  board.querySelectorAll('.eb-sec-drop-before, .eb-sec-drop-after')
+    .forEach(el => el.classList.remove('eb-sec-drop-before', 'eb-sec-drop-after'));
+  ebSecDrag = null;
+}
+
+// ── Board event wiring (delegated; the #eb-board node is persistent) ──
+{
+  const board = document.getElementById('eb-board');
+
+  board.addEventListener('click', e => {
+    if (!ebCtx) return;
+    const s = ebCtx;
+    const ren = e.target.closest('.eb-editable[data-rename]');
+    if (ren) {
+      const si = +ren.dataset.si;
+      if (ren.dataset.rename === 'section') {
+        ebStartRename(ren, s.sections[si].name, v => {
+          if (v && v !== s.sections[si].name) { s.sections[si].name = v; s.dirty = true; }
+        });
+      } else if (ren.dataset.rename === 'lane') {
+        const li = +ren.dataset.li;
+        ebStartRename(ren, s.sections[si].lanes[li].name, v => {
+          if (v && v !== s.sections[si].lanes[li].name) { s.sections[si].lanes[li].name = v; s.dirty = true; }
+        });
+      } else {
+        const li = +ren.dataset.li, ci = +ren.dataset.ci;
+        const card = ren.closest('.eb-card');
+        if (card) card.draggable = false;   // let the input receive clicks/selection
+        ebStartRename(ren, s.sections[si].lanes[li].cards[ci].name, v => {
+          if (v && v !== s.sections[si].lanes[li].cards[ci].name) { s.sections[si].lanes[li].cards[ci].name = v; s.dirty = true; }
+        });
+      }
+      return;
+    }
+    const delCard = e.target.closest('.eb-card-del');
+    if (delCard) {
+      const { si, li, ci } = delCard.dataset;
+      s.sections[+si].lanes[+li].cards.splice(+ci, 1);
+      ebMark(); return;
+    }
+    const delLane = e.target.closest('.eb-del-lane');
+    if (delLane) {
+      const { si, li } = delLane.dataset;
+      const lane = s.sections[+si].lanes[+li];
+      if (lane.cards.length && !confirm(`ลบ track “${lane.name}” พร้อม ${lane.cards.length} ตอน?`)) return;
+      s.sections[+si].lanes.splice(+li, 1);
+      ebMark(); return;
+    }
+    const delSec = e.target.closest('.eb-del-section');
+    if (delSec) {
+      const si = +delSec.dataset.si;
+      const sec = s.sections[si];
+      const cnt = sec.lanes.reduce((a, l) => a + l.cards.length, 0);
+      const what = s.kind === 'series' ? 'Season' : 'ภาค';
+      if (cnt && !confirm(`ลบ ${what} “${sec.name}” พร้อม ${cnt} รายการ?`)) return;
+      s.sections.splice(si, 1);
+      ebMark(); return;
+    }
+    const renumLane = e.target.closest('.eb-renum-lane');
+    if (renumLane) { ebRenumberLane(+renumLane.dataset.si, +renumLane.dataset.li); return; }
+    const renumSec = e.target.closest('.eb-renum-section');
+    if (renumSec) { ebRenumberSection(+renumSec.dataset.si); return; }
+    if (e.target.closest('.eb-add-track')) { ebAddTrack(+e.target.closest('.eb-add-track').dataset.si); return; }
+    if (e.target.closest('#eb-add-section')) { ebAddSection(); return; }
+  });
+
+  // Section drag is handle-driven: pressing the grip arms the whole section as
+  // draggable; a plain click (no drag) is disarmed on mouseup.
+  board.addEventListener('mousedown', e => {
+    const grip = e.target.closest('.eb-section-grip');
+    if (!grip) return;
+    const sec = grip.closest('.eb-section');
+    if (sec) sec.draggable = true;
+  });
+  board.addEventListener('mouseup', () => {
+    board.querySelectorAll('[draggable="true"].eb-section').forEach(el => { el.draggable = false; });
+  });
+
+  board.addEventListener('dragstart', e => {
+    const sec = e.target.closest('.eb-section');
+    if (sec && sec.draggable && !e.target.closest('.eb-card')) {
+      ebSecDrag = { si: +sec.dataset.si };
+      sec.classList.add('eb-sec-dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      try { e.dataTransfer.setData('text/plain', ''); } catch {}
+      return;
+    }
+    const card = e.target.closest('.eb-card');
+    if (!card) return;
+    ebDrag = { si: +card.dataset.si, li: +card.dataset.li, ci: +card.dataset.ci };
+    card.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    try { e.dataTransfer.setData('text/plain', ''); } catch {}
+  });
+
+  board.addEventListener('dragend', () => {
+    board.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
+    board.querySelectorAll('.eb-drop-over').forEach(el => el.classList.remove('eb-drop-over'));
+    ebRemovePlaceholder();
+    ebDrag = null;
+    ebClearSecDrag(board);
+  });
+
+  board.addEventListener('dragover', e => {
+    // Section reorder
+    if (ebSecDrag) {
+      const over = e.target.closest('.eb-section:not(.eb-sec-dragging)');
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      board.querySelectorAll('.eb-sec-drop-before, .eb-sec-drop-after')
+        .forEach(el => el.classList.remove('eb-sec-drop-before', 'eb-sec-drop-after'));
+      if (over) {
+        const r = over.getBoundingClientRect();
+        over.classList.add(e.clientY < r.top + r.height / 2 ? 'eb-sec-drop-before' : 'eb-sec-drop-after');
+      }
+      return;
+    }
+    // Card move
+    const body = e.target.closest('.eb-lane-body');
+    if (!body || !ebDrag) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (!body.classList.contains('eb-drop-over')) {
+      board.querySelectorAll('.eb-drop-over').forEach(el => el.classList.remove('eb-drop-over'));
+      body.classList.add('eb-drop-over');
+    }
+    ebPositionPlaceholder(body, e.clientY);
+  });
+
+  board.addEventListener('drop', e => {
+    if (ebSecDrag) {
+      e.preventDefault();
+      ebMoveSection(ebSecDrag.si, ebSecDropIndex(board, e.clientY));
+      ebClearSecDrag(board);
+      renderBoard();
+      return;
+    }
+    const body = e.target.closest('.eb-lane-body');
+    if (!body || !ebDrag) return;
+    e.preventDefault();
+    ebMoveCard(ebDrag, +body.dataset.si, +body.dataset.li, ebPlaceholderIndex(body));
+    ebRemovePlaceholder();
+    ebDrag = null;
+    renderBoard();
+  });
+}
+
+// ── Serialize board → file writes (+ orphan part-file deletes) ───
+function serializeBoard() {
+  const s = ebCtx;
+  const writes = [], deletes = [];
+  const now = new Date().toISOString();
+
+  if (s.kind === 'series') {
+    s.pl.groups = s.sections.map(sec => {
+      const season = sec.ref || {};
+      season.name = sec.name;
+      season.groups = sec.lanes.map(lane => {
+        const track = lane.ref || {};
+        track.name = lane.name;
+        track.stations = lane.cards;
+        return track;
+      });
+      return season;
+    });
+    s.pl.updated_at = now;
+    writes.push({ filePath: s.filePath, data: s.pl });
+
+  } else if (s.format === 'twofile') {
+    // Abort rather than truncate a part file we couldn't load.
+    const failed = s.sections.find(sec => sec.loadFailed && sec.partFile);
+    if (failed) throw new Error(`โหลด part "${failed.partFile}" ไม่สำเร็จ — ยกเลิกการบันทึกเพื่อกันข้อมูลหาย`);
+
+    const taken = new Set(s.origPartFiles);
+    s.sections.forEach(sec => { if (sec.partFile) taken.add(sec.partFile); });
+    const used = new Set();
+
+    s.pl.groups = s.sections.map(sec => {
+      const g = sec.ref || {};
+      let basename = sec.partFile;
+      if (!basename) {
+        // Brand-new ภาค: generate a non-colliding filename.
+        let n = 2;
+        do { basename = `${s.file}-p${n++}.txt`; } while (taken.has(basename));
+        taken.add(basename);
+        g.url = RAW + s.dir + '/' + basename;
+        if (!g.name) g.name = sec.name;
+      }
+      // `badge` is the ภาค label (editable); `name` (the per-part title) is preserved.
+      g.badge = sec.name;
+      used.add(basename);
+      const partPl = sec.partPl || {};
+      partPl.stations = sec.lanes[0].cards;
+      partPl.updated_at = now;
+      writes.push({ filePath: `${s.dir}/${basename}`, data: partPl });
+      return g;
+    });
+    s.origPartFiles.forEach(pf => { if (!used.has(pf)) deletes.push(`${s.dir}/${pf}`); });
+    if ('part_count' in s.pl) s.pl.part_count = s.sections.length;
+    s.pl.updated_at = now;
+    writes.push({ filePath: s.filePath, data: s.pl });
+
+  } else {
+    // root / inline (single-file movie)
+    if (s.sections.length <= 1 && s.format === 'root') {
+      const sec = s.sections[0] || { name: s.pl.name, lanes: [{ cards: [] }] };
+      s.pl.name = sec.name;
+      s.pl.stations = sec.lanes[0].cards;
+      delete s.pl.groups;
+    } else {
+      delete s.pl.stations;
+      s.pl.groups = s.sections.map(sec => {
+        const g = sec.ref || {};
+        g.name = sec.name;
+        g.stations = sec.lanes[0].cards;
+        return g;
+      });
+    }
+    s.pl.updated_at = now;
+    writes.push({ filePath: s.filePath, data: s.pl });
+  }
+  return { writes, deletes };
+}
+
+async function ebPost(path, body) {
+  const r = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
+}
+
+function closeEpBoard(force) {
+  if (!force && ebCtx && ebCtx.dirty && !confirm('มีการแก้ไขที่ยังไม่บันทึก ต้องการปิดหรือไม่?')) return;
+  document.getElementById('ep-board-modal').classList.add('hidden');
+  ebCtx = null; ebDrag = null;
+}
+
+document.getElementById('eb-close').addEventListener('click', () => closeEpBoard(false));
+document.getElementById('eb-cancel').addEventListener('click', () => closeEpBoard(false));
+document.getElementById('ep-board-modal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeEpBoard(false);
+});
+
+document.getElementById('eb-save').addEventListener('click', async () => {
+  if (!ebCtx) return;
+  const tabId  = ebCtx.tabId;
+  const btn    = document.getElementById('eb-save');
+  const status = document.getElementById('eb-status');
+  try {
+    const { writes, deletes } = serializeBoard();
+    status.textContent = 'กำลังบันทึก...';
+    btn.disabled = true;
+    for (const w of writes)  await ebPost('/api/save-file',   { filePath: w.filePath, data: w.data });
+    for (const d of deletes) await ebPost('/api/delete-file', { filePath: d });
+    status.textContent = '✓ บันทึกแล้ว';
+    setTimeout(() => { closeEpBoard(true); loaded.delete(tabId); loadTab(tabId); }, 700);
+  } catch (err) {
+    status.textContent = '⚠ ' + err.message;
+  } finally {
+    btn.disabled = false;
   }
 });
 

@@ -111,14 +111,24 @@ async function parseAnimePage(url) {
     || $('.ez-cover img, .single-cover img').first().attr('src')
     || '').trim();
 
-  // Find all /watch/{N}-{view}/ URLs
-  const watchRe = /https?:\/\/(?:www\.)?gg-animes\.com\/watch\/(\d+)(?:-\d+)?\/?/gi;
+  // Find all /watch/{slug}/ URLs — รองรับ 2 patterns:
+  //   เก่า: /watch/{NUMBER}/ หรือ /watch/{NUMBER}-{view}/ → NUMBER แรก = epNum
+  //   ใหม่: /watch/{slug-มีตัวอักษร}-{epNum}/ → เลขท้าย slug = epNum
+  const watchRe = /https?:\/\/(?:www\.)?gg-animes\.com\/watch\/([^"\s\/]+)\/?/gi;
   const seen = new Set();
   const episodes = [];
   let m;
   while ((m = watchRe.exec(html))) {
     const epUrl = m[0];
-    const epNum = parseInt(m[1]);
+    const slug = decodeURIComponent(m[1]);
+    let epNum;
+    if (/^\d+(?:-\d+)?$/.test(slug)) {
+      epNum = parseInt(slug.split('-')[0]);
+    } else {
+      const trailing = slug.match(/-(\d+)$/);
+      if (!trailing) continue;
+      epNum = parseInt(trailing[1]);
+    }
     if (!Number.isFinite(epNum)) continue;
     if (seen.has(epUrl)) continue;
     seen.add(epUrl);
@@ -194,7 +204,8 @@ async function getRawStreamUrl(iframeUrl) {
 
   // btoa(videoDisk || ", ")
   const dParam = Buffer.from(videoDisk ? String(videoDisk) : ', ', 'utf-8').toString('base64');
-  return `https://${PLAYER_HOST}${videoUrl}?s=${videoServer}&d=${dParam}`;
+  // &v=2: cache-buster — break stale CF cache จากช่วงที่ worker ยัง cache m3u8 อยู่
+  return `https://${PLAYER_HOST}${videoUrl}?s=${videoServer}&d=${dParam}&v=2`;
 }
 
 // ───── Main ─────
