@@ -37,6 +37,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-anime108.js',
   'fetch-gg-animes.js',
   'fetch-anime-loki.js',
+  'fetch-animeyour.js',
   'fetch-7hd.js',
   'fetch-nunghd4k.js',
   'fetch-123hds.js',
