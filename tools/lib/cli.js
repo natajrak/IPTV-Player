@@ -42,6 +42,9 @@ function parseArgs(argv = process.argv) {
   const epOffsetRaw = get('--ep-offset');
   const epOffset = epOffsetRaw ? (parseInt(epOffsetRaw) || 0) : 0;
 
+  const partRaw = get('--part');
+  const partNum = partRaw ? (parseInt(partRaw) || null) : null;
+
   const typeArg = get('--type');
 
   return {
@@ -64,6 +67,7 @@ function parseArgs(argv = process.argv) {
     forceTmdbId,
     tmdbSeasonNum,
     epOffset,
+    partNum,
     typeArg,
     hasFlag,
     get,

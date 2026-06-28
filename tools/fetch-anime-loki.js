@@ -47,7 +47,7 @@ loadEnv(__dirname);
 const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
-      forceTmdbId, tmdbSeasonNum, epOffset, typeArg, filterTrack } = cli;
+      forceTmdbId, tmdbSeasonNum, epOffset, partNum, typeArg, filterTrack } = cli;
 
 // Override default: anime-loki defaults to พากย์ไทย if --track= not specified
 let trackName = cli.trackName;
@@ -127,17 +127,24 @@ async function parseAnimePage(url) {
     //   เช่น "พาร์ท 2 ตอนที่ 01 (14) ซับไทย" → absolute ep 14
     // เรื่องปกติ มีแค่ "ตอนที่ NN" → ใช้ NN เป็น ep number
     // ใช้ absolute ก่อนถ้ามี — จะ unique กันได้แม้ละหลายพาร์ทในหน้าเดียว
+    //
+    // เรื่องแบบ multi-season ที่ anime-loki รวมหลาย season ใน 1 URL จะมี "ภาค X ตอนที่ NN"
+    //   เช่น "ภาค 2 ตอนที่ 01 พากย์ไทย" → partNum=2, epNum=1
+    // ใช้ --part=N filter เฉพาะ ภาค ที่ต้องการ
+    const partMatch = text.match(/ภาค\s*(\d+)/);
     const absMatch = text.match(/\((\d+)\)/);
     const seqMatch = text.match(/ตอนที่\s*(\d+)/);
     if (!absMatch && !seqMatch) return;
     const epNum = parseInt((absMatch || seqMatch)[1]);
     if (!Number.isFinite(epNum)) return;
+    const partNum = partMatch ? parseInt(partMatch[1]) : null;
 
     const isPending = /รออัพ/.test(text);
-    episodes.push({ url: epUrl, epNum, label: text, isPending });
+    episodes.push({ url: epUrl, epNum, partNum, label: text, isPending });
   });
 
-  episodes.sort((a, b) => a.epNum - b.epNum);
+  // sort by (partNum, epNum) — ภาค 1 ก่อน ภาค 2, แต่ละ ภาค เรียงตอน
+  episodes.sort((a, b) => (a.partNum ?? 0) - (b.partNum ?? 0) || a.epNum - b.epNum);
 
   if (!episodes.length) throw new Error('ไม่พบ /watch/{slug}/ link ในหน้านี้ — ตรวจสอบ URL อีกครั้ง');
   const pending = episodes.filter((e) => e.isPending).length;
@@ -212,6 +219,22 @@ async function main() {
     }
 
     if (isMultiUrl && !epOffsetArg) epOffset = 0;
+
+    // --part=N filter: เลือกเฉพาะ episodes ของ ภาค N (สำหรับหน้าที่รวมหลาย season)
+    const hasMultiPart = episodes.some(e => e.partNum != null) && new Set(episodes.map(e => e.partNum).filter(p => p != null)).size > 1;
+    if (partNum != null) {
+      const before = episodes.length;
+      episodes = episodes.filter(e => e.partNum === partNum);
+      console.log(`🎯 Filter ภาค ${partNum}: ${before} → ${episodes.length} ตอน`);
+      if (episodes.length === 0) {
+        console.error(`❌ ไม่พบตอนใน ภาค ${partNum} — ตรวจสอบ URL หรือ --part อีกครั้ง`);
+        process.exit(1);
+      }
+    } else if (hasMultiPart) {
+      const parts = [...new Set(episodes.map(e => e.partNum).filter(p => p != null))].sort();
+      console.warn(`⚠️  หน้านี้รวมหลาย ภาค: ${parts.map(p => `ภาค ${p}`).join(', ')} — จะรวมทุก ภาค ไว้ใน season เดียว`);
+      console.warn(`    ใช้ --part=N เพื่อ filter เฉพาะ ภาค ที่ต้องการ`);
+    }
 
     if (episodes.length === 0) {
       console.error('❌ ไม่พบ episode ใดเลย ตรวจสอบ URL อีกครั้ง');
