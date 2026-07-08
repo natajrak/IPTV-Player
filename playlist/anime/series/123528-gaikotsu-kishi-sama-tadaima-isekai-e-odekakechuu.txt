@@ -193,12 +193,36 @@
             ],
             "release_date": "2022-04-07",
             "updated_at": "2022-06-23T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/ndas0qZuCixW24VOVNOUM0fyv3I.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/ndas0qZuCixW24VOVNOUM0fyv3I.jpg",
+                    "referer": "https://indy-anime.net/gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-2/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Duel to the Death? Silver Knight VS Silver Knight!",
+                            "image": "https://image.tmdb.org/t/p/original/vSyxK1kED9YWohtlgE9vMLFyBEz.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/Sw7Wgv9PmQ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-04"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-07-04",
+            "updated_at": "2026-07-04T00:00:00.000Z"
         }
     ],
     "release_date": "2022-04-07",
-    "updated_at": "2022-06-23T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-07-04T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }
