@@ -1,4 +1,5 @@
-const CACHE_NAME = "bkl-play-v28";
+const CACHE_NAME = "bkl-play-v29";
+const PLAYLIST_CACHE = "bkl-playlists-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -19,6 +20,10 @@ const APP_SHELL = [
   "../playlist/main.txt",
 ];
 
+// Cross-origin hosts ที่จะ cache แบบ stale-while-revalidate — ลด GitHub Raw 429
+const PLAYLIST_HOSTS = new Set(["raw.githubusercontent.com"]);
+const PLAYLIST_MAX_AGE_MS = 3600 * 1000; // 1 ชม. → หลังหมดอายุจะ revalidate
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
@@ -30,12 +35,54 @@ self.addEventListener("activate", (event) => {
     caches.keys().then((keys) =>
       Promise.all(
         keys
-          .filter((key) => key !== CACHE_NAME)
+          .filter((key) => key !== CACHE_NAME && key !== PLAYLIST_CACHE)
           .map((key) => caches.delete(key))
       )
     ).then(() => self.clients.claim())
   );
 });
+
+// Stale-while-revalidate: return cached (แม้ expired) + background refresh
+// - Cache hit fresh (< PLAYLIST_MAX_AGE_MS) → return cache, ไม่ยิง network
+// - Cache hit expired → return cache ทันที + background revalidate
+// - Cache miss → fetch + cache
+async function playlistSWR(req) {
+  const cache = await caches.open(PLAYLIST_CACHE);
+  const cached = await cache.match(req);
+  const now = Date.now();
+
+  const revalidate = () =>
+    fetch(req)
+      .then((res) => {
+        if (res && res.status === 200) {
+          const clone = res.clone();
+          // เก็บ timestamp ลง header เพื่อเช็คอายุคราวหน้า
+          const headers = new Headers(clone.headers);
+          headers.set("x-swr-cached-at", String(now));
+          clone.blob().then((body) => {
+            cache.put(req, new Response(body, {
+              status: clone.status,
+              statusText: clone.statusText,
+              headers,
+            }));
+          });
+        }
+        return res;
+      })
+      .catch(() => null);
+
+  if (cached) {
+    const cachedAt = parseInt(cached.headers.get("x-swr-cached-at") || "0", 10);
+    const isFresh = now - cachedAt < PLAYLIST_MAX_AGE_MS;
+    if (!isFresh) revalidate(); // fire-and-forget
+    return cached;
+  }
+
+  // Cache miss → fetch (ถ้าล้มเหลว ให้ propagate error ไปที่ client)
+  const res = await revalidate();
+  if (res) return res;
+  return new Response("Offline & no cache", { status: 503 });
+}
 
 self.addEventListener("fetch", (event) => {
   const req = event.request;
@@ -43,7 +90,13 @@ self.addEventListener("fetch", (event) => {
 
   if (req.method !== "GET") return;
 
-  if (url.origin !== self.location.origin) return;
+  // Cross-origin: cache เฉพาะ playlist hosts ที่ระบุ (GitHub Raw)
+  if (url.origin !== self.location.origin) {
+    if (PLAYLIST_HOSTS.has(url.hostname)) {
+      event.respondWith(playlistSWR(req));
+    }
+    return;
+  }
 
   if (req.mode === "navigate") {
     event.respondWith(

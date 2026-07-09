@@ -258,10 +258,12 @@ function _fetchAndRender() {
       }
       if (!searchIndexRootNode && title === "Home") {
         searchIndexRootNode = node;
-        searchIndexPromise = buildSearchIndexRecursive(node, [{
-          node,
-          title: "Home"
-        }]).catch(() => {});
+        setTimeout(() => {
+          searchIndexPromise = buildSearchIndexRecursive(node, [{
+            node,
+            title: "Home"
+          }]).catch(() => {});
+        }, 2000);
       }
       lastFetchUrl = url;
       renderNode(node, title, {
@@ -280,7 +282,11 @@ function fetchJSON(_x5) {
 function _fetchJSON() {
   _fetchJSON = _asyncToGenerator(function* (url) {
     const fetchUrl = IS_LOCAL_DEV ? url + (url.includes("?") ? "&" : "?") + "_t=" + Date.now() : url;
-    const res = yield fetch(fetchUrl);
+    let res = yield fetch(fetchUrl);
+    if (res.status === 429) {
+      yield new Promise(r => setTimeout(r, 30000));
+      res = yield fetch(fetchUrl);
+    }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = yield res.json();
     return {
@@ -372,6 +378,7 @@ function _buildSearchIndexRecursive() {
             node: childNode,
             title: nextTitle
           }];
+          yield new Promise(r => setTimeout(r, 200));
           yield buildSearchIndexRecursive(childNode, loadedHistory, childSourceUrl);
         } catch (_) {}
       }

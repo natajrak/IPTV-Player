@@ -301,9 +301,13 @@ async function fetchAndRender(
     }
     if (!searchIndexRootNode && title === "Home") {
       searchIndexRootNode = node;
-      searchIndexPromise = buildSearchIndexRecursive(node, [
-        { node, title: "Home" },
-      ]).catch(() => {});
+      // Defer 2 วิให้ user เห็น Home ก่อน แล้วค่อย recursive fetch playlists
+      // (playlists เยอะ ~330 ไฟล์ — burst จะโดน GitHub Raw 429)
+      setTimeout(() => {
+        searchIndexPromise = buildSearchIndexRecursive(node, [
+          { node, title: "Home" },
+        ]).catch(() => {});
+      }, 2000);
     }
     lastFetchUrl = url;
     renderNode(node, title, { page, sort });
@@ -317,7 +321,12 @@ async function fetchJSON(url) {
   const fetchUrl = IS_LOCAL_DEV
     ? url + (url.includes("?") ? "&" : "?") + "_t=" + Date.now()
     : url;
-  const res = await fetch(fetchUrl);
+  // 429 retry: GitHub Raw rate-limit → wait + retry once
+  let res = await fetch(fetchUrl);
+  if (res.status === 429) {
+    await new Promise((r) => setTimeout(r, 30000));
+    res = await fetch(fetchUrl);
+  }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
   return { data, sourceUrl: res.url || url };
@@ -421,6 +430,10 @@ async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
           ...historyChain,
           { node: childNode, title: nextTitle },
         ];
+        // Throttle: GitHub Raw anonymous limit ~60 req/hr — SW cache จับ hit ก็ delay น้อยลงได้
+        // ~200ms delay = ~5 req/sec = ปลอดภัยสำหรับ cold start (~330 ไฟล์ = 66s)
+        // ต่อมา SW cache hit → response instant → delay ไม่รู้สึก
+        await new Promise((r) => setTimeout(r, 200));
         await buildSearchIndexRecursive(
           childNode,
           loadedHistory,
