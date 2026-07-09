@@ -367,12 +367,43 @@
             ],
             "release_date": "2023-07-10",
             "updated_at": "2024-07-01T00:00:00.000Z"
+        },
+        {
+            "name": "Season 3",
+            "image": "https://image.tmdb.org/t/p/original/tn2mxPYSSUPHgfcAe5SCga1DO0i.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/tn2mxPYSSUPHgfcAe5SCga1DO0i.jpg",
+                    "referer": "https://anime-th.com/anime/mushoku-tensei-iiisub/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Burn Bright, Mad Dog",
+                            "image": "https://image.tmdb.org/t/p/original/9qTNrEMxqBtcGcY45S0otQsiDTa.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2f0jJgGr%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2f0jJgGr",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-07-04"
+                        },
+                        {
+                            "name": "Ep. 2 - Howl, Mad Dog",
+                            "image": "https://image.tmdb.org/t/p/original/8LbtykFB7jK5pC5CmZQL9GoAQxh.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FltVPGhQH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FltVPGhQH",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-07-04"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-07-04",
+            "updated_at": "2026-07-04T00:00:00.000Z"
         }
     ],
     "release_date": "2021-01-11",
-    "updated_at": "2024-07-01T00:00:00.000Z",
-    "season_count": 2,
+    "updated_at": "2026-07-04T00:00:00.000Z",
+    "season_count": 3,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 3,
+        "track": null
     }
 }

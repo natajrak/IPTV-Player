@@ -193,12 +193,36 @@
             ],
             "release_date": "2025-07-02",
             "updated_at": "2025-09-17T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/qJc32lffkMs34KfltQITySHAbJ0.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/qJc32lffkMs34KfltQITySHAbJ0.jpg",
+                    "referer": "https://anime-th.com/anime/clevatess-iisubz/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Solsein, the Divine Academy",
+                            "image": "https://image.tmdb.org/t/p/original/8eW2EORzIskdGJ6f7BnvWiY8Qym.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxT0ZiA96%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxT0ZiA96",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-07-08"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-07-08",
+            "updated_at": "2026-07-08T00:00:00.000Z"
         }
     ],
     "release_date": "2025-07-02",
-    "updated_at": "2025-09-17T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-07-08T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }

@@ -171,7 +171,25 @@ async function main() {
   }
 
   try {
-    const { title: rawTitle, posterImg: rawPoster, episodes } = await parseAnimePage(seriesUrl);
+    // Multi-URL support: seriesUrl อาจเป็น comma-separated (fetch หลาย season/part → concat ต่อเนื่อง)
+    // ep numbering ของ URL ถัดไปจะ offset ต่อจาก URL ก่อนหน้า (ep 1 ของ URL 2 → ep 13 ถ้า URL 1 มี 12 ตอน)
+    const urls = seriesUrl.split(',').map((u) => u.trim()).filter(Boolean);
+    const isMultiUrl = urls.length > 1;
+    let rawTitle = '', rawPoster = '';
+    let episodes = [];
+
+    for (let ui = 0; ui < urls.length; ui++) {
+      if (isMultiUrl) console.log(`\n📡 Fetch part ${ui + 1}/${urls.length}: ${urls[ui]}`);
+      const result = await parseAnimePage(urls[ui]);
+      if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
+
+      const offset = episodes.length;
+      for (const ep of result.episodes) {
+        if (offset > 0) ep.epNum = ep.epNum + offset;
+        episodes.push(ep);
+      }
+      if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
+    }
 
     if (episodes.length === 0) {
       console.error('❌ ไม่พบ episode ใดเลย');

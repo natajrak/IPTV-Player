@@ -101,12 +101,36 @@
             ],
             "release_date": "2026-01-10",
             "updated_at": "2026-03-28T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/dRBV8LaKwLrIOpa8Ud3ShxWKRnn.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/dRBV8LaKwLrIOpa8Ud3ShxWKRnn.jpg",
+                    "referer": "https://anime-th.com/anime/hell-mode-s2/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Off to the Academy City!",
+                            "image": "https://image.tmdb.org/t/p/original/ukxaO4Y9M0kbDgErMDEp6kSvuVj.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FykAiTmw9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FykAiTmw9",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-07-04"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-07-04",
+            "updated_at": "2026-07-04T00:00:00.000Z"
         }
     ],
     "release_date": "2026-01-10",
-    "updated_at": "2026-03-28T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-07-04T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }
