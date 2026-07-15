@@ -2792,7 +2792,6 @@ function ebClearSecDrag(board) {
 function serializeBoard() {
   const s = ebCtx;
   const writes = [], deletes = [];
-  const now = new Date().toISOString();
 
   if (s.kind === 'series') {
     s.pl.groups = s.sections.map(sec => {
@@ -2806,7 +2805,6 @@ function serializeBoard() {
       });
       return season;
     });
-    s.pl.updated_at = now;
     writes.push({ filePath: s.filePath, data: s.pl });
 
   } else if (s.format === 'twofile') {
@@ -2834,13 +2832,11 @@ function serializeBoard() {
       used.add(basename);
       const partPl = sec.partPl || {};
       partPl.stations = sec.lanes[0].cards;
-      partPl.updated_at = now;
       writes.push({ filePath: `${s.dir}/${basename}`, data: partPl });
       return g;
     });
     s.origPartFiles.forEach(pf => { if (!used.has(pf)) deletes.push(`${s.dir}/${pf}`); });
     if ('part_count' in s.pl) s.pl.part_count = s.sections.length;
-    s.pl.updated_at = now;
     writes.push({ filePath: s.filePath, data: s.pl });
 
   } else {
@@ -2859,7 +2855,6 @@ function serializeBoard() {
         return g;
       });
     }
-    s.pl.updated_at = now;
     writes.push({ filePath: s.filePath, data: s.pl });
   }
   return { writes, deletes };
@@ -3365,7 +3360,6 @@ document.addEventListener('click', async e => {
     if (!track) throw new Error(`ไม่พบ track "${trackName}" ใน "${seasonName}"`);
 
     track.status = track.status === 'completed' ? 'ongoing' : 'completed';
-    data.updated_at = new Date().toISOString();
 
     const resp = await fetch('/api/save-file', {
       method: 'POST',
@@ -3373,21 +3367,6 @@ document.addEventListener('click', async e => {
       body: JSON.stringify({ filePath, data }),
     });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-
-    // Rollup updated_at to index.txt entry (so player can sort by latest update)
-    try {
-      const indexData = await getJSON(resolveUrl(cfg.index));
-      const entry = (indexData.groups || []).find(g => g.url && g.url.endsWith(`/${file}.txt`));
-      if (entry) {
-        entry.updated_at = data.updated_at;
-        if (data.release_date) entry.release_date = data.release_date;
-        await fetch('/api/save-file', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filePath: cfg.index, data: indexData }),
-        });
-      }
-    } catch { /* index rollup is best-effort */ }
 
     loaded.delete(tab);
     loadTab(tab);
