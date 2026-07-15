@@ -87,8 +87,16 @@
                             "url": "https://hls.animeindy.com:8443/vid/LVyHp727kt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-06-20"
+                        },
+                        {
+                            "name": "ตอน 12 - Life Paths",
+                            "image": "https://image.tmdb.org/t/p/original/acqj2QaE0XAi9FGBP1WB6qrmi1Y.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/ZnXbfWbVLJ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-06-27"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -191,8 +199,6 @@
     "updated_at": "2026-06-27T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }
