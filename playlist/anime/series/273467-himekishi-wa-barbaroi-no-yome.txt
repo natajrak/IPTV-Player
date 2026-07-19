@@ -87,8 +87,16 @@
                             "url": "https://hls.animeindy.com:8443/vid/TfMRnfsuyB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-06-18"
+                        },
+                        {
+                            "name": "ตอน 12 - The Crimson Warrior of Glory",
+                            "image": "https://image.tmdb.org/t/p/original/eUpVXjHcz5jF9ibBkyASaUUI6F.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/B4zFSoegn/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-06-25"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -191,8 +199,6 @@
     "updated_at": "2026-06-25T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }

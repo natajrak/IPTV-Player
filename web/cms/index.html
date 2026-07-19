@@ -1570,6 +1570,19 @@ function sourceLabelFromReferer(refererUrl) {
     ['nunghd4k',      'nunghd4k'],
     ['123-hds',       '123-hds'],
     ['123hds',        '123-hds'],
+    ['123-hdx',       '123-hdx'],
+    ['123hdx',        '123-hdx'],
+    ['123hd-serie',   '123-hdx'],
+    ['1112hdss',      '1112hdss'],
+    ['online225',     '1112hdss'],
+    ['goplay004',     '1112hdss'],
+    ['flixmono',      'flixmono'],
+    ['torbo007',      'flixmono'],
+    ['24hd',          '24hd'],
+    ['player77hdfree','24hd'],
+    ['vdohls',        '24hd'],
+    ['vh010',         '24hd'],
+    ['24-hdx',        '24-hdx'],
     ['allinhd',       'allinhd'],
     ['fastfastcdn',   'allinhd'],
     ['javxx',         'javxx'],
@@ -2153,6 +2166,11 @@ const LIVE_SOURCES = [
   { id: 'nunghd4k', label: 'nunghd4k', file: 'fetch-nunghd4k.js', url: 'https://www.nunghd4k.com/'    },
   { id: 'allinhd',  label: 'allinhd',  file: 'fetch-allinhd.js',  url: 'https://allinhd.com/'         },
   { id: '123hds',   label: '123-hds',  file: 'fetch-123hds.js',   url: 'https://www.123-hds.com/'     },
+  { id: '123hdx',   label: '123-hdx',  file: 'fetch-123hdx.js',   url: 'https://www.123-hdx.com/'     },
+  { id: '1112hdss', label: '1112hdss', file: 'fetch-1112hdss.js', url: 'https://1112hdss.com/'        },
+  { id: 'flixmono', label: 'flixmono', file: 'fetch-flixmono.js', url: 'https://flixmono.com/'        },
+  { id: '24hd',     label: '24hd',     file: 'fetch-24hd.js',     url: 'https://www.24hd.vip/'        },
+  { id: '24hdx',    label: '24-hdx',   file: 'fetch-24hdx.js',    url: 'https://www.24-hdx.com/'      },
   { id: '7hd',      label: '7-hd',     file: 'fetch-7hd.js',      url: 'https://7-hd.com/'            },
 ];
 const ADD_SCRIPTS = {
@@ -3251,6 +3269,11 @@ function scriptFromReferer(url) {
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
     if (host.includes('123-hds') || host.includes('123hds')) return 'fetch-123hds.js';
+    if (host.includes('123-hdx') || host.includes('123hdx') || host.includes('123hd-serie')) return 'fetch-123hdx.js';
+    if (host.includes('1112hdss') || host.includes('online225') || host.includes('goplay004')) return 'fetch-1112hdss.js';
+    if (host.includes('flixmono') || host.includes('torbo007')) return 'fetch-flixmono.js';
+    if (host.includes('24-hdx')) return 'fetch-24hdx.js';
+    if (host.includes('24hd') || host.includes('player77hdfree') || host.includes('vdohls') || host.includes('vh010')) return 'fetch-24hd.js';
     if (host.includes('allinhd'))                          return 'fetch-allinhd.js';
   } catch {}
   return null;
