@@ -75,6 +75,17 @@ function extractSlug(embedUrl) {
   return m ? m[1] : null;
 }
 
+// Movie chain: ongetplay.xyz/playhls/play.php?id=N → iframe playermhd.p2phls.xyz/embed/{SLUG}
+//              → build media.vdohls.com/{SLUG}/playlist.m3u8 (same infra as series)
+async function resolveOngetplaySlug(ongetplayUrl) {
+  const html = await fetchPage(ongetplayUrl);
+  const m = html.match(/<iframe[^>]+src=["']([^"']*(?:playermhd|p2phls)[^"']*\/embed\/[^"'\/]+\/?)["']/i);
+  if (!m) throw new Error(`ไม่พบ iframe playermhd ใน ${ongetplayUrl}`);
+  const slug = (m[1].match(/\/embed\/([a-zA-Z0-9_-]+)/i) || [])[1];
+  if (!slug) throw new Error(`extract slug ไม่ได้ จาก ${m[1]}`);
+  return slug;
+}
+
 // ───── Parse anime page ─────
 async function parseAnimePage(url) {
   console.log(`\n📄 กำลัง fetch หน้า: ${url}`);
@@ -89,29 +100,49 @@ async function parseAnimePage(url) {
 
   const seen = new Set();
   const episodes = [];
+
+  // Series pattern: button.swicth-ep with data-link="https://player77hdfree.xyz/embed/{SLUG}"
   $('button.swicth-ep, button.mov_source').each((_, el) => {
     const $el = $(el);
     const dataLink = ($el.attr('data-link') || '').trim();
     if (!dataLink || seen.has(dataLink)) return;
-    seen.add(dataLink);
-
     const slug = extractSlug(dataLink);
     if (!slug) return;
+    seen.add(dataLink);
 
     const text = ($el.text() || '').replace(/\s+/g, ' ').trim();
-    // Extract ep number: "... EP.1" หรือ "... EP.10 (จบ)"
     const epMatch = text.match(/EP\.?\s*(\d+)/i);
     const epNum = epMatch ? parseInt(epMatch[1], 10) : (episodes.length + 1);
-
     episodes.push({ slug, epNum, label: text });
   });
+
+  // Movie pattern: <a class="player-1-btn-link" href="https://ongetplay.xyz/playhls/play.php?id=N">
+  // ต้อง resolve iframe chain → SLUG
+  let isMoviePage = false;
+  if (episodes.length === 0) {
+    const movieLinks = [];
+    $('a[href*="ongetplay"][href*="playhls"], a[href*="ongetplay"][href*="playproxy"]').each((_, el) => {
+      const href = ($(el).attr('href') || '').trim();
+      if (!href || seen.has(href)) return;
+      seen.add(href);
+      movieLinks.push(href);
+    });
+    if (movieLinks.length > 0) {
+      isMoviePage = true;
+      // Resolve หลัก (playhls) ถ้ามี ไม่งั้น playproxy
+      const preferred = movieLinks.find(u => u.includes('playhls')) || movieLinks[0];
+      console.log(`  🎬 movie player: ${preferred}`);
+      const slug = await resolveOngetplaySlug(preferred);
+      episodes.push({ slug, epNum: 1, label: 'Movie' });
+    }
+  }
 
   episodes.sort((a, b) => a.epNum - b.epNum);
 
   if (!rawTitle) throw new Error('ไม่พบ title — ตรวจสอบ URL');
-  if (episodes.length === 0) throw new Error('ไม่พบ button.swicth-ep — เว็บอาจเปลี่ยน structure');
+  if (episodes.length === 0) throw new Error('ไม่พบ button.swicth-ep หรือ movie player link — เว็บอาจเปลี่ยน structure');
 
-  const isMoviePage = episodes.length === 1;
+  if (!isMoviePage) isMoviePage = episodes.length === 1;
   console.log(`✅ "${rawTitle}" — ${isMoviePage ? 'Movie' : `Series (${episodes.length} ตอน)`}`);
   return { rawTitle, rawPoster, episodes, isMoviePage };
 }
@@ -218,7 +249,7 @@ async function main() {
       }
     }
 
-    const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
+    const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim()).toLowerCase();
     const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
     const resolvedId = idPrefixArg || String(tmdbShow?.id || '');
     const outputFile = resolvedId ? `${resolvedId}-${slugFile}` : slugFile;

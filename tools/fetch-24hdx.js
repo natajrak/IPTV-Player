@@ -250,11 +250,13 @@ function extractHalimData(html) {
   };
 }
 
-// ดึง episodes จาก <select> dropdown
+// ดึง episodes จาก episode dropdown (series page เท่านั้น)
+// Movie page ไม่มี dropdown นี้ → return [] → treat as movie (ep=1)
 function extractEpisodes($) {
   const eps = [];
   const seen = new Set();
-  $('select option').each((_, el) => {
+  // Episode dropdown มี id="eplist" หรือ name="Sequel_select" (ต่างจาก Lang_select / Sequel_select2 = season selector)
+  $('select#eplist option, select[name="Sequel_select"] option').each((_, el) => {
     const $el = $(el);
     const value = ($el.attr('value') || '').trim();
     const label = ($el.text() || '').trim();
@@ -317,12 +319,18 @@ async function parsePage(url) {
   const rawPoster = ($('meta[property="og:image"]').attr('content') || '').trim();
 
   if (!halim.postId) throw new Error('ไม่พบ halim_cfg.post_id');
-  if (eps.length === 0) throw new Error('ไม่พบ episode dropdown (<select>)');
 
-  const isMoviePage = eps.length === 1;
-  console.log(`✅ "${rawTitle}" — ${isMoviePage ? 'Movie' : `Series (${eps.length} ตอน)`}`);
+  // Movie page ไม่มี episode dropdown — fallback ใช้ ep=1 (single fetch)
+  let finalEps = eps;
+  let isMoviePage = false;
+  if (eps.length === 0) {
+    isMoviePage = true;
+    finalEps = [{ epNum: 1, value: '1' }];
+  }
+
+  console.log(`✅ "${rawTitle}" — ${isMoviePage ? 'Movie' : `Series (${finalEps.length} ตอน)`}`);
   console.log(`   post_id=${halim.postId}, servers=[${servers.join(',')}]`);
-  return { rawTitle, rawPoster, halim, eps, servers, isMoviePage };
+  return { rawTitle, rawPoster, halim, eps: finalEps, servers, isMoviePage };
 }
 
 // ───── Main ─────
