@@ -808,7 +808,7 @@
   <button class="tab-btn"        data-tab="anime-movie">Anime Movie</button>
   <button class="tab-btn"        data-tab="movie">Movie</button>
   <button class="tab-btn"        data-tab="series">Series</button>
-  <button class="tab-btn"        data-tab="av">AV</button>
+  <button class="tab-btn"        data-tab="av" id="tab-btn-av" style="display:none">AV</button>
   <button class="tab-btn tab-btn-station" id="add-cat-tab-btn"><i class="fi fi-sr-plus-small"></i> Add Category</button>
 </div>
 
@@ -1412,8 +1412,40 @@ function applyTabFilter(tabId) {
   if (stats) stats.textContent = hasFilter ? `${shown} / ${total} รายการ` : `${total} รายการ`;
 }
 
+// ── AV tab unlock (hash-based, same as player) ──────────────────
+// พิมพ์รหัสในช่อง search ใดๆ → ปลด AV tab (บันทึกใน localStorage)
+// รหัส/salt/hash เดียวกับใน web/js/app.js (privateUnlocked)
+const AV_UNLOCK_SALT = 'bkl-play-2026-private-v1';
+const AV_UNLOCK_HASH = '185f94f034c271ba3a165be96f9c54fde01ddfef46f9de140e33102d0ce8fbfe';
+const AV_UNLOCK_KEY  = 'cms.avUnlocked';
+
+async function sha256Hex(text) {
+  const buf = new TextEncoder().encode(text);
+  const hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+function showAvTab() {
+  const btn = document.getElementById('tab-btn-av');
+  if (btn) btn.style.display = '';
+}
+if (localStorage.getItem(AV_UNLOCK_KEY) === '1') showAvTab();
+
 document.querySelectorAll('.s-inp').forEach(inp => {
-  inp.addEventListener('input', () => applyTabFilter(inp.dataset.tab));
+  inp.addEventListener('input', async () => {
+    const q = inp.value.trim();
+    // Unlock check — เฉพาะ input ที่พอมี length + ยังไม่ปลด
+    if (localStorage.getItem(AV_UNLOCK_KEY) !== '1' && q.length >= 4 && q.length <= 32) {
+      const candidate = await sha256Hex(q + AV_UNLOCK_SALT);
+      if (candidate === AV_UNLOCK_HASH) {
+        localStorage.setItem(AV_UNLOCK_KEY, '1');
+        inp.value = '';
+        showAvTab();
+        applyTabFilter(inp.dataset.tab);
+        return;
+      }
+    }
+    applyTabFilter(inp.dataset.tab);
+  });
 });
 
 document.querySelectorAll('.status-filter').forEach(group => {
