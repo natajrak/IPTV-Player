@@ -35,6 +35,10 @@ const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
 
+/** รันในแอป Android (WebView โหลดด้วย ?app=1) — ใช้ซ่อน breadcrumb เฉพาะในแอป */
+const IS_NATIVE_APP = new URLSearchParams(location.search).get("app") === "1";
+if (IS_NATIVE_APP) document.documentElement.classList.add("bkl-app");
+
 const PAGE_SIZE = 24;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
@@ -48,6 +52,7 @@ const EPISODES_ICON = `<i class="fi fi-rr-list" aria-hidden="true"></i>`;
 const TV_FOCUSABLE_SELECTOR = [
   "button:not([disabled]):not(.hidden)",
   "#search-input:not([disabled])",
+  "#player-seek",
   ".card[tabindex='0']",
   ".ep-card[tabindex='0']",
   ".search-item[tabindex='0']",
@@ -229,6 +234,11 @@ logo.addEventListener("keydown", (e) => {
     logo.click();
   }
 });
+
+/** Native Android shell BACK bridge — MainActivity calls this on hardware BACK.
+    Returns true when the web app consumed it (closed player/search/stepped up),
+    false when at root so the shell exits the app. */
+window.__nativeBack = handleTVBack;
 
 window.addEventListener("keydown", (e) => {
   if (isTypingTarget(e.target)) return;
@@ -520,33 +530,16 @@ searchInput.addEventListener("input", async () => {
 });
 
 searchInput.addEventListener("keydown", (e) => {
+  const key = eventKey(e);
+  if (key !== "ArrowDown" && key !== "Enter") return;
   const items = searchResults.querySelectorAll(".search-item");
-  if (eventKey(e) === "ArrowDown") {
-    const now = Date.now();
-    if (now - searchDownLastAt <= 200) {
-      e.preventDefault();
-      searchDownLastAt = 0;
-      activeSearchIdx = -1;
-      closeSearch();
-      searchInput.blur();
-      requestAnimationFrame(() => moveTVFocus("ArrowDown"));
-      return;
-    }
-    searchDownLastAt = now;
-    e.preventDefault();
-    activeSearchIdx = Math.min(activeSearchIdx + 1, items.length - 1);
-    updateActiveSearch(items);
-  } else if (eventKey(e) === "ArrowUp") {
-    searchDownLastAt = 0;
-    e.preventDefault();
-    activeSearchIdx = Math.max(activeSearchIdx - 1, -1);
-    updateActiveSearch(items);
-  } else if (eventKey(e) === "Enter" && activeSearchIdx >= 0) {
-    searchDownLastAt = 0;
-    items[activeSearchIdx]?.click();
-  } else {
-    searchDownLastAt = 0;
-  }
+  if (!items.length) return;
+  // เข้าไปเลือกผลลัพธ์: ปิด soft keyboard (blur) แล้วโฟกัส "จริง" ที่ผลลัพธ์แรก
+  // บนทีวี ตอน IME เปิด ปุ่ม OK จะถูกคีย์บอร์ดกิน เลือกผลลัพธ์ไม่ได้ — พอ blur แล้ว D-pad + OK ทำงานปกติ
+  e.preventDefault();
+  activeSearchIdx = -1;
+  searchInput.blur();
+  focusTVElement(items[0]);
 });
 
 searchClear.addEventListener("click", () => {
@@ -773,6 +766,7 @@ function renderSearchResults(results, q) {
       el.addEventListener("keydown", (e) => {
         if (eventKey(e) === "Enter" || eventKey(e) === " ") {
           e.preventDefault();
+          e.stopPropagation();
           el.click();
         }
       });
@@ -820,12 +814,11 @@ function closeSearch() {
 function isTypingTarget(target) {
   if (!target) return false;
   const tag = target.tagName;
-  return (
-    tag === "INPUT" ||
-    tag === "TEXTAREA" ||
-    tag === "SELECT" ||
-    target.isContentEditable
-  );
+  if (tag === "INPUT") {
+    // slider (เช่น seekbar) ไม่ใช่ช่องพิมพ์ — ปล่อยให้ตัวจัดการ D-pad ทำงานได้
+    return (target.type || "text").toLowerCase() !== "range";
+  }
+  return tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
 }
 
 function isTVBackKey(e) {
@@ -837,6 +830,7 @@ function handleTVBack() {
     if (!epPanel.classList.contains("hidden")) {
       epPanel.classList.add("hidden");
       btnEpisodes.focus({ preventScroll: true });
+      showPlayerUI(); // ปิดแผงแล้วเริ่มจับเวลา auto-hide บาร์ใหม่
       return true;
     }
     closePlayer();
@@ -861,12 +855,15 @@ function isElementVisible(el) {
   if (!el || !el.isConnected) return false;
   if (el.classList?.contains("hidden")) return false;
   const style = window.getComputedStyle(el);
-  if (
-    style.display === "none" ||
-    style.visibility === "hidden" ||
-    style.opacity === "0"
-  )
-    return false;
+  if (style.display === "none" || style.visibility === "hidden") return false;
+  if (style.opacity === "0") {
+    // ปุ่มใน player bar/header ตอนสั่งโชว์ UI (.show-ui) อาจกำลัง fade-in (opacity 0→1)
+    // อย่าตัดออกเพราะ opacity ชั่วขณะ ไม่งั้น D-pad จะโฟกัสปุ่ม (เช่นเลือก EP) ไม่ได้ตอนวิดีโอเล่น
+    const inShowingPlayerUI =
+      el.closest?.("#player-overlay.show-ui") &&
+      el.closest?.("#player-bar, #player-header");
+    if (!inShowingPlayerUI) return false;
+  }
   if (el.offsetParent === null && style.position !== "fixed") return false;
   return true;
 }
@@ -893,15 +890,31 @@ function focusTVElement(el) {
   if (!el) return;
   el.focus({ preventScroll: true });
   el.scrollIntoView({ block: "nearest", inline: "nearest" });
+  // #app-header เป็น position:fixed ทับด้านบน — scrollIntoView({block:"nearest"})
+  // มองว่าการ์ดแถวบน "เห็นแล้ว" ทั้งที่ถูก header บัง เลยเลื่อนขึ้นไม่สุด
+  // ชดเชยด้วยการเลื่อนเพิ่มให้พ้น header (เฉพาะหน้า grid ไม่ใช่ใน player overlay/header เอง)
+  if (
+    playerOverlay.classList.contains("hidden") &&
+    el.closest &&
+    !el.closest("#app-header")
+  ) {
+    const header = document.getElementById("app-header");
+    const gap = (header ? header.offsetHeight : 0) + 16 - el.getBoundingClientRect().top;
+    if (gap > 0) window.scrollBy(0, -gap);
+  }
 }
 
 function getFocusZone(el) {
   if (!el) return "other";
   if (el.classList?.contains("card")) return "card";
-  if (el.closest?.("#pagination")) return "pagination";
-  if (el.closest?.(".section-header")) return "section";
-  if (el.closest?.("#app-header")) return "header";
+  // แผงเลือกตอน (เปิดทับ player) — จัดเป็น zone เดียว จะได้ล็อกการเลื่อนไว้ในแผง
+  if (el.closest?.("#ep-panel")) return "eppanel";
   if (el.closest?.("#search-results")) return "search";
+  // section-header ต้องมาก่อน #pagination: ในแอป pagination ย้ายเข้าไปอยู่ใน section-header
+  // → ปุ่มหน้าเลยเป็น zone "section" เดียวกับ back/sort เลื่อนซ้าย/ขวาข้ามกันได้ในแถวเดียว
+  if (el.closest?.(".section-header")) return "section";
+  if (el.closest?.(".pagination")) return "pagination";
+  if (el.closest?.("#app-header")) return "header";
   return "other";
 }
 
@@ -931,6 +944,32 @@ function hasDirectionalCandidate(current, candidates, directionKey) {
 
 function getDirectionalCandidates(current, directionKey, elements) {
   const zone = getFocusZone(current);
+
+  // อยู่ในผลการค้นหา: ล็อกการเลื่อนให้อยู่แต่ในรายการผลลัพธ์เท่านั้น
+  // ไม่งั้นกดลงจะไปโดนการ์ดที่อยู่หลัง dropdown แทนผลลัพธ์ถัดไป
+  if (zone === "search") {
+    return elements.filter((el) => getFocusZone(el) === "search");
+  }
+
+  // อยู่ในแผงเลือกตอน: ล็อกการเลื่อนไว้ในแผง ไม่งั้นกดลง/ขึ้นถึงขอบจะหลุดไปโดน seekbar/ปุ่ม player ข้างหลัง
+  if (zone === "eppanel") {
+    const epElems = elements.filter((el) => getFocusZone(el) === "eppanel");
+    const onCard = current.closest?.("#ep-panel-grid");
+    if (onCard && (directionKey === "ArrowUp" || directionKey === "ArrowDown")) {
+      const epCards = epElems.filter((el) => el.closest?.("#ep-panel-grid"));
+      // ขึ้น/ลงในลิสต์ตอน = เลื่อนเฉพาะการ์ดตอน (แท็บ season sticky อยู่บนสุด อย่าให้ดักไว้)
+      // ยกเว้นอยู่ตอนแรกสุดแล้วกดขึ้น → ค่อยออกไปแท็บ/หัวแผง
+      if (
+        directionKey === "ArrowUp" &&
+        !hasDirectionalCandidate(current, epCards, "ArrowUp")
+      ) {
+        return epElems.filter((el) => !el.closest?.("#ep-panel-grid"));
+      }
+      return epCards;
+    }
+    return epElems;
+  }
+
   const cards = elements.filter((el) => getFocusZone(el) === "card");
   const paginations = elements.filter(
     (el) => getFocusZone(el) === "pagination",
@@ -1017,8 +1056,13 @@ function moveTVFocus(directionKey) {
   let best = null;
   let bestScore = Number.POSITIVE_INFINITY;
 
+  const horizontal =
+    directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach((el) => {
     if (el === current) return;
+    // seekbar เป็นแถบเต็มความกว้าง จุดกึ่งกลางอยู่กลางจอ — ถ้าปล่อยไว้ การกดซ้าย/ขวา
+    // ในแถวปุ่มจะกระโดดมาโดนมันแทนที่จะไปปุ่มถัดไป (เช่นปุ่มเลือก EP) → เข้าถึง seekbar ด้วยขึ้น/ลงเท่านั้น
+    if (horizontal && el.id === "player-seek") return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -1178,15 +1222,18 @@ function renderGroups(groups, sectionTitle, parentNode) {
     normalizedSectionTitle === "movies" ||
     normalizedSectionTitle === "series";
 
+  const paginationNav = renderPaginationNav(currentPage, totalPages);
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
     withSort: hasAnyDateData,
     sort: effectiveSortOrder,
     sortMode: effectiveSortMode,
     withSortMode: hasAnyDateData,
     count: showCountInTitle ? total : null,
+    // ในแอป: เพิ่ม pagination ในแถวบน (กึ่งกลาง ระหว่าง title กับปุ่ม sort) — ยังคงมีด้านล่างด้วย
+    paginationHtml: IS_NATIVE_APP ? paginationNav : "",
   })}
     <div class="card-grid portrait"></div>
-    ${renderPaginationNav(currentPage, totalPages)}`;
+    ${paginationNav}`;
 
   const grid = gridView.querySelector(".card-grid");
   document
@@ -1298,7 +1345,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
 }
 
 function getPaginationItems(totalPages, activePageIdx) {
-  const windowSize = 5;
+  const windowSize = IS_NATIVE_APP ? 3 : 5;
   if (totalPages <= windowSize)
     return Array.from({ length: totalPages }, (_, i) => i + 1);
 
@@ -1316,10 +1363,10 @@ function renderPaginationNav(currentPage, totalPages) {
   const atLast = currentPage >= totalPages - 1;
   const showFirstLast = totalPages > PAGINATION_FIRST_LAST_THRESHOLD;
   const firstBtn = showFirstLast
-    ? `<button class="page-btn page-nav" id="page-first" ${atFirst ? "disabled" : ""} aria-label="หน้าแรก">${PAGINATION_ICON_FIRST}</button>`
+    ? `<button class="page-btn page-nav page-first" ${atFirst ? "disabled" : ""} aria-label="หน้าแรก">${PAGINATION_ICON_FIRST}</button>`
     : "";
   const lastBtn = showFirstLast
-    ? `<button class="page-btn page-nav" id="page-last" ${atLast ? "disabled" : ""} aria-label="หน้าสุดท้าย">${PAGINATION_ICON_LAST}</button>`
+    ? `<button class="page-btn page-nav page-last" ${atLast ? "disabled" : ""} aria-label="หน้าสุดท้าย">${PAGINATION_ICON_LAST}</button>`
     : "";
   const nums = pageItems
     .map((p) => {
@@ -1327,11 +1374,12 @@ function renderPaginationNav(currentPage, totalPages) {
       return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${p}">${p}</button>`;
     })
     .join("");
-  return `<nav id="pagination" aria-label="Pagination">
+  // ใช้ class (ไม่ใช่ id) เพราะ pagination อาจแสดง 2 ที่พร้อมกัน (บนหัว + ล่าง) ในแอป — id ห้ามซ้ำ
+  return `<nav class="pagination" aria-label="Pagination">
       ${firstBtn}
-      <button class="page-btn page-nav" id="page-prev" ${atFirst ? "disabled" : ""} aria-label="หน้าก่อนหน้า">${PAGINATION_ICON_PREV}</button>
-      <div id="page-numbers">${nums}</div>
-      <button class="page-btn page-nav" id="page-next" ${atLast ? "disabled" : ""} aria-label="หน้าถัดไป">${PAGINATION_ICON_NEXT}</button>
+      <button class="page-btn page-nav page-prev" ${atFirst ? "disabled" : ""} aria-label="หน้าก่อนหน้า">${PAGINATION_ICON_PREV}</button>
+      <div class="page-numbers">${nums}</div>
+      <button class="page-btn page-nav page-next" ${atLast ? "disabled" : ""} aria-label="หน้าถัดไป">${PAGINATION_ICON_NEXT}</button>
       ${lastBtn}
     </nav>`;
 }
@@ -1339,18 +1387,15 @@ function renderPaginationNav(currentPage, totalPages) {
 // Wire click handlers for pagination buttons (First/Prev/Numbers/Next/Last).
 // `goToPage(pageIdx)` is the caller's per-render-context handler.
 function wirePaginationButtons(goToPage, totalPages) {
-  document
-    .getElementById("page-first")
-    ?.addEventListener("click", () => goToPage(0));
-  document
-    .getElementById("page-prev")
-    ?.addEventListener("click", () => goToPage(currentPage - 1));
-  document
-    .getElementById("page-next")
-    ?.addEventListener("click", () => goToPage(currentPage + 1));
-  document
-    .getElementById("page-last")
-    ?.addEventListener("click", () => goToPage(totalPages - 1));
+  // ต่อ handler ให้ทุกชุด (บน+ล่าง) ด้วย querySelectorAll เพราะเปลี่ยนจาก id เป็น class แล้ว
+  const wireAll = (selector, handler) =>
+    gridView
+      .querySelectorAll(selector)
+      .forEach((btn) => btn.addEventListener("click", handler));
+  wireAll(".page-first", () => goToPage(0));
+  wireAll(".page-prev", () => goToPage(currentPage - 1));
+  wireAll(".page-next", () => goToPage(currentPage + 1));
+  wireAll(".page-last", () => goToPage(totalPages - 1));
   gridView.querySelectorAll(".page-number").forEach((btn) => {
     btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
   });
@@ -1364,6 +1409,7 @@ function renderSectionHeader(title, options = {}) {
     withFilter = false,
     sortMode = "alpha",
     withSortMode = false,
+    paginationHtml = "",
   } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
@@ -1416,6 +1462,7 @@ function renderSectionHeader(title, options = {}) {
       <span class="section-title-main">${esc(titleMain)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
+    ${paginationHtml}
     ${withSort || withFilter ? `<div class="section-header-right">${filterHtml}${modeBtnHtml}${withSort ? `<button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button>` : ""}</div>` : ""}
   </div>`;
 }
@@ -2180,6 +2227,7 @@ function setupVideoSource(
     let networkRetries = 0;
     let mediaRetries = 0;
     hls = new Hls({
+      capLevelToPlayerSize: false,
       xhrSetup: referer
         ? (xhr) => {
             try {
@@ -2191,6 +2239,9 @@ function setupVideoSource(
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      if (hls?.levels?.length > 0) {
+        hls.currentLevel = hls.levels.length - 1;
+      }
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -2335,19 +2386,12 @@ function seekBySeconds(delta) {
   playerVideo.currentTime = Math.max(0, current + delta);
 }
 
-function adjustVolumeBy(delta) {
-  const next = Math.min(
-    1,
-    Math.max(0, (Number(playerVideo.volume) || 0) + delta),
-  );
-  playerVideo.volume = next;
-  playerVideo.muted = next === 0;
-  updateVolumeUI();
-}
-
 function handlePlayerKeyboardShortcuts(e) {
-  if (e.ctrlKey && eventKey(e) === "ArrowRight") {
-    const target = resolveAdjacentEpisode(1);
+  const key = eventKey(e);
+
+  // คีย์บอร์ด: Ctrl+ซ้าย/ขวา = ตอนก่อนหน้า/ถัดไป
+  if (e.ctrlKey && (key === "ArrowRight" || key === "ArrowLeft")) {
+    const target = resolveAdjacentEpisode(key === "ArrowRight" ? 1 : -1);
     if (!target) return true;
     if (target.type === "local")
       playEpisode(target.index, inheritedRefererCache);
@@ -2355,39 +2399,33 @@ function handlePlayerKeyboardShortcuts(e) {
     return true;
   }
 
-  if (e.ctrlKey && eventKey(e) === "ArrowLeft") {
-    const target = resolveAdjacentEpisode(-1);
-    if (!target) return true;
-    if (target.type === "local")
-      playEpisode(target.index, inheritedRefererCache);
-    else playEpisodeFromQueue(target.queueIndex);
-    return true;
-  }
+  if (!ARROW_KEYS.has(key)) return false;
 
-  if (eventKey(e) === "ArrowRight") {
-    seekBySeconds(5);
+  // ปุ่มควบคุมซ่อนอยู่ (auto-hide) → กดทิศทางครั้งแรกแค่ปลุก UI + วางโฟกัสตั้งต้น
+  if (!playerOverlay.classList.contains("show-ui")) {
     showPlayerUI();
+    focusTVElement(
+      isTVFocusable(document.activeElement) ? document.activeElement : btnPlayPause,
+    );
     return true;
   }
 
-  if (eventKey(e) === "ArrowLeft") {
-    seekBySeconds(-5);
-    showPlayerUI();
-    return true;
+  // โฟกัสที่ seekbar → ซ้าย/ขวา = เลื่อน ±5 วิ (ขึ้น/ลง ปล่อยให้ spatial nav ย้ายโฟกัส)
+  if (document.activeElement === playerSeek) {
+    if (key === "ArrowLeft") {
+      seekBySeconds(-5);
+      showPlayerUI();
+      return true;
+    }
+    if (key === "ArrowRight") {
+      seekBySeconds(5);
+      showPlayerUI();
+      return true;
+    }
   }
 
-  if (eventKey(e) === "ArrowUp") {
-    adjustVolumeBy(0.05);
-    showPlayerUI();
-    return true;
-  }
-
-  if (eventKey(e) === "ArrowDown") {
-    adjustVolumeBy(-0.05);
-    showPlayerUI();
-    return true;
-  }
-
+  // ทิศทางอื่น → คง UI ไว้ แล้วให้ spatial nav (moveTVFocus) ย้ายโฟกัสตามปกติ
+  showPlayerUI();
   return false;
 }
 
@@ -3116,7 +3154,8 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  if (!playerVideo.paused) {
+  // ไม่ auto-hide ตอนแผงเลือกตอนเปิดอยู่ — ผู้ใช้กำลังไล่เลือกตอน ไม่ควรให้แผง/คอนโทรลหายเอง
+  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");

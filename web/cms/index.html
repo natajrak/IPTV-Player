@@ -1617,7 +1617,8 @@ function sourceLabelFromReferer(refererUrl) {
     ['24-hdx',        '24-hdx'],
     ['allinhd',       'allinhd'],
     ['fastfastcdn',   'allinhd'],
-    ['javxx',         'javxx'],
+    ['javxx',         '123av'],
+    ['123av',         '123av'],
   ];
   for (const [needle, val] of map) { if (host.includes(needle)) return val; }
   return host;
@@ -2086,7 +2087,7 @@ function buildAvUpdateCmd() {
   const code = document.getElementById('av-um-code').value.trim().toUpperCase();
   const args = [mode === 'all' ? '--update-meta=all' : '--update-meta'];
   if (code) args.push(`--code=${code}`);
-  return { script: 'fetch-javxx.js', args, cmd: `node fetch-javxx.js ${args.join(' ')}` };
+  return { script: 'fetch-123av.js', args, cmd: `node fetch-123av.js ${args.join(' ')}` };
 }
 
 function refreshAvUpdateCmd() {
@@ -2210,7 +2211,7 @@ const ADD_SCRIPTS = {
   'anime-movie':  ANIME_SOURCES,
   'series':       LIVE_SOURCES,
   'movie':        LIVE_SOURCES,
-  'av':           [{ id: 'javxx', label: 'javxx', file: 'fetch-javxx.js', url: 'https://javxx.com/' }],
+  'av':           [{ id: '123av', label: '123av', file: 'fetch-123av.js', url: 'https://123av.com/' }],
 };
 
 // Update the homepage-link chip next to a script <select>.
@@ -3133,9 +3134,9 @@ async function runFetch() {
 // ── Update Metadata Modal ────────────────────────────────────────
 let updateCtx = { slug: '', season: 0, tabId: '', title: '' };
 
-// Per-tab default script for update-meta (av uses JavDB, others use TMDB-based indy-anime)
+// Per-tab default script for update-meta (av uses 123av, others use TMDB-based indy-anime)
 function updateScriptForTab(tabId) {
-  return tabId === 'av' ? 'fetch-javxx.js' : 'fetch-indy-anime.js';
+  return tabId === 'av' ? 'fetch-123av.js' : 'fetch-indy-anime.js';
 }
 
 function buildUpdateCmd() {

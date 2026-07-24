@@ -1,0 +1,11 @@
+# Android build
+/build
+/app/build
+/.gradle
+local.properties
+/captures
+*.iml
+.idea/
+
+# Generated: web player is copied in from ../../web at build time (copyWebAssets)
+/app/src/main/assets/web/

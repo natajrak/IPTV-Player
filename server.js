@@ -46,7 +46,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-flixmono.js',
   'fetch-24hd.js',
   'fetch-24hdx.js',
-  'fetch-javxx.js',
+  'fetch-123av.js',
   'fetch-allinhd.js',
   'fetch-037hdd.js',
   'fetch-fairyanime.js',

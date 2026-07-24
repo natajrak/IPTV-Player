@@ -22,6 +22,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* เว้นที่ให้ #app-header (position:fixed) เวลา D-pad เลื่อนโฟกัสขึ้นแถวบนสุด
+     ไม่งั้น scrollIntoView จะดันการ์ดไปซ่อนใต้ header (ดูเหมือนเลื่อนขึ้นไม่สุด) */
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 body {
@@ -210,6 +213,52 @@ button:focus:not(:focus-visible),
   width: 260px;
   display: flex;
   align-items: center;
+}
+
+/* ในแอป Android (.bkl-app): ซ่อน breadcrumb (ซ้ำ/เพี้ยน) — ใช้ปุ่ม BACK + ปุ่มย้อนกลับในหน้าแทน
+   แล้วดัน search ไปชิดขวาเพราะไม่มี breadcrumb (flex:1) คอยดันให้ */
+.bkl-app #breadcrumb {
+  display: none;
+}
+.bkl-app #search-container {
+  margin-left: auto;
+}
+
+/* ในแอป: ตัดปุ่มที่ไม่ใช้บนทีวี — ปรับเสียง (ใช้รีโมท), PiP, เต็มจอ (overlay เต็มจออยู่แล้ว) */
+.bkl-app #btn-mute,
+.bkl-app #volume-slider,
+.bkl-app #btn-pip,
+.bkl-app #btn-fullscreen {
+  display: none;
+}
+
+/* ในแอป: pagination ย้ายมาอยู่ในแถวหัว (section-header) → จัดให้ inline ชิดขวาก่อนปุ่ม sort */
+.bkl-app .section-header {
+  position: relative;
+}
+.bkl-app .section-header .pagination {
+  position: absolute;
+  top: 0;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: max-content;
+  padding: 0;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+.bkl-app .section-header .pagination .page-btn {
+  padding: 6px 8px;
+  font-size: 0.8rem;
+}
+.bkl-app .section-header .pagination .page-btn.page-nav {
+  min-width: 30px;
+  padding: 6px;
+}
+.bkl-app .section-header .pagination .page-btn.page-number {
+  min-width: 30px;
+  padding: 6px 8px;
 }
 
 #search-input {
@@ -824,7 +873,7 @@ button:focus:not(:focus-visible),
 }
 
 /* ===== Pagination ===== */
-#pagination {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -858,7 +907,7 @@ button:focus:not(:focus-visible),
   font-size: 16px;
 }
 
-#page-numbers {
+.page-numbers {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1130,6 +1179,26 @@ button:focus:not(:focus-visible),
 
 #player-seek:hover {
   height: 6px;
+}
+
+/* โฟกัส D-pad ที่ seekbar: ขยายแถบ + วง ring รอบ thumb ให้เห็นชัดว่ากำลังเลือกอยู่
+   (focus-ring หลักไม่ครอบ input[range] จึงต้องกำหนดเอง) — ใช้ทั้ง :focus-visible และ :focus (TV เก่า) */
+#player-seek:focus,
+#player-seek:focus-visible {
+  height: 7px;
+  background: rgba(255, 255, 255, .45);
+}
+#player-seek:focus::-webkit-slider-thumb,
+#player-seek:focus-visible::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .55);
+}
+#player-seek:focus::-moz-range-thumb,
+#player-seek:focus-visible::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .55);
 }
 
 #player-seek::-webkit-slider-thumb {
@@ -1729,7 +1798,7 @@ button:focus:not(:focus-visible),
     display: none;
   }
 
-  #pagination {
+  .pagination {
     padding: 28px 16px 0;
     gap: 8px;
   }
@@ -1761,9 +1830,9 @@ button:focus:not(:focus-visible),
 .no-flex-gap .section-header > * + * { margin-left: 8px; }
 .no-flex-gap .section-title > * + * { margin-top: 2px; }
 .no-flex-gap .card-name > * + * { margin-top: 4px; }
-.no-flex-gap #pagination > * + * { margin-left: 10px; }
+.no-flex-gap .pagination > * + * { margin-left: 10px; }
 .no-flex-gap .page-btn > * + * { margin-left: 6px; }
-.no-flex-gap #page-numbers > * + * { margin-left: 6px; }
+.no-flex-gap .page-numbers > * + * { margin-left: 6px; }
 .no-flex-gap #player-header > * + * { margin-left: 12px; }
 .no-flex-gap .bar-group > * + * { margin-left: 4px; }
 .no-flex-gap #btn-episodes > * + * { margin-left: 4px; }

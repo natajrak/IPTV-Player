@@ -31,6 +31,8 @@ const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
 const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.hostname === "192.168.1.101";
 const PLAYLIST_URL = IS_LOCAL_DEV ? `${SITE_BASE_PATH}/playlist/main.txt` : `${RAW_GITHUB_BASE}playlist/main.txt`;
+const IS_NATIVE_APP = new URLSearchParams(location.search).get("app") === "1";
+if (IS_NATIVE_APP) document.documentElement.classList.add("bkl-app");
 const PAGE_SIZE = 24;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
@@ -41,7 +43,7 @@ const SECTION_BACK_ICON = `<i class="fi fi-br-arrow-left" aria-hidden="true"></i
 const PLAYER_ICON_PLAY = `<i class="fi fi-sr-play" aria-hidden="true"></i>`;
 const PLAYER_ICON_PAUSE = `<i class="fi fi-sr-pause" aria-hidden="true"></i>`;
 const EPISODES_ICON = `<i class="fi fi-rr-list" aria-hidden="true"></i>`;
-const TV_FOCUSABLE_SELECTOR = ["button:not([disabled]):not(.hidden)", "#search-input:not([disabled])", ".card[tabindex='0']", ".ep-card[tabindex='0']", ".search-item[tabindex='0']", ".breadcrumb-item[tabindex='0']", ".logo[tabindex='0']"].join(", ");
+const TV_FOCUSABLE_SELECTOR = ["button:not([disabled]):not(.hidden)", "#search-input:not([disabled])", "#player-seek", ".card[tabindex='0']", ".ep-card[tabindex='0']", ".search-item[tabindex='0']", ".breadcrumb-item[tabindex='0']", ".logo[tabindex='0']"].join(", ");
 const TV_BACK_KEYS = new Set(["Escape", "Backspace", "GoBack", "BrowserBack"]);
 const TV_BACK_KEYCODES = new Set([8, 27, 10009, 461]);
 const KEYCODE_TO_KEY = {
@@ -197,6 +199,7 @@ logo.addEventListener("keydown", e => {
     logo.click();
   }
 });
+window.__nativeBack = handleTVBack;
 window.addEventListener("keydown", e => {
   if (isTypingTarget(e.target)) return;
   if (!playerOverlay.classList.contains("hidden")) {
@@ -444,34 +447,14 @@ searchInput.addEventListener("input", _asyncToGenerator(function* () {
   renderSearchResults(results, q);
 }));
 searchInput.addEventListener("keydown", e => {
+  const key = eventKey(e);
+  if (key !== "ArrowDown" && key !== "Enter") return;
   const items = searchResults.querySelectorAll(".search-item");
-  if (eventKey(e) === "ArrowDown") {
-    const now = Date.now();
-    if (now - searchDownLastAt <= 200) {
-      e.preventDefault();
-      searchDownLastAt = 0;
-      activeSearchIdx = -1;
-      closeSearch();
-      searchInput.blur();
-      requestAnimationFrame(() => moveTVFocus("ArrowDown"));
-      return;
-    }
-    searchDownLastAt = now;
-    e.preventDefault();
-    activeSearchIdx = Math.min(activeSearchIdx + 1, items.length - 1);
-    updateActiveSearch(items);
-  } else if (eventKey(e) === "ArrowUp") {
-    searchDownLastAt = 0;
-    e.preventDefault();
-    activeSearchIdx = Math.max(activeSearchIdx - 1, -1);
-    updateActiveSearch(items);
-  } else if (eventKey(e) === "Enter" && activeSearchIdx >= 0) {
-    var _items$activeSearchId;
-    searchDownLastAt = 0;
-    (_items$activeSearchId = items[activeSearchIdx]) === null || _items$activeSearchId === void 0 || _items$activeSearchId.click();
-  } else {
-    searchDownLastAt = 0;
-  }
+  if (!items.length) return;
+  e.preventDefault();
+  activeSearchIdx = -1;
+  searchInput.blur();
+  focusTVElement(items[0]);
 });
 searchClear.addEventListener("click", () => {
   var _lastNode3;
@@ -647,6 +630,7 @@ function renderSearchResults(results, q) {
       el.addEventListener("keydown", e => {
         if (eventKey(e) === "Enter" || eventKey(e) === " ") {
           e.preventDefault();
+          e.stopPropagation();
           el.click();
         }
       });
@@ -686,7 +670,10 @@ function closeSearch() {
 function isTypingTarget(target) {
   if (!target) return false;
   const tag = target.tagName;
-  return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
+  if (tag === "INPUT") {
+    return (target.type || "text").toLowerCase() !== "range";
+  }
+  return tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
 }
 function isTVBackKey(e) {
   return TV_BACK_KEYS.has(eventKey(e)) || TV_BACK_KEYCODES.has(e.keyCode);
@@ -698,6 +685,7 @@ function handleTVBack() {
       btnEpisodes.focus({
         preventScroll: true
       });
+      showPlayerUI();
       return true;
     }
     closePlayer();
@@ -719,7 +707,12 @@ function isElementVisible(el) {
   if (!el || !el.isConnected) return false;
   if ((_el$classList = el.classList) !== null && _el$classList !== void 0 && _el$classList.contains("hidden")) return false;
   const style = window.getComputedStyle(el);
-  if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") return false;
+  if (style.display === "none" || style.visibility === "hidden") return false;
+  if (style.opacity === "0") {
+    var _el$closest, _el$closest2;
+    const inShowingPlayerUI = ((_el$closest = el.closest) === null || _el$closest === void 0 ? void 0 : _el$closest.call(el, "#player-overlay.show-ui")) && ((_el$closest2 = el.closest) === null || _el$closest2 === void 0 ? void 0 : _el$closest2.call(el, "#player-bar, #player-header"));
+    if (!inShowingPlayerUI) return false;
+  }
   if (el.offsetParent === null && style.position !== "fixed") return false;
   return true;
 }
@@ -739,15 +732,21 @@ function focusTVElement(el) {
     block: "nearest",
     inline: "nearest"
   });
+  if (playerOverlay.classList.contains("hidden") && el.closest && !el.closest("#app-header")) {
+    const header = document.getElementById("app-header");
+    const gap = (header ? header.offsetHeight : 0) + 16 - el.getBoundingClientRect().top;
+    if (gap > 0) window.scrollBy(0, -gap);
+  }
 }
 function getFocusZone(el) {
-  var _el$classList2, _el$closest, _el$closest2, _el$closest3, _el$closest4;
+  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7;
   if (!el) return "other";
   if ((_el$classList2 = el.classList) !== null && _el$classList2 !== void 0 && _el$classList2.contains("card")) return "card";
-  if ((_el$closest = el.closest) !== null && _el$closest !== void 0 && _el$closest.call(el, "#pagination")) return "pagination";
-  if ((_el$closest2 = el.closest) !== null && _el$closest2 !== void 0 && _el$closest2.call(el, ".section-header")) return "section";
-  if ((_el$closest3 = el.closest) !== null && _el$closest3 !== void 0 && _el$closest3.call(el, "#app-header")) return "header";
+  if ((_el$closest3 = el.closest) !== null && _el$closest3 !== void 0 && _el$closest3.call(el, "#ep-panel")) return "eppanel";
   if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#search-results")) return "search";
+  if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, ".section-header")) return "section";
+  if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".pagination")) return "pagination";
+  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, "#app-header")) return "header";
   return "other";
 }
 function hasDirectionalCandidate(current, candidates, directionKey) {
@@ -774,6 +773,28 @@ function hasDirectionalCandidate(current, candidates, directionKey) {
 }
 function getDirectionalCandidates(current, directionKey, elements) {
   const zone = getFocusZone(current);
+  if (zone === "search") {
+    return elements.filter(el => getFocusZone(el) === "search");
+  }
+  if (zone === "eppanel") {
+    var _current$closest;
+    const epElems = elements.filter(el => getFocusZone(el) === "eppanel");
+    const onCard = (_current$closest = current.closest) === null || _current$closest === void 0 ? void 0 : _current$closest.call(current, "#ep-panel-grid");
+    if (onCard && (directionKey === "ArrowUp" || directionKey === "ArrowDown")) {
+      const epCards = epElems.filter(el => {
+        var _el$closest8;
+        return (_el$closest8 = el.closest) === null || _el$closest8 === void 0 ? void 0 : _el$closest8.call(el, "#ep-panel-grid");
+      });
+      if (directionKey === "ArrowUp" && !hasDirectionalCandidate(current, epCards, "ArrowUp")) {
+        return epElems.filter(el => {
+          var _el$closest9;
+          return !((_el$closest9 = el.closest) !== null && _el$closest9 !== void 0 && _el$closest9.call(el, "#ep-panel-grid"));
+        });
+      }
+      return epCards;
+    }
+    return epElems;
+  }
   const cards = elements.filter(el => getFocusZone(el) === "card");
   const paginations = elements.filter(el => getFocusZone(el) === "pagination");
   const sections = elements.filter(el => getFocusZone(el) === "section");
@@ -827,8 +848,10 @@ function moveTVFocus(directionKey) {
   };
   let best = null;
   let bestScore = Number.POSITIVE_INFINITY;
+  const horizontal = directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach(el => {
     if (el === current) return;
+    if (horizontal && el.id === "player-seek") return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -945,15 +968,17 @@ function renderGroups(groups, sectionTitle, parentNode) {
   const pageGroups = sortedGroups.slice(start, start + PAGE_SIZE);
   const normalizedSectionTitle = String(sectionTitle || "").trim().toLowerCase();
   const showCountInTitle = normalizedSectionTitle === "the series" || normalizedSectionTitle === "the movies" || normalizedSectionTitle === "movies" || normalizedSectionTitle === "series";
+  const paginationNav = renderPaginationNav(currentPage, totalPages);
   gridView.innerHTML = `${renderSectionHeader(sectionTitle, {
     withSort: hasAnyDateData,
     sort: effectiveSortOrder,
     sortMode: effectiveSortMode,
     withSortMode: hasAnyDateData,
-    count: showCountInTitle ? total : null
+    count: showCountInTitle ? total : null,
+    paginationHtml: IS_NATIVE_APP ? paginationNav : ""
   })}
     <div class="card-grid portrait"></div>
-    ${renderPaginationNav(currentPage, totalPages)}`;
+    ${paginationNav}`;
   const grid = gridView.querySelector(".card-grid");
   (_document$getElementB3 = document.getElementById("section-back")) === null || _document$getElementB3 === void 0 || _document$getElementB3.addEventListener("click", goBackOneStep);
   pageGroups.forEach(group => {
@@ -1041,7 +1066,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
   });
 }
 function getPaginationItems(totalPages, activePageIdx) {
-  const windowSize = 5;
+  const windowSize = IS_NATIVE_APP ? 3 : 5;
   if (totalPages <= windowSize) return Array.from({
     length: totalPages
   }, (_, i) => i + 1);
@@ -1057,26 +1082,26 @@ function renderPaginationNav(currentPage, totalPages) {
   const atFirst = currentPage === 0;
   const atLast = currentPage >= totalPages - 1;
   const showFirstLast = totalPages > PAGINATION_FIRST_LAST_THRESHOLD;
-  const firstBtn = showFirstLast ? `<button class="page-btn page-nav" id="page-first" ${atFirst ? "disabled" : ""} aria-label="หน้าแรก">${PAGINATION_ICON_FIRST}</button>` : "";
-  const lastBtn = showFirstLast ? `<button class="page-btn page-nav" id="page-last" ${atLast ? "disabled" : ""} aria-label="หน้าสุดท้าย">${PAGINATION_ICON_LAST}</button>` : "";
+  const firstBtn = showFirstLast ? `<button class="page-btn page-nav page-first" ${atFirst ? "disabled" : ""} aria-label="หน้าแรก">${PAGINATION_ICON_FIRST}</button>` : "";
+  const lastBtn = showFirstLast ? `<button class="page-btn page-nav page-last" ${atLast ? "disabled" : ""} aria-label="หน้าสุดท้าย">${PAGINATION_ICON_LAST}</button>` : "";
   const nums = pageItems.map(p => {
     const isActive = p === currentPage + 1;
     return `<button class="page-btn page-number${isActive ? " active" : ""}" data-page="${p - 1}" ${isActive ? 'aria-current="page"' : ""} aria-label="หน้า ${p}">${p}</button>`;
   }).join("");
-  return `<nav id="pagination" aria-label="Pagination">
+  return `<nav class="pagination" aria-label="Pagination">
       ${firstBtn}
-      <button class="page-btn page-nav" id="page-prev" ${atFirst ? "disabled" : ""} aria-label="หน้าก่อนหน้า">${PAGINATION_ICON_PREV}</button>
-      <div id="page-numbers">${nums}</div>
-      <button class="page-btn page-nav" id="page-next" ${atLast ? "disabled" : ""} aria-label="หน้าถัดไป">${PAGINATION_ICON_NEXT}</button>
+      <button class="page-btn page-nav page-prev" ${atFirst ? "disabled" : ""} aria-label="หน้าก่อนหน้า">${PAGINATION_ICON_PREV}</button>
+      <div class="page-numbers">${nums}</div>
+      <button class="page-btn page-nav page-next" ${atLast ? "disabled" : ""} aria-label="หน้าถัดไป">${PAGINATION_ICON_NEXT}</button>
       ${lastBtn}
     </nav>`;
 }
 function wirePaginationButtons(goToPage, totalPages) {
-  var _document$getElementB4, _document$getElementB5, _document$getElementB6, _document$getElementB7;
-  (_document$getElementB4 = document.getElementById("page-first")) === null || _document$getElementB4 === void 0 || _document$getElementB4.addEventListener("click", () => goToPage(0));
-  (_document$getElementB5 = document.getElementById("page-prev")) === null || _document$getElementB5 === void 0 || _document$getElementB5.addEventListener("click", () => goToPage(currentPage - 1));
-  (_document$getElementB6 = document.getElementById("page-next")) === null || _document$getElementB6 === void 0 || _document$getElementB6.addEventListener("click", () => goToPage(currentPage + 1));
-  (_document$getElementB7 = document.getElementById("page-last")) === null || _document$getElementB7 === void 0 || _document$getElementB7.addEventListener("click", () => goToPage(totalPages - 1));
+  const wireAll = (selector, handler) => gridView.querySelectorAll(selector).forEach(btn => btn.addEventListener("click", handler));
+  wireAll(".page-first", () => goToPage(0));
+  wireAll(".page-prev", () => goToPage(currentPage - 1));
+  wireAll(".page-next", () => goToPage(currentPage + 1));
+  wireAll(".page-last", () => goToPage(totalPages - 1));
   gridView.querySelectorAll(".page-number").forEach(btn => {
     btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
   });
@@ -1088,7 +1113,8 @@ function renderSectionHeader(title, options = {}) {
     count = null,
     withFilter = false,
     sortMode = "alpha",
-    withSortMode = false
+    withSortMode = false,
+    paginationHtml = ""
   } = options;
   const canGoBack = navHistory.length > 0;
   const splitTitle = splitCardTitle(title);
@@ -1134,6 +1160,7 @@ function renderSectionHeader(title, options = {}) {
       <span class="section-title-main">${esc(titleMain)}</span>
       ${splitTitle.th ? `<span class="section-title-th">${esc(splitTitle.th)}</span>` : ""}
     </h2>
+    ${paginationHtml}
     ${withSort || withFilter ? `<div class="section-header-right">${filterHtml}${modeBtnHtml}${withSort ? `<button class="sort-order-toggle" aria-label="${sortLabel}" title="${sortLabel}">${sortIcon}</button>` : ""}</div>` : ""}
   </div>`;
 }
@@ -1177,11 +1204,11 @@ function goBackOneStep() {
   });
 }
 function renderStations(stations, referer, sectionTitle) {
-  var _document$getElementB8;
+  var _document$getElementB4;
   gridView.innerHTML = `${renderSectionHeader(sectionTitle)}
     <div class="card-grid landscape"></div>`;
   const grid = gridView.querySelector(".card-grid");
-  (_document$getElementB8 = document.getElementById("section-back")) === null || _document$getElementB8 === void 0 || _document$getElementB8.addEventListener("click", goBackOneStep);
+  (_document$getElementB4 = document.getElementById("section-back")) === null || _document$getElementB4 === void 0 || _document$getElementB4.addEventListener("click", goBackOneStep);
   stations.forEach((station, i) => {
     const card = makeCard({
       name: station.name || `ตอนที่ ${i + 1}`,
@@ -1275,7 +1302,7 @@ function attachHoverPreview(card, coverUrl) {
 function renderBrowsableStations(stations, sectionTitle, parentNode, {
   isFilter = false
 } = {}) {
-  var _document$getElementB9, _gridView$querySelect3;
+  var _document$getElementB5, _gridView$querySelect3;
   if (!isFilter) browseAllStations = stations;
   browseFilteredStations = stations;
   browseTitle = sectionTitle;
@@ -1301,7 +1328,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, {
     <div class="card-grid landscape"></div>
     ${renderPaginationNav(currentPage, totalPages)}`;
   const grid = gridView.querySelector(".card-grid");
-  (_document$getElementB9 = document.getElementById("section-back")) === null || _document$getElementB9 === void 0 || _document$getElementB9.addEventListener("click", goBackOneStep);
+  (_document$getElementB5 = document.getElementById("section-back")) === null || _document$getElementB5 === void 0 || _document$getElementB5.addEventListener("click", goBackOneStep);
   wireAvFilterButtons();
   pageStations.forEach(station => {
     const globalIdx = stations.indexOf(station);
@@ -1745,6 +1772,7 @@ function setupVideoSource(url, referer, {
     let networkRetries = 0;
     let mediaRetries = 0;
     hls = new Hls({
+      capLevelToPlayerSize: false,
       xhrSetup: referer ? xhr => {
         try {
           xhr.setRequestHeader("Referer", referer);
@@ -1754,6 +1782,10 @@ function setupVideoSource(url, referer, {
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      var _hls;
+      if (((_hls = hls) === null || _hls === void 0 || (_hls = _hls.levels) === null || _hls === void 0 ? void 0 : _hls.length) > 0) {
+        hls.currentLevel = hls.levels.length - 1;
+      }
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -1867,45 +1899,33 @@ function seekBySeconds(delta) {
   }
   playerVideo.currentTime = Math.max(0, current + delta);
 }
-function adjustVolumeBy(delta) {
-  const next = Math.min(1, Math.max(0, (Number(playerVideo.volume) || 0) + delta));
-  playerVideo.volume = next;
-  playerVideo.muted = next === 0;
-  updateVolumeUI();
-}
 function handlePlayerKeyboardShortcuts(e) {
-  if (e.ctrlKey && eventKey(e) === "ArrowRight") {
-    const target = resolveAdjacentEpisode(1);
+  const key = eventKey(e);
+  if (e.ctrlKey && (key === "ArrowRight" || key === "ArrowLeft")) {
+    const target = resolveAdjacentEpisode(key === "ArrowRight" ? 1 : -1);
     if (!target) return true;
     if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
     return true;
   }
-  if (e.ctrlKey && eventKey(e) === "ArrowLeft") {
-    const target = resolveAdjacentEpisode(-1);
-    if (!target) return true;
-    if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
-    return true;
-  }
-  if (eventKey(e) === "ArrowRight") {
-    seekBySeconds(5);
+  if (!ARROW_KEYS.has(key)) return false;
+  if (!playerOverlay.classList.contains("show-ui")) {
     showPlayerUI();
+    focusTVElement(isTVFocusable(document.activeElement) ? document.activeElement : btnPlayPause);
     return true;
   }
-  if (eventKey(e) === "ArrowLeft") {
-    seekBySeconds(-5);
-    showPlayerUI();
-    return true;
+  if (document.activeElement === playerSeek) {
+    if (key === "ArrowLeft") {
+      seekBySeconds(-5);
+      showPlayerUI();
+      return true;
+    }
+    if (key === "ArrowRight") {
+      seekBySeconds(5);
+      showPlayerUI();
+      return true;
+    }
   }
-  if (eventKey(e) === "ArrowUp") {
-    adjustVolumeBy(0.05);
-    showPlayerUI();
-    return true;
-  }
-  if (eventKey(e) === "ArrowDown") {
-    adjustVolumeBy(-0.05);
-    showPlayerUI();
-    return true;
-  }
+  showPlayerUI();
   return false;
 }
 function togglePlayPause() {
@@ -2436,7 +2456,7 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  if (!playerVideo.paused) {
+  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");

@@ -1,0 +1,47 @@
+plugins {
+    id "com.android.application"
+}
+
+android {
+    namespace "com.bkl.play"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.bkl.play"
+        minSdk 21
+        targetSdk 34
+        versionCode 9
+        versionName "1.8"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+/**
+ * Copy the shared web/ player into app assets at build time (player only, CMS excluded)
+ * so the bundled shell always matches the source in ../../web without duplicating files in git.
+ */
+tasks.register("copyWebAssets", Copy) {
+    from("${rootDir}/../web") {
+        exclude "cms/**"
+    }
+    into layout.projectDirectory.dir("src/main/assets/web")
+}
+
+tasks.named("preBuild") {
+    dependsOn "copyWebAssets"
+}
