@@ -127,6 +127,10 @@ let crossSeasonSeasons = [];
 let epPanelSeasonFilter = "";
 let currentSeasonTitle = "";
 let playerSectionTitle = "";
+let moviePartMode = false;
+let moviePartQueueTrack = "";
+let moviePartLoadToken = 0;
+let moviePartCache = {};
 let playerNoticeTimer = null;
 let searchDownLastAt = 0;
 let activeSearchIdx = -1;
@@ -1584,6 +1588,92 @@ function buildCrossSeasonQueue(languageTitle, inheritedReferer) {
     seasons
   };
 }
+const MOVIE_PART_RE = /^ภาค\s*\d+/;
+function detectMovieParts() {
+  var _parentEntry$node;
+  const parentEntry = navHistory[navHistory.length - 1];
+  const groups = parentEntry === null || parentEntry === void 0 || (_parentEntry$node = parentEntry.node) === null || _parentEntry$node === void 0 ? void 0 : _parentEntry$node.groups;
+  if (!Array.isArray(groups) || groups.length < 2) return null;
+  const partish = groups.filter(g => g && (MOVIE_PART_RE.test(g.badge || "") || MOVIE_PART_RE.test(g.name || "")));
+  return partish.length >= 2 ? groups : null;
+}
+function fetchPartStations(_x9) {
+  return _fetchPartStations.apply(this, arguments);
+}
+function _fetchPartStations() {
+  _fetchPartStations = _asyncToGenerator(function* (url) {
+    if (moviePartCache[url]) return moviePartCache[url];
+    try {
+      var _node$stations3, _node$groups2;
+      const {
+        data,
+        sourceUrl
+      } = yield fetchJSON(url);
+      const node = normalizePlaylistNode(data, sourceUrl);
+      const stations = (_node$stations3 = node.stations) !== null && _node$stations3 !== void 0 && _node$stations3.length ? node.stations : ((_node$groups2 = node.groups) === null || _node$groups2 === void 0 || (_node$groups2 = _node$groups2[0]) === null || _node$groups2 === void 0 ? void 0 : _node$groups2.stations) || [];
+      moviePartCache[url] = stations;
+      return stations;
+    } catch (_unused3) {
+      return [];
+    }
+  });
+  return _fetchPartStations.apply(this, arguments);
+}
+function buildMoviePartData(_x0, _x1, _x10) {
+  return _buildMoviePartData.apply(this, arguments);
+}
+function _buildMoviePartData() {
+  _buildMoviePartData = _asyncToGenerator(function* (inheritedReferer, groups, currentStationsRef) {
+    const resolved = yield Promise.all(groups.map(function () {
+      var _ref6 = _asyncToGenerator(function* (part, i) {
+        var _ref7, _part$referer;
+        const badge = part.badge || part.name || `ภาค ${i + 1}`;
+        const partTitle = part.name || badge;
+        const isCurrent = part.url && normalizeKey(part.url) === normalizeKey(lastFetchUrl) || normalizeKey(part.name) === normalizeKey(playerSectionTitle);
+        let stations;
+        if (Array.isArray(part.stations) && part.stations.length) stations = part.stations;else if (isCurrent) stations = currentStationsRef;else if (part.url) stations = yield fetchPartStations(part.url);else stations = [];
+        return {
+          title: badge,
+          partTitle,
+          stations,
+          referer: (_ref7 = (_part$referer = part.referer) !== null && _part$referer !== void 0 ? _part$referer : inheritedReferer) !== null && _ref7 !== void 0 ? _ref7 : null,
+          image: part.image
+        };
+      });
+      return function (_x11, _x12) {
+        return _ref6.apply(this, arguments);
+      };
+    }()));
+    return {
+      seasons: resolved.filter(s => s.stations.length)
+    };
+  });
+  return _buildMoviePartData.apply(this, arguments);
+}
+function buildMoviePartQueue(seasons, trackName) {
+  const key = normalizeKey(trackName);
+  const queue = [];
+  seasons.forEach(season => {
+    var _st$referer;
+    const idx = season.stations.findIndex(s => normalizeKey(s.name) === key);
+    if (idx < 0) return;
+    const st = season.stations[idx];
+    queue.push({
+      station: st,
+      stations: season.stations,
+      localIndex: idx,
+      referer: (_st$referer = st.referer) !== null && _st$referer !== void 0 ? _st$referer : season.referer,
+      seasonTitle: season.title,
+      partTitle: season.partTitle
+    });
+  });
+  return queue;
+}
+function rebuildMoviePartQueue(trackName) {
+  moviePartQueueTrack = trackName;
+  crossSeasonQueue = buildMoviePartQueue(crossSeasonSeasons, trackName);
+  crossSeasonIndex = crossSeasonQueue.findIndex(item => item.stations === currentStations && item.localIndex === currentIndex);
+}
 function resolveAdjacentEpisode(step) {
   if (shuffleMode && step > 0 && currentStations.length > 1) {
     const unplayed = [];
@@ -1604,12 +1694,14 @@ function resolveAdjacentEpisode(step) {
       };
     }
   }
-  const localIndex = currentIndex + step;
-  if (localIndex >= 0 && localIndex < currentStations.length) {
-    return {
-      type: "local",
-      index: localIndex
-    };
+  if (!moviePartMode) {
+    const localIndex = currentIndex + step;
+    if (localIndex >= 0 && localIndex < currentStations.length) {
+      return {
+        type: "local",
+        index: localIndex
+      };
+    }
   }
   if (crossSeasonIndex >= 0) {
     const queueIndex = crossSeasonIndex + step;
@@ -1644,6 +1736,8 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", {
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
+  moviePartMode = false;
+  moviePartLoadToken++;
   const crossSeasonData = buildCrossSeasonQueue(languageTitle, inheritedReferer);
   crossSeasonQueue = crossSeasonData.queue;
   crossSeasonSeasons = crossSeasonData.seasons;
@@ -1653,6 +1747,41 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", {
     currentSeasonTitle = crossSeasonQueue[crossSeasonIndex].seasonTitle || currentSeasonTitle;
   }
   epPanelSeasonFilter = currentSeasonTitle || ((_crossSeasonSeasons$ = crossSeasonSeasons[0]) === null || _crossSeasonSeasons$ === void 0 ? void 0 : _crossSeasonSeasons$.title) || "";
+  const movieParts = crossSeasonSeasons.length === 0 && stations.some(s => TRACK_LABEL_RE.test(s.name)) ? detectMovieParts() : null;
+  if (movieParts) {
+    var _stations$index;
+    moviePartMode = true;
+    const curPart = movieParts.find(g => g.url && normalizeKey(g.url) === normalizeKey(lastFetchUrl) || normalizeKey(g.name) === normalizeKey(playerSectionTitle));
+    const curBadge = (curPart === null || curPart === void 0 ? void 0 : curPart.badge) || (curPart === null || curPart === void 0 ? void 0 : curPart.name) || playerSectionTitle;
+    const curPartTitle = (curPart === null || curPart === void 0 ? void 0 : curPart.name) || playerSectionTitle;
+    const trackName = ((_stations$index = stations[index]) === null || _stations$index === void 0 ? void 0 : _stations$index.name) || "";
+    crossSeasonSeasons = [{
+      title: curBadge,
+      partTitle: curPartTitle,
+      stations,
+      referer: inheritedReferer,
+      image: curPart === null || curPart === void 0 ? void 0 : curPart.image
+    }];
+    currentSeasonTitle = curBadge;
+    epPanelSeasonFilter = curBadge;
+    rebuildMoviePartQueue(trackName);
+    const token = moviePartLoadToken;
+    buildMoviePartData(inheritedReferer, movieParts, stations).then(({
+      seasons
+    }) => {
+      if (token !== moviePartLoadToken) return;
+      if (playerOverlay.classList.contains("hidden")) return;
+      if (seasons.length < 2) return;
+      crossSeasonSeasons = seasons;
+      rebuildMoviePartQueue(moviePartQueueTrack);
+      btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
+      btnNextEp.disabled = !resolveAdjacentEpisode(1);
+      if (!epPanel.classList.contains("hidden")) {
+        epPanelTitle.textContent = getEpPanelLabel();
+        renderEpPanel();
+      }
+    });
+  }
   playerOverlay.classList.remove("hidden");
   document.body.style.overflow = "hidden";
   updateVolumeUI();
@@ -1692,8 +1821,10 @@ function playEpisode(index, inheritedReferer) {
   const matchedQueueIdx = crossSeasonQueue.findIndex(item => item.stations === currentStations && item.localIndex === index);
   if (matchedQueueIdx >= 0) {
     crossSeasonIndex = matchedQueueIdx;
-    currentSeasonTitle = crossSeasonQueue[matchedQueueIdx].seasonTitle || currentSeasonTitle;
+    const matchedItem = crossSeasonQueue[matchedQueueIdx];
+    currentSeasonTitle = matchedItem.seasonTitle || currentSeasonTitle;
     epPanelSeasonFilter = currentSeasonTitle || epPanelSeasonFilter;
+    if (moviePartMode) playerSectionTitle = matchedItem.partTitle || playerSectionTitle;
   }
   const episodeTitle = station.name || `ตอนที่ ${index + 1}`;
   const isTrackLabel = /^(พากย์ไทย|ซับไทย|บรรยายไทย|พากย์.+|ซับ.+|Thai|English|Japanese|Sub\s?Thai|Thai\s?Dub|Dub|Sub)$/i.test(episodeTitle);
@@ -1773,6 +1904,10 @@ function setupVideoSource(url, referer, {
     let mediaRetries = 0;
     hls = new Hls({
       capLevelToPlayerSize: false,
+      backBufferLength: 30,
+      maxBufferLength: 30,
+      maxMaxBufferLength: 120,
+      maxBufferSize: 60 * 1000 * 1000,
       xhrSetup: referer ? xhr => {
         try {
           xhr.setRequestHeader("Referer", referer);
@@ -1784,7 +1919,8 @@ function setupVideoSource(url, referer, {
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       var _hls;
       if (((_hls = hls) === null || _hls === void 0 || (_hls = _hls.levels) === null || _hls === void 0 ? void 0 : _hls.length) > 0) {
-        hls.currentLevel = hls.levels.length - 1;
+        hls.startLevel = hls.levels.length - 1;
+        hls.currentLevel = -1;
       }
       if (startTime > 0) {
         try {
@@ -2110,6 +2246,7 @@ const TRACK_LABEL_RE = /^(พากย์ไทย|ซับไทย|บรร�
 function getEpPanelLabel() {
   var _currentStations2;
   if (isAvMode) return "เลือกเรื่อง";
+  if (moviePartMode && crossSeasonSeasons.length > 1) return "เลือกภาค";
   const hasTrackLabels = (_currentStations2 = currentStations) === null || _currentStations2 === void 0 ? void 0 : _currentStations2.some(s => TRACK_LABEL_RE.test(s.name));
   if (hasTrackLabels) return "เลือกแทร็กเสียง";
   return "เลือกตอน";
@@ -2182,6 +2319,11 @@ function renderEpPanel() {
         ep: station.name || `Ep. ${i + 1}`,
         title: actressStr
       };
+    } else if (isTrack && moviePartMode) {
+      label = {
+        ep: (selectedSeason === null || selectedSeason === void 0 ? void 0 : selectedSeason.partTitle) || (selectedSeason === null || selectedSeason === void 0 ? void 0 : selectedSeason.title) || playerSectionTitle,
+        title: station.name
+      };
     } else if (isTrack && playerSectionTitle) {
       label = {
         ep: playerSectionTitle,
@@ -2200,6 +2342,11 @@ function renderEpPanel() {
     card.innerHTML = `<div class="ep-card-media">${thumbEl}${playingBadge}</div><div class="ep-card-content"><div class="ep-card-label"><div class="ep-card-epno">${esc(label.ep)}</div>${titleEl}</div></div>`;
     card.addEventListener("click", () => {
       currentStations = panelStations;
+      if (moviePartMode) {
+        var _panelStations$i;
+        const tName = ((_panelStations$i = panelStations[i]) === null || _panelStations$i === void 0 ? void 0 : _panelStations$i.name) || "";
+        if (normalizeKey(tName) !== normalizeKey(moviePartQueueTrack)) rebuildMoviePartQueue(tName);
+      }
       playEpisode(i, panelReferer);
       renderEpPanel();
     });
@@ -2650,6 +2797,10 @@ function closePlayer() {
   seekPreview.classList.add("hidden");
   currentSeasonTitle = "";
   playerSectionTitle = "";
+  moviePartMode = false;
+  moviePartQueueTrack = "";
+  moviePartLoadToken++;
+  moviePartCache = {};
   queueFocusRefresh();
 }
 function destroyHls() {

@@ -153,6 +153,10 @@ let crossSeasonSeasons = [];
 let epPanelSeasonFilter = "";
 let currentSeasonTitle = "";
 let playerSectionTitle = ""; // sectionTitle from renderStations (movie part name for movies)
+let moviePartMode = false; // player opened on a multi-part movie franchise → ภาค tabs + same-track cross-part queue
+let moviePartQueueTrack = ""; // track name the cross-part queue is currently built for (พากย์ไทย/ซับไทย)
+let moviePartLoadToken = 0; // guards async sibling-part prefetch against stale completion
+let moviePartCache = {}; // url → stations[] (fetched sibling part files)
 let playerNoticeTimer = null;
 let searchDownLastAt = 0;
 let activeSearchIdx = -1;
@@ -1966,6 +1970,101 @@ function buildCrossSeasonQueue(languageTitle, inheritedReferer) {
   return { queue, seasons };
 }
 
+const MOVIE_PART_RE = /^ภาค\s*\d+/;
+
+/**
+ * ตรวจว่า player ถูกเปิดจากหนัง franchise หลายภาคหรือไม่
+ * เงื่อนไข: parent (navHistory ล่าสุด) มี groups ที่เป็น "ภาค N" ตั้งแต่ 2 ภาคขึ้นไป
+ * (แยกออกจากหน้า index รวมหนัง ที่การ์ดเป็นชื่อเรื่อง ไม่ใช่ "ภาค N")
+ * @returns {Array|null} รายการ part groups ตามลำดับ หรือ null ถ้าไม่ใช่
+ */
+function detectMovieParts() {
+  const parentEntry = navHistory[navHistory.length - 1];
+  const groups = parentEntry?.node?.groups;
+  if (!Array.isArray(groups) || groups.length < 2) return null;
+  const partish = groups.filter(
+    (g) =>
+      g && (MOVIE_PART_RE.test(g.badge || "") || MOVIE_PART_RE.test(g.name || "")),
+  );
+  return partish.length >= 2 ? groups : null;
+}
+
+async function fetchPartStations(url) {
+  if (moviePartCache[url]) return moviePartCache[url];
+  try {
+    const { data, sourceUrl } = await fetchJSON(url);
+    const node = normalizePlaylistNode(data, sourceUrl);
+    const stations = node.stations?.length
+      ? node.stations
+      : node.groups?.[0]?.stations || [];
+    moviePartCache[url] = stations;
+    return stations;
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * โหลด stations ของทุกภาค (fetch ไฟล์ภาคที่เป็น url, ใช้ inline/ปัจจุบันถ้ามี)
+ * @returns {{seasons: Array}} seasons: [{ title: badge, partTitle: fullName, stations, referer, image }]
+ */
+async function buildMoviePartData(inheritedReferer, groups, currentStationsRef) {
+  const resolved = await Promise.all(
+    groups.map(async (part, i) => {
+      const badge = part.badge || part.name || `ภาค ${i + 1}`;
+      const partTitle = part.name || badge;
+      const isCurrent =
+        (part.url && normalizeKey(part.url) === normalizeKey(lastFetchUrl)) ||
+        normalizeKey(part.name) === normalizeKey(playerSectionTitle);
+      let stations;
+      if (Array.isArray(part.stations) && part.stations.length)
+        stations = part.stations;
+      else if (isCurrent) stations = currentStationsRef;
+      else if (part.url) stations = await fetchPartStations(part.url);
+      else stations = [];
+      return {
+        title: badge,
+        partTitle,
+        stations,
+        referer: part.referer ?? inheritedReferer ?? null,
+        image: part.image,
+      };
+    }),
+  );
+  return { seasons: resolved.filter((s) => s.stations.length) };
+}
+
+/** สร้าง Next/Prev queue = track เสียงเดียวกันข้ามทุกภาค (ภาคที่ไม่มี track นั้นถูกข้าม) */
+function buildMoviePartQueue(seasons, trackName) {
+  const key = normalizeKey(trackName);
+  const queue = [];
+  seasons.forEach((season) => {
+    const idx = season.stations.findIndex(
+      (s) => normalizeKey(s.name) === key,
+    );
+    if (idx < 0) return;
+    const st = season.stations[idx];
+    queue.push({
+      station: st,
+      stations: season.stations,
+      localIndex: idx,
+      referer: st.referer ?? season.referer,
+      seasonTitle: season.title,
+      partTitle: season.partTitle,
+    });
+  });
+  return queue;
+}
+
+function rebuildMoviePartQueue(trackName) {
+  moviePartQueueTrack = trackName;
+  crossSeasonQueue = buildMoviePartQueue(crossSeasonSeasons, trackName);
+  crossSeasonIndex = crossSeasonQueue.findIndex(
+    (item) =>
+      item.stations === currentStations && item.localIndex === currentIndex,
+  );
+}
+
 function resolveAdjacentEpisode(step) {
   // Shuffle mode: pick a random unplayed station from currentStations
   if (shuffleMode && step > 0 && currentStations.length > 1) {
@@ -1986,9 +2085,12 @@ function resolveAdjacentEpisode(step) {
     }
   }
 
-  const localIndex = currentIndex + step;
-  if (localIndex >= 0 && localIndex < currentStations.length) {
-    return { type: "local", index: localIndex };
+  // Movie parts: ⏭/⏮ ต้องข้ามภาคตาม track เสียงเดิม ไม่เดินภายในภาค (พากย์→ซับ)
+  if (!moviePartMode) {
+    const localIndex = currentIndex + step;
+    if (localIndex >= 0 && localIndex < currentStations.length) {
+      return { type: "local", index: localIndex };
+    }
   }
 
   if (crossSeasonIndex >= 0) {
@@ -2028,6 +2130,8 @@ function openPlayer(
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
+  moviePartMode = false;
+  moviePartLoadToken++;
   const crossSeasonData = buildCrossSeasonQueue(
     languageTitle,
     inheritedReferer,
@@ -2044,6 +2148,54 @@ function openPlayer(
   }
   epPanelSeasonFilter =
     currentSeasonTitle || crossSeasonSeasons[0]?.title || "";
+
+  // Multi-part movie (franchise): เปิดโหมด ภาค tabs + same-track cross-part queue
+  // ทำเฉพาะเมื่อ series builder ไม่เจออะไร (crossSeasonSeasons ว่าง) และ stations เป็น track เสียง
+  const movieParts =
+    crossSeasonSeasons.length === 0 &&
+    stations.some((s) => TRACK_LABEL_RE.test(s.name))
+      ? detectMovieParts()
+      : null;
+  if (movieParts) {
+    moviePartMode = true;
+    const curPart = movieParts.find(
+      (g) =>
+        (g.url && normalizeKey(g.url) === normalizeKey(lastFetchUrl)) ||
+        normalizeKey(g.name) === normalizeKey(playerSectionTitle),
+    );
+    const curBadge = curPart?.badge || curPart?.name || playerSectionTitle;
+    const curPartTitle = curPart?.name || playerSectionTitle;
+    const trackName = stations[index]?.name || "";
+    crossSeasonSeasons = [
+      {
+        title: curBadge,
+        partTitle: curPartTitle,
+        stations,
+        referer: inheritedReferer,
+        image: curPart?.image,
+      },
+    ];
+    currentSeasonTitle = curBadge;
+    epPanelSeasonFilter = curBadge;
+    rebuildMoviePartQueue(trackName);
+
+    const token = moviePartLoadToken;
+    buildMoviePartData(inheritedReferer, movieParts, stations).then(
+      ({ seasons }) => {
+        if (token !== moviePartLoadToken) return; // ปิด player / เปลี่ยนเรื่องไปแล้ว
+        if (playerOverlay.classList.contains("hidden")) return;
+        if (seasons.length < 2) return;
+        crossSeasonSeasons = seasons;
+        rebuildMoviePartQueue(moviePartQueueTrack);
+        btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
+        btnNextEp.disabled = !resolveAdjacentEpisode(1);
+        if (!epPanel.classList.contains("hidden")) {
+          epPanelTitle.textContent = getEpPanelLabel();
+          renderEpPanel();
+        }
+      },
+    );
+  }
 
   playerOverlay.classList.remove("hidden");
   document.body.style.overflow = "hidden";
@@ -2092,9 +2244,12 @@ function playEpisode(index, inheritedReferer) {
   );
   if (matchedQueueIdx >= 0) {
     crossSeasonIndex = matchedQueueIdx;
-    currentSeasonTitle =
-      crossSeasonQueue[matchedQueueIdx].seasonTitle || currentSeasonTitle;
+    const matchedItem = crossSeasonQueue[matchedQueueIdx];
+    currentSeasonTitle = matchedItem.seasonTitle || currentSeasonTitle;
     epPanelSeasonFilter = currentSeasonTitle || epPanelSeasonFilter;
+    // Movie: main title ต้องเป็นชื่อเต็มของภาคที่กำลังเล่น (ไม่ใช่ badge)
+    if (moviePartMode)
+      playerSectionTitle = matchedItem.partTitle || playerSectionTitle;
   }
 
   const episodeTitle = station.name || `ตอนที่ ${index + 1}`;
@@ -2228,6 +2383,10 @@ function setupVideoSource(
     let mediaRetries = 0;
     hls = new Hls({
       capLevelToPlayerSize: false,
+      backBufferLength: 30,
+      maxBufferLength: 30,
+      maxMaxBufferLength: 120,
+      maxBufferSize: 60 * 1000 * 1000,
       xhrSetup: referer
         ? (xhr) => {
             try {
@@ -2240,7 +2399,8 @@ function setupVideoSource(
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       if (hls?.levels?.length > 0) {
-        hls.currentLevel = hls.levels.length - 1;
+        hls.startLevel = hls.levels.length - 1;
+        hls.currentLevel = -1;
       }
       if (startTime > 0) {
         try {
@@ -2656,6 +2816,8 @@ const TRACK_LABEL_RE =
 
 function getEpPanelLabel() {
   if (isAvMode) return "เลือกเรื่อง";
+  // Multi-part movie: แท็บภาค + track
+  if (moviePartMode && crossSeasonSeasons.length > 1) return "เลือกภาค";
   // Movie: stations are track labels (พากย์ไทย/ซับไทย)
   const hasTrackLabels = currentStations?.some((s) =>
     TRACK_LABEL_RE.test(s.name),
@@ -2753,6 +2915,12 @@ function renderEpPanel() {
     if (actressStr) {
       // AV: show name as main, actresses as sub
       label = { ep: station.name || `Ep. ${i + 1}`, title: actressStr };
+    } else if (isTrack && moviePartMode) {
+      // Movie parts: main = ชื่อภาคของแท็บที่เลือก, sub = track เสียง
+      label = {
+        ep: selectedSeason?.partTitle || selectedSeason?.title || playerSectionTitle,
+        title: station.name,
+      };
     } else if (isTrack && playerSectionTitle) {
       label = { ep: playerSectionTitle, title: station.name };
     } else if (isAvMode) {
@@ -2772,6 +2940,12 @@ function renderEpPanel() {
 
     card.addEventListener("click", () => {
       currentStations = panelStations;
+      // Movie: เปลี่ยน track เสียง → rebuild queue รอบ track ใหม่ (ให้ Next/Prev ตามภาคของ track นั้น)
+      if (moviePartMode) {
+        const tName = panelStations[i]?.name || "";
+        if (normalizeKey(tName) !== normalizeKey(moviePartQueueTrack))
+          rebuildMoviePartQueue(tName);
+      }
       playEpisode(i, panelReferer);
       renderEpPanel(); // refresh active state
     });
@@ -3410,6 +3584,10 @@ function closePlayer() {
   seekPreview.classList.add("hidden");
   currentSeasonTitle = "";
   playerSectionTitle = "";
+  moviePartMode = false;
+  moviePartQueueTrack = "";
+  moviePartLoadToken++;
+  moviePartCache = {};
   queueFocusRefresh();
 }
 
