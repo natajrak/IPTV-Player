@@ -95,8 +95,21 @@ function buildOrMergePlaylist({
 }) {
   // เก็บ split config ลง season เพื่อให้ CMS prefill ตอน update รอบถัดไป
   // (ไม่ลบค่าเดิมเมื่อรันโดยไม่ใส่ flag — กันเผลอทำ hint หาย)
+  // โหมด append (epOffset>0) ต้อง merge กับค่าเดิม ไม่ทับทิ้ง เพราะรอบนี้ตรวจเฉพาะช่วงใหม่
   const stampSplitEps = (season) => {
-    if (splitEps) season.split_eps = String(splitEps);
+    if (!splitEps) return;
+    if (!(epOffset > 0)) { season.split_eps = String(splitEps); return; }
+    const merged = new Map();
+    for (const src of [season.split_eps, splitEps]) {
+      String(src || '').split(',').map((s) => s.trim()).filter(Boolean).forEach((tok) => {
+        const m = tok.match(/^(\d+)(?::(\d+))?$/);
+        if (m) merged.set(Number(m[1]), Math.max(2, Number(m[2] || 2)));
+      });
+    }
+    season.split_eps = [...merged.entries()]
+      .sort((a, b) => a[0] - b[0])
+      .map(([n, p]) => (p === 2 ? String(n) : `${n}:${p}`))
+      .join(',');
   };
   const newTrack = {
     name: trackName,
