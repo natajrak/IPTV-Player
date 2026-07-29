@@ -16,6 +16,10 @@
  *                     อัปเดต metadata จาก TMDB โดยไม่ fetch stream URLs ใหม่
  *   --no-touch        skip current-time stamping (deterministic rollup จาก children)
  *   --type=KIND       anime-series | anime-movie | movie | series
+ *   --split-eps=N,M:k TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
+ *                     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
+ *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
+ *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
  *   - Domain: animehdzeroo.net (migrated from anime-hd-zero.com → anime-hdzero.com)
@@ -43,6 +47,7 @@ const utils = require('./lib/utils');
 const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
+const { buildEpisodeMap, suggestSplitEps, applyMeasuredSplit } = require('./lib/episode-map');
 
 loadEnv(__dirname);
 
@@ -50,7 +55,7 @@ loadEnv(__dirname);
 const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
-      forceTmdbId, tmdbSeasonNum, epOffset, typeArg, filterTrack } = cli;
+      forceTmdbId, tmdbSeasonNum, epOffset, splitEps, autoSplit, typeArg, filterTrack } = cli;
 
 // Override default: anime-hdzero defaults to พากย์ไทย if --track= not specified
 let trackName = cli.trackName;
@@ -296,14 +301,21 @@ async function main() {
       }
     }
 
+    // Map source index → เลขตอน TMDB (--split-eps = ระบุจุดแบ่งเอง)
+    // --auto-split จะ rewrite ชื่อ/ภาพ/วันฉายอีกครั้งหลังลูป โดยวัด stream จริง
+    let resolvedSplitEps = splitEps;
+    const epMap = buildEpisodeMap({ sourceCount: episodes.length, epOffset, splitEps: resolvedSplitEps });
+    if (!autoSplit) {
+      suggestSplitEps({ sourceCount: episodes.length, tmdbEpisodes, epOffset, splitEps: resolvedSplitEps });
+    }
+
     // Fetch UUID + build stream URL สำหรับทุก episode
     console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
     for (let i = 0; i < episodes.length; i++) {
       const ep = episodes[i];
-      const epNum = i + 1;
-      process.stdout.write(`  ตอน ${epNum}/${episodes.length}...`);
+      process.stdout.write(`  ตอน ${i + 1}/${episodes.length}...`);
 
       let playerUrl = null;
       try {
@@ -313,13 +325,13 @@ async function main() {
         console.warn(` ⚠️  ${err.message}`);
       }
 
-      const tmdbEpNum = epNum + epOffset;
-      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset];
+      const { epNum: tmdbEpNum, label } = epMap[i];
+      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[tmdbEpNum - 1];
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path
         ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}`
         : '';
-      const stationName = utils.buildStationName(epNum, epTitle, isDubbedTrack);
+      const stationName = utils.buildStationName(label, epTitle, isDubbedTrack);
 
       stations.push({
         name: stationName,
@@ -333,6 +345,10 @@ async function main() {
 
       console.log(' ✅');
       if (i < episodes.length - 1) await utils.sleep(800);
+    }
+
+    if (autoSplit && !splitEps && !isMovie) {
+      resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
     }
 
     // Build / merge playlist
@@ -382,7 +398,7 @@ async function main() {
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: seriesUrl, tmdbSeasonName,
-        seasonName, seasonNum, epOffset,
+        seasonName, seasonNum, epOffset, splitEps: resolvedSplitEps,
       });
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {

@@ -16,6 +16,10 @@
  *                     อัปเดต metadata จาก TMDB โดยไม่ fetch stream URLs ใหม่
  *   --no-touch        skip current-time stamping (deterministic rollup จาก children)
  *   --type=KIND       anime-series | anime-movie | movie | series | av
+ *   --split-eps=N,M:k TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
+ *                     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
+ *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
+ *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
  *   - หน้า anime มีทั้ง sub/dub และอาจมีหลาย season ในที่หน้าเดียว
@@ -49,13 +53,14 @@ const utils = require('./lib/utils');
 const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
+const { buildEpisodeMap, suggestSplitEps, applyMeasuredSplit } = require('./lib/episode-map');
 
 loadEnv(__dirname);
 
 const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
-      forceTmdbId, tmdbSeasonNum, epOffset, typeArg, filterTrack } = cli;
+      forceTmdbId, tmdbSeasonNum, epOffset, splitEps, autoSplit, typeArg, filterTrack } = cli;
 
 // Override default: anifume defaults to พากย์ไทย if --track= not specified
 let trackName = cli.trackName;
@@ -372,6 +377,12 @@ async function main() {
     // from the user's home IP bypasses this). The mp4 URL signature is valid ~2–3 days
     // (`?m=...&e={expiry-unix-ts}`) — re-run fetch when streams stop working, or schedule
     // a daily/weekly cron job to keep the playlist warm.
+    let resolvedSplitEps = splitEps;
+    const epMap = buildEpisodeMap({ sourceCount: episodes.length, epOffset, splitEps: resolvedSplitEps });
+    if (!autoSplit) {
+      suggestSplitEps({ sourceCount: episodes.length, tmdbEpisodes, epOffset, splitEps: resolvedSplitEps });
+    }
+
     console.log(`\n🔗 กำลัง resolve stream URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
@@ -388,13 +399,13 @@ async function main() {
         console.warn(` ⚠️  ${err.message}`);
       }
 
-      const tmdbEpNum = epNum + epOffset;
-      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset];
+      const { epNum: tmdbEpNum, label } = epMap[i];
+      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[tmdbEpNum - 1];
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path
         ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}`
         : (ep.thumb || '');
-      const stationName = utils.buildStationName(epNum, epTitle, isDubbedTrack);
+      const stationName = utils.buildStationName(label, epTitle, isDubbedTrack);
 
       stations.push({
         name: stationName,
@@ -408,6 +419,10 @@ async function main() {
       if (i < episodes.length - 1) await utils.sleep(800);
     }
     console.log(`✅ resolve ${stations.length} stations เสร็จ`);
+
+    if (autoSplit && !splitEps && !isMovie) {
+      resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
+    }
 
     const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
     const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
@@ -454,7 +469,7 @@ async function main() {
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: seriesUrl, tmdbSeasonName,
-        seasonName, seasonNum, epOffset,
+        seasonName, seasonNum, epOffset, splitEps: resolvedSplitEps,
       });
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {

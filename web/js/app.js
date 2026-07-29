@@ -199,6 +199,10 @@ const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
+const qualityWrap = document.querySelector(".quality-wrap");
+const btnQuality = document.getElementById("btn-quality");
+const qualityLabel = document.getElementById("quality-label");
+const qualityMenu = document.getElementById("quality-menu");
 const epPanel = document.getElementById("ep-panel");
 const epPanelTitle = document.getElementById("ep-panel-title");
 const epPanelTabs = document.getElementById("ep-panel-tabs");
@@ -831,6 +835,12 @@ function isTVBackKey(e) {
 
 function handleTVBack() {
   if (!playerOverlay.classList.contains("hidden")) {
+    if (!qualityMenu.classList.contains("hidden")) {
+      closeQualityMenu();
+      btnQuality.focus({ preventScroll: true });
+      showPlayerUI();
+      return true;
+    }
     if (!epPanel.classList.contains("hidden")) {
       epPanel.classList.add("hidden");
       btnEpisodes.focus({ preventScroll: true });
@@ -913,6 +923,7 @@ function getFocusZone(el) {
   if (el.classList?.contains("card")) return "card";
   // แผงเลือกตอน (เปิดทับ player) — จัดเป็น zone เดียว จะได้ล็อกการเลื่อนไว้ในแผง
   if (el.closest?.("#ep-panel")) return "eppanel";
+  if (el.closest?.("#quality-menu")) return "qualitymenu";
   if (el.closest?.("#search-results")) return "search";
   // section-header ต้องมาก่อน #pagination: ในแอป pagination ย้ายเข้าไปอยู่ใน section-header
   // → ปุ่มหน้าเลยเป็น zone "section" เดียวกับ back/sort เลื่อนซ้าย/ขวาข้ามกันได้ในแถวเดียว
@@ -953,6 +964,11 @@ function getDirectionalCandidates(current, directionKey, elements) {
   // ไม่งั้นกดลงจะไปโดนการ์ดที่อยู่หลัง dropdown แทนผลลัพธ์ถัดไป
   if (zone === "search") {
     return elements.filter((el) => getFocusZone(el) === "search");
+  }
+
+  // เมนูคุณภาพ: ล็อกการเลื่อนไว้ในเมนู
+  if (zone === "qualitymenu") {
+    return elements.filter((el) => getFocusZone(el) === "qualitymenu");
   }
 
   // อยู่ในแผงเลือกตอน: ล็อกการเลื่อนไว้ในแผง ไม่งั้นกดลง/ขึ้นถึงขอบจะหลุดไปโดน seekbar/ปุ่ม player ข้างหลัง
@@ -1104,11 +1120,41 @@ function moveTVFocus(directionKey) {
   if (best) focusTVElement(best);
 }
 
+/** ให้ผู้เรียก render กำหนดจุดโฟกัสหลัง re-render เองได้ (เช่น pagination ที่ไม่อยากให้เด้งไปการ์ดแรก) */
+let pendingGridFocus = null;
+
+/** เลือกปุ่มบน pagination "ด้านบน" (ในแถวหัว) ตามปุ่มที่กด — ใช้หลังเปลี่ยนหน้า
+ *  intent: "number" | "first" | "prev" | "next" | "last" */
+function resolvePaginationFocus(intent) {
+  const topNav = gridView.querySelector(".section-header .pagination");
+  const nav = topNav || gridView.querySelector(".pagination");
+  if (!nav) return null;
+  if (intent && intent !== "number") {
+    const btn = nav.querySelector(".page-" + intent);
+    if (btn && !btn.disabled) return btn; // ปุ่ม nav ที่กด (ถ้ายังกดต่อได้)
+  }
+  // เลข page ที่กด (active) หรือปุ่มที่ยังใช้ได้ตัวแรก
+  return (
+    nav.querySelector(".page-number.active") ||
+    nav.querySelector(".page-number") ||
+    nav.querySelector(".page-btn:not([disabled])")
+  );
+}
+
 function queueFocusRefresh() {
   clearTimeout(focusRefreshTimer);
   focusRefreshTimer = setTimeout(() => {
     const elements = getTVFocusableElements();
     if (!elements.length) return;
+
+    if (pendingGridFocus) {
+      const target = pendingGridFocus();
+      pendingGridFocus = null;
+      if (target && isTVFocusable(target)) {
+        focusTVElement(target);
+        return;
+      }
+    }
 
     const preferred = !playerOverlay.classList.contains("hidden")
       ? !epPanel.classList.contains("hidden")
@@ -1321,13 +1367,15 @@ function renderGroups(groups, sectionTitle, parentNode) {
   });
 
   if (totalPages > 1) {
-    const goToPage = (targetPage) => {
+    const goToPage = (targetPage, focusIntent) => {
       const clamped = Math.max(0, Math.min(targetPage, totalPages - 1));
       if (clamped === currentPage) return;
       currentPage = clamped;
+      // หลัง re-render ให้โฟกัสปุ่ม pagination ด้านบน (ตามปุ่มที่กด) แทนการ์ดแรก
+      // focusTVElement จะ scroll ขึ้นไปหา pagination ด้านบนเอง
+      pendingGridFocus = () => resolvePaginationFocus(focusIntent);
       renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
       showGrid();
-      window.scrollTo({ top: 0, behavior: "smooth" });
     };
     wirePaginationButtons(goToPage, totalPages);
   }
@@ -1399,12 +1447,14 @@ function wirePaginationButtons(goToPage, totalPages) {
     gridView
       .querySelectorAll(selector)
       .forEach((btn) => btn.addEventListener("click", handler));
-  wireAll(".page-first", () => goToPage(0));
-  wireAll(".page-prev", () => goToPage(currentPage - 1));
-  wireAll(".page-next", () => goToPage(currentPage + 1));
-  wireAll(".page-last", () => goToPage(totalPages - 1));
+  wireAll(".page-first", () => goToPage(0, "first"));
+  wireAll(".page-prev", () => goToPage(currentPage - 1, "prev"));
+  wireAll(".page-next", () => goToPage(currentPage + 1, "next"));
+  wireAll(".page-last", () => goToPage(totalPages - 1, "last"));
   gridView.querySelectorAll(".page-number").forEach((btn) => {
-    btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
+    btn.addEventListener("click", () =>
+      goToPage(Number(btn.dataset.page), "number"),
+    );
   });
 }
 
@@ -1696,8 +1746,9 @@ function renderBrowsableStations(
 
   // Pagination (use filtered list to keep search results intact)
   if (totalPages > 1) {
-    const goToPage = (p) => {
+    const goToPage = (p, focusIntent) => {
       currentPage = Math.max(0, Math.min(p, totalPages - 1));
+      pendingGridFocus = () => resolvePaginationFocus(focusIntent);
       renderBrowsableStations(
         browseFilteredStations,
         browseTitle,
@@ -1705,7 +1756,6 @@ function renderBrowsableStations(
         { isFilter: true },
       );
       showGrid();
-      window.scrollTo({ top: 0, behavior: "smooth" });
     };
     wirePaginationButtons(goToPage, totalPages);
   }
@@ -2393,7 +2443,9 @@ function setupVideoSource(
     hls = new Hls({
       capLevelToPlayerSize: false,
       backBufferLength: 30,
-      maxBufferLength: 30,
+      // 60s ทนช่วง CDN ตอบช้า (เช่น akuma-cdn ไม่ cache ที่ edge ความเร็วแกว่ง)
+      // เพดาน memory จริงยังคุมด้วย maxBufferSize 60MB เท่าเดิม — ปลอดภัยกับทีวีเก่า
+      maxBufferLength: 60,
       maxMaxBufferLength: 120,
       maxBufferSize: 60 * 1000 * 1000,
       xhrSetup: referer
@@ -2406,11 +2458,13 @@ function setupVideoSource(
     });
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
+    hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       if (hls?.levels?.length > 0) {
         hls.startLevel = hls.levels.length - 1;
         hls.currentLevel = -1;
       }
+      setupQualityUI();
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -2879,6 +2933,102 @@ epPanelClose.addEventListener("click", () => {
 epPanel.addEventListener("click", (e) => {
   e.stopPropagation();
 });
+
+/* ===== Quality selector (HLS levels) ===== */
+function hlsLevelResLabel(level) {
+  if (!level) return "";
+  if (level.height) return level.height + "p";
+  if (level.name) return String(level.name);
+  if (level.bitrate) return Math.round(level.bitrate / 1000) + "k";
+  return "";
+}
+
+/** ตั้งค่า/รีเฟรชปุ่ม quality ตาม hls.levels — ซ่อนปุ่มถ้าไม่มี level (native HLS/ไม่ใช่ HLS) */
+function setupQualityUI() {
+  if (hls && hls.levels && hls.levels.length > 0) {
+    qualityWrap.hidden = false;
+    updateQualityLabel();
+  } else {
+    qualityWrap.hidden = true;
+    closeQualityMenu();
+  }
+}
+
+function updateQualityLabel() {
+  if (!hls || !hls.levels || hls.levels.length === 0) return;
+  if (hls.levels.length === 1) {
+    // สตรีมคุณภาพเดียว — โชว์ค่าของตัวเองไปเลย
+    qualityLabel.textContent = hlsLevelResLabel(hls.levels[0]) || "SD";
+    return;
+  }
+  if (hls.currentLevel === -1) {
+    const lv = hls.levels[hls.loadLevel] || hls.levels[hls.nextLoadLevel];
+    const res = hlsLevelResLabel(lv);
+    qualityLabel.textContent = res ? "Auto·" + res : "Auto";
+  } else {
+    qualityLabel.textContent = hlsLevelResLabel(hls.levels[hls.currentLevel]) || "Auto";
+  }
+}
+
+function buildQualityMenu() {
+  if (!hls || !hls.levels) return;
+  qualityMenu.innerHTML = "";
+  const items = [];
+  if (hls.levels.length > 1) items.push({ idx: -1, label: "อัตโนมัติ" });
+  hls.levels
+    .map((lv, i) => ({ lv, i }))
+    .sort((a, b) => (b.lv.height || b.lv.bitrate || 0) - (a.lv.height || a.lv.bitrate || 0))
+    .forEach(({ lv, i }) =>
+      items.push({ idx: i, label: hlsLevelResLabel(lv) || "ระดับ " + (i + 1) }),
+    );
+  items.forEach((it) => {
+    const active = hls.currentLevel === it.idx;
+    const btn = document.createElement("button");
+    btn.className = "quality-item" + (active ? " active" : "");
+    btn.tabIndex = 0;
+    btn.innerHTML = `<span class="quality-check">${active ? "✓" : ""}</span><span>${esc(it.label)}</span>`;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyQualityLevel(it.idx);
+    });
+    qualityMenu.appendChild(btn);
+  });
+}
+
+function applyQualityLevel(idx) {
+  if (!hls) return;
+  hls.currentLevel = idx; // -1 = auto (ABR)
+  updateQualityLabel();
+  closeQualityMenu();
+  btnQuality.focus({ preventScroll: true });
+  showPlayerUI();
+}
+
+function openQualityMenu() {
+  if (!hls || !hls.levels || hls.levels.length === 0) return;
+  buildQualityMenu();
+  qualityMenu.classList.remove("hidden");
+  showPlayerUI();
+  focusTVElement(
+    qualityMenu.querySelector(".quality-item.active") ||
+      qualityMenu.querySelector(".quality-item"),
+  );
+}
+
+function closeQualityMenu() {
+  qualityMenu.classList.add("hidden");
+}
+
+btnQuality.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (qualityMenu.classList.contains("hidden")) {
+    openQualityMenu();
+  } else {
+    closeQualityMenu();
+    btnQuality.focus({ preventScroll: true });
+  }
+});
+qualityMenu.addEventListener("click", (e) => e.stopPropagation());
 
 function renderEpPanel() {
   const seasonTabs = crossSeasonSeasons.filter(
@@ -3357,8 +3507,12 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  // ไม่ auto-hide ตอนแผงเลือกตอนเปิดอยู่ — ผู้ใช้กำลังไล่เลือกตอน ไม่ควรให้แผง/คอนโทรลหายเอง
-  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
+  // ไม่ auto-hide ตอนแผงเลือกตอน/เมนูคุณภาพเปิดอยู่ — ผู้ใช้กำลังเลือก ไม่ควรให้หายเอง
+  if (
+    !playerVideo.paused &&
+    epPanel.classList.contains("hidden") &&
+    qualityMenu.classList.contains("hidden")
+  ) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -3602,6 +3756,8 @@ function closePlayer() {
   playerVideo.onended = null;
   playerOverlay.classList.add("hidden");
   playerOverlay.classList.remove("show-ui");
+  closeQualityMenu();
+  qualityWrap.hidden = true;
   clearTimeout(idleTimer);
   document.body.style.overflow = "";
   crossSeasonQueue = [];

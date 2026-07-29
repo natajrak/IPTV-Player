@@ -577,6 +577,16 @@
       transition: all .15s;
     }
     .url-add-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+    .fm-check {
+      display: flex; align-items: center; gap: 7px;
+      margin-top: 2px;
+      font-size: 12px; color: var(--text2);
+      text-transform: none; letter-spacing: 0; font-weight: 400;
+      cursor: pointer;
+    }
+    .fm-check input { cursor: pointer; }
+    .fm-check span { color: var(--text3); }
     .fm-script-home.hidden { display: none; }
 
     .fm-radio-grp { display: flex; gap: 18px; }
@@ -1138,6 +1148,11 @@
         <label>Season</label>
         <input type="number" id="rf-season" value="1" min="1">
       </div>
+      <div class="fm-row" id="rf-split-row">
+        <label>Split Eps <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ตอน TMDB ที่เว็บแบ่งครึ่ง เช่น 11,20 หรือ 20:3)</span></label>
+        <input type="text" id="rf-split" placeholder="ว่าง = ไม่มี">
+        <label class="fm-check"><input type="checkbox" id="rf-auto-split"> ตรวจจับตอนพิเศษอัตโนมัติ <span>(ใช้เมื่อจำนวนตอนลงตัวเป๊ะ)</span></label>
+      </div>
       <div class="fm-row">
         <label>Output <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ไม่ต้องมี .txt)</span></label>
         <input type="text" id="rf-fname" placeholder="เช่น 12345-my-anime">
@@ -1226,6 +1241,12 @@
       <div class="fm-row" id="fm-season-row">
         <label>Season</label>
         <input type="number" id="fm-season" value="1" min="1">
+      </div>
+
+      <div class="fm-row" id="fm-split-row">
+        <label>Split Eps <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ตอน TMDB ที่เว็บแบ่งครึ่ง เช่น 11,20 หรือ 20:3)</span></label>
+        <input type="text" id="fm-split" placeholder="ว่าง = ไม่มี">
+        <label class="fm-check"><input type="checkbox" id="fm-auto-split"> ตรวจจับตอนพิเศษอัตโนมัติ <span>(ใช้เมื่อจำนวนตอนลงตัวเป๊ะ)</span></label>
       </div>
 
       <div class="fm-row" id="fm-fname-row">
@@ -1586,9 +1607,10 @@ function badge(name, rf = null) {
   if (rf && rf.referer && IS_LOCAL) {
     const track = isSub ? 'subth' : 'th';
     const mainAttr = rf.mainSlug ? ` data-main-slug="${esc(rf.mainSlug)}"` : '';
+    const splitAttr = rf.splitEps ? ` data-split="${esc(rf.splitEps)}"` : '';
     return `<span class="${cls} badge-refetchable" title="Refetch stream URLs"
       data-refetch="${esc(rf.referer)}" data-slug="${esc(rf.filename)}"
-      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}"${mainAttr}>${esc(name)}</span>`;
+      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}"${mainAttr}${splitAttr}>${esc(name)}</span>`;
   }
   return `<span class="${cls}">${esc(name)}</span>`;
 }
@@ -1850,7 +1872,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       const sznNum = /specials/i.test(sznName) ? 0 : (parseInt(sznName.match(/\d+/)?.[0]) || (si + 1));
       const trackBadges = tracks.map(t => {
         const ep = t.stations?.length || 0;
-        const rf = t.referer ? { referer: t.referer, filename, season: sznNum, tabId } : null;
+        const rf = t.referer ? { referer: t.referer, filename, season: sznNum, tabId, splitEps: season.split_eps || '' } : null;
         const completed = t.status === 'completed';
         const cls = `badge-ep${completed ? ' completed' : ''}${IS_LOCAL ? ' clickable' : ''}`;
         const epAttrs = IS_LOCAL
@@ -2995,6 +3017,7 @@ async function openAddModal(tabId) {
   document.getElementById('fm-season-row').style.display = isAV ? 'none' : '';
   document.getElementById('fm-fname-row').style.display = isAV ? 'none' : '';
   document.getElementById('fm-tmdb-row').style.display = isAV ? 'none' : '';
+  document.getElementById('fm-split-row').style.display = (!isAV && isSeries) ? '' : 'none';
 
   // Season / ภาค label
   if (!isAV) {
@@ -3008,6 +3031,8 @@ async function openAddModal(tabId) {
   document.getElementById('fm-tmdb-season').value = '';
   document.getElementById('fm-ep-offset').value   = '0';
   document.getElementById('fm-season').value = '1';
+  document.getElementById('fm-split').value  = '';
+  document.getElementById('fm-auto-split').checked = false;
   document.querySelector('input[name="fm-track"][value="th"]').checked = true;
 
   // Hide log
@@ -3152,6 +3177,9 @@ function buildPayload() {
   if (tmdb) args.push(`--tmdb-id=${tmdb}`);
   if (tmdbSeason) args.push(`--tmdb-season=${tmdbSeason}`);
   if (epOffsetVal && epOffsetVal !== '0') args.push(`--ep-offset=${epOffsetVal}`);
+  const splitVal = document.getElementById('fm-split').value.trim();
+  if (isSeries && splitVal) args.push(`--split-eps=${splitVal}`);
+  if (isSeries && !splitVal && document.getElementById('fm-auto-split').checked) args.push('--auto-split');
 
   return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
 }
@@ -3412,7 +3440,7 @@ function scriptFromReferer(url) {
   return null;
 }
 
-function openRefetchModal(referer, filename, season, track, tabId, mainSlug = '') {
+function openRefetchModal(referer, filename, season, track, tabId, mainSlug = '', splitEps = '') {
   const isSeries  = TABS[tabId]?.kind === 'series';
   const m = filename.match(/^(\d+)-(.+)$/);
   const tmdbId = m ? m[1] : '';
@@ -3429,6 +3457,9 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
   rfUrlList.set(referer);
   document.getElementById('rf-season').value       = season;
   document.getElementById('rf-season-row').style.display = isSeries ? '' : 'none';
+  document.getElementById('rf-split').value        = splitEps;
+  document.getElementById('rf-auto-split').checked = false;
+  document.getElementById('rf-split-row').style.display = isSeries ? '' : 'none';
   document.querySelector(`input[name="rf-track"][value="${track}"]`).checked = true;
   document.getElementById('rf-fname').value        = slug;
   document.getElementById('rf-log').classList.add('hidden');
@@ -3447,6 +3478,9 @@ function buildRfCmd() {
   const args   = [url, `--track=${track}`, `--type=${rfCtx.tabId}`, `--season=${season}`, `--output=${fname}.txt`];
   if (rfCtx.tmdbId) args.push(`--tmdb-id=${rfCtx.tmdbId}`);
   if (rfCtx.mainSlug) args.push(`--main-slug=${rfCtx.mainSlug}`);
+  const rfSplitVal = document.getElementById('rf-split').value.trim();
+  if (rfSplitVal) args.push(`--split-eps=${rfSplitVal}`);
+  if (!rfSplitVal && document.getElementById('rf-auto-split').checked) args.push('--auto-split');
   return { script, args, cmd: `node ${script} ${args.join(' ')}` };
 }
 
@@ -3480,7 +3514,8 @@ async function runRefetch() {
 document.getElementById('rf-run-btn').addEventListener('click', runRefetch);
 document.getElementById('rf-close').addEventListener('click', () => document.getElementById('refetch-modal').classList.add('hidden'));
 document.getElementById('rf-log-clear').addEventListener('click', () => { document.getElementById('rf-log-body').textContent = ''; document.getElementById('rf-log').classList.add('hidden'); });
-['rf-script','rf-fname','rf-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
+['rf-script','rf-fname','rf-season','rf-split'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
+document.getElementById('rf-auto-split').addEventListener('change', refreshRfCmd);
 document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
 document.getElementById('rf-script').addEventListener('change', () => {
   updateScriptHome('rf-script', 'rf-script-home', ADD_SCRIPTS[rfCtx.tabId] || [], 'file');
@@ -3491,7 +3526,7 @@ document.addEventListener('click', e => {
   const b = e.target.closest('.badge-refetchable[data-refetch]');
   if (!b || !IS_LOCAL) return;
   e.stopPropagation();
-  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '');
+  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '', b.dataset.split || '');
 });
 
 // Episode-count click → toggle track status (ongoing ↔ completed)
@@ -3615,9 +3650,10 @@ document.getElementById('fm-log-clear').addEventListener('click', () => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeAddModal();
 });
-['fm-script', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset'].forEach(id => {
+['fm-script', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset', 'fm-split'].forEach(id => {
   document.getElementById(id).addEventListener('input', updateCmd);
 });
+document.getElementById('fm-auto-split').addEventListener('change', updateCmd);
 document.getElementById('fm-script').addEventListener('change', () => {
   updateScriptHome('fm-script', 'fm-script-home', ADD_SCRIPTS[modalTab] || [], 'id');
 });

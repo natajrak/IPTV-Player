@@ -78,7 +78,15 @@ const TRACK_MAP = { th: 'พากย์ไทย', subth: 'ซับไทย' 
 // tmdbEpCount > 0 required (0 = no signal, leave status untouched? — we delete to be safe).
 function markTrackComplete(track, tmdbEpCount) {
   if (!track || !Array.isArray(track.stations)) return;
-  if (tmdbEpCount > 0 && track.stations.length >= tmdbEpCount) {
+  // นับ "จำนวนตอน TMDB ที่ครอบคลุม" จากเลขในชื่อ station (distinct) — ไม่ใช่จำนวน station ตรงๆ
+  // เพราะตอนพิเศษที่เว็บแบ่งครึ่ง ("ตอน 11 (1/2)" + "ตอน 11 (2/2)") นับเป็นตอนเดียว
+  const distinctEps = new Set(
+    track.stations.map((s, i) => {
+      const m = String(s?.name || '').match(/(?:ตอน|Ep\.?)\s*(\d+)/i);
+      return m ? Number(m[1]) : `idx-${i}`;
+    }),
+  );
+  if (tmdbEpCount > 0 && distinctEps.size >= tmdbEpCount) {
     track.status = 'completed';
   } else {
     delete track.status;

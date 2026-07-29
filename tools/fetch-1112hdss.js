@@ -19,6 +19,11 @@
  *   --output=FILE
  *   --tmdb-id=N
  *   --update-meta[=poster|cover|title]
+ *   --split-eps=N,M:k TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
+ *                     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
+ *                     (flag นี้ assume เว็บลิสต์ตอนของ season เรียงต่อเนื่องครบ)
+ *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
+ *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --type=KIND        default: series
  */
 
@@ -33,6 +38,7 @@ const utils = require('./lib/utils');
 const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
+const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
 
 loadEnv(__dirname);
 
@@ -40,7 +46,7 @@ const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch,
-      forceTmdbId, typeArg, filterTrack } = cli;
+      forceTmdbId, splitEps, autoSplit, typeArg, filterTrack } = cli;
 
 if (!seriesUrl && !updateMeta) {
   console.error('Usage: node fetch-1112hdss.js <url>[,url2,...] [--track=th|subth] [--season=N] [--output=FILE]');
@@ -313,9 +319,14 @@ async function main() {
     } else {
       console.log(`\n🔗 กำลัง fetch streams (${mergedEps.length} ตอน)...`);
       const stations = [];
+      let resolvedSplitEps = splitEps;
+      const splitMap = resolvedSplitEps ? buildEpisodeMap({ sourceCount: mergedEps.length, epOffset: 0, splitEps: resolvedSplitEps }) : null;
 
       for (let i = 0; i < mergedEps.length; i++) {
         const { epNum, embedUrl } = mergedEps[i];
+        const mapped = splitMap ? splitMap[i] : null;
+        const tmdbEpNum = mapped ? mapped.epNum : epNum;
+        const epLabel = mapped ? mapped.label : epNum;
         process.stdout.write(`  ตอน ${epNum}/${mergedEps.length}...`);
 
         let streamUrl = null;
@@ -328,12 +339,12 @@ async function main() {
           process.stdout.write(` ⚠️  ${err.message}\n`);
         }
 
-        const tmdbEp = tmdbEpisodes.find(e => e.episode_number === epNum) || tmdbEpisodes[i];
+        const tmdbEp = tmdbEpisodes.find(e => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]);
         const epTitle = tmdbEp?.name || '';
         const epThumb = tmdbEp?.still_path ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}` : '';
 
         stations.push({
-          name: utils.buildStationName(epNum, epTitle, isDubbedTrack),
+          name: utils.buildStationName(epLabel, epTitle, isDubbedTrack),
           ...(epThumb && { image: epThumb }),
           url: streamUrl || embedUrl,
           referer: STREAM_REFERER,
@@ -343,10 +354,14 @@ async function main() {
         if (i < mergedEps.length - 1) await utils.sleep(500);
       }
 
+      if (autoSplit && !splitEps) {
+        resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset: 0, isDubbedTrack });
+      }
+
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: urls[0], tmdbSeasonName,
-        seasonName, seasonNum, epOffset: 0,
+        seasonName, seasonNum, epOffset: 0, splitEps: resolvedSplitEps,
       });
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {

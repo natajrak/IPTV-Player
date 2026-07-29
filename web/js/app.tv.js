@@ -169,6 +169,10 @@ const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
+const qualityWrap = document.querySelector(".quality-wrap");
+const btnQuality = document.getElementById("btn-quality");
+const qualityLabel = document.getElementById("quality-label");
+const qualityMenu = document.getElementById("quality-menu");
 const epPanel = document.getElementById("ep-panel");
 const epPanelTitle = document.getElementById("ep-panel-title");
 const epPanelTabs = document.getElementById("ep-panel-tabs");
@@ -684,6 +688,14 @@ function isTVBackKey(e) {
 }
 function handleTVBack() {
   if (!playerOverlay.classList.contains("hidden")) {
+    if (!qualityMenu.classList.contains("hidden")) {
+      closeQualityMenu();
+      btnQuality.focus({
+        preventScroll: true
+      });
+      showPlayerUI();
+      return true;
+    }
     if (!epPanel.classList.contains("hidden")) {
       epPanel.classList.add("hidden");
       btnEpisodes.focus({
@@ -743,14 +755,15 @@ function focusTVElement(el) {
   }
 }
 function getFocusZone(el) {
-  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7;
+  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7, _el$closest8;
   if (!el) return "other";
   if ((_el$classList2 = el.classList) !== null && _el$classList2 !== void 0 && _el$classList2.contains("card")) return "card";
   if ((_el$closest3 = el.closest) !== null && _el$closest3 !== void 0 && _el$closest3.call(el, "#ep-panel")) return "eppanel";
-  if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#search-results")) return "search";
-  if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, ".section-header")) return "section";
-  if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".pagination")) return "pagination";
-  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, "#app-header")) return "header";
+  if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#quality-menu")) return "qualitymenu";
+  if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, "#search-results")) return "search";
+  if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".section-header")) return "section";
+  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, ".pagination")) return "pagination";
+  if ((_el$closest8 = el.closest) !== null && _el$closest8 !== void 0 && _el$closest8.call(el, "#app-header")) return "header";
   return "other";
 }
 function hasDirectionalCandidate(current, candidates, directionKey) {
@@ -780,19 +793,22 @@ function getDirectionalCandidates(current, directionKey, elements) {
   if (zone === "search") {
     return elements.filter(el => getFocusZone(el) === "search");
   }
+  if (zone === "qualitymenu") {
+    return elements.filter(el => getFocusZone(el) === "qualitymenu");
+  }
   if (zone === "eppanel") {
     var _current$closest;
     const epElems = elements.filter(el => getFocusZone(el) === "eppanel");
     const onCard = (_current$closest = current.closest) === null || _current$closest === void 0 ? void 0 : _current$closest.call(current, "#ep-panel-grid");
     if (onCard && (directionKey === "ArrowUp" || directionKey === "ArrowDown")) {
       const epCards = epElems.filter(el => {
-        var _el$closest8;
-        return (_el$closest8 = el.closest) === null || _el$closest8 === void 0 ? void 0 : _el$closest8.call(el, "#ep-panel-grid");
+        var _el$closest9;
+        return (_el$closest9 = el.closest) === null || _el$closest9 === void 0 ? void 0 : _el$closest9.call(el, "#ep-panel-grid");
       });
       if (directionKey === "ArrowUp" && !hasDirectionalCandidate(current, epCards, "ArrowUp")) {
         return epElems.filter(el => {
-          var _el$closest9;
-          return !((_el$closest9 = el.closest) !== null && _el$closest9 !== void 0 && _el$closest9.call(el, "#ep-panel-grid"));
+          var _el$closest0;
+          return !((_el$closest0 = el.closest) !== null && _el$closest0 !== void 0 && _el$closest0.call(el, "#ep-panel-grid"));
         });
       }
       return epCards;
@@ -854,9 +870,9 @@ function moveTVFocus(directionKey) {
   let bestScore = Number.POSITIVE_INFINITY;
   const horizontal = directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach(el => {
-    var _el$closest0;
+    var _el$closest1;
     if (el === current) return;
-    if (horizontal && (el.id === "player-seek" || (_el$closest0 = el.closest) !== null && _el$closest0 !== void 0 && _el$closest0.call(el, "#player-header"))) return;
+    if (horizontal && (el.id === "player-seek" || (_el$closest1 = el.closest) !== null && _el$closest1 !== void 0 && _el$closest1.call(el, "#player-header"))) return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -887,11 +903,30 @@ function moveTVFocus(directionKey) {
   });
   if (best) focusTVElement(best);
 }
+let pendingGridFocus = null;
+function resolvePaginationFocus(intent) {
+  const topNav = gridView.querySelector(".section-header .pagination");
+  const nav = topNav || gridView.querySelector(".pagination");
+  if (!nav) return null;
+  if (intent && intent !== "number") {
+    const btn = nav.querySelector(".page-" + intent);
+    if (btn && !btn.disabled) return btn;
+  }
+  return nav.querySelector(".page-number.active") || nav.querySelector(".page-number") || nav.querySelector(".page-btn:not([disabled])");
+}
 function queueFocusRefresh() {
   clearTimeout(focusRefreshTimer);
   focusRefreshTimer = setTimeout(() => {
     const elements = getTVFocusableElements();
     if (!elements.length) return;
+    if (pendingGridFocus) {
+      const target = pendingGridFocus();
+      pendingGridFocus = null;
+      if (target && isTVFocusable(target)) {
+        focusTVElement(target);
+        return;
+      }
+    }
     const preferred = !playerOverlay.classList.contains("hidden") ? !epPanel.classList.contains("hidden") ? epPanelGrid.querySelector(".ep-card.active") || epPanelGrid.querySelector(".ep-card") : btnPlayPause : gridView.classList.contains("hidden") ? logo : document.querySelector(".card") || document.querySelector(".section-back-btn") || logo;
     focusTVElement(isTVFocusable(preferred) ? preferred : elements[0]);
   }, 0);
@@ -1039,16 +1074,13 @@ function renderGroups(groups, sectionTitle, parentNode) {
     grid.appendChild(card);
   });
   if (totalPages > 1) {
-    const goToPage = targetPage => {
+    const goToPage = (targetPage, focusIntent) => {
       const clamped = Math.max(0, Math.min(targetPage, totalPages - 1));
       if (clamped === currentPage) return;
       currentPage = clamped;
+      pendingGridFocus = () => resolvePaginationFocus(focusIntent);
       renderGroups(currentGroups, currentGroupTitle, currentGroupParent);
       showGrid();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
     };
     wirePaginationButtons(goToPage, totalPages);
   }
@@ -1103,12 +1135,12 @@ function renderPaginationNav(currentPage, totalPages) {
 }
 function wirePaginationButtons(goToPage, totalPages) {
   const wireAll = (selector, handler) => gridView.querySelectorAll(selector).forEach(btn => btn.addEventListener("click", handler));
-  wireAll(".page-first", () => goToPage(0));
-  wireAll(".page-prev", () => goToPage(currentPage - 1));
-  wireAll(".page-next", () => goToPage(currentPage + 1));
-  wireAll(".page-last", () => goToPage(totalPages - 1));
+  wireAll(".page-first", () => goToPage(0, "first"));
+  wireAll(".page-prev", () => goToPage(currentPage - 1, "prev"));
+  wireAll(".page-next", () => goToPage(currentPage + 1, "next"));
+  wireAll(".page-last", () => goToPage(totalPages - 1, "last"));
   gridView.querySelectorAll(".page-number").forEach(btn => {
-    btn.addEventListener("click", () => goToPage(Number(btn.dataset.page)));
+    btn.addEventListener("click", () => goToPage(Number(btn.dataset.page), "number"));
   });
 }
 function renderSectionHeader(title, options = {}) {
@@ -1360,16 +1392,13 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, {
     grid.appendChild(card);
   });
   if (totalPages > 1) {
-    const goToPage = p => {
+    const goToPage = (p, focusIntent) => {
       currentPage = Math.max(0, Math.min(p, totalPages - 1));
+      pendingGridFocus = () => resolvePaginationFocus(focusIntent);
       renderBrowsableStations(browseFilteredStations, browseTitle, browseParentNode, {
         isFilter: true
       });
       showGrid();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
     };
     wirePaginationButtons(goToPage, totalPages);
   }
@@ -1910,7 +1939,7 @@ function setupVideoSource(url, referer, {
     hls = new Hls({
       capLevelToPlayerSize: false,
       backBufferLength: 30,
-      maxBufferLength: 30,
+      maxBufferLength: 60,
       maxMaxBufferLength: 120,
       maxBufferSize: 60 * 1000 * 1000,
       xhrSetup: referer ? xhr => {
@@ -1921,12 +1950,14 @@ function setupVideoSource(url, referer, {
     });
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
+    hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       var _hls;
       if (((_hls = hls) === null || _hls === void 0 || (_hls = _hls.levels) === null || _hls === void 0 ? void 0 : _hls.length) > 0) {
         hls.startLevel = hls.levels.length - 1;
         hls.currentLevel = -1;
       }
+      setupQualityUI();
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -2294,6 +2325,99 @@ epPanelClose.addEventListener("click", () => {
 epPanel.addEventListener("click", e => {
   e.stopPropagation();
 });
+function hlsLevelResLabel(level) {
+  if (!level) return "";
+  if (level.height) return level.height + "p";
+  if (level.name) return String(level.name);
+  if (level.bitrate) return Math.round(level.bitrate / 1000) + "k";
+  return "";
+}
+function setupQualityUI() {
+  if (hls && hls.levels && hls.levels.length > 0) {
+    qualityWrap.hidden = false;
+    updateQualityLabel();
+  } else {
+    qualityWrap.hidden = true;
+    closeQualityMenu();
+  }
+}
+function updateQualityLabel() {
+  if (!hls || !hls.levels || hls.levels.length === 0) return;
+  if (hls.levels.length === 1) {
+    qualityLabel.textContent = hlsLevelResLabel(hls.levels[0]) || "SD";
+    return;
+  }
+  if (hls.currentLevel === -1) {
+    const lv = hls.levels[hls.loadLevel] || hls.levels[hls.nextLoadLevel];
+    const res = hlsLevelResLabel(lv);
+    qualityLabel.textContent = res ? "Auto·" + res : "Auto";
+  } else {
+    qualityLabel.textContent = hlsLevelResLabel(hls.levels[hls.currentLevel]) || "Auto";
+  }
+}
+function buildQualityMenu() {
+  if (!hls || !hls.levels) return;
+  qualityMenu.innerHTML = "";
+  const items = [];
+  if (hls.levels.length > 1) items.push({
+    idx: -1,
+    label: "อัตโนมัติ"
+  });
+  hls.levels.map((lv, i) => ({
+    lv,
+    i
+  })).sort((a, b) => (b.lv.height || b.lv.bitrate || 0) - (a.lv.height || a.lv.bitrate || 0)).forEach(({
+    lv,
+    i
+  }) => items.push({
+    idx: i,
+    label: hlsLevelResLabel(lv) || "ระดับ " + (i + 1)
+  }));
+  items.forEach(it => {
+    const active = hls.currentLevel === it.idx;
+    const btn = document.createElement("button");
+    btn.className = "quality-item" + (active ? " active" : "");
+    btn.tabIndex = 0;
+    btn.innerHTML = `<span class="quality-check">${active ? "✓" : ""}</span><span>${esc(it.label)}</span>`;
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      applyQualityLevel(it.idx);
+    });
+    qualityMenu.appendChild(btn);
+  });
+}
+function applyQualityLevel(idx) {
+  if (!hls) return;
+  hls.currentLevel = idx;
+  updateQualityLabel();
+  closeQualityMenu();
+  btnQuality.focus({
+    preventScroll: true
+  });
+  showPlayerUI();
+}
+function openQualityMenu() {
+  if (!hls || !hls.levels || hls.levels.length === 0) return;
+  buildQualityMenu();
+  qualityMenu.classList.remove("hidden");
+  showPlayerUI();
+  focusTVElement(qualityMenu.querySelector(".quality-item.active") || qualityMenu.querySelector(".quality-item"));
+}
+function closeQualityMenu() {
+  qualityMenu.classList.add("hidden");
+}
+btnQuality.addEventListener("click", e => {
+  e.stopPropagation();
+  if (qualityMenu.classList.contains("hidden")) {
+    openQualityMenu();
+  } else {
+    closeQualityMenu();
+    btnQuality.focus({
+      preventScroll: true
+    });
+  }
+});
+qualityMenu.addEventListener("click", e => e.stopPropagation());
 function renderEpPanel() {
   var _selectedSeason$refer;
   const seasonTabs = crossSeasonSeasons.filter(season => Array.isArray(season.stations) && season.stations.length > 0);
@@ -2621,7 +2745,7 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
+  if (!playerVideo.paused && epPanel.classList.contains("hidden") && qualityMenu.classList.contains("hidden")) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -2804,6 +2928,8 @@ function closePlayer() {
   playerVideo.onended = null;
   playerOverlay.classList.add("hidden");
   playerOverlay.classList.remove("show-ui");
+  closeQualityMenu();
+  qualityWrap.hidden = true;
   clearTimeout(idleTimer);
   document.body.style.overflow = "";
   crossSeasonQueue = [];

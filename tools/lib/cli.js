@@ -42,6 +42,9 @@ function parseArgs(argv = process.argv) {
   const epOffsetRaw = get('--ep-offset');
   const epOffset = epOffsetRaw ? (parseInt(epOffsetRaw) || 0) : 0;
 
+  const splitEps = get('--split-eps');
+  const autoSplit = args.includes('--auto-split');
+
   const partRaw = get('--part');
   const partNum = partRaw ? (parseInt(partRaw) || null) : null;
 
@@ -67,6 +70,8 @@ function parseArgs(argv = process.argv) {
     forceTmdbId,
     tmdbSeasonNum,
     epOffset,
+    splitEps,
+    autoSplit,
     partNum,
     typeArg,
     hasFlag,

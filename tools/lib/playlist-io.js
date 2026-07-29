@@ -91,8 +91,13 @@ function stampPlaylist(playlist, tmdbResult, isMovie) {
 function buildOrMergePlaylist({
   outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
   trackName, trackReferer = null, tmdbSeasonName = null,
-  seasonName, seasonNum, epOffset = 0,
+  seasonName, seasonNum, epOffset = 0, splitEps = '',
 }) {
+  // เก็บ split config ลง season เพื่อให้ CMS prefill ตอน update รอบถัดไป
+  // (ไม่ลบค่าเดิมเมื่อรันโดยไม่ใส่ flag — กันเผลอทำ hint หาย)
+  const stampSplitEps = (season) => {
+    if (splitEps) season.split_eps = String(splitEps);
+  };
   const newTrack = {
     name: trackName,
     image: seasonPosterUrl,
@@ -159,21 +164,24 @@ function buildOrMergePlaylist({
         if (b.name === 'พากย์ไทย') return 1;
         return 0;
       });
+      stampSplitEps(season);
       console.log(`\n🔀 Merge "${trackName}" เข้าไฟล์เดิม (${season.groups.length} tracks)`);
       return existing;
     }
   }
 
   const newSeasonName = seasonName || 'Season 1';
+  const newSeason = {
+    name: newSeasonName,
+    ...(tmdbSeasonName && { season_name: tmdbSeasonName }),
+    image: seasonPosterUrl,
+    groups: [newTrack],
+  };
+  stampSplitEps(newSeason);
   return {
     name: seriesTitle,
     image: posterUrl,
-    groups: [{
-      name: newSeasonName,
-      ...(tmdbSeasonName && { season_name: tmdbSeasonName }),
-      image: seasonPosterUrl,
-      groups: [newTrack],
-    }],
+    groups: [newSeason],
   };
 }
 

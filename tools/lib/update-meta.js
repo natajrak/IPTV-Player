@@ -266,7 +266,9 @@ async function runUpdateMeta(ctx) {
       const tmdbEps = dubbed ? thEps : enEps;
 
       track.stations.forEach((station, i) => {
-        const nameMatch = station.name.match(/(?:ตอน|Ep\.?)\s*([\d.]+)/i);
+        // จับทั้งเลขตอนและ part suffix ของตอนพิเศษที่ถูกแบ่ง เช่น "ตอน 11 (1/2) - ..."
+        // เพื่อให้ rewrite ชื่อแล้ว label "(1/2)" ไม่หาย (map TMDB ด้วยเลข 11 เหมือนเดิม)
+        const nameMatch = station.name.match(/(?:ตอน|Ep\.?)\s*([\d.]+(?:\s*\(\d+\/\d+\))?)/i);
         const stationEpNum = nameMatch ? parseInt(nameMatch[1]) : (i + 1);
         const stationLabel = nameMatch ? nameMatch[1] : String(i + 1);
         const tmdbEp = !isNaN(stationEpNum)

@@ -7,6 +7,10 @@
  *   - แหล่ง: fairyanime.net
  *   - Stream URL: anime.tonytonychopper.net/file2/{INNER_ID}/ (CORS ผ่าน proxy)
  *   - รองรับทั้ง listing URL และ episode URL
+ *   - --split-eps=N,M:k TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
+ *     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
+ *   - --auto-split ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
+ *     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   - Shared logic อยู่ใน tools/lib/
  */
 
@@ -21,6 +25,7 @@ const utils = require('./lib/utils');
 const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
+const { buildEpisodeMap, suggestSplitEps, applyMeasuredSplit } = require('./lib/episode-map');
 
 loadEnv(__dirname);
 
@@ -28,7 +33,7 @@ const cli = parseArgs();
 let { tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch, forceTmdbId, tmdbSeasonNum,
-      epOffset, typeArg, filterTrack } = cli;
+      epOffset, splitEps, autoSplit, typeArg, filterTrack } = cli;
 const firstEpUrl = cli.seriesUrl;
 const hlsProxy = (process.env.HLS_PROXY_URL || '').replace(/\/$/, '');
 const epOffsetArg = cli.get('--ep-offset');
@@ -342,6 +347,14 @@ async function main() {
 
     episodes.sort((a, b) => a.epNum - b.epNum);
 
+    // --split-eps: index-based map เฉพาะเมื่อส่ง flag — เลขตอนปกติของ fairyanime
+    // parse จากชื่อฝั่งเว็บ (crawl กลางเรื่อง/มี gap ได้) จึงห้ามเปลี่ยน default behavior
+    let resolvedSplitEps = splitEps;
+    const epMap = resolvedSplitEps ? buildEpisodeMap({ sourceCount: episodes.length, epOffset, splitEps: resolvedSplitEps }) : null;
+    if (!autoSplit) {
+      suggestSplitEps({ sourceCount: episodes.length, tmdbEpisodes, epOffset, splitEps: resolvedSplitEps });
+    }
+
     console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
@@ -357,8 +370,15 @@ async function main() {
         process.stdout.write(' ✅\n');
       } catch (err) { console.warn(` ⚠️  ${err.message}`); }
 
-      const tmdbEpNum = epNum + epOffset;
-      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[epNum - 1 + epOffset];
+      let tmdbEpNum, label;
+      if (epMap) {
+        ({ epNum: tmdbEpNum, label } = epMap[i]);
+      } else {
+        tmdbEpNum = epNum + epOffset;
+        label = epNum;
+      }
+      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
+        || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[epNum - 1 + epOffset]);
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}` : '';
 
@@ -368,13 +388,17 @@ async function main() {
       }
 
       stations.push({
-        name: utils.buildStationName(epNum, epTitle, isDubbedTrack),
+        name: utils.buildStationName(label, epTitle, isDubbedTrack),
         ...(epThumb && { image: epThumb }),
         url: finalUrl,
         referer: STATION_REFERER,
         release_date: tmdbEp?.air_date || '',
       });
       if (i < episodes.length - 1) await utils.sleep(500);
+    }
+
+    if (autoSplit && !splitEps && !isMovie) {
+      resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
     }
 
     const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
@@ -421,7 +445,7 @@ async function main() {
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: firstEpUrl, tmdbSeasonName,
-        seasonName, seasonNum, epOffset,
+        seasonName, seasonNum, epOffset, splitEps: resolvedSplitEps,
       });
       io.markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
       if (seasonAirDate) {
