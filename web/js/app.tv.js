@@ -2116,17 +2116,30 @@ playerVideo.addEventListener("error", () => {
   const label = codeMap[mediaErr.code] || "เล่นวิดีโอไม่สำเร็จ";
   showPlayerNotice(label);
 });
-playerVideo.addEventListener("timeupdate", () => {
-  if (!playerVideo.duration) return;
-  const pct = playerVideo.currentTime / playerVideo.duration * 100;
+let isScrubbing = false;
+function renderSeekBar(pct, currentSec) {
   playerSeek.value = pct;
   playerSeek.style.background = `linear-gradient(to right, var(--accent) ${pct}%, rgba(255,255,255,.3) ${pct}%)`;
-  playerTime.textContent = `${formatTime(playerVideo.currentTime)} / ${formatTime(playerVideo.duration)}`;
+  playerTime.textContent = `${formatTime(currentSec)} / ${formatTime(playerVideo.duration)}`;
+}
+playerVideo.addEventListener("timeupdate", () => {
+  if (!playerVideo.duration || isScrubbing) return;
+  const pct = playerVideo.currentTime / playerVideo.duration * 100;
+  renderSeekBar(pct, playerVideo.currentTime);
 });
 playerSeek.addEventListener("input", () => {
-  if (playerVideo.duration) {
-    playerVideo.currentTime = playerSeek.value / 100 * playerVideo.duration;
+  if (!playerVideo.duration) return;
+  isScrubbing = true;
+  const pct = Number(playerSeek.value);
+  renderSeekBar(pct, pct / 100 * playerVideo.duration);
+});
+playerSeek.addEventListener("change", () => {
+  if (!playerVideo.duration) {
+    isScrubbing = false;
+    return;
   }
+  playerVideo.currentTime = Number(playerSeek.value) / 100 * playerVideo.duration;
+  isScrubbing = false;
 });
 let seekPreviewCues = null;
 let seekPreviewSpriteUrl = "";
@@ -2659,6 +2672,7 @@ playerVideo.addEventListener("click", () => {
   togglePlayPause();
 });
 function resetProgress() {
+  isScrubbing = false;
   playerSeek.value = 0;
   playerSeek.style.background = `linear-gradient(to right, var(--accent) 0%, rgba(255,255,255,.3) 0%)`;
   playerTime.textContent = "0:00 / 0:00";
