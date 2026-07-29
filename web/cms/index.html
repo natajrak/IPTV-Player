@@ -548,6 +548,35 @@
       transition: background-color .15s, color .15s;
     }
     .fm-script-home:hover { background: var(--bg4); }
+
+    /* Multi-URL list editor (Add + Update modal) */
+    .url-list { display: flex; flex-direction: column; gap: 6px; }
+    .url-row  { display: flex; align-items: center; gap: 8px; }
+    .url-row input { flex: 1; min-width: 0; }
+    .url-no {
+      min-width: 22px; text-align: center; flex-shrink: 0;
+      font-size: 11px; color: var(--text3);
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 5px; padding: 4px 0;
+    }
+    .url-del {
+      flex-shrink: 0; width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      background: none; border: none; border-radius: 5px;
+      color: var(--text3); font-size: 12px; cursor: pointer;
+      transition: all .15s;
+    }
+    .url-del:hover { background: var(--bg3); color: var(--accent); }
+    .url-add-btn {
+      align-self: flex-start;
+      margin-top: 2px; padding: 4px 10px;
+      background: none; border: 1px dashed var(--border);
+      border-radius: 6px; color: var(--text2);
+      font-size: 12px; cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    .url-add-btn:hover { border-color: var(--blue); color: var(--blue); }
     .fm-script-home.hidden { display: none; }
 
     .fm-radio-grp { display: flex; gap: 18px; }
@@ -1094,8 +1123,9 @@
         </div>
       </div>
       <div class="fm-row">
-        <label>URL</label>
-        <input type="text" id="rf-url" placeholder="https://...">
+        <label>URL <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(หลายอัน = ต่อภาคตามลำดับ)</span></label>
+        <div class="url-list" id="rf-url-list"></div>
+        <button type="button" class="url-add-btn" id="rf-url-add">＋ เพิ่ม URL</button>
       </div>
       <div class="fm-row">
         <label>Track</label>
@@ -1180,8 +1210,9 @@
       </div>
 
       <div class="fm-row">
-        <label>URL</label>
-        <input type="text" id="fm-url" placeholder="https://...">
+        <label>URL <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(หลายอัน = ต่อภาคตามลำดับ)</span></label>
+        <div class="url-list" id="fm-url-list"></div>
+        <button type="button" class="url-add-btn" id="fm-url-add">＋ เพิ่ม URL</button>
       </div>
 
       <div class="fm-row" id="fm-track-row">
@@ -2118,7 +2149,6 @@ document.getElementById('av-um-close').addEventListener('click', () => document.
 document.getElementById('av-um-log-clear').addEventListener('click', () => { document.getElementById('av-um-log-body').textContent = ''; document.getElementById('av-um-log').classList.add('hidden'); });
 document.getElementById('av-um-code').addEventListener('input', refreshAvUpdateCmd);
 document.querySelectorAll('input[name="av-um-mode"]').forEach(r => r.addEventListener('change', refreshAvUpdateCmd));
-document.getElementById('av-update-modal').addEventListener('click', e => { if (e.target === document.getElementById('av-update-modal')) document.getElementById('av-update-modal').classList.add('hidden'); });
 
 // ── AV Batch Update button in toolbar ──────────────────────────
 document.addEventListener('click', e => {
@@ -2312,11 +2342,6 @@ document.getElementById('et-close').addEventListener('click', () => {
   document.getElementById('edit-title-modal').classList.add('hidden');
 });
 
-
-document.getElementById('edit-title-modal').addEventListener('click', e => {
-  if (e.target === e.currentTarget)
-    e.currentTarget.classList.add('hidden');
-});
 
 document.getElementById('et-save-btn').addEventListener('click', async () => {
   const en = document.getElementById('et-en').value.trim();
@@ -2925,10 +2950,6 @@ function closeEpBoard(force) {
 
 document.getElementById('eb-close').addEventListener('click', () => closeEpBoard(false));
 document.getElementById('eb-cancel').addEventListener('click', () => closeEpBoard(false));
-document.getElementById('ep-board-modal').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closeEpBoard(false);
-});
-
 document.getElementById('eb-save').addEventListener('click', async () => {
   if (!ebCtx) return;
   const tabId  = ebCtx.tabId;
@@ -2981,7 +3002,7 @@ async function openAddModal(tabId) {
   }
 
   // Reset fields
-  document.getElementById('fm-url').value    = '';
+  fmUrlList.set('');
   document.getElementById('fm-fname').value  = '';
   document.getElementById('fm-tmdb').value   = '';
   document.getElementById('fm-tmdb-season').value = '';
@@ -3012,12 +3033,92 @@ async function openAddModal(tabId) {
 
   updateCmd();
   document.getElementById('add-modal').classList.remove('hidden');
-  setTimeout(() => document.getElementById('fm-url').focus(), 50);
+  setTimeout(() => fmUrlList.focus(), 50);
 }
 
 function closeAddModal() {
   document.getElementById('add-modal').classList.add('hidden');
 }
+
+/**
+ * Multi-URL list editor (ใช้ร่วม Add + Update modal)
+ * หนึ่งแถวต่อหนึ่ง URL — ลำดับแถว = ลำดับภาคที่ fetch script จะต่อ episode ให้
+ * paste ข้อความที่มี , คั่น จะถูกแตกเป็นหลายแถวอัตโนมัติ
+ * get() คืนค่า join ด้วย , (รูปแบบเดิมที่ script/server รับอยู่แล้ว)
+ */
+function createUrlList(listId, addBtnId, onChange) {
+  const listEl = document.getElementById(listId);
+  // กัน TDZ: ตอน construct ห้ามยิง onChange (callback อ้าง instance/global ที่ยังประกาศไม่เสร็จ)
+  let ready = false;
+
+  function makeRow(value = '') {
+    const row = document.createElement('div');
+    row.className = 'url-row';
+    row.innerHTML = '<span class="url-no"></span><input type="text" placeholder="https://..."><button type="button" class="url-del" title="ลบ URL นี้">✕</button>';
+    const input = row.querySelector('input');
+    input.value = value;
+    input.addEventListener('input', onChange);
+    input.addEventListener('paste', (e) => {
+      const text = (e.clipboardData || window.clipboardData).getData('text') || '';
+      if (!text.includes(',')) return;
+      e.preventDefault();
+      const parts = text.split(',').map(s => s.trim()).filter(Boolean);
+      input.value = parts.shift() || '';
+      let anchor = row;
+      parts.forEach(p => {
+        const r = makeRow(p);
+        listEl.insertBefore(r, anchor.nextSibling);
+        anchor = r;
+      });
+      refresh();
+    });
+    row.querySelector('.url-del').addEventListener('click', () => {
+      row.remove();
+      if (!listEl.children.length) listEl.appendChild(makeRow());
+      refresh();
+    });
+    return row;
+  }
+
+  function refresh() {
+    const rows = [...listEl.querySelectorAll('.url-row')];
+    rows.forEach((r, i) => {
+      r.querySelector('.url-no').textContent = i + 1;
+      r.querySelector('.url-del').style.visibility = rows.length > 1 ? 'visible' : 'hidden';
+    });
+    if (ready) onChange();
+  }
+
+  document.getElementById(addBtnId).addEventListener('click', () => {
+    const r = makeRow();
+    listEl.appendChild(r);
+    refresh();
+    r.querySelector('input').focus();
+  });
+
+  const api = {
+    get() {
+      return [...listEl.querySelectorAll('input')].map(i => i.value.trim()).filter(Boolean).join(',');
+    },
+    set(str) {
+      listEl.innerHTML = '';
+      const parts = String(str || '').split(',').map(s => s.trim()).filter(Boolean);
+      if (!parts.length) parts.push('');
+      parts.forEach(p => listEl.appendChild(makeRow(p)));
+      refresh();
+    },
+    focus() {
+      const first = listEl.querySelector('input');
+      if (first) first.focus();
+    },
+  };
+  api.set('');
+  ready = true;
+  return api;
+}
+
+const fmUrlList = createUrlList('fm-url-list', 'fm-url-add', () => updateCmd());
+const rfUrlList = createUrlList('rf-url-list', 'rf-url-add', () => refreshRfCmd());
 
 /** Build { script, args, cmd } from current form values, or null if incomplete */
 function buildPayload() {
@@ -3026,7 +3127,7 @@ function buildPayload() {
   const script   = scripts.find(s => s.id === selVal) || scripts[0];
   if (!script) return null;
 
-  const urlVal   = document.getElementById('fm-url').value.trim();
+  const urlVal   = fmUrlList.get();
   if (!urlVal) return null;
 
   // AV: ใช้แค่ URL
@@ -3204,7 +3305,6 @@ document.getElementById('um-log-clear').addEventListener('click', () => { docume
 document.getElementById('um-season').addEventListener('input', refreshUpdateCmd);
 document.getElementById('um-tmdb').addEventListener('input', refreshUpdateCmd);
 document.querySelectorAll('input[name="um-mode"],input[name="um-track"]').forEach(r => r.addEventListener('change', refreshUpdateCmd));
-document.getElementById('update-modal').addEventListener('click', e => { if (e.target === document.getElementById('update-modal')) document.getElementById('update-modal').classList.add('hidden'); });
 
 // ── Batch Update Modal ───────────────────────────────────────────
 let batchTab = '';
@@ -3278,7 +3378,6 @@ async function runBatchUpdate() {
 document.getElementById('bm-run-btn').addEventListener('click', runBatchUpdate);
 document.getElementById('bm-close').addEventListener('click', () => document.getElementById('batch-modal').classList.add('hidden'));
 document.getElementById('bm-log-clear').addEventListener('click', () => { document.getElementById('bm-log-body').textContent = ''; document.getElementById('bm-log').classList.add('hidden'); });
-document.getElementById('batch-modal').addEventListener('click', e => { if (e.target === document.getElementById('batch-modal')) document.getElementById('batch-modal').classList.add('hidden'); });
 
 // ── Refetch Streams Modal ────────────────────────────────────────
 let rfCtx = {};
@@ -3327,7 +3426,7 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
   updateScriptHome('rf-script', 'rf-script-home', scripts, 'file');
 
   document.getElementById('rf-hint').textContent   = filename ? ` — ${filename}` : '';
-  document.getElementById('rf-url').value          = referer;
+  rfUrlList.set(referer);
   document.getElementById('rf-season').value       = season;
   document.getElementById('rf-season-row').style.display = isSeries ? '' : 'none';
   document.querySelector(`input[name="rf-track"][value="${track}"]`).checked = true;
@@ -3340,7 +3439,7 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
 
 function buildRfCmd() {
   const script = document.getElementById('rf-script').value;
-  const url    = document.getElementById('rf-url').value.trim();
+  const url    = rfUrlList.get();
   const fname  = document.getElementById('rf-fname').value.trim();
   if (!script || !url || !fname) return null;
   const track  = document.querySelector('input[name="rf-track"]:checked')?.value || 'th';
@@ -3381,8 +3480,7 @@ async function runRefetch() {
 document.getElementById('rf-run-btn').addEventListener('click', runRefetch);
 document.getElementById('rf-close').addEventListener('click', () => document.getElementById('refetch-modal').classList.add('hidden'));
 document.getElementById('rf-log-clear').addEventListener('click', () => { document.getElementById('rf-log-body').textContent = ''; document.getElementById('rf-log').classList.add('hidden'); });
-document.getElementById('refetch-modal').addEventListener('click', e => { if (e.target === document.getElementById('refetch-modal')) document.getElementById('refetch-modal').classList.add('hidden'); });
-['rf-script','rf-url','rf-fname','rf-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
+['rf-script','rf-fname','rf-season'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
 document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
 document.getElementById('rf-script').addEventListener('change', () => {
   updateScriptHome('rf-script', 'rf-script-home', ADD_SCRIPTS[rfCtx.tabId] || [], 'file');
@@ -3498,7 +3596,6 @@ async function executeDelete() {
 document.getElementById('dm-confirm-btn').addEventListener('click', executeDelete);
 document.getElementById('dm-cancel-btn').addEventListener('click', () => document.getElementById('delete-modal').classList.add('hidden'));
 document.getElementById('dm-close').addEventListener('click',      () => document.getElementById('delete-modal').classList.add('hidden'));
-document.getElementById('delete-modal').addEventListener('click',  e => { if (e.target === document.getElementById('delete-modal')) document.getElementById('delete-modal').classList.add('hidden'); });
 
 // Del button click → open delete modal
 document.addEventListener('click', e => {
@@ -3515,13 +3612,10 @@ document.getElementById('fm-log-clear').addEventListener('click', () => {
   document.getElementById('fm-log-body').textContent = '';
   document.getElementById('fm-log').classList.add('hidden');
 });
-document.getElementById('add-modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('add-modal')) closeAddModal();
-});
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeAddModal();
 });
-['fm-script', 'fm-url', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset'].forEach(id => {
+['fm-script', 'fm-fname', 'fm-tmdb', 'fm-season', 'fm-tmdb-season', 'fm-ep-offset'].forEach(id => {
   document.getElementById(id).addEventListener('input', updateCmd);
 });
 document.getElementById('fm-script').addEventListener('change', () => {
@@ -3854,7 +3948,6 @@ buildAddButtons();
   document.getElementById('add-cat-tab-btn').addEventListener('click', openCatModal);
   catSaveBtn.addEventListener('click', saveCategory);
   document.getElementById('cat-close').addEventListener('click', () => catModal.classList.add('hidden'));
-  catModal.addEventListener('click', e => { if (e.target === catModal) catModal.classList.add('hidden'); });
 
   // Boot: load custom tabs
   loadCustomTabs();
