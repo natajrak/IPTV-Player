@@ -178,12 +178,15 @@ function buildOrMergePlaylist({
 }
 
 // Build/update movie part file ({tmdbId}-{slug}.txt)
-function buildPartFile({ outputPath, season, posterUrl, trackName, streamUrl, sourceUrl = null }) {
+function buildPartFile({ outputPath, season, posterUrl, trackName, streamUrl, sourceUrl = null, resolver = null }) {
   const partName = `ภาค ${season}`;
   const newStation = {
     name: trackName,
     image: posterUrl,
     url: streamUrl,
+    // เว็บที่ stream URL หมดอายุ (signed) เก็บ player page URL + resolver flag
+    // ให้ Player ไป resolve เอาสตรีมสดตอนกดเล่น เหมือนฝั่ง series
+    ...(resolver && { resolver }),
     ...(sourceUrl && { referer: sourceUrl }),
   };
 

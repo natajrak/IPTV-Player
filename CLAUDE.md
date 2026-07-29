@@ -227,6 +227,7 @@ parts (ภาค) → tracks (2 ชั้น) — รองรับหลาย
 - **Params**: `?url={encoded_url}&referer={encoded_referer}`
 - **ทำงาน**: Fetch server-side ที่ CF edge → bypass CORS → rewrite URL ใน m3u8 ทุก layer
 - **รองรับ URL types**: absolute (`https://`), protocol-relative (`//`), relative path (`/`)
+- **ข้อยกเว้น**: host ใน `DIRECT_HOSTS` (เช่น `*.akuma-cdn.xyz`) ไม่ถูก rewrite — CDN เปิด CORS อยู่แล้ว และเสิร์ฟไฟล์เดียวทั้งเรื่องระดับ GB ผ่าน `EXT-X-BYTERANGE` ซึ่ง worker proxy ไม่ไหว (Range simulation ต้อง buffer ก้อนเต็ม ชน memory limit 128MB) → browser โหลดตรง
 
 ### ตัวอย่างการใช้ (kurokamii)
 ```

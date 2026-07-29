@@ -12,6 +12,7 @@
 // Features:
 //   - CORS bypass (fetch server-side จาก CF edge)
 //   - m3u8 URL rewrite: absolute / protocol-relative (//) / relative path (/) + URI="..." attrs
+//     ยกเว้น DIRECT_HOSTS (CDN ที่เปิด CORS + ไฟล์ GB-scale) → ปล่อย URL ตรง ไม่ห่อ worker
 //   - Binary passthrough สำหรับ TS segments
 //   - รองรับ Referer + Origin header spoofing
 //   - **Range simulation** (206 Partial Content) — fetch ก้อนเต็มแล้ว slice ส่งเฉพาะช่วง
@@ -23,6 +24,13 @@
 //      client เรียก resolver ก่อน play เพื่อได้ signature ใหม่ ต่อรอบ)
 
 const PRE_WARM_SEGMENT_LIMIT = 40; // ภายใต้ subrequest limit ของ CF Workers Free tier (50/invocation)
+
+// CDN hosts ที่เปิด CORS (ACAO: *) อยู่แล้ว และเสิร์ฟวิดีโอเป็นไฟล์เดียวทั้งเรื่องระดับ GB
+// ผ่าน EXT-X-BYTERANGE (เช่น akuma-cdn ไฟล์ 4GB+) — ห้ามห่อผ่าน worker:
+//   1. Range simulation ของ worker ต้อง buffer ก้อนเต็ม → ชน memory limit 128MB → 503
+//   2. pre-warm จะพยายามโหลดไฟล์เต็มซ้ำๆ (URL เดิมทุกบรรทัดใน playlist แบบ BYTERANGE)
+// ให้ browser ยิง Range ตรงไป CDN เอง (CORS ผ่านอยู่แล้ว) — key/manifest ยังผ่าน worker ตามเดิม
+const DIRECT_HOSTS = /(^|\.)akuma-cdn\.xyz$/i;
 
 /** JSON response helper สำหรับ resolver endpoints */
 function jsonResponse(body, status = 200, cacheSec = 0) {
@@ -301,15 +309,22 @@ export default {
           if (uri.startsWith("/"))       return baseOrigin + uri;
           return baseDir + uri;
         };
+        const isDirectHost = (abs) => {
+          try { return DIRECT_HOSTS.test(new URL(abs).hostname); } catch (_) { return false; }
+        };
         const rewriteUri = (uri) => {
           const abs = toAbs(uri);
+          if (isDirectHost(abs)) return abs;
           const enc = encodeURIComponent(abs);
           const ref = encodeURIComponent(referer);
           return `${workerOrigin}/?url=${enc}&referer=${ref}`;
         };
 
-        // เก็บ absolute upstream URLs สำหรับ pre-warm
+        // เก็บ absolute upstream URLs สำหรับ pre-warm (ยกเว้น direct hosts)
         const upstreamUrls = [];
+        const collectForWarm = (abs) => {
+          if (!isDirectHost(abs)) upstreamUrls.push(abs);
+        };
 
         body = body.split("\n").map(line => {
           const t = line.trim();
@@ -318,14 +333,14 @@ export default {
           if (t.startsWith("#")) {
             if (/URI="[^"]+"/.test(t)) {
               return line.replace(/URI="([^"]+)"/g, (_, uri) => {
-                upstreamUrls.push(toAbs(uri));
+                collectForWarm(toAbs(uri));
                 return `URI="${rewriteUri(uri)}"`;
               });
             }
             return line;
           }
           // Plain URI line (segment or sub-playlist)
-          upstreamUrls.push(toAbs(t));
+          collectForWarm(toAbs(t));
           return rewriteUri(t);
         }).join("\n");
 

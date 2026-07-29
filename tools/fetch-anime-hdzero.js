@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * fetch-anime-hdzero.js
- * สร้าง / อัปเดต playlist JSON จาก anime-hdzero.com พร้อม metadata จาก TMDB
+ * สร้าง / อัปเดต playlist JSON จาก animehdzeroo.net พร้อม metadata จาก TMDB
  * Stream ผ่าน Cloudflare Worker proxy (CORS bypass)
  *
  * ─── Flags ───────────────────────────────────────────────────────────────
- *   <url>              URL หน้า anime บน anime-hdzero.com
- *                      เช่น https://anime-hdzero.com/anime/6777
+ *   <url>              URL หน้า anime บน animehdzeroo.net
+ *                      เช่น https://animehdzeroo.net/anime/6787
  *   --track=th|subth  th = พากย์ไทย, subth = ซับไทย (default: th)
  *   --season=N        ระบุ season ที่จะ fetch หรืออัปเดต (default: 1)
  *   --output=FILE     ชื่อไฟล์ผลลัพธ์ใน playlist/anime/series/ (ไม่ต้องใส่ path)
@@ -18,8 +18,14 @@
  *   --type=KIND       anime-series | anime-movie | movie | series
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
- *   - Domain: anime-hd-zero.com (migrated from anime-hdzero.com)
- *   - cur.player_url = https://app.akuma-stream.com/watch/{uuid} (signed/expiring)
+ *   - Domain: animehdzeroo.net (migrated from anime-hd-zero.com → anime-hdzero.com)
+ *   - เว็บเลิกใช้ Inertia SPA แล้ว ตอนนี้เป็น Laravel Blade แบบ server-rendered
+ *     จึง parse จาก HTML ตรงๆ ไม่ต้องยิง X-Inertia อีก:
+ *       · ชื่อเรื่อง/โปสเตอร์ ← JSON-LD `TVSeries` (fallback: og:title / og:image)
+ *       · รายการตอน         ← <a class="ep-row"> (เรียงตามเลข "ตอนที่ N")
+ *       · player URL        ← JSON-LD `VideoObject`.embedUrl
+ *   - embedUrl = https://app.akuma-stream.com/watch/{uuid} (signed/expiring)
+ *     backend สตรีมไม่เปลี่ยนจากเดิม resolver ฝั่ง worker จึงใช้ตัวเดิมได้
  *   - Stations carry the player_url + `resolver: 'anime-hdzero'` → Player resolves
  *     fresh m3u8 at play time via /resolve/anime-hdzero on the CF worker
  *   - Default --track = th (พากย์ไทย)
@@ -28,6 +34,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const cheerio = require('cheerio');
 
 const { loadEnv } = require('./lib/env');
 const { parseArgs } = require('./lib/cli');
@@ -63,10 +70,11 @@ if (!seriesUrl && !updateMeta) {
 const { isMovie, playlistDir: PLAYLIST_DIR, indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE } =
   makePaths({ typeArg, scriptDir: __dirname });
 
-// anime-hdzero.com → anime-hd-zero.com migration (Dec 2025) + backend swap to akuma-stream.
-// Stream URLs are now signed/expiring — playlist stores the player page URL + resolver flag,
+// anime-hd-zero.com → animehdzeroo.net migration + Inertia SPA → Blade (server-rendered).
+// Stream URLs are signed/expiring — playlist stores the player page URL + resolver flag,
 // Player resolves via /resolve/anime-hdzero on the CF worker at play time.
-const REFERER = 'https://anime-hd-zero.com/';
+const SITE_BASE = 'https://animehdzeroo.net';
+const REFERER = `${SITE_BASE}/`;
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36',
@@ -82,67 +90,86 @@ async function fetchHtml(url) {
   return res.text();
 }
 
-/** ดึง Inertia version จาก data-page attribute ของ HTML */
-async function getInertiaVersion(animeUrl) {
-  const html = await fetchHtml(animeUrl);
-  const m = html.match(/data-page='([^']+)'/) || html.match(/data-page="([^"]+)"/);
-  if (!m) throw new Error('ไม่พบ data-page attribute — อาจไม่ใช่ Inertia app');
-  const page = JSON.parse(m[1].replace(/&quot;/g, '"'));
-  return page.version;
+/** ดึง JSON-LD block แรกที่ @type ตรงกับที่ระบุ (ข้าม block ที่ parse ไม่ผ่าน) */
+function extractJsonLd($, type) {
+  const nodes = $('script[type="application/ld+json"]').toArray();
+  for (const el of nodes) {
+    const raw = $(el).contents().text().trim();
+    if (!raw) continue;
+    let data;
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      continue;
+    }
+    for (const item of Array.isArray(data) ? data : [data]) {
+      if (item && item['@type'] === type) return item;
+    }
+  }
+  return null;
 }
 
-/** Inertia JSON request */
-async function fetchInertia(url, version) {
-  const res = await fetch(url, {
-    headers: {
-      ...HEADERS,
-      'X-Inertia': 'true',
-      'X-Inertia-Version': version,
-      'X-Requested-With': 'XMLHttpRequest',
-      'Accept': 'application/json, text/plain, */*',
-    },
-  });
-  if (!res.ok) throw new Error(`Inertia HTTP ${res.status} for ${url}`);
-  return res.json();
-}
-
-// ───── Source-specific: Parse anime page (Inertia) ─────
+// ───── Source-specific: Parse anime page (Blade HTML + JSON-LD) ─────
 async function parseAnimePage(url) {
   console.log(`\n📄 กำลัง fetch หน้า anime: ${url}`);
 
-  const version = await getInertiaVersion(url);
-  console.log(`🔑 Inertia version: ${version}`);
+  const $ = cheerio.load(await fetchHtml(url));
 
-  const data = await fetchInertia(url, version);
-  const anime = data.props?.anime;
-  if (!anime) throw new Error('ไม่พบ anime props ใน Inertia response');
+  const ld = extractJsonLd($, 'TVSeries');
+  const title = ld?.name || $('meta[property="og:title"]').attr('content') || '';
+  const posterImg = ld?.image || $('meta[property="og:image"]').attr('content') || '';
 
-  const title = anime.cat_title || '';
-  const posterImg = anime.cat_image || anime.cover_md || '';
-  const catId = anime.cat_id;
+  // a.ep-row = แถวรายการตอน (ปุ่ม "ดูตอนนี้" ด้านบนเป็น .btn จึงไม่ติดมา)
+  const seen = new Set();
+  const episodes = [];
+  $('a.ep-row').each((_, el) => {
+    const href = $(el).attr('href') || '';
+    const m = href.match(/\/anime\/\d+\/episode\/(\d+)/);
+    if (!m) return;
+    const listId = Number(m[1]);
+    if (seen.has(listId)) return;
+    seen.add(listId);
 
-  const episodes = (anime.episode_list || []).map((ep) => ({
-    url: `https://anime-hd-zero.com/anime/${catId}/episode/${ep.list_id}`,
-    epTitle: ep.list_title || '',
-    listId: ep.list_id,
-  }));
+    const epTitle = $(el).find('span').last().text().trim();
+    const numMatch = epTitle.match(/ตอนที่\s*(\d+(?:\.\d+)?)/);
+    episodes.push({
+      url: new URL(href, SITE_BASE).href,
+      epTitle,
+      listId,
+      epNo: numMatch ? Number(numMatch[1]) : null,
+    });
+  });
 
-  // เรียงตาม list_id (ascending)
-  episodes.sort((a, b) => a.listId - b.listId);
+  // list_id ออกเป็นชุดๆ ตามรอบอัปโหลด ไม่ได้ไล่ต่อกัน → เรียงตามเลข "ตอนที่ N" ก่อน
+  // ถ้ามีตอนไหน parse เลขไม่ได้ (เช่นหน้าหนัง/ตอนพิเศษ) ค่อย fallback เป็น list_id
+  const allNumbered = episodes.length > 0 && episodes.every((ep) => ep.epNo !== null);
+  episodes.sort((a, b) => (allNumbered ? a.epNo - b.epNo : a.listId - b.listId));
 
-  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
-  return { title, posterImg, episodes, version };
+  if (!title) throw new Error(`ไม่พบชื่อเรื่องใน ${url} — โครงสร้างหน้าอาจเปลี่ยนอีก`);
+
+  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน${allNumbered ? '' : ' (เรียงตาม list_id)'}`);
+  return { title, posterImg, episodes };
 }
 
-// ───── Source-specific: Get player URL from episode page (Inertia) ─────
+// ───── Source-specific: Get player URL from episode page ─────
 // Returns the akuma-stream watch URL — Player calls /resolve/anime-hdzero at play time to
 // extract the (signed, expiring) m3u8 from that page.
-async function getEpisodePlayerUrl(epPageUrl, version) {
-  const data = await fetchInertia(epPageUrl, version);
-  const cur = data.props?.currentEpisode;
-  if (!cur) throw new Error(`ไม่พบ currentEpisode ใน ${epPageUrl}`);
-  const playerUrl = cur.player_url || '';
-  if (!playerUrl) throw new Error(`ไม่พบ player_url ใน ${epPageUrl}`);
+async function getEpisodePlayerUrl(epPageUrl) {
+  const html = await fetchHtml(epPageUrl);
+  const $ = cheerio.load(html);
+
+  const ld = extractJsonLd($, 'VideoObject');
+  let playerUrl = ld?.embedUrl || '';
+
+  if (!playerUrl) {
+    const iframeSrc = $('iframe[src*="akuma-stream"]').attr('src') || '';
+    playerUrl = iframeSrc;
+  }
+  if (!playerUrl) {
+    const m = html.match(/https:\/\/app\.akuma-stream\.com\/watch\/[0-9a-fA-F-]+/);
+    playerUrl = m ? m[0] : '';
+  }
+  if (!playerUrl) throw new Error(`ไม่พบ player URL ใน ${epPageUrl}`);
   return playerUrl;
 }
 
@@ -171,12 +198,11 @@ async function main() {
     const isMultiUrl = urls.length > 1;
     let rawTitle = '', rawPoster = '';
     let episodes = [];
-    let inertiaVersion = null;
 
     for (let ui = 0; ui < urls.length; ui++) {
       if (isMultiUrl) console.log(`\n📡 Fetch part ${ui + 1}/${urls.length}: ${urls[ui]}`);
       const result = await parseAnimePage(urls[ui]);
-      if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; inertiaVersion = result.version; }
+      if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
       const offset = episodes.length;
       for (const ep of result.episodes) {
@@ -281,7 +307,7 @@ async function main() {
 
       let playerUrl = null;
       try {
-        playerUrl = await getEpisodePlayerUrl(ep.url, inertiaVersion);
+        playerUrl = await getEpisodePlayerUrl(ep.url);
         process.stdout.write(` ${playerUrl}`);
       } catch (err) {
         console.warn(` ⚠️  ${err.message}`);
@@ -324,6 +350,7 @@ async function main() {
       const partPlaylist = io.buildPartFile({
         outputPath, season: partSeason, posterUrl,
         trackName, streamUrl: s.url, sourceUrl: seriesUrl,
+        resolver: s.resolver || null,
       });
       io.stampPlaylist(partPlaylist, tmdbShow, true);
       fs.writeFileSync(outputPath, JSON.stringify(partPlaylist, null, 4), 'utf-8');
