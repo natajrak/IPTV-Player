@@ -221,8 +221,13 @@ async function applyMeasuredSplit({ stations, tmdbEpisodes, epOffset = 0, isDubb
     if (runtime >= base * longFactor) {
       const s = stations[srcIdx];
       const measured = await measureDurationMinutes(s.url, { referer: s.referer, resolver: s.resolver });
+      // จำนวนตอนย่อยคิดจาก runtime / ฐาน เท่านั้น — TMDB ให้ runtime เป็นพหุคูณสะอาด
+      // (50/100/125 = 2/4/5 เท่าของ 25) ส่วน duration ที่วัดได้แกว่ง 20–28 นาที
+      // ถ้าเอา duration ไปหารตรงๆ จะปัดพลาด (100/21.2 ปัดเป็น 5 ทั้งที่ควรเป็น 4)
+      // measurement มีหน้าที่ยืนยันแค่ว่า "เว็บแบ่งจริงไหม" ไม่ได้ใช้กำหนดจำนวน
+      const splitParts = Math.max(2, Math.round(runtime / base));
       if (measured && measured < runtime * 0.75) {
-        parts = Math.max(2, Math.round(runtime / measured));
+        parts = splitParts;
         detected.push(parts === 2 ? String(epNum) : `${epNum}:${parts}`);
         console.log(`   ตอน ${epNum}: TMDB ${runtime} นาที / stream จริง ${measured.toFixed(1)} นาที → แบ่ง ${parts} ตอน`);
       } else if (measured) {
@@ -230,7 +235,7 @@ async function applyMeasuredSplit({ stations, tmdbEpisodes, epOffset = 0, isDubb
       } else {
         // วัดไม่ได้แม้ retry — ประมาณจาก runtime แทนการถือว่า "ไม่แบ่ง"
         // เพราะถ้าเดาผิดข้างนี้ เลขตอนหลังจากนี้จะ drift ยกแถว ส่วนอีกข้างเสียแค่ตอนเดียว
-        parts = Math.max(2, Math.round(runtime / base));
+        parts = splitParts;
         estimated.push(epNum);
         detected.push(parts === 2 ? String(epNum) : `${epNum}:${parts}`);
         console.warn(`   ⚠️  ตอน ${epNum}: TMDB ${runtime} นาที / วัดไม่ได้ → ประมาณว่าแบ่ง ${parts} ตอน (ควรตรวจสอบ)`);
