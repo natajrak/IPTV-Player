@@ -854,8 +854,9 @@ function moveTVFocus(directionKey) {
   let bestScore = Number.POSITIVE_INFINITY;
   const horizontal = directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach(el => {
+    var _el$closest0;
     if (el === current) return;
-    if (horizontal && el.id === "player-seek") return;
+    if (horizontal && (el.id === "player-seek" || (_el$closest0 = el.closest) !== null && _el$closest0 !== void 0 && _el$closest0.call(el, "#player-header"))) return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -1411,7 +1412,11 @@ function makeCard({
   card.tabIndex = 0;
   card.setAttribute("role", "button");
   card.addEventListener("keydown", e => {
-    if (eventKey(e) === "Enter" || eventKey(e) === " ") e.target.click();
+    if (eventKey(e) === "Enter" || eventKey(e) === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+      e.target.click();
+    }
   });
   const thumb = document.createElement(image ? "img" : "div");
   thumb.className = "card-thumb" + (image ? "" : " card-thumb-placeholder");

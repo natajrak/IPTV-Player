@@ -1064,9 +1064,12 @@ function moveTVFocus(directionKey) {
     directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach((el) => {
     if (el === current) return;
-    // seekbar เป็นแถบเต็มความกว้าง จุดกึ่งกลางอยู่กลางจอ — ถ้าปล่อยไว้ การกดซ้าย/ขวา
-    // ในแถวปุ่มจะกระโดดมาโดนมันแทนที่จะไปปุ่มถัดไป (เช่นปุ่มเลือก EP) → เข้าถึง seekbar ด้วยขึ้น/ลงเท่านั้น
-    if (horizontal && el.id === "player-seek") return;
+    // การเลื่อนซ้าย/ขวาในแถวปุ่ม player อย่าให้กระโดดออกนอกแถว:
+    // - seekbar เต็มความกว้าง จุดกึ่งกลางอยู่กลางจอ
+    // - ปุ่ม back ใน #player-header มุมซ้ายบน (บังเอิญ x ใกล้ปุ่มซ้ายสุด เลยแย่งชนะทั้งที่อยู่คนละแถว)
+    // ทั้งคู่เข้าถึงด้วยปุ่มขึ้น/ลงแทน
+    if (horizontal && (el.id === "player-seek" || el.closest?.("#player-header")))
+      return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -1765,7 +1768,13 @@ function makeCard({
   card.tabIndex = 0;
   card.setAttribute("role", "button");
   card.addEventListener("keydown", (e) => {
-    if (eventKey(e) === "Enter" || eventKey(e) === " ") e.target.click();
+    if (eventKey(e) === "Enter" || eventKey(e) === " ") {
+      // preventDefault กัน DPAD_CENTER สร้าง native click ซ้ำ (จะ push navHistory 2 เท่า)
+      // stopPropagation กัน window keydown handler คลิกซ้ำอีก
+      e.preventDefault();
+      e.stopPropagation();
+      e.target.click();
+    }
   });
 
   const thumb = document.createElement(image ? "img" : "div");
