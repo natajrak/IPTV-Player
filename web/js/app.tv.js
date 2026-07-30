@@ -34,6 +34,7 @@ const PLAYLIST_URL = IS_LOCAL_DEV ? `${SITE_BASE_PATH}/playlist/main.txt` : `${R
 const IS_NATIVE_APP = new URLSearchParams(location.search).get("app") === "1";
 if (IS_NATIVE_APP) document.documentElement.classList.add("bkl-app");
 const PAGE_SIZE = 24;
+const EPISODE_CHUNK_SIZE = 100;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
 const PAGINATION_ICON_FIRST = `<i class="fi fi-br-angle-double-small-left" aria-hidden="true"></i>`;
@@ -755,15 +756,16 @@ function focusTVElement(el) {
   }
 }
 function getFocusZone(el) {
-  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7, _el$closest8;
+  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7, _el$closest8, _el$closest9;
   if (!el) return "other";
   if ((_el$classList2 = el.classList) !== null && _el$classList2 !== void 0 && _el$classList2.contains("card")) return "card";
   if ((_el$closest3 = el.closest) !== null && _el$closest3 !== void 0 && _el$closest3.call(el, "#ep-panel")) return "eppanel";
   if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#quality-menu")) return "qualitymenu";
   if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, "#search-results")) return "search";
   if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".section-header")) return "section";
-  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, ".pagination")) return "pagination";
-  if ((_el$closest8 = el.closest) !== null && _el$closest8 !== void 0 && _el$closest8.call(el, "#app-header")) return "header";
+  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, ".range-bar")) return "range";
+  if ((_el$closest8 = el.closest) !== null && _el$closest8 !== void 0 && _el$closest8.call(el, ".pagination")) return "pagination";
+  if ((_el$closest9 = el.closest) !== null && _el$closest9 !== void 0 && _el$closest9.call(el, "#app-header")) return "header";
   return "other";
 }
 function hasDirectionalCandidate(current, candidates, directionKey) {
@@ -802,13 +804,13 @@ function getDirectionalCandidates(current, directionKey, elements) {
     const onCard = (_current$closest = current.closest) === null || _current$closest === void 0 ? void 0 : _current$closest.call(current, "#ep-panel-grid");
     if (onCard && (directionKey === "ArrowUp" || directionKey === "ArrowDown")) {
       const epCards = epElems.filter(el => {
-        var _el$closest9;
-        return (_el$closest9 = el.closest) === null || _el$closest9 === void 0 ? void 0 : _el$closest9.call(el, "#ep-panel-grid");
+        var _el$closest0;
+        return (_el$closest0 = el.closest) === null || _el$closest0 === void 0 ? void 0 : _el$closest0.call(el, "#ep-panel-grid");
       });
       if (directionKey === "ArrowUp" && !hasDirectionalCandidate(current, epCards, "ArrowUp")) {
         return epElems.filter(el => {
-          var _el$closest0;
-          return !((_el$closest0 = el.closest) !== null && _el$closest0 !== void 0 && _el$closest0.call(el, "#ep-panel-grid"));
+          var _el$closest1;
+          return !((_el$closest1 = el.closest) !== null && _el$closest1 !== void 0 && _el$closest1.call(el, "#ep-panel-grid"));
         });
       }
       return epCards;
@@ -817,19 +819,25 @@ function getDirectionalCandidates(current, directionKey, elements) {
   }
   const cards = elements.filter(el => getFocusZone(el) === "card");
   const paginations = elements.filter(el => getFocusZone(el) === "pagination");
+  const ranges = elements.filter(el => getFocusZone(el) === "range");
   const sections = elements.filter(el => getFocusZone(el) === "section");
   const headers = elements.filter(el => getFocusZone(el) === "header");
   if (zone === "card") {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight" || directionKey === "ArrowDown") {
       if (directionKey === "ArrowDown" && !hasDirectionalCandidate(current, cards, directionKey)) {
-        return [...paginations, ...cards];
+        return [...paginations, ...ranges, ...cards];
       }
       return cards;
     }
     if (directionKey === "ArrowUp") {
       if (hasDirectionalCandidate(current, cards, directionKey)) return cards;
-      return [...sections, ...headers, ...cards];
+      return [...ranges, ...sections, ...headers, ...cards];
     }
+  }
+  if (zone === "range") {
+    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return ranges;
+    if (directionKey === "ArrowDown") return [...cards, ...ranges];
+    if (directionKey === "ArrowUp") return [...cards, ...sections, ...headers, ...ranges];
   }
   if (zone === "pagination") {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return paginations;
@@ -841,12 +849,12 @@ function getDirectionalCandidates(current, directionKey, elements) {
   }
   if (zone === "section") {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return sections;
-    if (directionKey === "ArrowDown") return [...cards, ...paginations, ...sections];
+    if (directionKey === "ArrowDown") return [...ranges, ...cards, ...paginations, ...sections];
     if (directionKey === "ArrowUp") return [...headers, ...sections];
   }
   if (zone === "header") {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight") return headers;
-    if (directionKey === "ArrowDown") return [...sections, ...cards, ...paginations];
+    if (directionKey === "ArrowDown") return [...sections, ...ranges, ...cards, ...paginations];
     if (directionKey === "ArrowUp") return headers;
   }
   return elements;
@@ -870,9 +878,9 @@ function moveTVFocus(directionKey) {
   let bestScore = Number.POSITIVE_INFINITY;
   const horizontal = directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach(el => {
-    var _el$closest1;
+    var _el$closest10;
     if (el === current) return;
-    if (horizontal && (el.id === "player-seek" || (_el$closest1 = el.closest) !== null && _el$closest1 !== void 0 && _el$closest1.call(el, "#player-header"))) return;
+    if (horizontal && (el.id === "player-seek" || (_el$closest10 = el.closest) !== null && _el$closest10 !== void 0 && _el$closest10.call(el, "#player-header"))) return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -1240,13 +1248,32 @@ function goBackOneStep() {
     behavior: "smooth"
   });
 }
-function renderStations(stations, referer, sectionTitle) {
+function renderEpisodeRangeBar(total, activeChunk, pos) {
+  const chunkCount = Math.ceil(total / EPISODE_CHUNK_SIZE);
+  let chips = "";
+  for (let c = 0; c < chunkCount; c++) {
+    const from = c * EPISODE_CHUNK_SIZE + 1;
+    const to = Math.min((c + 1) * EPISODE_CHUNK_SIZE, total);
+    chips += `<button class="range-chip${c === activeChunk ? " active" : ""}" data-chunk="${c}" aria-label="ตอน ${from} ถึง ${to}">${from}-${to}</button>`;
+  }
+  return `<nav class="range-bar" data-pos="${pos}" aria-label="ช่วงตอน">${chips}</nav>`;
+}
+function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
   var _document$getElementB4;
+  const total = stations.length;
+  const useChunks = total > EPISODE_CHUNK_SIZE;
+  const chunkCount = useChunks ? Math.ceil(total / EPISODE_CHUNK_SIZE) : 1;
+  const chunk = Math.max(0, Math.min(chunkIndex, chunkCount - 1));
+  const start = useChunks ? chunk * EPISODE_CHUNK_SIZE : 0;
+  const end = useChunks ? Math.min(start + EPISODE_CHUNK_SIZE, total) : total;
   gridView.innerHTML = `${renderSectionHeader(sectionTitle)}
-    <div class="card-grid landscape"></div>`;
+    ${useChunks ? renderEpisodeRangeBar(total, chunk, "top") : ""}
+    <div class="card-grid landscape"></div>
+    ${useChunks ? renderEpisodeRangeBar(total, chunk, "bottom") : ""}`;
   const grid = gridView.querySelector(".card-grid");
   (_document$getElementB4 = document.getElementById("section-back")) === null || _document$getElementB4 === void 0 || _document$getElementB4.addEventListener("click", goBackOneStep);
-  stations.forEach((station, i) => {
+  for (let i = start; i < end; i++) {
+    const station = stations[i];
     const card = makeCard({
       name: station.name || `ตอนที่ ${i + 1}`,
       image: station.image,
@@ -1258,6 +1285,22 @@ function renderStations(stations, referer, sectionTitle) {
       openPlayer(stations, i, referer, sectionTitle);
     });
     grid.appendChild(card);
+  }
+  if (!useChunks) return;
+  gridView.querySelectorAll(".range-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      var _btn$closest;
+      const next = Number(btn.dataset.chunk);
+      if (next === chunk) return;
+      const pos = ((_btn$closest = btn.closest(".range-bar")) === null || _btn$closest === void 0 ? void 0 : _btn$closest.dataset.pos) || "top";
+      renderStations(stations, referer, sectionTitle, next);
+      const active = gridView.querySelector(`.range-bar[data-pos="${pos}"] .range-chip.active`);
+      if (active) focusTVElement(active);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
   });
 }
 let browseAllStations = [];

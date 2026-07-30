@@ -40,6 +40,9 @@ const IS_NATIVE_APP = new URLSearchParams(location.search).get("app") === "1";
 if (IS_NATIVE_APP) document.documentElement.classList.add("bkl-app");
 
 const PAGE_SIZE = 24;
+// เรื่องยาว (Conan 1,200+ ตอน) เรนเดอร์ทีเดียวหมดทำให้เลื่อนรีโมทหลายร้อยแถว
+// จึงหั่นเป็นช่วงละ 100 ตอน แล้วมีแถบให้กระโดดข้ามช่วง
+const EPISODE_CHUNK_SIZE = 100;
 const PAGINATION_ICON_PREV = `<i class="fi fi-br-angle-small-left" aria-hidden="true"></i>`;
 const PAGINATION_ICON_NEXT = `<i class="fi fi-br-angle-small-right" aria-hidden="true"></i>`;
 const PAGINATION_ICON_FIRST = `<i class="fi fi-br-angle-double-small-left" aria-hidden="true"></i>`;
@@ -928,6 +931,7 @@ function getFocusZone(el) {
   // section-header ต้องมาก่อน #pagination: ในแอป pagination ย้ายเข้าไปอยู่ใน section-header
   // → ปุ่มหน้าเลยเป็น zone "section" เดียวกับ back/sort เลื่อนซ้าย/ขวาข้ามกันได้ในแถวเดียว
   if (el.closest?.(".section-header")) return "section";
+  if (el.closest?.(".range-bar")) return "range";
   if (el.closest?.(".pagination")) return "pagination";
   if (el.closest?.("#app-header")) return "header";
   return "other";
@@ -994,6 +998,7 @@ function getDirectionalCandidates(current, directionKey, elements) {
   const paginations = elements.filter(
     (el) => getFocusZone(el) === "pagination",
   );
+  const ranges = elements.filter((el) => getFocusZone(el) === "range");
   const sections = elements.filter((el) => getFocusZone(el) === "section");
   const headers = elements.filter((el) => getFocusZone(el) === "header");
 
@@ -1007,14 +1012,26 @@ function getDirectionalCandidates(current, directionKey, elements) {
         directionKey === "ArrowDown" &&
         !hasDirectionalCandidate(current, cards, directionKey)
       ) {
-        return [...paginations, ...cards];
+        // แถวการ์ดล่างสุดกดลง → แถบช่วงตอน/pagination ที่อยู่ใต้กริด
+        return [...paginations, ...ranges, ...cards];
       }
       return cards;
     }
     if (directionKey === "ArrowUp") {
       if (hasDirectionalCandidate(current, cards, directionKey)) return cards;
-      return [...sections, ...headers, ...cards];
+      // แถวการ์ดบนสุดกดขึ้น → ไปแถบช่วงตอนก่อน (อยู่เหนือกริดพอดี) แล้วค่อยหัวข้อ/เฮดเดอร์
+      return [...ranges, ...sections, ...headers, ...cards];
     }
+  }
+
+  // แถบช่วงตอนมี 2 ชุด (บน/ล่างกริด) → ต้องมี cards อยู่ในชุดผู้สมัครทั้งขึ้นและลง
+  // ตัวที่ถูกเลือกคิดจากระยะทางจริง: แถบบนกดขึ้นได้หัวข้อ, แถบล่างกดขึ้นได้การ์ดแถวสุดท้าย
+  if (zone === "range") {
+    if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
+      return ranges;
+    if (directionKey === "ArrowDown") return [...cards, ...ranges];
+    if (directionKey === "ArrowUp")
+      return [...cards, ...sections, ...headers, ...ranges];
   }
 
   if (zone === "pagination") {
@@ -1031,7 +1048,7 @@ function getDirectionalCandidates(current, directionKey, elements) {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
       return sections;
     if (directionKey === "ArrowDown")
-      return [...cards, ...paginations, ...sections];
+      return [...ranges, ...cards, ...paginations, ...sections];
     if (directionKey === "ArrowUp") return [...headers, ...sections];
   }
 
@@ -1039,7 +1056,7 @@ function getDirectionalCandidates(current, directionKey, elements) {
     if (directionKey === "ArrowLeft" || directionKey === "ArrowRight")
       return headers;
     if (directionKey === "ArrowDown")
-      return [...sections, ...cards, ...paginations];
+      return [...sections, ...ranges, ...cards, ...paginations];
     if (directionKey === "ArrowUp") return headers;
   }
 
@@ -1554,16 +1571,41 @@ function goBackOneStep() {
 }
 
 /* ===== Render episode cards ===== */
-function renderStations(stations, referer, sectionTitle) {
+/** แถบเลือกช่วงตอน — แสดงเฉพาะเรื่องที่ตอนเกิน EPISODE_CHUNK_SIZE
+ *  วางทั้งบนและล่างกริด (เหมือน pagination ของหน้ารายการ) เพราะช่วงละ 100 ตอน
+ *  = ~25 แถว ถ้ามีแต่ด้านบนจะต้องกดขึ้นยาวมากกว่าจะเปลี่ยนช่วงได้ */
+function renderEpisodeRangeBar(total, activeChunk, pos) {
+  const chunkCount = Math.ceil(total / EPISODE_CHUNK_SIZE);
+  let chips = "";
+  for (let c = 0; c < chunkCount; c++) {
+    const from = c * EPISODE_CHUNK_SIZE + 1;
+    const to = Math.min((c + 1) * EPISODE_CHUNK_SIZE, total);
+    chips += `<button class="range-chip${c === activeChunk ? " active" : ""}" data-chunk="${c}" aria-label="ตอน ${from} ถึง ${to}">${from}-${to}</button>`;
+  }
+  return `<nav class="range-bar" data-pos="${pos}" aria-label="ช่วงตอน">${chips}</nav>`;
+}
+
+function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
+  const total = stations.length;
+  const useChunks = total > EPISODE_CHUNK_SIZE;
+  const chunkCount = useChunks ? Math.ceil(total / EPISODE_CHUNK_SIZE) : 1;
+  const chunk = Math.max(0, Math.min(chunkIndex, chunkCount - 1));
+  const start = useChunks ? chunk * EPISODE_CHUNK_SIZE : 0;
+  const end = useChunks ? Math.min(start + EPISODE_CHUNK_SIZE, total) : total;
+
   gridView.innerHTML = `${renderSectionHeader(sectionTitle)}
-    <div class="card-grid landscape"></div>`;
+    ${useChunks ? renderEpisodeRangeBar(total, chunk, "top") : ""}
+    <div class="card-grid landscape"></div>
+    ${useChunks ? renderEpisodeRangeBar(total, chunk, "bottom") : ""}`;
 
   const grid = gridView.querySelector(".card-grid");
   document
     .getElementById("section-back")
     ?.addEventListener("click", goBackOneStep);
 
-  stations.forEach((station, i) => {
+  // เดินด้วย index จริงของ stations เสมอ — openPlayer ใช้ index นี้หาตอนถัดไป
+  for (let i = start; i < end; i++) {
+    const station = stations[i];
     const card = makeCard({
       name: station.name || `ตอนที่ ${i + 1}`,
       image: station.image,
@@ -1577,6 +1619,23 @@ function renderStations(stations, referer, sectionTitle) {
     });
 
     grid.appendChild(card);
+  }
+
+  if (!useChunks) return;
+  gridView.querySelectorAll(".range-chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const next = Number(btn.dataset.chunk);
+      if (next === chunk) return;
+      const pos = btn.closest(".range-bar")?.dataset.pos || "top";
+      renderStations(stations, referer, sectionTitle, next);
+      // re-render แล้ว DOM เดิมหาย — โฟกัสชิปช่วงใหม่ของแถบฝั่งเดิมที่กดมา
+      // (ถ้าโฟกัสแถบบนเสมอ คนที่กดจากแถบล่างจะถูกเด้งไปคนละที่)
+      const active = gridView.querySelector(
+        `.range-bar[data-pos="${pos}"] .range-chip.active`,
+      );
+      if (active) focusTVElement(active);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   });
 }
 

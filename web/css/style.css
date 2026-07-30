@@ -713,6 +713,15 @@ button:focus:not(:focus-visible),
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
+/* จอทีวี: TizenBrowser/webOS + WebView บนทีวี รายงาน CSS viewport ~960px
+   ซึ่งกว้างเกิน breakpoint มือถือ (600px) เลยไปใช้กฎ desktop 280px = ได้แค่ 2 คอลัมน์
+   เรื่องที่มีพันตอนจึงต้องเลื่อนหลายร้อยแถว — ช่วงนี้จึงลดขนาดการ์ดให้ได้ 4 คอลัมน์ */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .card-grid.landscape {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+}
+
 /* ===== Card ===== */
 .card {
   cursor: pointer;
@@ -942,6 +951,47 @@ button:focus:not(:focus-visible),
   opacity: 0.45;
   cursor: default;
   transform: none;
+}
+
+/* ===== Episode range bar (เรื่องที่ตอนเยอะ) ===== */
+.range-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 40px 20px;
+}
+
+.range-chip {
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: 1;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.range-chip:hover:not(.active) {
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .28);
+  transform: translateY(-1px);
+}
+
+.range-chip.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* focus-visible ยังไม่รองรับบน TV browser เก่า → มี :focus ธรรมดาให้เห็นขอบตอนเลื่อนรีโมท */
+.range-chip:focus,
+.range-chip:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .page-ellipsis {
@@ -1844,6 +1894,11 @@ button:focus:not(:focus-visible),
     gap: 16px;
   }
 
+  .range-bar {
+    padding: 0 16px 16px;
+    gap: 6px;
+  }
+
   .card-grid.portrait {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
@@ -1898,6 +1953,9 @@ button:focus:not(:focus-visible),
 .no-flex-gap .section-title > * + * { margin-top: 2px; }
 .no-flex-gap .card-name > * + * { margin-top: 4px; }
 .no-flex-gap .pagination > * + * { margin-left: 10px; }
+/* .range-bar เป็น flex-wrap (ชิปเยอะจนตกบรรทัด) — ใช้ margin รอบตัวชิปแทน "> * + *"
+   ไม่งั้นแถวที่ตกลงมาจะติดกันในแนวตั้งจนอ่าน/เล็งด้วยรีโมทไม่ออก */
+.no-flex-gap .range-chip { margin: 0 8px 8px 0; }
 .no-flex-gap .page-btn > * + * { margin-left: 6px; }
 .no-flex-gap .page-numbers > * + * { margin-left: 6px; }
 .no-flex-gap #player-header > * + * { margin-left: 12px; }
