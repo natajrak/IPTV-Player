@@ -19,12 +19,24 @@
  *   --type=KIND        anime-series|series|anime-movie|movie (default: auto-detect)
  *
  * ─── Workflow ────────────────────────────────────────────────────────────
- *   Movie : page → iframe#player-iframe vid.php?...&id={movieId}
- *         → doo-play.com/embed/fasthd.php?key=nunghd4k&id={movieId}
- *         → var videoSrc = "{m3u8}"
+ *   Movie : page → iframe#player-url (เดิม #player-iframe) vid.php?...&id={movieId}
+ *         → play.gan-play.com/embed/fast168.php?key=nunghd4k&id={movieId}
+ *         → m3u8 ในหน้า embed (เดิม doo-play + var videoSrc = "{m3u8}")
  *   Series: page → select#primary-player-select option[0].value → api_player1.php URL
  *         → fetch → JSON [{url, episode}, ...]
- *         → doo-play.com/embed/?id={seriesId}&ep={N}&type=series
+ *         → gan-play/embed/?id={seriesId}&ep={N}&type=series
+ *
+ * ─── หมายเหตุการย้าย host ────────────────────────────────────────────────
+ *   เว็บเปลี่ยน id ของ iframe (player-iframe → player-url) และย้าย embed
+ *   จาก doo-play.com ไป play.gan-play.com (doo-play ยัง 200 แต่คืนหน้าเปล่า)
+ *   ทั้งสองเส้นทางจึงลอง host ใหม่ก่อนแล้ว fallback ไปตัวเดิม
+ *
+ *   CDN เช็ค Referer ว่าต้องเป็น origin ของหน้า embed (play.gan-play.com)
+ *   ไม่ใช่ nunghd4k.com — ใส่ referer ผิดจะดึง m3u8 ได้แต่เล่นไม่ออก
+ *   ("ไม่สามารถใช้งานได้กรุณาติดต่อผู้ให้บริการ") จึงต้องห่อผ่าน CF Worker
+ *
+ *   เว็บนี้มีแต่หนัง ไม่มี series (หมวดซีรีส์ 404) — โค้ดเส้นทาง series
+ *   เก็บไว้เผื่ออนาคตเท่านั้น ยังไม่เคยทดสอบกับของจริง
  */
 
 const cheerio = require('cheerio');
@@ -62,6 +74,12 @@ if (!pageUrl && !updateMeta) {
 
 const SITE_ORIGIN = 'https://www.nunghd4k.com';
 const DOOPLAY_REFERER = 'https://www.nunghd4k.com/';
+// CDN ปลายทางเช็ค Referer ว่าต้องเป็น origin ของ "หน้า embed" (เช่น play.gan-play.com)
+// ไม่ใช่หน้าเว็บต้นทาง — และ browser ตั้ง header Referer เองไม่ได้ จึงต้องผ่าน CF Worker
+const CF_PROXY = 'https://shy-haze-2452.natajrak-p.workers.dev/';
+function proxyUrl(streamUrl, referer) {
+  return `${CF_PROXY}?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(referer)}`;
+}
 const SITE_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36',
   'Accept-Language': 'th-TH,th;q=0.9,en;q=0.8',
@@ -93,7 +111,12 @@ async function parsePage(url) {
     .replace(/\s*พากย์ไทย.*$/i, '')
     .trim();
 
-  const iframeSrc = $('iframe#player-iframe').attr('src') || '';
+  // เว็บเปลี่ยน id จาก player-iframe → player-url — รับทั้งสองแบบ (และ iframe ที่ชี้ vid.php ตรงๆ)
+  const iframeSrc =
+    $('iframe#player-url').attr('src') ||
+    $('iframe#player-iframe').attr('src') ||
+    $('iframe[src*="vid.php"]').attr('src') ||
+    '';
   const hasVidPhp = iframeSrc.includes('vid.php');
   const hasApiSelect = $('select#primary-player-select').length > 0;
 
@@ -121,28 +144,56 @@ async function parsePage(url) {
   }
 }
 
+/** สกัด stream URL จากหน้า embed — รองรับทั้งรูปแบบเดิมและ m3u8 ที่ฝังตรงๆ */
+function extractStreamFromEmbed(html) {
+  const patterns = [
+    /var\s+videoSrc\s*=\s*["']([^"']+)["']/,
+    /sources\s*:\s*\[\s*\{[^}]*file\s*:\s*["']([^"']+)["']/,
+    /["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/,
+  ];
+  for (const re of patterns) {
+    const m = html.match(re);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+/** ลอง host ใหม่ (gan-play) ก่อน แล้ว fallback ไปตัวเดิม (doo-play) */
+async function fetchEmbedStream(candidates) {
+  for (const embedUrl of candidates) {
+    try {
+      const html = await fetchHtml(embedUrl, { Referer: DOOPLAY_REFERER });
+      const url = extractStreamFromEmbed(html);
+      // referer ที่ CDN ยอมรับคือ origin ของหน้า embed ที่ดึง stream มาได้ ไม่ใช่หน้าเว็บ
+      if (url) return { url, referer: `${new URL(embedUrl).origin}/`, embedUrl };
+    } catch (err) {
+      console.warn(`  ⚠️  embed ล้มเหลว (${new URL(embedUrl).host}): ${err.message}`);
+    }
+  }
+  return null;
+}
+
 async function getMovieStream(movieId) {
-  const embedUrl = `https://doo-play.com/embed/fasthd.php?key=nunghd4k&id=${movieId}`;
-  console.log(`\n🔗 กำลัง fetch embed: ${embedUrl}`);
-  const html = await fetchHtml(embedUrl, { Referer: DOOPLAY_REFERER });
-  const m = html.match(/var\s+videoSrc\s*=\s*["']([^"']+)["']/);
-  if (!m) throw new Error('ไม่พบ videoSrc ใน doo-play embed');
-  console.log('✅ พบ stream URL');
-  return { url: m[1], referer: DOOPLAY_REFERER };
+  const candidates = [
+    `https://play.gan-play.com/embed/fast168.php?key=nunghd4k&id=${movieId}`,
+    `https://doo-play.com/embed/fasthd.php?key=nunghd4k&id=${movieId}`,
+  ];
+  console.log(`\n🔗 กำลัง fetch embed: ${candidates[0]}`);
+  const found = await fetchEmbedStream(candidates);
+  if (!found) throw new Error('ไม่พบ stream URL ใน embed (ลองครบทุก host แล้ว)');
+  console.log(`✅ พบ stream URL จาก ${new URL(found.embedUrl).host}`);
+  return { url: found.url, referer: found.referer };
 }
 
 async function getSeriesStream(seriesId, epNum) {
-  const embedUrl = `https://doo-play.com/embed/?id=${seriesId}&ep=${epNum}&type=series`;
-  const html = await fetchHtml(embedUrl, { Referer: DOOPLAY_REFERER });
-
-  const m1 = html.match(/var\s+videoSrc\s*=\s*["']([^"']+)["']/);
-  if (m1) return { url: m1[1], referer: DOOPLAY_REFERER };
-  const m2 = html.match(/sources\s*:\s*\[\s*\{[^}]*file\s*:\s*["']([^"']+)["']/);
-  if (m2) return { url: m2[1], referer: DOOPLAY_REFERER };
-  const m3 = html.match(/['"](https?:\/\/[^'"]+\.m3u8[^'"]*)['"]/);
-  if (m3) return { url: m3[1], referer: DOOPLAY_REFERER };
-
-  throw new Error(`ไม่พบ stream URL ใน episode ${epNum} (seriesId: ${seriesId})`);
+  const found = await fetchEmbedStream([
+    `https://play.gan-play.com/embed/?id=${seriesId}&ep=${epNum}&type=series`,
+    `https://doo-play.com/embed/?id=${seriesId}&ep=${epNum}&type=series`,
+  ]);
+  if (!found) {
+    throw new Error(`ไม่พบ stream URL ใน episode ${epNum} (seriesId: ${seriesId})`);
+  }
+  return { url: found.url, referer: found.referer };
 }
 
 async function fetchEpisodeList(apiUrl) {
@@ -249,7 +300,7 @@ async function main() {
       stations.push({
         name: trackName,
         image: posterUrl,
-        url: stream.url,
+        url: proxyUrl(stream.url, stream.referer),
         referer: stream.referer,
         release_date: tmdbShow?.release_date || '',
       });
@@ -294,7 +345,7 @@ async function main() {
         stations.push({
           name: utils.buildStationName(epLabel, epTitle, isDubbedTrack),
           ...(epThumb && { image: epThumb }),
-          url: stream?.url || epEmbedUrl,
+          url: stream ? proxyUrl(stream.url, stream.referer) : epEmbedUrl,
           referer: stream?.referer || DOOPLAY_REFERER,
           release_date: tmdbEp?.air_date || '',
         });

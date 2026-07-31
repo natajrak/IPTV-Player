@@ -100,39 +100,35 @@ function extractLeoPlayerIds($) {
   return ids;
 }
 
-/** Call leoplayer7 API to get stream hash. */
+/** สกัด hash จาก source.url — คืน null ถ้ารูปแบบไม่ตรง (เช่น ".../p2p/" ที่ว่างท้าย) */
+function extractStreamHash(sourceUrl) {
+  const s = String(sourceUrl || '');
+  const m = s.match(/\/p2p\/([a-f0-9]+)/i) || s.match(/\/([a-f0-9]{32})/);
+  return m ? m[1] : null;
+}
+
+/** Call leoplayer7 API to get stream hash.
+ *  ไล่ทุก endpoint จนกว่าจะ "สกัด hash ได้" — ไม่ใช่แค่ตอน source.url ว่าง
+ *  เพราะ mediahls3 อาจคืน url ที่มีค่าแต่ไม่มี hash (".../p2p/" เฉยๆ)
+ *  ซึ่งเงื่อนไขเดิม (!sourceUrl) มองว่ามีค่าแล้วเลยข้าม endpoint สำรองไปทั้งหมด */
 async function getStreamHash(leoId) {
-  const apiUrl = `https://www.leoplayer7.com/api/analogy/mediahls3/${leoId}`;
-  try {
-    const resp = await fetchJson(apiUrl);
-    const data = typeof resp.data === 'string' ? JSON.parse(resp.data) : resp.data;
-    const sourceUrl = data?.source?.url || '';
-    if (!sourceUrl) {
-      const altApis = [
-        `https://www.leoplayer7.com/api/analogy/mediahls4/${leoId}`,
-        `https://www.leoplayer7.com/api/analogy/mediahls2/${leoId}`,
-        `https://www.leoplayer7.com/api/analogy/mediahls/${leoId}`,
-      ];
-      for (const altUrl of altApis) {
-        try {
-          const altResp = await fetchJson(altUrl);
-          const altData = typeof altResp.data === 'string' ? JSON.parse(altResp.data) : altResp.data;
-          const altSourceUrl = altData?.source?.url || '';
-          if (altSourceUrl) {
-            console.log(`\n    🔄 พบ hash จาก ${altUrl.split('/api/')[1]}`);
-            const am = altSourceUrl.match(/\/p2p\/([a-f0-9]+)/i) || altSourceUrl.match(/\/([a-f0-9]{32})/);
-            if (am) return am[1];
-          }
-        } catch {}
+  const apis = ['mediahls3', 'mediahls4', 'mediahls2', 'mediahls'].map(
+    (name) => `https://www.leoplayer7.com/api/analogy/${name}/${leoId}`,
+  );
+  for (let i = 0; i < apis.length; i++) {
+    try {
+      const resp = await fetchJson(apis[i]);
+      const data = typeof resp.data === 'string' ? JSON.parse(resp.data) : resp.data;
+      const hash = extractStreamHash(data?.source?.url);
+      if (hash) {
+        if (i > 0) console.log(`\n    🔄 พบ hash จาก ${apis[i].split('/api/')[1]}`);
+        return hash;
       }
-      return null;
+    } catch (err) {
+      if (i === 0) console.warn(`  ⚠️ API error for ID ${leoId}: ${err.message}`);
     }
-    const m = sourceUrl.match(/\/p2p\/([a-f0-9]+)/i) || sourceUrl.match(/\/([a-f0-9]{32})/);
-    return m ? m[1] : null;
-  } catch (err) {
-    console.warn(`  ⚠️ API error for ID ${leoId}: ${err.message}`);
-    return null;
   }
+  return null;
 }
 
 /** Build m3u8 stream URL from hash, wrapped through CF Worker proxy */

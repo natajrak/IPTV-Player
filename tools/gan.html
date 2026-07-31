@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Fantastic Beasts and Where to Find Them (2016) สัตว์มหัศจรรย์และถิ่นที่อยู่</title>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden}
+body{font-family:Arial,Helvetica,sans-serif}
+
+#player-wrap{
+    position:relative;
+    width:100%;
+    height:100vh;
+    background:#000;
+    overflow:hidden;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-tap-highlight-color:transparent;
+}
+#player-wrap video{
+    width:100%;
+    height:100%;
+    display:block;
+    background:#000;
+    object-fit:contain;
+}
+
+/* Cinematic Overlay */
+#player-wrap:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    background:
+        linear-gradient(to bottom,rgba(0,0,0,.68),transparent 32%,transparent 66%,rgba(0,0,0,.6)),
+        radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.45) 100%);
+    transition:opacity .25s ease;
+}
+body.is-playing #player-wrap:before{opacity:0}
+
+#player-wrap:after{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    z-index:1;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 50% 50%,rgba(88,166,255,.13),transparent 42%),
+        radial-gradient(circle at 20% 80%,rgba(150,80,255,.09),transparent 34%);
+    opacity:.85;
+    transition:opacity .25s ease;
+}
+body.is-playing #player-wrap:after{opacity:.25}
+
+/* Title */
+#player-meta{
+    position:absolute;
+    top:22px;
+    left:24px;
+    right:24px;
+    z-index:25;
+    color:#fff;
+    pointer-events:none;
+    text-shadow:0 2px 12px rgba(0,0,0,.9);
+    transition:opacity .25s ease,transform .25s ease;
+}
+#player-meta .meta-title{
+    max-width:760px;
+    font-size:18px;
+    font-weight:700;
+    line-height:1.35;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+#player-meta .meta-sub{
+    margin-top:7px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:6px 11px;
+    border-radius:999px;
+    background:rgba(0,0,0,.42);
+    color:rgba(255,255,255,.82);
+    font-size:12px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+#player-meta .meta-sub:before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#35d07f;
+    box-shadow:0 0 12px rgba(53,208,127,.78);
+}
+body.is-playing #player-meta{
+    opacity:0;
+    transform:translateY(-8px);
+}
+
+/* Resume Panel กลางจอ */
+#resume-panel{
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:38;
+    transform:translate(-50%,-50%);
+    display:none;
+    width:min(460px,calc(100% - 40px));
+    text-align:center;
+    color:#fff;
+}
+.resume-box{
+    width:100%;
+    padding:28px 24px 22px;
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 30% 20%,rgba(255,255,255,.20),rgba(255,255,255,.07) 34%,rgba(0,0,0,.76) 100%);
+    box-shadow:
+        0 30px 95px rgba(0,0,0,.66),
+        0 0 46px rgba(88,166,255,.20),
+        inset 0 0 0 1px rgba(255,255,255,.14);
+}
+.resume-label{
+    font-size:14px;
+    color:rgba(255,255,255,.76);
+    margin-bottom:8px;
+    letter-spacing:.3px;
+}
+.resume-time{
+    font-size:40px;
+    font-weight:900;
+    line-height:1.1;
+    margin-bottom:20px;
+    text-shadow:0 2px 16px rgba(0,0,0,.75);
+}
+.resume-main{
+    width:100%;
+    border:0;
+    outline:none;
+    cursor:pointer;
+    padding:16px 18px;
+    border-radius:999px;
+    color:#fff;
+    background:linear-gradient(135deg,#1677ff,#42a5ff);
+    box-shadow:
+        0 15px 38px rgba(22,119,255,.36),
+        inset 0 0 0 1px rgba(255,255,255,.18);
+    font-size:17px;
+    font-weight:900;
+}
+.resume-main:hover{filter:brightness(1.08)}
+.resume-secondary{
+    margin-top:11px;
+    width:100%;
+    border:0;
+    outline:none;
+    cursor:pointer;
+    padding:13px 16px;
+    border-radius:999px;
+    color:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.12);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* Loading */
+#loading{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:14px;
+    background:rgba(0,0,0,.72);
+    color:#d7d7d7;
+    font-size:15px;
+    transition:opacity .25s ease;
+}
+#loading.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+#loading .spinner{
+    width:42px;
+    height:42px;
+    border:3px solid rgba(255,255,255,.16);
+    border-top-color:#58a6ff;
+    border-radius:50%;
+    animation:spin .75s linear infinite;
+}
+#loadingText{
+    padding:9px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    letter-spacing:.2px;
+}
+#loadingText:after{
+    content:"";
+    display:inline-block;
+    width:18px;
+    text-align:left;
+    animation:dots 1.2s steps(4,end) infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes dots{
+    0%{content:""}
+    25%{content:"."}
+    50%{content:".."}
+    75%{content:"..."}
+    100%{content:""}
+}
+
+/* Center Play */
+#center-play{
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index:30;
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.92);
+    background:
+        radial-gradient(circle at 35% 30%,rgba(255,255,255,.24),rgba(255,255,255,.06) 35%,rgba(0,0,0,.66) 100%);
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.48),
+        0 0 28px rgba(88,166,255,.12),
+        inset 0 0 0 1px rgba(255,255,255,.13);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:translate(-50%,-50%);
+    transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+    overflow:hidden;
+}
+#center-play:hover{
+    transform:translate(-50%,-50%) scale(1.06);
+    background:
+        radial-gradient(circle at 35% 30%,rgba(255,255,255,.3),rgba(255,255,255,.09) 35%,rgba(0,0,0,.78) 100%);
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.6),
+        0 0 34px rgba(88,166,255,.22),
+        inset 0 0 0 1px rgba(255,255,255,.18);
+}
+#center-play:active{transform:translate(-50%,-50%) scale(.98)}
+#center-play:before{
+    content:"";
+    margin-left:8px;
+    width:0;
+    height:0;
+    border-top:21px solid transparent;
+    border-bottom:21px solid transparent;
+    border-left:34px solid #fff;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+}
+#center-play:after{
+    content:"";
+    position:absolute;
+    inset:-12px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.24);
+    animation:playPulse 1.8s ease-out infinite;
+}
+@keyframes playPulse{
+    0%{transform:scale(.78);opacity:.75}
+    100%{transform:scale(1.28);opacity:0}
+}
+
+/* HUD */
+#action-hud{
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:60;
+    transform:translate(-50%,-50%) scale(.96);
+    opacity:0;
+    pointer-events:none;
+    min-width:120px;
+    max-width:80%;
+    padding:13px 18px;
+    border-radius:18px;
+    color:#fff;
+    background:rgba(0,0,0,.68);
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.48),
+        inset 0 0 0 1px rgba(255,255,255,.12);
+    font-size:18px;
+    font-weight:800;
+    text-align:center;
+    text-shadow:0 1px 6px rgba(0,0,0,.55);
+    transition:opacity .16s ease,transform .16s ease;
+}
+#action-hud.show{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+/* Double Tap Visual */
+.tap-zone{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:50%;
+    z-index:8;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .16s ease;
+}
+#tap-left{
+    left:0;
+    background:radial-gradient(circle at 25% 50%,rgba(255,255,255,.15),transparent 36%);
+}
+#tap-right{
+    right:0;
+    background:radial-gradient(circle at 75% 50%,rgba(255,255,255,.15),transparent 36%);
+}
+.tap-zone.show{opacity:1}
+
+/* Skip Intro */
+#skip-intro{
+    position:absolute;
+    right:24px;
+    bottom:88px;
+    z-index:45;
+    display:none;
+    border:0;
+    outline:none;
+    cursor:pointer;
+    padding:12px 17px;
+    border-radius:999px;
+    color:#fff;
+    background:rgba(0,0,0,.7);
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.42),
+        inset 0 0 0 1px rgba(255,255,255,.14);
+    font-size:13px;
+    font-weight:800;
+}
+#skip-intro:hover{background:rgba(0,0,0,.88)}
+
+/* Next Episode */
+#next-panel{
+    position:absolute;
+    right:24px;
+    bottom:88px;
+    z-index:50;
+    width:min(370px,calc(100% - 48px));
+    display:none;
+    padding:17px;
+    border-radius:22px;
+    color:#fff;
+    background:
+        radial-gradient(circle at 20% 0%,rgba(255,255,255,.14),rgba(255,255,255,.05) 35%,rgba(8,8,10,.82) 100%);
+    box-shadow:
+        0 24px 70px rgba(0,0,0,.58),
+        0 0 35px rgba(22,119,255,.12),
+        inset 0 0 0 1px rgba(255,255,255,.13);
+}
+#next-panel .next-title{
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+#next-panel .next-desc{
+    font-size:12px;
+    color:rgba(255,255,255,.72);
+    margin-bottom:13px;
+}
+#next-panel .next-actions{
+    display:flex;
+    gap:8px;
+}
+#next-panel button{
+    flex:1;
+    border:0;
+    outline:none;
+    cursor:pointer;
+    padding:11px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:800;
+}
+#next-play{color:#fff;background:#1677ff}
+#next-cancel{color:#fff;background:rgba(255,255,255,.14)}
+
+#retry-info{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:54px;
+    z-index:9998;
+    padding:0 12px;
+    text-align:center;
+    color:rgba(255,255,255,.48);
+    font-size:13px;
+    line-height:1.4;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+@media (prefers-reduced-motion:reduce){
+    #center-play:after,
+    #loading .spinner,
+    #loadingText:after{animation:none}
+}
+
+@media (max-width:600px){
+    #player-meta{top:16px;left:16px;right:16px}
+    #player-meta .meta-title{font-size:15px;max-width:100%}
+    #player-meta .meta-sub{font-size:11px;padding:5px 9px}
+
+    #center-play{width:76px;height:76px}
+    #center-play:before{
+        border-top-width:17px;
+        border-bottom-width:17px;
+        border-left-width:27px;
+    }
+
+    #resume-panel{width:calc(100% - 34px)}
+    .resume-box{padding:24px 18px 19px;border-radius:25px}
+    .resume-time{font-size:31px}
+    .resume-main{font-size:15px;padding:14px 16px}
+
+    #skip-intro{right:16px;bottom:78px;font-size:12px;padding:10px 13px}
+    #next-panel{right:16px;bottom:78px;width:calc(100% - 32px)}
+    #action-hud{font-size:16px;border-radius:16px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading" class="hidden">
+    <div class="spinner"></div>
+    <div id="loadingText">กำลังโหลด</div>
+</div>
+
+<div id="player-wrap">
+    <video
+        id="v"
+        controls
+        preload="none"
+        playsinline
+        poster="https://image.tmdb.org/t/p/w500/h6NYfVUyM6CDURtZSnBpz647Ldd.jpg"
+    ></video>
+
+    <div id="tap-left" class="tap-zone"></div>
+    <div id="tap-right" class="tap-zone"></div>
+
+    <div id="player-meta">
+        <div class="meta-title">Fantastic Beasts and Where to Find Them (2016) สัตว์มหัศจรรย์และถิ่นที่อยู่</div>
+        <div class="meta-sub">กดเพื่อเริ่มรับชม</div>
+    </div>
+
+    <div id="resume-panel">
+        <div class="resume-box">
+            <div class="resume-label">ดูต่อจาก</div>
+            <div class="resume-time" id="resume-time">0:00</div>
+            <button id="resume-main" class="resume-main" type="button">▶ ดูต่อ</button>
+            <button id="resume-start-over" class="resume-secondary" type="button">เริ่มดูใหม่ตั้งแต่ต้น</button>
+        </div>
+    </div>
+
+    <button id="center-play" type="button" aria-label="Play"></button>
+    <button id="skip-intro" type="button">ข้าม Intro</button>
+
+    <div id="next-panel">
+        <div class="next-title">ตอนถัดไป</div>
+        <div class="next-desc" id="next-desc">กำลังไปตอนถัดไป...</div>
+        <div class="next-actions">
+            <button id="next-play" type="button">เล่นตอนถัดไป</button>
+            <button id="next-cancel" type="button">ยกเลิก</button>
+        </div>
+    </div>
+
+    <div id="action-hud"></div>
+</div>
+
+<div id="retry-info"></div>
+
+<script>
+var WORKER_URL = "https://add-sv02.webp-p2p-01.xyz/1080p/7zpqn8/7zpqn8/index.m3u8";
+var FALLBACK_URLS = ["https://seriessv02.cdnmovie.xyz/1080p/7zpqn8/7zpqn8/index.m3u8","https://master.p2p-cdnmovie.xyz/1080p/7zpqn8/7zpqn8/index.m3u8","https://mp4.cdnmovie.xyz/movie2025/1080p/7zpqn8/7zpqn8/index.m3u8","https://ccdp2p001.site/server/m3u8_proxy.php?type=1080p&id=7zpqn8&ep=1","https://seriessv03.cdnmovie.xyz/playlist/index.php?type=1080p&id=7zpqn8&ep=1","https://ccdp2p001.site/server/m3u8_proxy.php?url=https%3A%2F%2Fcdn.player2u.com%2F1%2Fhv2%2FMVBKUUV4Znh3VE0tRVE3b0M3R29TVkQ0Z0ZhVC1XbXZQ%2Fplaylist.m3u8&slug=cdnplayer2ucom"];
+
+var PLAYER_KEY = "player_progress_ye8L455476_ep1";
+var SKIP_INTRO_SEC = 90;
+var HAS_NEXT_EP = false;
+var NEXT_EP_URL = "/embed/fast168.php?key=nunghd4k&id=ye8L455476&ep=2";
+
+var urlIndex = 0;
+
+var video = document.getElementById('v');
+var playerWrap = document.getElementById('player-wrap');
+var playBtn = document.getElementById('center-play');
+
+var resumePanel = document.getElementById('resume-panel');
+var resumeTimeEl = document.getElementById('resume-time');
+var resumeMain = document.getElementById('resume-main');
+var resumeStartOver = document.getElementById('resume-start-over');
+
+var skipIntroBtn = document.getElementById('skip-intro');
+var nextPanel = document.getElementById('next-panel');
+var nextDesc = document.getElementById('next-desc');
+var nextPlay = document.getElementById('next-play');
+var nextCancel = document.getElementById('next-cancel');
+
+var actionHud = document.getElementById('action-hud');
+var tapLeft = document.getElementById('tap-left');
+var tapRight = document.getElementById('tap-right');
+
+var loadingEl = document.getElementById('loading');
+var loadingText = document.getElementById('loadingText');
+var retryInfo = document.getElementById('retry-info');
+
+var hls = null;
+var manifestTimer = null;
+var stallTimer = null;
+var saveTimer = null;
+var hudTimer = null;
+var tapTimer = null;
+
+var lastTime = 0;
+var stallCount = 0;
+var seekGraceUntil = 0;
+var lastSeekTarget = 0;
+
+var USING_FALLBACK = false;
+var playerStarted = false;
+var pendingPlay = false;
+var resumeApplied = false;
+var skipResumeOnce = false;
+var requestedResumeTime = 0;
+var nextCancelled = false;
+
+var WORKER_TIMEOUT_MS = 12 * 1000;
+var FALLBACK_TIMEOUT_MS = 7 * 1000;
+var URL_TIMEOUT_MS = WORKER_TIMEOUT_MS;
+
+var STALL_CHECK_MS = 3000;
+var STALL_LIMIT = 3;
+var SEEK_GRACE_MS = 12000;
+
+var lastTapTime = 0;
+var lastTapSide = '';
+
+function formatTime(sec){
+    sec = Math.max(0, Math.floor(sec || 0));
+    var h = Math.floor(sec / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var s = sec % 60;
+
+    if (h > 0) {
+        return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    }
+
+    return m + ':' + String(s).padStart(2, '0');
+}
+
+function showHud(text){
+    actionHud.textContent = text;
+    actionHud.classList.add('show');
+
+    if (hudTimer) clearTimeout(hudTimer);
+
+    hudTimer = setTimeout(function(){
+        actionHud.classList.remove('show');
+    }, 850);
+}
+
+function showTapVisual(side){
+    var el = side === 'left' ? tapLeft : tapRight;
+    el.classList.add('show');
+
+    if (tapTimer) clearTimeout(tapTimer);
+
+    tapTimer = setTimeout(function(){
+        tapLeft.classList.remove('show');
+        tapRight.classList.remove('show');
+    }, 260);
+}
+
+function getSavedProgress(){
+    try {
+        var raw = localStorage.getItem(PLAYER_KEY);
+        var n = parseFloat(raw);
+
+        if (!isNaN(n) && n > 20) {
+            return n;
+        }
+    } catch(e) {}
+
+    return 0;
+}
+
+function clearSavedProgress(){
+    try {
+        localStorage.removeItem(PLAYER_KEY);
+    } catch(e) {}
+}
+
+function saveProgressNow(){
+    if (!playerStarted) return;
+    if (!video || !video.currentTime) return;
+
+    var ct = video.currentTime || 0;
+    var duration = video.duration || 0;
+
+    if (duration && isFinite(duration) && duration > 0 && duration - ct < 25) {
+        clearSavedProgress();
+        return;
+    }
+
+    if (ct > 10) {
+        try {
+            localStorage.setItem(PLAYER_KEY, String(Math.floor(ct)));
+        } catch(e) {}
+    }
+}
+
+function initResumePanel(){
+    var saved = getSavedProgress();
+
+    if (saved > 20) {
+        resumeTimeEl.textContent = formatTime(saved);
+        resumePanel.style.display = 'block';
+        playBtn.style.display = 'none';
+    } else {
+        resumePanel.style.display = 'none';
+        playBtn.style.display = 'flex';
+    }
+}
+
+function hideStartOverlays(){
+    playBtn.style.display = 'none';
+    resumePanel.style.display = 'none';
+}
+
+function showPauseOverlay(){
+    if (video.ended) return;
+    resumePanel.style.display = 'none';
+    playBtn.style.display = 'flex';
+}
+
+function getCurrentUrl(){
+    if (!USING_FALLBACK) return WORKER_URL;
+
+    var fi = urlIndex - 1;
+
+    if (fi >= 0 && fi < FALLBACK_URLS.length) {
+        return FALLBACK_URLS[fi];
+    }
+
+    return null;
+}
+
+function recoverCurrentPlayback(reason){
+    console.log('♻️ RECOVER:', reason || 'unknown');
+
+    seekGraceUntil = Date.now() + SEEK_GRACE_MS;
+    stallCount = 0;
+    loadingEl.classList.remove('hidden');
+    loadingText.textContent = 'กำลังกู้การเล่น';
+    retryInfo.textContent = '';
+
+    if (hls) {
+        try { hls.startLoad(-1); } catch(e) {}
+        try { hls.recoverMediaError(); } catch(e) {}
+        try {
+            if (video && video.currentTime > 0) {
+                video.currentTime = Math.max(0, video.currentTime - 0.01);
+            }
+        } catch(e) {}
+        return true;
+    }
+
+    if (video && video.src) {
+        try { video.load(); } catch(e) {}
+        try { video.play().catch(function(){}); } catch(e) {}
+        return true;
+    }
+
+    return false;
+}
+
+function tryNextUrl(){
+    if (!USING_FALLBACK) {
+        var url = WORKER_URL;
+
+        if (!url) {
+            if (FALLBACK_URLS.length > 0) {
+                USING_FALLBACK = true;
+                urlIndex = 0;
+                tryNextUrl();
+            } else {
+                loadingText.textContent = '❌ ไม่พบแหล่งเล่น';
+                retryInfo.textContent = '';
+                loadingEl.classList.remove('hidden');
+                playBtn.style.display = 'flex';
+                pendingPlay = false;
+                showHud('เล่นไม่ได้');
+            }
+            return;
+        }
+
+        urlIndex = 0;
+        URL_TIMEOUT_MS = WORKER_TIMEOUT_MS;
+
+        loadingText.textContent = 'กำลังเชื่อมต่อ';
+        retryInfo.textContent = '';
+
+        startHls(url);
+        return;
+    }
+
+    urlIndex++;
+
+    var url = getCurrentUrl();
+
+    if (!url) {
+        if (recoverCurrentPlayback('no-fallback-url')) {
+            return;
+        }
+        loadingText.textContent = '❌ ไม่สามารถเล่นได้';
+        retryInfo.textContent = '';
+        loadingEl.classList.remove('hidden');
+
+        playBtn.style.display = 'flex';
+        pendingPlay = false;
+
+        showHud('เล่นไม่ได้');
+        return;
+    }
+
+    var remaining = FALLBACK_URLS.length - (urlIndex - 1) - 1;
+
+    URL_TIMEOUT_MS = FALLBACK_TIMEOUT_MS;
+
+    loadingText.textContent = 'กำลังลองสำรอง ' + urlIndex + '/' + FALLBACK_URLS.length;
+    retryInfo.textContent = 'Fallback #' + urlIndex + (remaining > 0 ? ' เหลือ ' + remaining + ' รายการ' : '');
+
+    showHud('กำลังสลับสำรอง');
+    startHls(url);
+}
+
+function startHls(url){
+    if (hls) {
+        try { hls.destroy(); } catch(e) {}
+        hls = null;
+    }
+
+    loadingEl.classList.remove('hidden');
+
+    if (manifestTimer) clearTimeout(manifestTimer);
+
+    manifestTimer = setTimeout(function(){
+        console.log('⏱ TIMEOUT ' + URL_TIMEOUT_MS / 1000 + 's: ' + String(url).substring(0, 80));
+
+        if (!USING_FALLBACK && FALLBACK_URLS.length === 0) {
+            if (recoverCurrentPlayback('manifest-timeout')) {
+                return;
+            }
+        }
+
+        if (!USING_FALLBACK) {
+            USING_FALLBACK = true;
+            urlIndex = 0;
+        }
+
+        tryNextUrl();
+    }, URL_TIMEOUT_MS);
+
+    if (Hls.isSupported()) {
+        hls = new Hls({
+            enableWorker: true,
+            lowLatencyMode: false,
+
+            maxBufferLength: 30,
+            maxMaxBufferLength: 60,
+            backBufferLength: 30,
+
+            manifestLoadingTimeOut: 10000,
+            levelLoadingTimeOut: 10000,
+            fragLoadingTimeOut: 20000,
+
+            manifestLoadingMaxRetry: 1,
+            levelLoadingMaxRetry: 1,
+            fragLoadingMaxRetry: 2
+        });
+
+        hls.loadSource(url);
+        hls.attachMedia(video);
+
+        hls.on(Hls.Events.MANIFEST_PARSED, function(){
+            okGotManifest();
+        });
+
+        hls.on(Hls.Events.LEVEL_LOADED, function(){
+            okGotLevel();
+        });
+
+        hls.on(Hls.Events.ERROR, function(event, data){
+            if (data && data.fatal) {
+                console.log('❌ FATAL:', data.type, data.details);
+
+                if (!USING_FALLBACK && FALLBACK_URLS.length === 0) {
+                    if (recoverCurrentPlayback('fatal-' + data.type + '-' + data.details)) {
+                        return;
+                    }
+                }
+
+                if (!USING_FALLBACK) {
+                    USING_FALLBACK = true;
+                    urlIndex = 0;
+                }
+
+                okGoNext();
+            }
+        });
+
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = url;
+
+        video.addEventListener('loadedmetadata', function onMeta(){
+            video.removeEventListener('loadedmetadata', onMeta);
+            okGotManifest();
+        }, { once: true });
+
+        video.addEventListener('error', function onErr(){
+            video.removeEventListener('error', onErr);
+            okGoNext();
+        }, { once: true });
+
+    } else {
+        okGoNext();
+    }
+}
+
+function applyResumeIfNeeded(){
+    if (resumeApplied) return;
+
+    if (skipResumeOnce) {
+        resumeApplied = true;
+        return;
+    }
+
+    var saved = requestedResumeTime > 20 ? requestedResumeTime : getSavedProgress();
+
+    if (saved > 20) {
+        try {
+            video.currentTime = saved;
+            showHud('ดูต่อจาก ' + formatTime(saved));
+        } catch(e) {}
+    }
+
+    resumeApplied = true;
+}
+
+function playLoadedVideo(){
+    pendingPlay = false;
+    hideStartOverlays();
+
+    applyResumeIfNeeded();
+
+    var playPromise = video.play();
+
+    if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function(){
+            playBtn.style.display = 'flex';
+            loadingEl.classList.add('hidden');
+            document.body.classList.remove('is-playing');
+        });
+    }
+}
+
+function okGotManifest(){
+    if (manifestTimer) {
+        clearTimeout(manifestTimer);
+        manifestTimer = null;
+    }
+
+    loadingEl.classList.add('hidden');
+
+    if (pendingPlay) {
+        playLoadedVideo();
+    }
+}
+
+function okGotLevel(){
+    if (manifestTimer) {
+        clearTimeout(manifestTimer);
+        manifestTimer = null;
+    }
+
+    loadingEl.classList.add('hidden');
+    retryInfo.textContent = '';
+
+    if (pendingPlay) {
+        playLoadedVideo();
+    }
+}
+
+function okGoNext(){
+    if (manifestTimer) {
+        clearTimeout(manifestTimer);
+        manifestTimer = null;
+    }
+
+    if (!USING_FALLBACK) {
+        USING_FALLBACK = true;
+        urlIndex = 0;
+    }
+
+    if (playerStarted) {
+        pendingPlay = true;
+    }
+
+    tryNextUrl();
+}
+
+function startStallGuard(){
+    if (stallTimer) clearInterval(stallTimer);
+
+    lastTime = 0;
+    stallCount = 0;
+
+    stallTimer = setInterval(function(){
+        if (video.paused || video.ended) return;
+
+        var ct = video.currentTime || 0;
+        var now = Date.now();
+
+        if (now < seekGraceUntil || video.seeking) {
+            lastTime = ct;
+            stallCount = 0;
+            return;
+        }
+
+        if (ct === lastTime) {
+            stallCount++;
+
+            if (stallCount >= STALL_LIMIT) {
+                console.log('🔄 STALL ' + (STALL_LIMIT * 3) + 's');
+
+                stallCount = 0;
+                pendingPlay = true;
+
+                if (manifestTimer) {
+                    clearTimeout(manifestTimer);
+                    manifestTimer = null;
+                }
+
+                if (!USING_FALLBACK && FALLBACK_URLS.length === 0) {
+                    showHud('กำลังกู้การเล่น');
+                    if (recoverCurrentPlayback('stall-no-fallback')) {
+                        return;
+                    }
+                }
+
+                showHud('กำลังสลับสำรอง');
+
+                if (!USING_FALLBACK) {
+                    USING_FALLBACK = true;
+                    urlIndex = 0;
+                }
+
+                tryNextUrl();
+            }
+        } else {
+            stallCount = 0;
+        }
+
+        lastTime = ct;
+    }, STALL_CHECK_MS);
+}
+
+function startPlayer(options){
+    options = options || {};
+
+    if (options.startOver) {
+        clearSavedProgress();
+        skipResumeOnce = true;
+        requestedResumeTime = 0;
+    } else if (options.resumeTime) {
+        requestedResumeTime = options.resumeTime;
+        skipResumeOnce = false;
+    }
+
+    if (playerStarted) {
+        hideStartOverlays();
+
+        if (options.startOver) {
+            try { video.currentTime = 0; } catch(e) {}
+        } else if (requestedResumeTime > 20) {
+            try { video.currentTime = requestedResumeTime; } catch(e) {}
+        }
+
+        video.play().catch(function(){
+            playBtn.style.display = 'flex';
+        });
+
+        return;
+    }
+
+    playerStarted = true;
+    pendingPlay = true;
+
+    document.body.classList.remove('is-playing');
+
+    hideStartOverlays();
+
+    loadingEl.classList.remove('hidden');
+    loadingText.textContent = 'กำลังโหลด';
+    retryInfo.textContent = '';
+
+    tryNextUrl();
+    startStallGuard();
+}
+
+/* Double Tap Seek */
+function handleDoubleTap(e){
+    if (!playerStarted) return;
+    if (e.target && e.target.closest && e.target.closest('button')) return;
+
+    var clientX = e.clientX;
+    var clientY = e.clientY;
+
+    // ไม่จับตรง native controls ด้านล่าง
+    if (clientY > window.innerHeight - 90) return;
+
+    var now = Date.now();
+    var side = clientX < (window.innerWidth / 2) ? 'left' : 'right';
+
+    if ((now - lastTapTime) < 330 && side === lastTapSide) {
+        var delta = side === 'left' ? -10 : 10;
+
+        try {
+            var duration = video.duration || 0;
+            var nextTime = (video.currentTime || 0) + delta;
+
+            if (duration > 0 && isFinite(duration)) {
+                nextTime = Math.min(duration - 1, Math.max(0, nextTime));
+            } else {
+                nextTime = Math.max(0, nextTime);
+            }
+
+            video.currentTime = nextTime;
+            showTapVisual(side);
+            showHud(side === 'left' ? '⏪ ย้อน 10 วิ' : '⏩ ข้าม 10 วิ');
+
+            e.preventDefault();
+            e.stopPropagation();
+        } catch(err) {}
+
+        lastTapTime = 0;
+        lastTapSide = '';
+        return;
+    }
+
+    lastTapTime = now;
+    lastTapSide = side;
+}
+
+playerWrap.addEventListener('pointerup', handleDoubleTap);
+
+/* Skip Intro */
+skipIntroBtn.addEventListener('click', function(){
+    if (!playerStarted || SKIP_INTRO_SEC <= 0) return;
+
+    try {
+        video.currentTime = SKIP_INTRO_SEC;
+        skipIntroBtn.style.display = 'none';
+        showHud('ข้าม Intro');
+    } catch(e) {}
+});
+
+/* Next Episode Auto Redirect */
+function goNextEpisode(){
+    if (!HAS_NEXT_EP || !NEXT_EP_URL) return;
+
+    saveProgressNow();
+    window.location.href = NEXT_EP_URL;
+}
+
+nextPlay.addEventListener('click', function(){
+    goNextEpisode();
+});
+
+nextCancel.addEventListener('click', function(){
+    nextCancelled = true;
+    nextPanel.style.display = 'none';
+    showHud('ยกเลิกตอนถัดไป');
+});
+
+function updateSmartButtons(){
+    if (!playerStarted) return;
+
+    var ct = video.currentTime || 0;
+    var duration = video.duration || 0;
+
+    if (
+        SKIP_INTRO_SEC > 0 &&
+        duration > (SKIP_INTRO_SEC + 60) &&
+        ct > 3 &&
+        ct < SKIP_INTRO_SEC
+    ) {
+        skipIntroBtn.style.display = 'inline-flex';
+    } else {
+        skipIntroBtn.style.display = 'none';
+    }
+
+    if (
+        HAS_NEXT_EP &&
+        !nextCancelled &&
+        duration > 120 &&
+        isFinite(duration) &&
+        ct > 60
+    ) {
+        var remain = duration - ct;
+
+        if (remain > 0 && remain <= 20) {
+            nextPanel.style.display = 'block';
+            nextDesc.textContent = 'จะเล่นตอนถัดไปใน ' + Math.ceil(remain) + ' วิ';
+
+            if (remain <= 1.2) {
+                goNextEpisode();
+            }
+        } else {
+            nextPanel.style.display = 'none';
+        }
+    }
+}
+
+/* Events */
+playBtn.addEventListener('click', function(){
+    startPlayer();
+});
+
+resumeMain.addEventListener('click', function(){
+    var saved = getSavedProgress();
+
+    startPlayer({
+        resumeTime: saved
+    });
+});
+
+resumeStartOver.addEventListener('click', function(){
+    startPlayer({
+        startOver: true
+    });
+});
+
+video.addEventListener('play', function(){
+    if (!playerStarted) {
+        video.pause();
+        startPlayer();
+    }
+});
+
+video.addEventListener('playing', function(){
+    document.body.classList.add('is-playing');
+    hideStartOverlays();
+    loadingEl.classList.add('hidden');
+    retryInfo.textContent = '';
+});
+
+video.addEventListener('pause', function(){
+    saveProgressNow();
+
+    if (playerStarted && !video.ended && video.readyState > 0) {
+        document.body.classList.remove('is-playing');
+        showPauseOverlay();
+        showHud('หยุดชั่วคราว');
+    }
+});
+
+video.addEventListener('ended', function(){
+    document.body.classList.remove('is-playing');
+    playBtn.style.display = 'flex';
+    nextPanel.style.display = 'none';
+
+    clearSavedProgress();
+
+    if (HAS_NEXT_EP && !nextCancelled) {
+        goNextEpisode();
+    }
+});
+
+video.addEventListener('seeking', function(){
+    seekGraceUntil = Date.now() + SEEK_GRACE_MS;
+    lastSeekTarget = video.currentTime || 0;
+    stallCount = 0;
+    lastTime = lastSeekTarget;
+    loadingEl.classList.remove('hidden');
+    loadingText.textContent = 'กำลังกรอ...';
+    retryInfo.textContent = '';
+});
+
+video.addEventListener('seeked', function(){
+    seekGraceUntil = Date.now() + Math.floor(SEEK_GRACE_MS / 2);
+    stallCount = 0;
+    lastTime = video.currentTime || lastSeekTarget || 0;
+    loadingEl.classList.add('hidden');
+});
+
+video.addEventListener('waiting', function(){
+    if (video.seeking || Date.now() < seekGraceUntil) return;
+    if (!USING_FALLBACK && FALLBACK_URLS.length === 0) {
+        recoverCurrentPlayback('waiting');
+    }
+});
+
+video.addEventListener('timeupdate', function(){
+    updateSmartButtons();
+
+    if ((video.currentTime || 0) > 0) {
+        loadingEl.classList.add('hidden');
+    }
+
+    if (!saveTimer) {
+        saveTimer = setTimeout(function(){
+            saveTimer = null;
+            saveProgressNow();
+        }, 3000);
+    }
+});
+
+window.addEventListener('beforeunload', function(){
+    saveProgressNow();
+});
+
+initResumePanel();
+</script>
+
+// นับ view
+let viewTracked = false;
+video.addEventListener('timeupdate', function() {
+    if (!viewTracked && video.currentTime > 600) {
+        viewTracked = true;
+        fetch('https://system-play.gan-play.com/track_view.php?id=ye8L455476&type=movie&title=' + encodeURIComponent('Fantastic Beasts and Where to Find Them (2016) สัตว์มหัศจรรย์และถิ่นที่อยู่'));
+    }
+});
+</script>
+ <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5033083,4,3,170,30,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5033083&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</body>
+</html>

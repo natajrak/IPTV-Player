@@ -2249,7 +2249,7 @@ const ANIME_SOURCES = [
 ];
 const LIVE_SOURCES = [
   { id: '037hdd',   label: '037hdd',   file: 'fetch-037hdd.js',   url: 'https://www.037hddmovie.com/' },
-  { id: 'nunghd4k', label: 'nunghd4k', file: 'fetch-nunghd4k.js', url: 'https://www.nunghd4k.com/'    },
+  { id: 'nunghd4k', label: 'nunghd4k', file: 'fetch-nunghd4k.js', url: 'https://www.nunghd4k.com/', movieOnly: true },
   { id: 'allinhd',  label: 'allinhd',  file: 'fetch-allinhd.js',  url: 'https://allinhd.com/'         },
   { id: '123hds',   label: '123-hds',  file: 'fetch-123hds.js',   url: 'https://www.123-hds.com/'     },
   { id: '123hdx',   label: '123-hdx',  file: 'fetch-123hdx.js',   url: 'https://www.123-hdx.com/'     },
@@ -2262,7 +2262,8 @@ const LIVE_SOURCES = [
 const ADD_SCRIPTS = {
   'anime-series': ANIME_SOURCES,
   'anime-movie':  ANIME_SOURCES,
-  'series':       LIVE_SOURCES,
+  // movieOnly = เว็บนั้นมีแต่หนัง ไม่มี series (เช่น nunghd4k) → ไม่ต้องโชว์ใน tab Series
+  'series':       LIVE_SOURCES.filter(s => !s.movieOnly),
   'movie':        LIVE_SOURCES,
   'av':           [{ id: '123av', label: '123av', file: 'fetch-123av.js', url: 'https://123av.com/' }],
 };
