@@ -26,8 +26,17 @@ export default async function handler(request) {
     );
   }
 
-  const headers = { "User-Agent": BROWSER_UA, Accept: "*/*" };
+  const looksLikeM3u8 = /\.(m3u8|txt)(\?|$)/i.test(target);
+
+  const headers = {
+    "User-Agent": BROWSER_UA,
+    Accept: "*/*",
+    "Accept-Encoding": "identity",
+  };
   if (referer) headers["Referer"] = referer;
+
+  const clientRange = request.headers.get("range");
+  if (clientRange && !looksLikeM3u8) headers["Range"] = clientRange;
 
   let upstream;
   try {
@@ -82,14 +91,20 @@ export default async function handler(request) {
 
   const outHeaders = new Headers();
   for (const [k, v] of upstream.headers) {
-    if (/^(access-control-|content-encoding|content-length|transfer-encoding|connection)/i.test(k)) continue;
+    if (/^(access-control-|content-encoding|transfer-encoding|connection)/i.test(k)) continue;
     outHeaders.set(k, v);
   }
+  if (upstream.headers.get("content-encoding")) outHeaders.delete("content-length");
   outHeaders.set("Access-Control-Allow-Origin", "*");
   outHeaders.set("Access-Control-Allow-Headers", "*");
+  outHeaders.set(
+    "Access-Control-Expose-Headers",
+    "Content-Length, Content-Range, Accept-Ranges",
+  );
 
   return new Response(upstream.body, {
     status: upstream.status,
+    statusText: upstream.statusText,
     headers: outHeaders,
   });
 }
