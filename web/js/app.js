@@ -2459,6 +2459,15 @@ function isCurrentlyCasting() {
  *   startTime    — วินาที สำหรับ seek หลัง metadata โหลดเสร็จ (0 = เริ่มต้น)
  *   autoplay     — true = เรียก play() หลัง source พร้อม (default true)
  */
+/**
+ * true ถ้า URL เป็น HLS stream ที่วิ่งผ่าน hls-proxy (หมวด AV)
+ * native AVPlayer บน iOS ค้างตอน seek ยาวกับ stream พวกนี้ (byte-range probe) →
+ * ต้องใช้ hls.js แทน ถ้า browser รองรับ MSE/ManagedMediaSource
+ */
+function isProxiedHlsStream(url) {
+  return /\/api\/hls-proxy\?/i.test(String(url || ""));
+}
+
 function setupVideoSource(
   url,
   referer,
@@ -2488,11 +2497,16 @@ function setupVideoSource(
   // ทั้งที่จริงๆ เล่น HLS native ไม่ได้ → canPlayType ไม่น่าเชื่อถืออีกต่อไป
   // HLS.js ทำงานได้ดีในทุก browser ที่มี MSE ยกเว้น Safari (ต้อง native เพื่อ AirPlay)
   // จะ fallback ไป native ก็ต่อเมื่อ: Safari, HLS.js ไม่ทำงาน, หรือ forceNative = true
+  // AV/proxied HLS: native AVPlayer (iOS) ค้างตอน seek ยาวเพราะ byte-range probe →
+  // บน Safari บังคับใช้ hls.js เฉพาะ stream ที่ผ่าน hls-proxy (ต้องมี MSE/
+  // ManagedMediaSource — iOS 17.1+). content อื่นยังใช้ native เพื่อ AirPlay ที่เสถียร
+  const useHlsOnSafari =
+    isSafariWebKit && hlsJsSupported && isProxiedHlsStream(url);
   const shouldTryHls =
     !forceNative &&
-    !isSafariWebKit &&
     hlsJsSupported &&
-    (isHlsUrl || !isDirectMediaUrl);
+    (isHlsUrl || !isDirectMediaUrl) &&
+    (!isSafariWebKit || useHlsOnSafari);
 
   if (shouldTryHls) {
     // HLS.js path: ต้อง destroy instance เดิมก่อนสร้างใหม่ เพื่อไม่ให้ attach ซ้อน
@@ -3267,8 +3281,11 @@ function updateVolumeUI() {
 
   // Helper: ยิงก่อนกด picker — สลับไปใช้ native source (เฉพาะ Chrome/Edge/Firefox)
   function prepareForCast() {
-    if (isSafariWebKit) return true; // Safari: ไม่ต้องทำอะไร source เป็น native อยู่แล้ว
     const station = currentStations[currentIndex];
+    // Safari + non-AV: source เป็น native อยู่แล้ว ไม่ต้อง swap
+    // Safari + AV: เล่นด้วย hls.js (MSE) → ต้อง swap เป็น native ก่อน cast
+    if (isSafariWebKit && (!station || !isProxiedHlsStream(station.url)))
+      return true;
     if (!station) return false;
     const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
@@ -3282,9 +3299,11 @@ function updateVolumeUI() {
 
   // Helper: สลับกลับไปใช้ HLS.js สำหรับเล่น local หลัง disconnect (Chrome path)
   function restoreLocalPlayback() {
-    if (isSafariWebKit) return; // Safari: stream ต่อเนื่องเอง ไม่ต้อง swap
     const station = currentStations[currentIndex];
     if (!station) return;
+    // Safari + non-AV: native ต่อเนื่องเอง ไม่ต้อง swap
+    // Safari + AV: swap กลับไป hls.js เพื่อให้ seek ทำงานหลังหยุด cast
+    if (isSafariWebKit && !isProxiedHlsStream(station.url)) return;
     const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
     setupVideoSource(station.url, inheritedRefererCache, {
@@ -3315,7 +3334,9 @@ function updateVolumeUI() {
       },
     );
     btnAirPlay.addEventListener("click", () => {
-      // Safari: prepareForCast() เป็น no-op (native HLS อยู่แล้ว) → เปิด picker ตรงๆ
+      // non-AV: prepareForCast() เป็น no-op (native HLS อยู่แล้ว)
+      // AV: กำลังเล่นด้วย hls.js (blob/MSE) → swap เป็น native ก่อน เพื่อให้ Apple TV รับภาพได้
+      prepareForCast();
       try {
         playerVideo.webkitShowPlaybackTargetPicker();
       } catch (e) {

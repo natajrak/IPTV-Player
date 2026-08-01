@@ -1957,6 +1957,9 @@ function isCurrentlyCasting() {
   }
   return false;
 }
+function isProxiedHlsStream(url) {
+  return /\/api\/hls-proxy\?/i.test(String(url || ""));
+}
 function setupVideoSource(url, referer, {
   forceNative = false,
   startTime = 0,
@@ -1974,7 +1977,8 @@ function setupVideoSource(url, referer, {
     }
   }
   const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
-  const shouldTryHls = !forceNative && !isSafariWebKit && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl);
+  const useHlsOnSafari = isSafariWebKit && hlsJsSupported && isProxiedHlsStream(url);
+  const shouldTryHls = !forceNative && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl) && (!isSafariWebKit || useHlsOnSafari);
   if (shouldTryHls) {
     destroyHls();
     let networkRetries = 0;
@@ -2584,8 +2588,8 @@ function updateVolumeUI() {
 (function initAirPlay() {
   const isSafariWebKit = typeof playerVideo.webkitShowPlaybackTargetPicker === "function";
   function prepareForCast() {
-    if (isSafariWebKit) return true;
     const station = currentStations[currentIndex];
+    if (isSafariWebKit && (!station || !isProxiedHlsStream(station.url))) return true;
     if (!station) return false;
     const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
@@ -2597,9 +2601,9 @@ function updateVolumeUI() {
     return true;
   }
   function restoreLocalPlayback() {
-    if (isSafariWebKit) return;
     const station = currentStations[currentIndex];
     if (!station) return;
+    if (isSafariWebKit && !isProxiedHlsStream(station.url)) return;
     const savedTime = playerVideo.currentTime || 0;
     const wasPlaying = !playerVideo.paused;
     setupVideoSource(station.url, inheritedRefererCache, {
@@ -2619,6 +2623,7 @@ function updateVolumeUI() {
       if (!casting) restoreLocalPlayback();
     });
     btnAirPlay.addEventListener("click", () => {
+      prepareForCast();
       try {
         playerVideo.webkitShowPlaybackTargetPicker();
       } catch (e) {
