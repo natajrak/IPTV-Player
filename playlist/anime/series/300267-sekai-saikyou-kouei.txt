@@ -7,6 +7,20 @@
             "image": "https://image.tmdb.org/t/p/original/l3CzKVe9cUgMuP2EjW6t9F3otFv.jpg",
             "groups": [
                 {
+                    "name": "พากย์ไทย",
+                    "image": "https://image.tmdb.org/t/p/original/l3CzKVe9cUgMuP2EjW6t9F3otFv.jpg",
+                    "referer": "https://indy-anime.net/sekai-saikyou-no-kouei-meikyuukoku-no-dubth/",
+                    "stations": [
+                        {
+                            "name": "ตอน 1 - A Novice Seeker in Labyrinth Country",
+                            "image": "https://image.tmdb.org/t/p/original/lKXOWXJgJbhu80Dm3WXrmfabP6S.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/svsy4DKCDf/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-05"
+                        }
+                    ]
+                },
+                {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/l3CzKVe9cUgMuP2EjW6t9F3otFv.jpg",
                     "referer": "https://indy-anime.net/sekai-saikyou-no-kouei-meikyuukoku-no-shinjin/",
@@ -52,16 +66,23 @@
                             "url": "https://hls.animeindy.com:8443/vid/ckScPulID2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-08-09"
+                        },
+                        {
+                            "name": "Ep. 7 - The Hope of Demi-Humans",
+                            "image": "https://image.tmdb.org/t/p/original/5q8Gt15AyIzIzbv5f2Im9I7kV8G.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/myQDuyHxRs/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-08-16"
                         }
                     ]
                 }
             ],
             "release_date": "2026-07-05",
-            "updated_at": "2026-08-09T00:00:00.000Z"
+            "updated_at": "2026-08-16T00:00:00.000Z"
         }
     ],
     "release_date": "2026-07-05",
-    "updated_at": "2026-08-09T00:00:00.000Z",
+    "updated_at": "2026-08-16T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",
