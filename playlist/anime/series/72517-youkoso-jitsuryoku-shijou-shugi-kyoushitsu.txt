@@ -718,8 +718,16 @@
                             "url": "https://hls.animeindy.com:8443/vid/sr6PEDg6QJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-06-17"
+                        },
+                        {
+                            "name": "ตอน 16 - For a Desired Future",
+                            "image": "https://image.tmdb.org/t/p/original/bAJaxCy2WB1u9UNbJxEvNSGURJa.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/rPaOmoRMO/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-06-24"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -854,8 +862,6 @@
     "updated_at": "2026-06-24T00:00:00.000Z",
     "season_count": 4,
     "completion": {
-        "status": "incomplete",
-        "season": 4,
-        "track": "th"
+        "status": "completed"
     }
 }
