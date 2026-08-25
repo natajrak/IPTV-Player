@@ -373,75 +373,117 @@
             "image": "https://image.tmdb.org/t/p/original/tn2mxPYSSUPHgfcAe5SCga1DO0i.jpg",
             "groups": [
                 {
+                    "name": "พากย์ไทย",
+                    "image": "https://image.tmdb.org/t/p/original/tO5Fwg59DZkTB2VrC2UEIS2VrEk.jpg",
+                    "referer": "https://indy-anime.net/mushoku-tensei-3-dubth/",
+                    "stations": [
+                        {
+                            "name": "ตอน 1 - จงลุกโชน เจ้าหมาบ้า",
+                            "image": "https://image.tmdb.org/t/p/original/9qTNrEMxqBtcGcY45S0otQsiDTa.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/pefn5R7Oya/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-04"
+                        },
+                        {
+                            "name": "ตอน 2 - จงเห่าหอน เจ้าหมาบ้า",
+                            "image": "https://image.tmdb.org/t/p/original/8LbtykFB7jK5pC5CmZQL9GoAQxh.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/UBh07byXEJ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-04"
+                        },
+                        {
+                            "name": "ตอน 3 - ชีวิตประจำวันที่หวนกลับมา",
+                            "image": "https://image.tmdb.org/t/p/original/zMv1IruZ7cJdmisb4gmTFuZU8jB.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/9fWfIGb5Y0/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-13"
+                        },
+                        {
+                            "name": "ตอน 4 - จอมเวทขั้นราชาวารี",
+                            "image": "https://image.tmdb.org/t/p/original/n5rzMFaXeEliZbXtjDswvU4T0Ss.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/6677GdLdWb/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-07-20"
+                        }
+                    ]
+                },
+                {
                     "name": "ซับไทย",
-                    "image": "https://image.tmdb.org/t/p/original/kZNFYvX1brcjubHXNa1naMwRoov.jpg",
-                    "referer": "https://anime-th.com/anime/mushoku-tensei-iiisub/",
+                    "image": "https://image.tmdb.org/t/p/original/tO5Fwg59DZkTB2VrC2UEIS2VrEk.jpg",
+                    "referer": "https://indy-anime.net/mushoku-tensei-iii-isekai-ittara-honki-dasu/",
                     "stations": [
                         {
                             "name": "Ep. 1 - Burn Bright, Mad Dog",
                             "image": "https://image.tmdb.org/t/p/original/9qTNrEMxqBtcGcY45S0otQsiDTa.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2f0jJgGr%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2f0jJgGr",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/ix1yqzsU1A/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-07-04"
                         },
                         {
                             "name": "Ep. 2 - Howl, Mad Dog",
                             "image": "https://image.tmdb.org/t/p/original/8LbtykFB7jK5pC5CmZQL9GoAQxh.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FltVPGhQH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FltVPGhQH",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/iB7BWkY2XD/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-07-04"
                         },
                         {
                             "name": "Ep. 3 - Life Back at Home",
                             "image": "https://image.tmdb.org/t/p/original/zMv1IruZ7cJdmisb4gmTFuZU8jB.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQcCunZZk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQcCunZZk",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/u7bFaMBi01/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-07-13"
                         },
                         {
                             "name": "Ep. 4 - A King-Class Water Mage",
                             "image": "https://image.tmdb.org/t/p/original/n5rzMFaXeEliZbXtjDswvU4T0Ss.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRWBrrSGp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRWBrrSGp",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/GNwDtJsWpC/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-07-20"
                         },
                         {
                             "name": "Ep. 5 - Celebrations",
                             "image": "https://image.tmdb.org/t/p/original/7yeKe0EZ4Mosk8FMrsHEyNhIavU.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgM2VNPcA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgM2VNPcA",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/7KCwtRGvCm/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-07-27"
                         },
                         {
                             "name": "Ep. 6 - Another Domestic Disaster?",
                             "image": "https://image.tmdb.org/t/p/original/6381zSllVVPtSsMUx2UazOTj0wM.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHw4HRbRI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHw4HRbRI",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/NpS5KD2m23/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-08-03"
                         },
                         {
                             "name": "Ep. 7 - Phase Four",
                             "image": "https://image.tmdb.org/t/p/original/rE5aRuoAGoKUMRuxlCgZCN61PvC.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKf6DPPod%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKf6DPPod",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/rIuUeT1drv/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-08-10"
                         },
                         {
                             "name": "Ep. 8 - The Flying Fortress",
                             "image": "https://image.tmdb.org/t/p/original/38UxygrYWG3Ln7ql3hjfoFjvfjZ.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpmrT6o2c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpmrT6o2c",
-                            "referer": "https://anime-th.com/",
+                            "url": "https://hls.animeindy.com:8443/vid/kOFj4FMZLY/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2026-08-17"
+                        },
+                        {
+                            "name": "Ep. 9 - Lament",
+                            "image": "https://image.tmdb.org/t/p/original/gvYNNlx7erytSG0e1oeYxOA2BHx.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/P33w0znbDP/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-08-24"
                         }
                     ]
                 }
             ],
             "release_date": "2026-07-04",
-            "updated_at": "2026-08-17T00:00:00.000Z"
+            "updated_at": "2026-08-24T00:00:00.000Z"
         }
     ],
     "release_date": "2021-01-11",
-    "updated_at": "2026-08-17T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
     "season_count": 3,
     "completion": {
         "status": "incomplete",
