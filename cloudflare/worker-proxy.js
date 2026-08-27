@@ -5,6 +5,7 @@
 //
 // Usage:
 //   https://shy-haze-2452.natajrak-p.workers.dev/?url={encoded_url}&referer={encoded_referer}
+//   (&origin={encoded_origin} — ใส่เฉพาะแหล่งที่ต้องการ Origin จริงๆ ปกติไม่ต้อง)
 //
 // Example (kurokamii / akuma-player):
 //   https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Ffiles.akuma-player.xyz%2Fview%2F{uuid}&referer=https%3A%2F%2Fakuma-player.xyz
@@ -14,7 +15,8 @@
 //   - m3u8 URL rewrite: absolute / protocol-relative (//) / relative path (/) + URI="..." attrs
 //     ยกเว้น DIRECT_HOSTS (CDN ที่เปิด CORS + ไฟล์ GB-scale) → ปล่อย URL ตรง ไม่ห่อ worker
 //   - Binary passthrough สำหรับ TS segments
-//   - รองรับ Referer + Origin header spoofing
+//   - รองรับ Referer spoofing (Origin **ไม่ส่งโดยอัตโนมัติ** — ต้องขอผ่าน &origin=
+//     เพราะบาง CDN เช่น main.108player.com คืน body ว่างทันทีที่เจอ Origin)
 //   - **Range simulation** (206 Partial Content) — fetch ก้อนเต็มแล้ว slice ส่งเฉพาะช่วง
 //   - **CF edge cache** (cacheTtl=86400) ลด upstream fetch ซ้ำๆ
 //   - **Streaming pass-through** สำหรับ binary GET ที่ไม่มี Range (first-byte ถึง client ทันที ไม่ต้องรอ buffer ทั้งก้อน)
@@ -206,9 +208,12 @@ export default {
       "Referer": referer,
       "Accept": "*/*",
     };
-    if (referer) {
-      try { upstreamHeaders["Origin"] = new URL(referer).origin; } catch (_) {}
-    }
+    // **ห้ามใส่ Origin โดยอัตโนมัติ** — proxy ฝั่ง server ไม่ใช่ browser การมี Origin
+    // ทำให้ CDN มองเป็น cross-origin request แล้วบล็อก เช่น main.108player.com
+    // คืน 200 body ว่าง ทันทีที่เจอ Origin (Referer อย่างเดียวได้ปกติ)
+    // ถ้าแหล่งไหนต้องการจริงๆ ส่ง &origin= มาเองได้
+    const originParam = searchParams.get("origin");
+    if (originParam) upstreamHeaders["Origin"] = originParam;
 
     // CF edge cache: ลด upstream fetch ซ้ำๆ ตอน AVPlayer ทำ Range scrubbing
     // Retry on transient 403/429/5xx — สำคัญสำหรับ CF-on-CF traffic ที่ถูก rate-limit สุ่ม

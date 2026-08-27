@@ -72,6 +72,7 @@ let upnextCancelled = false;
 let shuffleMode = false;
 let shuffleHistory = [];
 let playEpisodeEpoch = 0;
+let hlsRuntimeMissing = false;
 const STREAM_RESOLVERS = {
   anifume: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/anifume",
   kurokamii: "https://shy-haze-2452.natajrak-p.workers.dev/resolve/kurokamii",
@@ -1980,6 +1981,7 @@ function setupVideoSource(url, referer, {
   const useHlsOnSafari = isSafariWebKit && hlsJsSupported && isProxiedHlsStream(url);
   const shouldTryHls = !forceNative && hlsJsSupported && (isHlsUrl || !isDirectMediaUrl) && (!isSafariWebKit || useHlsOnSafari);
   if (shouldTryHls) {
+    hlsRuntimeMissing = false;
     destroyHls();
     let networkRetries = 0;
     let mediaRetries = 0;
@@ -2081,6 +2083,7 @@ function setupVideoSource(url, referer, {
       if (isHlsUrl && !hasHlsRuntime) {
         console.warn("HLS runtime is missing. Falling back to native video playback.");
         if (!isSafariWebKit) {
+          hlsRuntimeMissing = true;
           showPlayerNotice("โหลดตัวเล่น HLS ไม่ได้ — ลองปิด extension (ตัวบล็อกโฆษณา/โหลดวิดีโอ) หรือเช็คการเชื่อมต่อ แล้วรีเฟรช", 12000);
         }
       } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
@@ -2199,6 +2202,7 @@ playerVideo.addEventListener("error", () => {
     3: "ข้อมูลวิดีโอเสียหายหรืออ่านไม่ได้",
     4: "ไม่พบวิดีโอหรือรูปแบบไม่รองรับ"
   };
+  if (hlsRuntimeMissing && mediaErr.code === 4) return;
   const label = codeMap[mediaErr.code] || "เล่นวิดีโอไม่สำเร็จ";
   showPlayerNotice(label);
 });

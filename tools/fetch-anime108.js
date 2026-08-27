@@ -28,7 +28,9 @@
  *       action=halim_ajax_player&episode={N}&server=1&postid={POST_ID}&lang={Thai|Sound Track}
  *     → iframe src "https://main.108player.com/index_th.php?id={ID}"
  *   - Stream URL: https://main.108player.com/newplaylist/{ID}/{ID}.m3u8
- *   - CORS เปิดทุก layer (master + segments) — **ไม่ต้องผ่าน proxy**
+ *   - master m3u8 เปิดให้ทุก referer แต่ **variant playlist กัน Referer**:
+ *     ถ้า referer ไม่ใช่ anime108 (หรือไม่มีเลย) จะคืน body ว่าง → hls.js ฟ้อง
+ *     levelParsingError → ต้องห่อ stream ผ่าน CF Worker เสมอ (ดู proxyUrl)
  *   - Default --track = th (พากย์ไทย)
  *   - Shared logic อยู่ใน tools/lib/
  */
@@ -76,6 +78,15 @@ const SITE_BASE  = 'https://www.anime108.com';
 const API_URL    = 'https://www.anime108.com/api/get.php';
 const PLAYER_BASE = 'https://main.108player.com';
 const REFERER    = 'https://www.anime108.com/';
+// CDN กัน Referer: variant playlist (.../m3u8/{id}/{id}438.m3u8) จะคืน body ว่าง
+// ถ้า referer เป็น origin อื่น (เช่น localhost/GitHub Pages) → hls.js ฟ้อง
+// levelParsingError "Missing format identifier #EXTM3U" แล้วเล่นไม่ออก
+// (Safari native รอดเพราะไม่ส่ง referer เลย) — browser ตั้ง header เองไม่ได้
+// จึงต้องห่อผ่าน CF Worker ให้ใส่ Referer ฝั่ง server
+const CF_PROXY = 'https://shy-haze-2452.natajrak-p.workers.dev/';
+function proxyUrl(streamUrl, referer = REFERER) {
+  return `${CF_PROXY}?url=${encodeURIComponent(streamUrl)}&referer=${encodeURIComponent(referer)}`;
+}
 
 // halim lang values
 const HALIM_LANG = { th: 'Thai', subth: 'Sound Track' };
@@ -376,7 +387,7 @@ async function main() {
       stations.push({
         name: stationName,
         ...(epThumb && { image: epThumb }),
-        url: streamUrl || ep.url,
+        url: streamUrl ? proxyUrl(streamUrl) : ep.url,
         referer: REFERER,
         release_date: tmdbEp?.air_date || '',
       });

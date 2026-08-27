@@ -95,7 +95,10 @@ let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
 let shuffleHistory = []; // track played indices to avoid repeats
-let playEpisodeEpoch = 0; // bumps per playEpisode call — async resolvers check to abort stale work
+let playEpisodeEpoch = 0;
+// จริงหรือไม่ว่ารอบเล่นล่าสุดตกไป native เพราะไม่มี HLS runtime —
+// ใช้กันไม่ให้ MediaError 4 ("รูปแบบไม่รองรับ") เขียนทับข้อความที่บอกสาเหตุจริง
+let hlsRuntimeMissing = false; // bumps per playEpisode call — async resolvers check to abort stale work
 
 /* ===== Stream resolvers =====
  * Map ชื่อ resolver → worker endpoint. ใช้สำหรับเว็บที่ stream URL หมดอายุเร็ว
@@ -2510,6 +2513,7 @@ function setupVideoSource(
 
   if (shouldTryHls) {
     // HLS.js path: ต้อง destroy instance เดิมก่อนสร้างใหม่ เพื่อไม่ให้ attach ซ้อน
+    hlsRuntimeMissing = false;
     destroyHls();
     let networkRetries = 0;
     let mediaRetries = 0;
@@ -2638,6 +2642,7 @@ function setupVideoSource(
         // MediaError 4 ("รูปแบบไม่รองรับ") ซึ่งชวนเข้าใจผิดว่าไฟล์เสีย
         // จึงบอกสาเหตุจริงไว้ก่อน (มักเกิดจาก extension/adblock บล็อกสคริปต์)
         if (!isSafariWebKit) {
+          hlsRuntimeMissing = true;
           showPlayerNotice(
             "โหลดตัวเล่น HLS ไม่ได้ — ลองปิด extension (ตัวบล็อกโฆษณา/โหลดวิดีโอ) หรือเช็คการเชื่อมต่อ แล้วรีเฟรช",
             12000,
@@ -2797,6 +2802,9 @@ playerVideo.addEventListener("error", () => {
     3: "ข้อมูลวิดีโอเสียหายหรืออ่านไม่ได้",
     4: "ไม่พบวิดีโอหรือรูปแบบไม่รองรับ",
   };
+  // ไม่มี HLS runtime → native ย่อมล้มเป็น code 4 อยู่แล้ว ข้อความสาเหตุจริง
+  // ถูกแสดงไปก่อนหน้าแล้ว อย่าทับด้วย "รูปแบบไม่รองรับ" ที่ทำให้เข้าใจผิด
+  if (hlsRuntimeMissing && mediaErr.code === 4) return;
   const label = codeMap[mediaErr.code] || "เล่นวิดีโอไม่สำเร็จ";
   showPlayerNotice(label);
 });
