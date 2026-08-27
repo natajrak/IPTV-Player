@@ -2634,6 +2634,15 @@ function setupVideoSource(
         console.warn(
           "HLS runtime is missing. Falling back to native video playback.",
         );
+        // เบราว์เซอร์ที่ไม่ใช่ Safari เล่น .m3u8 เองไม่ได้ → native จะ error เป็น
+        // MediaError 4 ("รูปแบบไม่รองรับ") ซึ่งชวนเข้าใจผิดว่าไฟล์เสีย
+        // จึงบอกสาเหตุจริงไว้ก่อน (มักเกิดจาก extension/adblock บล็อกสคริปต์)
+        if (!isSafariWebKit) {
+          showPlayerNotice(
+            "โหลดตัวเล่น HLS ไม่ได้ — ลองปิด extension (ตัวบล็อกโฆษณา/โหลดวิดีโอ) หรือเช็คการเชื่อมต่อ แล้วรีเฟรช",
+            12000,
+          );
+        }
       } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
         console.warn(
           "HLS.js is loaded but Media Source Extensions are not supported in this browser.",

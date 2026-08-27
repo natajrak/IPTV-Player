@@ -2080,6 +2080,9 @@ function setupVideoSource(url, referer, {
     if (!forceNative) {
       if (isHlsUrl && !hasHlsRuntime) {
         console.warn("HLS runtime is missing. Falling back to native video playback.");
+        if (!isSafariWebKit) {
+          showPlayerNotice("โหลดตัวเล่น HLS ไม่ได้ — ลองปิด extension (ตัวบล็อกโฆษณา/โหลดวิดีโอ) หรือเช็คการเชื่อมต่อ แล้วรีเฟรช", 12000);
+        }
       } else if (isHlsUrl && hasHlsRuntime && !Hls.isSupported()) {
         console.warn("HLS.js is loaded but Media Source Extensions are not supported in this browser.");
       }

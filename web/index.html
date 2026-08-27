@@ -127,8 +127,19 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
-  <script src="js/app.tv.js?v=46"></script>
+  <!-- hls.js เก็บไว้ในโปรเจกต์เอง (v1.7.1) — เดิมโหลดจาก jsdelivr แล้วถ้า CDN
+       ถูกบล็อก/ล่ม จะไม่มี HLS runtime ทำให้ player ตกไปใช้ native แล้วพังทุกเรื่อง
+       บนเบราว์เซอร์ที่ไม่ใช่ Safari (Chrome เล่น .m3u8 เองไม่ได้) -->
+  <script src="js/hls.min.js?v=47"></script>
+  <script>
+    // กันกรณีไฟล์ในเครื่องหาย/deploy ไม่ครบ — ดึงจาก CDN สำรอง
+    if (!window.Hls) {
+      var hlsFallback = document.createElement("script");
+      hlsFallback.src = "https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js";
+      document.head.appendChild(hlsFallback);
+    }
+  </script>
+  <script src="js/app.tv.js?v=47"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

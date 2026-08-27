@@ -1,10 +1,11 @@
-const CACHE_NAME = "bkl-play-v46";
+const CACHE_NAME = "bkl-play-v47";
 const PLAYLIST_CACHE = "bkl-playlists-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/style.css",
   "./js/app.tv.js",
+  "./js/hls.min.js",
   "./images/logo/logo.png",
   "./images/logo/logo-dark.png",
   "./images/apple-touch-icon.png",
