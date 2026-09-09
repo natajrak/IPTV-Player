@@ -44,6 +44,13 @@ const INDEX_PATH = path.resolve(PLAYLIST_DIR, "index.txt");
 const SITE_BASE = "https://123av.com";
 const LEGACY_HOSTS = new Set(["javxx.com", "www.javxx.com"]);
 
+// label ของแถวข้อมูล — เก็บทั้งไทย/อังกฤษ เผื่อหน้าเว็บคืน locale อื่นมา
+const LABELS = {
+  cast:    new Set(["นักแสดง", "นักแสดงหญิง", "Cast", "Actress", "Actresses"]),
+  release: new Set(["วันที่วางจำหน่าย", "Release date", "Release Date"]),
+  genres:  new Set(["หมวดหมู่", "Genres", "Genre"]),
+};
+
 const HLS_PROXY_URL = "https://iptv-player-three-flax.vercel.app/api/hls-proxy";
 const EMBED_REFERER = "https://javplayer.cc/";
 // 123av backend มีหลาย CDN host (cold-winter-118.space, wowstream.cloud, wowstream2.cloud, ...)
@@ -85,6 +92,24 @@ function migrateLegacyUrl(url) {
       u.hostname = "123av.com";
       return u.toString();
     }
+  } catch {}
+  return url;
+}
+
+// หน้าเว็บ render label ตาม locale ใน path (/th/ = ไทย, /en/ = อังกฤษ)
+// ถ้าไม่บังคับเป็น th ตัว parser จะ match label ไม่ติด → meta ว่างทั้งก้อน
+// (และ genres ที่ได้ต้องเป็นภาษาไทยให้ตรงกับข้อมูลเดิมใน index)
+function forceThaiLocale(url) {
+  if (!url) return url;
+  try {
+    const u = new URL(url);
+    if (!/123av\.com$/i.test(u.hostname)) return url;
+    if (/^\/[a-z]{2}(-[a-z]{2})?\/v\//i.test(u.pathname)) {
+      u.pathname = u.pathname.replace(/^\/[a-z]{2}(-[a-z]{2})?\//i, "/th/");
+    } else if (u.pathname.startsWith("/v/")) {
+      u.pathname = "/th" + u.pathname;
+    }
+    return u.toString();
   } catch {}
   return url;
 }
@@ -131,7 +156,7 @@ async function parseVideoPage(url) {
     const $dd = $(el).find("dd").first();
     if (!$dd.length) return;
 
-    if (label === "นักแสดง" || label === "นักแสดงหญิง") {
+    if (LABELS.cast.has(label)) {
       $dd.find("a").each((__, a) => {
         const name = $(a).text().trim();
         if (name && name.length > 1) actresses.push(name);
@@ -142,10 +167,10 @@ async function parseVideoPage(url) {
           if (name && name.length > 1) actresses.push(name);
         });
       }
-    } else if (label === "วันที่วางจำหน่าย") {
+    } else if (LABELS.release.has(label)) {
       const m = $dd.text().trim().match(/\d{4}-\d{2}-\d{2}/);
       if (m) releaseDate = m[0];
-    } else if (label === "หมวดหมู่") {
+    } else if (LABELS.genres.has(label)) {
       $dd.find("a").each((__, a) => {
         const name = $(a).text().trim();
         if (name && name.length > 1) genres.push(name);
@@ -281,7 +306,7 @@ async function runUpdateMeta() {
     const idx = index.stations.findIndex((s) => s === station);
 
     const originalReferer = station.referer || "";
-    const migratedReferer = migrateLegacyUrl(originalReferer);
+    const migratedReferer = forceThaiLocale(migrateLegacyUrl(originalReferer));
     const needsMigrate = migratedReferer !== originalReferer;
     if (needsMigrate) {
       index.stations[idx].referer = migratedReferer;
@@ -353,7 +378,7 @@ async function main() {
   }
 
   try {
-    const migratedPageUrl = migrateLegacyUrl(pageUrl);
+    const migratedPageUrl = forceThaiLocale(migrateLegacyUrl(pageUrl));
     if (migratedPageUrl !== pageUrl) {
       console.log(`🔄 migrate URL: ${pageUrl} → ${migratedPageUrl}`);
     }
