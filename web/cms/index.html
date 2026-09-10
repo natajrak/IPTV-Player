@@ -586,6 +586,9 @@
       cursor: pointer;
     }
     .fm-check input { cursor: pointer; }
+    /* แถวที่ multi-season คุมแทน — จางลงให้รู้ว่าไม่ต้องกรอก */
+    .fm-row.fm-dim { opacity: .4; }
+    .fm-row.fm-dim input { pointer-events: none; }
     .fm-check span { color: var(--text3); }
     .fm-script-home.hidden { display: none; }
 
@@ -1153,6 +1156,11 @@
         <input type="text" id="rf-split" placeholder="ว่าง = ไม่มี">
         <label class="fm-check"><input type="checkbox" id="rf-auto-split"> ตรวจจับตอนพิเศษอัตโนมัติ <span>(ใช้เมื่อจำนวนตอนลงตัวเป๊ะ)</span></label>
       </div>
+      <div class="fm-row" id="rf-ms-row">
+        <label>Multi-season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(เว็บรวมทุก season เป็นลิสต์เดียว)</span></label>
+        <label class="fm-check"><input type="checkbox" id="rf-multi-season"> แบ่ง season ตาม TMDB <span>(ใช้เมื่อผลรวมตอนลงตัวเป๊ะ)</span></label>
+        <input type="text" id="rf-season-map" placeholder="หรือระบุเอง เช่น 33,32,8,68">
+      </div>
       <div class="fm-row">
         <label>Output <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ไม่ต้องมี .txt)</span></label>
         <input type="text" id="rf-fname" placeholder="เช่น 12345-my-anime">
@@ -1247,6 +1255,12 @@
         <label>Split Eps <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(ตอน TMDB ที่เว็บแบ่งครึ่ง เช่น 11,20 หรือ 20:3)</span></label>
         <input type="text" id="fm-split" placeholder="ว่าง = ไม่มี">
         <label class="fm-check"><input type="checkbox" id="fm-auto-split"> ตรวจจับตอนพิเศษอัตโนมัติ <span>(ใช้เมื่อจำนวนตอนลงตัวเป๊ะ)</span></label>
+      </div>
+
+      <div class="fm-row" id="fm-ms-row">
+        <label>Multi-season <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(เว็บรวมทุก season เป็นลิสต์เดียว)</span></label>
+        <label class="fm-check"><input type="checkbox" id="fm-multi-season"> แบ่ง season ตาม TMDB <span>(ใช้เมื่อผลรวมตอนลงตัวเป๊ะ)</span></label>
+        <input type="text" id="fm-season-map" placeholder="หรือระบุเอง เช่น 33,32,8,68">
       </div>
 
       <div class="fm-row" id="fm-fname-row">
@@ -3019,6 +3033,7 @@ async function openAddModal(tabId) {
   document.getElementById('fm-fname-row').style.display = isAV ? 'none' : '';
   document.getElementById('fm-tmdb-row').style.display = isAV ? 'none' : '';
   document.getElementById('fm-split-row').style.display = (!isAV && isSeries) ? '' : 'none';
+  document.getElementById('fm-ms-row').style.display = (!isAV && isSeries) ? '' : 'none';
 
   // Season / ภาค label
   if (!isAV) {
@@ -3034,6 +3049,9 @@ async function openAddModal(tabId) {
   document.getElementById('fm-season').value = '1';
   document.getElementById('fm-split').value  = '';
   document.getElementById('fm-auto-split').checked = false;
+  document.getElementById('fm-multi-season').checked = false;
+  document.getElementById('fm-season-map').value = '';
+  syncSeasonRow('fm');
   document.querySelector('input[name="fm-track"][value="th"]').checked = true;
 
   // Hide log
@@ -3146,6 +3164,14 @@ function createUrlList(listId, addBtnId, onChange) {
 const fmUrlList = createUrlList('fm-url-list', 'fm-url-add', () => updateCmd());
 const rfUrlList = createUrlList('rf-url-list', 'rf-url-add', () => refreshRfCmd());
 
+/** multi-season คุม season เอง → ทำช่อง Season ให้จางและกดไม่ได้ กันเข้าใจผิดว่าต้องกรอก */
+function syncSeasonRow(prefix) {
+  const on = document.getElementById(`${prefix}-multi-season`)?.checked
+    || !!document.getElementById(`${prefix}-season-map`)?.value.trim();
+  const row = document.getElementById(`${prefix}-season-row`);
+  if (row && row.style.display !== 'none') row.classList.toggle('fm-dim', on);
+}
+
 /** Build { script, args, cmd } from current form values, or null if incomplete */
 function buildPayload() {
   const scripts  = ADD_SCRIPTS[modalTab] || [];
@@ -3181,6 +3207,9 @@ function buildPayload() {
   const splitVal = document.getElementById('fm-split').value.trim();
   if (isSeries && splitVal) args.push(`--split-eps=${splitVal}`);
   if (isSeries && !splitVal && document.getElementById('fm-auto-split').checked) args.push('--auto-split');
+  const msMapVal = document.getElementById('fm-season-map').value.trim();
+  if (isSeries && msMapVal) args.push(`--season-map=${msMapVal}`);
+  else if (isSeries && document.getElementById('fm-multi-season').checked) args.push('--multi-season');
 
   return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
 }
@@ -3461,6 +3490,10 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
   document.getElementById('rf-split').value        = splitEps;
   document.getElementById('rf-auto-split').checked = false;
   document.getElementById('rf-split-row').style.display = isSeries ? '' : 'none';
+  document.getElementById('rf-ms-row').style.display = isSeries ? '' : 'none';
+  document.getElementById('rf-multi-season').checked = false;
+  document.getElementById('rf-season-map').value = '';
+  syncSeasonRow('rf');
   document.querySelector(`input[name="rf-track"][value="${track}"]`).checked = true;
   document.getElementById('rf-fname').value        = slug;
   document.getElementById('rf-log').classList.add('hidden');
@@ -3482,6 +3515,10 @@ function buildRfCmd() {
   const rfSplitVal = document.getElementById('rf-split').value.trim();
   if (rfSplitVal) args.push(`--split-eps=${rfSplitVal}`);
   if (!rfSplitVal && document.getElementById('rf-auto-split').checked) args.push('--auto-split');
+  const rfIsSeries = TABS[rfCtx.tabId]?.kind === 'series';
+  const rfMsMap = document.getElementById('rf-season-map').value.trim();
+  if (rfIsSeries && rfMsMap) args.push(`--season-map=${rfMsMap}`);
+  else if (rfIsSeries && document.getElementById('rf-multi-season').checked) args.push('--multi-season');
   return { script, args, cmd: `node ${script} ${args.join(' ')}` };
 }
 
@@ -3517,6 +3554,7 @@ document.getElementById('rf-close').addEventListener('click', () => document.get
 document.getElementById('rf-log-clear').addEventListener('click', () => { document.getElementById('rf-log-body').textContent = ''; document.getElementById('rf-log').classList.add('hidden'); });
 ['rf-script','rf-fname','rf-season','rf-split'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
 document.getElementById('rf-auto-split').addEventListener('change', refreshRfCmd);
+['rf-multi-season','rf-season-map'].forEach(id => document.getElementById(id).addEventListener(id.endsWith('map') ? 'input' : 'change', () => { syncSeasonRow('rf'); refreshRfCmd(); }));
 document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
 document.getElementById('rf-script').addEventListener('change', () => {
   updateScriptHome('rf-script', 'rf-script-home', ADD_SCRIPTS[rfCtx.tabId] || [], 'file');
@@ -3655,6 +3693,7 @@ document.addEventListener('keydown', e => {
   document.getElementById(id).addEventListener('input', updateCmd);
 });
 document.getElementById('fm-auto-split').addEventListener('change', updateCmd);
+['fm-multi-season','fm-season-map'].forEach(id => document.getElementById(id).addEventListener(id.endsWith('map') ? 'input' : 'change', () => { syncSeasonRow('fm'); updateCmd(); }));
 document.getElementById('fm-script').addEventListener('change', () => {
   updateScriptHome('fm-script', 'fm-script-home', ADD_SCRIPTS[modalTab] || [], 'id');
 });

@@ -21,6 +21,10 @@
  *   --split-eps=N,M:k  TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
  *                      ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
  *                      (flag นี้ assume เว็บลิสต์ตอนของ season เรียงต่อเนื่องครบ)
+ *   --multi-season     เว็บรวมทุก season เป็นลิสต์เดียว → แบ่งลง season ตาม TMDB
+ *                      ใช้เมื่อผลรวม episode_count ตรงกับจำนวนตอน source เป๊ะ
+ *                      เลขตอนเริ่มนับ 1 ใหม่ทุก season
+ *   --season-map=A,B   ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   --auto-split       ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                      ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --type=KIND        default: auto-detect (series/movie)
@@ -38,6 +42,7 @@ const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
+const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 
 loadEnv(__dirname);
 
@@ -45,7 +50,8 @@ const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch,
-      forceTmdbId, splitEps, autoSplit, typeArg, filterTrack } = cli;
+      forceTmdbId, splitEps, autoSplit,
+      seasonMap, multiSeason, typeArg, filterTrack } = cli;
 
 if (!seriesUrl && !updateMeta) {
   console.error('Usage: node fetch-24hd.js <url>[,url2,...] [--track=th|subth] [--season=N] [--output=FILE]');
@@ -255,6 +261,16 @@ async function main() {
       }
     }
 
+    const ms = await prepareMultiSeason({
+      sourceCount: mergedEps.length, tmdbShow, tmdbKey, isDubbedTrack, posterUrl,
+      multiSeason, seasonMap, isMovie: isMovieContent,
+      ignoredFlags: {
+        '--season': seasonNum != null,
+        '--auto-split': !!autoSplit,
+        '--split-eps': !!splitEps,
+      },
+    });
+
     const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim()).toLowerCase();
     const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
     const resolvedId = idPrefixArg || String(tmdbShow?.id || '');
@@ -309,9 +325,14 @@ async function main() {
         const { slug: epSlug, epNum } = mergedEps[i];
         const mapped = splitMap ? splitMap[i] : null;
         const tmdbEpNum = mapped ? mapped.epNum : epNum;
-        const epLabel = mapped ? mapped.label : epNum;
+        let epLabel = mapped ? mapped.label : epNum;
         const streamUrl = buildStreamUrl(epSlug);
-        const tmdbEp = tmdbEpisodes.find(e => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]);
+        let tmdbEp;
+        if (ms) {
+          ({ label: epLabel, tmdbEp } = episodeAt(ms, i));
+        } else {
+          tmdbEp = tmdbEpisodes.find(e => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]);
+        }
         const epTitle = tmdbEp?.name || '';
         const epThumb = tmdbEp?.still_path ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}` : '';
 
@@ -325,33 +346,51 @@ async function main() {
         console.log(`  ตอน ${epNum}/${mergedEps.length} slug=${epSlug} ✅`);
       }
 
-      if (autoSplit && !splitEps) {
+      if (autoSplit && !splitEps && !ms) {
         resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset: 0, isDubbedTrack });
       }
 
       const playlistSeasonNum = seasonNum || 1;
       const playlistSeasonName = seasonName || `Season ${playlistSeasonNum}`;
-      const playlist = io.buildOrMergePlaylist({
-        outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
-        trackName, trackReferer: urls[0], tmdbSeasonName,
-        seasonName: playlistSeasonName, seasonNum: playlistSeasonNum, epOffset: 0, splitEps: resolvedSplitEps,
-      });
-      io.markSeasonTrackComplete({ playlist, seasonName: playlistSeasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
-      if (seasonAirDate) {
-        const affected = (playlist.groups || []).find(g => g.name === playlistSeasonName);
-        if (affected) affected.release_date = seasonAirDate;
+      if (ms) {
+        const playlist = writeMultiSeason({
+          ms, outputPath, seriesTitle, posterUrl, stations,
+          trackName, trackReferer: urls[0],
+        });
+        io.stampPlaylist(playlist, tmdbShow, false);
+        fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
+        console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
+        io.updateIndex({
+          indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
+          seriesTitle, posterUrl, filename: outputFile, upsert: true,
+          releaseDate: playlist.release_date || '',
+          updatedAt: playlist.updated_at,
+          seasonCount: playlist.season_count ?? null,
+          completion: playlist.completion ?? null,
+        });
+      } else {
+        const playlist = io.buildOrMergePlaylist({
+          outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
+          trackName, trackReferer: urls[0], tmdbSeasonName,
+          seasonName: playlistSeasonName, seasonNum: playlistSeasonNum, epOffset: 0, splitEps: resolvedSplitEps,
+        });
+        io.markSeasonTrackComplete({ playlist, seasonName: playlistSeasonName, trackName, tmdbEpCount: tmdbEpisodes.length });
+        if (seasonAirDate) {
+          const affected = (playlist.groups || []).find(g => g.name === playlistSeasonName);
+          if (affected) affected.release_date = seasonAirDate;
+        }
+        io.stampPlaylist(playlist, tmdbShow, false);
+        fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
+        console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
+        io.updateIndex({
+          indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
+          seriesTitle, posterUrl, filename: outputFile, upsert: true,
+          releaseDate: playlist.release_date || '',
+          updatedAt: playlist.updated_at,
+          seasonCount: playlist.season_count ?? null,
+          completion: playlist.completion ?? null,
+        });
       }
-      io.stampPlaylist(playlist, tmdbShow, false);
-      fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
-      console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
-      io.updateIndex({
-        indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
-        seriesTitle, posterUrl, filename: outputFile, upsert: true,
-        releaseDate: playlist.release_date || '',
-        updatedAt: playlist.updated_at,
-        seasonCount: playlist.season_count ?? null,
-        completion: playlist.completion ?? null,
-      });
     }
 
     console.log('\n🎉 เสร็จสิ้น!');

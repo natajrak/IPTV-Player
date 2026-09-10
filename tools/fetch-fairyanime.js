@@ -9,6 +9,10 @@
  *   - รองรับทั้ง listing URL และ episode URL
  *   - --split-eps=N,M:k TMDB ตอน N ถูกเว็บแบ่งเป็น 2 ตอน (M:k = แบ่ง k ตอน)
  *     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
+ *   - --multi-season เว็บรวมทุก season เป็นลิสต์เดียว → แบ่งลง season ตาม TMDB
+ *     ใช้เมื่อผลรวม episode_count ตรงกับจำนวนตอน source เป๊ะ
+ *     เลขตอนเริ่มนับ 1 ใหม่ทุก season
+ *   - --season-map=A,B ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   - --auto-split ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   - Shared logic อยู่ใน tools/lib/
@@ -26,6 +30,7 @@ const tmdb = require('./lib/tmdb');
 const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, suggestSplitEps, applyMeasuredSplit } = require('./lib/episode-map');
+const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 
 loadEnv(__dirname);
 
@@ -33,7 +38,7 @@ const cli = parseArgs();
 let { tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch, forceTmdbId, tmdbSeasonNum,
-      epOffset, splitEps, autoSplit, typeArg, filterTrack } = cli;
+      epOffset, splitEps, autoSplit, seasonMap, multiSeason, typeArg, filterTrack } = cli;
 const firstEpUrl = cli.seriesUrl;
 const hlsProxy = (process.env.HLS_PROXY_URL || '').replace(/\/$/, '');
 const epOffsetArg = cli.get('--ep-offset');
@@ -347,11 +352,23 @@ async function main() {
 
     episodes.sort((a, b) => a.epNum - b.epNum);
 
+    const ms = await prepareMultiSeason({
+      sourceCount: episodes.length, tmdbShow, tmdbKey, isDubbedTrack, posterUrl,
+      multiSeason, seasonMap, isMovie,
+      ignoredFlags: {
+        '--season': seasonNum != null,
+        '--tmdb-season': !!tmdbSeasonNum,
+        '--ep-offset': !!epOffset,
+        '--auto-split': !!autoSplit,
+        '--split-eps': !!splitEps,
+      },
+    });
+
     // --split-eps: index-based map เฉพาะเมื่อส่ง flag — เลขตอนปกติของ fairyanime
     // parse จากชื่อฝั่งเว็บ (crawl กลางเรื่อง/มี gap ได้) จึงห้ามเปลี่ยน default behavior
     let resolvedSplitEps = splitEps;
     const epMap = resolvedSplitEps ? buildEpisodeMap({ sourceCount: episodes.length, epOffset, splitEps: resolvedSplitEps }) : null;
-    if (!autoSplit) {
+    if (!autoSplit && !ms) {
       suggestSplitEps({ sourceCount: episodes.length, tmdbEpisodes, epOffset, splitEps: resolvedSplitEps });
     }
 
@@ -370,15 +387,19 @@ async function main() {
         process.stdout.write(' ✅\n');
       } catch (err) { console.warn(` ⚠️  ${err.message}`); }
 
-      let tmdbEpNum, label;
-      if (epMap) {
-        ({ epNum: tmdbEpNum, label } = epMap[i]);
+      let tmdbEpNum, label, tmdbEp;
+      if (ms) {
+        ({ label, tmdbEp } = episodeAt(ms, i));
       } else {
-        tmdbEpNum = epNum + epOffset;
-        label = epNum;
+        if (epMap) {
+          ({ epNum: tmdbEpNum, label } = epMap[i]);
+        } else {
+          tmdbEpNum = epNum + epOffset;
+          label = epNum;
+        }
+        tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
+          || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[epNum - 1 + epOffset]);
       }
-      const tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
-        || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[epNum - 1 + epOffset]);
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}` : '';
 
@@ -397,7 +418,7 @@ async function main() {
       if (i < episodes.length - 1) await utils.sleep(500);
     }
 
-    if (autoSplit && !splitEps && !isMovie) {
+    if (autoSplit && !splitEps && !isMovie && !ms) {
       resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
     }
 
@@ -440,6 +461,22 @@ async function main() {
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
         partCount: mainPlaylist.part_count ?? null,
+      });
+    } else if (ms) {
+      const playlist = writeMultiSeason({
+        ms, outputPath, seriesTitle, posterUrl, stations,
+        trackName, trackReferer: firstEpUrl,
+      });
+      io.stampPlaylist(playlist, tmdbShow, false);
+      fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
+      console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
+      io.updateIndex({
+        indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
+        seriesTitle, posterUrl, filename: outputFile, upsert: true,
+        releaseDate: playlist.release_date || '',
+        updatedAt: playlist.updated_at,
+        seasonCount: playlist.season_count ?? null,
+        completion: playlist.completion ?? null,
       });
     } else {
       const playlist = io.buildOrMergePlaylist({

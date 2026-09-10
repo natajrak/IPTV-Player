@@ -45,6 +45,9 @@ function parseArgs(argv = process.argv) {
   const splitEps = get('--split-eps');
   const autoSplit = args.includes('--auto-split');
 
+  const seasonMap = get('--season-map');
+  const multiSeason = args.includes('--multi-season');
+
   const partRaw = get('--part');
   const partNum = partRaw ? (parseInt(partRaw) || null) : null;
 
@@ -72,6 +75,8 @@ function parseArgs(argv = process.argv) {
     epOffset,
     splitEps,
     autoSplit,
+    seasonMap,
+    multiSeason,
     partNum,
     typeArg,
     hasFlag,
