@@ -104,21 +104,25 @@ async function fetchProxyWithRetry(url, options) {
 
 // Sites backed by akuma-stream (kurokamii + anime-hdzero, as of Dec 2025) share this resolver.
 //   - Old (akuma-player.xyz): cur.player_url = /play/{uuid} → stable files.akuma-player.xyz/view/{uuid}
-//   - New (app.akuma-stream.com): cur.player_url = /watch/{uuid} → page has
+//   - New (app./control.akuma-stream.com): cur.player_url = /watch/{uuid} → page has
 //     /api/manifest/{uuid}/master.m3u8?token=... (HMAC-signed, expires)
+//     เนื้อหากระจายหลาย host — Referer ตอน fetch จึงต้องคิดจาก playerUrl เอง
 // Flow: take the watch URL → fetch → extract signed m3u8 path → wrap in our CF proxy
 // (so the browser doesn't deal with CORS / referer for akuma-stream).
 async function resolveAkumaStream(playerUrl, { workerOrigin }) {
+  // Referer ต้องตรงกับ host ของ watch page เอง — เว็บกระจายเนื้อหาหลาย host
+  // (app./control.akuma-stream.com) และแต่ละตัวตอบ 403 "Embedding not allowed"
+  // ถ้า referer เป็นของ host อื่น → หา manifest ไม่เจอ → resolver คืน 502
+  const origin = new URL(playerUrl).origin;
   const headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Referer": "https://app.akuma-stream.com/",
+    "Referer": origin + "/",
   };
   const resp = await fetchWithRetry(playerUrl, { headers, redirect: "follow" }, "akuma-stream player");
   const html = await resp.text();
   const m = html.match(/src\s*=\s*["']?(\/api\/manifest\/[^"']+\.m3u8\?[^"'\s]+)/i);
   if (!m) throw new Error("ไม่พบ manifest URL ใน watch page");
-  const origin = new URL(playerUrl).origin;
   const m3u8 = origin + m[1];
   const wrapped = `${workerOrigin}/?url=${encodeURIComponent(m3u8)}&referer=${encodeURIComponent(origin + "/")}`;
   return { stream: wrapped };
