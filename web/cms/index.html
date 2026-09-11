@@ -1687,9 +1687,15 @@ function sourceLabelFromReferer(refererUrl) {
     ['fastfastcdn',   'allinhd'],
     ['javxx',         '123av'],
     ['123av',         '123av'],
+    ['anime-your',    'animeyour'],
+    ['v8-hdd',        'v8-hdd'],
+    ['v8-hdmovie',    'v8-hdd'],
+    ['mojianime',     'mojianime'],
+    ['24playerhd',    '24playerhd'],
   ];
   for (const [needle, val] of map) { if (host.includes(needle)) return val; }
-  return host;
+  // host ที่ยังไม่ได้ map — ตัด subdomain นำหน้ากับ TLD ออก จะได้ไม่โผล่ ".com" ให้เห็น
+  return host.replace(/^(main|www|cdn|player|stream|api)\./, '').replace(/\.[a-z]{2,6}$/, '');
 }
 
 // Render a clickable chip showing the source label next to each track badge.
