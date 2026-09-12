@@ -3450,9 +3450,9 @@ function scriptFromReferer(url) {
   if (!url) return null;
   try {
     const host = new URL(url).hostname.replace(/^www\./, '');
-    if (host.includes('kurokamii'))                         return 'fetch-kurokamii.js';
+    if (host.includes('kurokamii') || host.includes('akuma-player')) return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
-    if (host.includes('animeruka'))                         return 'fetch-animeruka.js';
+    if (host.includes('animeruka') || host.includes('animemami')) return 'fetch-animeruka.js';
     if (host.includes('anime-hdzero') || host.includes('anime-hd-zero') || host.includes('animehdzero')) return 'fetch-anime-hdzero.js';
     if (host.includes('anifume'))                           return 'fetch-anifume.js';
     if (host.includes('anime-th'))                          return 'fetch-anime-th.js';
@@ -3460,8 +3460,8 @@ function scriptFromReferer(url) {
     if (host.includes('anime108') || host.includes('108player')) return 'fetch-anime108.js';
     if (host.includes('gg-animes') || host.includes('gg-player')) return 'fetch-gg-animes.js';
     if (host.includes('anime-loki') || host.includes('anislime') || host.includes('miku-box')) return 'fetch-anime-loki.js';
-    if (host.includes('animeyour') || host.includes('abcdxzy') || host.includes('moji.team-indy')) return 'fetch-animeyour.js';
-    if (host.includes('indy-anime') || host.includes('animeindy')) return 'fetch-indy-anime.js';
+    if (host.includes('animeyour') || host.includes('anime-your') || host.includes('abcdxzy') || host.includes('moji.team-indy')) return 'fetch-animeyour.js';
+    if (host.includes('indy-anime') || host.includes('animeindy') || host.includes('team-indy')) return 'fetch-indy-anime.js';
     if (host.includes('037hdd'))                           return 'fetch-037hdd.js';
     if (host.includes('7hd') || host.includes('7-hd'))       return 'fetch-7hd.js';
     if (host.includes('nunghd4k'))                          return 'fetch-nunghd4k.js';
@@ -3472,6 +3472,7 @@ function scriptFromReferer(url) {
     if (host.includes('24-hdx')) return 'fetch-24hdx.js';
     if (host.includes('24hd') || host.includes('player77hdfree') || host.includes('vdohls') || host.includes('vh010')) return 'fetch-24hd.js';
     if (host.includes('allinhd'))                          return 'fetch-allinhd.js';
+    if (host.includes('123av') || host.includes('javxx'))   return 'fetch-123av.js';
   } catch {}
   return null;
 }
