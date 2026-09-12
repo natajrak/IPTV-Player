@@ -66,6 +66,13 @@
                             "url": "https://hls.animeindy.com:8443/vid/uIlZ2cPQug/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-08-20"
+                        },
+                        {
+                            "name": "ตอน 9 - Let Me Pay",
+                            "image": "https://image.tmdb.org/t/p/original/3J1V7o4hpkbHePxjSeX5xwyEkcR.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/MZaB75ufEh/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-08-27"
                         }
                     ]
                 },
@@ -150,20 +157,28 @@
                             "url": "https://hls.animeindy.com:8443/vid/o3U9QCq1xm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-09-10"
+                        },
+                        {
+                            "name": "Ep. 12 - I Am Eftal",
+                            "image": "https://image.tmdb.org/t/p/original/fLUzRRppw96OIwGhgNJJtfIDjG9.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/q0s66jXFCm/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-09-17"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 }
             ],
             "release_date": "2026-07-02",
-            "updated_at": "2026-09-10T00:00:00.000Z"
+            "updated_at": "2026-09-17T00:00:00.000Z"
         }
     ],
     "release_date": "2026-07-02",
-    "updated_at": "2026-09-10T00:00:00.000Z",
+    "updated_at": "2026-09-17T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",
         "season": 1,
-        "track": null
+        "track": "th"
     }
 }
