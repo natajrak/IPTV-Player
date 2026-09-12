@@ -11,7 +11,10 @@
  *   --update-meta      อัปเดต metadata + auto-migrate referer javxx.com → 123av.com
  *                      (เฉพาะรายการที่ยังไม่มี metadata)
  *   --update-meta=all  อัปเดต metadata ทุกรายการ (ทับเดิม)
- *   --code=CODE        อัปเดตเฉพาะรหัสที่ระบุ
+ *   --refresh-stream   ดึง stream URL ใหม่เฉพาะรายการที่ลิงก์เดิมใช้ไม่ได้แล้ว (เช่น CDN ย้าย host)
+ *                      แก้เฉพาะ url — metadata/ชื่อ/ปก ไม่แตะ
+ *   --refresh-stream=all  ดึง stream URL ใหม่ทุกรายการ ไม่ต้องเช็คลิงก์เดิมก่อน
+ *   --code=CODE        อัปเดตเฉพาะรหัสที่ระบุ (ใช้ได้กับ --update-meta และ --refresh-stream)
  *
  * ─── Stream extraction flow ──────────────────────────────────────────────
  *   1. Fetch 123av.com/th/v/{slug}
@@ -31,11 +34,20 @@ const pageUrl = args.find((a) => a.startsWith("http") && !a.startsWith("--"));
 const updateMetaArg = args.find((a) => a === "--update-meta" || a.startsWith("--update-meta="));
 const updateMeta = !!updateMetaArg;
 const updateMetaMode = updateMetaArg?.includes("=") ? updateMetaArg.split("=")[1] : "missing";
+const refreshArg = args.find((a) => a === "--refresh-stream" || a.startsWith("--refresh-stream="));
+const refreshStream = !!refreshArg;
+const refreshMode = refreshArg?.includes("=") ? refreshArg.split("=")[1] : "dead";
 const targetCode = (args.find((a) => a.startsWith("--code=")) || "").replace("--code=", "").toUpperCase();
 
-if (!pageUrl && !updateMeta) {
+if (refreshStream && !["dead", "all"].includes(refreshMode)) {
+  console.error(`❌ --refresh-stream รองรับแค่ค่า dead (default) หรือ all — ได้ "${refreshMode}"`);
+  process.exit(1);
+}
+
+if (!pageUrl && !updateMeta && !refreshStream) {
   console.error("Usage: node fetch-123av.js <url>");
   console.error("       node fetch-123av.js --update-meta[=all] [--code=CODE]");
+  console.error("       node fetch-123av.js --refresh-stream[=all] [--code=CODE]");
   process.exit(1);
 }
 
@@ -371,7 +383,97 @@ async function runUpdateMeta() {
   process.exit(0);
 }
 
+/**
+ * ดึง URL จริง (ก่อนห่อ proxy) ออกจาก station url
+ */
+function unwrapProxy(url) {
+  if (!url?.startsWith(HLS_PROXY_URL)) return url || "";
+  try {
+    return new URL(url).searchParams.get("url") || "";
+  } catch {
+    return "";
+  }
+}
+
+/**
+ * เช็คว่า stream m3u8 ยังใช้ได้ — ต้องได้ 200 และ body ขึ้นต้นด้วย #EXTM3U
+ */
+async function isStreamAlive(rawUrl) {
+  if (!rawUrl) return false;
+  try {
+    const res = await fetch(rawUrl, { headers: { "User-Agent": HEADERS["User-Agent"], Referer: EMBED_REFERER } });
+    if (!res.ok) return false;
+    return (await res.text()).trimStart().startsWith("#EXTM3U");
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * ดึง stream URL ใหม่จากหน้า 123av (referer ของ station) แล้วแก้เฉพาะ url ใน index.txt
+ * ใช้ตอน CDN ของเว็บย้าย host ทำให้ลิงก์เดิมตาย — บันทึกความคืบหน้าทุก 25 รายการ
+ */
+async function runRefreshStream() {
+  const index = readIndex();
+  let targets = index.stations;
+  if (targetCode) {
+    targets = targets.filter((s) => extractCode(s.name) === targetCode);
+    if (!targets.length) {
+      console.error(`❌ ไม่พบรหัส ${targetCode} ใน index.txt`);
+      process.exit(1);
+    }
+  }
+
+  let refreshed = 0, alive = 0, failed = 0, dirty = 0;
+  const failures = [];
+
+  for (let i = 0; i < targets.length; i++) {
+    const station = targets[i];
+    const code = extractCode(station.name);
+    const tag = `[${i + 1}/${targets.length}] ${code}`;
+
+    if (refreshMode === "dead" && await isStreamAlive(unwrapProxy(station.url))) {
+      console.log(`⏭️  ${tag} — ลิงก์ยังใช้ได้, ข้าม`);
+      alive++;
+      continue;
+    }
+
+    try {
+      if (!station.referer) throw new Error("ไม่มี referer (หน้า 123av) ให้ดึงลิงก์ใหม่");
+      const { embedInfo } = await parseVideoPage(forceThaiLocale(migrateLegacyUrl(station.referer)));
+      const streamUrl = await getStreamFromEmbed(embedInfo[0].embedUrl);
+      if (!await isStreamAlive(unwrapProxy(streamUrl))) throw new Error("ลิงก์ใหม่ก็ใช้ไม่ได้");
+      station.url = streamUrl;
+      refreshed++;
+      dirty++;
+      console.log(`✅ ${tag} — ได้ลิงก์ใหม่`);
+    } catch (e) {
+      failed++;
+      failures.push(`${code}: ${e.message}`);
+      console.log(`❌ ${tag} — ${e.message}`);
+    }
+
+    if (dirty >= 25) {
+      writeIndex(index);
+      dirty = 0;
+    }
+    if (i < targets.length - 1) await sleep(800);
+  }
+
+  if (dirty) writeIndex(index);
+  console.log(`\n━━━ สรุป ━━━`);
+  console.log(`  ✅ ได้ลิงก์ใหม่: ${refreshed}`);
+  console.log(`  ⏭️  ลิงก์เดิมยังใช้ได้: ${alive}`);
+  console.log(`  ❌ ล้มเหลว: ${failed}`);
+  failures.forEach((f) => console.log(`     - ${f}`));
+  process.exit(0);
+}
+
 async function main() {
+  if (refreshStream) {
+    await runRefreshStream();
+    return;
+  }
   if (updateMeta) {
     await runUpdateMeta();
     return;

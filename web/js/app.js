@@ -2517,6 +2517,7 @@ function setupVideoSource(
     destroyHls();
     let networkRetries = 0;
     let mediaRetries = 0;
+    let failedUntil = -1;
     hls = new Hls({
       capLevelToPlayerSize: false,
       backBufferLength: 30,
@@ -2536,6 +2537,18 @@ function setupVideoSource(
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
+    hls.on(Hls.Events.FRAG_BUFFERED, (_event, data) => {
+      if (
+        failedUntil < 0 ||
+        data?.frag?.type !== "main" ||
+        data.frag.start < failedUntil ||
+        Number(playerVideo.currentTime) < failedUntil
+      )
+        return;
+      networkRetries = 0;
+      mediaRetries = 0;
+      failedUntil = -1;
+    });
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       if (hls?.levels?.length > 0) {
         hls.startLevel = hls.levels.length - 1;
@@ -2573,6 +2586,14 @@ function setupVideoSource(
       if (!data?.fatal) return;
 
       const details = String(data?.details || "");
+      const failedFrag = data?.frag;
+      failedUntil = Math.max(
+        failedUntil,
+        failedFrag
+          ? failedFrag.start + failedFrag.duration
+          : (Number(playerVideo.currentTime) || 0) +
+              (hls.levels?.[hls.currentLevel]?.details?.targetduration || 10),
+      );
       const statusCode = Number(data?.response?.code || 0);
       const errLine = statusCode
         ? `HTTP ${statusCode}`

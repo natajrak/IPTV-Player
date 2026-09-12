@@ -1985,6 +1985,7 @@ function setupVideoSource(url, referer, {
     destroyHls();
     let networkRetries = 0;
     let mediaRetries = 0;
+    let failedUntil = -1;
     hls = new Hls({
       capLevelToPlayerSize: false,
       backBufferLength: 30,
@@ -2000,6 +2001,13 @@ function setupVideoSource(url, referer, {
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
     hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
+    hls.on(Hls.Events.FRAG_BUFFERED, (_event, data) => {
+      var _data$frag;
+      if (failedUntil < 0 || (data === null || data === void 0 || (_data$frag = data.frag) === null || _data$frag === void 0 ? void 0 : _data$frag.type) !== "main" || data.frag.start < failedUntil || Number(playerVideo.currentTime) < failedUntil) return;
+      networkRetries = 0;
+      mediaRetries = 0;
+      failedUntil = -1;
+    });
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       var _hls;
       if (((_hls = hls) === null || _hls === void 0 || (_hls = _hls.levels) === null || _hls === void 0 ? void 0 : _hls.length) > 0) {
@@ -2021,19 +2029,21 @@ function setupVideoSource(url, referer, {
       });
     });
     hls.on(Hls.Events.ERROR, (_event, data) => {
-      var _data$frag, _data$context, _data$response, _data$response2, _data$err, _data$response3, _data$err2;
+      var _data$frag2, _data$context, _data$response, _data$response2, _data$err, _hls$levels, _data$response3, _data$err2;
       console.warn("[HLS error]", {
         fatal: data === null || data === void 0 ? void 0 : data.fatal,
         type: data === null || data === void 0 ? void 0 : data.type,
         details: data === null || data === void 0 ? void 0 : data.details,
         reason: data === null || data === void 0 ? void 0 : data.reason,
-        url: (data === null || data === void 0 ? void 0 : data.url) || (data === null || data === void 0 || (_data$frag = data.frag) === null || _data$frag === void 0 ? void 0 : _data$frag.url) || (data === null || data === void 0 || (_data$context = data.context) === null || _data$context === void 0 ? void 0 : _data$context.url),
+        url: (data === null || data === void 0 ? void 0 : data.url) || (data === null || data === void 0 || (_data$frag2 = data.frag) === null || _data$frag2 === void 0 ? void 0 : _data$frag2.url) || (data === null || data === void 0 || (_data$context = data.context) === null || _data$context === void 0 ? void 0 : _data$context.url),
         responseCode: data === null || data === void 0 || (_data$response = data.response) === null || _data$response === void 0 ? void 0 : _data$response.code,
         responseText: data === null || data === void 0 || (_data$response2 = data.response) === null || _data$response2 === void 0 ? void 0 : _data$response2.text,
         err: (data === null || data === void 0 || (_data$err = data.err) === null || _data$err === void 0 ? void 0 : _data$err.message) || (data === null || data === void 0 ? void 0 : data.err)
       });
       if (!(data !== null && data !== void 0 && data.fatal)) return;
       const details = String((data === null || data === void 0 ? void 0 : data.details) || "");
+      const failedFrag = data === null || data === void 0 ? void 0 : data.frag;
+      failedUntil = Math.max(failedUntil, failedFrag ? failedFrag.start + failedFrag.duration : (Number(playerVideo.currentTime) || 0) + (((_hls$levels = hls.levels) === null || _hls$levels === void 0 || (_hls$levels = _hls$levels[hls.currentLevel]) === null || _hls$levels === void 0 || (_hls$levels = _hls$levels.details) === null || _hls$levels === void 0 ? void 0 : _hls$levels.targetduration) || 10));
       const statusCode = Number((data === null || data === void 0 || (_data$response3 = data.response) === null || _data$response3 === void 0 ? void 0 : _data$response3.code) || 0);
       const errLine = statusCode ? `HTTP ${statusCode}` : (data === null || data === void 0 || (_data$err2 = data.err) === null || _data$err2 === void 0 ? void 0 : _data$err2.message) || (data === null || data === void 0 ? void 0 : data.reason) || "network/codec";
       if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
