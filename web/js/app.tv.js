@@ -2945,6 +2945,7 @@ function scheduleNext() {
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
   upnextToast.classList.remove("hidden");
+  focusTVElement(upnextPlayBtn);
   let secs = 5;
   upnextCountEl.textContent = secs;
   upnextBar.style.transition = "none";
@@ -2960,18 +2961,26 @@ function scheduleNext() {
     upnextCountEl.textContent = secs;
     if (secs <= 0) {
       clearInterval(upnextCountdown);
+      restoreFocusFromUpnext();
       upnextToast.classList.add("hidden");
       if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
     }
   }, 1000);
   upnextPlayBtn.onclick = () => {
+    restoreFocusFromUpnext();
     cancelUpnext();
     if (target.type === "local") playEpisode(target.index, inheritedRefererCache);else playEpisodeFromQueue(target.queueIndex);
   };
   upnextCancelBtn.onclick = () => {
     upnextCancelled = true;
+    restoreFocusFromUpnext();
     cancelUpnext();
   };
+}
+function restoreFocusFromUpnext() {
+  if (upnextToast.contains(document.activeElement)) {
+    focusTVElement(btnPlayPause);
+  }
 }
 function cancelUpnext() {
   clearInterval(upnextCountdown);

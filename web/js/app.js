@@ -3814,6 +3814,7 @@ function scheduleNext() {
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
   upnextToast.classList.remove("hidden");
+  focusTVElement(upnextPlayBtn);
 
   let secs = 5;
   upnextCountEl.textContent = secs;
@@ -3832,6 +3833,7 @@ function scheduleNext() {
     upnextCountEl.textContent = secs;
     if (secs <= 0) {
       clearInterval(upnextCountdown);
+      restoreFocusFromUpnext();
       upnextToast.classList.add("hidden");
       if (target.type === "local")
         playEpisode(target.index, inheritedRefererCache);
@@ -3840,6 +3842,7 @@ function scheduleNext() {
   }, 1000);
 
   upnextPlayBtn.onclick = () => {
+    restoreFocusFromUpnext();
     cancelUpnext();
     if (target.type === "local")
       playEpisode(target.index, inheritedRefererCache);
@@ -3847,8 +3850,19 @@ function scheduleNext() {
   };
   upnextCancelBtn.onclick = () => {
     upnextCancelled = true;
+    restoreFocusFromUpnext();
     cancelUpnext();
   };
+}
+
+/**
+ * ย้าย focus ออกจาก Up Next toast กลับไปปุ่มเล่น/หยุด ก่อน toast ถูกซ่อน
+ * (ถ้า focus ค้างบนปุ่มที่ซ่อนแล้ว กดรีโมทครั้งถัดไปจะดูเหมือนไม่ตอบสนอง)
+ */
+function restoreFocusFromUpnext() {
+  if (upnextToast.contains(document.activeElement)) {
+    focusTVElement(btnPlayPause);
+  }
 }
 
 function cancelUpnext() {
