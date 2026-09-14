@@ -3683,6 +3683,7 @@ const SKIP_TYPE_OPTIONS = [
   ['mixed-ed', 'เพลงปิด (ผสมฉาก)'],
 ];
 let skipCtx = null;
+const SKIP_DEFAULT_LENGTH = 90;
 
 /** วินาที → "m:ss" หรือ "m:ss.s" */
 function formatSkipTime(sec) {
@@ -3717,7 +3718,7 @@ function skipRowHtml(seg = {}) {
   return `<div class="skip-seg-row">
     <select class="skip-type">${opts}</select>
     <input type="text" class="skip-start" placeholder="1:35" value="${esc(formatSkipTime(seg.start))}">
-    <input type="text" class="skip-end" placeholder="3:04" value="${esc(formatSkipTime(seg.end))}">
+    <input type="text" class="skip-end" placeholder="3:04" value="${esc(formatSkipTime(seg.end))}"${Number.isFinite(seg.end) ? '' : ' data-auto="1"'}>
     <button type="button" class="skip-remove" title="ลบช่วงนี้">✕</button>
   </div>`;
 }
@@ -3798,7 +3799,23 @@ function closeSkipModal() {
   skipCtx = null;
 }
 
-document.getElementById('skip-seg-list').addEventListener('input', updateSkipSummary);
+/**
+ * กรอกเวลาเริ่ม → ใส่เวลาจบให้อัตโนมัติ = เริ่ม + SKIP_DEFAULT_LENGTH วินาที
+ * ขยับตามเฉพาะตอนที่ช่องจบยังเป็นค่าอัตโนมัติ (data-auto) — ผู้ใช้พิมพ์ช่องจบเองแล้วจะไม่ทับ
+ */
+document.getElementById('skip-seg-list').addEventListener('input', e => {
+  const row = e.target.closest('.skip-seg-row');
+  if (row && e.target.classList.contains('skip-end')) {
+    delete e.target.dataset.auto;
+  } else if (row && e.target.classList.contains('skip-start')) {
+    const endInput = row.querySelector('.skip-end');
+    const start = parseSkipTime(e.target.value);
+    if (endInput.dataset.auto === '1') {
+      endInput.value = Number.isFinite(start) ? formatSkipTime(start + SKIP_DEFAULT_LENGTH) : '';
+    }
+  }
+  updateSkipSummary();
+});
 document.getElementById('skip-seg-list').addEventListener('change', updateSkipSummary);
 document.getElementById('skip-seg-list').addEventListener('click', e => {
   const btn = e.target.closest('.skip-remove');
