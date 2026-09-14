@@ -32,7 +32,7 @@ const PRE_WARM_SEGMENT_LIMIT = 40; // ภายใต้ subrequest limit ขอ
 //   1. Range simulation ของ worker ต้อง buffer ก้อนเต็ม → ชน memory limit 128MB → 503
 //   2. pre-warm จะพยายามโหลดไฟล์เต็มซ้ำๆ (URL เดิมทุกบรรทัดใน playlist แบบ BYTERANGE)
 // ให้ browser ยิง Range ตรงไป CDN เอง (CORS ผ่านอยู่แล้ว) — key/manifest ยังผ่าน worker ตามเดิม
-const DIRECT_HOSTS = /(^|\.)akuma-cdn\.xyz$/i;
+const DIRECT_HOSTS = /(^|\.)akuma-cdn(-\d+)?\.xyz$/i;
 
 /** JSON response helper สำหรับ resolver endpoints */
 function jsonResponse(body, status = 200, cacheSec = 0) {
