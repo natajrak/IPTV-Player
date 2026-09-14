@@ -2944,6 +2944,8 @@ function scheduleNext() {
     const upnextLabel = formatSeasonEpisodeMeta(nextSeasonTitle, next.name, nextLabelIndex);
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
+  closeQualityMenu();
+  epPanel.classList.add("hidden");
   upnextToast.classList.remove("hidden");
   focusTVElement(upnextPlayBtn);
   let secs = 5;
