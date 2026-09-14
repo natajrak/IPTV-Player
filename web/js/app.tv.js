@@ -171,10 +171,9 @@ const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
-const qualityWrap = document.querySelector(".quality-wrap");
-const btnQuality = document.getElementById("btn-quality");
-const qualityLabel = document.getElementById("quality-label");
-const qualityMenu = document.getElementById("quality-menu");
+const btnAutoSkip = document.getElementById("btn-auto-skip");
+const skipSegmentBtn = document.getElementById("skip-segment-btn");
+const skipNotice = document.getElementById("skip-notice");
 const epPanel = document.getElementById("ep-panel");
 const epPanelTitle = document.getElementById("ep-panel-title");
 const epPanelTabs = document.getElementById("ep-panel-tabs");
@@ -690,14 +689,6 @@ function isTVBackKey(e) {
 }
 function handleTVBack() {
   if (!playerOverlay.classList.contains("hidden")) {
-    if (!qualityMenu.classList.contains("hidden")) {
-      closeQualityMenu();
-      btnQuality.focus({
-        preventScroll: true
-      });
-      showPlayerUI();
-      return true;
-    }
     if (!epPanel.classList.contains("hidden")) {
       epPanel.classList.add("hidden");
       btnEpisodes.focus({
@@ -757,16 +748,15 @@ function focusTVElement(el) {
   }
 }
 function getFocusZone(el) {
-  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7, _el$closest8, _el$closest9;
+  var _el$classList2, _el$closest3, _el$closest4, _el$closest5, _el$closest6, _el$closest7, _el$closest8;
   if (!el) return "other";
   if ((_el$classList2 = el.classList) !== null && _el$classList2 !== void 0 && _el$classList2.contains("card")) return "card";
   if ((_el$closest3 = el.closest) !== null && _el$closest3 !== void 0 && _el$closest3.call(el, "#ep-panel")) return "eppanel";
-  if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#quality-menu")) return "qualitymenu";
-  if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, "#search-results")) return "search";
-  if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".section-header")) return "section";
-  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, ".range-bar")) return "range";
-  if ((_el$closest8 = el.closest) !== null && _el$closest8 !== void 0 && _el$closest8.call(el, ".pagination")) return "pagination";
-  if ((_el$closest9 = el.closest) !== null && _el$closest9 !== void 0 && _el$closest9.call(el, "#app-header")) return "header";
+  if ((_el$closest4 = el.closest) !== null && _el$closest4 !== void 0 && _el$closest4.call(el, "#search-results")) return "search";
+  if ((_el$closest5 = el.closest) !== null && _el$closest5 !== void 0 && _el$closest5.call(el, ".section-header")) return "section";
+  if ((_el$closest6 = el.closest) !== null && _el$closest6 !== void 0 && _el$closest6.call(el, ".range-bar")) return "range";
+  if ((_el$closest7 = el.closest) !== null && _el$closest7 !== void 0 && _el$closest7.call(el, ".pagination")) return "pagination";
+  if ((_el$closest8 = el.closest) !== null && _el$closest8 !== void 0 && _el$closest8.call(el, "#app-header")) return "header";
   return "other";
 }
 function hasDirectionalCandidate(current, candidates, directionKey) {
@@ -796,22 +786,19 @@ function getDirectionalCandidates(current, directionKey, elements) {
   if (zone === "search") {
     return elements.filter(el => getFocusZone(el) === "search");
   }
-  if (zone === "qualitymenu") {
-    return elements.filter(el => getFocusZone(el) === "qualitymenu");
-  }
   if (zone === "eppanel") {
     var _current$closest;
     const epElems = elements.filter(el => getFocusZone(el) === "eppanel");
     const onCard = (_current$closest = current.closest) === null || _current$closest === void 0 ? void 0 : _current$closest.call(current, "#ep-panel-grid");
     if (onCard && (directionKey === "ArrowUp" || directionKey === "ArrowDown")) {
       const epCards = epElems.filter(el => {
-        var _el$closest0;
-        return (_el$closest0 = el.closest) === null || _el$closest0 === void 0 ? void 0 : _el$closest0.call(el, "#ep-panel-grid");
+        var _el$closest9;
+        return (_el$closest9 = el.closest) === null || _el$closest9 === void 0 ? void 0 : _el$closest9.call(el, "#ep-panel-grid");
       });
       if (directionKey === "ArrowUp" && !hasDirectionalCandidate(current, epCards, "ArrowUp")) {
         return epElems.filter(el => {
-          var _el$closest1;
-          return !((_el$closest1 = el.closest) !== null && _el$closest1 !== void 0 && _el$closest1.call(el, "#ep-panel-grid"));
+          var _el$closest0;
+          return !((_el$closest0 = el.closest) !== null && _el$closest0 !== void 0 && _el$closest0.call(el, "#ep-panel-grid"));
         });
       }
       return epCards;
@@ -879,9 +866,9 @@ function moveTVFocus(directionKey) {
   let bestScore = Number.POSITIVE_INFINITY;
   const horizontal = directionKey === "ArrowLeft" || directionKey === "ArrowRight";
   scanElements.forEach(el => {
-    var _el$closest10;
+    var _el$closest1;
     if (el === current) return;
-    if (horizontal && (el.id === "player-seek" || (_el$closest10 = el.closest) !== null && _el$closest10 !== void 0 && _el$closest10.call(el, "#player-header"))) return;
+    if (horizontal && (el.id === "player-seek" || (_el$closest1 = el.closest) !== null && _el$closest1 !== void 0 && _el$closest1.call(el, "#player-header"))) return;
     const rect = el.getBoundingClientRect();
     const center = {
       x: rect.left + rect.width / 2,
@@ -1930,6 +1917,7 @@ function playEpisode(index, inheritedReferer) {
   showPlayerLoading();
   loadSeekPreview();
   const epochAtPlay = ++playEpisodeEpoch;
+  startSkipSegments(station);
   const playerOpts = {
     forceNative: isCurrentlyCasting()
   };
@@ -2000,7 +1988,6 @@ function setupVideoSource(url, referer, {
     });
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
-    hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
     hls.on(Hls.Events.FRAG_BUFFERED, (_event, data) => {
       var _data$frag;
       if (failedUntil < 0 || (data === null || data === void 0 || (_data$frag = data.frag) === null || _data$frag === void 0 ? void 0 : _data$frag.type) !== "main" || data.frag.start < failedUntil || Number(playerVideo.currentTime) < failedUntil) return;
@@ -2014,7 +2001,6 @@ function setupVideoSource(url, referer, {
         hls.startLevel = hls.levels.length - 1;
         hls.currentLevel = -1;
       }
-      setupQualityUI();
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -2223,6 +2209,7 @@ function renderSeekBar(pct, currentSec) {
   playerTime.textContent = `${formatTime(currentSec)} / ${formatTime(playerVideo.duration)}`;
 }
 playerVideo.addEventListener("timeupdate", () => {
+  updateSkipSegment();
   if (!playerVideo.duration || isScrubbing) return;
   const pct = playerVideo.currentTime / playerVideo.duration * 100;
   renderSeekBar(pct, playerVideo.currentTime);
@@ -2389,99 +2376,6 @@ epPanelClose.addEventListener("click", () => {
 epPanel.addEventListener("click", e => {
   e.stopPropagation();
 });
-function hlsLevelResLabel(level) {
-  if (!level) return "";
-  if (level.height) return level.height + "p";
-  if (level.name) return String(level.name);
-  if (level.bitrate) return Math.round(level.bitrate / 1000) + "k";
-  return "";
-}
-function setupQualityUI() {
-  if (hls && hls.levels && hls.levels.length > 0) {
-    qualityWrap.hidden = false;
-    updateQualityLabel();
-  } else {
-    qualityWrap.hidden = true;
-    closeQualityMenu();
-  }
-}
-function updateQualityLabel() {
-  if (!hls || !hls.levels || hls.levels.length === 0) return;
-  if (hls.levels.length === 1) {
-    qualityLabel.textContent = hlsLevelResLabel(hls.levels[0]) || "SD";
-    return;
-  }
-  if (hls.currentLevel === -1) {
-    const lv = hls.levels[hls.loadLevel] || hls.levels[hls.nextLoadLevel];
-    const res = hlsLevelResLabel(lv);
-    qualityLabel.textContent = res ? "Auto·" + res : "Auto";
-  } else {
-    qualityLabel.textContent = hlsLevelResLabel(hls.levels[hls.currentLevel]) || "Auto";
-  }
-}
-function buildQualityMenu() {
-  if (!hls || !hls.levels) return;
-  qualityMenu.innerHTML = "";
-  const items = [];
-  if (hls.levels.length > 1) items.push({
-    idx: -1,
-    label: "อัตโนมัติ"
-  });
-  hls.levels.map((lv, i) => ({
-    lv,
-    i
-  })).sort((a, b) => (b.lv.height || b.lv.bitrate || 0) - (a.lv.height || a.lv.bitrate || 0)).forEach(({
-    lv,
-    i
-  }) => items.push({
-    idx: i,
-    label: hlsLevelResLabel(lv) || "ระดับ " + (i + 1)
-  }));
-  items.forEach(it => {
-    const active = hls.currentLevel === it.idx;
-    const btn = document.createElement("button");
-    btn.className = "quality-item" + (active ? " active" : "");
-    btn.tabIndex = 0;
-    btn.innerHTML = `<span class="quality-check">${active ? "✓" : ""}</span><span>${esc(it.label)}</span>`;
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      applyQualityLevel(it.idx);
-    });
-    qualityMenu.appendChild(btn);
-  });
-}
-function applyQualityLevel(idx) {
-  if (!hls) return;
-  hls.currentLevel = idx;
-  updateQualityLabel();
-  closeQualityMenu();
-  btnQuality.focus({
-    preventScroll: true
-  });
-  showPlayerUI();
-}
-function openQualityMenu() {
-  if (!hls || !hls.levels || hls.levels.length === 0) return;
-  buildQualityMenu();
-  qualityMenu.classList.remove("hidden");
-  showPlayerUI();
-  focusTVElement(qualityMenu.querySelector(".quality-item.active") || qualityMenu.querySelector(".quality-item"));
-}
-function closeQualityMenu() {
-  qualityMenu.classList.add("hidden");
-}
-btnQuality.addEventListener("click", e => {
-  e.stopPropagation();
-  if (qualityMenu.classList.contains("hidden")) {
-    openQualityMenu();
-  } else {
-    closeQualityMenu();
-    btnQuality.focus({
-      preventScroll: true
-    });
-  }
-});
-qualityMenu.addEventListener("click", e => e.stopPropagation());
 function renderEpPanel() {
   var _selectedSeason$refer;
   const seasonTabs = crossSeasonSeasons.filter(season => Array.isArray(season.stations) && season.stations.length > 0);
@@ -2810,7 +2704,7 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  if (!playerVideo.paused && epPanel.classList.contains("hidden") && qualityMenu.classList.contains("hidden")) {
+  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -2921,6 +2815,141 @@ function formatSeasonEpisodeMeta(seasonTitle, stationName, fallbackIndex) {
     title: label.title || stationName || ""
   };
 }
+const SKIP_LABELS = {
+  recap: "ข้ามย้อนความ",
+  op: "ข้ามเพลงเปิด",
+  "mixed-op": "ข้ามเพลงเปิด",
+  ed: "ข้ามเพลงปิด",
+  "mixed-ed": "ข้ามเพลงปิด"
+};
+const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
+let skipSegments = [];
+let activeSkipSegment = null;
+let suppressedSkipSegments = new Set();
+let skipSelfSeekAt = 0;
+let lastPlaybackPos = 0;
+let skipNoticeTimer = null;
+let autoSkipEnabled = readAutoSkipPref();
+function readAutoSkipPref() {
+  try {
+    return localStorage.getItem(AUTO_SKIP_STORAGE_KEY) === "1";
+  } catch (_) {
+    return false;
+  }
+}
+function writeAutoSkipPref(enabled) {
+  try {
+    localStorage.setItem(AUTO_SKIP_STORAGE_KEY, enabled ? "1" : "0");
+  } catch (_) {}
+}
+function stationSkipSegments(station) {
+  var _station$skip;
+  const segments = station === null || station === void 0 || (_station$skip = station.skip) === null || _station$skip === void 0 ? void 0 : _station$skip.segments;
+  if (!Array.isArray(segments)) return [];
+  return segments.map(seg => ({
+    type: seg === null || seg === void 0 ? void 0 : seg.type,
+    start: Number(seg === null || seg === void 0 ? void 0 : seg.start),
+    end: Number(seg === null || seg === void 0 ? void 0 : seg.end)
+  })).filter(seg => SKIP_LABELS[seg.type] && Number.isFinite(seg.start) && Number.isFinite(seg.end) && seg.start >= 0 && seg.end > seg.start).sort((a, b) => a.start - b.start);
+}
+function resetSkipSegments({
+  restoreFocus = true
+} = {}) {
+  skipSegments = [];
+  activeSkipSegment = null;
+  suppressedSkipSegments = new Set();
+  skipSelfSeekAt = 0;
+  lastPlaybackPos = 0;
+  if (restoreFocus) hideSkipButton();else skipSegmentBtn.classList.add("hidden");
+  skipNotice.classList.add("hidden");
+  clearTimeout(skipNoticeTimer);
+  btnAutoSkip.hidden = true;
+}
+function startSkipSegments(station) {
+  resetSkipSegments();
+  skipSegments = stationSkipSegments(station);
+  if (!skipSegments.length) return;
+  btnAutoSkip.hidden = false;
+  renderAutoSkipButton();
+}
+function updateSkipSegment() {
+  if (!skipSegments.length || playerVideo.readyState < 1) return;
+  const t = Number(playerVideo.currentTime) || 0;
+  if (!playerVideo.seeking) lastPlaybackPos = t;
+  const seg = skipSegments.find(s => t >= s.start && t < s.end - 1) || null;
+  if (seg === activeSkipSegment) return;
+  activeSkipSegment = seg;
+  if (!seg) {
+    hideSkipButton();
+    return;
+  }
+  if (!upnextToast.classList.contains("hidden")) return;
+  if (autoSkipEnabled && !suppressedSkipSegments.has(seg)) {
+    suppressedSkipSegments.add(seg);
+    performSkip(seg, {
+      auto: true
+    });
+    return;
+  }
+  showSkipButton(seg);
+}
+function performSkip(seg, {
+  auto = false
+} = {}) {
+  if (!seg || playerVideo.readyState < 1) return;
+  hideSkipButton();
+  activeSkipSegment = null;
+  skipSelfSeekAt = Date.now();
+  playerVideo.currentTime = seg.end;
+  if (auto) showSkipNotice(`${SKIP_LABELS[seg.type]}แล้ว`);
+}
+function showSkipButton(seg) {
+  skipSegmentBtn.textContent = SKIP_LABELS[seg.type];
+  skipSegmentBtn.classList.remove("hidden");
+  const active = document.activeElement;
+  const userOnControls = playerOverlay.classList.contains("show-ui") && active && active !== btnPlayPause && active !== document.body && playerOverlay.contains(active);
+  if (!epPanel.classList.contains("hidden") || userOnControls) return;
+  focusTVElement(skipSegmentBtn);
+}
+function hideSkipButton() {
+  if (skipSegmentBtn.classList.contains("hidden")) return;
+  if (document.activeElement === skipSegmentBtn) focusTVElement(btnPlayPause);
+  skipSegmentBtn.classList.add("hidden");
+}
+function showSkipNotice(text) {
+  skipNotice.textContent = text;
+  skipNotice.classList.remove("hidden");
+  clearTimeout(skipNoticeTimer);
+  skipNoticeTimer = setTimeout(() => skipNotice.classList.add("hidden"), 2500);
+}
+function renderAutoSkipButton() {
+  btnAutoSkip.classList.toggle("active", autoSkipEnabled);
+  btnAutoSkip.setAttribute("aria-pressed", String(autoSkipEnabled));
+  const label = autoSkipEnabled ? "ข้ามอัตโนมัติ: เปิด" : "ข้ามอัตโนมัติ: ปิด";
+  btnAutoSkip.title = label;
+  btnAutoSkip.setAttribute("aria-label", label);
+}
+skipSegmentBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  performSkip(activeSkipSegment);
+});
+btnAutoSkip.addEventListener("click", e => {
+  e.stopPropagation();
+  autoSkipEnabled = !autoSkipEnabled;
+  writeAutoSkipPref(autoSkipEnabled);
+  renderAutoSkipButton();
+  showPlayerUI();
+});
+playerVideo.addEventListener("seeking", () => {
+  if (skipSelfSeekAt && Date.now() - skipSelfSeekAt < 1000) {
+    skipSelfSeekAt = 0;
+    return;
+  }
+  const t = Number(playerVideo.currentTime) || 0;
+  if (t >= lastPlaybackPos) return;
+  const seg = skipSegments.find(s => t >= s.start && t < s.end);
+  if (seg) suppressedSkipSegments.add(seg);
+});
 function scheduleNext() {
   var _crossSeasonQueue$tar, _crossSeasonQueue$tar2, _crossSeasonQueue$tar3, _crossSeasonQueue$tar4, _next$meta;
   const target = resolveAdjacentEpisode(1);
@@ -2944,8 +2973,10 @@ function scheduleNext() {
     const upnextLabel = formatSeasonEpisodeMeta(nextSeasonTitle, next.name, nextLabelIndex);
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
-  closeQualityMenu();
   epPanel.classList.add("hidden");
+  hideSkipButton();
+  clearTimeout(skipNoticeTimer);
+  skipNotice.classList.add("hidden");
   upnextToast.classList.remove("hidden");
   focusTVElement(upnextPlayBtn);
   let secs = 5;
@@ -2989,6 +3020,7 @@ function cancelUpnext() {
   upnextToast.classList.add("hidden");
 }
 function closePlayer() {
+  playEpisodeEpoch++;
   cancelUpnext();
   if (docPipWindow) {
     docPipWindow.close();
@@ -3004,8 +3036,9 @@ function closePlayer() {
   playerVideo.onended = null;
   playerOverlay.classList.add("hidden");
   playerOverlay.classList.remove("show-ui");
-  closeQualityMenu();
-  qualityWrap.hidden = true;
+  resetSkipSegments({
+    restoreFocus: false
+  });
   clearTimeout(idleTimer);
   document.body.style.overflow = "";
   crossSeasonQueue = [];

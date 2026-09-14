@@ -819,6 +819,24 @@
       font-size: 12px; padding: 2px 5px; border-radius: 3px; flex-shrink: 0; line-height: 1;
     }
     .eb-card-del:hover { color: #e05050; background: rgba(224,80,80,.1); }
+    .eb-card-skip {
+      background: none; border: 1px solid var(--border); color: var(--text3); cursor: pointer;
+      font-size: 10px; padding: 1px 5px; border-radius: 3px; flex-shrink: 0; line-height: 1.3;
+    }
+    .eb-card-skip.manual { color: #4a9eff; border-color: #2a5a8a; }
+    .eb-card-skip:hover { color: var(--text); border-color: var(--text3); }
+    .skip-seg-hd, .skip-seg-row {
+      display: grid; grid-template-columns: 130px 1fr 1fr 34px; gap: 8px; align-items: center;
+    }
+    .skip-seg-hd { font-size: 11px; color: var(--text3); }
+    .skip-seg-row select, .skip-seg-row input { width: 100%; }
+    .skip-seg-row button {
+      height: 32px; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text2); cursor: pointer; font-size: 13px;
+    }
+    #skip-seg-list { display: flex; flex-direction: column; gap: 8px; }
+    #skip-summary { font-size: 12px; color: var(--text2); }
+    #skip-summary.warn { color: #e8c46d; }
     .eb-btn {
       background: var(--bg4); border: 1px solid var(--border);
       color: var(--text2); cursor: pointer; font-size: 11px;
@@ -1377,6 +1395,33 @@
       <span id="eb-status" style="flex:1;font-size:12px;color:var(--text3)"></span>
       <button id="eb-cancel" class="btn-cancel">ยกเลิก</button>
       <button id="eb-save" class="btn-run"><i class="fi fi-sr-disk"></i> บันทึก</button>
+    </div>
+  </div>
+</div>
+
+<!-- Skip Times Modal (เปิดจากการ์ดตอนในหน้าจัดการตอน) -->
+<div id="skip-modal" class="modal-overlay hidden">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center;min-width:0">
+        <h2>เวลาข้าม</h2>
+        <span class="modal-tab-hint" id="skip-hint"></span>
+      </div>
+      <button class="modal-close" id="skip-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p id="skip-source" style="font-size:12px;color:var(--text3)"></p>
+      <div class="fm-row">
+        <label>ช่วงข้าม <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(นาที:วินาที หรือ นาที.วินาที เช่น 1:35, 2.23, 22:04.5)</span></label>
+        <div class="skip-seg-hd"><span>ประเภท</span><span>เริ่ม</span><span>จบ</span><span></span></div>
+        <div id="skip-seg-list"></div>
+        <button type="button" class="url-add-btn" id="skip-seg-add">＋ เพิ่มช่วง</button>
+      </div>
+      <div id="skip-summary"></div>
+    </div>
+    <div class="modal-ft">
+      <button id="skip-cancel-btn" class="btn-cancel" style="margin-left:auto">ยกเลิก</button>
+      <button id="skip-apply-btn" class="btn-run"><i class="fi fi-sr-check"></i> ใช้ค่านี้</button>
     </div>
   </div>
 </div>
@@ -2606,6 +2651,16 @@ function renderLane(si, lane, li, hideHead) {
   </div>`;
 }
 
+/** ปุ่มเวลาข้ามบนการ์ดตอน (series เท่านั้น) — ฟ้า = กรอกแล้ว */
+function renderSkipBadge(card, si, li, ci) {
+  if (ebCtx?.kind !== 'series') return '';
+  const skip = card.skip;
+  const count = Array.isArray(skip?.segments) ? skip.segments.length : 0;
+  const cls = skip ? ' manual' : '';
+  const tip = skip ? `กรอกแล้ว (${count} ช่วง) — คลิกเพื่อแก้` : 'ยังไม่มีเวลาข้าม — คลิกเพื่อใส่';
+  return `<button class="eb-card-skip${cls}" data-si="${si}" data-li="${li}" data-ci="${ci}" title="${esc(tip)}">⏭${count || ''}</button>`;
+}
+
 function renderCard(card, si, li, ci) {
   const img = card.image
     ? `<img class="eb-card-img" src="${esc(card.image)}" loading="lazy" onerror="this.style.display='none'">`
@@ -2613,6 +2668,7 @@ function renderCard(card, si, li, ci) {
   return `<div class="eb-card" draggable="true" data-si="${si}" data-li="${li}" data-ci="${ci}">
     <span class="eb-card-grip">⠿</span>${img}
     <span class="eb-card-name eb-editable" data-rename="card" data-si="${si}" data-li="${li}" data-ci="${ci}" title="คลิกเพื่อแก้ชื่อ/เลขตอน">${esc(card.name || '(ไม่มีชื่อ)')}</span>
+    ${renderSkipBadge(card, si, li, ci)}
     <button class="eb-card-del" data-si="${si}" data-li="${li}" data-ci="${ci}" title="ลบ">✕</button>
   </div>`;
 }
@@ -2793,6 +2849,12 @@ function ebClearSecDrag(board) {
           if (v && v !== s.sections[si].lanes[li].cards[ci].name) { s.sections[si].lanes[li].cards[ci].name = v; s.dirty = true; }
         });
       }
+      return;
+    }
+    const skipBtn = e.target.closest('.eb-card-skip');
+    if (skipBtn) {
+      const { si, li, ci } = skipBtn.dataset;
+      openSkipModal(+si, +li, +ci);
       return;
     }
     const delCard = e.target.closest('.eb-card-del');
@@ -3611,6 +3673,157 @@ document.addEventListener('click', async e => {
     el.style.opacity = '';
   }
 });
+
+// ── Skip Times Modal ─────────────────────────────────────────────
+const SKIP_TYPE_OPTIONS = [
+  ['recap', 'ย้อนความ'],
+  ['op', 'เพลงเปิด'],
+  ['mixed-op', 'เพลงเปิด (ผสมฉาก)'],
+  ['ed', 'เพลงปิด'],
+  ['mixed-ed', 'เพลงปิด (ผสมฉาก)'],
+];
+let skipCtx = null;
+
+/** วินาที → "m:ss" หรือ "m:ss.s" */
+function formatSkipTime(sec) {
+  if (!Number.isFinite(sec)) return '';
+  const tenths = Math.round(sec * 10);
+  const m = Math.floor(tenths / 600);
+  const rest = (tenths - m * 600) / 10;
+  const ss = rest.toFixed(rest % 1 ? 1 : 0).padStart(rest % 1 ? 4 : 2, '0');
+  return `${m}:${ss}`;
+}
+
+/**
+ * แปลงข้อความเวลา → วินาที (รูปแบบผิดคืน NaN)
+ * - "m:ss" / "m:ss.s" / "h:mm:ss"
+ * - "m.ss" (จุดคั่นนาที เช่น 2.23 = 2:23) — ต้องมีวินาที 2 หลักหลังจุด
+ * - ตัวเลขล้วน = วินาที
+ */
+function parseSkipTime(text) {
+  let t = String(text || '').trim();
+  if (!t) return NaN;
+  const dotted = t.match(/^(\d+)\.(\d{2})$/);
+  if (dotted) t = `${dotted[1]}:${dotted[2]}`;
+  if (!/^\d+(?::\d{1,2}){0,2}(?:\.\d+)?$/.test(t)) return NaN;
+  const parts = t.split(':').map(Number);
+  if (parts.slice(1).some(p => p >= 60)) return NaN;
+  return parts.reduce((acc, p) => acc * 60 + p, 0);
+}
+
+function skipRowHtml(seg = {}) {
+  const opts = SKIP_TYPE_OPTIONS.map(([v, label]) =>
+    `<option value="${v}"${seg.type === v ? ' selected' : ''}>${label}</option>`).join('');
+  return `<div class="skip-seg-row">
+    <select class="skip-type">${opts}</select>
+    <input type="text" class="skip-start" placeholder="1:35" value="${esc(formatSkipTime(seg.start))}">
+    <input type="text" class="skip-end" placeholder="3:04" value="${esc(formatSkipTime(seg.end))}">
+    <button type="button" class="skip-remove" title="ลบช่วงนี้">✕</button>
+  </div>`;
+}
+
+/** อ่านฟอร์ม → { segments, error } */
+function readSkipRows() {
+  const rows = [...document.querySelectorAll('#skip-seg-list .skip-seg-row')];
+  const segments = [];
+  for (let i = 0; i < rows.length; i++) {
+    const startRaw = rows[i].querySelector('.skip-start').value.trim();
+    const endRaw = rows[i].querySelector('.skip-end').value.trim();
+    if (!startRaw && !endRaw) continue;
+    const start = parseSkipTime(startRaw);
+    const end = parseSkipTime(endRaw);
+    if (!Number.isFinite(start)) return { error: `แถว ${i + 1}: เวลาเริ่มไม่ถูกรูปแบบ` };
+    if (!Number.isFinite(end)) return { error: `แถว ${i + 1}: เวลาจบไม่ถูกรูปแบบ` };
+    if (end <= start) return { error: `แถว ${i + 1}: เวลาจบต้องมากกว่าเวลาเริ่ม` };
+    segments.push({ type: rows[i].querySelector('.skip-type').value, start: Math.round(start * 10) / 10, end: Math.round(end * 10) / 10 });
+  }
+  segments.sort((a, b) => a.start - b.start);
+  return { segments };
+}
+
+function updateSkipSummary() {
+  const el = document.getElementById('skip-summary');
+  const { segments, error } = readSkipRows();
+  if (error) { el.textContent = `⚠️ ${error}`; el.className = 'warn'; return; }
+  el.className = '';
+  el.textContent = segments.length
+    ? segments.map(seg => `${SKIP_TYPE_OPTIONS.find(o => o[0] === seg.type)[1]} ${formatSkipTime(seg.start)}–${formatSkipTime(seg.end)}`).join(' · ')
+    : 'ไม่มีช่วงข้าม — ตอนนี้จะไม่มีปุ่มข้าม';
+}
+
+/** label ตอนแบบเต็ม ("11" หรือ "11(1/2)") — ใช้จับคู่ตอนเดียวกันข้าม track เหมือน tools/lib/skip-times.js */
+function skipEpisodeLabel(card) {
+  const m = String(card?.name || '').match(/(?:ตอน|Ep\.?)\s*(\d+(?:\s*\(\d+\/\d+\))?)/i);
+  return m ? m[1].replace(/\s+/g, '') : null;
+}
+
+/**
+ * การ์ดตอนเดียวกันใน track อื่นของ season เดียวกันที่ยังไม่เคยกรอก
+ * (label ต้องไม่ซ้ำทั้งใน track ต้นทางและ track ปลายทาง กันคัดลอกผิดตัวเมื่อมีลิงก์สำรองเลขตอนซ้ำ)
+ */
+function skipFollowTargets(si, li, card) {
+  const label = skipEpisodeLabel(card);
+  if (!label) return [];
+  const lanes = ebCtx?.sections[si]?.lanes || [];
+  if ((lanes[li]?.cards || []).filter(c => skipEpisodeLabel(c) === label).length !== 1) return [];
+  const targets = [];
+  lanes.forEach((lane, idx) => {
+    if (idx === li) return;
+    const same = lane.cards.filter(c => skipEpisodeLabel(c) === label);
+    if (same.length === 1 && !same[0].skip) targets.push({ lane, card: same[0] });
+  });
+  return targets;
+}
+
+function openSkipModal(si, li, ci) {
+  const card = ebCtx?.sections[si]?.lanes[li]?.cards[ci];
+  if (!card) return;
+  const skip = card.skip;
+  const firstEntry = !skip;
+  const followers = firstEntry ? skipFollowTargets(si, li, card) : [];
+  skipCtx = { card, followers };
+  document.getElementById('skip-hint').textContent = `— ${card.name || ''}`;
+  const followNote = followers.length
+    ? ` · กรอกครั้งแรก: จะคัดลอกไปตอนเดียวกันใน ${followers.map(f => f.lane.name).join(', ')} ด้วย`
+    : '';
+  document.getElementById('skip-source').textContent = (skip ? 'กรอกแล้ว' : 'ยังไม่มีข้อมูล') + followNote;
+  const segs = Array.isArray(skip?.segments) && skip.segments.length ? skip.segments : [{ type: 'op' }];
+  document.getElementById('skip-seg-list').innerHTML = segs.map(skipRowHtml).join('');
+  updateSkipSummary();
+  document.getElementById('skip-modal').classList.remove('hidden');
+}
+
+function closeSkipModal() {
+  document.getElementById('skip-modal').classList.add('hidden');
+  skipCtx = null;
+}
+
+document.getElementById('skip-seg-list').addEventListener('input', updateSkipSummary);
+document.getElementById('skip-seg-list').addEventListener('change', updateSkipSummary);
+document.getElementById('skip-seg-list').addEventListener('click', e => {
+  const btn = e.target.closest('.skip-remove');
+  if (!btn) return;
+  btn.closest('.skip-seg-row').remove();
+  updateSkipSummary();
+});
+document.getElementById('skip-seg-add').addEventListener('click', () => {
+  document.getElementById('skip-seg-list').insertAdjacentHTML('beforeend', skipRowHtml({ type: 'ed' }));
+  updateSkipSummary();
+});
+document.getElementById('skip-apply-btn').addEventListener('click', () => {
+  if (!skipCtx || !ebCtx) return;
+  const { segments, error } = readSkipRows();
+  if (error) { alert(error); return; }
+  if (!segments.length && !confirm('บันทึกว่าตอนนี้ "ไม่มีช่วงข้าม"? (ตอนนี้จะไม่มีปุ่มข้าม)')) return;
+  skipCtx.card.skip = { source: 'manual', segments };
+  skipCtx.followers.forEach(({ card }) => {
+    card.skip = { source: 'manual', segments: segments.map(seg => ({ ...seg })) };
+  });
+  closeSkipModal();
+  ebMark();
+});
+document.getElementById('skip-cancel-btn').addEventListener('click', closeSkipModal);
+document.getElementById('skip-close').addEventListener('click', closeSkipModal);
 
 // ── Delete Modal ─────────────────────────────────────────────────
 let dmCtx = null;

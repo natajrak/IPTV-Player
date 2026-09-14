@@ -25,6 +25,7 @@ const path = require('path');
 const { loadEnv } = require('./lib/env');
 const tmdb = require('./lib/tmdb');
 const { isGenericEpisodeName } = require('./lib/utils');
+const { carryOverSkips } = require('./lib/skip-times');
 
 loadEnv(__dirname);
 
@@ -387,6 +388,17 @@ function stripUndefined(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
+/**
+ * ยก station.skip (เวลาข้ามที่กรอกใน CMS) จากไฟล์เดิมไปใส่ station ที่สร้างใหม่
+ * เพราะสคริปต์นี้สร้าง season ใหม่ทั้งก้อนแทนของเดิม — ถ้าไม่ยกไปจะหายตอนรันซ้ำ
+ */
+function carryOverExistingSkips(playlist) {
+  if (!fs.existsSync(OUTPUT_PATH)) return;
+  let existing;
+  try { existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')); } catch { return; }
+  carryOverSkips(playlist, existing, (playlist.groups || []).map((g) => g.name));
+}
+
 // ────────────────────────────────────────────────────────────────────
 // Main
 // ────────────────────────────────────────────────────────────────────
@@ -453,6 +465,7 @@ async function main() {
   // Phase 4: build & write
   console.log('\n━━━ Phase 4: Build playlist JSON ━━━');
   const playlist = buildPlaylist(tmdbData, okResults);
+  carryOverExistingSkips(playlist);
 
   if (onlySeasons.length) {
     // Partial run — merge เข้าไฟล์เดิม

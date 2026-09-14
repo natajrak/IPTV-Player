@@ -41,6 +41,7 @@ const io = require('./lib/playlist-io');
 const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, suggestSplitEps, applyMeasuredSplit } = require('./lib/episode-map');
 const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
+const { carryOverFetchedSkips } = require('./lib/skip-times');
 
 loadEnv(__dirname);
 
@@ -387,10 +388,12 @@ async function main() {
       const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
       if (ms) {
+        const previousPlaylist = io.loadPlaylist(outputPath);
         const playlist = writeMultiSeason({
           ms, outputPath, seriesTitle, posterUrl, stations,
           trackName: track, trackReferer: pageUrl,
         });
+        carryOverFetchedSkips({ playlist, seasons: ms.plan.map((p) => p.seasonNum), previous: previousPlaylist });
         io.stampPlaylist(playlist, tmdbShow, false);
         fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
         console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
@@ -403,6 +406,7 @@ async function main() {
           completion: playlist.completion ?? null,
         });
       } else {
+        const previousPlaylist = io.loadPlaylist(outputPath);
         const playlist = io.buildOrMergePlaylist({
           outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
           trackName: track, trackReferer: pageUrl, tmdbSeasonName,
@@ -414,6 +418,7 @@ async function main() {
           const affectedSeason = (playlist.groups || []).find((g) => utils.matchesSeasonName(g.name, targetSeasonName));
           if (affectedSeason) affectedSeason.release_date = seasonAirDate;
         }
+        carryOverFetchedSkips({ playlist, seasons: [seasonName], previous: previousPlaylist });
         io.stampPlaylist(playlist, tmdbShow, false);
         fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
         console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);

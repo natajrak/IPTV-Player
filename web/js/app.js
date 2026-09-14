@@ -205,10 +205,9 @@ const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
-const qualityWrap = document.querySelector(".quality-wrap");
-const btnQuality = document.getElementById("btn-quality");
-const qualityLabel = document.getElementById("quality-label");
-const qualityMenu = document.getElementById("quality-menu");
+const btnAutoSkip = document.getElementById("btn-auto-skip");
+const skipSegmentBtn = document.getElementById("skip-segment-btn");
+const skipNotice = document.getElementById("skip-notice");
 const epPanel = document.getElementById("ep-panel");
 const epPanelTitle = document.getElementById("ep-panel-title");
 const epPanelTabs = document.getElementById("ep-panel-tabs");
@@ -841,12 +840,6 @@ function isTVBackKey(e) {
 
 function handleTVBack() {
   if (!playerOverlay.classList.contains("hidden")) {
-    if (!qualityMenu.classList.contains("hidden")) {
-      closeQualityMenu();
-      btnQuality.focus({ preventScroll: true });
-      showPlayerUI();
-      return true;
-    }
     if (!epPanel.classList.contains("hidden")) {
       epPanel.classList.add("hidden");
       btnEpisodes.focus({ preventScroll: true });
@@ -929,7 +922,6 @@ function getFocusZone(el) {
   if (el.classList?.contains("card")) return "card";
   // แผงเลือกตอน (เปิดทับ player) — จัดเป็น zone เดียว จะได้ล็อกการเลื่อนไว้ในแผง
   if (el.closest?.("#ep-panel")) return "eppanel";
-  if (el.closest?.("#quality-menu")) return "qualitymenu";
   if (el.closest?.("#search-results")) return "search";
   // section-header ต้องมาก่อน #pagination: ในแอป pagination ย้ายเข้าไปอยู่ใน section-header
   // → ปุ่มหน้าเลยเป็น zone "section" เดียวกับ back/sort เลื่อนซ้าย/ขวาข้ามกันได้ในแถวเดียว
@@ -971,11 +963,6 @@ function getDirectionalCandidates(current, directionKey, elements) {
   // ไม่งั้นกดลงจะไปโดนการ์ดที่อยู่หลัง dropdown แทนผลลัพธ์ถัดไป
   if (zone === "search") {
     return elements.filter((el) => getFocusZone(el) === "search");
-  }
-
-  // เมนูคุณภาพ: ล็อกการเลื่อนไว้ในเมนู
-  if (zone === "qualitymenu") {
-    return elements.filter((el) => getFocusZone(el) === "qualitymenu");
   }
 
   // อยู่ในแผงเลือกตอน: ล็อกการเลื่อนไว้ในแผง ไม่งั้นกดลง/ขึ้นถึงขอบจะหลุดไปโดน seekbar/ปุ่ม player ข้างหลัง
@@ -2417,6 +2404,7 @@ function playEpisode(index, inheritedReferer) {
   // ─── Hybrid resolver: ถ้า station.resolver ระบุ → resolve ep URL → fresh stream URL ก่อนเล่น
   //     (สำหรับเว็บที่ stream URL มี HMAC signature หมดอายุเร็ว เช่น anifume)
   const epochAtPlay = ++playEpisodeEpoch;
+  startSkipSegments(station);
   const playerOpts = { forceNative: isCurrentlyCasting() };
   if (station.resolver) {
     resolveStreamUrl(station)
@@ -2536,7 +2524,6 @@ function setupVideoSource(
     });
     hls.loadSource(url);
     hls.attachMedia(playerVideo);
-    hls.on(Hls.Events.LEVEL_SWITCHED, updateQualityLabel);
     hls.on(Hls.Events.FRAG_BUFFERED, (_event, data) => {
       if (
         failedUntil < 0 ||
@@ -2554,7 +2541,6 @@ function setupVideoSource(
         hls.startLevel = hls.levels.length - 1;
         hls.currentLevel = -1;
       }
-      setupQualityUI();
       if (startTime > 0) {
         try {
           playerVideo.currentTime = startTime;
@@ -2843,6 +2829,7 @@ function renderSeekBar(pct, currentSec) {
 }
 
 playerVideo.addEventListener("timeupdate", () => {
+  updateSkipSegment();
   if (!playerVideo.duration || isScrubbing) return;
   const pct = (playerVideo.currentTime / playerVideo.duration) * 100;
   renderSeekBar(pct, playerVideo.currentTime);
@@ -3044,102 +3031,6 @@ epPanelClose.addEventListener("click", () => {
 epPanel.addEventListener("click", (e) => {
   e.stopPropagation();
 });
-
-/* ===== Quality selector (HLS levels) ===== */
-function hlsLevelResLabel(level) {
-  if (!level) return "";
-  if (level.height) return level.height + "p";
-  if (level.name) return String(level.name);
-  if (level.bitrate) return Math.round(level.bitrate / 1000) + "k";
-  return "";
-}
-
-/** ตั้งค่า/รีเฟรชปุ่ม quality ตาม hls.levels — ซ่อนปุ่มถ้าไม่มี level (native HLS/ไม่ใช่ HLS) */
-function setupQualityUI() {
-  if (hls && hls.levels && hls.levels.length > 0) {
-    qualityWrap.hidden = false;
-    updateQualityLabel();
-  } else {
-    qualityWrap.hidden = true;
-    closeQualityMenu();
-  }
-}
-
-function updateQualityLabel() {
-  if (!hls || !hls.levels || hls.levels.length === 0) return;
-  if (hls.levels.length === 1) {
-    // สตรีมคุณภาพเดียว — โชว์ค่าของตัวเองไปเลย
-    qualityLabel.textContent = hlsLevelResLabel(hls.levels[0]) || "SD";
-    return;
-  }
-  if (hls.currentLevel === -1) {
-    const lv = hls.levels[hls.loadLevel] || hls.levels[hls.nextLoadLevel];
-    const res = hlsLevelResLabel(lv);
-    qualityLabel.textContent = res ? "Auto·" + res : "Auto";
-  } else {
-    qualityLabel.textContent = hlsLevelResLabel(hls.levels[hls.currentLevel]) || "Auto";
-  }
-}
-
-function buildQualityMenu() {
-  if (!hls || !hls.levels) return;
-  qualityMenu.innerHTML = "";
-  const items = [];
-  if (hls.levels.length > 1) items.push({ idx: -1, label: "อัตโนมัติ" });
-  hls.levels
-    .map((lv, i) => ({ lv, i }))
-    .sort((a, b) => (b.lv.height || b.lv.bitrate || 0) - (a.lv.height || a.lv.bitrate || 0))
-    .forEach(({ lv, i }) =>
-      items.push({ idx: i, label: hlsLevelResLabel(lv) || "ระดับ " + (i + 1) }),
-    );
-  items.forEach((it) => {
-    const active = hls.currentLevel === it.idx;
-    const btn = document.createElement("button");
-    btn.className = "quality-item" + (active ? " active" : "");
-    btn.tabIndex = 0;
-    btn.innerHTML = `<span class="quality-check">${active ? "✓" : ""}</span><span>${esc(it.label)}</span>`;
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      applyQualityLevel(it.idx);
-    });
-    qualityMenu.appendChild(btn);
-  });
-}
-
-function applyQualityLevel(idx) {
-  if (!hls) return;
-  hls.currentLevel = idx; // -1 = auto (ABR)
-  updateQualityLabel();
-  closeQualityMenu();
-  btnQuality.focus({ preventScroll: true });
-  showPlayerUI();
-}
-
-function openQualityMenu() {
-  if (!hls || !hls.levels || hls.levels.length === 0) return;
-  buildQualityMenu();
-  qualityMenu.classList.remove("hidden");
-  showPlayerUI();
-  focusTVElement(
-    qualityMenu.querySelector(".quality-item.active") ||
-      qualityMenu.querySelector(".quality-item"),
-  );
-}
-
-function closeQualityMenu() {
-  qualityMenu.classList.add("hidden");
-}
-
-btnQuality.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (qualityMenu.classList.contains("hidden")) {
-    openQualityMenu();
-  } else {
-    closeQualityMenu();
-    btnQuality.focus({ preventScroll: true });
-  }
-});
-qualityMenu.addEventListener("click", (e) => e.stopPropagation());
 
 function renderEpPanel() {
   const seasonTabs = crossSeasonSeasons.filter(
@@ -3625,12 +3516,8 @@ let idleTimer = null;
 function showPlayerUI() {
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  // ไม่ auto-hide ตอนแผงเลือกตอน/เมนูคุณภาพเปิดอยู่ — ผู้ใช้กำลังเลือก ไม่ควรให้หายเอง
-  if (
-    !playerVideo.paused &&
-    epPanel.classList.contains("hidden") &&
-    qualityMenu.classList.contains("hidden")
-  ) {
+  // ไม่ auto-hide ตอนแผงเลือกตอนเปิดอยู่ — ผู้ใช้กำลังเลือก ไม่ควรให้หายเอง
+  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -3768,6 +3655,181 @@ function formatSeasonEpisodeMeta(seasonTitle, stationName, fallbackIndex) {
     title: label.title || stationName || "",
   };
 }
+/* ===== Skip OP/ED/recap (station.skip ใน playlist) ===== */
+const SKIP_LABELS = {
+  recap: "ข้ามย้อนความ",
+  op: "ข้ามเพลงเปิด",
+  "mixed-op": "ข้ามเพลงเปิด",
+  ed: "ข้ามเพลงปิด",
+  "mixed-ed": "ข้ามเพลงปิด",
+};
+const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
+let skipSegments = [];
+let activeSkipSegment = null;
+let suppressedSkipSegments = new Set();
+let skipSelfSeekAt = 0;
+let lastPlaybackPos = 0;
+let skipNoticeTimer = null;
+let autoSkipEnabled = readAutoSkipPref();
+
+function readAutoSkipPref() {
+  try {
+    return localStorage.getItem(AUTO_SKIP_STORAGE_KEY) === "1";
+  } catch (_) {
+    return false;
+  }
+}
+
+function writeAutoSkipPref(enabled) {
+  try {
+    localStorage.setItem(AUTO_SKIP_STORAGE_KEY, enabled ? "1" : "0");
+  } catch (_) {}
+}
+
+/**
+ * อ่านช่วงข้ามจาก station.skip.segments (กรอกเองใน CMS หน้า "จัดการตอน")
+ * ไม่มีข้อมูล = ไม่มีปุ่มข้าม
+ */
+function stationSkipSegments(station) {
+  const segments = station?.skip?.segments;
+  if (!Array.isArray(segments)) return [];
+  return segments
+    .map((seg) => ({
+      type: seg?.type,
+      start: Number(seg?.start),
+      end: Number(seg?.end),
+    }))
+    .filter(
+      (seg) =>
+        SKIP_LABELS[seg.type] &&
+        Number.isFinite(seg.start) &&
+        Number.isFinite(seg.end) &&
+        seg.start >= 0 &&
+        seg.end > seg.start,
+    )
+    .sort((a, b) => a.start - b.start);
+}
+
+/** ล้างสถานะปุ่มข้ามของตอนก่อนหน้า */
+function resetSkipSegments({ restoreFocus = true } = {}) {
+  skipSegments = [];
+  activeSkipSegment = null;
+  suppressedSkipSegments = new Set();
+  skipSelfSeekAt = 0;
+  lastPlaybackPos = 0;
+  if (restoreFocus) hideSkipButton();
+  else skipSegmentBtn.classList.add("hidden");
+  skipNotice.classList.add("hidden");
+  clearTimeout(skipNoticeTimer);
+  btnAutoSkip.hidden = true;
+}
+
+/** ตั้งช่วงข้ามของตอนที่เริ่มเล่น */
+function startSkipSegments(station) {
+  resetSkipSegments();
+  skipSegments = stationSkipSegments(station);
+  if (!skipSegments.length) return;
+  btnAutoSkip.hidden = false;
+  renderAutoSkipButton();
+}
+
+/** เรียกทุก timeupdate — แสดง/ซ่อนปุ่มตามช่วงเวลา หรือข้ามเองถ้าเปิดข้ามอัตโนมัติ */
+function updateSkipSegment() {
+  if (!skipSegments.length || playerVideo.readyState < 1) return;
+  const t = Number(playerVideo.currentTime) || 0;
+  if (!playerVideo.seeking) lastPlaybackPos = t;
+  const seg =
+    skipSegments.find((s) => t >= s.start && t < s.end - 1) || null;
+  if (seg === activeSkipSegment) return;
+  activeSkipSegment = seg;
+  if (!seg) {
+    hideSkipButton();
+    return;
+  }
+  if (!upnextToast.classList.contains("hidden")) return;
+  if (autoSkipEnabled && !suppressedSkipSegments.has(seg)) {
+    suppressedSkipSegments.add(seg);
+    performSkip(seg, { auto: true });
+    return;
+  }
+  showSkipButton(seg);
+}
+
+/** ต้องมี metadata แล้ว — ตั้ง currentTime ก่อนนั้น Chrome จะจำไว้เป็นจุดเริ่มของ source ถัดไป */
+function performSkip(seg, { auto = false } = {}) {
+  if (!seg || playerVideo.readyState < 1) return;
+  hideSkipButton();
+  activeSkipSegment = null;
+  skipSelfSeekAt = Date.now();
+  playerVideo.currentTime = seg.end;
+  if (auto) showSkipNotice(`${SKIP_LABELS[seg.type]}แล้ว`);
+}
+
+/**
+ * แสดงปุ่มข้ามแล้ว focus ให้ — ยกเว้นผู้ใช้กำลังเลื่อนอยู่บนแถบควบคุม/แผงเลือกตอน
+ * (กันกด OK แล้วกลายเป็นข้ามแทนปุ่มที่ตั้งใจกด)
+ */
+function showSkipButton(seg) {
+  skipSegmentBtn.textContent = SKIP_LABELS[seg.type];
+  skipSegmentBtn.classList.remove("hidden");
+  const active = document.activeElement;
+  const userOnControls =
+    playerOverlay.classList.contains("show-ui") &&
+    active &&
+    active !== btnPlayPause &&
+    active !== document.body &&
+    playerOverlay.contains(active);
+  if (!epPanel.classList.contains("hidden") || userOnControls) return;
+  focusTVElement(skipSegmentBtn);
+}
+
+/** ซ่อนปุ่มข้าม — ถ้า focus อยู่บนปุ่ม ย้ายกลับไปปุ่มเล่น/หยุด กัน focus ค้างบนปุ่มที่ซ่อนแล้ว */
+function hideSkipButton() {
+  if (skipSegmentBtn.classList.contains("hidden")) return;
+  if (document.activeElement === skipSegmentBtn) focusTVElement(btnPlayPause);
+  skipSegmentBtn.classList.add("hidden");
+}
+
+function showSkipNotice(text) {
+  skipNotice.textContent = text;
+  skipNotice.classList.remove("hidden");
+  clearTimeout(skipNoticeTimer);
+  skipNoticeTimer = setTimeout(() => skipNotice.classList.add("hidden"), 2500);
+}
+
+function renderAutoSkipButton() {
+  btnAutoSkip.classList.toggle("active", autoSkipEnabled);
+  btnAutoSkip.setAttribute("aria-pressed", String(autoSkipEnabled));
+  const label = autoSkipEnabled ? "ข้ามอัตโนมัติ: เปิด" : "ข้ามอัตโนมัติ: ปิด";
+  btnAutoSkip.title = label;
+  btnAutoSkip.setAttribute("aria-label", label);
+}
+
+skipSegmentBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  performSkip(activeSkipSegment);
+});
+
+btnAutoSkip.addEventListener("click", (e) => {
+  e.stopPropagation();
+  autoSkipEnabled = !autoSkipEnabled;
+  writeAutoSkipPref(autoSkipEnabled);
+  renderAutoSkipButton();
+  showPlayerUI();
+});
+
+/** ผู้ใช้ seek ถอยกลับเข้าช่วงข้ามเอง = ตั้งใจดู → ไม่ข้ามอัตโนมัติซ้ำในช่วงนั้น */
+playerVideo.addEventListener("seeking", () => {
+  if (skipSelfSeekAt && Date.now() - skipSelfSeekAt < 1000) {
+    skipSelfSeekAt = 0;
+    return;
+  }
+  const t = Number(playerVideo.currentTime) || 0;
+  if (t >= lastPlaybackPos) return;
+  const seg = skipSegments.find((s) => t >= s.start && t < s.end);
+  if (seg) suppressedSkipSegments.add(seg);
+});
+
 /* ===== Auto-next (Up Next toast) ===== */
 function scheduleNext() {
   const target = resolveAdjacentEpisode(1);
@@ -3813,8 +3875,10 @@ function scheduleNext() {
     );
     upnextTitle.innerHTML = `<span class="upnext-title-meta">${esc(upnextLabel.meta)}</span><span class="upnext-title-name">${esc(upnextLabel.title || `ตอนที่ ${nextLabelIndex}`)}</span>`;
   }
-  closeQualityMenu();
   epPanel.classList.add("hidden");
+  hideSkipButton();
+  clearTimeout(skipNoticeTimer);
+  skipNotice.classList.add("hidden");
   upnextToast.classList.remove("hidden");
   focusTVElement(upnextPlayBtn);
 
@@ -3873,6 +3937,7 @@ function cancelUpnext() {
 }
 
 function closePlayer() {
+  playEpisodeEpoch++;
   cancelUpnext();
   // Close PiP if open
   if (docPipWindow) {
@@ -3890,8 +3955,7 @@ function closePlayer() {
   playerVideo.onended = null;
   playerOverlay.classList.add("hidden");
   playerOverlay.classList.remove("show-ui");
-  closeQualityMenu();
-  qualityWrap.hidden = true;
+  resetSkipSegments({ restoreFocus: false });
   clearTimeout(idleTimer);
   document.body.style.overflow = "";
   crossSeasonQueue = [];

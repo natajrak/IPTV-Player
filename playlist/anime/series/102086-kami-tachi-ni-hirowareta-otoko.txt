@@ -15,14 +15,44 @@
                             "image": "https://image.tmdb.org/t/p/original/e43UTb9WkIn8S1R1r0AHyOD5v51.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rBrjo8yd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-04"
+                            "release_date": "2020-10-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142,
+                                        "end": 232
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Departure, with the Slimes",
                             "image": "https://image.tmdb.org/t/p/original/rQC4kbDPqOD3s0cDxzu1JC14fPo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SY7nVc3W/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-11"
+                            "release_date": "2020-10-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - First Time in Town, with the Slimes",
@@ -107,14 +137,44 @@
                             "image": "https://image.tmdb.org/t/p/original/e43UTb9WkIn8S1R1r0AHyOD5v51.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hPOayz24/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-04"
+                            "release_date": "2020-10-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142,
+                                        "end": 232
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Departure, with the Slimes",
                             "image": "https://image.tmdb.org/t/p/original/rQC4kbDPqOD3s0cDxzu1JC14fPo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T45xeITI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-11"
+                            "release_date": "2020-10-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - First Time in Town, with the Slimes",
