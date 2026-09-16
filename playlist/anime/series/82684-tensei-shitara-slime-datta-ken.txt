@@ -1419,6 +1419,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 107,
+                                        "end": 197
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1385,
                                         "end": 1475
@@ -1437,6 +1442,11 @@
                                 "segments": [
                                     {
                                         "type": "ed",
+                                        "start": 100,
+                                        "end": 190
+                                    },
+                                    {
+                                        "type": "ed",
                                         "start": 1385,
                                         "end": 1475
                                     }
@@ -1452,6 +1462,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135,
+                                        "end": 225
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1385,
@@ -1470,6 +1485,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 64,
+                                        "end": 154
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1385,
                                         "end": 1475
@@ -1486,6 +1506,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76,
+                                        "end": 166
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1385,
@@ -1505,6 +1530,11 @@
                                 "segments": [
                                     {
                                         "type": "ed",
+                                        "start": 10,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
                                         "start": 1385,
                                         "end": 1475
                                     }
@@ -1520,6 +1550,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53,
+                                        "end": 143
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1385,
@@ -1538,6 +1573,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 30,
+                                        "end": 120
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1385,
                                         "end": 1475
@@ -1554,6 +1594,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63,
+                                        "end": 153
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1385,
@@ -1589,6 +1634,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 53,
+                                        "end": 143
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1385,
                                         "end": 1475
@@ -1600,432 +1650,6 @@
                             "name": "ตอน 24 - อนาคตข้างหน้า",
                             "image": "https://image.tmdb.org/t/p/original/uP8ocjWcFCWazhPpP8wVpGfezYM.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EarHcJ5P6x/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-27",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        }
-                    ],
-                    "status": "completed"
-                },
-                {
-                    "name": "ซับไทย",
-                    "image": "https://image.tmdb.org/t/p/original/p1t65WL9w6ZUB3axHmlP5V9t5gA.jpg",
-                    "referer": "https://animeyour.com/tensei-shitara-slime-datta-ken-3rd-sub/",
-                    "stations": [
-                        {
-                            "name": "Ep. 1 - Demons and Strategies",
-                            "image": "https://image.tmdb.org/t/p/original/qGdvJCuZLL3XTlaVcokjmjOYwVT.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/CSXlvDBnoF/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-05",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 145,
-                                        "end": 235
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 2 - The Saint's Intentions",
-                            "image": "https://image.tmdb.org/t/p/original/gnkxMRfTMvM4MINia242eUwC2BC.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/03rW5eoLV2/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-12",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 240,
-                                        "end": 330
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 3 - Peaceful Days",
-                            "image": "https://image.tmdb.org/t/p/original/oX5lgWyfgFytnF4CMd54iiSZk4z.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/qimxNpTqjX/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-19",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 4 - Everyone Has a Part to Play",
-                            "image": "https://image.tmdb.org/t/p/original/jxataJe0pYR1TsO6XdmALL9ANxw.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/oSidyXjSYo/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-26",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 5 - Meeting of Both Sides",
-                            "image": "https://image.tmdb.org/t/p/original/kzmSrgouF94DQPtUDh4Kz5TKWD8.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/0o7ONi7AAq/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-03",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 6 - Those Approaching",
-                            "image": "https://image.tmdb.org/t/p/original/b8A5oHCMXL1jjuO2M03JscJdzuS.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/wPTPG5qdKx/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-10",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 7 - Saint and Demon Clash",
-                            "image": "https://image.tmdb.org/t/p/original/6mNV55ohN64U7aJwEmJjjp4hGKi.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/2kbRkGp7Gb/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-17",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 8 - Misunderstanding",
-                            "image": "https://image.tmdb.org/t/p/original/c3Jj3Xb99fSvJJpvddxZnq3dy0c.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/IbF6Z8Tskf/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-24",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 9 - The Scheming of the Seven Days",
-                            "image": "https://image.tmdb.org/t/p/original/bGT0jO2TjNWLg3OiDkGdaSJP6g9.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/5KaDjpmQvk/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-31",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 10 - God and Demon Lord",
-                            "image": "https://image.tmdb.org/t/p/original/9jYxy649Hdhsq8h5TvuLHiAAv7B.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/JdTAi5vgVr/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-07",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 11 - Reconciliation and Agreement",
-                            "image": "https://image.tmdb.org/t/p/original/wwHzXThhY1lXcMWSRbVStjdpLEw.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/eaTH7VXVPj/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-14",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 12 - Festival Preparations",
-                            "image": "https://image.tmdb.org/t/p/original/hPGZS4IGBxTQVZJmhgUwIIFXslH.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/1ZbB7hvnqG/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-21",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 13 - Invitation for All Nations",
-                            "image": "https://image.tmdb.org/t/p/original/3zBjNDMUpcRVjgFjZocBEGqAT9F.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/dT3HhrmWMo/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-28",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 14 - Labyrinth and Storm Dragon",
-                            "image": "https://image.tmdb.org/t/p/original/r2etwUKAEWtBwpS1IxawnFGUXDL.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/pRHXoOksLA/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-07-05",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 15 - Audience",
-                            "image": "https://image.tmdb.org/t/p/original/3sNFkBcw2Voe9B7vNj2EZw9f5KM.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/f8loy6PuP/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-07-19",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 16 - Benimaru's Ordeal",
-                            "image": "https://image.tmdb.org/t/p/original/pimVG6E4gDUEpttY4OZCXDLZmbb.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/bjnIoYJ4eV/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-07-26",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 17 - The Lightspeed Hero",
-                            "image": "https://image.tmdb.org/t/p/original/7xUiEXbNU4yWw4r8XWmBrrC6wsB.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/xU8DQk2s3/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-08-02",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 18 - A Throng of Visitors",
-                            "image": "https://image.tmdb.org/t/p/original/er7j1Py01CRLM8ZOtzv5yBVREjX.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/G7DnBeOQQG/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-08-16",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 19 - Festival Eve",
-                            "image": "https://image.tmdb.org/t/p/original/sDHYySPS447hY31ukvDRAar0ODo.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/6UpZ7Mp68P/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-08-23",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 20 - Nation's Opening Festival",
-                            "image": "https://image.tmdb.org/t/p/original/ibk5z7Byfgqi1J9Fv2iZ0iMqizh.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/ONNhg89hFK/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-08-30",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 21 - The Martial Arts Tournament",
-                            "image": "https://image.tmdb.org/t/p/original/eeBoOXCFaClxOoZYkVjxQejtRVe.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/PTlW3lfuci/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-06",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 22 - Settling the Score with the Hero",
-                            "image": "https://image.tmdb.org/t/p/original/cvHGEtq9GNlCw881vxQGdiMKVSh.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/qZXhsPsUGS/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-13",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 23 - The Labyrinth Is Opened",
-                            "image": "https://image.tmdb.org/t/p/original/W2cb5PfYVUTZyxskYTnTWw93Ps.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/0FekSLuGf/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-20",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1385,
-                                        "end": 1475
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 24 - After the Festival",
-                            "image": "https://image.tmdb.org/t/p/original/uP8ocjWcFCWazhPpP8wVpGfezYM.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/LW7WBxhdhr/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
                             "release_date": "2024-09-27",
                             "skip": {
@@ -2060,119 +1684,374 @@
                             "image": "https://image.tmdb.org/t/p/original/gb4p6xHYwN3c4gYlnVzvpFtlOB8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/S8nXDjSsQj/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-03"
+                            "release_date": "2026-04-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123,
+                                        "end": 213
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Dungeon Evolves",
                             "image": "https://image.tmdb.org/t/p/original/nRLCpzRP359dz7u475PlzOuT9zW.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/lKHJuFW20Y/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-10"
+                            "release_date": "2026-04-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Avatar Team Is Formed",
                             "image": "https://image.tmdb.org/t/p/original/tm0pmQIOdzW5choXRITpHgYGGSC.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/KUO6Mdlajw/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-17"
+                            "release_date": "2026-04-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 369,
+                                        "end": 459
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Invitation",
                             "image": "https://image.tmdb.org/t/p/original/wzYc59SeMxQUIrb01D3BwIAj90c.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/u19HwE8Fon/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-24"
+                            "release_date": "2026-04-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110,
+                                        "end": 200
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The First Step",
                             "image": "https://image.tmdb.org/t/p/original/ztpuWTZbiM0aXFlUSGdhk1Q17zk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/JuYo6Yv9c0/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-08"
+                            "release_date": "2026-05-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 150
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Council of the West",
                             "image": "https://image.tmdb.org/t/p/original/27GSNADh5MnmkTwHC8pmi3SOW7G.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/FRV40b5S5m/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-15"
+                            "release_date": "2026-05-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Mastermind's Identity",
                             "image": "https://image.tmdb.org/t/p/original/edUKB10nnw9BBK0dyoJNiAlSR56.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NzxtkiRxXl/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-22"
+                            "release_date": "2026-05-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88,
+                                        "end": 178
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Groundwork of Greed",
                             "image": "https://image.tmdb.org/t/p/original/bs2vK9WUOQKvwj8KEC3Ra3WXDQV.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/fBYmOgJ5k/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-29"
+                            "release_date": "2026-05-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Investigating the Ruins",
                             "image": "https://image.tmdb.org/t/p/original/1hrPaiyrBjC9jpB5n43VOzZ8SFA.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/QpLwB16sq5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-05"
+                            "release_date": "2026-06-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183,
+                                        "end": 273
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Master of Greed",
                             "image": "https://image.tmdb.org/t/p/original/zv5JGGOQl9Rii3NrVip295TyVyE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/poJI8oHHgJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-12"
+                            "release_date": "2026-06-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127,
+                                        "end": 217
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Milim's Friend",
                             "image": "https://image.tmdb.org/t/p/original/w5bBroiKoeCe69CHew0y6Q1edQ8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/gorF0EWNid/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-19"
+                            "release_date": "2026-06-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 230,
+                                        "end": 320
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Tempest Evolves",
                             "image": "https://image.tmdb.org/t/p/original/xtucVEgiymwJ61iErgqom5WcYt.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/i9mVQeCIwi/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-26"
+                            "release_date": "2026-06-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142,
+                                        "end": 232
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - New Companions",
                             "image": "https://image.tmdb.org/t/p/original/uLRfCUw0ql6HKOezGv5HmsUMooo.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/TjjKG0J01c/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 168,
+                                        "end": 258
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The Black Numbers",
                             "image": "https://image.tmdb.org/t/p/original/zDtZhnrOtUD1Ueglhn41sijiTFy.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/cIAxfIs0U3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-10"
+                            "release_date": "2026-07-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 106,
+                                        "end": 196
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - An Unsettling Feeling",
                             "image": "https://image.tmdb.org/t/p/original/noOoh43MXQ0qxvddcoHVj7EQmp6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/h6XZarEohR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-17"
+                            "release_date": "2026-07-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118,
+                                        "end": 208
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Gran, the Hero of Dawn",
                             "image": "https://image.tmdb.org/t/p/original/3XrByRxQ9rbylMvIarBwTzoREWR.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/sAhU6tj0V2/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-24"
+                            "release_date": "2026-07-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Lubelius, the Point of Convergence",
                             "image": "https://image.tmdb.org/t/p/original/eIZA3IG22NbzRvxgpnA4PlD4gZT.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/dHumt4NCAV/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-07"
+                            "release_date": "2026-08-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78,
+                                        "end": 168
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -2186,153 +2065,398 @@
                             "image": "https://image.tmdb.org/t/p/original/gb4p6xHYwN3c4gYlnVzvpFtlOB8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/mxbrr0Vt7D/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-03"
+                            "release_date": "2026-04-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123,
+                                        "end": 213
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Dungeon Evolves",
                             "image": "https://image.tmdb.org/t/p/original/nRLCpzRP359dz7u475PlzOuT9zW.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xL0rcm8zii/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-10"
+                            "release_date": "2026-04-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Avatar Team Is Formed",
                             "image": "https://image.tmdb.org/t/p/original/tm0pmQIOdzW5choXRITpHgYGGSC.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8z2SvZEtiR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-17"
+                            "release_date": "2026-04-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 369,
+                                        "end": 459
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Invitation",
                             "image": "https://image.tmdb.org/t/p/original/wzYc59SeMxQUIrb01D3BwIAj90c.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GHJEilZ5d5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-24"
+                            "release_date": "2026-04-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110,
+                                        "end": 200
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The First Step",
                             "image": "https://image.tmdb.org/t/p/original/ztpuWTZbiM0aXFlUSGdhk1Q17zk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/BkJIfvCibn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-08"
+                            "release_date": "2026-05-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 150
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Council of the West",
                             "image": "https://image.tmdb.org/t/p/original/27GSNADh5MnmkTwHC8pmi3SOW7G.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/iE0aicl6gV/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-15"
+                            "release_date": "2026-05-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Mastermind's Identity",
                             "image": "https://image.tmdb.org/t/p/original/edUKB10nnw9BBK0dyoJNiAlSR56.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/TtNYHPAhtT/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-22"
+                            "release_date": "2026-05-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Groundwork of Greed",
                             "image": "https://image.tmdb.org/t/p/original/bs2vK9WUOQKvwj8KEC3Ra3WXDQV.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Wl8zMLGE6/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-29"
+                            "release_date": "2026-05-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Investigating the Ruins",
                             "image": "https://image.tmdb.org/t/p/original/1hrPaiyrBjC9jpB5n43VOzZ8SFA.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/40EfbfPPoP/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-05"
+                            "release_date": "2026-06-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Master of Greed",
                             "image": "https://image.tmdb.org/t/p/original/zv5JGGOQl9Rii3NrVip295TyVyE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/J8vZ3U0KSO/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-12"
+                            "release_date": "2026-06-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Milim's Friend",
                             "image": "https://image.tmdb.org/t/p/original/w5bBroiKoeCe69CHew0y6Q1edQ8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EYRJxJT0RK/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-19"
+                            "release_date": "2026-06-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Tempest Evolves",
                             "image": "https://image.tmdb.org/t/p/original/xtucVEgiymwJ61iErgqom5WcYt.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Xwt9HNpCsO/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-26"
+                            "release_date": "2026-06-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - New Companions",
                             "image": "https://image.tmdb.org/t/p/original/uLRfCUw0ql6HKOezGv5HmsUMooo.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/XgiWDKAgoY/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - The Black Numbers",
                             "image": "https://image.tmdb.org/t/p/original/zDtZhnrOtUD1Ueglhn41sijiTFy.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/yMKc56A004/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-10"
+                            "release_date": "2026-07-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - An Unsettling Feeling",
                             "image": "https://image.tmdb.org/t/p/original/noOoh43MXQ0qxvddcoHVj7EQmp6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/vy1m9L3Q5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-17"
+                            "release_date": "2026-07-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Gran, the Hero of Dawn",
                             "image": "https://image.tmdb.org/t/p/original/3XrByRxQ9rbylMvIarBwTzoREWR.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/BjKmhdttbi/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-24"
+                            "release_date": "2026-07-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Lubelius, the Point of Convergence",
                             "image": "https://image.tmdb.org/t/p/original/eIZA3IG22NbzRvxgpnA4PlD4gZT.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/cu6JEJeLw/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-07"
+                            "release_date": "2026-08-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Turbulence in the West",
                             "image": "https://image.tmdb.org/t/p/original/fzxTUT8WY5wEmDR19FHIu2d5oXE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/pLLnKnPuT3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-14"
+                            "release_date": "2026-08-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Death and Loss",
                             "image": "https://image.tmdb.org/t/p/original/xqCDprdbOHfH9CRS2Ane9yshg3A.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SFrO8JdDE9/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-21"
+                            "release_date": "2026-08-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Chronoa the Hero (1)",
                             "image": "https://image.tmdb.org/t/p/original/hn5HRmks2ou12NCRKNgJ3lC4HJB.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8YgpDtUalG/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-28"
+                            "release_date": "2026-08-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Chronoa the Hero (2)",
                             "image": "https://image.tmdb.org/t/p/original/pIA8fwr0cVeEADSqSGn46QDMFr7.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NmyBR5KayW/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-04"
+                            "release_date": "2026-09-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Where the Soul Resides",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/wbAWOHXl45/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-11"
+                            "release_date": "2026-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
