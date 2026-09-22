@@ -2058,7 +2058,22 @@
                             "image": "https://image.tmdb.org/t/p/original/fzxTUT8WY5wEmDR19FHIu2d5oXE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/I41srbeJXV/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-14"
+                            "release_date": "2026-08-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 236,
+                                        "end": 326
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -2470,7 +2485,8 @@
                             "name": "Ep. 23 - Granville's Hope",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0Y5NCukSG/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-18"
+                            "release_date": "2026-09-18",
+                            "image": "https://image.tmdb.org/t/p/original/hjk4atAZnudp5oCFe1R8RvMwoAW.jpg"
                         }
                     ]
                 }
