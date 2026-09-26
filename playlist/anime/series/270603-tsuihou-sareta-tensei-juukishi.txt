@@ -16,35 +16,110 @@
                             "image": "https://image.tmdb.org/t/p/original/t3UzqD6baWwEkcDw7rz8HML4k1W.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/acF9DmyRjr/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.9,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Menacing Foul Eight-Legged Beast",
                             "image": "https://image.tmdb.org/t/p/original/mibYdWH4QAmdGn17hOChtOE7GsI.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/OnR6BkmVHz/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-10"
+                            "release_date": "2026-07-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 179,
+                                        "end": 270.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Raid Quest",
                             "image": "https://image.tmdb.org/t/p/original/2y0dlWJPTGXWAb3lazoiRqeflku.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/pDHPhZJtN1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-17"
+                            "release_date": "2026-07-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164,
+                                        "end": 255.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Existence Evolution",
                             "image": "https://image.tmdb.org/t/p/original/2BupnkZATb4FeEIDpSK5AFWUaMR.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/ynEeX4yTad/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-24"
+                            "release_date": "2026-07-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 237.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Fang of Smoldering Insanity",
                             "image": "https://image.tmdb.org/t/p/original/zwqiGXuZZEMpEtJNYJKQIyw0tAw.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/e6uCcMbrG4/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-31"
+                            "release_date": "2026-07-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 151.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.1,
+                                        "end": 1391.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -58,91 +133,281 @@
                             "image": "https://image.tmdb.org/t/p/original/t3UzqD6baWwEkcDw7rz8HML4k1W.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0pn2W0Ri9H/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.9,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Menacing Foul Eight-Legged Beast",
                             "image": "https://image.tmdb.org/t/p/original/mibYdWH4QAmdGn17hOChtOE7GsI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ctPFaF9I5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-10"
+                            "release_date": "2026-07-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 179,
+                                        "end": 270.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Raid Quest",
                             "image": "https://image.tmdb.org/t/p/original/2y0dlWJPTGXWAb3lazoiRqeflku.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BEYKcixdXm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-17"
+                            "release_date": "2026-07-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164,
+                                        "end": 255.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Existence Evolution",
                             "image": "https://image.tmdb.org/t/p/original/2BupnkZATb4FeEIDpSK5AFWUaMR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yRUUkw8H8F/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-24"
+                            "release_date": "2026-07-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 237.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Fang of Smoldering Insanity",
                             "image": "https://image.tmdb.org/t/p/original/zwqiGXuZZEMpEtJNYJKQIyw0tAw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xPBSJtrAsQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-31"
+                            "release_date": "2026-07-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 151.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.1,
+                                        "end": 1391.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Ruche the Pierrot",
                             "image": "https://image.tmdb.org/t/p/original/95NZXAYb2pDKrZmWMTsyVBeOXXK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OzclWUstIq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-07"
+                            "release_date": "2026-08-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125,
+                                        "end": 216.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Golden Raana Farming",
                             "image": "https://image.tmdb.org/t/p/original/9kviyiXte0KkL7WNFaGqRY7GjLX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KfyQn9P9Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-14"
+                            "release_date": "2026-08-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 182,
+                                        "end": 273.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.1,
+                                        "end": 1391.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Wandering",
                             "image": "https://image.tmdb.org/t/p/original/gKqQE0ww8K1Y9lmSefjKRgCpGDX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hQqLhPn1Ts/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-21"
+                            "release_date": "2026-08-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109,
+                                        "end": 200.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Dreamlord",
                             "image": "https://image.tmdb.org/t/p/original/qq2cc5cOhWBMGdUcbJgE8D2BX0o.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SuzsssVA1n/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-28"
+                            "release_date": "2026-08-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Negotiation",
                             "image": "https://image.tmdb.org/t/p/original/eMDDVMpIb5MhNG2bbfqoxOZkMgG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Je6JgJ51QU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-04"
+                            "release_date": "2026-09-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118.9,
+                                        "end": 210.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Inescapable Past",
                             "image": "https://image.tmdb.org/t/p/original/8SApfPGTBto5Isiaxv2bEbHqLOZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qRtIbersWT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-11"
+                            "release_date": "2026-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 221.1,
+                                        "end": 312.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.1,
+                                        "end": 1391.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Malice the Master Swordsman",
                             "image": "https://image.tmdb.org/t/p/original/r7wrLFD3GMtc3UYYGbaPyrNGNLG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T6Ux9axCPQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-18"
+                            "release_date": "2026-09-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130,
+                                        "end": 221.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301,
+                                        "end": 1391
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Lacoryna, City of Adventurers",
                             "image": "https://image.tmdb.org/t/p/original/7JMkQTaoAD0Z5vRRxQp6cFvJ0J9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/A2I8XD9KG3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-25"
+                            "release_date": "2026-09-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71,
+                                        "end": 162.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.1,
+                                        "end": 1391.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

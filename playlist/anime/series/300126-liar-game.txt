@@ -23,77 +23,242 @@
                             "image": "https://image.tmdb.org/t/p/original/r8S10waloXHQsDazJdtHfDwkzYk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjefozMzW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjefozMzW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-14"
+                            "release_date": "2026-04-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34,
+                                        "end": 123.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Resolution",
                             "image": "https://image.tmdb.org/t/p/original/slWsGx3fbMiiw98mFDtyKqxqj4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FO50nOGck%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FO50nOGck",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-21"
+                            "release_date": "2026-04-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18,
+                                        "end": 107.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Minority Rule",
                             "image": "https://image.tmdb.org/t/p/original/tevAHIaNSN0q8HHsimuWddYWSun.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2rIKmpD0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2rIKmpD0",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-28"
+                            "release_date": "2026-04-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.1,
+                                        "end": 189.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Alliance",
                             "image": "https://image.tmdb.org/t/p/original/7Etta1358Gl5FSxicjUt57Dr8Rk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJ5ZG38g0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJ5ZG38g0",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-05"
+                            "release_date": "2026-05-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22,
+                                        "end": 111.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Initiative",
                             "image": "https://image.tmdb.org/t/p/original/egcH44fuz3m0109fc8lcXtutmTL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSgneXfJh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSgneXfJh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-12"
+                            "release_date": "2026-05-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.9,
+                                        "end": 103.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Losers' Revival",
                             "image": "https://image.tmdb.org/t/p/original/8REUrMQb9evtasmVNTahmqFAOrr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3vl5MVOi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3vl5MVOi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-19"
+                            "release_date": "2026-05-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.6,
+                                        "end": 113.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Downsizing Game",
                             "image": "https://image.tmdb.org/t/p/original/4H0uGhi3qMWabu8j2DtZUnGZEo9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhIM0UtMU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhIM0UtMU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-26"
+                            "release_date": "2026-05-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Light and Darkness",
                             "image": "https://image.tmdb.org/t/p/original/8FmaHYlPV3m44Vn1Eupx8f3o0HI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYRwojzPx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYRwojzPx",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-02"
+                            "release_date": "2026-06-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Salvation",
                             "image": "https://image.tmdb.org/t/p/original/hXCSXhr4MH9GeNsONjItX3kjCzX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fh38Mkv2t%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fh38Mkv2t",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-09"
+                            "release_date": "2026-06-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.9,
+                                        "end": 99.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Contraband Game",
                             "image": "https://image.tmdb.org/t/p/original/kUVy6Nid3xP5cZ8cdeEWPq3cZnw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMvNpJfbd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMvNpJfbd",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-16"
+                            "release_date": "2026-06-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Yokoya",
                             "image": "https://image.tmdb.org/t/p/original/puDzWeYWBZk19n4ufWbxECTMCXo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEurUiUmB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEurUiUmB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-23"
+                            "release_date": "2026-06-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Fissures",
@@ -107,56 +272,171 @@
                             "image": "https://image.tmdb.org/t/p/original/p1MQBOrA7gBfYu02BYvIwPQJU9Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4T0G9XCo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4T0G9XCo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-07"
+                            "release_date": "2026-07-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Secret Plan",
                             "image": "https://image.tmdb.org/t/p/original/iTGmvDmRxtq75emdss7unsxAxRw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5bj4idPo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5bj4idPo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-14"
+                            "release_date": "2026-07-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Turbulence",
                             "image": "https://image.tmdb.org/t/p/original/bXTWELyIBNcyTBVUDPUc0mujqwP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCKFw3A9B%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCKFw3A9B",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-21"
+                            "release_date": "2026-07-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.1,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Tip-off",
                             "image": "https://image.tmdb.org/t/p/original/u52tne8UX7rtFy103O6r50XDVzu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKMXQnOpn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKMXQnOpn",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-28"
+                            "release_date": "2026-07-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.2,
+                                        "end": 121.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Caution",
                             "image": "https://image.tmdb.org/t/p/original/eJrqP9j6NwmQswUkabecSNX4wvV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDoCBQiVg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDoCBQiVg",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-04"
+                            "release_date": "2026-08-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.1,
+                                        "end": 103
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Solidarity",
                             "image": "https://image.tmdb.org/t/p/original/9UIu5k9x8ZO1rxYQN7ZGQRRoc9Y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXuhq5BKO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXuhq5BKO",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-11"
+                            "release_date": "2026-08-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13,
+                                        "end": 102.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Provocation",
                             "image": "https://image.tmdb.org/t/p/original/9W5E1RT5qr8Qcfm7FyGox8OJuB2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBsjQavhi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBsjQavhi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-18"
+                            "release_date": "2026-08-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Spearhead Match",
                             "image": "https://image.tmdb.org/t/p/original/tzRD27FhklyF8KO0ZoWeRS057qk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FIqNsWZDq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FIqNsWZDq",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-25"
+                            "release_date": "2026-08-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -177,77 +457,242 @@
                             "image": "https://image.tmdb.org/t/p/original/r8S10waloXHQsDazJdtHfDwkzYk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5ofHtlmn2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-14"
+                            "release_date": "2026-04-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34,
+                                        "end": 123.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Resolution",
                             "image": "https://image.tmdb.org/t/p/original/slWsGx3fbMiiw98mFDtyKqxqj4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/W4OgHZaWBv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-21"
+                            "release_date": "2026-04-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18,
+                                        "end": 107.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Minority Rule",
                             "image": "https://image.tmdb.org/t/p/original/tevAHIaNSN0q8HHsimuWddYWSun.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Co0vtpdT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-28"
+                            "release_date": "2026-04-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.1,
+                                        "end": 189.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Alliance",
                             "image": "https://image.tmdb.org/t/p/original/7Etta1358Gl5FSxicjUt57Dr8Rk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Cc0S6uldrh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-05"
+                            "release_date": "2026-05-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22,
+                                        "end": 111.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Initiative",
                             "image": "https://image.tmdb.org/t/p/original/egcH44fuz3m0109fc8lcXtutmTL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1KBRVlLdS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-12"
+                            "release_date": "2026-05-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.9,
+                                        "end": 103.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Losers' Revival",
                             "image": "https://image.tmdb.org/t/p/original/8REUrMQb9evtasmVNTahmqFAOrr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1zz5CmhCdj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-19"
+                            "release_date": "2026-05-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.6,
+                                        "end": 113.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Downsizing Game",
                             "image": "https://image.tmdb.org/t/p/original/4H0uGhi3qMWabu8j2DtZUnGZEo9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ae3Jj1HKDi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-26"
+                            "release_date": "2026-05-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Light and Darkness",
                             "image": "https://image.tmdb.org/t/p/original/8FmaHYlPV3m44Vn1Eupx8f3o0HI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DddF9dkum/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-02"
+                            "release_date": "2026-06-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Salvation",
                             "image": "https://image.tmdb.org/t/p/original/hXCSXhr4MH9GeNsONjItX3kjCzX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ntd0cWB1AB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-09"
+                            "release_date": "2026-06-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.9,
+                                        "end": 99.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Contraband Game",
                             "image": "https://image.tmdb.org/t/p/original/kUVy6Nid3xP5cZ8cdeEWPq3cZnw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NI7n96djBq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-16"
+                            "release_date": "2026-06-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Yokoya",
                             "image": "https://image.tmdb.org/t/p/original/puDzWeYWBZk19n4ufWbxECTMCXo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NPPeO7nAp7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-23"
+                            "release_date": "2026-06-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Fissures",
@@ -261,84 +706,259 @@
                             "image": "https://image.tmdb.org/t/p/original/p1MQBOrA7gBfYu02BYvIwPQJU9Q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uOKENGZAG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-07"
+                            "release_date": "2026-07-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Secret Plan",
                             "image": "https://image.tmdb.org/t/p/original/iTGmvDmRxtq75emdss7unsxAxRw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HuON0FzAUL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-14"
+                            "release_date": "2026-07-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Turbulence",
                             "image": "https://image.tmdb.org/t/p/original/bXTWELyIBNcyTBVUDPUc0mujqwP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oBCCFG7QsV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-21"
+                            "release_date": "2026-07-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.1,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Tip-off",
                             "image": "https://image.tmdb.org/t/p/original/u52tne8UX7rtFy103O6r50XDVzu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VhbBGGqBdC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-28"
+                            "release_date": "2026-07-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.2,
+                                        "end": 121.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Caution",
                             "image": "https://image.tmdb.org/t/p/original/eJrqP9j6NwmQswUkabecSNX4wvV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3UAL3VakSC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-04"
+                            "release_date": "2026-08-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.1,
+                                        "end": 103
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Solidarity",
                             "image": "https://image.tmdb.org/t/p/original/9UIu5k9x8ZO1rxYQN7ZGQRRoc9Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Qp6Tp2Df3r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-11"
+                            "release_date": "2026-08-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13,
+                                        "end": 102.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Provocation",
                             "image": "https://image.tmdb.org/t/p/original/9W5E1RT5qr8Qcfm7FyGox8OJuB2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TCi7ReD6vK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-18"
+                            "release_date": "2026-08-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Spearhead Match",
                             "image": "https://image.tmdb.org/t/p/original/tzRD27FhklyF8KO0ZoWeRS057qk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zTTbM8Y2rf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-25"
+                            "release_date": "2026-08-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Trap",
                             "image": "https://image.tmdb.org/t/p/original/lwGc2dJ03KURG2lvc2uD8oZZfxd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QGslemgQhI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-01"
+                            "release_date": "2026-09-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Core Match",
                             "image": "https://image.tmdb.org/t/p/original/r6btvr8emtdEHfyocoF4UVuoq52.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3vneEbfpXg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-08"
+                            "release_date": "2026-09-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.1,
+                                        "end": 96
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Counterattack",
                             "image": "https://image.tmdb.org/t/p/original/jSmTxUAb2iqjj2NECaPK4UF3WZn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/G93UmpjlmF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-15"
+                            "release_date": "2026-09-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - General Match",
                             "image": "https://image.tmdb.org/t/p/original/A4ImB7VdoiyAH4elZG4TUh1bc9V.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mZCScg9ge/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-22"
+                            "release_date": "2026-09-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

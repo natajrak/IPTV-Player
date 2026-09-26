@@ -208,84 +208,264 @@
                             "image": "https://image.tmdb.org/t/p/original/iRvo8QxVm4FNGWNCDUuMLazALy2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/v4TChwNGj9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-08"
+                            "release_date": "2026-07-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.2,
+                                        "end": 232.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Old Country Bumpkin Watches Them Grow",
                             "image": "https://image.tmdb.org/t/p/original/p2vWK6HOQMorOs2Ptp8sDG6TFWV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/07HTQSgnUC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-15"
+                            "release_date": "2026-07-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.1,
+                                        "end": 187.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Old Country Bumpkin Sees Himself in an Old Man",
                             "image": "https://image.tmdb.org/t/p/original/oNQVsqbnY0hEnN6BN2ANFr9VQh2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LiyiPaNcol/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-22"
+                            "release_date": "2026-07-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135,
+                                        "end": 225
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Old Country Bumpkin Returns Home",
                             "image": "https://image.tmdb.org/t/p/original/cOPM3holAzpUTq8BfFTU6JQkm9k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KEMxxyNGAk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-29"
+                            "release_date": "2026-07-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.1,
+                                        "end": 135.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Old Country Bumpkin Lets Out a Roar",
                             "image": "https://image.tmdb.org/t/p/original/mbb1wfZplcE7M6NTqrkltDEuGyb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Kaitb3tV3F/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-05"
+                            "release_date": "2026-08-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.3,
+                                        "end": 169.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Old Country Bumpkin Faces Off Against His Father",
                             "image": "https://image.tmdb.org/t/p/original/5u3YeCiFhHwISflTdGfq7R4qmAX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sQDwAUFhZf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-12"
+                            "release_date": "2026-08-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.1,
+                                        "end": 137.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Old Country Bumpkin Gets an Invitation from Nobility",
                             "image": "https://image.tmdb.org/t/p/original/whkbZVFXfV4bD5wRJ96mzefqXKV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MCHDoyOImW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 157.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Old Country Bumpkin Gets a Marriage Proposal",
                             "image": "https://image.tmdb.org/t/p/original/lDAEzObRmO40F45a1xwTOO0lGXf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nFtFLBgp1T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Old Country Bumpkin Goes to the Holy City",
                             "image": "https://image.tmdb.org/t/p/original/bbab7XKwesfBM80RaHuPswbuBWT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YrgtuNtjzT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56,
+                                        "end": 146
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Old Country Bumpkin Sees in the New Year",
                             "image": "https://image.tmdb.org/t/p/original/1arhwEzL0GnpdYu7HTKVzncaLJg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6wha7HSHIZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-09"
+                            "release_date": "2026-09-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.2,
+                                        "end": 148.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.6,
+                                        "end": 1397.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Old Country Bumpkin Flies into a Rage",
                             "image": "https://image.tmdb.org/t/p/original/54lYU8CzpA5yicrMmajy9Jb2OUO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Sb1j2Z43nf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-16"
+                            "release_date": "2026-09-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.1,
+                                        "end": 160.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Old Country Bumpkin Goes Home",
                             "image": "https://image.tmdb.org/t/p/original/4ow7MDbeObpoDRKph3xdsUwuYbe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xd9USodF4D/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-23"
+                            "release_date": "2026-09-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.1,
+                                        "end": 161.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.7,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -300,84 +480,264 @@
                             "image": "https://image.tmdb.org/t/p/original/iRvo8QxVm4FNGWNCDUuMLazALy2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbihqecTf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbihqecTf",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-08"
+                            "release_date": "2026-07-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.2,
+                                        "end": 232.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Old Country Bumpkin Watches Them Grow",
                             "image": "https://image.tmdb.org/t/p/original/p2vWK6HOQMorOs2Ptp8sDG6TFWV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqewsFi0u%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqewsFi0u",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-15"
+                            "release_date": "2026-07-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.1,
+                                        "end": 187.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Old Country Bumpkin Sees Himself in an Old Man",
                             "image": "https://image.tmdb.org/t/p/original/oNQVsqbnY0hEnN6BN2ANFr9VQh2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNpR3D6nE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNpR3D6nE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-22"
+                            "release_date": "2026-07-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135,
+                                        "end": 225
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Old Country Bumpkin Returns Home",
                             "image": "https://image.tmdb.org/t/p/original/cOPM3holAzpUTq8BfFTU6JQkm9k.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FtTChIKxw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FtTChIKxw",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-29"
+                            "release_date": "2026-07-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.1,
+                                        "end": 135.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Old Country Bumpkin Lets Out a Roar",
                             "image": "https://image.tmdb.org/t/p/original/mbb1wfZplcE7M6NTqrkltDEuGyb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5EYuwF8M%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5EYuwF8M",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-05"
+                            "release_date": "2026-08-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.3,
+                                        "end": 169.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Old Country Bumpkin Faces Off Against His Father",
                             "image": "https://image.tmdb.org/t/p/original/5u3YeCiFhHwISflTdGfq7R4qmAX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUUz3FSCp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUUz3FSCp",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-12"
+                            "release_date": "2026-08-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.1,
+                                        "end": 137.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Old Country Bumpkin Gets an Invitation from Nobility",
                             "image": "https://image.tmdb.org/t/p/original/whkbZVFXfV4bD5wRJ96mzefqXKV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZkGpLDOx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZkGpLDOx",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 157.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Old Country Bumpkin Gets a Marriage Proposal",
                             "image": "https://image.tmdb.org/t/p/original/lDAEzObRmO40F45a1xwTOO0lGXf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxJSL8HMg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxJSL8HMg",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1397.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Old Country Bumpkin Goes to the Holy City",
                             "image": "https://image.tmdb.org/t/p/original/bbab7XKwesfBM80RaHuPswbuBWT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fsc3loYph%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fsc3loYph",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56,
+                                        "end": 146
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Old Country Bumpkin Sees in the New Year",
                             "image": "https://image.tmdb.org/t/p/original/1arhwEzL0GnpdYu7HTKVzncaLJg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFxHCh1Hn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFxHCh1Hn",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-09-09"
+                            "release_date": "2026-09-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.2,
+                                        "end": 148.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.6,
+                                        "end": 1397.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Old Country Bumpkin Flies into a Rage",
                             "image": "https://image.tmdb.org/t/p/original/54lYU8CzpA5yicrMmajy9Jb2OUO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFCbZcaMn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFCbZcaMn",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-09-16"
+                            "release_date": "2026-09-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.1,
+                                        "end": 160.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.7,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Old Country Bumpkin Goes Home",
                             "image": "https://image.tmdb.org/t/p/original/4ow7MDbeObpoDRKph3xdsUwuYbe.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4Fn1wtmn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4Fn1wtmn",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-09-23"
+                            "release_date": "2026-09-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.1,
+                                        "end": 161.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.7,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
