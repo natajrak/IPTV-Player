@@ -23,70 +23,200 @@
                             "image": "https://image.tmdb.org/t/p/original/AndiDmVhP0muuAHRrzVPjsESkka.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dc0WcNzfBh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-11"
+                            "release_date": "2025-10-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1401.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Aries Has Attacked!",
                             "image": "https://image.tmdb.org/t/p/original/9OOeOSXfqtxf6X7faz5vyGEojj1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MCAaOOgO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-18"
+                            "release_date": "2025-10-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.2,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - They Were Pulling Strings Behind the Scenes!",
                             "image": "https://image.tmdb.org/t/p/original/mvQFaxwrfnQgtfvnwySGAUFKdlo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GpoPq7QZ9G/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-25"
+                            "release_date": "2025-10-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1305,
+                                        "end": 1360.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - A Wild Hot Spring Appeared!",
                             "image": "https://image.tmdb.org/t/p/original/bt0XJC7RAx0jOxpwRNZwy0NUu3b.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rY5BOpMRl6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-01"
+                            "release_date": "2025-11-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.5,
+                                        "end": 172.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Libra of the Scales Appeared!",
                             "image": "https://image.tmdb.org/t/p/original/7Kgs5XIkDCnojzQSn7o4aZUzkmo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iCGlO0SRTL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-08"
+                            "release_date": "2025-11-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.5,
+                                        "end": 178.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I was... a Savior!",
                             "image": "https://image.tmdb.org/t/p/original/tdHzZwRficaoDuKmy6IVOgiSg7Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZSbepDW8ir/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-15"
+                            "release_date": "2025-11-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.5,
+                                        "end": 185.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Hey! 5%?! Seriously?!",
                             "image": "https://image.tmdb.org/t/p/original/v3paPl8HYUxM0TZSzH7tWiDbSTX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cngMaXZHwv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-22"
+                            "release_date": "2025-11-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.5,
+                                        "end": 199.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Masses Have Rioted!",
                             "image": "https://image.tmdb.org/t/p/original/h3lpDTbZjlSWuOsocGGsPNpxG3x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kALU1pOC5T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-29"
+                            "release_date": "2025-11-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.4,
+                                        "end": 198.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Who Are You?",
                             "image": "https://image.tmdb.org/t/p/original/ersEJLiKDluMwMtAZE3DbKKqBlj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RQGjrMq3e/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-06"
+                            "release_date": "2025-12-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - A Wild Lufas Maphaal And a Wild Devil King Have Appeared at the Same Time!!!",
                             "image": "https://image.tmdb.org/t/p/original/lvwEIHZoCevCh7qRJMPzxfMVUrD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kFcAzYgAsF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-13"
+                            "release_date": "2025-12-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - There Was Something Incredible in My Homeland!",
@@ -115,70 +245,200 @@
                             "image": "https://image.tmdb.org/t/p/original/AndiDmVhP0muuAHRrzVPjsESkka.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Gw6d4mpZLO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-11"
+                            "release_date": "2025-10-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1401.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Aries Has Attacked!",
                             "image": "https://image.tmdb.org/t/p/original/9OOeOSXfqtxf6X7faz5vyGEojj1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZRfbxW0iy3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-18"
+                            "release_date": "2025-10-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.2,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - They Were Pulling Strings Behind the Scenes!",
                             "image": "https://image.tmdb.org/t/p/original/mvQFaxwrfnQgtfvnwySGAUFKdlo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dNCABj8qMT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-25"
+                            "release_date": "2025-10-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1305,
+                                        "end": 1360.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - A Wild Hot Spring Appeared!",
                             "image": "https://image.tmdb.org/t/p/original/bt0XJC7RAx0jOxpwRNZwy0NUu3b.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iUyVw3VZgz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-01"
+                            "release_date": "2025-11-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.5,
+                                        "end": 172.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Libra of the Scales Appeared!",
                             "image": "https://image.tmdb.org/t/p/original/7Kgs5XIkDCnojzQSn7o4aZUzkmo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cLc0kgKE7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-08"
+                            "release_date": "2025-11-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.5,
+                                        "end": 178.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - I was... a Savior!",
                             "image": "https://image.tmdb.org/t/p/original/tdHzZwRficaoDuKmy6IVOgiSg7Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8lBl65XJ4m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-15"
+                            "release_date": "2025-11-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.5,
+                                        "end": 185.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Hey! 5%?! Seriously?!",
                             "image": "https://image.tmdb.org/t/p/original/v3paPl8HYUxM0TZSzH7tWiDbSTX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oPCKwYfl5T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-22"
+                            "release_date": "2025-11-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.5,
+                                        "end": 199.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Masses Have Rioted!",
                             "image": "https://image.tmdb.org/t/p/original/h3lpDTbZjlSWuOsocGGsPNpxG3x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/J8vLUYTWfA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-29"
+                            "release_date": "2025-11-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.4,
+                                        "end": 198.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Who Are You?",
                             "image": "https://image.tmdb.org/t/p/original/ersEJLiKDluMwMtAZE3DbKKqBlj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BIXFyFUexJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-06"
+                            "release_date": "2025-12-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - A Wild Lufas Maphaal And a Wild Devil King Have Appeared at the Same Time!!!",
                             "image": "https://image.tmdb.org/t/p/original/lvwEIHZoCevCh7qRJMPzxfMVUrD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3n7MWY86Gu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-13"
+                            "release_date": "2025-12-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - There Was Something Incredible in My Homeland!",
