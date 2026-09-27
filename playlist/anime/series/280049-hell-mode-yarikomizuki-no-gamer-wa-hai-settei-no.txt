@@ -60,7 +60,22 @@
                             "image": "https://image.tmdb.org/t/p/original/9vKPBwWbkeWXdLb96RKFdZyieI0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zsvyty5jEf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-24"
+                            "release_date": "2026-01-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.6,
+                                        "end": 95.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - ALLEN SPILLS THE BEANS",
@@ -535,7 +550,22 @@
                             "image": "https://image.tmdb.org/t/p/original/azvmF0hM5OmnEcv6InN5DQ5O215.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5VHcavN14R/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-26"
+                            "release_date": "2026-09-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147,
+                                        "end": 237
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
