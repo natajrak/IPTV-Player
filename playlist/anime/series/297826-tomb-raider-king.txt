@@ -16,77 +16,237 @@
                             "image": "https://image.tmdb.org/t/p/original/tQLJ7h3XxIPwloSEhVUGHTVn4aE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cvqV1NcvBQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-09"
+                            "release_date": "2026-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 78.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.3,
+                                        "end": 1389.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Those Who Seek to Own Relics",
                             "image": "https://image.tmdb.org/t/p/original/6GCVImS5QXTqE1HXEP03QnvkLM0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/23nwO0qtpX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-16"
+                            "release_date": "2026-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1292.2,
+                                        "end": 1378.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - One Suited for Domination",
                             "image": "https://image.tmdb.org/t/p/original/nnX6lJXEL1et4KAYjD8544o08Ny.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nNCEOdqv6E/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-23"
+                            "release_date": "2026-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.6,
+                                        "end": 1378
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The One Who Stole the Future",
                             "image": "https://image.tmdb.org/t/p/original/sG7HGNdQLG7g0CRMIErfPuhkFHV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Bpjxpa4qfo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-30"
+                            "release_date": "2026-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1292.2,
+                                        "end": 1378.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Owner of the Tree of Life",
                             "image": "https://image.tmdb.org/t/p/original/wmvw6aM5c2k7mBC1hvGiTLrxkxC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mDAEJ9YFTi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-06"
+                            "release_date": "2026-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1298.3,
+                                        "end": 1384.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Great Tombification",
                             "image": "https://image.tmdb.org/t/p/original/8V7SRioQA2KvQSzF3PL4emIJfxf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/R6O811Efit/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-13"
+                            "release_date": "2026-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291,
+                                        "end": 1377.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Restoration of Relics",
                             "image": "https://image.tmdb.org/t/p/original/6YIa7k5B6Dyucn29QeKy75zvpwG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UmZcQtU2h0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-20"
+                            "release_date": "2026-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Secret of the Crow",
                             "image": "https://image.tmdb.org/t/p/original/4jP8YpKfXPmpGCUUFeEyUKPZVUk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2GA80g7T66/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-27"
+                            "release_date": "2026-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.9,
+                                        "end": 1389.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Ruler of Relics",
                             "image": "https://image.tmdb.org/t/p/original/9Dh5qL3279BVWHhrSBVgqO8jCm8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bWp887BUXO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-03"
+                            "release_date": "2026-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.4,
+                                        "end": 1377.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Curse of Relics",
                             "image": "https://image.tmdb.org/t/p/original/3vEqqvr8LKrA2mWgZFz7nachHbM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ep0Un5zBaH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-10"
+                            "release_date": "2026-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.5,
+                                        "end": 1382.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Tian Fu's Relic",
                             "image": "https://image.tmdb.org/t/p/original/yO8W8j7zhwDeDFKThdDai7XeHhz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Lz74v35Wi8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-17"
+                            "release_date": "2026-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.2,
+                                        "end": 1377.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -101,7 +261,22 @@
                             "url": "https://control.akuma-stream.com/watch/8c7afcad-9026-4d87-a385-afa3a0e84cbe",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-09"
+                            "release_date": "2026-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 78.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.3,
+                                        "end": 1389.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Those Who Seek to Own Relics",
@@ -109,7 +284,22 @@
                             "url": "https://control.akuma-stream.com/watch/3d17375d-ec27-4e4a-808e-5d46c0fe9048",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-16"
+                            "release_date": "2026-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1292.2,
+                                        "end": 1378.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - One Suited for Domination",
@@ -117,7 +307,22 @@
                             "url": "https://control.akuma-stream.com/watch/914692cc-3470-46f1-9a8c-4ebc763cc44c",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-23"
+                            "release_date": "2026-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.6,
+                                        "end": 1378
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The One Who Stole the Future",
@@ -125,7 +330,22 @@
                             "url": "https://control.akuma-stream.com/watch/601fa3c6-3927-4dd6-88e2-561b3e29f706",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-30"
+                            "release_date": "2026-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1292.2,
+                                        "end": 1378.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Owner of the Tree of Life",
@@ -133,7 +353,22 @@
                             "url": "https://control.akuma-stream.com/watch/0c5e367c-853a-4bc7-af3c-67a9a920e6a7",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-06"
+                            "release_date": "2026-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1298.3,
+                                        "end": 1384.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Great Tombification",
@@ -141,7 +376,22 @@
                             "url": "https://control.akuma-stream.com/watch/c9c94deb-2800-4f9f-8db7-b8f5440693ee",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-13"
+                            "release_date": "2026-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291,
+                                        "end": 1377.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Restoration of Relics",
@@ -149,7 +399,17 @@
                             "url": "https://control.akuma-stream.com/watch/87d03bdf-efcd-4497-9609-813dcf14c2a3",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-20"
+                            "release_date": "2026-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Secret of the Crow",
@@ -157,7 +417,22 @@
                             "url": "https://control.akuma-stream.com/watch/41d1ad71-1082-4d67-a3b1-5b8300803772",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-27"
+                            "release_date": "2026-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.9,
+                                        "end": 1389.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Ruler of Relics",
@@ -165,7 +440,22 @@
                             "url": "https://control.akuma-stream.com/watch/16b8015f-c15d-4685-96d6-ecae5abaf93a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-03"
+                            "release_date": "2026-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.4,
+                                        "end": 1377.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Curse of Relics",
@@ -173,7 +463,22 @@
                             "url": "https://control.akuma-stream.com/watch/c40fbf95-3fd8-439a-a307-0ab7a2b0d220",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-10"
+                            "release_date": "2026-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.5,
+                                        "end": 1382.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Tian Fu's Relic",
@@ -181,7 +486,22 @@
                             "url": "https://control.akuma-stream.com/watch/46397b8e-79ef-4fd4-97ad-887345e4ede4",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-17"
+                            "release_date": "2026-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.2,
+                                        "end": 1377.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

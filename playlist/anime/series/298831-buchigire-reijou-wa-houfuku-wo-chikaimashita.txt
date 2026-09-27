@@ -16,84 +16,264 @@
                             "image": "https://image.tmdb.org/t/p/original/vFk5Sf0YAnvJrqLOVVTU1WzpnJO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pr7UJ7wKIf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.8,
+                                        "end": 144.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Starting Business In Asylum",
                             "image": "https://image.tmdb.org/t/p/original/qvtKku1ObJpgWG2Rlal8YQoLP2p.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cWekDPtNye/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.6,
+                                        "end": 119.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Met on the Road",
                             "image": "https://image.tmdb.org/t/p/original/krW55C5EgeAfbihfvZqhgYHIeqi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YGz5GDRV05/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.6,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - New Friends and Social Parties",
                             "image": "https://image.tmdb.org/t/p/original/2he7RRsyjZNGfYztIPpOS0qtr1t.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/P86d4bBjl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.6,
+                                        "end": 118.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Adventurers Assemble",
                             "image": "https://image.tmdb.org/t/p/original/8dN7TIv8AFEP5LoUn7NGkhraGCs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Q0tPiw8Ye/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.5,
+                                        "end": 163.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Taking Back the Fortress",
                             "image": "https://image.tmdb.org/t/p/original/y1IkmAwGWBAsIJ7PO3mE4fMjeJS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XCQ3jdgE20/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.6,
+                                        "end": 139.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Revenge in the Dead of Night",
                             "image": "https://image.tmdb.org/t/p/original/xMFCBTCxoapjy6DYneH8z8EqumQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/B5XbyKh8O2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.5,
+                                        "end": 185.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Tragedy of the House of Count Arty",
                             "image": "https://image.tmdb.org/t/p/original/z0or8eeXSZDVkaNaWXlw893hDnw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GPcOgDMQ0F/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.6,
+                                        "end": 118.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Empire's Merchants' Guild Council",
                             "image": "https://image.tmdb.org/t/p/original/mKEumiZ4R6IprUI1kkeW4rhqNUh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1Ko5k50uA2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - By the Sea",
                             "image": "https://image.tmdb.org/t/p/original/5TvVtis2jD6Gj04Vf9yUvqVsWcE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RmCpoXaUY6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.8,
+                                        "end": 181.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1424.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - False Gold",
                             "image": "https://image.tmdb.org/t/p/original/xRKOjpq3MJmpoBZz24ltJF6N1Xx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LuTQnMRPPu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.7,
+                                        "end": 142.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - A Livid Lady's Revenge Never Ends",
                             "image": "https://image.tmdb.org/t/p/original/lt1oAwVniZ7XgaC0qoVQQY6GchI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wNsGWDT4qI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-21"
+                            "release_date": "2026-09-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.6,
+                                        "end": 195.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1424.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

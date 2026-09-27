@@ -30,14 +30,44 @@
                             "image": "https://image.tmdb.org/t/p/original/jkJBKoPgB7FeD8x2ujoz703TogB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJA0LqAC9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJA0LqAC9",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-07-18"
+                            "release_date": "2026-07-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 158.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Black Cat and the Prince",
                             "image": "https://image.tmdb.org/t/p/original/6f00S0l2mT23juNZybx47Wg614u.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FP0mraepx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FP0mraepx",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-07-25"
+                            "release_date": "2026-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.1,
+                                        "end": 228.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The White Cat and the Girl",
@@ -51,14 +81,39 @@
                             "image": "https://image.tmdb.org/t/p/original/loDlYS4RhvxDYBG5QvWFUsV0H7W.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWqf3zYGs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWqf3zYGs",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-08-08"
+                            "release_date": "2026-08-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Return of the Mother Cat",
                             "image": "https://image.tmdb.org/t/p/original/pLrup9oA84h2nDZNe0v7bBzypRR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlwtnSmIy%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlwtnSmIy",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-08-15"
+                            "release_date": "2026-08-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Life in the Castle Town & the Black Cat and the Adventurous Prince",
@@ -72,7 +127,22 @@
                             "image": "https://image.tmdb.org/t/p/original/2EbYfD8XbE8yMahMcHke1IIOsDH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FibwFtaXg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FibwFtaXg",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-08-29"
+                            "release_date": "2026-08-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 115.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Demon and the Dragon and Mother's Day",
@@ -107,14 +177,44 @@
                             "image": "https://image.tmdb.org/t/p/original/jkJBKoPgB7FeD8x2ujoz703TogB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QjUAwdRYMh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-18"
+                            "release_date": "2026-07-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 158.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Black Cat and the Prince",
                             "image": "https://image.tmdb.org/t/p/original/6f00S0l2mT23juNZybx47Wg614u.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wGYmPSwZFV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-25"
+                            "release_date": "2026-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.1,
+                                        "end": 228.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The White Cat and the Girl",
@@ -128,14 +228,39 @@
                             "image": "https://image.tmdb.org/t/p/original/loDlYS4RhvxDYBG5QvWFUsV0H7W.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IrAjcQng7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-08"
+                            "release_date": "2026-08-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Return of the Mother Cat",
                             "image": "https://image.tmdb.org/t/p/original/pLrup9oA84h2nDZNe0v7bBzypRR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BleYKN8YCC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-15"
+                            "release_date": "2026-08-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Life in the Castle Town & the Black Cat and the Adventurous Prince",
@@ -149,7 +274,22 @@
                             "image": "https://image.tmdb.org/t/p/original/2EbYfD8XbE8yMahMcHke1IIOsDH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eDsA4Pbnnh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-29"
+                            "release_date": "2026-08-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 115.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Demon and the Dragon and Mother's Day",
@@ -163,14 +303,39 @@
                             "image": "https://image.tmdb.org/t/p/original/n4T8vAYpKCSKvrXgrnuq65im6PF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hNp7lnwSi9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-12"
+                            "release_date": "2026-09-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 126.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Cat and the Royal Capital Festival",
                             "image": "https://image.tmdb.org/t/p/original/9B9HZH7fQ3rYLVYSZEXMMnBjZ1z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ye9PBQspZb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-19"
+                            "release_date": "2026-09-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68,
+                                        "end": 158
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

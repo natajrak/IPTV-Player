@@ -23,28 +23,68 @@
                             "image": "https://image.tmdb.org/t/p/original/rhBdbr6NDIPYtkFQFCjgScWl1cc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YmvXt7cnen/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-12"
+                            "release_date": "2026-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1414.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A Loser's Cry of Victory",
                             "image": "https://image.tmdb.org/t/p/original/lsyjYbCxOX12D1hVxZIuYE2WAsr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xRbczvXygH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-19"
+                            "release_date": "2026-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - He Who Masters Poison",
                             "image": "https://image.tmdb.org/t/p/original/x3ISrefcnP88EuUh048JJF765zb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CXxpIlCWC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-26"
+                            "release_date": "2026-07-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Magic of Bliss",
                             "image": "https://image.tmdb.org/t/p/original/qWTKO6jvSqEKLnDHJtQRAg6S3bo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1I0uh1Y27I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-02"
+                            "release_date": "2026-08-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Soul of Chinese Cooking",
@@ -58,21 +98,51 @@
                             "image": "https://image.tmdb.org/t/p/original/vL9RQbJo42H0zVSIpaOG0t26gF5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Dsl8fAsoiF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-16"
+                            "release_date": "2026-08-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Malice",
                             "image": "https://image.tmdb.org/t/p/original/kZzbUj4TqNQ53TUHDJwia4xECGO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ltADuhmAy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-23"
+                            "release_date": "2026-08-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1414.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Innovating for the Future",
                             "image": "https://image.tmdb.org/t/p/original/r8lmNPWOpLD1j9XWf7fCuDWIZht.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HzDdrBOQIl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-30"
+                            "release_date": "2026-08-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.7,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Judges' Focus",
@@ -86,7 +156,17 @@
                             "image": "https://image.tmdb.org/t/p/original/aQWy93qMp8sss42Iw4jhrjWJcrx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ue64jPH6Oa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-13"
+                            "release_date": "2026-09-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1337,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Nightmares, Followed by Clear Skies!",

@@ -23,63 +23,198 @@
                             "image": "https://image.tmdb.org/t/p/original/qeXs1gla848K2TRtaiKFdsgCdtD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sygsmAu2Br/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-09"
+                            "release_date": "2026-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 112.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - OVERKILL",
                             "image": "https://image.tmdb.org/t/p/original/3IlvadOf49nG7IhDCZ0xw601c7Q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ESSn4IWHag/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-16"
+                            "release_date": "2026-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.1,
+                                        "end": 126.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Seek Freedom",
                             "image": "https://image.tmdb.org/t/p/original/cDt490shK0TXAkzs1jGerw45ztD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jluIvW2JhS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-23"
+                            "release_date": "2026-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.2,
+                                        "end": 162.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Through Her Eyes",
                             "image": "https://image.tmdb.org/t/p/original/rUu86cvqX40TqOFK97lAZYjmFxp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dLgZXhrF8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-30"
+                            "release_date": "2026-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.1,
+                                        "end": 272.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Dear Eftal",
                             "image": "https://image.tmdb.org/t/p/original/4xTDrmEvNUuyywxWJxBattBMUC9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HBThmFIGH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-06"
+                            "release_date": "2026-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.7,
+                                        "end": 253.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Master Smile",
                             "image": "https://image.tmdb.org/t/p/original/kj57MNdcRTuS8o7EeF1QX624Pdl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SRiM7gMnSx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-13"
+                            "release_date": "2026-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.9,
+                                        "end": 142.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - No Escape",
                             "image": "https://image.tmdb.org/t/p/original/qPe266Za6YEdVLf6EQh4FfkgdLc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uIlZ2cPQug/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-20"
+                            "release_date": "2026-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 145.2,
+                                        "end": 229.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Let Me Pay",
                             "image": "https://image.tmdb.org/t/p/original/3J1V7o4hpkbHePxjSeX5xwyEkcR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MZaB75ufEh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-27"
+                            "release_date": "2026-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.4,
+                                        "end": 210.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Veiled Truth",
                             "image": "https://image.tmdb.org/t/p/original/ozdnZp7kctPAMbXFcnOz1b7et0q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lu4A1clGCp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-03"
+                            "release_date": "2026-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.1,
+                                        "end": 161.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -100,77 +235,237 @@
                             "image": "https://image.tmdb.org/t/p/original/qeXs1gla848K2TRtaiKFdsgCdtD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2XUvQaXPXJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-09"
+                            "release_date": "2026-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 112.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - OVERKILL",
                             "image": "https://image.tmdb.org/t/p/original/3IlvadOf49nG7IhDCZ0xw601c7Q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/50FnIIi9K1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-16"
+                            "release_date": "2026-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.1,
+                                        "end": 126.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Seek Freedom",
                             "image": "https://image.tmdb.org/t/p/original/cDt490shK0TXAkzs1jGerw45ztD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CLCPPmes4d/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-23"
+                            "release_date": "2026-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.2,
+                                        "end": 162.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Through Her Eyes",
                             "image": "https://image.tmdb.org/t/p/original/rUu86cvqX40TqOFK97lAZYjmFxp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4JZYkrlzBe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-30"
+                            "release_date": "2026-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.1,
+                                        "end": 272.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Dear Eftal",
                             "image": "https://image.tmdb.org/t/p/original/4xTDrmEvNUuyywxWJxBattBMUC9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IvGuiCelbM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-06"
+                            "release_date": "2026-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.7,
+                                        "end": 253.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Master Smile",
                             "image": "https://image.tmdb.org/t/p/original/kj57MNdcRTuS8o7EeF1QX624Pdl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BtI6Do4pg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-13"
+                            "release_date": "2026-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.9,
+                                        "end": 142.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - No Escape",
                             "image": "https://image.tmdb.org/t/p/original/qPe266Za6YEdVLf6EQh4FfkgdLc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vfSarN75OW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-20"
+                            "release_date": "2026-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 145.2,
+                                        "end": 229.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Let Me Pay",
                             "image": "https://image.tmdb.org/t/p/original/3J1V7o4hpkbHePxjSeX5xwyEkcR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OVpGQ5saO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-27"
+                            "release_date": "2026-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.4,
+                                        "end": 210.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Veiled Truth",
                             "image": "https://image.tmdb.org/t/p/original/ozdnZp7kctPAMbXFcnOz1b7et0q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Me8zlLz9uY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-03"
+                            "release_date": "2026-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.1,
+                                        "end": 161.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - False Dawn",
                             "image": "https://image.tmdb.org/t/p/original/jGXVb2wcUWg4yGbVjVSgDiUc6Mi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o3U9QCq1xm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-10"
+                            "release_date": "2026-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.2,
+                                        "end": 132.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - I Am Eftal",
                             "image": "https://image.tmdb.org/t/p/original/fLUzRRppw96OIwGhgNJJtfIDjG9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/q0s66jXFCm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-17"
+                            "release_date": "2026-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 153.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

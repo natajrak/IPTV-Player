@@ -16,63 +16,193 @@
                             "image": "https://image.tmdb.org/t/p/original/t3KOLerucKL5aOGcPY4bf19LHI7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eO1w9MQvDN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 224.7,
+                                        "end": 314.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - There Was a Formidable Foe Deep Inside the Den",
                             "image": "https://image.tmdb.org/t/p/original/fAYFkSXhP5QWADDvf25TFY8aGr6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nRLXvaxeKo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.3,
+                                        "end": 107.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - She Suspects I'm Her Bastard Brother, and Now We're Going on Her First Adventure",
                             "image": "https://image.tmdb.org/t/p/original/5n3JPQY3vPcn75w5Ft8pvL8Tk4Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nWCt6j6d36/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 16.3,
+                                        "end": 106.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - After 10 Years, I'm Even in a Picture Book",
                             "image": "https://image.tmdb.org/t/p/original/lQBOH2wsPZBTjQcr8u496Ze2ac4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OrxM4lgZDP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - After 10 Years, I Was Told to Get Lost",
                             "image": "https://image.tmdb.org/t/p/original/8PZXYIw057wmcWAc2Yiec1JVD5o.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pOMU9uNJvp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - After 10 Years, I Started a Family",
                             "image": "https://image.tmdb.org/t/p/original/gcrpiHQf8Tfuu371OttYs0PdSug.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/A1tvCTCPGM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.2,
+                                        "end": 183.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Trespasser and the Secret Passageway",
                             "image": "https://image.tmdb.org/t/p/original/cGZN8nqhsIXUHnQbgaGiCB4pa9g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JB9l4ira94/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.6,
+                                        "end": 1398.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Party Is Complete for the First Time in 10 Years",
                             "image": "https://image.tmdb.org/t/p/original/4WCna9quVOYlVcoGgw8o5zDAtzw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MeTldtibvA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.5,
+                                        "end": 257.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1281.6,
+                                        "end": 1371.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Mythical Beasts That Lurk in the Darkness",
                             "image": "https://image.tmdb.org/t/p/original/h8gmgWI10jn5YtywoeuQNnrA57h.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wl5wR1vyXY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 157.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -86,84 +216,259 @@
                             "image": "https://image.tmdb.org/t/p/original/t3KOLerucKL5aOGcPY4bf19LHI7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bRrJwfov/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 224.7,
+                                        "end": 314.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - There Was a Formidable Foe Deep Inside the Den",
                             "image": "https://image.tmdb.org/t/p/original/fAYFkSXhP5QWADDvf25TFY8aGr6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bVMh83jiGu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.3,
+                                        "end": 107.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - She Suspects I'm Her Bastard Brother, and Now We're Going on Her First Adventure",
                             "image": "https://image.tmdb.org/t/p/original/5n3JPQY3vPcn75w5Ft8pvL8Tk4Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IBjQpIRVBQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 16.3,
+                                        "end": 106.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - After 10 Years, I'm Even in a Picture Book",
                             "image": "https://image.tmdb.org/t/p/original/lQBOH2wsPZBTjQcr8u496Ze2ac4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Gr4VTCIeMg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - After 10 Years, I Was Told to Get Lost",
                             "image": "https://image.tmdb.org/t/p/original/8PZXYIw057wmcWAc2Yiec1JVD5o.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/528YHh7AQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - After 10 Years, I Started a Family",
                             "image": "https://image.tmdb.org/t/p/original/gcrpiHQf8Tfuu371OttYs0PdSug.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KdVIHQl2KJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.2,
+                                        "end": 183.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Trespasser and the Secret Passageway",
                             "image": "https://image.tmdb.org/t/p/original/cGZN8nqhsIXUHnQbgaGiCB4pa9g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/r4IzefBjFk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.6,
+                                        "end": 1398.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Party Is Complete for the First Time in 10 Years",
                             "image": "https://image.tmdb.org/t/p/original/4WCna9quVOYlVcoGgw8o5zDAtzw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xBdfulyyyY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.5,
+                                        "end": 257.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1281.6,
+                                        "end": 1371.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Mythical Beasts That Lurk in the Darkness",
                             "image": "https://image.tmdb.org/t/p/original/h8gmgWI10jn5YtywoeuQNnrA57h.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZJqR6XBZmG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 157.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Storming the Enemy Position",
                             "image": "https://image.tmdb.org/t/p/original/x5oRWdXSBbLEME9K6j3QxwW3W2E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bRgBGuYBzv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - I Fought for 10 Years, so I Can Easily Defeat Demons",
                             "image": "https://image.tmdb.org/t/p/original/1G39k5mUVwJ2DQebqJ5QDmlCdM4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/k99RtIkXpO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.5,
+                                        "end": 158.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Leave the Next 10 Years and Beyond to Me Too",
                             "image": "https://image.tmdb.org/t/p/original/6UZpKnWVrWib6anpZCUX6I6HG7D.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dD7khTUbUD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-21"
+                            "release_date": "2026-09-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.3,
+                                        "end": 142.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -16,14 +16,34 @@
                             "image": "https://image.tmdb.org/t/p/original/11q69qAKej3YxEn5phl0YOQlZSv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EdPV2OK9On/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-10"
+                            "release_date": "2026-01-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.2,
+                                        "end": 92.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Appraisal Ceremony",
                             "image": "https://image.tmdb.org/t/p/original/61JZqIjoluiEmOEdylPQfT1iNnq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/G3cYGCXzZA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-17"
+                            "release_date": "2026-01-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.6,
+                                        "end": 95.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Trouble",
@@ -37,63 +57,153 @@
                             "image": "https://image.tmdb.org/t/p/original/9DtJWWQvX04thPrsTbcrtvlhOBV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VQXkj2bBNt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-31"
+                            "release_date": "2026-01-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.1,
+                                        "end": 95.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - A Summoner's Potential",
                             "image": "https://image.tmdb.org/t/p/original/gfPuPHHOEpJLnvP236XUHXGDoDH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QAGs5gGHB8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-07"
+                            "release_date": "2026-02-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.1,
+                                        "end": 95.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Outward Bound",
                             "image": "https://image.tmdb.org/t/p/original/czFdPjNa7MUKYGRJPw6ipwug4qd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uqayjiNfuv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-14"
+                            "release_date": "2026-02-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.5,
+                                        "end": 190.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Life With The Granvelles",
                             "image": "https://image.tmdb.org/t/p/original/aLmCeK2zxO8FHyM0PqGt2c1GRyM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dQfPVtExw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-21"
+                            "release_date": "2026-02-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 110.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Huntsman",
                             "image": "https://image.tmdb.org/t/p/original/801BQAj1EICQ1A8S8OhZLQmL8MY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Hswk9kyu0D/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-28"
+                            "release_date": "2026-02-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.6,
+                                        "end": 180.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Murdergalsh",
                             "image": "https://image.tmdb.org/t/p/original/rURj4QOs6F6fzSQlkfck1CrC5n.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NsU2IMd5Pz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-07"
+                            "release_date": "2026-03-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 153.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Noble's Duty",
                             "image": "https://image.tmdb.org/t/p/original/bBjJSd20JuDgKCRmH3ikqeryqNk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FdRCTRuRR8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-14"
+                            "release_date": "2026-03-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.1,
+                                        "end": 189.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Sneak Attack",
                             "image": "https://image.tmdb.org/t/p/original/wGpRdsUqTYvtSuJdlWG4Qe3ma1T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vGksqY19en/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-21"
+                            "release_date": "2026-03-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.1,
+                                        "end": 147.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Escape",
                             "image": "https://image.tmdb.org/t/p/original/hYviedK1726OQkL7P81ECm8PGeg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/m2gF16JoLm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-28"
+                            "release_date": "2026-03-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.6,
+                                        "end": 203.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -116,84 +226,204 @@
                             "image": "https://image.tmdb.org/t/p/original/ukxaO4Y9M0kbDgErMDEp6kSvuVj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KBSDMpgHIK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-04"
+                            "release_date": "2026-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.5,
+                                        "end": 117.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - A NEW FRIEND",
                             "image": "https://image.tmdb.org/t/p/original/q6860zrFLhJ5jLjYhUJUBIM8587.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SAGZMntcx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-11"
+                            "release_date": "2026-07-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.6,
+                                        "end": 188.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - CONQUER THE DUNGEON",
                             "image": "https://image.tmdb.org/t/p/original/eSBBwXftlqS8zXr5eGuPAcGxEVC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/umQCAgY3Qb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-18"
+                            "release_date": "2026-07-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.7,
+                                        "end": 142.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - AN ORDER FROM THE PRINCE",
                             "image": "https://image.tmdb.org/t/p/original/3OLHflj0lUp7pDg6di22LYCx27E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1ou85tmZXi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-25"
+                            "release_date": "2026-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.6,
+                                        "end": 135.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - THE SOVEREIGN OF SPIRITS' PROPHECY",
                             "image": "https://image.tmdb.org/t/p/original/kqrCYJTZ1W8aFKcOw5d6BxtGo7a.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IOvPGbdiHx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-01"
+                            "release_date": "2026-08-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.5,
+                                        "end": 192.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - SHOWDOWN AT THE ACADEMY TOURNAMENT!",
                             "image": "https://image.tmdb.org/t/p/original/xAYwCWrSl9tJTgIk91geCcpNgB5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/p9eSIIrDhX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-08"
+                            "release_date": "2026-08-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.6,
+                                        "end": 180.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - ONWARD TO ROHZENHEIM",
                             "image": "https://image.tmdb.org/t/p/original/ixgT6UGq84E4VKqEcGTA1QQDNB4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nQMozvbxBZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-15"
+                            "release_date": "2026-08-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.6,
+                                        "end": 186.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - THE BATTLE OF TIAMO",
                             "image": "https://image.tmdb.org/t/p/original/lAiadT3JYpnlc4wWhnnZw6M8528.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/woJ1SOxSvp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-22"
+                            "release_date": "2026-08-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.6,
+                                        "end": 177.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - THE DEMONS OF LAPOLKA",
                             "image": "https://image.tmdb.org/t/p/original/p9DV3mLopJ4Hx6VK1pObBvE5LLO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QQmMtJlv6w/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-29"
+                            "release_date": "2026-08-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.6,
+                                        "end": 197.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - PLENTIFUL PRAYERS",
                             "image": "https://image.tmdb.org/t/p/original/i538ccIyFt9cZuDCZWKPgM3umpv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/csEwP4RaGz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-05"
+                            "release_date": "2026-09-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.6,
+                                        "end": 131.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - THE LIBERATED",
                             "image": "https://image.tmdb.org/t/p/original/eA89CrXUpN7417hYPR3wYUbOIkq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/19jECXmcoX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-12"
+                            "release_date": "2026-09-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.5,
+                                        "end": 218.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Episode 12",
                             "image": "https://image.tmdb.org/t/p/original/djQVbSvXfnHPZI9yvcIdohaaODb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1wS37m2f1q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-19"
+                            "release_date": "2026-09-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.5,
+                                        "end": 216.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

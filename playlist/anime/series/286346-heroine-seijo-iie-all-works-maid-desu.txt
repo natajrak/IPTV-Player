@@ -16,70 +16,210 @@
                             "image": "https://image.tmdb.org/t/p/original/kdACzvvvFvwdvUwgyYMsjmDMxaM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/s2NeiXBjdK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-01"
+                            "release_date": "2026-07-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 216,
+                                        "end": 305.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - At This Moment, a Maid's Superiority Is About to Unfold",
                             "image": "https://image.tmdb.org/t/p/original/vuwmsdIlxsnhOL6UGvvKwPxjuT8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/efp5Ik9ODY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-08"
+                            "release_date": "2026-07-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 173.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Two Girls Proceed to the Royal Castle",
                             "image": "https://image.tmdb.org/t/p/original/AcuHoEh84SDSUOelXG9iQk1EYbr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BhSOjiPFYa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-15"
+                            "release_date": "2026-07-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 141.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Truth Beneath the Moonlight",
                             "image": "https://image.tmdb.org/t/p/original/7puDmycVX0unLgFUQ6ky6a50yzr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/b26JSsrdfn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-22"
+                            "release_date": "2026-07-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.1,
+                                        "end": 194
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Sudden Seriousness",
                             "image": "https://image.tmdb.org/t/p/original/yyMVO9XhbrLSQtHZ2y9yVwuSYyF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AQ3e1LMdzt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-29"
+                            "release_date": "2026-07-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.1,
+                                        "end": 159
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The House of Rudleberg's All-Works Maid",
                             "image": "https://image.tmdb.org/t/p/original/Al2CCDND2VnirOyCSJxYvyG5517.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M3Pyv1cxNY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-05"
+                            "release_date": "2026-08-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.1,
+                                        "end": 121
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Anna-Marie's Exciting Day-Off Date",
                             "image": "https://image.tmdb.org/t/p/original/z4gI6q0wFzTmx47FLUqtPpIxR9k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RYeegVwI99/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-12"
+                            "release_date": "2026-08-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.2,
+                                        "end": 164.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - A New Encounter at the Royal Academy",
                             "image": "https://image.tmdb.org/t/p/original/8eLZM9glHZuhzkiGUKDwIkqlPnQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hhPVLC2z7d/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.2,
+                                        "end": 231.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - A Knight's Reunion and the Wavering Pride of a Maid",
                             "image": "https://image.tmdb.org/t/p/original/r1FYPXVEOe2kbOozXkvDuA6sk7i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5MkbOGRAUH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Jealous Witch Incident",
                             "image": "https://image.tmdb.org/t/p/original/lWlQz7RhoMWUMLRFEX7Ztb8CML4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/praCbxMEnk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.2,
+                                        "end": 129.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -93,70 +233,210 @@
                             "image": "https://image.tmdb.org/t/p/original/kdACzvvvFvwdvUwgyYMsjmDMxaM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QSRVlU3q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-01"
+                            "release_date": "2026-07-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 216,
+                                        "end": 305.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - At This Moment, a Maid's Superiority Is About to Unfold",
                             "image": "https://image.tmdb.org/t/p/original/vuwmsdIlxsnhOL6UGvvKwPxjuT8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eYmrsDDDOo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-08"
+                            "release_date": "2026-07-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 173.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Two Girls Proceed to the Royal Castle",
                             "image": "https://image.tmdb.org/t/p/original/AcuHoEh84SDSUOelXG9iQk1EYbr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/z8YtHF3qwM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-15"
+                            "release_date": "2026-07-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 141.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Truth Beneath the Moonlight",
                             "image": "https://image.tmdb.org/t/p/original/7puDmycVX0unLgFUQ6ky6a50yzr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Av8lySEHG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-22"
+                            "release_date": "2026-07-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.1,
+                                        "end": 194
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Sudden Seriousness",
                             "image": "https://image.tmdb.org/t/p/original/yyMVO9XhbrLSQtHZ2y9yVwuSYyF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NymnS8yAOw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-29"
+                            "release_date": "2026-07-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.1,
+                                        "end": 159
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The House of Rudleberg's All-Works Maid",
                             "image": "https://image.tmdb.org/t/p/original/Al2CCDND2VnirOyCSJxYvyG5517.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PRImDp4bBn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-05"
+                            "release_date": "2026-08-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.1,
+                                        "end": 121
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Anna-Marie's Exciting Day-Off Date",
                             "image": "https://image.tmdb.org/t/p/original/z4gI6q0wFzTmx47FLUqtPpIxR9k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/m67lMPDrPx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-12"
+                            "release_date": "2026-08-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.2,
+                                        "end": 164.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - A New Encounter at the Royal Academy",
                             "image": "https://image.tmdb.org/t/p/original/8eLZM9glHZuhzkiGUKDwIkqlPnQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nPdv1jiW7a/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.2,
+                                        "end": 231.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Knight's Reunion and the Wavering Pride of a Maid",
                             "image": "https://image.tmdb.org/t/p/original/r1FYPXVEOe2kbOozXkvDuA6sk7i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XwduhromwN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Jealous Witch Incident",
                             "image": "https://image.tmdb.org/t/p/original/lWlQz7RhoMWUMLRFEX7Ztb8CML4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o3WeQn1ysq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.2,
+                                        "end": 129.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Choice the Ladies Make",
@@ -170,7 +450,17 @@
                             "image": "https://image.tmdb.org/t/p/original/hMIgGQsooabDvSm9mjKTXWyY6Si.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/A19UPBgwj6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-16"
+                            "release_date": "2026-09-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 178.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
