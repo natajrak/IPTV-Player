@@ -16,14 +16,34 @@
                             "image": "https://image.tmdb.org/t/p/original/sfahoMM3PM5uJlwk95UAvGV7tM2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LFs6kr0XxV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-11"
+                            "release_date": "2025-01-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93,
+                                        "end": 137
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - I May Be the Executioner, but I'll Be Fired if People Find Out, so I'll Have to Use Force",
                             "image": "https://image.tmdb.org/t/p/original/oes3sSTmD0DY0sLmGaJqPwm2gqQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Fm3TYiiGRf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-18"
+                            "release_date": "2025-01-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 205.9,
+                                        "end": 249.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I May Be Silver Sword's Tank, but I Want to Take On a Really Tough Dungeon",
@@ -37,21 +57,51 @@
                             "image": "https://image.tmdb.org/t/p/original/o8a1gqZr0YPTcOYerHkQ825kqcs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3p3YFYF5BQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-01"
+                            "release_date": "2025-02-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.9,
+                                        "end": 166.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I May Be Silver Sword's Healer, but Even I Could Use Some Healing",
                             "image": "https://image.tmdb.org/t/p/original/hdoYQ4rKm9FDcJUTlOjZY6HsZz9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WcZK89B6h/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-08"
+                            "release_date": "2025-02-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 171.7,
+                                        "end": 215.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - I May Be Silver Sword's Back Attacker, but I'm Gonna Catch the Jerk Who Started That Rumor",
                             "image": "https://image.tmdb.org/t/p/original/q1V6zaVuw4lHIONSswS481X8FKq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mxOZ0kceow/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-15"
+                            "release_date": "2025-02-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.8,
+                                        "end": 125.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I've Waited Forever for the Centennial Festival, so I'm Gonna Enjoy It, No Matter What",
@@ -108,14 +158,34 @@
                             "image": "https://image.tmdb.org/t/p/original/sfahoMM3PM5uJlwk95UAvGV7tM2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vzhevBDXdh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-11"
+                            "release_date": "2025-01-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93,
+                                        "end": 137
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - I May Be the Executioner, but I'll Be Fired if People Find Out, so I'll Have to Use Force",
                             "image": "https://image.tmdb.org/t/p/original/oes3sSTmD0DY0sLmGaJqPwm2gqQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oyUd1Vr3qU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-18"
+                            "release_date": "2025-01-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 205.9,
+                                        "end": 249.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - I May Be Silver Sword's Tank, but I Want to Take On a Really Tough Dungeon",
@@ -129,21 +199,51 @@
                             "image": "https://image.tmdb.org/t/p/original/o8a1gqZr0YPTcOYerHkQ825kqcs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CBLFF3oijF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-01"
+                            "release_date": "2025-02-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.9,
+                                        "end": 166.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I May Be Silver Sword's Healer, but Even I Could Use Some Healing",
                             "image": "https://image.tmdb.org/t/p/original/hdoYQ4rKm9FDcJUTlOjZY6HsZz9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IQmN7hc7TG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-08"
+                            "release_date": "2025-02-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 171.7,
+                                        "end": 215.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - I May Be Silver Sword's Back Attacker, but I'm Gonna Catch the Jerk Who Started That Rumor",
                             "image": "https://image.tmdb.org/t/p/original/q1V6zaVuw4lHIONSswS481X8FKq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MY1UbFM5aa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-15"
+                            "release_date": "2025-02-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.8,
+                                        "end": 125.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - I've Waited Forever for the Centennial Festival, so I'm Gonna Enjoy It, No Matter What",

@@ -16,28 +16,83 @@
                             "image": "https://image.tmdb.org/t/p/original/4oRiL1pZ1oNlBFh7CHo7K51X8wq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pbqpiEmooV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-05"
+                            "release_date": "2024-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80,
+                                        "end": 171
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - I Parry the Reward",
                             "image": "https://image.tmdb.org/t/p/original/64iLnLn5rTF0cEV3yRJpFFPzKvd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AZzZ19bOzu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-12"
+                            "release_date": "2024-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.2,
+                                        "end": 151.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I Parry Taking On A Page",
                             "image": "https://image.tmdb.org/t/p/original/nCIuNiWznpPlJeTMS0XT6xsF0Ye.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/a1tHj8xClj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-19"
+                            "release_date": "2024-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.4,
+                                        "end": 140.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - I Parry a Goblin",
                             "image": "https://image.tmdb.org/t/p/original/mTaxhB8lLDe98S6xMNq2WjEf3BN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ghLSjL5poy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-25"
+                            "release_date": "2024-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.3,
+                                        "end": 228.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I Parry a Frog",
@@ -108,28 +163,83 @@
                             "image": "https://image.tmdb.org/t/p/original/4oRiL1pZ1oNlBFh7CHo7K51X8wq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qGRRmRJ98z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-05"
+                            "release_date": "2024-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80,
+                                        "end": 171
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - I Parry the Reward",
                             "image": "https://image.tmdb.org/t/p/original/64iLnLn5rTF0cEV3yRJpFFPzKvd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DveofTWqP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-12"
+                            "release_date": "2024-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.2,
+                                        "end": 151.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - I Parry Taking On A Page",
                             "image": "https://image.tmdb.org/t/p/original/nCIuNiWznpPlJeTMS0XT6xsF0Ye.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RoVOtIoZ2W/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-19"
+                            "release_date": "2024-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.4,
+                                        "end": 140.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - I Parry a Goblin",
                             "image": "https://image.tmdb.org/t/p/original/mTaxhB8lLDe98S6xMNq2WjEf3BN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ksHY3fdYJ3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-25"
+                            "release_date": "2024-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.3,
+                                        "end": 228.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I Parry a Frog",
