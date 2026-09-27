@@ -16,21 +16,61 @@
                             "image": "https://image.tmdb.org/t/p/original/fBDKqMYZuvN5w5cw8RU57k6IREC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcbCvIIXX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcbCvIIXX",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2023-10-06"
+                            "release_date": "2023-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.3,
+                                        "end": 253.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - RERISE",
                             "image": "https://image.tmdb.org/t/p/original/2Kyldj5hO4iRAhY0w53BnnTCA6k.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFeX57Y1c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFeX57Y1c",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2023-10-20"
+                            "release_date": "2023-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 143.3,
+                                        "end": 233.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.5,
+                                        "end": 1430
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - TRY&FIGHT",
                             "image": "https://image.tmdb.org/t/p/original/4j2roMu1Brx7JZBTNZEONWQ1z6Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVTDKzAX4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVTDKzAX4",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2023-10-20"
+                            "release_date": "2023-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.3,
+                                        "end": 172.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.5,
+                                        "end": 1355
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -23,7 +23,17 @@
                             "image": "https://image.tmdb.org/t/p/original/7rGQzAZozg97tNWxnpwhce47jO3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa7e1742038052871e4614ad8%2Fa7e1742038052871e4614ad8.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-12"
+                            "release_date": "2010-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.1,
+                                        "end": 192.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Democracy under the DEAD",

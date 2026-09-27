@@ -16,84 +16,264 @@
                             "image": "https://image.tmdb.org/t/p/original/p8jgtYCj0FgJSZKS2S8vJxBOPMC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZAmUyudlb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-05"
+                            "release_date": "2025-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 155
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ประตูแห่งความจริง",
                             "image": "https://image.tmdb.org/t/p/original/Ehygh8zHkAeugLaxkaMBxKmprK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kKIi5Ddqc5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-12"
+                            "release_date": "2025-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 132.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ท้าทายเทพเจ้าด้วยการทำอาหาร",
                             "image": "https://image.tmdb.org/t/p/original/pkVRtPulLU8EcYlyBmCFvIYqfhY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CxDW1OFdu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-19"
+                            "release_date": "2025-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.3,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.4,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ก่อนและหลัง",
                             "image": "https://image.tmdb.org/t/p/original/gZ5FrxGiuHWuci6bQcnCFkmOPCJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JA2maCQNh6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-26"
+                            "release_date": "2025-07-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.5,
+                                        "end": 150.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ความคิดถึงและอาหาร",
                             "image": "https://image.tmdb.org/t/p/original/wjivYRAK5nvtExYcBq8YyKc9wKN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TqrPf1Qr7d/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-09"
+                            "release_date": "2025-08-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.4,
+                                        "end": 120.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - เหตุการณ์ที่ทับซ้อน",
                             "image": "https://image.tmdb.org/t/p/original/n3veJZSKSwNC8befL1ThAmkPVBM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lX0mjFjgwL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-16"
+                            "release_date": "2025-08-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ความฝัน",
                             "image": "https://image.tmdb.org/t/p/original/ospiEKzd2mcbOiuXVtdpnSD8XTS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3gwHKwmOOf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-23"
+                            "release_date": "2025-08-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88,
+                                        "end": 178.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1418.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การแข่งขันอันดุเดือด",
                             "image": "https://image.tmdb.org/t/p/original/6g0sSaoeXYyUSbNc972XmZzvoZP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/I1Fe7PnyBc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-30"
+                            "release_date": "2025-08-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.1,
+                                        "end": 103.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - การล่มสลายของสมการ",
                             "image": "https://image.tmdb.org/t/p/original/zFCGKAY0WLBUIIwoxGuYbGEODn3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/caHOowA2CZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-06"
+                            "release_date": "2025-09-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 209.3,
+                                        "end": 300.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - บทสนทนากับความมืดมิด",
                             "image": "https://image.tmdb.org/t/p/original/l69MC9EUvwYLzumSiASoQCvstvG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6Al0z72vZ3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-13"
+                            "release_date": "2025-09-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.2,
+                                        "end": 238
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.4,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - พิธีเปิด",
                             "image": "https://image.tmdb.org/t/p/original/gbxBdS4YD0yIHwIwpmhrVRdBsjW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xRsEnzOnry/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-20"
+                            "release_date": "2025-09-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.2,
+                                        "end": 233
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - อาหารของแฟร์มาต์",
                             "image": "https://image.tmdb.org/t/p/original/1j9emQbUareve0GtXZ4vayKft3L.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T4VHqI5xR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-27"
+                            "release_date": "2025-09-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.1,
+                                        "end": 120.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +288,264 @@
                             "image": "https://image.tmdb.org/t/p/original/p8jgtYCj0FgJSZKS2S8vJxBOPMC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZpkokvgaC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-05"
+                            "release_date": "2025-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 155
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Door of Truth",
                             "image": "https://image.tmdb.org/t/p/original/Ehygh8zHkAeugLaxkaMBxKmprK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KMW0VzCF84/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-12"
+                            "release_date": "2025-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 132.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Challenge Gods With Cooking",
                             "image": "https://image.tmdb.org/t/p/original/pkVRtPulLU8EcYlyBmCFvIYqfhY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iRyMpcU5fn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-19"
+                            "release_date": "2025-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.3,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.4,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Before and After",
                             "image": "https://image.tmdb.org/t/p/original/gZ5FrxGiuHWuci6bQcnCFkmOPCJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HGC35hPlL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-26"
+                            "release_date": "2025-07-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.5,
+                                        "end": 150.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Nostalgia and Cuisine",
                             "image": "https://image.tmdb.org/t/p/original/wjivYRAK5nvtExYcBq8YyKc9wKN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2pUEx93xZA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-09"
+                            "release_date": "2025-08-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.4,
+                                        "end": 120.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Overlapping Events",
                             "image": "https://image.tmdb.org/t/p/original/n3veJZSKSwNC8befL1ThAmkPVBM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1rHVYSy4p/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-16"
+                            "release_date": "2025-08-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Dream",
                             "image": "https://image.tmdb.org/t/p/original/ospiEKzd2mcbOiuXVtdpnSD8XTS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/chfwvFaMNQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-23"
+                            "release_date": "2025-08-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88,
+                                        "end": 178.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1418.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Heated Competition",
                             "image": "https://image.tmdb.org/t/p/original/6g0sSaoeXYyUSbNc972XmZzvoZP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rTUHatsmrF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-30"
+                            "release_date": "2025-08-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.1,
+                                        "end": 103.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Breakdown of the Equation",
                             "image": "https://image.tmdb.org/t/p/original/zFCGKAY0WLBUIIwoxGuYbGEODn3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/03JYOhq4dv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-06"
+                            "release_date": "2025-09-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 209.3,
+                                        "end": 300.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Dialogue with Darkness",
                             "image": "https://image.tmdb.org/t/p/original/l69MC9EUvwYLzumSiASoQCvstvG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3Bp3Kntam/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-13"
+                            "release_date": "2025-09-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.2,
+                                        "end": 238
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.4,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Opening Ceremony",
                             "image": "https://image.tmdb.org/t/p/original/gbxBdS4YD0yIHwIwpmhrVRdBsjW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4d5GC76MDw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-20"
+                            "release_date": "2025-09-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.2,
+                                        "end": 233
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Fermat's Cuisine",
                             "image": "https://image.tmdb.org/t/p/original/1j9emQbUareve0GtXZ4vayKft3L.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/h8cr8ek8Oj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-27"
+                            "release_date": "2025-09-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.1,
+                                        "end": 120.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

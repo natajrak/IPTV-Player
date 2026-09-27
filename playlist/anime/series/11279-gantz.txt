@@ -30,7 +30,17 @@
                             "image": "https://image.tmdb.org/t/p/original/5yKRtGbB87wJprlPW7TB2IUJ9ow.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiGFx0Rj9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiGFx0Rj9",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-04-27"
+                            "release_date": "2004-04-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.8,
+                                        "end": 99.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - That Means at the Time...",
@@ -51,7 +61,17 @@
                             "image": "https://image.tmdb.org/t/p/original/hLZ5ZsPkuSRqgQWEZjh9VtOjQpJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Ft9CjajDL%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Ft9CjajDL",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-05-18"
+                            "release_date": "2004-05-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.8,
+                                        "end": 99.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Uh-oh!",
@@ -65,7 +85,17 @@
                             "image": "https://image.tmdb.org/t/p/original/k6oNuWrHLRfbOzxq2whlkOpvWAo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6jFUF2Iz%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6jFUF2Iz",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-06-01"
+                            "release_date": "2004-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.8,
+                                        "end": 99.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - He Can't Shoot",
@@ -86,7 +116,17 @@
                             "image": "https://image.tmdb.org/t/p/original/AlViMK5sqURTT7O1L6aN4y9jhuE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fs898LdIW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fs898LdIW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-06-22"
+                            "release_date": "2004-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.7,
+                                        "end": 99.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12",

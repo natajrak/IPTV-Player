@@ -23,14 +23,34 @@
                             "image": "https://image.tmdb.org/t/p/original/dzIKRAOIftOZZv5BeX9QFuuQsz6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3CkMmM36/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-04-08"
+                            "release_date": "2021-04-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ฝูงมฤตยู",
                             "image": "https://image.tmdb.org/t/p/original/2ZzO1y4UlTIe0nLJUFqHEzFUMrR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9r8lqll0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-04-15"
+                            "release_date": "2021-04-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 175.1,
+                                        "end": 265.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - พเนจร",
@@ -44,7 +64,17 @@
                             "image": "https://image.tmdb.org/t/p/original/ow13qRWTWIORy4BguzJT1DxNusn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mKqJaHYP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-04-29"
+                            "release_date": "2021-04-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - หนักแน่น",
@@ -65,7 +95,22 @@
                             "image": "https://image.tmdb.org/t/p/original/qF8kyrqp8B614spdbmYnvZ7ue3m.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7dDTJeCS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-05-20"
+                            "release_date": "2021-05-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.1,
+                                        "end": 168.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ทะลุกลางอก",
@@ -79,28 +124,78 @@
                             "image": "https://image.tmdb.org/t/p/original/vdkR87PSAUJzKpy09e7GkvQsfcF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5LdbDM4O/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-06-03"
+                            "release_date": "2021-06-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.1,
+                                        "end": 176.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ตั้งตัวใหม่",
                             "image": "https://image.tmdb.org/t/p/original/uweGbSS1Hu6WCEbFHr2nJvah6TP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PzKaoipH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-06-10"
+                            "release_date": "2021-06-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.8,
+                                        "end": 183.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - นักสำรวจ",
                             "image": "https://image.tmdb.org/t/p/original/3MuVTarOd15koF9HFtXpaE5oqTB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/e2rRVNbo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-06-17"
+                            "release_date": "2021-06-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.1,
+                                        "end": 159.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ด้วยกัน",
                             "image": "https://image.tmdb.org/t/p/original/hpxrWLOPcyuiMpF75JJCYQ1Xm7h.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tC3oiHn0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-06-24"
+                            "release_date": "2021-06-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 178.4,
+                                        "end": 268.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.7,
+                                        "end": 1387.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
