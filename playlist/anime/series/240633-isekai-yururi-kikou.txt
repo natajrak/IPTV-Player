@@ -39,8 +39,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 73.7,
-                                        "end": 163.5
+                                        "start": 73.6,
+                                        "end": 163.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.5
                                     }
                                 ]
                             }
@@ -57,7 +62,12 @@
                                     {
                                         "type": "op",
                                         "start": 128.7,
-                                        "end": 218.5
+                                        "end": 218.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -73,8 +83,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 113.7,
-                                        "end": 203.5
+                                        "start": 113.6,
+                                        "end": 203.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -91,12 +106,12 @@
                                     {
                                         "type": "op",
                                         "start": 46.8,
-                                        "end": 136.6
+                                        "end": 136.8
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1336.3,
-                                        "end": 1428.3
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -112,13 +127,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 94.6,
-                                        "end": 184.4
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1336,
-                                        "end": 1428
+                                        "start": 94.8,
+                                        "end": 184.8
                                     }
                                 ]
                             }
@@ -134,8 +144,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 17.9,
-                                        "end": 107.7
+                                        "start": 17.8,
+                                        "end": 107.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -151,13 +166,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 102.9,
-                                        "end": 192.7
+                                        "start": 102.6,
+                                        "end": 192.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1336.3,
-                                        "end": 1428.3
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -167,7 +182,22 @@
                             "image": "https://image.tmdb.org/t/p/original/zrYTl5Gh0sNStzc1L6zsdGeqUNx.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xf4W2RXjoB/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-02"
+                            "release_date": "2024-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 231.9,
+                                        "end": 321.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - จะหาเพื่อน... ได้ไหมนะ...",
@@ -179,9 +209,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 21.6,
+                                        "end": 111.6
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1336.5,
-                                        "end": 1428.5
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -196,9 +231,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 95.6,
+                                        "end": 185.6
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1336.8,
-                                        "end": 1428.8
+                                        "start": 1335.4,
+                                        "end": 1425.4
                                     }
                                 ]
                             }
@@ -208,7 +248,17 @@
                             "image": "https://image.tmdb.org/t/p/original/o2Kv8PrMDqEmn38h7zAAQXFCRXM.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/nkxixwWYt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-23"
+                            "release_date": "2024-09-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.6,
+                                        "end": 170.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -374,7 +424,22 @@
                             "image": "https://image.tmdb.org/t/p/original/zrYTl5Gh0sNStzc1L6zsdGeqUNx.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GHqOOtO1so/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-02"
+                            "release_date": "2024-09-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 231.9,
+                                        "end": 321.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - I Hope We Can Make Friends...",
@@ -415,7 +480,17 @@
                             "image": "https://image.tmdb.org/t/p/original/o2Kv8PrMDqEmn38h7zAAQXFCRXM.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/svNgbTzCeG/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-23"
+                            "release_date": "2024-09-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.6,
+                                        "end": 170.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

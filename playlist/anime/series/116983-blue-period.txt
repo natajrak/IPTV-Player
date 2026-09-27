@@ -23,77 +23,187 @@
                             "image": "https://image.tmdb.org/t/p/original/jw8RNEfJ1IhoRpb9X03ZaWpR84T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M6PRrQiH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-09"
+                            "release_date": "2021-10-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - โรงเรียนติว เดบิวต์ ออฟ เดอะ เดด",
                             "image": "https://image.tmdb.org/t/p/original/v52BbTaJ6AXhtKtSltzNhVk5nWM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vP78eVzW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-16"
+                            "release_date": "2021-10-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - พวกเราจะมุ่งหน้าไปที่ไหนกัน",
                             "image": "https://image.tmdb.org/t/p/original/nlJf0M5V9A1SpyUfrcrTjNQEF9C.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/E2Mgzo2V/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-23"
+                            "release_date": "2021-10-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.4,
+                                        "end": 93.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - รู้หัวข้อไปก็วาดไม่ได้อยู่ดี",
                             "image": "https://image.tmdb.org/t/p/original/epKcZNu75aF4d6JpgMkA2YcRg8d.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7NCLFI1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-30"
+                            "release_date": "2021-10-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.2,
+                                        "end": 93.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ใจเครียดจริง ไม่ล้อเล่น",
                             "image": "https://image.tmdb.org/t/p/original/4P9IFhetitkvPK1ftsepCzwzeSR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5Vvd6XJz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-06"
+                            "release_date": "2021-11-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เริ่มการสอบรอบแรก",
                             "image": "https://image.tmdb.org/t/p/original/vH0Tgxc4HzAkiaHNKgQvw0sqg13.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7twAmN95/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-13"
+                            "release_date": "2021-11-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.8,
+                                        "end": 192.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ไอเดียพลุ่งพล่าน",
                             "image": "https://image.tmdb.org/t/p/original/cTBkrLJ4Ne9nqxarMEJPSaUzS0l.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/69HOdWir/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-20"
+                            "release_date": "2021-11-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.3,
+                                        "end": 93.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - คมมีดที่หลงทาง",
                             "image": "https://image.tmdb.org/t/p/original/dthHp3NgMOgivTyPGVMB06Em5SE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oLuqgMeb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-27"
+                            "release_date": "2021-11-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - สีน้ำเงินของพวกเรา",
                             "image": "https://image.tmdb.org/t/p/original/qlK8PbdG2EoMoHbkiZzoCR7CacO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SDiwZXlv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-04"
+                            "release_date": "2021-12-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.3,
+                                        "end": 184.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - เริ่มการสอบรอบสอง",
                             "image": "https://image.tmdb.org/t/p/original/gdSODPnXgw7uN2OFEKAXZVgP4Sz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gAVKD5ak/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-11"
+                            "release_date": "2021-12-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ตัวเราเริ่มมีสีสันขึ้นมาแล้ว",
                             "image": "https://image.tmdb.org/t/p/original/nojLibyLGbpPRvT9AhSzQeHMhqM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nrncGpxn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-18"
+                            "release_date": "2021-12-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.3,
+                                        "end": 93.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,77 +225,187 @@
                             "image": "https://image.tmdb.org/t/p/original/jw8RNEfJ1IhoRpb9X03ZaWpR84T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Cj4EzNJC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-09"
+                            "release_date": "2021-10-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Prep School Debut of the Dead",
                             "image": "https://image.tmdb.org/t/p/original/v52BbTaJ6AXhtKtSltzNhVk5nWM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GT3LSrG8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-16"
+                            "release_date": "2021-10-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Where Are We Headed?",
                             "image": "https://image.tmdb.org/t/p/original/nlJf0M5V9A1SpyUfrcrTjNQEF9C.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MjtXmaBy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-23"
+                            "release_date": "2021-10-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.4,
+                                        "end": 93.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Helpless Even If I Know What To Do",
                             "image": "https://image.tmdb.org/t/p/original/epKcZNu75aF4d6JpgMkA2YcRg8d.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ptFbUfgV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-30"
+                            "release_date": "2021-10-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.2,
+                                        "end": 93.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Serious Mental Breakdown",
                             "image": "https://image.tmdb.org/t/p/original/4P9IFhetitkvPK1ftsepCzwzeSR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uBys4b9I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-06"
+                            "release_date": "2021-11-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Start of the First Exam",
                             "image": "https://image.tmdb.org/t/p/original/vH0Tgxc4HzAkiaHNKgQvw0sqg13.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RmWoCrQv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-13"
+                            "release_date": "2021-11-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.8,
+                                        "end": 192.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Brain-Racking",
                             "image": "https://image.tmdb.org/t/p/original/cTBkrLJ4Ne9nqxarMEJPSaUzS0l.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gYWd7DMN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-20"
+                            "release_date": "2021-11-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.3,
+                                        "end": 93.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Wandering Knife",
                             "image": "https://image.tmdb.org/t/p/original/dthHp3NgMOgivTyPGVMB06Em5SE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OdFcIOuS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-27"
+                            "release_date": "2021-11-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Our Color Blue",
                             "image": "https://image.tmdb.org/t/p/original/qlK8PbdG2EoMoHbkiZzoCR7CacO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VjkuGiAM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-04"
+                            "release_date": "2021-12-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.3,
+                                        "end": 184.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Start of the Second Exam",
                             "image": "https://image.tmdb.org/t/p/original/gdSODPnXgw7uN2OFEKAXZVgP4Sz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TAsZWBzg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-11"
+                            "release_date": "2021-12-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.5,
+                                        "end": 93.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - When I Started to be Dyed in Color",
                             "image": "https://image.tmdb.org/t/p/original/nojLibyLGbpPRvT9AhSzQeHMhqM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8stWZ6l1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-18"
+                            "release_date": "2021-12-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.3,
+                                        "end": 93.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
