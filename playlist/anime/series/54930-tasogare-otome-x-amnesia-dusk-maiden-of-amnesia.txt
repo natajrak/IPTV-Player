@@ -23,14 +23,44 @@
                             "image": "https://image.tmdb.org/t/p/original/twxWyVfYtraAU2ls68K7Glh6gUa.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fdd0TBhlD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fdd0TBhlD",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-04-16"
+                            "release_date": "2012-04-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.3,
+                                        "end": 119.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.9,
+                                        "end": 1406.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Maiden of Dusk",
                             "image": "https://image.tmdb.org/t/p/original/jI4XS5Rt2ooeGekHv5snQri2nBb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0yYPmH3x%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0yYPmH3x",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-04-23"
+                            "release_date": "2012-04-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71,
+                                        "end": 126.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.9,
+                                        "end": 1406.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Maiden of Dawn",
@@ -51,35 +81,90 @@
                             "image": "https://image.tmdb.org/t/p/original/jhtnrzH9OsiMtEdPL2UWcWaB2Nf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FfrxjwTjI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FfrxjwTjI",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-05-14"
+                            "release_date": "2012-05-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 115.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1280.7,
+                                        "end": 1370.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Maiden of Oblivion",
                             "image": "https://image.tmdb.org/t/p/original/acE4iM1V2hpSieSnG0oIK7Icexq.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8Fsdn4oK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8Fsdn4oK",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-05-21"
+                            "release_date": "2012-05-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.1,
+                                        "end": 187.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Maiden of Recollection",
                             "image": "https://image.tmdb.org/t/p/original/esRodLk129L2TDbVtCjDFh88rOE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5JzEnTaY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5JzEnTaY",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-05-28"
+                            "release_date": "2012-05-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 145.1,
+                                        "end": 200.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Maiden of Hatred",
                             "image": "https://image.tmdb.org/t/p/original/75mkA04ErG9bByygVuLIh1YaPAV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFv9ZHg3C%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFv9ZHg3C",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-06-04"
+                            "release_date": "2012-06-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.8,
+                                        "end": 1407.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Maiden of Loss",
                             "image": "https://image.tmdb.org/t/p/original/3Y7PITYibxtldvCyasUGoGuZNd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlHEXPvSp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlHEXPvSp",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-06-11"
+                            "release_date": "2012-06-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.7,
+                                        "end": 1407.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Maiden of Bitter Tears",
