@@ -18,11 +18,13 @@
  *
  * ─── Stream extraction flow ──────────────────────────────────────────────
  *   1. Fetch 123av.com/th/v/{slug}
- *      → parse player(JSON.parse('[{url:"https://javplayer.cc/e/{ID}?poster=..."}]'))
+ *      → parse player(JSON.parse('[{url:"https://{EMBED_HOST}/e/{ID}?poster=..."}]'))
+ *      EMBED_HOST เปลี่ยนเป็นระยะ (javplayer.cc → jav-master-52.site → …) ห้าม hardcode
  *   2. Extract EMBED_ID + poster URL จาก embed URL
- *   3. GET https://javplayer.cc/stream?id={ID}
+ *   3. GET https://{EMBED_HOST}/stream?id={ID}
  *      → { status:"ok", media:{ stream:"<m3u8>", vtt:"<vtt>" } }
- *   4. Return media.stream (direct HLS m3u8, CORS *)
+ *   4. ห่อ media.stream ด้วย hls-proxy พร้อม referer = origin ของ embed host นั้น
+ *      (CDN ตอบ 403 ถ้า Referer ไม่ตรงกับ host ที่ออกลิงก์)
  */
 
 const cheerio = require("cheerio");
@@ -64,11 +66,13 @@ const LABELS = {
 };
 
 const HLS_PROXY_URL = "https://iptv-player-three-flax.vercel.app/api/hls-proxy";
+// embed host เปลี่ยนเป็นระยะ (javplayer.cc → jav-master-NN.site …) และ CDN เช็ค Referer ตาม host นั้น
+// ค่านี้เป็นแค่ fallback — ปกติใช้ origin ของ embed URL ที่หน้าเว็บให้มาจริง
 const EMBED_REFERER = "https://javplayer.cc/";
-// 123av backend มีหลาย CDN host (cold-winter-118.space, wowstream.cloud, wowstream2.cloud, ...)
-// ทุกอันใช้ path pattern เดียวกัน /blah4/{TOKEN}/video.m3u8 → match ที่ path แทน host
-const RAW_STREAM_HOST_RE = /\/blah4\//i;
+// CDN host/path เปลี่ยนเป็นระยะ (wowstream.cloud/blah4 → *.site/oo5 …) จึงดูแค่ว่าเป็น m3u8 ที่ยังไม่ได้ห่อ proxy
+const RAW_STREAM_RE = /\.m3u8(\?|$)/i;
 
+/** URL ที่ห่อ proxy แล้วจะคืนค่าเดิม (referer ที่ส่งมาไม่ถูกใช้) — ต้องการเปลี่ยน referer ให้ดึงลิงก์ใหม่ด้วย --refresh-stream */
 function wrapWithProxy(rawUrl, referer = EMBED_REFERER) {
   if (!rawUrl || rawUrl.startsWith(HLS_PROXY_URL)) return rawUrl;
   return `${HLS_PROXY_URL}?url=${encodeURIComponent(rawUrl)}&referer=${encodeURIComponent(referer)}`;
@@ -216,7 +220,7 @@ async function getStreamFromEmbed(embedUrl) {
 
   const stream = json?.media?.stream;
   if (!stream) throw new Error(`ไม่พบ media.stream: ${JSON.stringify(json).slice(0, 200)}`);
-  const wrapped = wrapWithProxy(stream);
+  const wrapped = wrapWithProxy(stream, `${embedUrlObj.origin}/`);
   console.log(`  ✅ stream (raw): ${stream}`);
   console.log(`  🔒 stream (proxied): ${wrapped}`);
   return wrapped;
@@ -310,7 +314,8 @@ async function runUpdateMeta() {
   }
 
   const forceAll = updateMetaMode === "all";
-  let updated = 0, skipped = 0, failed = 0, migrated = 0, proxied = 0;
+  let updated = 0, skipped = 0, failed = 0, migrated = 0;
+  const unwrapped = [];
 
   for (let i = 0; i < targets.length; i++) {
     const station = targets[i];
@@ -326,19 +331,17 @@ async function runUpdateMeta() {
       migrated++;
     }
 
+    // ลิงก์ดิบที่ยังไม่ได้ห่อ proxy: ห่อเองไม่ได้ เพราะ referer ที่ถูกต้องรู้ได้จากหน้า embed เท่านั้น
     const originalStreamUrl = station.url || "";
-    const needsProxy = RAW_STREAM_HOST_RE.test(originalStreamUrl) && !originalStreamUrl.startsWith(HLS_PROXY_URL);
+    const needsProxy = RAW_STREAM_RE.test(originalStreamUrl) && !originalStreamUrl.startsWith(HLS_PROXY_URL);
     if (needsProxy) {
-      const wrapped = wrapWithProxy(originalStreamUrl);
-      index.stations[idx].url = wrapped;
-      station.url = wrapped;
-      proxied++;
+      unwrapped.push(code);
     }
 
     if (!forceAll && station.meta) {
       const tags = [];
       if (needsMigrate) tags.push("host");
-      if (needsProxy) tags.push("proxy");
+      if (needsProxy) tags.push("ลิงก์ดิบ");
       if (tags.length) {
         console.log(`🔄 [${i + 1}/${targets.length}] ${code} — migrate ${tags.join("+")} เท่านั้น (มี metadata แล้ว)`);
       } else {
@@ -377,7 +380,10 @@ async function runUpdateMeta() {
   console.log(`\n━━━ สรุป ━━━`);
   console.log(`  ✅ อัปเดต: ${updated}`);
   console.log(`  🔄 migrate host: ${migrated}`);
-  console.log(`  🔒 wrap proxy: ${proxied}`);
+  if (unwrapped.length) {
+    console.log(`  ⚠️  ลิงก์ดิบ (ยังไม่ได้ห่อ proxy): ${unwrapped.length} — รัน --refresh-stream --code=<CODE> เพื่อดึงลิงก์ใหม่พร้อม referer ที่ถูกต้อง`);
+    console.log(`     ${unwrapped.join(", ")}`);
+  }
   console.log(`  ⏭️  ข้าม: ${skipped}`);
   console.log(`  ❌ ล้มเหลว: ${failed}`);
   process.exit(0);
@@ -395,13 +401,23 @@ function unwrapProxy(url) {
   }
 }
 
+/** Referer ที่ฝังอยู่ใน proxy URL (CDN เช็ค Referer ตาม host ของ embed ที่ออกลิงก์นั้น) */
+function refererOf(url) {
+  if (!url?.startsWith(HLS_PROXY_URL)) return EMBED_REFERER;
+  try {
+    return new URL(url).searchParams.get("referer") || EMBED_REFERER;
+  } catch {
+    return EMBED_REFERER;
+  }
+}
+
 /**
  * เช็คว่า stream m3u8 ยังใช้ได้ — ต้องได้ 200 และ body ขึ้นต้นด้วย #EXTM3U
  */
-async function isStreamAlive(rawUrl) {
+async function isStreamAlive(rawUrl, referer = EMBED_REFERER) {
   if (!rawUrl) return false;
   try {
-    const res = await fetch(rawUrl, { headers: { "User-Agent": HEADERS["User-Agent"], Referer: EMBED_REFERER } });
+    const res = await fetch(rawUrl, { headers: { "User-Agent": HEADERS["User-Agent"], Referer: referer } });
     if (!res.ok) return false;
     return (await res.text()).trimStart().startsWith("#EXTM3U");
   } catch {
@@ -432,7 +448,7 @@ async function runRefreshStream() {
     const code = extractCode(station.name);
     const tag = `[${i + 1}/${targets.length}] ${code}`;
 
-    if (refreshMode === "dead" && await isStreamAlive(unwrapProxy(station.url))) {
+    if (refreshMode === "dead" && await isStreamAlive(unwrapProxy(station.url), refererOf(station.url))) {
       console.log(`⏭️  ${tag} — ลิงก์ยังใช้ได้, ข้าม`);
       alive++;
       continue;
@@ -442,7 +458,7 @@ async function runRefreshStream() {
       if (!station.referer) throw new Error("ไม่มี referer (หน้า 123av) ให้ดึงลิงก์ใหม่");
       const { embedInfo } = await parseVideoPage(forceThaiLocale(migrateLegacyUrl(station.referer)));
       const streamUrl = await getStreamFromEmbed(embedInfo[0].embedUrl);
-      if (!await isStreamAlive(unwrapProxy(streamUrl))) throw new Error("ลิงก์ใหม่ก็ใช้ไม่ได้");
+      if (!await isStreamAlive(unwrapProxy(streamUrl), refererOf(streamUrl))) throw new Error("ลิงก์ใหม่ก็ใช้ไม่ได้");
       station.url = streamUrl;
       refreshed++;
       dirty++;
