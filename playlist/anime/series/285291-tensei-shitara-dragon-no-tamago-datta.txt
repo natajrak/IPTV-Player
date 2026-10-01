@@ -16,28 +16,88 @@
                             "image": "https://image.tmdb.org/t/p/original/vIS0YM4d9hbx7mt4ckACax1Ummh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9eultUgT1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-10"
+                            "release_date": "2026-01-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.6,
+                                        "end": 129.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Hated for Being Brave",
                             "image": "https://image.tmdb.org/t/p/original/1514REi96yabCIikLy5K6nPbguT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OdduDaB9Vh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-17"
+                            "release_date": "2026-01-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.1,
+                                        "end": 230.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.5,
+                                        "end": 1421.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - An Unexpectedly Pleasant Evolution",
                             "image": "https://image.tmdb.org/t/p/original/ihLQHIvqXc8Y97xhNzEiBrohsVs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VnqiJ7vUl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-24"
+                            "release_date": "2026-01-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.6,
+                                        "end": 123.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.3,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Pot Turned Out to Be a Tortoise",
                             "image": "https://image.tmdb.org/t/p/original/XJ7fxjwl5jybfluJHyc7zDb6Zx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cwvNyXOJnN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-31"
+                            "release_date": "2026-01-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.3,
+                                        "end": 207.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.7,
+                                        "end": 1421.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Toxic Woman Turned Out to Be Wife Material",
@@ -50,49 +110,154 @@
                             "image": "https://image.tmdb.org/t/p/original/bBGZ7hoYqiI3y6fY1p0RpWy0WpU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ktg9TA5oUe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-14"
+                            "release_date": "2026-02-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.7,
+                                        "end": 198.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - I Went on a Date and Got Ditched",
                             "image": "https://image.tmdb.org/t/p/original/vCjatAdPufGfPJmAFbtw4QBJ6oG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tC0xA3oAXC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-21"
+                            "release_date": "2026-02-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.7,
+                                        "end": 210.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.3,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - I Realized I Had No Name",
                             "image": "https://image.tmdb.org/t/p/original/uvm9MPP9jsNeXbFhz1oSheHdwg6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hqGZeWwVbI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-28"
+                            "release_date": "2026-02-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.6,
+                                        "end": 241.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.3,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - I Went to the Village and Found Carnage",
                             "image": "https://image.tmdb.org/t/p/original/4o9uAGYNqcnv774ZCs3FoU8RH5A.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Xm6mggrAAo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-07"
+                            "release_date": "2026-03-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 232.7,
+                                        "end": 322.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - I Evolved Into an Evil Dragon",
                             "image": "https://image.tmdb.org/t/p/original/1NGtVUOcfqjG2DGxermN7kWm4X8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NHfkawX1EX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-14"
+                            "release_date": "2026-03-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 217.7,
+                                        "end": 307.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.3,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - I Caught Sight of the Mastermind",
                             "image": "https://image.tmdb.org/t/p/original/kNXFpTCPFjsyKED4dN4kdO7syJs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aWBY0Ue9lu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-21"
+                            "release_date": "2026-03-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.7,
+                                        "end": 230.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - I Looked to the Sky and Saw a Hero",
                             "image": "https://image.tmdb.org/t/p/original/ioCmnPfMCN8dOC0USftg2YQ77LH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uKYJl8nTrX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-28"
+                            "release_date": "2026-03-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 273.7,
+                                        "end": 363.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.3,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

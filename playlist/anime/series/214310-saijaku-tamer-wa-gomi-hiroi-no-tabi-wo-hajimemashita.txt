@@ -16,84 +16,229 @@
                             "image": "https://image.tmdb.org/t/p/original/jFAQcd7JFQJ6Oif0jCoWSHeSMr3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pJXxj2Z8jf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-12"
+                            "release_date": "2024-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - To Latoto Village",
                             "image": "https://image.tmdb.org/t/p/original/yWj4kPKRQJ0f3QfBc09FvGL6Yw1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oIqFMmrAaS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-19"
+                            "release_date": "2024-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74,
+                                        "end": 165.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Toward Those Remembered Days",
                             "image": "https://image.tmdb.org/t/p/original/830WMp6257OFhsVqQLjBY85Sf4C.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Slz0dYtaY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-26"
+                            "release_date": "2024-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.1,
+                                        "end": 136.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Toward an Unexpected Situation",
                             "image": "https://image.tmdb.org/t/p/original/6kMGUtmtGyOOJV50JGtZigFiIRF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ooJtWW6jqi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-02"
+                            "release_date": "2024-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.2,
+                                        "end": 132.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - To Latome Village",
                             "image": "https://image.tmdb.org/t/p/original/6lk8WIkQOM4ERKsPLvJXGGUZbTR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ynJdYvmWNC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-09"
+                            "release_date": "2024-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 168.1,
+                                        "end": 259.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Beyond My Thoughts",
                             "image": "https://image.tmdb.org/t/p/original/mbIwF8lpanG24Hto8YeyQmtFONk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D1hcmbotI1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-16"
+                            "release_date": "2024-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.2,
+                                        "end": 148.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - On the Road to Adventure",
                             "image": "https://image.tmdb.org/t/p/original/rgOzR2QVlUYqN3M5lAqcfdldzdH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/leys58HIwI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-23"
+                            "release_date": "2024-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.3,
+                                        "end": 218.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1418
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - To a Dangerous Town",
                             "image": "https://image.tmdb.org/t/p/original/lUWRS4pJwclug86baMzsKiHLPhG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/c17jT08hgv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-01"
+                            "release_date": "2024-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1419
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Toward a Confrontation with the Organization",
                             "image": "https://image.tmdb.org/t/p/original/8z5XAAX4Gh0PnToWAwBiUCRjG9I.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lgMzr3fjlI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-08"
+                            "release_date": "2024-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 162.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Into the Vortex of Incidents",
                             "image": "https://image.tmdb.org/t/p/original/9bLH3f5cJGNs8ZqkLn1rSxpXbs7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MrW0P10y9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-15"
+                            "release_date": "2024-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.3,
+                                        "end": 133.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Into Battle",
                             "image": "https://image.tmdb.org/t/p/original/z5gvExTlc5MJKNC0vf6ULk8gGhy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JRP6VRLG96/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-22"
+                            "release_date": "2024-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86,
+                                        "end": 177.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - On a Journey, the Three of Us",
                             "image": "https://image.tmdb.org/t/p/original/vVamK06DFYob4ez1i5PNZNkvZM6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KVV8Jxs7ZW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-29"
+                            "release_date": "2024-03-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.1,
+                                        "end": 227.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +253,229 @@
                             "image": "https://image.tmdb.org/t/p/original/jFAQcd7JFQJ6Oif0jCoWSHeSMr3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yOjbTkCHEa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-12"
+                            "release_date": "2024-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - To Latoto Village",
                             "image": "https://image.tmdb.org/t/p/original/yWj4kPKRQJ0f3QfBc09FvGL6Yw1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/J1LRLYGPhi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-19"
+                            "release_date": "2024-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74,
+                                        "end": 165.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Toward Those Remembered Days",
                             "image": "https://image.tmdb.org/t/p/original/830WMp6257OFhsVqQLjBY85Sf4C.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Db4I1QfzaM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-26"
+                            "release_date": "2024-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.1,
+                                        "end": 136.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Toward an Unexpected Situation",
                             "image": "https://image.tmdb.org/t/p/original/6kMGUtmtGyOOJV50JGtZigFiIRF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ATpgiKJdQQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-02"
+                            "release_date": "2024-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.2,
+                                        "end": 132.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - To Latome Village",
                             "image": "https://image.tmdb.org/t/p/original/6lk8WIkQOM4ERKsPLvJXGGUZbTR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OCPCswynHF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-09"
+                            "release_date": "2024-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 168.1,
+                                        "end": 259.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Beyond My Thoughts",
                             "image": "https://image.tmdb.org/t/p/original/mbIwF8lpanG24Hto8YeyQmtFONk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/p4bRLbc5U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-16"
+                            "release_date": "2024-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.2,
+                                        "end": 148.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - On the Road to Adventure",
                             "image": "https://image.tmdb.org/t/p/original/rgOzR2QVlUYqN3M5lAqcfdldzdH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M6qcTSeYtd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-23"
+                            "release_date": "2024-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.3,
+                                        "end": 218.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1418
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - To a Dangerous Town",
                             "image": "https://image.tmdb.org/t/p/original/lUWRS4pJwclug86baMzsKiHLPhG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GJ66Z9cALw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-01"
+                            "release_date": "2024-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1419
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Toward a Confrontation with the Organization",
                             "image": "https://image.tmdb.org/t/p/original/8z5XAAX4Gh0PnToWAwBiUCRjG9I.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2jsSY3py8S/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-08"
+                            "release_date": "2024-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 162.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Into the Vortex of Incidents",
                             "image": "https://image.tmdb.org/t/p/original/9bLH3f5cJGNs8ZqkLn1rSxpXbs7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LoOEaaYOO1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-15"
+                            "release_date": "2024-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.3,
+                                        "end": 133.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Into Battle",
                             "image": "https://image.tmdb.org/t/p/original/z5gvExTlc5MJKNC0vf6ULk8gGhy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LCTY6Jwa33/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-22"
+                            "release_date": "2024-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86,
+                                        "end": 177.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - On a Journey, the Three of Us",
                             "image": "https://image.tmdb.org/t/p/original/vVamK06DFYob4ez1i5PNZNkvZM6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f6ZHFNZVR9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-29"
+                            "release_date": "2024-03-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.1,
+                                        "end": 227.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

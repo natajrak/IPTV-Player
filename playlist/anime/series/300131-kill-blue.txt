@@ -23,14 +23,39 @@
                             "image": "https://image.tmdb.org/t/p/original/sYFdVMQvdAB4lb03HoHRgYzfCMK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mbQI6JLMG9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-18"
+                            "release_date": "2026-04-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.5,
+                                        "end": 180.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1267.6,
+                                        "end": 1357.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Wipe Your Own Butt",
                             "image": "https://image.tmdb.org/t/p/original/53nQfRTYaKMU7y9HTeXA1RaB8K2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zkOfSkwQnd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-25"
+                            "release_date": "2026-04-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.5,
+                                        "end": 1368.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Pacifier Duel",
@@ -44,56 +69,156 @@
                             "image": "https://image.tmdb.org/t/p/original/7x3OKMX9bqogvWna3rZUnebpgrT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iOdMuJoNU7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-09"
+                            "release_date": "2026-05-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1232.6,
+                                        "end": 1322.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - How About a \"Thank You\"?",
                             "image": "https://image.tmdb.org/t/p/original/6bhdCAkKEEWeeyqM8FtOUlZkpet.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iP0xbd8HjO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-16"
+                            "release_date": "2026-05-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.2,
+                                        "end": 185.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1283.8,
+                                        "end": 1373.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Doki-Doki Double Date",
                             "image": "https://image.tmdb.org/t/p/original/A6ocpruU9RzlMdSCOe0RmoPIzFD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TulfqDDCc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-23"
+                            "release_date": "2026-05-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.6,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Versus the Rindou Brothers",
                             "image": "https://image.tmdb.org/t/p/original/kAt7narqwG8x2fWaxpd3zbTuR3P.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/y1ZW5tXPDC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-30"
+                            "release_date": "2026-05-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1243.6,
+                                        "end": 1333.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Impossible Aftermath of an Impossible Game",
                             "image": "https://image.tmdb.org/t/p/original/4KjlUaaZfMxJT82QMmL7gwutMkA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OOUoi94agN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-06"
+                            "release_date": "2026-06-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.6,
+                                        "end": 132.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.7,
+                                        "end": 1359.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - DEATH OR KISS",
                             "image": "https://image.tmdb.org/t/p/original/9AvP94SyBJD8tUPGaK2lRrRZbq0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vX2mobp0TL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-13"
+                            "release_date": "2026-06-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 153.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The First Hitman Summit",
                             "image": "https://image.tmdb.org/t/p/original/f3tduSg4VwCDyrL06h3A9rhYx1X.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LVyHp727kt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-20"
+                            "release_date": "2026-06-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Life Paths",
                             "image": "https://image.tmdb.org/t/p/original/acqj2QaE0XAi9FGBP1WB6qrmi1Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZnXbfWbVLJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-27"
+                            "release_date": "2026-06-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,14 +240,39 @@
                             "image": "https://image.tmdb.org/t/p/original/sYFdVMQvdAB4lb03HoHRgYzfCMK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2mSZkWjVPA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-18"
+                            "release_date": "2026-04-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.5,
+                                        "end": 180.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1267.6,
+                                        "end": 1357.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Wipe Your Own Butt",
                             "image": "https://image.tmdb.org/t/p/original/53nQfRTYaKMU7y9HTeXA1RaB8K2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8i64oQL2LZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-25"
+                            "release_date": "2026-04-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.5,
+                                        "end": 1368.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Pacifier Duel",
@@ -136,56 +286,156 @@
                             "image": "https://image.tmdb.org/t/p/original/7x3OKMX9bqogvWna3rZUnebpgrT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Y94EhDqd7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-09"
+                            "release_date": "2026-05-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1232.6,
+                                        "end": 1322.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - How About a \"Thank You\"?",
                             "image": "https://image.tmdb.org/t/p/original/6bhdCAkKEEWeeyqM8FtOUlZkpet.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sXiKZU1jdV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-16"
+                            "release_date": "2026-05-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.2,
+                                        "end": 185.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1283.8,
+                                        "end": 1373.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Doki-Doki Double Date",
                             "image": "https://image.tmdb.org/t/p/original/A6ocpruU9RzlMdSCOe0RmoPIzFD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/141P9Akvqz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-23"
+                            "release_date": "2026-05-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.6,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Versus the Rindou Brothers",
                             "image": "https://image.tmdb.org/t/p/original/kAt7narqwG8x2fWaxpd3zbTuR3P.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XlCIWloydL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-30"
+                            "release_date": "2026-05-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1243.6,
+                                        "end": 1333.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Impossible Aftermath of an Impossible Game",
                             "image": "https://image.tmdb.org/t/p/original/4KjlUaaZfMxJT82QMmL7gwutMkA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AEntLOpIYH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-06"
+                            "release_date": "2026-06-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.6,
+                                        "end": 132.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.7,
+                                        "end": 1359.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - DEATH OR KISS",
                             "image": "https://image.tmdb.org/t/p/original/9AvP94SyBJD8tUPGaK2lRrRZbq0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1xd3n6VIrn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-13"
+                            "release_date": "2026-06-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 153.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The First Hitman Summit",
                             "image": "https://image.tmdb.org/t/p/original/f3tduSg4VwCDyrL06h3A9rhYx1X.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3DkLQqPCiy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-20"
+                            "release_date": "2026-06-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Life Paths",
                             "image": "https://image.tmdb.org/t/p/original/acqj2QaE0XAi9FGBP1WB6qrmi1Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VNVnOE28NX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-27"
+                            "release_date": "2026-06-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

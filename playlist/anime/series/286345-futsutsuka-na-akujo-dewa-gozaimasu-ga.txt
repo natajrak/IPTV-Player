@@ -25,7 +25,22 @@
                             "url": "https://control.akuma-stream.com/watch/b2b37545-e778-432d-a5cc-f6ce9ec40868",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-19"
+                            "release_date": "2026-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.1,
+                                        "end": 145.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1364.1,
+                                        "end": 1429.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Shoulders Back, Look Forward",
@@ -33,7 +48,22 @@
                             "url": "https://control.akuma-stream.com/watch/9c8cb3cb-605b-4bbc-bab2-c79cd671f641",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-26"
+                            "release_date": "2026-07-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 223.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.5,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - My Miracle Comet",
@@ -41,7 +71,22 @@
                             "url": "https://control.akuma-stream.com/watch/09568035-bd4d-4d6c-b2ac-e2198cdafbf1",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-02"
+                            "release_date": "2026-08-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1364.1,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Who Is That Girl?",
@@ -49,7 +94,17 @@
                             "url": "https://control.akuma-stream.com/watch/60f42ffe-db1c-44e5-9302-3bc1636775f1",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-09"
+                            "release_date": "2026-08-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113,
+                                        "end": 204.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - I Won't Let You Die",
@@ -57,7 +112,22 @@
                             "url": "https://control.akuma-stream.com/watch/9c79f1da-f052-4a34-bf1f-90c44a17e43a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-16"
+                            "release_date": "2026-08-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81,
+                                        "end": 172.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.4,
+                                        "end": 1385.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Meaning of Entrusting a Weapon",
@@ -65,7 +135,22 @@
                             "url": "https://control.akuma-stream.com/watch/25a74c2a-aa6a-4811-b6b3-490dfa968e0b",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-23"
+                            "release_date": "2026-08-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 150.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.9,
+                                        "end": 1427.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Like a Villainess, Like a Villainess",
@@ -119,42 +204,127 @@
                             "image": "https://image.tmdb.org/t/p/original/dn5Is4fn0PgAYBM0MPIeyAITqRe.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFydmdWfe%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFydmdWfe",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-19"
+                            "release_date": "2026-07-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.1,
+                                        "end": 145.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1364.1,
+                                        "end": 1429.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Shoulders Back, Look Forward",
                             "image": "https://image.tmdb.org/t/p/original/bRRruDi2yI6nc8SPeLlYiKeBZhj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcsErGb5F%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcsErGb5F",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-07-26"
+                            "release_date": "2026-07-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 223.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.5,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - My Miracle Comet",
                             "image": "https://image.tmdb.org/t/p/original/t0RjE9WgMGvn82JlvDUzVtekO1n.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9f7VyCdE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9f7VyCdE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-02"
+                            "release_date": "2026-08-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1364.1,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Who Is That Girl?",
                             "image": "https://image.tmdb.org/t/p/original/3TEdlRQDo6HJRw1yKDA8TIziOGr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FfWJCD2JY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FfWJCD2JY",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-09"
+                            "release_date": "2026-08-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113,
+                                        "end": 204.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - I Won't Let You Die",
                             "image": "https://image.tmdb.org/t/p/original/wu7LLb2weATQtKbcCMdWhnpUqiS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNFpE0CJN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNFpE0CJN",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-16"
+                            "release_date": "2026-08-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81,
+                                        "end": 172.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.4,
+                                        "end": 1385.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Meaning of Entrusting a Weapon",
                             "image": "https://image.tmdb.org/t/p/original/amy2hGD2e7oRZSnW4LoUvTq88i3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FaEcgyr5g%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FaEcgyr5g",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-23"
+                            "release_date": "2026-08-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 150.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.9,
+                                        "end": 1427.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Like a Villainess, Like a Villainess",

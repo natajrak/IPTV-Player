@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/yIF9hIOyUr1aOixKqtqHNAzrenN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pCDA3s2OYx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-02"
+                            "release_date": "2024-07-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.3,
+                                        "end": 151.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Number 4242's E-rank Promotion Exam",
@@ -30,28 +40,68 @@
                             "image": "https://image.tmdb.org/t/p/original/xFrEQUwaX5Tz0an6DWV5Ofnan7F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CvTlu5gZWW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-16"
+                            "release_date": "2024-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 187.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Ossan Becomes an Adventurer",
                             "image": "https://image.tmdb.org/t/p/original/fw3bq70Cp3qoEYX5GJTekIx7boF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FuZBjw6oVT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-23"
+                            "release_date": "2024-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.4,
+                                        "end": 214.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Ossan, Trained to Death by the Most Powerful Party",
                             "image": "https://image.tmdb.org/t/p/original/aVWQDxGzYuVmQvK69ZzCqGtRk0r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F6b7qGX8gS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-30"
+                            "release_date": "2024-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.3,
+                                        "end": 157.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The King of Fists Elimination Tournament",
                             "image": "https://image.tmdb.org/t/p/original/5UxLCqE5YPYJowpiZVr92139LWM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mtDatJACFQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-13"
+                            "release_date": "2024-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 184.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Ossan, the Fastest Preliminaries Qualifier in History",
@@ -65,14 +115,34 @@
                             "image": "https://image.tmdb.org/t/p/original/oCHYNjUi1E17yUFQDoNcWpXr5xV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/whizeWHFQS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-27"
+                            "release_date": "2024-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.4,
+                                        "end": 143.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Perfect Prodigy, Born with Absolutely Everything",
                             "image": "https://image.tmdb.org/t/p/original/zIZ4LjEmkHro74bIeyI6VNzlOFm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EohsSVRonC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-03"
+                            "release_date": "2024-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118.2,
+                                        "end": 208.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Strongest Pugilist in History",
@@ -108,7 +178,17 @@
                             "image": "https://image.tmdb.org/t/p/original/yIF9hIOyUr1aOixKqtqHNAzrenN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f6fu9NmzDN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-02"
+                            "release_date": "2024-07-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.3,
+                                        "end": 151.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Number 4242's E-rank Promotion Exam",
@@ -122,28 +202,68 @@
                             "image": "https://image.tmdb.org/t/p/original/xFrEQUwaX5Tz0an6DWV5Ofnan7F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ae3UN7AUNO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-16"
+                            "release_date": "2024-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 187.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Ossan Becomes an Adventurer",
                             "image": "https://image.tmdb.org/t/p/original/fw3bq70Cp3qoEYX5GJTekIx7boF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1OoFPoa31r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-23"
+                            "release_date": "2024-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.4,
+                                        "end": 214.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Ossan, Trained to Death by the Most Powerful Party",
                             "image": "https://image.tmdb.org/t/p/original/aVWQDxGzYuVmQvK69ZzCqGtRk0r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PMIom6USKQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-30"
+                            "release_date": "2024-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.3,
+                                        "end": 157.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The King of Fists Elimination Tournament",
                             "image": "https://image.tmdb.org/t/p/original/5UxLCqE5YPYJowpiZVr92139LWM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/igwR7xNIij/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-13"
+                            "release_date": "2024-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 184.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Ossan, the Fastest Preliminaries Qualifier in History",
@@ -157,14 +277,34 @@
                             "image": "https://image.tmdb.org/t/p/original/oCHYNjUi1E17yUFQDoNcWpXr5xV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lhbzOfhrq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-27"
+                            "release_date": "2024-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.4,
+                                        "end": 143.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Perfect Prodigy, Born with Absolutely Everything",
                             "image": "https://image.tmdb.org/t/p/original/zIZ4LjEmkHro74bIeyI6VNzlOFm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ruwh5AZfnE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-03"
+                            "release_date": "2024-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118.2,
+                                        "end": 208.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Strongest Pugilist in History",

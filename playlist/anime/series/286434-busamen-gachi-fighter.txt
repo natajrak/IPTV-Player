@@ -16,77 +16,242 @@
                             "image": "https://image.tmdb.org/t/p/original/k6X7R2dsJtqso9f5Z69xI30AxHM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NzDmqJZc0S/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-06"
+                            "release_date": "2025-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.7,
+                                        "end": 215.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - สำรวจดันเจี้ยนของจริง",
                             "image": "https://image.tmdb.org/t/p/original/6xLjgzWf6FASleG5IEslKn6yKI1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BdJaaEsKk0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-13"
+                            "release_date": "2025-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76,
+                                        "end": 167.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ผู้กล้าเปลวเพลิงลุกโชน",
                             "image": "https://image.tmdb.org/t/p/original/4xVaKwWOsbqyIUuvylsYgBoAxaY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sKzV8oLWZS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-20"
+                            "release_date": "2025-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32,
+                                        "end": 123.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - เดชนางด้วนโคตรอันตราย",
                             "image": "https://image.tmdb.org/t/p/original/n1cpVNa7uNXTVKbfFsJV3jY0AZL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8vhDXnPn5e/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-27"
+                            "release_date": "2025-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68,
+                                        "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - นางฟ้าตัวจริงจุติแล้ว",
                             "image": "https://image.tmdb.org/t/p/original/b0AAVJRuSYIafdoan0Vj0HUeLN8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BJeO3byvxR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-03"
+                            "release_date": "2025-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.1,
+                                        "end": 117.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.2,
+                                        "end": 1412.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ภารกิจแฝงตัวของจริง",
                             "image": "https://image.tmdb.org/t/p/original/t9HYB7ZnHm6yJsJRm2gDZEBS6qU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TOXEazlQJz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-10"
+                            "release_date": "2025-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - มาสเตอร์จอมชั่วร้ายของจริง",
                             "image": "https://image.tmdb.org/t/p/original/xVqYeGmoqQw5qWNEBEN8xdiw6PV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zXsVwEc8Pr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-17"
+                            "release_date": "2025-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10.9,
+                                        "end": 102
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ศึกตัดสินของจริงในโคลอสเซียม",
                             "image": "https://image.tmdb.org/t/p/original/pOxWmaG1mjVXdXLBmp5N8zzBa5F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GN7771aeW2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-24"
+                            "release_date": "2025-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.2,
+                                        "end": 137.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ก่อตั้งบริษัทของจริง",
                             "image": "https://image.tmdb.org/t/p/original/hhdurJwQVBqIVz0EJ6ROyzgqa7T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ybdQYqGTyV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-31"
+                            "release_date": "2025-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.3,
+                                        "end": 93.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - หญิงมากเสน่ห์ของจริง",
                             "image": "https://image.tmdb.org/t/p/original/k4Jo2UBS4RQRRm1B1QtCm0a01xR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HWSa1KMjN1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-07"
+                            "release_date": "2025-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.1,
+                                        "end": 187.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - สิ้นหวังกับเทพของจริง",
                             "image": "https://image.tmdb.org/t/p/original/3ZNV2f5jDy02oaRDA0JhkeefUUe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/buomrQ0Rfr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-14"
+                            "release_date": "2025-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.2,
+                                        "end": 242.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ไอ้หน้าปลวกยอดนักสู้",
@@ -108,77 +273,242 @@
                             "image": "https://image.tmdb.org/t/p/original/k6X7R2dsJtqso9f5Z69xI30AxHM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UXXVlsO71F/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-06"
+                            "release_date": "2025-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.7,
+                                        "end": 215.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Exploring Epic Dungeon",
                             "image": "https://image.tmdb.org/t/p/original/6xLjgzWf6FASleG5IEslKn6yKI1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F8ZIHC9nKy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-13"
+                            "release_date": "2025-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76,
+                                        "end": 167.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Hero's Epic Burning",
                             "image": "https://image.tmdb.org/t/p/original/4xVaKwWOsbqyIUuvylsYgBoAxaY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Inxj3IpJw0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-20"
+                            "release_date": "2025-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32,
+                                        "end": 123.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - One-Arm Epic Danger",
                             "image": "https://image.tmdb.org/t/p/original/n1cpVNa7uNXTVKbfFsJV3jY0AZL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iA0tzthWxL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-27"
+                            "release_date": "2025-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68,
+                                        "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Epic Angel Descends",
                             "image": "https://image.tmdb.org/t/p/original/b0AAVJRuSYIafdoan0Vj0HUeLN8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5w2ZORx1jU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-03"
+                            "release_date": "2025-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.1,
+                                        "end": 117.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.2,
+                                        "end": 1412.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Epic Undercover Mission",
                             "image": "https://image.tmdb.org/t/p/original/t9HYB7ZnHm6yJsJRm2gDZEBS6qU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Cbnw9ba6rv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-10"
+                            "release_date": "2025-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Villainous Epic Master",
                             "image": "https://image.tmdb.org/t/p/original/xVqYeGmoqQw5qWNEBEN8xdiw6PV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ktwrKnlRFK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-17"
+                            "release_date": "2025-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10.9,
+                                        "end": 102
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Epic Colosseum Showdown",
                             "image": "https://image.tmdb.org/t/p/original/pOxWmaG1mjVXdXLBmp5N8zzBa5F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gcty5kNHcM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-24"
+                            "release_date": "2025-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.2,
+                                        "end": 137.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Starting an Epic Company",
                             "image": "https://image.tmdb.org/t/p/original/hhdurJwQVBqIVz0EJ6ROyzgqa7T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3K6imVelts/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-31"
+                            "release_date": "2025-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.3,
+                                        "end": 93.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Bewitching Epic Lady",
                             "image": "https://image.tmdb.org/t/p/original/k4Jo2UBS4RQRRm1B1QtCm0a01xR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BG7GUrpfss/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-07"
+                            "release_date": "2025-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.1,
+                                        "end": 187.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.5,
+                                        "end": 1431.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Epic God in Despair",
                             "image": "https://image.tmdb.org/t/p/original/3ZNV2f5jDy02oaRDA0JhkeefUUe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qDDQn3FBWP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-14"
+                            "release_date": "2025-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.2,
+                                        "end": 242.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1386.3,
+                                        "end": 1431
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Uglymug, Epicfighter",

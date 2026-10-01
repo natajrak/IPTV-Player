@@ -16,49 +16,139 @@
                             "image": "https://image.tmdb.org/t/p/original/fY5xN6cOkvQhFzYmuzWlxcsGecO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yvK4ufza/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-12"
+                            "release_date": "2022-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 176.4,
+                                        "end": 267.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - I Lied...",
                             "image": "https://image.tmdb.org/t/p/original/tZ5fulepe2YznKLA0bD72Ul34bu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8iKg4uiV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-19"
+                            "release_date": "2022-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.4,
+                                        "end": 127.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I'm... a Big Softie When It Comes to These Things",
                             "image": "https://image.tmdb.org/t/p/original/io0bAz0hTjVHE1vOlKmoUPvWq2x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wegYZdno/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-26"
+                            "release_date": "2022-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1327,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - I'm At My Limit!",
                             "image": "https://image.tmdb.org/t/p/original/6SzqAFaQJvJalHttF4jGARb5qAv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7RyGhML/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-02"
+                            "release_date": "2022-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I'm Reborn!",
                             "image": "https://image.tmdb.org/t/p/original/e2wCtecowzXATSuNUtswdYFTNGo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/29Q7uWJt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-09"
+                            "release_date": "2022-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - I'm a Dress-Up Doll!",
                             "image": "https://image.tmdb.org/t/p/original/AqyGKD6WBkU9dUNSj5bT0109YUz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cl30enXD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-16"
+                            "release_date": "2022-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I Am the Strongest!",
                             "image": "https://image.tmdb.org/t/p/original/nrmHSuqrrvlm1VIvFfFDOhM3XtO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6QU1E865/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-23"
+                            "release_date": "2022-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - I Am Danblf",
@@ -72,21 +162,61 @@
                             "image": "https://image.tmdb.org/t/p/original/o9yzCDtM9aCK9SweC2fGNYkXqIK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ecUxqIs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-09"
+                            "release_date": "2022-03-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - I Get Naked!",
                             "image": "https://image.tmdb.org/t/p/original/rOP1N7WmRtG3SHrYWU2dbse9TPc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/x6EyZxsE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-16"
+                            "release_date": "2022-03-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 211.3,
+                                        "end": 302.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Did... None of the Praise Come My Way?",
                             "image": "https://image.tmdb.org/t/p/original/vsZkBA0cOZCK6FyKR8vLU38ScJ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VmmrqdAq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-23"
+                            "release_date": "2022-03-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.3,
+                                        "end": 163.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - I Have Arrived!",
@@ -108,49 +238,139 @@
                             "image": "https://image.tmdb.org/t/p/original/fY5xN6cOkvQhFzYmuzWlxcsGecO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UPOKL4T9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-12"
+                            "release_date": "2022-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 176.4,
+                                        "end": 267.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - I Lied...",
                             "image": "https://image.tmdb.org/t/p/original/tZ5fulepe2YznKLA0bD72Ul34bu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/II57bdcK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-19"
+                            "release_date": "2022-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.4,
+                                        "end": 127.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - I'm... a Big Softie When It Comes to These Things",
                             "image": "https://image.tmdb.org/t/p/original/io0bAz0hTjVHE1vOlKmoUPvWq2x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uYRMzYAX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-26"
+                            "release_date": "2022-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1327,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - I'm At My Limit!",
                             "image": "https://image.tmdb.org/t/p/original/6SzqAFaQJvJalHttF4jGARb5qAv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cNnKycX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-02"
+                            "release_date": "2022-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I'm Reborn!",
                             "image": "https://image.tmdb.org/t/p/original/e2wCtecowzXATSuNUtswdYFTNGo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GYPELlH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-09"
+                            "release_date": "2022-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - I'm a Dress-Up Doll!",
                             "image": "https://image.tmdb.org/t/p/original/AqyGKD6WBkU9dUNSj5bT0109YUz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DjLcS6PQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-16"
+                            "release_date": "2022-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - I Am the Strongest!",
                             "image": "https://image.tmdb.org/t/p/original/nrmHSuqrrvlm1VIvFfFDOhM3XtO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CErhxzg6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-23"
+                            "release_date": "2022-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - I Am Danblf",
@@ -164,21 +384,61 @@
                             "image": "https://image.tmdb.org/t/p/original/o9yzCDtM9aCK9SweC2fGNYkXqIK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/c4uKb0Ii/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-09"
+                            "release_date": "2022-03-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - I Get Naked!",
                             "image": "https://image.tmdb.org/t/p/original/rOP1N7WmRtG3SHrYWU2dbse9TPc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3X5Mc6U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-16"
+                            "release_date": "2022-03-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 211.3,
+                                        "end": 302.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Did... None of the Praise Come My Way?",
                             "image": "https://image.tmdb.org/t/p/original/vsZkBA0cOZCK6FyKR8vLU38ScJ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0DbkL9oJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-23"
+                            "release_date": "2022-03-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.3,
+                                        "end": 163.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - I Have Arrived!",

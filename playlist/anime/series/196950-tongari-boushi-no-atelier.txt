@@ -23,7 +23,17 @@
                             "image": "https://image.tmdb.org/t/p/original/1DfUTPsGPgv4gPCf0RQ8MmEDp3s.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vSveGojUi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-13"
+                            "release_date": "2026-04-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.7,
+                                        "end": 145.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Dadah Range Test",
@@ -37,7 +47,17 @@
                             "image": "https://image.tmdb.org/t/p/original/l7To5Oz6fcpGnMS8jyS3HJ8Vsb3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1Rrx9GD89X/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-27"
+                            "release_date": "2026-04-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 178.6,
+                                        "end": 269.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Dragon's Labyrinth",
@@ -51,7 +71,17 @@
                             "image": "https://image.tmdb.org/t/p/original/wxPLxROGCIM2bJ4BM9pd0DbqhG9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PxOy0klxB1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-11"
+                            "release_date": "2026-05-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.7,
+                                        "end": 182.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Who Is Magic For?",
@@ -65,14 +95,34 @@
                             "image": "https://image.tmdb.org/t/p/original/mvm2fhcHaZG7wYhy6Uqh7vHHemd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/W8nWqP8LAN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-25"
+                            "release_date": "2026-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 255.7,
+                                        "end": 346.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - A Nightmare Stained In Black",
                             "image": "https://image.tmdb.org/t/p/original/dyLnCaE1yNWXyJRiJFDyEkLPewM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FqtyJXabTq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-01"
+                            "release_date": "2026-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 378.6,
+                                        "end": 469.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - A Promise in Silver",
@@ -86,7 +136,17 @@
                             "image": "https://image.tmdb.org/t/p/original/8yEB2PYl1Uq1zZbQstqnhWwDvb1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GdXnzutZm4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-15"
+                            "release_date": "2026-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.7,
+                                        "end": 154.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Shadow of Romonon",
@@ -122,7 +182,17 @@
                             "image": "https://image.tmdb.org/t/p/original/1DfUTPsGPgv4gPCf0RQ8MmEDp3s.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yAG39wKqoA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-13"
+                            "release_date": "2026-04-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.7,
+                                        "end": 145.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Dadah Range Test",
@@ -136,7 +206,17 @@
                             "image": "https://image.tmdb.org/t/p/original/l7To5Oz6fcpGnMS8jyS3HJ8Vsb3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KRrWqvEZs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-27"
+                            "release_date": "2026-04-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 178.6,
+                                        "end": 269.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Dragon's Labyrinth",
@@ -150,7 +230,17 @@
                             "image": "https://image.tmdb.org/t/p/original/wxPLxROGCIM2bJ4BM9pd0DbqhG9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4ANoO065g/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-11"
+                            "release_date": "2026-05-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.7,
+                                        "end": 182.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Who Is Magic For?",
@@ -164,14 +254,34 @@
                             "image": "https://image.tmdb.org/t/p/original/mvm2fhcHaZG7wYhy6Uqh7vHHemd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uvaRKHOLS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-25"
+                            "release_date": "2026-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 255.7,
+                                        "end": 346.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Nightmare Stained In Black",
                             "image": "https://image.tmdb.org/t/p/original/dyLnCaE1yNWXyJRiJFDyEkLPewM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/L6yBVEfHk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-01"
+                            "release_date": "2026-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 378.6,
+                                        "end": 469.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - A Promise in Silver",
@@ -185,7 +295,17 @@
                             "image": "https://image.tmdb.org/t/p/original/8yEB2PYl1Uq1zZbQstqnhWwDvb1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/l5nEeR7aSY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-15"
+                            "release_date": "2026-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.7,
+                                        "end": 154.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Shadow of Romonon",

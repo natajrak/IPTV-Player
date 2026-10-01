@@ -16,84 +16,204 @@
                             "image": "https://image.tmdb.org/t/p/original/2b3YivtaWWvvQzu3jWRfRkRb22F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o4EWVRADZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-03"
+                            "release_date": "2025-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.5,
+                                        "end": 229.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - A Proposal from Above with a Gift",
                             "image": "https://image.tmdb.org/t/p/original/lvZPaAJAtScvtUnrcjL4dxqUIMD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FrpLc68Sxu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-10"
+                            "release_date": "2025-10-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.5,
+                                        "end": 204.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Grilled Skewers of Prime Meat: Royal Moodle",
                             "image": "https://image.tmdb.org/t/p/original/aXrxtnY2q6LuG218OM3Jx7Aol7O.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F1UOAREDvW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-17"
+                            "release_date": "2025-10-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.5,
+                                        "end": 201.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Signaling Departure with a Pillar of Flame",
                             "image": "https://image.tmdb.org/t/p/original/7BgU3KkxNNQMmtSwTFKVJVGMBOS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/G2oK1w9p7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-24"
+                            "release_date": "2025-10-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.5,
+                                        "end": 157.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Night at Fort Ritterd",
                             "image": "https://image.tmdb.org/t/p/original/yLhQs9e2E4Txsc9dk6Ti2GEV5Kx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BKf8L6UPeg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-31"
+                            "release_date": "2025-10-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.5,
+                                        "end": 194.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - In Season: Battered and Deep-Fried Monster Fish.",
                             "image": "https://image.tmdb.org/t/p/original/m9vOiKWMvHS7gFgltGfmRfhV5SV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MCvf5JTxak/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-07"
+                            "release_date": "2025-11-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 189.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Those Who Inherit the Galbraith Name",
                             "image": "https://image.tmdb.org/t/p/original/f49eqMJc62XgaWcYXipGgpRf0CY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IMhaHGeJzs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-14"
+                            "release_date": "2025-11-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.6,
+                                        "end": 221.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Uses for Cloudy Quartz",
                             "image": "https://image.tmdb.org/t/p/original/r3iooSsLL5GZnJyNeR5L7SI3TWp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ktrj00iJg0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-21"
+                            "release_date": "2025-11-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.3,
+                                        "end": 194.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Voracious Villainess's Resolve",
                             "image": "https://image.tmdb.org/t/p/original/34NeVlPLd7aQihirrwCiTBkjTA6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OG8wHNcOAv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-28"
+                            "release_date": "2025-11-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123.5,
+                                        "end": 213.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Blood-Mad Duke's Intentions",
                             "image": "https://image.tmdb.org/t/p/original/69PXTOQ4oO0ykI1jmm9U45CjNZ2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rtPLi5nMDv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-05"
+                            "release_date": "2025-12-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 189.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Sweet or Sour Fruit",
                             "image": "https://image.tmdb.org/t/p/original/gC76SSdQGRFowPgo4Sga2XL27lW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SPRjbnyJGq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-12"
+                            "release_date": "2025-12-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.5,
+                                        "end": 165.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Voracious Villainess's First Appearance",
                             "image": "https://image.tmdb.org/t/p/original/bObg59CW2kPzFwLGiJgekrTEBD3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DIvQzLuEbu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-19"
+                            "release_date": "2025-12-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.5,
+                                        "end": 197.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +228,204 @@
                             "image": "https://image.tmdb.org/t/p/original/2b3YivtaWWvvQzu3jWRfRkRb22F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3XLa5lblCd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-03"
+                            "release_date": "2025-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.5,
+                                        "end": 229.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - A Proposal from Above with a Gift",
                             "image": "https://image.tmdb.org/t/p/original/lvZPaAJAtScvtUnrcjL4dxqUIMD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qSrNmWnJPU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-10"
+                            "release_date": "2025-10-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.5,
+                                        "end": 204.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Grilled Skewers of Prime Meat: Royal Moodle",
                             "image": "https://image.tmdb.org/t/p/original/aXrxtnY2q6LuG218OM3Jx7Aol7O.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wFb64grtO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-17"
+                            "release_date": "2025-10-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.5,
+                                        "end": 201.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Signaling Departure with a Pillar of Flame",
                             "image": "https://image.tmdb.org/t/p/original/7BgU3KkxNNQMmtSwTFKVJVGMBOS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o9v9oik81t/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-24"
+                            "release_date": "2025-10-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.5,
+                                        "end": 157.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Night at Fort Ritterd",
                             "image": "https://image.tmdb.org/t/p/original/yLhQs9e2E4Txsc9dk6Ti2GEV5Kx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mCAHNudRRA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-31"
+                            "release_date": "2025-10-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.5,
+                                        "end": 194.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - In Season: Battered and Deep-Fried Monster Fish.",
                             "image": "https://image.tmdb.org/t/p/original/m9vOiKWMvHS7gFgltGfmRfhV5SV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oFHdQMw6z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-07"
+                            "release_date": "2025-11-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 189.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Those Who Inherit the Galbraith Name",
                             "image": "https://image.tmdb.org/t/p/original/f49eqMJc62XgaWcYXipGgpRf0CY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8xsdKoTJ0U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-14"
+                            "release_date": "2025-11-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.6,
+                                        "end": 221.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Uses for Cloudy Quartz",
                             "image": "https://image.tmdb.org/t/p/original/r3iooSsLL5GZnJyNeR5L7SI3TWp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7F8akqOe8x/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-21"
+                            "release_date": "2025-11-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.3,
+                                        "end": 194.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Voracious Villainess's Resolve",
                             "image": "https://image.tmdb.org/t/p/original/34NeVlPLd7aQihirrwCiTBkjTA6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nIkprY2PED/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-28"
+                            "release_date": "2025-11-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123.5,
+                                        "end": 213.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Blood-Mad Duke's Intentions",
                             "image": "https://image.tmdb.org/t/p/original/69PXTOQ4oO0ykI1jmm9U45CjNZ2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/70tLD1vR6Q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-05"
+                            "release_date": "2025-12-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 189.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Sweet or Sour Fruit",
                             "image": "https://image.tmdb.org/t/p/original/gC76SSdQGRFowPgo4Sga2XL27lW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AJoeCybLyV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-12"
+                            "release_date": "2025-12-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.5,
+                                        "end": 165.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Voracious Villainess's First Appearance",
                             "image": "https://image.tmdb.org/t/p/original/bObg59CW2kPzFwLGiJgekrTEBD3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ou9a13OGya/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-19"
+                            "release_date": "2025-12-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.5,
+                                        "end": 197.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

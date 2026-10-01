@@ -16,56 +16,176 @@
                             "image": "https://image.tmdb.org/t/p/original/rAeXjfL8dbKXpmzBg78s1GDQCY8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mdvo6YXCUW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Date at the Capital?",
                             "image": "https://image.tmdb.org/t/p/original/Amg6Y0oxNCnCKb9amE1zDxELOMc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8l6bfAAJU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.2,
+                                        "end": 210.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Elna Attacks",
                             "image": "https://image.tmdb.org/t/p/original/9AX2AIPnZiJNEdvSn9uCf3dWyIM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D8NobLB3wi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - In Town, the Night Before the Knights’ Festival of the Hunt",
                             "image": "https://image.tmdb.org/t/p/original/sPkMGo6YJjo2hBpDYzoMoVKgo8Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/apGzgvKw4I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Knights' Festival of the Hunt (1)",
                             "image": "https://image.tmdb.org/t/p/original/5Nm9pG1U41qWXB8ZgLvOaRsuqm4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zDHUCJSSB4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 112.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Knights' Festival of the Hunt (2)",
                             "image": "https://image.tmdb.org/t/p/original/rubIa1ppnyWjN9Xy90Krt0IzHmU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yjEPpc6kvG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.1,
+                                        "end": 149.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Furtive Activities and Engagements",
                             "image": "https://image.tmdb.org/t/p/original/5lBGgdNelxKPhQEqlH1nP0sKCv1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6q2FjwMWR7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.1,
+                                        "end": 101.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Shelter from the Rain",
                             "image": "https://image.tmdb.org/t/p/original/zKFYShwyovKq5vEbt6dmtVAVgVq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AKLmkJZVOU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -79,77 +199,237 @@
                             "image": "https://image.tmdb.org/t/p/original/rAeXjfL8dbKXpmzBg78s1GDQCY8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jjBw5EvmT7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Date at the Capital?",
                             "image": "https://image.tmdb.org/t/p/original/Amg6Y0oxNCnCKb9amE1zDxELOMc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T4B2kx6AeG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.2,
+                                        "end": 210.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Elna Attacks",
                             "image": "https://image.tmdb.org/t/p/original/9AX2AIPnZiJNEdvSn9uCf3dWyIM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iNLtexkcGw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - In Town, the Night Before the Knights’ Festival of the Hunt",
                             "image": "https://image.tmdb.org/t/p/original/sPkMGo6YJjo2hBpDYzoMoVKgo8Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/09RKMbyYvF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Knights' Festival of the Hunt (1)",
                             "image": "https://image.tmdb.org/t/p/original/5Nm9pG1U41qWXB8ZgLvOaRsuqm4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fBaZ29pvi2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 112.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Knights' Festival of the Hunt (2)",
                             "image": "https://image.tmdb.org/t/p/original/rubIa1ppnyWjN9Xy90Krt0IzHmU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/opDX7iTwjI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.1,
+                                        "end": 149.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Furtive Activities and Engagements",
                             "image": "https://image.tmdb.org/t/p/original/5lBGgdNelxKPhQEqlH1nP0sKCv1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jXy4xwPAB2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.1,
+                                        "end": 101.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Shelter from the Rain",
                             "image": "https://image.tmdb.org/t/p/original/zKFYShwyovKq5vEbt6dmtVAVgVq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iYjPXVOMOq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Switching Places, and the Struggles of Arnold",
                             "image": "https://image.tmdb.org/t/p/original/fC8Gxq91DWo6jZtKMjayThVY9Fc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8y7JXOaqFh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Each of Their Roles",
                             "image": "https://image.tmdb.org/t/p/original/uGVsIY4dwPKyS0NrmSarEZgBGxd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Hze9RmeWSQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Leviatano Roars",
                             "image": "https://image.tmdb.org/t/p/original/mI8NTskJXywGHNgcI5Gl7NGcGlR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HJ1EBO6p98/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.1,
+                                        "end": 174.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Final Battle! Leviatano",

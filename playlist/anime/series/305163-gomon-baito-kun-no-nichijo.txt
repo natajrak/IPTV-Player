@@ -16,84 +16,204 @@
                             "image": "https://image.tmdb.org/t/p/original/nAPID8DYqjCUxxYFozfamzjCOsz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZC69IhdzE8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-05"
+                            "release_date": "2026-01-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.3,
+                                        "end": 122.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Part-Time Job: Day 2",
                             "image": "https://image.tmdb.org/t/p/original/b8pRC3D9PI2x5oMoxi6uw4TFvpZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bW3GKZJtB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-12"
+                            "release_date": "2026-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 105.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Part-Time Job: Day 3",
                             "image": "https://image.tmdb.org/t/p/original/o9MQU0uxAelC7KWAtz1OaeHb4KB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rtqDtTTgG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-19"
+                            "release_date": "2026-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.5,
+                                        "end": 96.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Part-Time Job: Day 4",
                             "image": "https://image.tmdb.org/t/p/original/lGgrzm96GbUVVn1cT7f2MB5t5Fi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zyxNXNHsiD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-26"
+                            "release_date": "2026-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.6,
+                                        "end": 93.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Part-Time Job: Day 4",
                             "image": "https://image.tmdb.org/t/p/original/yvbiKVpkafojsLIOfJ7DHUzy5Df.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vpgkKk432r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-02"
+                            "release_date": "2026-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Part-Time Job: Day 6",
                             "image": "https://image.tmdb.org/t/p/original/MSLC5dh4bGkrTnwjOhDhDFQmBZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6tucjj7m2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-09"
+                            "release_date": "2026-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.5,
+                                        "end": 112.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Part-Time Job: Day 7",
                             "image": "https://image.tmdb.org/t/p/original/fYklblJvhhdwzSFvUUJHICLVEmU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sMjpbZ5GUu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-16"
+                            "release_date": "2026-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.5,
+                                        "end": 104.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Part-Time Job: Day 8",
                             "image": "https://image.tmdb.org/t/p/original/4VV6FxZacFMi9h5bsWQbl7qzmX2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/n3KDgg3Js6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-23"
+                            "release_date": "2026-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Part-Time Job: Day 9",
                             "image": "https://image.tmdb.org/t/p/original/an62FN1DMxbc3IpLhQ6W8F3MqGi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wU73Lv4gHn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-02"
+                            "release_date": "2026-03-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.4,
+                                        "end": 170.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Part-Time Job: Day 10",
                             "image": "https://image.tmdb.org/t/p/original/toZCSvGYJFjtczHxI8g9QoimULl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DsnhNnOdl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-09"
+                            "release_date": "2026-03-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Part-Time Job: Day 11",
                             "image": "https://image.tmdb.org/t/p/original/cXWuGuSAFlfnfTu28jUT51uh5Jm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2Z0LUJLxL1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-16"
+                            "release_date": "2026-03-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Part-Time Job: Day 12",
                             "image": "https://image.tmdb.org/t/p/original/vzQYGMxALBWh2liEM8Wt3SfOlON.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YfbqLjjpz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-23"
+                            "release_date": "2026-03-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 238.7,
+                                        "end": 328.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +228,204 @@
                             "image": "https://image.tmdb.org/t/p/original/nAPID8DYqjCUxxYFozfamzjCOsz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hi5VcmcVh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-05"
+                            "release_date": "2026-01-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.3,
+                                        "end": 122.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Part-Time Job: Day 2",
                             "image": "https://image.tmdb.org/t/p/original/b8pRC3D9PI2x5oMoxi6uw4TFvpZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F6o1M6nwH0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-12"
+                            "release_date": "2026-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 105.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Part-Time Job: Day 3",
                             "image": "https://image.tmdb.org/t/p/original/o9MQU0uxAelC7KWAtz1OaeHb4KB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/k0NhWMmSa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-19"
+                            "release_date": "2026-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.5,
+                                        "end": 96.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Part-Time Job: Day 4",
                             "image": "https://image.tmdb.org/t/p/original/lGgrzm96GbUVVn1cT7f2MB5t5Fi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PRM5KwW7Gw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-26"
+                            "release_date": "2026-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.6,
+                                        "end": 93.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Part-Time Job: Day 4",
                             "image": "https://image.tmdb.org/t/p/original/yvbiKVpkafojsLIOfJ7DHUzy5Df.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fuqA0HbRNb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-02"
+                            "release_date": "2026-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Part-Time Job: Day 6",
                             "image": "https://image.tmdb.org/t/p/original/MSLC5dh4bGkrTnwjOhDhDFQmBZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/R5FWdmntBB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-09"
+                            "release_date": "2026-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.5,
+                                        "end": 112.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Part-Time Job: Day 7",
                             "image": "https://image.tmdb.org/t/p/original/fYklblJvhhdwzSFvUUJHICLVEmU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kTuRNXbNIG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-16"
+                            "release_date": "2026-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.5,
+                                        "end": 104.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Part-Time Job: Day 8",
                             "image": "https://image.tmdb.org/t/p/original/4VV6FxZacFMi9h5bsWQbl7qzmX2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IhSpVNu42r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-23"
+                            "release_date": "2026-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Part-Time Job: Day 9",
                             "image": "https://image.tmdb.org/t/p/original/an62FN1DMxbc3IpLhQ6W8F3MqGi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lnYh3u6ZDE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-02"
+                            "release_date": "2026-03-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.4,
+                                        "end": 170.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Part-Time Job: Day 10",
                             "image": "https://image.tmdb.org/t/p/original/toZCSvGYJFjtczHxI8g9QoimULl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9RSasGNOPR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-09"
+                            "release_date": "2026-03-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Part-Time Job: Day 11",
                             "image": "https://image.tmdb.org/t/p/original/cXWuGuSAFlfnfTu28jUT51uh5Jm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bFQguapw8m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-16"
+                            "release_date": "2026-03-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Part-Time Job: Day 12",
                             "image": "https://image.tmdb.org/t/p/original/vzQYGMxALBWh2liEM8Wt3SfOlON.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2HNEhZy4qW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-23"
+                            "release_date": "2026-03-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 238.7,
+                                        "end": 328.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

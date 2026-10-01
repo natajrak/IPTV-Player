@@ -16,91 +16,271 @@
                             "image": "https://image.tmdb.org/t/p/original/vPxbPTknJPzYmrUzAjkoZzGQDFb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zAD69qk9lT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-02"
+                            "release_date": "2025-10-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 160.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1412.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Sunlit Beast and the Festival Song",
                             "image": "https://image.tmdb.org/t/p/original/AupCLJZTcwhTasLCT6t6vE9Sbt2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pgoxmprTWC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-09"
+                            "release_date": "2025-10-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.3,
+                                        "end": 101.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Sea of Hope",
                             "image": "https://image.tmdb.org/t/p/original/1zhw2RiUAazr2gloiHe9bWFphJ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2bAEbqFVlO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-16"
+                            "release_date": "2025-10-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 116.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - An Ephemeral Tie",
                             "image": "https://image.tmdb.org/t/p/original/2bvwdGRRFZllXQkt93yKcMS2yOV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/n66Zgq4MQO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-23"
+                            "release_date": "2025-10-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.1,
+                                        "end": 185.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Beast of Affection",
                             "image": "https://image.tmdb.org/t/p/original/rJAqz0n9rdaxzrnFMqeAyvpIFum.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aQL31faUko/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-30"
+                            "release_date": "2025-10-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.1,
+                                        "end": 156.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1224.5,
+                                        "end": 1314.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Shape of Affection",
                             "image": "https://image.tmdb.org/t/p/original/fzYXigsjc8oonsveQg48i8aCZqa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RQK9XJDlqZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-06"
+                            "release_date": "2025-11-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Kind People",
                             "image": "https://image.tmdb.org/t/p/original/w0BYnfiVyyOmB9MPEX06ncJVUII.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eigwNTEGO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-13"
+                            "release_date": "2025-11-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.1,
+                                        "end": 246.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1412.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Cause of the Cracks",
                             "image": "https://image.tmdb.org/t/p/original/oypnv3shPetClXb2vMOqQ3xHLXp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/65FmHjUuPb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-20"
+                            "release_date": "2025-11-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - A Burned-in Prayer",
                             "image": "https://image.tmdb.org/t/p/original/kuC1BhAQiANFeK0BZj5bkZMEhjb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OBPc16cZM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-27"
+                            "release_date": "2025-11-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.1,
+                                        "end": 121.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Said With a Prayer",
                             "image": "https://image.tmdb.org/t/p/original/4tPv2skRsWGlB5EJH1QFXz6Jaj8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3GBEnhCmW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-04"
+                            "release_date": "2025-12-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.2,
+                                        "end": 138.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Cold Morning",
                             "image": "https://image.tmdb.org/t/p/original/nYZAWU6R3r0xxNpa6LIGkLRlqpH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/txyJpjkIkI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-11"
+                            "release_date": "2025-12-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.2,
+                                        "end": 206.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Beloved Child",
                             "image": "https://image.tmdb.org/t/p/original/j8B9PmegBmv169fxfBZZLWu3X3f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qPVygFk5gM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-18"
+                            "release_date": "2025-12-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.4,
+                                        "end": 149.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Warmth on the Sea Floor",
                             "image": "https://image.tmdb.org/t/p/original/7j0MyelWZlSIzslzNVBYi4pAAql.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/K8Eqc5QiUF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-25"
+                            "release_date": "2025-12-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.1,
+                                        "end": 220.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,91 +295,271 @@
                             "image": "https://image.tmdb.org/t/p/original/vPxbPTknJPzYmrUzAjkoZzGQDFb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rNy7NvWBZ4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-02"
+                            "release_date": "2025-10-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 160.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1412.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Sunlit Beast and the Festival Song",
                             "image": "https://image.tmdb.org/t/p/original/AupCLJZTcwhTasLCT6t6vE9Sbt2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/p90eHWopEq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-09"
+                            "release_date": "2025-10-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.3,
+                                        "end": 101.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Sea of Hope",
                             "image": "https://image.tmdb.org/t/p/original/1zhw2RiUAazr2gloiHe9bWFphJ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PMzQGRAGre/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-16"
+                            "release_date": "2025-10-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 116.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - An Ephemeral Tie",
                             "image": "https://image.tmdb.org/t/p/original/2bvwdGRRFZllXQkt93yKcMS2yOV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/g8lPa8Lk97/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-23"
+                            "release_date": "2025-10-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.1,
+                                        "end": 185.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Beast of Affection",
                             "image": "https://image.tmdb.org/t/p/original/rJAqz0n9rdaxzrnFMqeAyvpIFum.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1ql1sU8Vsa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-30"
+                            "release_date": "2025-10-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.1,
+                                        "end": 156.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1224.5,
+                                        "end": 1314.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Shape of Affection",
                             "image": "https://image.tmdb.org/t/p/original/fzYXigsjc8oonsveQg48i8aCZqa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/b7EOx20oJa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-06"
+                            "release_date": "2025-11-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Kind People",
                             "image": "https://image.tmdb.org/t/p/original/w0BYnfiVyyOmB9MPEX06ncJVUII.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VBE8esoPvE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-13"
+                            "release_date": "2025-11-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.1,
+                                        "end": 246.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1412.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Cause of the Cracks",
                             "image": "https://image.tmdb.org/t/p/original/oypnv3shPetClXb2vMOqQ3xHLXp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/psjD8RInDS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-20"
+                            "release_date": "2025-11-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Burned-in Prayer",
                             "image": "https://image.tmdb.org/t/p/original/kuC1BhAQiANFeK0BZj5bkZMEhjb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AqR9xrgXxD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-27"
+                            "release_date": "2025-11-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.1,
+                                        "end": 121.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Said With a Prayer",
                             "image": "https://image.tmdb.org/t/p/original/4tPv2skRsWGlB5EJH1QFXz6Jaj8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WCbARPsosi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-04"
+                            "release_date": "2025-12-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.2,
+                                        "end": 138.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Cold Morning",
                             "image": "https://image.tmdb.org/t/p/original/nYZAWU6R3r0xxNpa6LIGkLRlqpH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hZesoMsb99/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-11"
+                            "release_date": "2025-12-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.2,
+                                        "end": 206.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Beloved Child",
                             "image": "https://image.tmdb.org/t/p/original/j8B9PmegBmv169fxfBZZLWu3X3f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bsvYYmi0L9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-18"
+                            "release_date": "2025-12-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.4,
+                                        "end": 149.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1413.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Warmth on the Sea Floor",
                             "image": "https://image.tmdb.org/t/p/original/7j0MyelWZlSIzslzNVBYi4pAAql.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eVGDBnb1az/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-25"
+                            "release_date": "2025-12-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.1,
+                                        "end": 220.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

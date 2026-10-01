@@ -16,21 +16,56 @@
                             "image": "https://image.tmdb.org/t/p/original/3b5whONBEVRLvB5C8EPavjoX43k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aRLrR7cIEq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.5,
+                                        "end": 123.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Liam Tries Becoming an Adventurer",
                             "image": "https://image.tmdb.org/t/p/original/8PDtjdXTU9x6epzLLo3mBZLSK3H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TbsfeRzF8G/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.5,
+                                        "end": 143.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Liam Tries Talking to a Dragon Fiend",
                             "image": "https://image.tmdb.org/t/p/original/1fjsMCrMqzoTmcAKjS3HsDLVeqe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Yvu9sSpBRn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-14"
+                            "release_date": "2025-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.8,
+                                        "end": 1416.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Liam Tries Taking an Elf Familiar",
@@ -44,49 +79,134 @@
                             "image": "https://image.tmdb.org/t/p/original/qPOfFOGnfCirLd4CARXSLtHKBDO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aHo0HrqABV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-28"
+                            "release_date": "2025-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Liam Tries Making Incredible Armor",
                             "image": "https://image.tmdb.org/t/p/original/1eKXLHQO4LUOASjJn0SvTJiwqEq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/b0fuOOL3yk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-04"
+                            "release_date": "2025-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 220.4,
+                                        "end": 310.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Liam Tries Fighting Dracula",
                             "image": "https://image.tmdb.org/t/p/original/wPhttQY0TV8vBr8N6IileBdAU2t.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fkScs5ycZV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-11"
+                            "release_date": "2025-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1251.1,
+                                        "end": 1341.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Liam Tries Becoming King of the Promised Land",
                             "image": "https://image.tmdb.org/t/p/original/2TyVM7W8ObhDYpNAKLpuiT8Ebor.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hF3gR4maek/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-18"
+                            "release_date": "2025-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.3,
+                                        "end": 92.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Liam Tries Talking to a Girl",
                             "image": "https://image.tmdb.org/t/p/original/i8hML6GHrqxZzGZr3ANKqgS1Xnl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lwX2Bw4sKp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-25"
+                            "release_date": "2025-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.1,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Liam Tries Creating and Playing in an Ocean",
                             "image": "https://image.tmdb.org/t/p/original/ghqVA3ZqtgDMfNEW3IarJ6FY9iu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/c2VZkIh7M1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-04"
+                            "release_date": "2025-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.4,
+                                        "end": 141.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.8,
+                                        "end": 1416.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Liam Tries Building a Magic City",
                             "image": "https://image.tmdb.org/t/p/original/hEUYSNTJbo7niNfZoc3ItVnLgu7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/boWX47UbDK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-11"
+                            "release_date": "2025-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.4,
+                                        "end": 182.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1195.9,
+                                        "end": 1285.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Kingdom of Liam Radon",
@@ -108,21 +228,56 @@
                             "image": "https://image.tmdb.org/t/p/original/3b5whONBEVRLvB5C8EPavjoX43k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fAy7aU38q8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.5,
+                                        "end": 123.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Liam Tries Becoming an Adventurer",
                             "image": "https://image.tmdb.org/t/p/original/8PDtjdXTU9x6epzLLo3mBZLSK3H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FnEqaEMz6B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.5,
+                                        "end": 143.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Liam Tries Talking to a Dragon Fiend",
                             "image": "https://image.tmdb.org/t/p/original/1fjsMCrMqzoTmcAKjS3HsDLVeqe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dkzGbvSmcm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-14"
+                            "release_date": "2025-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.8,
+                                        "end": 1416.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Liam Tries Taking an Elf Familiar",
@@ -136,49 +291,134 @@
                             "image": "https://image.tmdb.org/t/p/original/qPOfFOGnfCirLd4CARXSLtHKBDO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rUAeKgumK6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-28"
+                            "release_date": "2025-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Liam Tries Making Incredible Armor",
                             "image": "https://image.tmdb.org/t/p/original/1eKXLHQO4LUOASjJn0SvTJiwqEq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LtsbUwxYW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-04"
+                            "release_date": "2025-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 220.4,
+                                        "end": 310.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Liam Tries Fighting Dracula",
                             "image": "https://image.tmdb.org/t/p/original/wPhttQY0TV8vBr8N6IileBdAU2t.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zD4Y37wiJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-11"
+                            "release_date": "2025-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1251.1,
+                                        "end": 1341.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Liam Tries Becoming King of the Promised Land",
                             "image": "https://image.tmdb.org/t/p/original/2TyVM7W8ObhDYpNAKLpuiT8Ebor.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZiZxlOC79c/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-18"
+                            "release_date": "2025-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.3,
+                                        "end": 92.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Liam Tries Talking to a Girl",
                             "image": "https://image.tmdb.org/t/p/original/i8hML6GHrqxZzGZr3ANKqgS1Xnl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CPpDWEOIDe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-25"
+                            "release_date": "2025-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.1,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Liam Tries Creating and Playing in an Ocean",
                             "image": "https://image.tmdb.org/t/p/original/ghqVA3ZqtgDMfNEW3IarJ6FY9iu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4cP5jkmB4V/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-04"
+                            "release_date": "2025-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.4,
+                                        "end": 141.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.8,
+                                        "end": 1416.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Liam Tries Building a Magic City",
                             "image": "https://image.tmdb.org/t/p/original/hEUYSNTJbo7niNfZoc3ItVnLgu7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RJ73K9Lnpi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-11"
+                            "release_date": "2025-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.4,
+                                        "end": 182.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1195.9,
+                                        "end": 1285.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Kingdom of Liam Radon",

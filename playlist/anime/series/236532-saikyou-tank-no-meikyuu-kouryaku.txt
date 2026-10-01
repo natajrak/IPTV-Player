@@ -15,21 +15,61 @@
                             "image": "https://image.tmdb.org/t/p/original/80cJylUX1yB2u9mQGqWxxUk2ZWV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nx5pu8JB6v/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - กลับสู่อวานเชียร์",
                             "image": "https://image.tmdb.org/t/p/original/2iBwTYRSKyYr5J1hIo1IotuJXvv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ds41NXIjGM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-14"
+                            "release_date": "2024-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1402
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - สัตว์ประหลาดไม่ทราบชื่อ",
                             "image": "https://image.tmdb.org/t/p/original/lZTBZQ71rVJZM9t0SkVwsGj6Vqa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DWe3f9JbVI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.7,
+                                        "end": 204.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1270.4,
+                                        "end": 1360.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - เห็นแก่ตัว",
@@ -43,56 +83,171 @@
                             "image": "https://image.tmdb.org/t/p/original/nx4j4TGm23jcfcll8rM65Q6vKmK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/H0RSLv0iV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 200.5,
+                                        "end": 291
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ผู้จัดการเขาวงกต",
                             "image": "https://image.tmdb.org/t/p/original/sAxtX7TNBX0Gmsen7A5HB1v0Wvy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/C49kmz5oKW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 230.7,
+                                        "end": 321.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ในเคลด์",
                             "image": "https://image.tmdb.org/t/p/original/eNe4DEunUGxKOpTvlF8q025Mx36.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FR371vw6jA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.8,
+                                        "end": 122.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1402
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ลิเลียและลิลลี่",
                             "image": "https://image.tmdb.org/t/p/original/4gyqgAyHDSkTEWZlgaXhXpnvL01.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ICOhkdYwMw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.7,
+                                        "end": 274.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - อามอน สลอธ",
                             "image": "https://image.tmdb.org/t/p/original/6AUrwmuE6hxLgzvWFGJHiOcEAhx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2L6UUGfK0Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.7,
+                                        "end": 154.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - โฮมุนครุสต่างถิ่น",
                             "image": "https://image.tmdb.org/t/p/original/l0xepxqVkhlE6f1iCLwyeNYI2Dz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T6CgqDBD45/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.6,
+                                        "end": 185.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - การโจมตีของเหล่าสัตว์ประหลาด",
                             "image": "https://image.tmdb.org/t/p/original/rPxkIu41MEA74rIMUOAP5Ldyp4S.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jIB718gZl4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.8,
+                                        "end": 201.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1403
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - พลังเวทมนตร์",
                             "image": "https://image.tmdb.org/t/p/original/jVRX1YBBWkDA1o3t9e7w7oEuaeC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4OWhIdk4Zu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -107,21 +262,61 @@
                             "image": "https://image.tmdb.org/t/p/original/80cJylUX1yB2u9mQGqWxxUk2ZWV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/e5TfxYO3wJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Return to Avancia",
                             "image": "https://image.tmdb.org/t/p/original/2iBwTYRSKyYr5J1hIo1IotuJXvv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CnJrQQRZsS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-14"
+                            "release_date": "2024-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1402
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - An Unknown Monster",
                             "image": "https://image.tmdb.org/t/p/original/lZTBZQ71rVJZM9t0SkVwsGj6Vqa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uTIXGilTXI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.7,
+                                        "end": 204.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1270.4,
+                                        "end": 1360.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Selfish",
@@ -135,56 +330,171 @@
                             "image": "https://image.tmdb.org/t/p/original/nx4j4TGm23jcfcll8rM65Q6vKmK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/myJuCS2oK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 200.5,
+                                        "end": 291
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Labyrinth's Manager",
                             "image": "https://image.tmdb.org/t/p/original/sAxtX7TNBX0Gmsen7A5HB1v0Wvy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JZSSEYb5N2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 230.7,
+                                        "end": 321.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - In Keild",
                             "image": "https://image.tmdb.org/t/p/original/eNe4DEunUGxKOpTvlF8q025Mx36.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7A4ksIqxX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.8,
+                                        "end": 122.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1402
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Lilia and Lily",
                             "image": "https://image.tmdb.org/t/p/original/4gyqgAyHDSkTEWZlgaXhXpnvL01.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kOXGTBMPkO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.7,
+                                        "end": 274.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Amon Sloth",
                             "image": "https://image.tmdb.org/t/p/original/6AUrwmuE6hxLgzvWFGJHiOcEAhx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ie9yFt03r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.7,
+                                        "end": 154.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Exotic Homunculus",
                             "image": "https://image.tmdb.org/t/p/original/l0xepxqVkhlE6f1iCLwyeNYI2Dz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VOUrXAnXIy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.6,
+                                        "end": 185.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.2,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Monster Attack",
                             "image": "https://image.tmdb.org/t/p/original/rPxkIu41MEA74rIMUOAP5Ldyp4S.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yEtDL9imyS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.8,
+                                        "end": 201.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1352.3,
+                                        "end": 1403
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Demonic Power",
                             "image": "https://image.tmdb.org/t/p/original/jVRX1YBBWkDA1o3t9e7w7oEuaeC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2U1sS2LalO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

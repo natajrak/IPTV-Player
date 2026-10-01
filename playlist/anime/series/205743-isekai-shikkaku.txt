@@ -23,35 +23,110 @@
                             "image": "https://image.tmdb.org/t/p/original/yEcfyVEz7FWZCsEiiCPCKzgWH8M.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rIPoKpbbdk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-16"
+                            "release_date": "2024-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.5,
+                                        "end": 147.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.2,
+                                        "end": 1397.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I'm Always Ready to Die",
                             "image": "https://image.tmdb.org/t/p/original/4wl6xBoMjNayFzZXtfvuzA4xbhU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rfgXBqDGke/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-23"
+                            "release_date": "2024-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26,
+                                        "end": 116
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.1,
+                                        "end": 1398
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Don't Kill Yourself",
                             "image": "https://image.tmdb.org/t/p/original/uWE276MPFt6CTBbOxxqPrPPXwsB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MlYbJ8gmDx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-30"
+                            "release_date": "2024-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.4,
+                                        "end": 221.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.1,
+                                        "end": 1365
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I Am Someone Who Wishes to Die, Not a Corpse That's Already Dead",
                             "image": "https://image.tmdb.org/t/p/original/x0vx6jIOInBddfATBD9L5K5u0mJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MyLMt8Ifm9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-06"
+                            "release_date": "2024-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.5,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213.1,
+                                        "end": 1304
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Someone Who Wants to Be Eaten Has Come to the Castle",
                             "image": "https://image.tmdb.org/t/p/original/iFIndEQv3BNCYUMBy2bgn0XuCth.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3wV2Ji9iTC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-13"
+                            "release_date": "2024-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.4,
+                                        "end": 174.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.1,
+                                        "end": 1376
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Will You Sentence Me to Death Again?",
@@ -79,14 +154,34 @@
                             "image": "https://image.tmdb.org/t/p/original/1wRtQSTtwiR0NTc9FASnSYL7WSV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nFqZ7nWspH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-10"
+                            "release_date": "2024-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 210.3,
+                                        "end": 300.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - I Cannot Die Until I've Finished Writing Your Story",
                             "image": "https://image.tmdb.org/t/p/original/cYTHaLxIQcReIFGCJSmsagoWD9N.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yF45jN97Fk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-17"
+                            "release_date": "2024-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Now I Really Want to Die",
@@ -115,35 +210,110 @@
                             "image": "https://image.tmdb.org/t/p/original/yEcfyVEz7FWZCsEiiCPCKzgWH8M.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WdB3yTWYUY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-16"
+                            "release_date": "2024-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.5,
+                                        "end": 147.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.2,
+                                        "end": 1397.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - I'm Always Ready to Die",
                             "image": "https://image.tmdb.org/t/p/original/4wl6xBoMjNayFzZXtfvuzA4xbhU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9vnvrDT3U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-23"
+                            "release_date": "2024-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26,
+                                        "end": 116
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.1,
+                                        "end": 1398
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Don't Kill Yourself",
                             "image": "https://image.tmdb.org/t/p/original/uWE276MPFt6CTBbOxxqPrPPXwsB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Kyq0LXB2GM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-30"
+                            "release_date": "2024-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.4,
+                                        "end": 221.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.1,
+                                        "end": 1365
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I Am Someone Who Wishes to Die, Not a Corpse That's Already Dead",
                             "image": "https://image.tmdb.org/t/p/original/x0vx6jIOInBddfATBD9L5K5u0mJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Hdnr4jCLq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-06"
+                            "release_date": "2024-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.5,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213.1,
+                                        "end": 1304
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Someone Who Wants to Be Eaten Has Come to the Castle",
                             "image": "https://image.tmdb.org/t/p/original/iFIndEQv3BNCYUMBy2bgn0XuCth.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JWn3QShgoQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-08-13"
+                            "release_date": "2024-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.4,
+                                        "end": 174.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.1,
+                                        "end": 1376
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Will You Sentence Me to Death Again?",
@@ -171,14 +341,34 @@
                             "image": "https://image.tmdb.org/t/p/original/1wRtQSTtwiR0NTc9FASnSYL7WSV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0ZLYcJLlF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-10"
+                            "release_date": "2024-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 210.3,
+                                        "end": 300.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - I Cannot Die Until I've Finished Writing Your Story",
                             "image": "https://image.tmdb.org/t/p/original/cYTHaLxIQcReIFGCJSmsagoWD9N.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/14yHkgDMMW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-17"
+                            "release_date": "2024-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Now I Really Want to Die",

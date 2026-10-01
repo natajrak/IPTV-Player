@@ -16,84 +16,239 @@
                             "image": "https://image.tmdb.org/t/p/original/2x1YW3lLKX9U2A7kK6YcovNbOub.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MmLWYhUwP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-09"
+                            "release_date": "2026-04-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Fear of the Unknown",
                             "image": "https://image.tmdb.org/t/p/original/1NmSX9Gpuh7BoVpFh6jWC6LhCBX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aOW8ulXyHt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-16"
+                            "release_date": "2026-04-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 123.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - To Be a Warrior is To Be a Hypocrite",
                             "image": "https://image.tmdb.org/t/p/original/4diwccMl3bcEcvTG8YApQ2uvIok.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/62Fb4CJDlo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-23"
+                            "release_date": "2026-04-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 136.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - A Drinking Party Clears the Fog",
                             "image": "https://image.tmdb.org/t/p/original/3r42i5eQQQ7YxXmaihjFu709kBC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lfxQ7Izxr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-30"
+                            "release_date": "2026-04-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Hands that Pray For Coming Conflict",
                             "image": "https://image.tmdb.org/t/p/original/8TIB6Ko5Qdfgb5IzjsUdl0hXVkn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dFrJbxzNhE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-07"
+                            "release_date": "2026-05-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.3,
+                                        "end": 180.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Man-Made Disasters",
                             "image": "https://image.tmdb.org/t/p/original/yU8PqPP4cXZqeyYD5TxDWzjc5k4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qlbVs0lJA7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-14"
+                            "release_date": "2026-05-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Flows to Purify Corruption",
                             "image": "https://image.tmdb.org/t/p/original/7XRCEQc47UjHy0T51SgVWA0GVsH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sRYKP6tb1v/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-21"
+                            "release_date": "2026-05-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.9,
+                                        "end": 175.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - A Contract in the Form of a Collaring",
                             "image": "https://image.tmdb.org/t/p/original/txTylloCKgqSKG4mDMxBHuzXfJ4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kEQbZHZ0mc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-28"
+                            "release_date": "2026-05-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 270.3,
+                                        "end": 360.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Visions Upon the Scales of the Soul",
                             "image": "https://image.tmdb.org/t/p/original/wRFCOhlwSwsZ8KxeGOynNbMjtE3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IHreFdvJTX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-04"
+                            "release_date": "2026-06-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 115.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Steam Veils the Foothills",
                             "image": "https://image.tmdb.org/t/p/original/fqvpGs2iTQJreSVrCOzmZFr8Fbo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/p5ipA7b70/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-11"
+                            "release_date": "2026-06-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 171.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.7,
+                                        "end": 1379.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Discovery is the Mother of All Quefto",
                             "image": "https://image.tmdb.org/t/p/original/5tg39zrzYEAJxOyUiVD6k9uwKQg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TfMRnfsuyB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-18"
+                            "release_date": "2026-06-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.2,
+                                        "end": 135.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Crimson Warrior of Glory",
                             "image": "https://image.tmdb.org/t/p/original/eUpVXjHcz5jF9ibBkyASaUUI6F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/B4zFSoegn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-25"
+                            "release_date": "2026-06-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.6,
+                                        "end": 146.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +263,239 @@
                             "image": "https://image.tmdb.org/t/p/original/2x1YW3lLKX9U2A7kK6YcovNbOub.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HCLI6GqRW4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-09"
+                            "release_date": "2026-04-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Fear of the Unknown",
                             "image": "https://image.tmdb.org/t/p/original/1NmSX9Gpuh7BoVpFh6jWC6LhCBX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1dHZiNP5wF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-16"
+                            "release_date": "2026-04-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 123.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - To Be a Warrior is To Be a Hypocrite",
                             "image": "https://image.tmdb.org/t/p/original/4diwccMl3bcEcvTG8YApQ2uvIok.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cacNQ9fxcj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-23"
+                            "release_date": "2026-04-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 136.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Drinking Party Clears the Fog",
                             "image": "https://image.tmdb.org/t/p/original/3r42i5eQQQ7YxXmaihjFu709kBC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/P9T7u9peD4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-30"
+                            "release_date": "2026-04-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Hands that Pray For Coming Conflict",
                             "image": "https://image.tmdb.org/t/p/original/8TIB6Ko5Qdfgb5IzjsUdl0hXVkn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/h91gAG4B7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-07"
+                            "release_date": "2026-05-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.3,
+                                        "end": 180.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Man-Made Disasters",
                             "image": "https://image.tmdb.org/t/p/original/yU8PqPP4cXZqeyYD5TxDWzjc5k4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aOL5zCei3Z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-14"
+                            "release_date": "2026-05-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Flows to Purify Corruption",
                             "image": "https://image.tmdb.org/t/p/original/7XRCEQc47UjHy0T51SgVWA0GVsH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RfdUSdfCzF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-21"
+                            "release_date": "2026-05-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.9,
+                                        "end": 175.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - A Contract in the Form of a Collaring",
                             "image": "https://image.tmdb.org/t/p/original/txTylloCKgqSKG4mDMxBHuzXfJ4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lOlPlyi9zx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-28"
+                            "release_date": "2026-05-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 270.3,
+                                        "end": 360.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Visions Upon the Scales of the Soul",
                             "image": "https://image.tmdb.org/t/p/original/wRFCOhlwSwsZ8KxeGOynNbMjtE3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/emFpQSvyTU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-04"
+                            "release_date": "2026-06-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 115.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Steam Veils the Foothills",
                             "image": "https://image.tmdb.org/t/p/original/fqvpGs2iTQJreSVrCOzmZFr8Fbo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f1lFmYKrPv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-11"
+                            "release_date": "2026-06-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 171.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.7,
+                                        "end": 1379.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Discovery is the Mother of All Quefto",
                             "image": "https://image.tmdb.org/t/p/original/5tg39zrzYEAJxOyUiVD6k9uwKQg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pRYav6224R/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-18"
+                            "release_date": "2026-06-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.2,
+                                        "end": 135.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Crimson Warrior of Glory",
                             "image": "https://image.tmdb.org/t/p/original/eUpVXjHcz5jF9ibBkyASaUUI6F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eE9fZ5H8bY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-25"
+                            "release_date": "2026-06-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.6,
+                                        "end": 146.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

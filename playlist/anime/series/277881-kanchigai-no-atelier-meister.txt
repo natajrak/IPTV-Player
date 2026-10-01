@@ -16,77 +16,212 @@
                             "image": "https://image.tmdb.org/t/p/original/frXxvbiHHAsbt6bsYs8nDVgus0x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fkTIbc3zew/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-06"
+                            "release_date": "2025-04-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194.6,
+                                        "end": 284.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - His First Atelier",
                             "image": "https://image.tmdb.org/t/p/original/fQR2iPnlSHiT3xvPGqnGfVhYg7r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vPNDwMbO4K/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-13"
+                            "release_date": "2025-04-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - What Mining Means To Him",
                             "image": "https://image.tmdb.org/t/p/original/paCDXBRrWY0r6OogJNQpvliRpgb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/md6ZCXawuq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-20"
+                            "release_date": "2025-04-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - New Friends in a New Atelier",
                             "image": "https://image.tmdb.org/t/p/original/vUkUTrHwO6esndyC5pmmxPFTpK5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bqBiRiiG1B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-27"
+                            "release_date": "2025-04-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.5,
+                                        "end": 167.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - A Frontier Town With Enemies at All Sides",
                             "image": "https://image.tmdb.org/t/p/original/4ZB6nmFaDxwyQu2ZbRjxWmC96ZF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/afcKzhH6OI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-04"
+                            "release_date": "2025-05-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 186.5,
+                                        "end": 276.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Ninth Direction",
                             "image": "https://image.tmdb.org/t/p/original/1191AUEfUDrYMBCnWlHqLqmJcUt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3LmraQm8E/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-11"
+                            "release_date": "2025-05-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The New Papa of a Mysterious Egg",
                             "image": "https://image.tmdb.org/t/p/original/AgklZJzljTHbfqM7XpGuFi1bt5i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XobXN1uom/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-18"
+                            "release_date": "2025-05-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Akuri's Fwoosh",
                             "image": "https://image.tmdb.org/t/p/original/rTLKKVJHlahz5mhNrYA5LKxNk1K.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0TZXrGYD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-25"
+                            "release_date": "2025-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 261.5,
+                                        "end": 351.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Lise's Confession",
                             "image": "https://image.tmdb.org/t/p/original/8V83q6sL9AayWjB2Jds5FlgMDTQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wjPjTX0Hve/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-01"
+                            "release_date": "2025-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Yulishia's Date",
                             "image": "https://image.tmdb.org/t/p/original/qnCuQl3BtmHjispltYfnTSM0Z99.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/l62SwnxyXh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-08"
+                            "release_date": "2025-06-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Margrave's Secret",
                             "image": "https://image.tmdb.org/t/p/original/aUpkUYW51R1jc0QHU0hPnQFBWYz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/a15ZnExZIs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-15"
+                            "release_date": "2025-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.6,
+                                        "end": 221.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - A Common Story About How the Former Head of Chores for a Party of Heroes Was Actually SSS-Rank in All Except Combat Skills",
@@ -108,77 +243,212 @@
                             "image": "https://image.tmdb.org/t/p/original/frXxvbiHHAsbt6bsYs8nDVgus0x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sPPzKS3Wb5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-06"
+                            "release_date": "2025-04-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194.6,
+                                        "end": 284.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - His First Atelier",
                             "image": "https://image.tmdb.org/t/p/original/fQR2iPnlSHiT3xvPGqnGfVhYg7r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IxupZTVs3z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-13"
+                            "release_date": "2025-04-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - What Mining Means To Him",
                             "image": "https://image.tmdb.org/t/p/original/paCDXBRrWY0r6OogJNQpvliRpgb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vmmstLw0yK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-20"
+                            "release_date": "2025-04-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - New Friends in a New Atelier",
                             "image": "https://image.tmdb.org/t/p/original/vUkUTrHwO6esndyC5pmmxPFTpK5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mCG31YoC2N/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-04-27"
+                            "release_date": "2025-04-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.5,
+                                        "end": 167.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - A Frontier Town With Enemies at All Sides",
                             "image": "https://image.tmdb.org/t/p/original/4ZB6nmFaDxwyQu2ZbRjxWmC96ZF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XEZMZbedlR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-04"
+                            "release_date": "2025-05-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 186.5,
+                                        "end": 276.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Ninth Direction",
                             "image": "https://image.tmdb.org/t/p/original/1191AUEfUDrYMBCnWlHqLqmJcUt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/A3QxdgSx5Z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-11"
+                            "release_date": "2025-05-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The New Papa of a Mysterious Egg",
                             "image": "https://image.tmdb.org/t/p/original/AgklZJzljTHbfqM7XpGuFi1bt5i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6qFHHf6nL2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-18"
+                            "release_date": "2025-05-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Akuri's Fwoosh",
                             "image": "https://image.tmdb.org/t/p/original/rTLKKVJHlahz5mhNrYA5LKxNk1K.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PptlxbLeQ1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-05-25"
+                            "release_date": "2025-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 261.5,
+                                        "end": 351.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Lise's Confession",
                             "image": "https://image.tmdb.org/t/p/original/8V83q6sL9AayWjB2Jds5FlgMDTQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/c6ZZRmncH6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-01"
+                            "release_date": "2025-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Yulishia's Date",
                             "image": "https://image.tmdb.org/t/p/original/qnCuQl3BtmHjispltYfnTSM0Z99.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QtjgPIULD2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-08"
+                            "release_date": "2025-06-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Margrave's Secret",
                             "image": "https://image.tmdb.org/t/p/original/aUpkUYW51R1jc0QHU0hPnQFBWYz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ah6OIRsfy3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-15"
+                            "release_date": "2025-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.6,
+                                        "end": 221.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - A Common Story About How the Former Head of Chores for a Party of Heroes Was Actually SSS-Rank in All Except Combat Skills",

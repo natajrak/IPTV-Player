@@ -16,28 +16,68 @@
                             "image": "https://image.tmdb.org/t/p/original/8N9HtEikNrWEdO0aFuZ5AgBE7fp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BA6wTT9cOe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-04"
+                            "release_date": "2025-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74,
+                                        "end": 165.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Abel the Castaway",
                             "image": "https://image.tmdb.org/t/p/original/tNGnyYSTdyLTFVJdfyv4mUVeSXK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ntePwlsh4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-11"
+                            "release_date": "2025-07-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.1,
+                                        "end": 119.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Town of Lune",
                             "image": "https://image.tmdb.org/t/p/original/kF1XufNalE3gL8nLBYByMfDXWWK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YNGyRQkLy5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-18"
+                            "release_date": "2025-07-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 187.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Eclipses & Akuma",
                             "image": "https://image.tmdb.org/t/p/original/otMfty0EDBhxLg8a9gV7LtGooPa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Na0fDrSyS1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-25"
+                            "release_date": "2025-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Great Tidal Bore",
@@ -51,7 +91,17 @@
                             "image": "https://image.tmdb.org/t/p/original/g06jMjUhKttZxTmvH8PND2BY5cI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/j7sKJwNvGb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-15"
+                            "release_date": "2025-08-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.1,
+                                        "end": 150.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Beyond the Gate",
@@ -65,35 +115,85 @@
                             "image": "https://image.tmdb.org/t/p/original/jDKRpzTME5XPaPSz0Gxko251Kta.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GgclexkRLg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-29"
+                            "release_date": "2025-08-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.7,
+                                        "end": 175.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Nils and the Mysterious Town",
                             "image": "https://image.tmdb.org/t/p/original/wF0TwKycbHMTppX7XyAGh2hgOCA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/l0pWuAnefZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-05"
+                            "release_date": "2025-09-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.1,
+                                        "end": 145.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Open Port Festival",
                             "image": "https://image.tmdb.org/t/p/original/m4m6tVguzXTCtcRc4KCgfVdRqwQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fMXBqt6Nfh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-12"
+                            "release_date": "2025-09-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29,
+                                        "end": 120.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Inferno Magician",
                             "image": "https://image.tmdb.org/t/p/original/7Cm65I2gRFcGlKYTZnGxkE7vwxv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DM9WvvQoT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-19"
+                            "release_date": "2025-09-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.1,
+                                        "end": 187.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Ryo Returns Home",
                             "image": "https://image.tmdb.org/t/p/original/aGe7E340JbZ3BnEnzMDeLZZMAg8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5h7pUMu16W/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-26"
+                            "release_date": "2025-09-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.1,
+                                        "end": 147.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,28 +208,68 @@
                             "image": "https://image.tmdb.org/t/p/original/8N9HtEikNrWEdO0aFuZ5AgBE7fp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5lrApCASlW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-04"
+                            "release_date": "2025-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74,
+                                        "end": 165.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Abel the Castaway",
                             "image": "https://image.tmdb.org/t/p/original/tNGnyYSTdyLTFVJdfyv4mUVeSXK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oI9PkkcLRM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-11"
+                            "release_date": "2025-07-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.1,
+                                        "end": 119.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Town of Lune",
                             "image": "https://image.tmdb.org/t/p/original/kF1XufNalE3gL8nLBYByMfDXWWK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gvjgsL4CeI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-18"
+                            "release_date": "2025-07-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 187.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Eclipses & Akuma",
                             "image": "https://image.tmdb.org/t/p/original/otMfty0EDBhxLg8a9gV7LtGooPa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xwPkCh08J5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-25"
+                            "release_date": "2025-07-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 91.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Great Tidal Bore",
@@ -143,7 +283,17 @@
                             "image": "https://image.tmdb.org/t/p/original/g06jMjUhKttZxTmvH8PND2BY5cI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9VEWiszQKd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-15"
+                            "release_date": "2025-08-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.1,
+                                        "end": 150.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Beyond the Gate",
@@ -157,35 +307,85 @@
                             "image": "https://image.tmdb.org/t/p/original/jDKRpzTME5XPaPSz0Gxko251Kta.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0hq8GKToQr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-29"
+                            "release_date": "2025-08-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.7,
+                                        "end": 175.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Nils and the Mysterious Town",
                             "image": "https://image.tmdb.org/t/p/original/wF0TwKycbHMTppX7XyAGh2hgOCA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3TjwQYG8kB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-05"
+                            "release_date": "2025-09-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.1,
+                                        "end": 145.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Open Port Festival",
                             "image": "https://image.tmdb.org/t/p/original/m4m6tVguzXTCtcRc4KCgfVdRqwQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WKKmv4qUr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-12"
+                            "release_date": "2025-09-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29,
+                                        "end": 120.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Inferno Magician",
                             "image": "https://image.tmdb.org/t/p/original/7Cm65I2gRFcGlKYTZnGxkE7vwxv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aVGTVoTAFK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-19"
+                            "release_date": "2025-09-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.1,
+                                        "end": 187.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Ryo Returns Home",
                             "image": "https://image.tmdb.org/t/p/original/aGe7E340JbZ3BnEnzMDeLZZMAg8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ImPlZGLR5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-26"
+                            "release_date": "2025-09-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.1,
+                                        "end": 147.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

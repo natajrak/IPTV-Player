@@ -16,14 +16,34 @@
                             "image": "https://image.tmdb.org/t/p/original/aQZvDDTGWlYJP3DFaBBujBgPH1D.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FTZ7fBZqN7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-08"
+                            "release_date": "2026-01-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Birth of the Songstress",
                             "image": "https://image.tmdb.org/t/p/original/xlILMhoIIMBZveuKqHjeXonmTUQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D9vyOcDJBt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-15"
+                            "release_date": "2026-01-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Those Gained, Those Lost",
@@ -37,14 +57,34 @@
                             "image": "https://image.tmdb.org/t/p/original/7tUGEcv2MNWkUPaYtJOqapAkT4G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KftsLx5sN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-29"
+                            "release_date": "2026-01-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - People Are Treasures",
                             "image": "https://image.tmdb.org/t/p/original/v8eqmSHIgjtGND7osLf7nzjKReW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VH7nNJfu22/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-05"
+                            "release_date": "2026-02-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Dark Clouds",
@@ -58,7 +98,17 @@
                             "image": "https://image.tmdb.org/t/p/original/yeqAJOIUhcxGHhqqT650TpgsRRU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9bKnkKyLHf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-19"
+                            "release_date": "2026-02-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The First Versus the Thirteenth",
@@ -72,7 +122,17 @@
                             "image": "https://image.tmdb.org/t/p/original/lTwEMYuN6vVqb9zuxi7WGdEQG7T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/377ICmG0Vo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-05"
+                            "release_date": "2026-03-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Lightning Prince and Wise Prince",
@@ -93,7 +153,17 @@
                             "image": "https://image.tmdb.org/t/p/original/70oTFt2WZS4Wqm2Z2AvK5ZyIbKS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DZ1WwXdOsr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-26"
+                            "release_date": "2026-03-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,14 +178,34 @@
                             "image": "https://image.tmdb.org/t/p/original/aQZvDDTGWlYJP3DFaBBujBgPH1D.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qqkNuGN8KU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-08"
+                            "release_date": "2026-01-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Birth of the Songstress",
                             "image": "https://image.tmdb.org/t/p/original/xlILMhoIIMBZveuKqHjeXonmTUQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qzCr5RQCvc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-15"
+                            "release_date": "2026-01-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Those Gained, Those Lost",
@@ -129,14 +219,34 @@
                             "image": "https://image.tmdb.org/t/p/original/7tUGEcv2MNWkUPaYtJOqapAkT4G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MkHX9GQX8k/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-29"
+                            "release_date": "2026-01-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - People Are Treasures",
                             "image": "https://image.tmdb.org/t/p/original/v8eqmSHIgjtGND7osLf7nzjKReW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0UUIemkB5v/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-05"
+                            "release_date": "2026-02-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Dark Clouds",
@@ -150,7 +260,17 @@
                             "image": "https://image.tmdb.org/t/p/original/yeqAJOIUhcxGHhqqT650TpgsRRU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/W7jTXgFxwT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-19"
+                            "release_date": "2026-02-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The First Versus the Thirteenth",
@@ -164,7 +284,17 @@
                             "image": "https://image.tmdb.org/t/p/original/lTwEMYuN6vVqb9zuxi7WGdEQG7T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qNUJnmtDK4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-05"
+                            "release_date": "2026-03-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Lightning Prince and Wise Prince",
@@ -185,7 +315,17 @@
                             "image": "https://image.tmdb.org/t/p/original/70oTFt2WZS4Wqm2Z2AvK5ZyIbKS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hEtNjwcd7O/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-26"
+                            "release_date": "2026-03-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

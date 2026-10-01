@@ -23,77 +23,197 @@
                             "image": "https://image.tmdb.org/t/p/original/2tOtSlDKq2tT3Apps51ElD9Qa0J.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kZHtMbx1sr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-10"
+                            "release_date": "2025-10-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 157.3,
+                                        "end": 247.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.2,
+                                        "end": 1433.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ราชาแห่งความพินาศ",
                             "image": "https://image.tmdb.org/t/p/original/pLRfqKRGAE62rxjyPO5jFv7QhFV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RAIJddmggl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-17"
+                            "release_date": "2025-10-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.2,
+                                        "end": 240.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.2,
+                                        "end": 1433.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - นักผจญภัย",
                             "image": "https://image.tmdb.org/t/p/original/azsvUq3EUaapbrSOKWmmvhYLws9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uwdwJbQfEr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-24"
+                            "release_date": "2025-10-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 189,
+                                        "end": 279
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - A Small Wish",
                             "image": "https://image.tmdb.org/t/p/original/y6ybODmLMUtzqoX4yAmr94NxGYV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8ONXNOH3Ra/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-31"
+                            "release_date": "2025-10-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26,
+                                        "end": 116
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Adventurer Killer",
                             "image": "https://image.tmdb.org/t/p/original/qhV6oiLc3TZAg3BApdBanBOJL27.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3axveGGMpb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-07"
+                            "release_date": "2025-11-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116,
+                                        "end": 206
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Thank You",
                             "image": "https://image.tmdb.org/t/p/original/bKL4ZnUECpqLTmPxfR4z0XiRvhO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XSo4HAtMN6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-14"
+                            "release_date": "2025-11-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.1,
+                                        "end": 141.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - White Knights",
                             "image": "https://image.tmdb.org/t/p/original/6EwGpZSPMo2pTUPTYoTz4J5nN5m.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WQet9UIUS4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-21"
+                            "release_date": "2025-11-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.9,
+                                        "end": 240.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Kick Off",
                             "image": "https://image.tmdb.org/t/p/original/5NmWrqiN2uueyKQ8Oq6vZtVZl5X.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VNQVahmrze/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-28"
+                            "release_date": "2025-11-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 236
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Tower War",
                             "image": "https://image.tmdb.org/t/p/original/ladv6aQ1xOb4RqXJ3ps4SZHJKgP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0S7jWvSaC7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-05"
+                            "release_date": "2025-12-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.1,
+                                        "end": 138.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - God Requiem Gungnir",
                             "image": "https://image.tmdb.org/t/p/original/dNqkDF8yRbUfIJLdmvGlech0ETm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NrzPswW8oB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-12"
+                            "release_date": "2025-12-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.9,
+                                        "end": 158.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Towards a New Path",
                             "image": "https://image.tmdb.org/t/p/original/7JwaKSSl6DrG8e0nCn6gRJb4VIZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fLKBtyJLrY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-19"
+                            "release_date": "2025-12-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

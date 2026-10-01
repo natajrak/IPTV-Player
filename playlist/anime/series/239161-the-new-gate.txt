@@ -23,70 +23,170 @@
                             "image": "https://image.tmdb.org/t/p/original/yJbRREsyfdQpxsHsZoVkoQHg56f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SHUXA6sdwk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-04-21"
+                            "release_date": "2024-04-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.4,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ภารกิจสุดพิลึก",
                             "image": "https://image.tmdb.org/t/p/original/ifEhjZjeclGEzBnQmu9rZWBiAEI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fFiY2lrNan/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-04-28"
+                            "release_date": "2024-04-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ผ่านพ้นราตรีที่แสนยาวนาน",
                             "image": "https://image.tmdb.org/t/p/original/2d5RltufJkN98RnrbZyTFiicINf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3SBw09ds1S/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-05"
+                            "release_date": "2024-05-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - พักผ่อนชั่วครู่",
                             "image": "https://image.tmdb.org/t/p/original/mg9TQ7oa2UgWXM0Ex8PxDWjwbAp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MRkau7IjS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-12"
+                            "release_date": "2024-05-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ภารกิจคุ้มกัน",
                             "image": "https://image.tmdb.org/t/p/original/ryx9ml9Oj8iYmOJwa7HHPzNPT5G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/scNVShyHIV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-19"
+                            "release_date": "2024-05-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เบย์รูน",
                             "image": "https://image.tmdb.org/t/p/original/kx04EEaAkcRJytRWAv0OZJR5Yjh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5tOUG1QXu2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-25"
+                            "release_date": "2024-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ผู้ที่ถูกฝากฝังและผู้ที่ฝากฝัง",
                             "image": "https://image.tmdb.org/t/p/original/bOSEcYAzKF8gx0QIpdmz0iLn91q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1ZIHBkhS5K/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-01"
+                            "release_date": "2024-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - องค์หญิงแห่งเบลลิชท์",
                             "image": "https://image.tmdb.org/t/p/original/xmfmOdprdCXubelzetX7SiVXDKa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dFt8ehbjAN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-08"
+                            "release_date": "2024-06-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ไอปีศาจ",
                             "image": "https://image.tmdb.org/t/p/original/pJqMRKTBPZ8eEDEgGD4vcqEQgKD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8ziRRdvWY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-15"
+                            "release_date": "2024-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ดินแดนศักดิ์สิทธิ์ที่ถูกปิด",
                             "image": "https://image.tmdb.org/t/p/original/yKeC8YuPSF8XhHmki7mBqqVuytg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fB9JLA98ic/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-22"
+                            "release_date": "2024-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - การท่วมท้นใหญ่",
@@ -115,70 +215,170 @@
                             "image": "https://image.tmdb.org/t/p/original/yJbRREsyfdQpxsHsZoVkoQHg56f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4RccTWtETe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-04-21"
+                            "release_date": "2024-04-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.4,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A Strange Request",
                             "image": "https://image.tmdb.org/t/p/original/ifEhjZjeclGEzBnQmu9rZWBiAEI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/S5N4DapoM5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-04-28"
+                            "release_date": "2024-04-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - After the Long Night",
                             "image": "https://image.tmdb.org/t/p/original/2d5RltufJkN98RnrbZyTFiicINf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/d6UaSuTvCy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-05"
+                            "release_date": "2024-05-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - A Momentary Break",
                             "image": "https://image.tmdb.org/t/p/original/mg9TQ7oa2UgWXM0Ex8PxDWjwbAp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kPVY9gpfq9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-12"
+                            "release_date": "2024-05-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Escort Mission",
                             "image": "https://image.tmdb.org/t/p/original/ryx9ml9Oj8iYmOJwa7HHPzNPT5G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nYFcxJxxG5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-19"
+                            "release_date": "2024-05-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Bayreun",
                             "image": "https://image.tmdb.org/t/p/original/kx04EEaAkcRJytRWAv0OZJR5Yjh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/l2ICBnu80q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-05-25"
+                            "release_date": "2024-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Trusted and Entrusted",
                             "image": "https://image.tmdb.org/t/p/original/bOSEcYAzKF8gx0QIpdmz0iLn91q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yUlI0YVDoW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-01"
+                            "release_date": "2024-06-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Princess of Bayrelicht",
                             "image": "https://image.tmdb.org/t/p/original/xmfmOdprdCXubelzetX7SiVXDKa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qbZXzrb5pt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-08"
+                            "release_date": "2024-06-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Demon",
                             "image": "https://image.tmdb.org/t/p/original/pJqMRKTBPZ8eEDEgGD4vcqEQgKD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dUQpEBG018/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-15"
+                            "release_date": "2024-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Closed Holy Land",
                             "image": "https://image.tmdb.org/t/p/original/yKeC8YuPSF8XhHmki7mBqqVuytg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1EavSiVOBZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-06-22"
+                            "release_date": "2024-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Major Flood",

@@ -16,56 +16,176 @@
                             "image": "https://image.tmdb.org/t/p/original/rmkWDUQP5Afa3TLVNkH70OeAjWf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nq6Dcaijh7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-06"
+                            "release_date": "2024-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.5,
+                                        "end": 179.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - You Want to Know.",
                             "image": "https://image.tmdb.org/t/p/original/rbOxBDalSOU9jRYDAvb387K9UBw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D1Tq5Vm6WZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-13"
+                            "release_date": "2024-10-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.5,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1309.8,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - You Are Ms. Yuki.",
                             "image": "https://image.tmdb.org/t/p/original/hTdGzmzLHCLEGDrpC8WJcDqi7xG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/x3QUkPP0N3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-20"
+                            "release_date": "2024-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.5,
+                                        "end": 223.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - You Won't Miss Out.",
                             "image": "https://image.tmdb.org/t/p/original/4JovlqhzpQnmBw7OagqPNkXEYoH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ry5V2v07fK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-27"
+                            "release_date": "2024-10-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.6,
+                                        "end": 273.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - What You Want to Protect.",
                             "image": "https://image.tmdb.org/t/p/original/7CBrjgt18eYDjzZU6APBhvnZ50G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T6wK2qH6O9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.6,
+                                        "end": 149.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - You're Lonelier Than I Thought.",
                             "image": "https://image.tmdb.org/t/p/original/faSFL14lRbDzO03m3eJDXrPnHyQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ta1qdwtOPe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.5,
+                                        "end": 195.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - You've Finally Figured It Out.",
                             "image": "https://image.tmdb.org/t/p/original/aUfWVb2sFmZHDO60VDjnVqJdlDu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lO6GKyXvlI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.6,
+                                        "end": 270.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Autumn With You and the Sauce.",
                             "image": "https://image.tmdb.org/t/p/original/tJpkcNj4WzOdQA8BaEqTkj8CMWN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BOaJiEUDF4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.5,
+                                        "end": 163.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - You and the Cultural Stage.",
@@ -79,21 +199,66 @@
                             "image": "https://image.tmdb.org/t/p/original/yMVIfVPHH21lwkDjJg4AszktKt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8esb5kZT7o/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.5,
+                                        "end": 191.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Your Prayers Are Gods' Prayers.",
                             "image": "https://image.tmdb.org/t/p/original/3WZoU2MP03ZflkTfFDU44oELlWk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZZmoYQsB21/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.4,
+                                        "end": 207.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Joyous Tidings You All Bring.",
                             "image": "https://image.tmdb.org/t/p/original/4NIpuEk4iyWrriWYQCfpsURkBPW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HH3Bf8QdGN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.6,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,56 +273,176 @@
                             "image": "https://image.tmdb.org/t/p/original/rmkWDUQP5Afa3TLVNkH70OeAjWf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xTN8EIPFHi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-06"
+                            "release_date": "2024-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.5,
+                                        "end": 179.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - You Want to Know.",
                             "image": "https://image.tmdb.org/t/p/original/rbOxBDalSOU9jRYDAvb387K9UBw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3z148ellje/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-13"
+                            "release_date": "2024-10-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.5,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1309.8,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - You Are Ms. Yuki.",
                             "image": "https://image.tmdb.org/t/p/original/hTdGzmzLHCLEGDrpC8WJcDqi7xG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hXQJ7AHgRx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-20"
+                            "release_date": "2024-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.5,
+                                        "end": 223.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - You Won't Miss Out.",
                             "image": "https://image.tmdb.org/t/p/original/4JovlqhzpQnmBw7OagqPNkXEYoH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pe9amBsATS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-27"
+                            "release_date": "2024-10-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.6,
+                                        "end": 273.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - What You Want to Protect.",
                             "image": "https://image.tmdb.org/t/p/original/7CBrjgt18eYDjzZU6APBhvnZ50G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HkSsHpKLKG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.6,
+                                        "end": 149.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - You're Lonelier Than I Thought.",
                             "image": "https://image.tmdb.org/t/p/original/faSFL14lRbDzO03m3eJDXrPnHyQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OtKvpdFX2H/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.5,
+                                        "end": 195.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - You've Finally Figured It Out.",
                             "image": "https://image.tmdb.org/t/p/original/aUfWVb2sFmZHDO60VDjnVqJdlDu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FIArhknOrd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.6,
+                                        "end": 270.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Autumn With You and the Sauce.",
                             "image": "https://image.tmdb.org/t/p/original/tJpkcNj4WzOdQA8BaEqTkj8CMWN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0mB3onPyJI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.5,
+                                        "end": 163.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - You and the Cultural Stage.",
@@ -171,21 +456,66 @@
                             "image": "https://image.tmdb.org/t/p/original/yMVIfVPHH21lwkDjJg4AszktKt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/J8MVzfQFj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.5,
+                                        "end": 191.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Your Prayers Are Gods' Prayers.",
                             "image": "https://image.tmdb.org/t/p/original/3WZoU2MP03ZflkTfFDU44oELlWk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1JVXfAYvsM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.4,
+                                        "end": 207.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Joyous Tidings You All Bring.",
                             "image": "https://image.tmdb.org/t/p/original/4NIpuEk4iyWrriWYQCfpsURkBPW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PmL3OpF749/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.6,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
