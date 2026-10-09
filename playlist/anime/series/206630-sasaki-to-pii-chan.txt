@@ -181,12 +181,36 @@
             ],
             "release_date": "2024-01-05",
             "updated_at": "2024-03-22T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/eN7DNrJMtbq6q3iW1HMLh1POY1R.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/eN7DNrJMtbq6q3iW1HMLh1POY1R.jpg",
+                    "referer": "https://anime-your.com/sasaki-to-pii-chan-season-2/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Mother and Child",
+                            "image": "https://image.tmdb.org/t/p/original/g98fE1I7bgwCVb966PkeqQxKkpk.jpg",
+                            "url": "https://moji.abcdxzy.xyz:8443/vod/qTHgrOBSRh/video.mp4/playlist.m3u8",
+                            "referer": "https://animeyour.com/",
+                            "release_date": "2026-10-07"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-10-07",
+            "updated_at": "2026-10-07T00:00:00.000Z"
         }
     ],
     "release_date": "2024-01-05",
-    "updated_at": "2024-03-22T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-10-07T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }
