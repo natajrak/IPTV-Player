@@ -553,6 +553,10 @@
     .url-list { display: flex; flex-direction: column; gap: 6px; }
     .url-row  { display: flex; align-items: center; gap: 8px; }
     .url-row input { flex: 1; min-width: 0; }
+    .url-row select.url-script {
+      flex: 0 0 150px; width: 150px; padding: 6px 8px; font-size: 12px;
+    }
+    .url-row select.url-script.hidden { display: none; }
     .url-no {
       min-width: 22px; text-align: center; flex-shrink: 0;
       font-size: 11px; color: var(--text3);
@@ -3158,18 +3162,49 @@ function closeAddModal() {
  * paste ข้อความที่มี , คั่น จะถูกแตกเป็นหลายแถวอัตโนมัติ
  * get() คืนค่า join ด้วย , (รูปแบบเดิมที่ script/server รับอยู่แล้ว)
  */
-function createUrlList(listId, addBtnId, onChange) {
+/**
+ * picker (optional): () => ({ show, scripts: [{ file, label }] })
+ * เมื่อ show = true แต่ละแถวจะมี dropdown เลือกสคริปต์ของ URL นั้น (เดาจากชื่อเว็บให้อัตโนมัติ)
+ * ค่าว่าง = ใช้สคริปต์จากช่อง Script ด้านบน
+ */
+function createUrlList(listId, addBtnId, onChange, picker = null) {
   const listEl = document.getElementById(listId);
+
+  function fillScripts(sel) {
+    // ตอน construct (ready = false) ห้ามเรียก picker — มันอ้าง rfCtx/modalTab ที่ประกาศทีหลัง (TDZ)
+    const cfg = picker && ready ? picker() : { show: false, scripts: [] };
+    const current = sel.value;
+    sel.innerHTML = '<option value="">ตาม Script ด้านบน</option>'
+      + cfg.scripts.map(s => `<option value="${esc(s.file)}">${esc(s.label)}</option>`).join('');
+    sel.value = cfg.scripts.some(s => s.file === current) ? current : '';
+    sel.classList.toggle('hidden', !cfg.show);
+  }
+
+  /** เดาสคริปต์จาก URL ของแถว — ไม่ทับถ้าผู้ใช้เลือกเองแล้ว */
+  function autoDetect(row) {
+    const sel = row.querySelector('select.url-script');
+    if (!sel || sel.dataset.manual === '1') return;
+    const url = row.querySelector('input').value.trim();
+    const detected = scriptFromReferer(url);
+    sel.value = detected && [...sel.options].some(o => o.value === detected) ? detected : '';
+  }
   // กัน TDZ: ตอน construct ห้ามยิง onChange (callback อ้าง instance/global ที่ยังประกาศไม่เสร็จ)
   let ready = false;
 
   function makeRow(value = '') {
     const row = document.createElement('div');
     row.className = 'url-row';
-    row.innerHTML = '<span class="url-no"></span><input type="text" placeholder="https://..."><button type="button" class="url-del" title="ลบ URL นี้">✕</button>';
+    row.innerHTML = '<span class="url-no"></span><input type="text" placeholder="https://...">'
+      + (picker ? '<select class="url-script" title="สคริปต์ที่ใช้ดึง URL นี้"></select>' : '')
+      + '<button type="button" class="url-del" title="ลบ URL นี้">✕</button>';
     const input = row.querySelector('input');
     input.value = value;
-    input.addEventListener('input', onChange);
+    const sel = row.querySelector('select.url-script');
+    if (sel) {
+      fillScripts(sel);
+      sel.addEventListener('change', () => { sel.dataset.manual = '1'; onChange(); });
+    }
+    input.addEventListener('input', () => { autoDetect(row); onChange(); });
     input.addEventListener('paste', (e) => {
       const text = (e.clipboardData || window.clipboardData).getData('text') || '';
       if (!text.includes(',')) return;
@@ -3180,8 +3215,10 @@ function createUrlList(listId, addBtnId, onChange) {
       parts.forEach(p => {
         const r = makeRow(p);
         listEl.insertBefore(r, anchor.nextSibling);
+        autoDetect(r);
         anchor = r;
       });
+      autoDetect(row);
       refresh();
     });
     row.querySelector('.url-del').addEventListener('click', () => {
@@ -3212,11 +3249,21 @@ function createUrlList(listId, addBtnId, onChange) {
     get() {
       return [...listEl.querySelectorAll('input')].map(i => i.value.trim()).filter(Boolean).join(',');
     },
+    /** [{ url, file }] ตามลำดับแถว — file ว่าง = ใช้สคริปต์ด้านบน */
+    entries() {
+      return [...listEl.querySelectorAll('.url-row')]
+        .map(r => ({ url: r.querySelector('input').value.trim(), file: r.querySelector('select.url-script')?.value || '' }))
+        .filter(e => e.url);
+    },
     set(str) {
       listEl.innerHTML = '';
       const parts = String(str || '').split(',').map(s => s.trim()).filter(Boolean);
       if (!parts.length) parts.push('');
-      parts.forEach(p => listEl.appendChild(makeRow(p)));
+      parts.forEach(p => {
+        const r = makeRow(p);
+        listEl.appendChild(r);
+        autoDetect(r);
+      });
       refresh();
     },
     focus() {
@@ -3229,8 +3276,108 @@ function createUrlList(listId, addBtnId, onChange) {
   return api;
 }
 
-const fmUrlList = createUrlList('fm-url-list', 'fm-url-add', () => updateCmd());
-const rfUrlList = createUrlList('rf-url-list', 'rf-url-add', () => refreshRfCmd());
+/** สลับสคริปต์ต่อ URL ได้เฉพาะหมวด series (ต่อตอนด้วย --ep-offset) — movie/AV ใช้สคริปต์เดียวเหมือนเดิม */
+function mixedScriptsAllowed(tabId) {
+  return tabId !== 'av' && TABS[tabId]?.kind === 'series';
+}
+const scriptPickerFor = (getTab) => () => {
+  const tabId = getTab();
+  return { show: mixedScriptsAllowed(tabId), scripts: (ADD_SCRIPTS[tabId] || []).map(s => ({ file: s.file, label: s.label })) };
+};
+const fmUrlList = createUrlList('fm-url-list', 'fm-url-add', () => updateCmd(), scriptPickerFor(() => modalTab));
+const rfUrlList = createUrlList('rf-url-list', 'rf-url-add', () => refreshRfCmd(), scriptPickerFor(() => rfCtx?.tabId));
+
+/**
+ * แบ่ง URL เป็นรอบตามสคริปต์ — URL ที่ติดกันและใช้สคริปต์เดียวกันรวมเป็นรอบเดียว (สคริปต์ต่อเลขตอนเอง)
+ * คืน [{ file, urls }]
+ */
+function planScriptRuns(entries, defaultFile) {
+  const groups = [];
+  for (const e of entries) {
+    const file = e.file || defaultFile;
+    const last = groups[groups.length - 1];
+    if (last && last.file === file) last.urls.push(e.url);
+    else groups.push({ file, urls: [e.url] });
+  }
+  return groups;
+}
+
+const CHAIN_OFFSET_PLACEHOLDER = '--ep-offset=<ต่อจากรอบก่อน>';
+
+/**
+ * แปลงรอบเป็นคำสั่ง — รอบแรกใช้ args ตามฟอร์ม รอบถัดไปต่อท้าย track ด้วย --ep-offset ที่คำนวณตอนรัน
+ * คืน { steps: [{ script, args, chain }], cmd }
+ */
+function buildScriptSteps(groups, baseArgs) {
+  const steps = groups.map((g, i) => ({
+    script: g.file,
+    args: [g.urls.join(','), ...(i === 0 ? baseArgs : baseArgs.filter(a => !a.startsWith('--ep-offset=')))],
+    chain: i > 0,
+  }));
+  const cmd = steps.map(st => `node ${st.script} ${st.args.join(' ')}${st.chain ? ' ' + CHAIN_OFFSET_PLACEHOLDER : ''}`).join('\n');
+  return { steps, cmd };
+}
+
+/**
+ * หาไฟล์ playlist ที่สคริปต์เพิ่งเขียน — สคริปต์เติม "<tmdbId>-" หน้าชื่อเอง (CMS อาจยังไม่รู้ id)
+ * จับคู่แบบเดียวกับ resolvePlaylistFile ฝั่ง tools: ชื่อตรง หรือ ลงท้ายด้วย "-<ชื่อ>"
+ */
+async function resolveOutputFile(tabId, fname) {
+  const files = await getJSON(`/api/playlist-files?tab=${encodeURIComponent(tabId)}&t=${Date.now()}`);
+  const want = fname.replace(/\.txt$/, '');
+  const hit = files.find(f => f.full === want) || files.find(f => f.full.endsWith(`-${want}`));
+  if (!hit) throw new Error(`ไม่พบไฟล์ ${want}.txt`);
+  return `${TABS[tabId].index.replace(/index\.txt$/, '')}${hit.full}.txt`;
+}
+
+/** เลขตอนสูงสุดของ season/track ในไฟล์ playlist (อ่านไฟล์ล่าสุดจาก dev server) — 0 ถ้าไม่พบ */
+async function maxEpisodeInTrack(target) {
+  const { seasonNum, trackName } = target;
+  const filePath = await resolveOutputFile(target.tabId, target.fname);
+  const data = await getJSON(`/${filePath}?t=${Date.now()}`);
+  const isSpecial = Number(seasonNum) === 0;
+  const season = (data.groups || []).find(g => isSpecial ? /special|ตอนพิเศษ|^season 0$/i.test(g.name || '') : g.name === `Season ${seasonNum}`);
+  const track = season?.groups?.find(t => t.name === trackName);
+  let max = 0;
+  (track?.stations || []).forEach(st => {
+    const m = String(st.name || '').match(/(?:ตอน|Ep\.?)\s*(\d+)/i);
+    if (m) max = Math.max(max, Number(m[1]));
+  });
+  return max;
+}
+
+/**
+ * รันทีละรอบตามลำดับ — รอบที่ต่อท้าย (chain) ใส่ --ep-offset = เลขตอนสูงสุดหลังรอบก่อน
+ * หยุดทันทีเมื่อรอบใดล้มเหลว คืน exit code ของรอบสุดท้ายที่รัน
+ */
+async function runScriptSteps(steps, bodyEl, target) {
+  const note = (text, cls) => bodyEl.appendChild(Object.assign(document.createElement('span'), { className: cls || '', textContent: text }));
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    let args = step.args;
+    if (step.chain) {
+      let offset = 0;
+      try {
+        offset = await maxEpisodeInTrack(target);
+      } catch (e) {
+        note(`\n✗ อ่านไฟล์เพื่อหาเลขตอนต่อไม่ได้: ${e.message}\n`, 'log-fail');
+        return 1;
+      }
+      if (!offset) {
+        note(`\n✗ ไม่พบตอนใน ${target.trackName} หลังรอบก่อน — หยุดเพื่อกันเขียนทับ track\n`, 'log-fail');
+        return 1;
+      }
+      args = [...args, `--ep-offset=${offset}`];
+    }
+    if (steps.length > 1) note(`\n▶ รอบ ${i + 1}/${steps.length}: node ${step.script} ${args.join(' ')}\n`, 'log-done');
+    const code = await runScript(step.script, args, bodyEl);
+    if (code !== 0) {
+      if (steps.length > 1) note(`\n✗ หยุดที่รอบ ${i + 1}/${steps.length}${i > 0 ? ' (รอบก่อนหน้าบันทึกไปแล้ว)' : ''}\n`, 'log-fail');
+      return code;
+    }
+  }
+  return 0;
+}
 
 /** multi-season คุม season เอง → ทำช่อง Season ให้จางและกดไม่ได้ กันเข้าใจผิดว่าต้องกรอก */
 function syncSeasonRow(prefix) {
@@ -3240,7 +3387,7 @@ function syncSeasonRow(prefix) {
   if (row && row.style.display !== 'none') row.classList.toggle('fm-dim', on);
 }
 
-/** Build { script, args, cmd } from current form values, or null if incomplete */
+/** Build { steps, cmd } (หรือ { error, cmd }) from current form values, or null if incomplete */
 function buildPayload() {
   const scripts  = ADD_SCRIPTS[modalTab] || [];
   const selVal   = document.getElementById('fm-script').value;
@@ -3253,7 +3400,7 @@ function buildPayload() {
   // AV: ใช้แค่ URL
   if (modalTab === 'av') {
     const args = [urlVal];
-    return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
+    return { steps: [{ script: script.file, args, chain: false }], cmd: `node ${script.file} ${args.join(' ')}` };
   }
 
   const fname    = document.getElementById('fm-fname').value.trim();
@@ -3276,10 +3423,20 @@ function buildPayload() {
   if (isSeries && splitVal) args.push(`--split-eps=${splitVal}`);
   if (isSeries && !splitVal && document.getElementById('fm-auto-split').checked) args.push('--auto-split');
   const msMapVal = document.getElementById('fm-season-map').value.trim();
+  const msOn = isSeries && (msMapVal || document.getElementById('fm-multi-season').checked);
   if (isSeries && msMapVal) args.push(`--season-map=${msMapVal}`);
   else if (isSeries && document.getElementById('fm-multi-season').checked) args.push('--multi-season');
 
-  return { script: script.file, args, cmd: `node ${script.file} ${args.join(' ')}` };
+  const baseArgs = args.slice(1);
+  const groups = mixedScriptsAllowed(modalTab)
+    ? planScriptRuns(fmUrlList.entries(), script.file)
+    : [{ file: script.file, urls: [urlVal] }];
+  if (groups.length > 1 && msOn) {
+    return { error: true, cmd: '(Multi-season / season-map ใช้กับ URL หลายสคริปต์ไม่ได้ — ปิดตัวเลือกนั้น หรือใช้สคริปต์เดียว)' };
+  }
+  const built = buildScriptSteps(groups, baseArgs);
+  built.target = { tabId: modalTab, fname, seasonNum: season, trackName: track === 'subth' ? 'ซับไทย' : 'พากย์ไทย' };
+  return built;
 }
 
 function updateCmd() {
@@ -3293,7 +3450,7 @@ function updateCmd() {
     cmdEl.className   = 'cmd-text placeholder';
   } else {
     cmdEl.textContent = payload.cmd;
-    cmdEl.className   = 'cmd-text';
+    cmdEl.className   = payload.error ? 'cmd-text placeholder' : 'cmd-text';
   }
 }
 
@@ -3341,6 +3498,7 @@ async function runScript(script, args, bodyEl) {
 async function runFetch() {
   const payload = buildPayload();
   if (!payload) { alert('กรุณากรอก URL และ Filename'); return; }
+  if (payload.error) { alert(payload.cmd); return; }
   const logEl  = document.getElementById('fm-log');
   const bodyEl = document.getElementById('fm-log-body');
   const runBtn = document.getElementById('fm-run-btn');
@@ -3349,12 +3507,12 @@ async function runFetch() {
   runBtn.disabled    = true;
   runBtn.innerHTML   = '<span class="run-spin"></span> Running...';
 
-  const code = await runScript(payload.script, payload.args, bodyEl);
+  const code = await runScriptSteps(payload.steps, bodyEl, payload.target);
   bodyEl.appendChild(Object.assign(document.createElement('span'), {
     className: code === 0 ? 'log-done' : 'log-fail',
     textContent: code === 0 ? '\n✓ เสร็จสิ้น\n' : `\n✗ ล้มเหลว (exit ${code})\n`,
   }));
-  if (code === 0) { loaded.delete(modalTab); loadTab(modalTab); }
+  if (code === 0 || payload.steps.length > 1) { loaded.delete(modalTab); loadTab(modalTab); }
   runBtn.disabled  = false;
   runBtn.innerHTML = '<i class="fi fi-sr-play"></i> Run';
 }
@@ -3586,21 +3744,33 @@ function buildRfCmd() {
   if (!rfSplitVal && document.getElementById('rf-auto-split').checked) args.push('--auto-split');
   const rfIsSeries = TABS[rfCtx.tabId]?.kind === 'series';
   const rfMsMap = document.getElementById('rf-season-map').value.trim();
+  const msOn = rfIsSeries && (rfMsMap || document.getElementById('rf-multi-season').checked);
   if (rfIsSeries && rfMsMap) args.push(`--season-map=${rfMsMap}`);
   else if (rfIsSeries && document.getElementById('rf-multi-season').checked) args.push('--multi-season');
-  return { script, args, cmd: `node ${script} ${args.join(' ')}` };
+
+  const baseArgs = args.slice(1);
+  const groups = mixedScriptsAllowed(rfCtx.tabId)
+    ? planScriptRuns(rfUrlList.entries(), script)
+    : [{ file: script, urls: [url] }];
+  if (groups.length > 1 && msOn) {
+    return { error: true, cmd: '(Multi-season / season-map ใช้กับ URL หลายสคริปต์ไม่ได้ — ปิดตัวเลือกนั้น หรือใช้สคริปต์เดียว)' };
+  }
+  const built = buildScriptSteps(groups, baseArgs);
+  built.target = { tabId: rfCtx.tabId, fname, seasonNum: season, trackName: track === 'subth' ? 'ซับไทย' : 'พากย์ไทย' };
+  return built;
 }
 
 function refreshRfCmd() {
   const cmdEl = document.getElementById('rf-cmd');
   const p = buildRfCmd();
   cmdEl.textContent = p ? p.cmd : '(กรุณากรอก URL และ Output)';
-  cmdEl.className   = p ? 'cmd-text' : 'cmd-text placeholder';
+  cmdEl.className   = p && !p.error ? 'cmd-text' : 'cmd-text placeholder';
 }
 
 async function runRefetch() {
   const payload = buildRfCmd();
   if (!payload) return;
+  if (payload.error) { alert(payload.cmd); return; }
   const logEl  = document.getElementById('rf-log');
   const bodyEl = document.getElementById('rf-log-body');
   const runBtn = document.getElementById('rf-run-btn');
@@ -3608,12 +3778,12 @@ async function runRefetch() {
   bodyEl.textContent = '';
   runBtn.disabled    = true;
   runBtn.innerHTML   = '<span class="run-spin"></span> Running...';
-  const code = await runScript(payload.script, payload.args, bodyEl);
+  const code = await runScriptSteps(payload.steps, bodyEl, payload.target);
   bodyEl.appendChild(Object.assign(document.createElement('span'), {
     className:   code === 0 ? 'log-done' : 'log-fail',
     textContent: code === 0 ? '\n✓ เสร็จสิ้น\n' : `\n✗ ล้มเหลว (exit ${code})\n`,
   }));
-  if (code === 0) { loaded.delete(rfCtx.tabId); loadTab(rfCtx.tabId); }
+  if (code === 0 || payload.steps.length > 1) { loaded.delete(rfCtx.tabId); loadTab(rfCtx.tabId); }
   runBtn.disabled  = false;
   runBtn.innerHTML = '<i class="fi fi-sr-play"></i> Run';
 }
