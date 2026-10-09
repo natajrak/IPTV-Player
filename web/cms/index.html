@@ -122,6 +122,16 @@
       transition: border-color .15s;
     }
     .search-wrap input:focus { border-color: #3a3a3a; }
+    .search-wrap input { padding-right: 28px; }
+    .search-wrap .s-clear {
+      position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: none; border: none; border-radius: 4px;
+      color: var(--text3); font-size: 11px; cursor: pointer;
+    }
+    .search-wrap .s-clear:hover { color: var(--text); background: var(--bg4); }
+    .search-wrap input:placeholder-shown + .s-clear { display: none; }
     .search-wrap input::placeholder { color: var(--text3); }
 
     .pane-stats {
@@ -1544,6 +1554,24 @@ function showAvTab() {
   if (btn) btn.style.display = '';
 }
 if (localStorage.getItem(AV_UNLOCK_KEY) === '1') showAvTab();
+
+/** ใส่ปุ่ม ✕ ล้างคำค้นท้ายช่อง search — กดแล้วยิง input event ให้ตัวกรองเดิมทำงานต่อ */
+function addSearchClear(inp) {
+  if (!inp || inp.nextElementSibling?.classList.contains('s-clear')) return;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 's-clear';
+  btn.title = 'ล้างคำค้น';
+  btn.setAttribute('aria-label', 'ล้างคำค้น');
+  btn.textContent = '✕';
+  btn.addEventListener('click', () => {
+    inp.value = '';
+    inp.dispatchEvent(new Event('input', { bubbles: true }));
+    inp.focus();
+  });
+  inp.after(btn);
+}
+document.querySelectorAll('.s-inp').forEach(addSearchClear);
 
 document.querySelectorAll('.s-inp').forEach(inp => {
   inp.addEventListener('input', async () => {
@@ -4379,6 +4407,7 @@ buildAddButtons();
     }
 
     // Wire search
+    addSearchClear(pane.querySelector('.s-inp'));
     pane.querySelector('.s-inp').addEventListener('input', function() {
       const q = this.value.toLowerCase().trim();
       const wrap = document.getElementById('tbl-' + key);
