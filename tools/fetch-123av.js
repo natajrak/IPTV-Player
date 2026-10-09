@@ -297,6 +297,30 @@ function updateIndex(code, cover, streamUrl, pageUrl, meta) {
   console.log(`📋 อัปเดต index: "${entry.name}"`);
 }
 
+/**
+ * ไล่ลอง embed ทุกตัวในหน้า แล้วคืนตัวแรกที่เล่นได้จริง
+ * (เว็บบางหน้ามีหลายตัว และบางตัวชี้ไปโดเมนที่ถูกถอนไปแล้ว/ไฟล์หาย)
+ * คืน { streamUrl, index } หรือ null ถ้าไม่มีตัวไหนใช้ได้
+ */
+async function resolveWorkingStream(embedInfo) {
+  for (let i = 0; i < embedInfo.length; i++) {
+    const { embedUrl, label } = embedInfo[i];
+    if (embedInfo.length > 1) console.log(`  🔗 ลอง embed ${i + 1}/${embedInfo.length} (${label}): ${embedUrl}`);
+    try {
+      const streamUrl = await getStreamFromEmbed(embedUrl);
+      if (await isStreamAlive(unwrapProxy(streamUrl), refererOf(streamUrl))) {
+        return { streamUrl, index: i };
+      }
+      console.log(`  ⚠️  embed ${i + 1}: ลิงก์ใช้ไม่ได้`);
+    } catch (e) {
+      // fetch ที่ DNS/เน็ตพังคืนแค่ "fetch failed" — เหตุผลจริงอยู่ใน cause.code (เช่น ENOTFOUND)
+      console.log(`  ⚠️  embed ${i + 1}: ${e.message}${e.cause?.code ? ` (${e.cause.code})` : ""}`);
+    }
+    if (i < embedInfo.length - 1) await sleep(500);
+  }
+  return null;
+}
+
 async function runUpdateMeta() {
   const index = readIndex();
   if (!index.stations.length) {
@@ -457,9 +481,10 @@ async function runRefreshStream() {
     try {
       if (!station.referer) throw new Error("ไม่มี referer (หน้า 123av) ให้ดึงลิงก์ใหม่");
       const { embedInfo } = await parseVideoPage(forceThaiLocale(migrateLegacyUrl(station.referer)));
-      const streamUrl = await getStreamFromEmbed(embedInfo[0].embedUrl);
-      if (!await isStreamAlive(unwrapProxy(streamUrl), refererOf(streamUrl))) throw new Error("ลิงก์ใหม่ก็ใช้ไม่ได้");
-      station.url = streamUrl;
+      const found = await resolveWorkingStream(embedInfo);
+      if (!found) throw new Error(`ลิงก์ใหม่ก็ใช้ไม่ได้ (ลองครบ ${embedInfo.length} embed)`);
+      if (found.index > 0) console.log(`   ℹ️  ใช้ embed ตัวที่ ${found.index + 1} (ตัวก่อนหน้าใช้ไม่ได้)`);
+      station.url = found.streamUrl;
       refreshed++;
       dirty++;
       console.log(`✅ ${tag} — ได้ลิงก์ใหม่`);
@@ -509,16 +534,10 @@ async function main() {
 
     console.log(`\n🎬 พบ ${embedInfo.length} embed(s)`);
     const parts = [];
-    for (let i = 0; i < embedInfo.length; i++) {
-      const { embedUrl, label } = embedInfo[i];
-      console.log(`\n🔗 Embed ${i + 1} (${label}): ${embedUrl}`);
-      try {
-        const streamUrl = await getStreamFromEmbed(embedUrl);
-        parts.push({ name: embedInfo.length > 1 ? `Part ${i + 1}` : "Full", url: streamUrl });
-      } catch (e) {
-        console.log(`  ⚠️  ${e.message}`);
-      }
-      if (i < embedInfo.length - 1) await sleep(500);
+    const found = await resolveWorkingStream(embedInfo);
+    if (found) {
+      parts.push({ name: "Full", url: found.streamUrl });
+      if (found.index > 0) console.log(`ℹ️  ใช้ embed ตัวที่ ${found.index + 1} จาก ${embedInfo.length} (ตัวก่อนหน้าใช้ไม่ได้)`);
     }
 
     if (parts.length === 0) {
