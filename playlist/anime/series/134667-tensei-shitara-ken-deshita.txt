@@ -453,12 +453,43 @@
             ],
             "release_date": "2022-09-28",
             "updated_at": "2022-12-14T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/hzcmCi1hmLva2qgufNgYveblqcl.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/hzcmCi1hmLva2qgufNgYveblqcl.jpg",
+                    "referer": "https://indy-anime.net/tensei-shitara-ken-deshita-2nd/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - The Floating Island",
+                            "image": "https://image.tmdb.org/t/p/original/eYxv70lw3yGqJyGwCk3QedN5puk.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/J9d2JRee7/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-08"
+                        },
+                        {
+                            "name": "Ep. 2 - Jean du Vix Knows His Stuff",
+                            "image": "https://image.tmdb.org/t/p/original/kaIaxnsrOJH0Qtd9SJLsS0KSoJC.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/pL6NMb2te/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-15"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-10-08",
+            "updated_at": "2026-10-15T00:00:00.000Z"
         }
     ],
     "release_date": "2022-09-28",
-    "updated_at": "2022-12-14T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-10-15T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }
