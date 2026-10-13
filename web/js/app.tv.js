@@ -70,7 +70,11 @@ let hls = null;
 let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
-let shuffleHistory = [];
+const SHUFFLE_TRAIL_MAX = 20;
+let shuffleTrail = [];
+let shuffleTrailPos = -1;
+let shufflePlayed = new Set();
+let playerBaseStations = [];
 let playEpisodeEpoch = 0;
 let hlsRuntimeMissing = false;
 const STREAM_RESOLVERS = {
@@ -1739,25 +1743,58 @@ function rebuildMoviePartQueue(trackName) {
   crossSeasonQueue = buildMoviePartQueue(crossSeasonSeasons, trackName);
   crossSeasonIndex = crossSeasonQueue.findIndex(item => item.stations === currentStations && item.localIndex === currentIndex);
 }
+function resolveShuffleStation(step) {
+  if (step < 0) return shuffleTrailPos > 0 ? shuffleTrail[shuffleTrailPos - 1] : null;
+  if (shuffleTrailPos < shuffleTrail.length - 1) return shuffleTrail[shuffleTrailPos + 1];
+  const current = currentStations[currentIndex];
+  let pool = currentStations.filter(st => !shufflePlayed.has(st));
+  if (!pool.length) {
+    shufflePlayed = new Set([current]);
+    pool = currentStations.filter(st => st !== current);
+  }
+  const previous = shuffleTrail[shuffleTrailPos - 1];
+  if (pool.length > 1) pool = pool.filter(st => st !== previous);
+  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+}
+function recordShufflePlay(station) {
+  if (!shuffleMode || !station) return;
+  if (shuffleTrail[shuffleTrailPos] === station) return;
+  if (shuffleTrail[shuffleTrailPos + 1] === station) {
+    shuffleTrailPos++;
+    return;
+  }
+  if (shuffleTrailPos > 0 && shuffleTrail[shuffleTrailPos - 1] === station) {
+    shuffleTrailPos--;
+    return;
+  }
+  shufflePlayed.add(station);
+  shuffleTrail = shuffleTrail.slice(0, shuffleTrailPos + 1);
+  shuffleTrail.push(station);
+  if (shuffleTrail.length > SHUFFLE_TRAIL_MAX) shuffleTrail.shift();
+  shuffleTrailPos = shuffleTrail.length - 1;
+}
+function applyShuffleStationList() {
+  const current = currentStations[currentIndex];
+  const full = isAvMode && browseAllStations.length ? browseAllStations : playerBaseStations;
+  let next = shuffleMode ? full : playerBaseStations;
+  if (!next.includes(current)) next = full.includes(current) ? full : currentStations;
+  currentStations = next;
+  currentIndex = Math.max(0, currentStations.indexOf(current));
+}
+function resetShuffleState() {
+  const current = shuffleMode ? currentStations[currentIndex] : null;
+  shuffleTrail = current ? [current] : [];
+  shuffleTrailPos = current ? 0 : -1;
+  shufflePlayed = new Set(current ? [current] : []);
+}
 function resolveAdjacentEpisode(step) {
-  if (shuffleMode && step > 0 && currentStations.length > 1) {
-    const unplayed = [];
-    for (let i = 0; i < currentStations.length; i++) {
-      if (!shuffleHistory.includes(i)) unplayed.push(i);
-    }
-    if (unplayed.length === 0) {
-      shuffleHistory = [currentIndex];
-      for (let i = 0; i < currentStations.length; i++) {
-        if (i !== currentIndex) unplayed.push(i);
-      }
-    }
-    if (unplayed.length > 0) {
-      const pick = unplayed[Math.floor(Math.random() * unplayed.length)];
-      return {
-        type: "local",
-        index: pick
-      };
-    }
+  if (shuffleMode && currentStations.length > 1) {
+    const target = resolveShuffleStation(step);
+    const index = target ? currentStations.indexOf(target) : -1;
+    return index >= 0 ? {
+      type: "local",
+      index
+    } : null;
   }
   if (!moviePartMode) {
     const localIndex = currentIndex + step;
@@ -1792,12 +1829,14 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", {
 } = {}) {
   var _navHistory, _crossSeasonSeasons$;
   currentStations = stations;
+  playerBaseStations = stations;
   currentIndex = index;
   upnextCancelled = false;
   isAvMode = allowShuffle;
   btnShuffle.hidden = !allowShuffle;
   if (!allowShuffle) shuffleMode = false;
-  shuffleHistory = shuffleMode ? [index] : [];
+  applyShuffleStationList();
+  resetShuffleState();
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
@@ -1852,7 +1891,7 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", {
   updateVolumeUI();
   showPlayerUI();
   hidePlayerNotice();
-  playEpisode(index, inheritedReferer);
+  playEpisode(stations[index] ? currentIndex : -1, inheritedReferer);
   queueFocusRefresh();
 }
 function showPlayerNotice(message, ms = 7000) {
@@ -1879,7 +1918,7 @@ function playEpisode(index, inheritedReferer) {
     return;
   }
   currentIndex = index;
-  if (shuffleMode && !shuffleHistory.includes(index)) shuffleHistory.push(index);
+  recordShufflePlay(station);
   const referer = (_ref5 = (_station$referer2 = station.referer) !== null && _station$referer2 !== void 0 ? _station$referer2 : inheritedReferer) !== null && _ref5 !== void 0 ? _ref5 : null;
   inheritedRefererCache = referer;
   const url = station.url;
@@ -2174,7 +2213,15 @@ btnNextEp.addEventListener("click", () => {
 btnShuffle.addEventListener("click", () => {
   shuffleMode = !shuffleMode;
   btnShuffle.classList.toggle("active", shuffleMode);
-  shuffleHistory = shuffleMode ? [currentIndex] : [];
+  applyShuffleStationList();
+  resetShuffleState();
+  if (!upnextToast.classList.contains("hidden")) {
+    cancelUpnext();
+    if (resolveAdjacentEpisode(1)) scheduleNext();
+  }
+  btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
+  btnEpisodes.innerHTML = `${EPISODES_ICON}<span>${currentIndex + 1}/${currentStations.length}</span>`;
+  if (!epPanel.classList.contains("hidden")) renderEpPanel();
   showPlayerNotice(shuffleMode ? "สุ่มเล่น: เปิด" : "สุ่มเล่น: ปิด", 2000);
   if (shuffleMode && currentStations.length > 1) btnNextEp.disabled = false;else btnNextEp.disabled = !resolveAdjacentEpisode(1);
 });
@@ -3044,7 +3091,10 @@ function closePlayer() {
   crossSeasonQueue = [];
   crossSeasonIndex = -1;
   crossSeasonSeasons = [];
-  shuffleHistory = [];
+  shuffleTrail = [];
+  shuffleTrailPos = -1;
+  shufflePlayed = new Set();
+  playerBaseStations = [];
   epPanelSeasonFilter = "";
   seekPreviewCues = null;
   seekPreviewSpriteUrl = "";

@@ -94,7 +94,11 @@ let hls = null;
 let upnextCountdown = null;
 let upnextCancelled = false;
 let shuffleMode = false;
-let shuffleHistory = []; // track played indices to avoid repeats
+const SHUFFLE_TRAIL_MAX = 20;
+let shuffleTrail = [];
+let shuffleTrailPos = -1;
+let shufflePlayed = new Set();
+let playerBaseStations = [];
 let playEpisodeEpoch = 0;
 // จริงหรือไม่ว่ารอบเล่นล่าสุดตกไป native เพราะไม่มี HLS runtime —
 // ใช้กันไม่ให้ MediaError 4 ("รูปแบบไม่รองรับ") เขียนทับข้อความที่บอกสาเหตุจริง
@@ -2173,24 +2177,69 @@ function rebuildMoviePartQueue(trackName) {
   );
 }
 
+/**
+ * โหมดสุ่ม: ◀/▶ เดินตามประวัติที่เล่นจริงก่อน (สูงสุด SHUFFLE_TRAIL_MAX เรื่อง)
+ * พ้นปลายประวัติแล้ว ▶ สุ่มเรื่องที่ยังไม่เคยเล่นตั้งแต่เปิดโหมดสุ่ม — เล่นครบทุกเรื่องแล้วเริ่มรอบใหม่
+ */
+function resolveShuffleStation(step) {
+  if (step < 0) return shuffleTrailPos > 0 ? shuffleTrail[shuffleTrailPos - 1] : null;
+  if (shuffleTrailPos < shuffleTrail.length - 1) return shuffleTrail[shuffleTrailPos + 1];
+  const current = currentStations[currentIndex];
+  let pool = currentStations.filter((st) => !shufflePlayed.has(st));
+  if (!pool.length) {
+    shufflePlayed = new Set([current]);
+    pool = currentStations.filter((st) => st !== current);
+  }
+  const previous = shuffleTrail[shuffleTrailPos - 1];
+  if (pool.length > 1) pool = pool.filter((st) => st !== previous);
+  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+}
+
+/** บันทึกเรื่องที่เริ่มเล่นในโหมดสุ่ม — เดินหน้า/ถอยในประวัติ หรือต่อท้ายประวัติถ้าเป็นเรื่องใหม่ */
+function recordShufflePlay(station) {
+  if (!shuffleMode || !station) return;
+  if (shuffleTrail[shuffleTrailPos] === station) return;
+  if (shuffleTrail[shuffleTrailPos + 1] === station) {
+    shuffleTrailPos++;
+    return;
+  }
+  if (shuffleTrailPos > 0 && shuffleTrail[shuffleTrailPos - 1] === station) {
+    shuffleTrailPos--;
+    return;
+  }
+  shufflePlayed.add(station);
+  shuffleTrail = shuffleTrail.slice(0, shuffleTrailPos + 1);
+  shuffleTrail.push(station);
+  if (shuffleTrail.length > SHUFFLE_TRAIL_MAX) shuffleTrail.shift();
+  shuffleTrailPos = shuffleTrail.length - 1;
+}
+
+/**
+ * สลับรายการที่ player ใช้ — โหมดสุ่ม (AV) ใช้รายการทั้งหมดแทนผลค้นหา ปิดสุ่มกลับไปรายการตอนเปิด player
+ * คงเรื่องที่กำลังเล่นไว้ (ถ้าไม่มีในรายการปลายทาง ใช้รายการทั้งหมดต่อ)
+ */
+function applyShuffleStationList() {
+  const current = currentStations[currentIndex];
+  const full = isAvMode && browseAllStations.length ? browseAllStations : playerBaseStations;
+  let next = shuffleMode ? full : playerBaseStations;
+  if (!next.includes(current)) next = full.includes(current) ? full : currentStations;
+  currentStations = next;
+  currentIndex = Math.max(0, currentStations.indexOf(current));
+}
+
+/** เริ่มประวัติการสุ่มใหม่จากเรื่องที่กำลังเล่น */
+function resetShuffleState() {
+  const current = shuffleMode ? currentStations[currentIndex] : null;
+  shuffleTrail = current ? [current] : [];
+  shuffleTrailPos = current ? 0 : -1;
+  shufflePlayed = new Set(current ? [current] : []);
+}
+
 function resolveAdjacentEpisode(step) {
-  // Shuffle mode: pick a random unplayed station from currentStations
-  if (shuffleMode && step > 0 && currentStations.length > 1) {
-    const unplayed = [];
-    for (let i = 0; i < currentStations.length; i++) {
-      if (!shuffleHistory.includes(i)) unplayed.push(i);
-    }
-    // If all played, reset history (but exclude current)
-    if (unplayed.length === 0) {
-      shuffleHistory = [currentIndex];
-      for (let i = 0; i < currentStations.length; i++) {
-        if (i !== currentIndex) unplayed.push(i);
-      }
-    }
-    if (unplayed.length > 0) {
-      const pick = unplayed[Math.floor(Math.random() * unplayed.length)];
-      return { type: "local", index: pick };
-    }
+  if (shuffleMode && currentStations.length > 1) {
+    const target = resolveShuffleStation(step);
+    const index = target ? currentStations.indexOf(target) : -1;
+    return index >= 0 ? { type: "local", index } : null;
   }
 
   // Movie parts: ⏭/⏮ ต้องข้ามภาคตาม track เสียงเดิม ไม่เดินภายในภาค (พากย์→ซับ)
@@ -2228,13 +2277,15 @@ function openPlayer(
   { allowShuffle = false } = {},
 ) {
   currentStations = stations;
+  playerBaseStations = stations;
   currentIndex = index;
   upnextCancelled = false;
   // Shuffle only available for AV (browsable) playlists
   isAvMode = allowShuffle;
   btnShuffle.hidden = !allowShuffle;
   if (!allowShuffle) shuffleMode = false;
-  shuffleHistory = shuffleMode ? [index] : [];
+  applyShuffleStationList();
+  resetShuffleState();
   btnShuffle.classList.toggle("active", shuffleMode);
   inheritedRefererCache = inheritedReferer;
   playerSectionTitle = languageTitle;
@@ -2311,7 +2362,7 @@ function openPlayer(
   showPlayerUI();
   hidePlayerNotice();
 
-  playEpisode(index, inheritedReferer);
+  playEpisode(stations[index] ? currentIndex : -1, inheritedReferer);
   queueFocusRefresh();
 }
 
@@ -2341,9 +2392,7 @@ function playEpisode(index, inheritedReferer) {
   }
 
   currentIndex = index;
-  // Track in shuffle history
-  if (shuffleMode && !shuffleHistory.includes(index))
-    shuffleHistory.push(index);
+  recordShufflePlay(station);
   const referer = station.referer ?? inheritedReferer ?? null;
   inheritedRefererCache = referer;
   const url = station.url;
@@ -2782,7 +2831,15 @@ btnNextEp.addEventListener("click", () => {
 btnShuffle.addEventListener("click", () => {
   shuffleMode = !shuffleMode;
   btnShuffle.classList.toggle("active", shuffleMode);
-  shuffleHistory = shuffleMode ? [currentIndex] : [];
+  applyShuffleStationList();
+  resetShuffleState();
+  if (!upnextToast.classList.contains("hidden")) {
+    cancelUpnext();
+    if (resolveAdjacentEpisode(1)) scheduleNext();
+  }
+  btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
+  btnEpisodes.innerHTML = `${EPISODES_ICON}<span>${currentIndex + 1}/${currentStations.length}</span>`;
+  if (!epPanel.classList.contains("hidden")) renderEpPanel();
   showPlayerNotice(shuffleMode ? "สุ่มเล่น: เปิด" : "สุ่มเล่น: ปิด", 2000);
   // Update next button state (shuffle always has a next)
   if (shuffleMode && currentStations.length > 1) btnNextEp.disabled = false;
@@ -3961,7 +4018,10 @@ function closePlayer() {
   crossSeasonQueue = [];
   crossSeasonIndex = -1;
   crossSeasonSeasons = [];
-  shuffleHistory = [];
+  shuffleTrail = [];
+  shuffleTrailPos = -1;
+  shufflePlayed = new Set();
+  playerBaseStations = [];
   epPanelSeasonFilter = "";
   seekPreviewCues = null;
   seekPreviewSpriteUrl = "";
