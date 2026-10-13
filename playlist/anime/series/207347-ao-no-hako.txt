@@ -8,7 +8,7 @@
             "groups": [
                 {
                     "name": "พากย์ไทย",
-                    "image": "https://image.tmdb.org/t/p/original/4b60HLxEaIPPSnzsUeI3mevVJCQ.jpg",
+                    "image": "https://image.tmdb.org/t/p/original/hBwmRpHriNX8wOOTwg8HZg9cRwf.jpg",
                     "referer": "https://indy-anime.net/ao-no-hako-2/",
                     "stations": [
                         {
@@ -185,13 +185,26 @@
                             "url": "https://hls.animeindy.com:8443/vid/QtcBLWCvGt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-03-27"
+                        },
+                        {
+                            "name": "ตอน 26 - Déjà Vu",
+                            "image": "https://image.tmdb.org/t/p/original/f5Do1KBLiKSvnHf1lgkMnYDVJyQ.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/FH5HA8OYOa/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-04"
+                        },
+                        {
+                            "name": "ตอน 27 - Admiration",
+                            "image": "https://image.tmdb.org/t/p/original/wUj3loUPXJildFYOeF1jdRZ6mxf.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/cg0txnR5jK/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-11"
                         }
-                    ],
-                    "status": "completed"
+                    ]
                 },
                 {
                     "name": "ซับไทย",
-                    "image": "https://image.tmdb.org/t/p/original/4b60HLxEaIPPSnzsUeI3mevVJCQ.jpg",
+                    "image": "https://image.tmdb.org/t/p/original/hBwmRpHriNX8wOOTwg8HZg9cRwf.jpg",
                     "referer": "https://indy-anime.net/ao-no-hako/",
                     "stations": [
                         {
@@ -369,18 +382,19 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-03-27"
                         }
-                    ],
-                    "status": "completed"
+                    ]
                 }
             ],
             "release_date": "2024-10-03",
-            "updated_at": "2025-03-27T00:00:00.000Z"
+            "updated_at": "2026-10-11T00:00:00.000Z"
         }
     ],
     "release_date": "2024-10-03",
-    "updated_at": "2025-03-27T00:00:00.000Z",
+    "updated_at": "2026-10-11T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 1,
+        "track": null
     }
 }
