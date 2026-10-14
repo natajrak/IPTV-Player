@@ -334,6 +334,16 @@
     }
     .btn-batch:hover { background: #223860; border-color: #3a6aaa; }
     .btn-batch i { font-size: 11px; }
+    .btn-exit-av {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 13px; margin-left: 6px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text2);
+      font-size: 13px; cursor: pointer; transition: all .15s;
+      font-family: 'Anuphan', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .btn-exit-av:hover { color: var(--accent); border-color: var(--accent); }
+    .btn-exit-av i { font-size: 11px; }
 
     /* ── Copy button ─────────────────────────────────── */
     .cp-btn {
@@ -964,6 +974,7 @@
       <input type="text" class="s-inp" data-tab="av" placeholder="ค้นหา...">
     </div>
     <span class="pane-stats" id="stats-av"></span>
+    <button type="button" class="btn-exit-av" id="av-exit-btn" title="ล็อกและซ่อนแท็บ AV"><i class="fi fi-rr-lock"></i> ออกจากโหมด AV</button>
   </div>
   <div class="table-scroll">
     <div id="tbl-av" class="loading"><div class="spinner"></div><span>Loading...</span></div>
@@ -1553,6 +1564,30 @@ function showAvTab() {
   const btn = document.getElementById('tab-btn-av');
   if (btn) btn.style.display = '';
 }
+
+/** ออกจากโหมด AV — ล็อกกลับ ซ่อนแท็บ ล้างตารางที่โหลดไว้ แล้วกลับไปแท็บแรก */
+function exitAvMode() {
+  localStorage.removeItem(AV_UNLOCK_KEY);
+  const tabBtn = document.getElementById('tab-btn-av');
+  if (tabBtn) {
+    tabBtn.style.display = 'none';
+    tabBtn.classList.remove('active');
+  }
+  const avInp = document.querySelector('.s-inp[data-tab="av"]');
+  if (avInp) avInp.value = '';
+  const tbl = document.getElementById('tbl-av');
+  if (tbl) {
+    tbl.className = 'loading';
+    tbl.innerHTML = '<div class="spinner"></div><span>Loading...</span>';
+  }
+  const stats = document.getElementById('stats-av');
+  if (stats) stats.textContent = '';
+  loaded.delete('av');
+  const firstTab = document.querySelector('.tab-btn[data-tab="anime-series"]');
+  firstTab?.click();
+  firstTab?.focus();
+}
+document.getElementById('av-exit-btn')?.addEventListener('click', exitAvMode);
 if (localStorage.getItem(AV_UNLOCK_KEY) === '1') showAvTab();
 
 /** ใส่ปุ่ม ✕ ล้างคำค้นท้ายช่อง search — กดแล้วยิง input event ให้ตัวกรองเดิมทำงานต่อ */
@@ -1820,6 +1855,7 @@ async function loadTab(tabId) {
 
     // AV: flat stations format — sort by release_date (latest first), render directly
     if (cfg.kind === 'av') {
+      if (localStorage.getItem(AV_UNLOCK_KEY) !== '1') { loaded.delete(tabId); return; }
       const stations = (index.stations || []).slice().sort((a, b) => {
         const da = a.meta?.release_date || '0000-00-00';
         const db = b.meta?.release_date || '0000-00-00';
