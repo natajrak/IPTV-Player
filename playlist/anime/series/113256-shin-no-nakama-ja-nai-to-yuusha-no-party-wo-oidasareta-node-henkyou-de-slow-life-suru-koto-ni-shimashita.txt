@@ -16,91 +16,276 @@
                             "image": "https://image.tmdb.org/t/p/original/rWAvB1BOuZzf8taHLUE7w9K1ULT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Vp8VVxsp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-06"
+                            "release_date": "2021-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38,
+                                        "end": 128
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Princess Who Didn't Join the Hero's Party",
                             "image": "https://image.tmdb.org/t/p/original/cJiTi2o63xuoqgoD4NWna0azFx3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/apvZicNF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-13"
+                            "release_date": "2021-10-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30,
+                                        "end": 120
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Let's Start Our Quiet Life Together",
                             "image": "https://image.tmdb.org/t/p/original/gY0LwTq3jico0ga8otN6XOIK4zy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5XGx5XEk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-20"
+                            "release_date": "2021-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30,
+                                        "end": 120
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Of Mead and Motives",
                             "image": "https://image.tmdb.org/t/p/original/hXlRFysVbo6OBxhJu3zV5prGJTm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0YvtAVV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-27"
+                            "release_date": "2021-10-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36,
+                                        "end": 126
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Amber Ring",
                             "image": "https://image.tmdb.org/t/p/original/l0Wr94GvEmiqammt42pPFBhvwmS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lrbGklDO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-03"
+                            "release_date": "2021-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15,
+                                        "end": 105
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Rampage Begins",
                             "image": "https://image.tmdb.org/t/p/original/vwKLY9r0XMl0JIU4tOLVMItkWOQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oxco0ZLm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-10"
+                            "release_date": "2021-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Chaos After the Storm",
                             "image": "https://image.tmdb.org/t/p/original/6xwBrfib4jtnLH8T7NUy8NDrrKF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/B2dxUSIN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-17"
+                            "release_date": "2021-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31,
+                                        "end": 121
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Man Who Would Be a Hero",
                             "image": "https://image.tmdb.org/t/p/original/eEW65bE6BOkW3N07UeDejJhH6l5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/q4Vy1Cq9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-24"
+                            "release_date": "2021-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91,
+                                        "end": 181
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Days of Peace and Ease",
                             "image": "https://image.tmdb.org/t/p/original/nn0OhNw49ENSTFdF77p0GPBwoT7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GhAg00Cn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-01"
+                            "release_date": "2021-12-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52,
+                                        "end": 142
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Saving the Hero",
                             "image": "https://image.tmdb.org/t/p/original/1S0O8v1ULLGXiZ1EUiyfaIYTgxg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FfWhR2A1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-08"
+                            "release_date": "2021-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - A Gathering of Champions",
                             "image": "https://image.tmdb.org/t/p/original/80QgQPtufA63Nbx2exRZg5gYt1Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tFofmbXr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-15"
+                            "release_date": "2021-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41,
+                                        "end": 130
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - A Parting of Ways",
                             "image": "https://image.tmdb.org/t/p/original/ckSIT7WwTvtIvqcmd4NSiAgcZX1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WKYSfPjx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-22"
+                            "release_date": "2021-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - The Guide",
                             "image": "https://image.tmdb.org/t/p/original/ouyzTu834aPl0yQm89c1gKtnEfS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZoWdYd3m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-29"
+                            "release_date": "2021-12-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,91 +300,271 @@
                             "image": "https://image.tmdb.org/t/p/original/rWAvB1BOuZzf8taHLUE7w9K1ULT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yBLgaTAQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-06"
+                            "release_date": "2021-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.1,
+                                        "end": 129.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Princess Who Didn't Join the Hero's Party",
                             "image": "https://image.tmdb.org/t/p/original/cJiTi2o63xuoqgoD4NWna0azFx3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KMZCSEXy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-13"
+                            "release_date": "2021-10-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31,
+                                        "end": 122.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Let's Start Our Quiet Life Together",
                             "image": "https://image.tmdb.org/t/p/original/gY0LwTq3jico0ga8otN6XOIK4zy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BV5raayZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-20"
+                            "release_date": "2021-10-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.9,
+                                        "end": 121.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Of Mead and Motives",
                             "image": "https://image.tmdb.org/t/p/original/hXlRFysVbo6OBxhJu3zV5prGJTm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Gp52303N/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-10-27"
+                            "release_date": "2021-10-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36,
+                                        "end": 127.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Amber Ring",
                             "image": "https://image.tmdb.org/t/p/original/l0Wr94GvEmiqammt42pPFBhvwmS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DldEfWFi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-03"
+                            "release_date": "2021-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15,
+                                        "end": 106.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Rampage Begins",
                             "image": "https://image.tmdb.org/t/p/original/vwKLY9r0XMl0JIU4tOLVMItkWOQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oODNG1tw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-10"
+                            "release_date": "2021-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21.1,
+                                        "end": 112.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Chaos After the Storm",
                             "image": "https://image.tmdb.org/t/p/original/6xwBrfib4jtnLH8T7NUy8NDrrKF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/utgP0vij/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-17"
+                            "release_date": "2021-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31,
+                                        "end": 122.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Man Who Would Be a Hero",
                             "image": "https://image.tmdb.org/t/p/original/eEW65bE6BOkW3N07UeDejJhH6l5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KkWx6jKD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-11-24"
+                            "release_date": "2021-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91,
+                                        "end": 182.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Days of Peace and Ease",
                             "image": "https://image.tmdb.org/t/p/original/nn0OhNw49ENSTFdF77p0GPBwoT7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7HoERdLD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-01"
+                            "release_date": "2021-12-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52,
+                                        "end": 143.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Saving the Hero",
                             "image": "https://image.tmdb.org/t/p/original/1S0O8v1ULLGXiZ1EUiyfaIYTgxg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cIlUXRnS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-08"
+                            "release_date": "2021-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19,
+                                        "end": 110.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - A Gathering of Champions",
                             "image": "https://image.tmdb.org/t/p/original/80QgQPtufA63Nbx2exRZg5gYt1Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZmGdMMqN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-15"
+                            "release_date": "2021-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.1,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - A Parting of Ways",
                             "image": "https://image.tmdb.org/t/p/original/ckSIT7WwTvtIvqcmd4NSiAgcZX1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/S9d4WOT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-22"
+                            "release_date": "2021-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - The Guide",
                             "image": "https://image.tmdb.org/t/p/original/ouyzTu834aPl0yQm89c1gKtnEfS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CHgRzgfS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-12-29"
+                            "release_date": "2021-12-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -222,21 +587,66 @@
                             "image": "https://image.tmdb.org/t/p/original/bCjRv6JeuH8dEd3SDjQwrxoZe0l.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/X5rPm4V9PN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.3,
+                                        "end": 241.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Gem Beast",
                             "image": "https://image.tmdb.org/t/p/original/1TV9MQ2j3XQiw8Oad51mWh3vWGT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wF7XZHMf1y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-14"
+                            "release_date": "2024-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.5,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Zoltan's Solstice Festival",
                             "image": "https://image.tmdb.org/t/p/original/2XMj3OKZ9LjX2iFaPMISkxvJ7XG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HRy37jD8G/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.6,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Daily Life of the Former Hero and the Assassin",
@@ -250,56 +660,166 @@
                             "image": "https://image.tmdb.org/t/p/original/oXW4qfTkGtgXIT5DAKRrKzLifeW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FKGu7WQDVL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.9,
+                                        "end": 148.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - A Long Vacation",
                             "image": "https://image.tmdb.org/t/p/original/a6mh9OyEVpd7K3jN5lpw4Iehmpk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yBVHVvqpgQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.3,
+                                        "end": 197.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Two Heroes",
                             "image": "https://image.tmdb.org/t/p/original/piXxRi4Cx0jpVoFleTM4swNeleH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AcRQq5iEdN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.2,
+                                        "end": 194.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - All for Blessings and Faith",
                             "image": "https://image.tmdb.org/t/p/original/jjGotT7nkzH73kWD9p4fFZI3v0e.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Kojjy13Fxl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.3,
+                                        "end": 176.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Take Out the Fairy in Love and the Greedy Cardinal",
                             "image": "https://image.tmdb.org/t/p/original/lYRozLsy0Kd8iKzmg2Bgbcl57yJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/V7mB0V6sLq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.1,
+                                        "end": 154.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Hero and the Guide",
                             "image": "https://image.tmdb.org/t/p/original/yPdS3gwXJngff6trWC40ToFGPbj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zBFHMIPDyw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.5,
+                                        "end": 185.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Hero's Challenge",
                             "image": "https://image.tmdb.org/t/p/original/rMh7KWPikObfzOcGMbyok2Cg5pa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8cfn40JXF4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.3,
+                                        "end": 180.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Conclusion and the Start of a New Journey",
                             "image": "https://image.tmdb.org/t/p/original/zi2TcqjhzZmyOcNl8lyQeEmgxv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bKopdVbTcP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.3,
+                                        "end": 124.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

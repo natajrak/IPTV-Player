@@ -22,8 +22,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 98,
-                                        "end": 190
+                                        "start": 139,
+                                        "end": 228
                                     }
                                 ]
                             }
@@ -39,13 +39,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 41,
+                                        "end": 130
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -61,13 +61,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 41,
+                                        "end": 130
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -82,9 +82,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 110,
+                                        "end": 200
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -100,8 +105,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 74.1,
-                                        "end": 166.1
+                                        "start": 115,
+                                        "end": 205
                                     }
                                 ]
                             }
@@ -117,13 +122,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 17,
-                                        "end": 109
+                                        "start": 58,
+                                        "end": 148
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.1,
-                                        "end": 1425.1
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -139,13 +144,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 25.1,
-                                        "end": 117.1
+                                        "start": 70,
+                                        "end": 159
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -160,9 +165,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 39,
+                                        "end": 129
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -178,13 +188,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 32,
+                                        "end": 122
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -200,13 +210,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 17,
+                                        "end": 107
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -221,9 +231,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 28,
+                                        "end": 117
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -238,9 +253,19 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "recap",
+                                        "start": 0,
+                                        "end": 41
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 64,
+                                        "end": 154
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1415
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -250,14 +275,34 @@
                             "image": "https://image.tmdb.org/t/p/original/6voVk4YCMHdqFda5jtInBeBdAPL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/tiDRCvCh1l/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-29"
+                            "release_date": "2024-09-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Negotiation",
                             "image": "https://image.tmdb.org/t/p/original/1sxJp6QEPvLJqVwLHI2SOL15Yq6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Vw8sVdVWm6/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-10-06"
+                            "release_date": "2024-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130,
+                                        "end": 220
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - The Image of a Lord",
@@ -270,8 +315,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 92.4,
-                                        "end": 184.4
+                                        "start": 125,
+                                        "end": 215
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -287,8 +337,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 90.2,
-                                        "end": 182.2
+                                        "start": 124,
+                                        "end": 214
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -298,56 +353,171 @@
                             "image": "https://image.tmdb.org/t/p/original/dpaetqiX1tjTxnapV1P860mbnk0.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/4CRT8eS29a/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56,
+                                        "end": 146
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Evolution",
                             "image": "https://image.tmdb.org/t/p/original/e5GdXNMhmHd8dFJXFziAmCzrIO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/R5wJaNTgT1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 106,
+                                        "end": 196
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - The Threat of Castle Rolto",
                             "image": "https://image.tmdb.org/t/p/original/vdc5m20JuedBseMG5buxJepFYui.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/x4TK8sAcky/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79,
+                                        "end": 169
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Family",
                             "image": "https://image.tmdb.org/t/p/original/g07I7nRfZ14IJS5TGfNDe1y4oaN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/LN1fhQzHxd/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98,
+                                        "end": 187
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - A New Threat",
                             "image": "https://image.tmdb.org/t/p/original/aI8aXikOmQVJNLONM4Zo2Hs0KMF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/avoiII6VZu/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90,
+                                        "end": 180
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Snowball Fight",
                             "image": "https://image.tmdb.org/t/p/original/dgeE7cw1UIV6qhrVsjdMiNrnJy0.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EFVnbUg13Q/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94,
+                                        "end": 184
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - Allegiance",
                             "image": "https://image.tmdb.org/t/p/original/nKVBw1qZW5iwG725mcy3Yq9cZlj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/D55eH6tAGC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137,
+                                        "end": 227
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Entrusted Feelings",
                             "image": "https://image.tmdb.org/t/p/original/k4munu54zJlTUWRtDK5w1N4rSU4.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/uPVN2kc8SZ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25,
+                                        "end": 115
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -367,8 +537,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 98,
-                                        "end": 190
+                                        "start": 139,
+                                        "end": 228
                                     }
                                 ]
                             }
@@ -384,13 +554,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 41,
+                                        "end": 130
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -406,13 +576,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 41,
+                                        "end": 130
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -427,9 +597,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 110,
+                                        "end": 200
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -445,8 +620,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 74.1,
-                                        "end": 166.1
+                                        "start": 115,
+                                        "end": 205
                                     }
                                 ]
                             }
@@ -462,13 +637,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 17,
-                                        "end": 109
+                                        "start": 58,
+                                        "end": 148
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.1,
-                                        "end": 1425.1
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -484,13 +659,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 25.1,
-                                        "end": 117.1
+                                        "start": 70,
+                                        "end": 159
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -505,9 +680,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 39,
+                                        "end": 129
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -523,13 +703,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 32,
+                                        "end": 122
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -545,13 +725,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 92
+                                        "start": 17,
+                                        "end": 107
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -566,9 +746,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 28,
+                                        "end": 117
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1425.3
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -583,9 +768,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 64,
+                                        "end": 154
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.3,
-                                        "end": 1415
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -595,14 +785,34 @@
                             "image": "https://image.tmdb.org/t/p/original/6voVk4YCMHdqFda5jtInBeBdAPL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/II79ZfsVO5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-09-29"
+                            "release_date": "2024-09-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Negotiation",
                             "image": "https://image.tmdb.org/t/p/original/1sxJp6QEPvLJqVwLHI2SOL15Yq6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/M0qNj7KTp/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-10-06"
+                            "release_date": "2024-10-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130,
+                                        "end": 220
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - The Image of a Lord",
@@ -615,8 +825,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 92.4,
-                                        "end": 184.4
+                                        "start": 125,
+                                        "end": 215
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -632,8 +847,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 90.2,
-                                        "end": 182.2
+                                        "start": 124,
+                                        "end": 214
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
                                     }
                                 ]
                             }
@@ -643,56 +863,171 @@
                             "image": "https://image.tmdb.org/t/p/original/dpaetqiX1tjTxnapV1P860mbnk0.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/WFcTX1Qdwf/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56,
+                                        "end": 146
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Evolution",
                             "image": "https://image.tmdb.org/t/p/original/e5GdXNMhmHd8dFJXFziAmCzrIO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/AtOvUtzrq7/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 106,
+                                        "end": 196
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - The Threat of Castle Rolto",
                             "image": "https://image.tmdb.org/t/p/original/vdc5m20JuedBseMG5buxJepFYui.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/4Q9iaJMId9/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79,
+                                        "end": 169
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Family",
                             "image": "https://image.tmdb.org/t/p/original/g07I7nRfZ14IJS5TGfNDe1y4oaN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Xruv5arduR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98,
+                                        "end": 187
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - A New Threat",
                             "image": "https://image.tmdb.org/t/p/original/aI8aXikOmQVJNLONM4Zo2Hs0KMF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/365QH743Jn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90,
+                                        "end": 180
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Snowball Fight",
                             "image": "https://image.tmdb.org/t/p/original/dgeE7cw1UIV6qhrVsjdMiNrnJy0.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/1c21vysnCB/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94,
+                                        "end": 184
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Allegiance",
                             "image": "https://image.tmdb.org/t/p/original/nKVBw1qZW5iwG725mcy3Yq9cZlj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/45JyuyWlF/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137,
+                                        "end": 227
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Entrusted Feelings",
                             "image": "https://image.tmdb.org/t/p/original/k4munu54zJlTUWRtDK5w1N4rSU4.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/KGHa1D44Lq/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25,
+                                        "end": 115
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - Headman",

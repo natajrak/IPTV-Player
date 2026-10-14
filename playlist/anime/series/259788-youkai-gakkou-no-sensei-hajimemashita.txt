@@ -16,84 +16,239 @@
                             "image": "https://image.tmdb.org/t/p/original/pR8NwWToXiuSlxDyfAWjMIx9kgG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3IVAHi7Z9Z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-08"
+                            "release_date": "2024-10-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 157,
+                                        "end": 247
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Physical Exams Are Life-Threatening?!",
                             "image": "https://image.tmdb.org/t/p/original/69pZMhVgG8eSnDmI6wLJMX46UxN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LNZXOs3R2R/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-15"
+                            "release_date": "2024-10-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 133.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Panic! In Miki-sensei's Youkai Studies Class!!",
                             "image": "https://image.tmdb.org/t/p/original/eAaBRYsKKbTHtCPDyfFD1UlHf7A.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2ep0rHpoBz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-22"
+                            "release_date": "2024-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72,
+                                        "end": 162
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - An Interview with Haruaki?! Here Comes Youkai TV!",
                             "image": "https://image.tmdb.org/t/p/original/s5fssOZvoAjl9E6hl0DzXYRKUru.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/08C0mFOAUk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-29"
+                            "release_date": "2024-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83,
+                                        "end": 173
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I Know. Let's Go to Sensei's Family Home.",
                             "image": "https://image.tmdb.org/t/p/original/syiqQ16FGl5wBfmD9Hugz4YaKFb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/A2RFT9O07q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-05"
+                            "release_date": "2024-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.3,
+                                        "end": 162.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Sports Day at Ghoul School!! ~Commences~",
                             "image": "https://image.tmdb.org/t/p/original/mVtKjvyFgRr7EB6e37Mj2sfkd4Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PAKG0Wl6Xi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-12"
+                            "release_date": "2024-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.1,
+                                        "end": 172.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Sports Day at Ghoul School!! ~Finishes~",
                             "image": "https://image.tmdb.org/t/p/original/u5mDKZfwQWHzdsBtyFPZy9V5Q5P.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/V3Ss0B2y4y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-19"
+                            "release_date": "2024-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.1,
+                                        "end": 151.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Amaaki, Momoyama-san, and the Nudity Festival",
                             "image": "https://image.tmdb.org/t/p/original/2xYx5Co9BFyX8DIIySe9qLc63yK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NCm9FMGGXV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-26"
+                            "release_date": "2024-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.1,
+                                        "end": 120.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Save Me, Seimei-kun! The Case of the Animal Youkai Abductions!!",
                             "image": "https://image.tmdb.org/t/p/original/7ErOCuzRHjL8DzRUx7zaurZOTNF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QCUqHlJYLx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-03"
+                            "release_date": "2024-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88,
+                                        "end": 178
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338,
+                                        "end": 1428
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - School Camp of Terror",
                             "image": "https://image.tmdb.org/t/p/original/vwqNJbPKM0EYZb1IZVVV14pjutl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/j77IiX5qhc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-10"
+                            "release_date": "2024-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.2,
+                                        "end": 132.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Parent-Teacher Conference from Hell!",
                             "image": "https://image.tmdb.org/t/p/original/9HE10sIRkAHgQQdsyUuxAt5o88J.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vkBXPh1D2z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-17"
+                            "release_date": "2024-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.9,
+                                        "end": 187.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Great Tokyo Haruaki Search!!",
                             "image": "https://image.tmdb.org/t/p/original/fJySTP4C5VyH2xeHU6TtKP1SI4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lsPKRj9Hi6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-24"
+                            "release_date": "2024-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.8,
+                                        "end": 142.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - The Cursed Secondhand Book",
@@ -192,84 +347,239 @@
                             "image": "https://image.tmdb.org/t/p/original/pR8NwWToXiuSlxDyfAWjMIx9kgG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UNBGmSrmDo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-08"
+                            "release_date": "2024-10-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 157,
+                                        "end": 247
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Physical Exams Are Life-Threatening?!",
                             "image": "https://image.tmdb.org/t/p/original/69pZMhVgG8eSnDmI6wLJMX46UxN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/C8RXV6dZtP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-15"
+                            "release_date": "2024-10-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 133.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Panic! In Miki-sensei's Youkai Studies Class!!",
                             "image": "https://image.tmdb.org/t/p/original/eAaBRYsKKbTHtCPDyfFD1UlHf7A.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Gm6qxOmUoU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-22"
+                            "release_date": "2024-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72,
+                                        "end": 162
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - An Interview with Haruaki?! Here Comes Youkai TV!",
                             "image": "https://image.tmdb.org/t/p/original/s5fssOZvoAjl9E6hl0DzXYRKUru.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KoEqCjQAGR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-29"
+                            "release_date": "2024-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83,
+                                        "end": 173
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I Know. Let's Go to Sensei's Family Home.",
                             "image": "https://image.tmdb.org/t/p/original/syiqQ16FGl5wBfmD9Hugz4YaKFb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uaQseMmx1A/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-05"
+                            "release_date": "2024-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.3,
+                                        "end": 162.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Sports Day at Ghoul School!! ~Commences~",
                             "image": "https://image.tmdb.org/t/p/original/mVtKjvyFgRr7EB6e37Mj2sfkd4Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ptapGrLe24/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-12"
+                            "release_date": "2024-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.1,
+                                        "end": 172.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Sports Day at Ghoul School!! ~Finishes~",
                             "image": "https://image.tmdb.org/t/p/original/u5mDKZfwQWHzdsBtyFPZy9V5Q5P.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LF2POhpci/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-19"
+                            "release_date": "2024-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.1,
+                                        "end": 151.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Amaaki, Momoyama-san, and the Nudity Festival",
                             "image": "https://image.tmdb.org/t/p/original/2xYx5Co9BFyX8DIIySe9qLc63yK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8rEZAlv62h/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-26"
+                            "release_date": "2024-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.1,
+                                        "end": 120.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Save Me, Seimei-kun! The Case of the Animal Youkai Abductions!!",
                             "image": "https://image.tmdb.org/t/p/original/7ErOCuzRHjL8DzRUx7zaurZOTNF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OSIXFDe0sV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-03"
+                            "release_date": "2024-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88,
+                                        "end": 178
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338,
+                                        "end": 1428
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - School Camp of Terror",
                             "image": "https://image.tmdb.org/t/p/original/vwqNJbPKM0EYZb1IZVVV14pjutl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YasjUiDY1l/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-10"
+                            "release_date": "2024-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.2,
+                                        "end": 132.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Parent-Teacher Conference from Hell!",
                             "image": "https://image.tmdb.org/t/p/original/9HE10sIRkAHgQQdsyUuxAt5o88J.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3KdWuUIduI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-17"
+                            "release_date": "2024-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.9,
+                                        "end": 187.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Great Tokyo Haruaki Search!!",
                             "image": "https://image.tmdb.org/t/p/original/fJySTP4C5VyH2xeHU6TtKP1SI4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SNc65wcPhn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-24"
+                            "release_date": "2024-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.8,
+                                        "end": 142.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - The Cursed Secondhand Book",
