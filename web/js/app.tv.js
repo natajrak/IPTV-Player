@@ -1833,6 +1833,7 @@ function openPlayer(stations, index, inheritedReferer, languageTitle = "", {
   currentIndex = index;
   upnextCancelled = false;
   isAvMode = allowShuffle;
+  updateSeekButtonTitles();
   btnShuffle.hidden = !allowShuffle;
   if (!allowShuffle) shuffleMode = false;
   applyShuffleStationList();
@@ -2191,11 +2192,19 @@ function handlePlayerKeyboardShortcuts(e) {
 function togglePlayPause() {
   if (playerVideo.paused) playerVideo.play().catch(() => {});else playerVideo.pause();
 }
+function seekStepSeconds() {
+  return isAvMode ? 5 : 10;
+}
+function updateSeekButtonTitles() {
+  const step = seekStepSeconds();
+  btnRewind.title = `ย้อน ${step} วินาที`;
+  btnForward.title = `ข้าม ${step} วินาที`;
+}
 function rewind10() {
-  playerVideo.currentTime = Math.max(0, playerVideo.currentTime - 10);
+  playerVideo.currentTime = Math.max(0, playerVideo.currentTime - seekStepSeconds());
 }
 function forward10() {
-  if (playerVideo.duration) playerVideo.currentTime = Math.min(playerVideo.duration, playerVideo.currentTime + 10);
+  if (playerVideo.duration) playerVideo.currentTime = Math.min(playerVideo.duration, playerVideo.currentTime + seekStepSeconds());
 }
 btnPlayPause.addEventListener("click", togglePlayPause);
 btnRewind.addEventListener("click", rewind10);

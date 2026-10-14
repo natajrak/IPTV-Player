@@ -2282,6 +2282,7 @@ function openPlayer(
   upnextCancelled = false;
   // Shuffle only available for AV (browsable) playlists
   isAvMode = allowShuffle;
+  updateSeekButtonTitles();
   btnShuffle.hidden = !allowShuffle;
   if (!allowShuffle) shuffleMode = false;
   applyShuffleStationList();
@@ -2801,14 +2802,26 @@ function togglePlayPause() {
   else playerVideo.pause();
 }
 
+/** ระยะเลื่อนของปุ่ม ⏪/⏩ — AV 5 วินาที หมวดอื่น 10 วินาที */
+function seekStepSeconds() {
+  return isAvMode ? 5 : 10;
+}
+
+/** อัปเดตข้อความปุ่ม ⏪/⏩ ให้ตรงกับระยะเลื่อนของหมวดที่เปิดอยู่ */
+function updateSeekButtonTitles() {
+  const step = seekStepSeconds();
+  btnRewind.title = `ย้อน ${step} วินาที`;
+  btnForward.title = `ข้าม ${step} วินาที`;
+}
+
 function rewind10() {
-  playerVideo.currentTime = Math.max(0, playerVideo.currentTime - 10);
+  playerVideo.currentTime = Math.max(0, playerVideo.currentTime - seekStepSeconds());
 }
 function forward10() {
   if (playerVideo.duration)
     playerVideo.currentTime = Math.min(
       playerVideo.duration,
-      playerVideo.currentTime + 10,
+      playerVideo.currentTime + seekStepSeconds(),
     );
 }
 
