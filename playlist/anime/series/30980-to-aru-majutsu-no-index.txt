@@ -23,7 +23,17 @@
                             "image": "https://image.tmdb.org/t/p/original/nx0q8KYWbnzwuUd3tWdaZghX1K4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FO97L22id%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FO97L22id",
                             "referer": "",
-                            "release_date": "2008-10-12"
+                            "release_date": "2008-10-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 127.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - เนสเซสซาริอุส",
@@ -199,7 +209,17 @@
                             "image": "https://image.tmdb.org/t/p/original/nx0q8KYWbnzwuUd3tWdaZghX1K4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fr6pYRwkb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fr6pYRwkb",
                             "referer": "",
-                            "release_date": "2008-10-12"
+                            "release_date": "2008-10-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 127.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Necessarius (The Church of Necessary Evil)",
