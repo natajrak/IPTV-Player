@@ -30,6 +30,7 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const path = require("path");
+const dns = require("dns").promises;
 
 const args = process.argv.slice(2);
 const pageUrl = args.find((a) => a.startsWith("http") && !a.startsWith("--"));
@@ -297,6 +298,80 @@ function updateIndex(code, cover, streamUrl, pageUrl, meta) {
   console.log(`📋 อัปเดต index: "${entry.name}"`);
 }
 
+const MIRROR_MAX_TRIES = 4;
+let mirrorDomainsCache = null;
+
+/** "8rxq.deepquietthought.site" → "deepquietthought.site" */
+function baseDomainOf(hostname) {
+  return hostname.split(".").slice(-2).join(".");
+}
+
+async function hostResolves(hostname) {
+  try {
+    await dns.lookup(hostname);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * โดเมน CDN ที่เคยใช้ใน index.txt เรียงตามจำนวนเรื่องที่ใช้ (มากก่อน) — คำนวณครั้งเดียวต่อการรัน
+ * (apex ของโดเมนพวกนี้ไม่มี DNS มีแค่ subdomain จึงเช็คได้ตอนประกอบกับ prefix แล้วเท่านั้น)
+ */
+function mirrorDomainCandidates() {
+  if (mirrorDomainsCache) return mirrorDomainsCache;
+  const counts = new Map();
+  for (const st of readIndex().stations || []) {
+    try {
+      const { hostname } = new URL(unwrapProxy(st.url));
+      const base = baseDomainOf(hostname);
+      counts.set(base, (counts.get(base) || 0) + 1);
+    } catch {}
+  }
+  mirrorDomainsCache = [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([d]) => d);
+  return mirrorDomainsCache;
+}
+
+/**
+ * API ของ embed บางครั้งออกลิงก์ด้วยโดเมนที่ไม่ใช่ CDN ที่ใช้งานได้:
+ *   - โดเมน CDN ที่ถูกถอน DNS ไปแล้ว (บางโดเมนหาย NS ทั้งโดเมน)
+ *   - โดเมนของ embed เอง (เช่น 8gl3.sadie-shop.site) ซึ่ง 301 ไปหน้า 404
+ * แต่ทุกโดเมน CDN ชี้ชุดเดียวกัน — prefix + path เดิมบนโดเมนที่ยังอยู่เล่นได้
+ * ลองเฉพาะ 2 กรณีนี้ (ลิงก์ตายด้วยเหตุอื่นเช่น 404 บน CDN ไม่ลอง)
+ * คืน proxied URL ตัวแรกที่เล่นได้ หรือ null
+ */
+async function tryMirrorDomains(streamUrl) {
+  let raw;
+  try {
+    raw = new URL(unwrapProxy(streamUrl));
+  } catch {
+    return null;
+  }
+  let embedDomain = "";
+  try {
+    embedDomain = baseDomainOf(new URL(refererOf(streamUrl)).hostname);
+  } catch {}
+  const onEmbedHost = !!embedDomain && baseDomainOf(raw.hostname) === embedDomain;
+  if (!onEmbedHost && await hostResolves(raw.hostname)) return null;
+  const prefix = raw.hostname.split(".").slice(0, -2).join(".");
+  const dead = baseDomainOf(raw.hostname);
+  let tries = 0;
+  for (const domain of mirrorDomainCandidates()) {
+    if (tries >= MIRROR_MAX_TRIES) break;
+    if (domain === dead || domain === embedDomain) continue;
+    const alt = new URL(raw.href);
+    alt.hostname = prefix ? `${prefix}.${domain}` : domain;
+    if (!(await hostResolves(alt.hostname))) continue;
+    tries++;
+    if (await isStreamAlive(alt.href, refererOf(streamUrl))) {
+      console.log(`  🔁 ${raw.hostname} ${onEmbedHost ? "เป็นโดเมนของ embed ไม่ใช่ CDN" : "ไม่มี DNS แล้ว"} → ใช้ ${alt.hostname}`);
+      return wrapWithProxy(alt.href, refererOf(streamUrl));
+    }
+  }
+  return null;
+}
+
 /**
  * ไล่ลอง embed ทุกตัวในหน้า แล้วคืนตัวแรกที่เล่นได้จริง
  * (เว็บบางหน้ามีหลายตัว และบางตัวชี้ไปโดเมนที่ถูกถอนไปแล้ว/ไฟล์หาย)
@@ -311,6 +386,8 @@ async function resolveWorkingStream(embedInfo) {
       if (await isStreamAlive(unwrapProxy(streamUrl), refererOf(streamUrl))) {
         return { streamUrl, index: i };
       }
+      const mirrored = await tryMirrorDomains(streamUrl);
+      if (mirrored) return { streamUrl: mirrored, index: i };
       console.log(`  ⚠️  embed ${i + 1}: ลิงก์ใช้ไม่ได้`);
     } catch (e) {
       // fetch ที่ DNS/เน็ตพังคืนแค่ "fetch failed" — เหตุผลจริงอยู่ใน cause.code (เช่น ENOTFOUND)
