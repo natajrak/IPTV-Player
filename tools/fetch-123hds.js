@@ -22,6 +22,7 @@
  *   --auto-split       ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                      ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --type=KIND        anime-series|series|anime-movie|movie (default: auto-detect)
+ *   --only-new         ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
  *
  * ─── Stream URL ──────────────────────────────────────────────────────────
  *   https://main.24playerhd.com/newplaylist/{hash}/{hash}.m3u8 (ผ่าน CF Worker)
@@ -41,6 +42,7 @@ const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
 const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 const { carryOverFetchedSkips } = require('./lib/skip-times');
+const { createStreamReuse } = require('./lib/stream-reuse');
 
 loadEnv(__dirname);
 
@@ -49,7 +51,7 @@ let { seriesUrl: pageUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch,
       forceTmdbId, splitEps, autoSplit,
-      seasonMap, multiSeason, typeArg, filterTrack } = cli;
+      seasonMap, multiSeason, typeArg, filterTrack, onlyNew } = cli;
 
 if (!pageUrl && !updateMeta) {
   console.error('Usage: node fetch-123hds.js <url> [--track=th|subth] [--season=N] [--output=FILE]');
@@ -321,6 +323,10 @@ async function main() {
       const stations = [];
       let resolvedSplitEps = splitEps;
       const splitMap = resolvedSplitEps ? buildEpisodeMap({ sourceCount: epEntries.length, epOffset: 0, splitEps: resolvedSplitEps }) : null;
+      const reuse = createStreamReuse({
+        enabled: onlyNew && !isMovieContent, previous: io.loadPlaylist(outputPath),
+        trackName, sourceUrl: pageUrl, seasonName, seasonNum, epOffset: 0,
+      });
 
       for (let i = 0; i < epEntries.length; i++) {
         const [epNum, epUrl] = epEntries[i];
@@ -331,18 +337,37 @@ async function main() {
         if (ms) ({ label: epLabel, tmdbEp: msEp } = episodeAt(ms, i));
         process.stdout.write(`  ตอน ${epNum}/${epEntries.length}...`);
 
-        let postId = mainPostId;
-        let server = mainServer;
-        let epEpisode = mainEpisode;
+        const old = reuse.find(epLabel, { notUrls: [epUrl], season: ms ? `Season ${ms.assign[i].seasonNum}` : null });
+        let streamUrl = old?.url || null;
+        if (old) {
+          process.stdout.write(' ♻️  ใช้ลิงก์เดิม ✅\n');
+        } else {
+          let postId = mainPostId;
+          let server = mainServer;
+          let epEpisode = mainEpisode;
 
-        if (epNum > 1) {
-          try {
-            const epData = await getEpPostId(epUrl);
-            postId = epData.postId ?? postId;
-            server = epData.server ?? server;
-            epEpisode = epData.episode ?? epEpisode;
-          } catch (err) {
-            process.stdout.write(` ⚠️  fetch page: ${err.message}\n`);
+          if (epNum > 1) {
+            try {
+              const epData = await getEpPostId(epUrl);
+              postId = epData.postId ?? postId;
+              server = epData.server ?? server;
+              epEpisode = epData.episode ?? epEpisode;
+            } catch (err) {
+              process.stdout.write(` ⚠️  fetch page: ${err.message}\n`);
+              const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
+              stations.push({
+                name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
+                url: epUrl,
+                referer: STREAM_REFERER,
+                release_date: tmdbEpFallback?.air_date || '',
+              });
+              if (i < epEntries.length - 1) await utils.sleep(500);
+              continue;
+            }
+          }
+
+          if (!postId) {
+            process.stdout.write(' ⚠️  ไม่พบ post_id\n');
             const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
             stations.push({
               name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
@@ -353,28 +378,14 @@ async function main() {
             if (i < epEntries.length - 1) await utils.sleep(500);
             continue;
           }
-        }
 
-        if (!postId) {
-          process.stdout.write(' ⚠️  ไม่พบ post_id\n');
-          const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
-          stations.push({
-            name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
-            url: epUrl,
-            referer: STREAM_REFERER,
-            release_date: tmdbEpFallback?.air_date || '',
-          });
-          if (i < epEntries.length - 1) await utils.sleep(500);
-          continue;
-        }
-
-        let streamUrl = null;
-        try {
-          const hash = await getStreamHash(postId, server, epEpisode, nonce);
-          streamUrl = proxyUrl(`https://main.24playerhd.com/newplaylist/${hash}/${hash}.m3u8`, STREAM_REFERER);
-          process.stdout.write(' ✅\n');
-        } catch (err) {
-          process.stdout.write(` ⚠️  ${err.message}\n`);
+          try {
+            const hash = await getStreamHash(postId, server, epEpisode, nonce);
+            streamUrl = proxyUrl(`https://main.24playerhd.com/newplaylist/${hash}/${hash}.m3u8`, STREAM_REFERER);
+            process.stdout.write(' ✅\n');
+          } catch (err) {
+            process.stdout.write(` ⚠️  ${err.message}\n`);
+          }
         }
 
         const tmdbEp = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
@@ -388,8 +399,9 @@ async function main() {
           release_date: tmdbEp?.air_date || '',
         });
 
-        if (i < epEntries.length - 1) await utils.sleep(600);
+        if (!old && i < epEntries.length - 1) await utils.sleep(600);
       }
+      reuse.summary();
 
       if (autoSplit && !splitEps && !ms) {
         resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset: 0, isDubbedTrack });

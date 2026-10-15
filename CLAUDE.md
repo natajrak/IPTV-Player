@@ -195,6 +195,7 @@ parts (ภาค) → tracks (2 ชั้น) — รองรับหลาย
 --output=FILENAME.txt    ชื่อไฟล์ผลลัพธ์
 --tmdb-id=N              ระบุ TMDB ID ตรงๆ
 --update-meta[=poster|cover|title]   อัปเดต metadata อย่างเดียว
+--only-new               ใช้ stream URL เดิมของตอนที่มีในไฟล์แล้ว ดึงใหม่เฉพาะตอนใหม่ (series, lib/stream-reuse.js)
 ```
 
 ### fetch-fairyanime.js

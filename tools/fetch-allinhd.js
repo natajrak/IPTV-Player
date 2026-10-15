@@ -23,6 +23,7 @@
  *   --type=KIND        anime-series|anime-movie|movie|series (default: movie)
  *   --update-meta[=poster|cover|title]
  *                      อัปเดต metadata จาก TMDB โดยไม่ fetch stream URLs ใหม่
+ *   --only-new         ไม่มีผล — ต้อง resolve ทุกตอนก่อนจึงรู้ลำดับตอน (ตอนที่ resolve ไม่ได้ถูกตัดทิ้ง)
  *
  * ─── Stream URL ──────────────────────────────────────────────────────────
  *   embed iframe → movieid → https://player3.fastfastcdn.com/ttplaylist_{movieid}.m3u8
@@ -50,6 +51,10 @@ let { seriesUrl: pageUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackArg, seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
       forceTmdbId, tmdbSeasonNum, epOffset, splitEps, autoSplit,
       seasonMap, multiSeason, typeArg, filterTrack } = cli;
+
+if (cli.onlyNew && !updateMeta) {
+  console.log('ℹ️  --only-new ไม่มีผลกับ allinhd — ลำดับตอนรู้ได้หลัง resolve ทุกตอน (ตอนที่ resolve ไม่ได้ถูกตัดทิ้ง)');
+}
 // allinhd: --track may override; otherwise auto-detect from page
 const trackNameOverride = cli.trackArg ? cli.trackName : null;
 

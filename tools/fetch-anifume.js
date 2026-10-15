@@ -24,6 +24,7 @@
  *   --season-map=A,B  ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
+ *   --only-new        ไม่มีผล — ลิงก์ mp4 ของ anifume หมดอายุ จึงดึงใหม่ทุกตอนเสมอ
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
  *   - หน้า anime มีทั้ง sub/dub และอาจมีหลาย season ในที่หน้าเดียว
@@ -68,6 +69,10 @@ let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
       forceTmdbId, tmdbSeasonNum, epOffset, splitEps, autoSplit,
       seasonMap, multiSeason, typeArg, filterTrack } = cli;
+
+if (cli.onlyNew && !updateMeta) {
+  console.log('ℹ️  --only-new ไม่มีผลกับ anifume — ลิงก์ mp4 มีลายเซ็นและหมดอายุใน 2-3 วัน ต้องดึงใหม่ทุกตอน');
+}
 
 // Override default: anifume defaults to พากย์ไทย if --track= not specified
 let trackName = cli.trackName;

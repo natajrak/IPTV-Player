@@ -25,6 +25,7 @@
  *   --season-map=A,B  ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
+ *   --only-new        ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
  *   - Anime page → list ของ /watch/{slug}/ URLs (1 URL = 1 track)
@@ -53,6 +54,7 @@ const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
 const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 const { carryOverFetchedSkips } = require('./lib/skip-times');
+const { createStreamReuse } = require('./lib/stream-reuse');
 
 loadEnv(__dirname);
 
@@ -61,7 +63,7 @@ const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       seasonNum, seasonName, updateMeta, updateMetaMode, noTouch,
       forceTmdbId, tmdbSeasonNum, epOffset, splitEps, autoSplit, partNum,
-      seasonMap, multiSeason, typeArg, filterTrack } = cli;
+      seasonMap, multiSeason, typeArg, filterTrack, onlyNew } = cli;
 
 // Override default: anime-loki defaults to พากย์ไทย if --track= not specified
 let trackName = cli.trackName;
@@ -349,6 +351,17 @@ async function main() {
       throw new Error('multi-season: มีตอน "(รออัพ)" ที่จะถูกข้าม ทำให้แบ่ง season คลาดเคลื่อน — รอให้ครบก่อน');
     }
 
+    const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
+    const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
+    const resolvedIdPrefix = idPrefixArg || String(tmdbShow?.id || '');
+    const outputFile = resolvedIdPrefix ? `${resolvedIdPrefix}-${slugFile}` : slugFile;
+    const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
+
+    const reuse = createStreamReuse({
+      enabled: onlyNew && !isMovie, previous: io.loadPlaylist(outputPath),
+      trackName, sourceUrl: seriesUrl, seasonName, seasonNum, epOffset: ms ? 0 : epOffset,
+    });
+
     console.log(`\n🔗 กำลัง fetch stream URLs (${episodes.length} ตอน)...`);
     const stations = [];
 
@@ -360,17 +373,6 @@ async function main() {
       if (ep.isPending) {
         console.log(' ⏭  (รออัพ — ข้าม)');
         continue;
-      }
-
-      let streamUrl = null;
-      try {
-        const videoId   = await getVideoId(ep.url);
-        const rawStream = await getRawStreamUrl(videoId, ep.url);
-        streamUrl       = wrapWithProxy(rawStream);
-        const hashMatch = rawStream.match(/\/file\/([A-Za-z0-9]+)/);
-        process.stdout.write(` video_id=${videoId} hash=${hashMatch ? hashMatch[1] : '?'}`);
-      } catch (err) {
-        console.warn(` ⚠️  ${err.message}`);
       }
 
       let tmdbEpNum, label, tmdbEp;
@@ -386,6 +388,23 @@ async function main() {
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
           || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i + epOffset]);
       }
+
+      const old = reuse.find(label, { notUrls: [ep.url], season: ms ? `Season ${ms.assign[i].seasonNum}` : null });
+      let streamUrl = old?.url || null;
+      if (old) {
+        process.stdout.write(' ♻️  ใช้ลิงก์เดิม');
+      } else {
+        try {
+          const videoId   = await getVideoId(ep.url);
+          const rawStream = await getRawStreamUrl(videoId, ep.url);
+          streamUrl       = wrapWithProxy(rawStream);
+          const hashMatch = rawStream.match(/\/file\/([A-Za-z0-9]+)/);
+          process.stdout.write(` video_id=${videoId} hash=${hashMatch ? hashMatch[1] : '?'}`);
+        } catch (err) {
+          console.warn(` ⚠️  ${err.message}`);
+        }
+      }
+
       const epTitle = tmdbEp?.name || '';
       const epThumb = tmdbEp?.still_path
         ? `${tmdb.TMDB_IMG}${tmdbEp.still_path}`
@@ -401,18 +420,13 @@ async function main() {
       });
 
       console.log(' ✅');
-      if (i < episodes.length - 1) await utils.sleep(500);
+      if (!old && i < episodes.length - 1) await utils.sleep(500);
     }
+    reuse.summary();
 
     if (autoSplit && !splitEps && !isMovie && !ms) {
       resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
     }
-
-    const slug = customOutput || utils.slugify(seriesTitle.replace(/\[.*?\]/g, '').replace(/\(.*?\)/g, '').trim());
-    const slugFile = slug.endsWith('.txt') ? slug : `${slug}.txt`;
-    const resolvedIdPrefix = idPrefixArg || String(tmdbShow?.id || '');
-    const outputFile = resolvedIdPrefix ? `${resolvedIdPrefix}-${slugFile}` : slugFile;
-    const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
 
     if (isMovie) {
       const s = stations[0];

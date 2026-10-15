@@ -617,6 +617,8 @@
     .fm-script-home.hidden { display: none; }
 
     .fm-radio-grp { display: flex; gap: 18px; }
+    .rf-mode-note { display: block; margin-top: 6px; font-size: 12px; color: var(--text3); }
+    .rf-mode-note.hidden { display: none; }
     .fm-radio-grp label {
       display: flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--text);
@@ -1189,6 +1191,14 @@
           <label><input type="radio" name="rf-track" value="th" checked> พากย์ไทย</label>
           <label><input type="radio" name="rf-track" value="subth"> ซับไทย</label>
         </div>
+      </div>
+      <div class="fm-row" id="rf-mode-row">
+        <label>Re-fetch</label>
+        <div class="fm-radio-grp">
+          <label><input type="radio" name="rf-mode" value="new" checked> เฉพาะตอนใหม่ (เร็ว)</label>
+          <label><input type="radio" name="rf-mode" value="all"> ทั้งหมด (ดึง stream ใหม่ทุกตอน)</label>
+        </div>
+        <span class="rf-mode-note hidden" id="rf-mode-note"></span>
       </div>
       <div class="fm-row" id="rf-season-row">
         <label>Season</label>
@@ -3730,6 +3740,14 @@ document.getElementById('bm-log-clear').addEventListener('click', () => { docume
 // ── Refetch Streams Modal ────────────────────────────────────────
 let rfCtx = {};
 
+/** script ที่ --only-new ไม่มีผล → CMS ไม่ส่ง flag และบอกเหตุผล */
+const ONLY_NEW_NOOP = {
+  'fetch-anifume.js': 'ลิงก์ของ anifume หมดอายุใน 2-3 วัน',
+  'fetch-24hd.js': '24hd ได้ลิงก์ทุกตอนจากหน้ารายการในครั้งเดียวอยู่แล้ว',
+  'fetch-allinhd.js': 'allinhd ต้อง resolve ทุกตอนก่อนจึงรู้ลำดับตอน',
+  'fetch-fairy-tail-multi.js': 'สคริปต์นี้ไม่รองรับ',
+};
+
 function scriptFromReferer(url) {
   if (!url) return null;
   try {
@@ -3786,6 +3804,8 @@ function openRefetchModal(referer, filename, season, track, tabId, mainSlug = ''
   document.getElementById('rf-season-map').value = '';
   syncSeasonRow('rf');
   document.querySelector(`input[name="rf-track"][value="${track}"]`).checked = true;
+  document.getElementById('rf-mode-row').style.display = isSeries ? '' : 'none';
+  document.querySelector('input[name="rf-mode"][value="new"]').checked = true;
   document.getElementById('rf-fname').value        = slug;
   document.getElementById('rf-log').classList.add('hidden');
   document.getElementById('rf-log-body').textContent = '';
@@ -3819,8 +3839,16 @@ function buildRfCmd() {
   if (groups.length > 1 && msOn) {
     return { error: true, cmd: '(Multi-season / season-map ใช้กับ URL หลายสคริปต์ไม่ได้ — ปิดตัวเลือกนั้น หรือใช้สคริปต์เดียว)' };
   }
+  const onlyNew = rfIsSeries && document.querySelector('input[name="rf-mode"]:checked')?.value === 'new';
+  const autoSplitOn = !rfSplitVal && document.getElementById('rf-auto-split').checked;
+  const note = !onlyNew ? ''
+    : groups.length > 1 ? 'URL หลายสคริปต์ต่อกัน — ขั้นแรกเขียนทับ track ก่อน ขั้นถัดไปจึงหาลิงก์เดิมไม่เจอ ต้องดึงใหม่ทั้งหมด'
+    : autoSplitOn ? 'ตรวจจับตอนพิเศษอัตโนมัติจะจัดชื่อตอนใหม่หลังดึง จึงจับคู่ตอนเดิมไม่ได้'
+    : ONLY_NEW_NOOP[groups[0].file] || '';
+  if (onlyNew && !note) baseArgs.push('--only-new');
   const built = buildScriptSteps(groups, baseArgs);
   built.target = { tabId: rfCtx.tabId, fname, seasonNum: season, trackName: track === 'subth' ? 'ซับไทย' : 'พากย์ไทย' };
+  built.note = note;
   return built;
 }
 
@@ -3829,6 +3857,9 @@ function refreshRfCmd() {
   const p = buildRfCmd();
   cmdEl.textContent = p ? p.cmd : '(กรุณากรอก URL และ Output)';
   cmdEl.className   = p && !p.error ? 'cmd-text' : 'cmd-text placeholder';
+  const noteEl = document.getElementById('rf-mode-note');
+  noteEl.textContent = p?.note ? `ดึงใหม่ทั้งหมด: ${p.note}` : '';
+  noteEl.classList.toggle('hidden', !p?.note);
 }
 
 async function runRefetch() {
@@ -3858,7 +3889,7 @@ document.getElementById('rf-log-clear').addEventListener('click', () => { docume
 ['rf-script','rf-fname','rf-season','rf-split'].forEach(id => document.getElementById(id).addEventListener('input', refreshRfCmd));
 document.getElementById('rf-auto-split').addEventListener('change', refreshRfCmd);
 ['rf-multi-season','rf-season-map'].forEach(id => document.getElementById(id).addEventListener(id.endsWith('map') ? 'input' : 'change', () => { syncSeasonRow('rf'); refreshRfCmd(); }));
-document.querySelectorAll('input[name="rf-track"]').forEach(r => r.addEventListener('change', refreshRfCmd));
+document.querySelectorAll('input[name="rf-track"],input[name="rf-mode"]').forEach(r => r.addEventListener('change', refreshRfCmd));
 document.getElementById('rf-script').addEventListener('change', () => {
   updateScriptHome('rf-script', 'rf-script-home', ADD_SCRIPTS[rfCtx.tabId] || [], 'file');
 });

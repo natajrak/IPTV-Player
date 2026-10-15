@@ -28,6 +28,7 @@
  *   --auto-split       ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                      ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --type=KIND        default: auto-detect (series/movie)
+ *   --only-new         ไม่มีผล — ลิงก์ทุกตอนได้จากหน้ารายการในครั้งเดียว ไม่มีขั้น resolve รายตอนให้ข้าม
  */
 
 const cheerio = require('cheerio');
@@ -53,6 +54,10 @@ let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       updateMeta, updateMetaMode, noTouch,
       forceTmdbId, splitEps, autoSplit,
       seasonMap, multiSeason, typeArg, filterTrack } = cli;
+
+if (cli.onlyNew && !updateMeta) {
+  console.log('ℹ️  --only-new ไม่มีผลกับ 24hd — ลิงก์ทุกตอนได้จากหน้ารายการในครั้งเดียวอยู่แล้ว');
+}
 
 if (!seriesUrl && !updateMeta) {
   console.error('Usage: node fetch-24hd.js <url>[,url2,...] [--track=th|subth] [--season=N] [--output=FILE]');

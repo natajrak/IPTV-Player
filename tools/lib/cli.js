@@ -45,6 +45,12 @@ function parseArgs(argv = process.argv) {
   const splitEps = get('--split-eps');
   const autoSplit = args.includes('--auto-split');
 
+  const onlyNewArg = args.includes('--only-new');
+  const onlyNew = onlyNewArg && !(autoSplit && !splitEps);
+  if (onlyNewArg && !onlyNew && !updateMeta) {
+    console.log('ℹ️  --only-new ใช้กับ --auto-split ไม่ได้ (ชื่อตอนถูกจัดใหม่หลังวัดความยาว) — ดึงใหม่ทุกตอน');
+  }
+
   const seasonMap = get('--season-map');
   const multiSeason = args.includes('--multi-season');
 
@@ -69,6 +75,7 @@ function parseArgs(argv = process.argv) {
     updateMeta,
     updateMetaMode,
     noTouch,
+    onlyNew,
     silent,
     forceTmdbId,
     tmdbSeasonNum,

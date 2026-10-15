@@ -31,6 +31,7 @@
  *   --auto-split       ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                      ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --type=KIND        default: series
+ *   --only-new         ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
  */
 
 const cheerio = require('cheerio');
@@ -47,6 +48,7 @@ const { runUpdateMeta } = require('./lib/update-meta');
 const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
 const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 const { carryOverFetchedSkips } = require('./lib/skip-times');
+const { createStreamReuse } = require('./lib/stream-reuse');
 
 loadEnv(__dirname);
 
@@ -55,7 +57,7 @@ let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch,
       forceTmdbId, splitEps, autoSplit,
-      seasonMap, multiSeason, typeArg, filterTrack } = cli;
+      seasonMap, multiSeason, typeArg, filterTrack, onlyNew } = cli;
 const epOffsetArg = cli.get('--ep-offset');
 let epOffset = cli.epOffset || 0;
 const HDX_COOKIES = (process.env.HDX_COOKIES || '').trim();
@@ -394,6 +396,10 @@ async function main() {
       const stations = [];
       let resolvedSplitEps = splitEps;
       const splitMap = resolvedSplitEps ? buildEpisodeMap({ sourceCount: epEntries.length, epOffset, splitEps: resolvedSplitEps }) : null;
+      const reuse = createStreamReuse({
+        enabled: onlyNew && !isMovieContent, previous: io.loadPlaylist(outputPath),
+        trackName, sourceUrl: urls[0], seasonName, seasonNum, epOffset: 0,
+      });
 
       for (let i = 0; i < epEntries.length; i++) {
         const [epNum, epUrl] = epEntries[i];
@@ -404,41 +410,46 @@ async function main() {
         if (ms) ({ label: epLabel, tmdbEp: msEp } = episodeAt(ms, i));
         process.stdout.write(`  ตอน ${epNum}/${epEntries.length}...`);
 
-        // ต่างจาก 123-hds: ทุก ep ต้อง fetch page + extract nonce ของตัวเอง
-        let epHalim;
-        try {
-          epHalim = (i === 0 && !isMultiUrl) ? firstHalim : await getEpParams(epUrl);
-        } catch (err) {
-          process.stdout.write(` ⚠️  fetch page: ${err.message}\n`);
-          const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
-          stations.push({
-            name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
-            url: epUrl, referer: STREAM_REFERER,
-            release_date: tmdbEpFallback?.air_date || '',
-          });
-          if (i < epEntries.length - 1) await utils.sleep(500);
-          continue;
-        }
+        const old = reuse.find(epLabel, { notUrls: [epUrl], season: ms ? `Season ${ms.assign[i].seasonNum}` : null });
+        let streamUrl = old?.url || null;
+        if (old) {
+          process.stdout.write(' ♻️  ใช้ลิงก์เดิม ✅\n');
+        } else {
+          // ต่างจาก 123-hds: ทุก ep ต้อง fetch page + extract nonce ของตัวเอง
+          let epHalim;
+          try {
+            epHalim = (i === 0 && !isMultiUrl) ? firstHalim : await getEpParams(epUrl);
+          } catch (err) {
+            process.stdout.write(` ⚠️  fetch page: ${err.message}\n`);
+            const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
+            stations.push({
+              name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
+              url: epUrl, referer: STREAM_REFERER,
+              release_date: tmdbEpFallback?.air_date || '',
+            });
+            if (i < epEntries.length - 1) await utils.sleep(500);
+            continue;
+          }
 
-        if (!epHalim.postId || !epHalim.nonce) {
-          process.stdout.write(` ⚠️  ขาด post_id/nonce\n`);
-          const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
-          stations.push({
-            name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
-            url: epUrl, referer: STREAM_REFERER,
-            release_date: tmdbEpFallback?.air_date || '',
-          });
-          if (i < epEntries.length - 1) await utils.sleep(500);
-          continue;
-        }
+          if (!epHalim.postId || !epHalim.nonce) {
+            process.stdout.write(` ⚠️  ขาด post_id/nonce\n`);
+            const tmdbEpFallback = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
+            stations.push({
+              name: utils.buildStationName(epLabel, tmdbEpFallback?.name || '', isDubbedTrack),
+              url: epUrl, referer: STREAM_REFERER,
+              release_date: tmdbEpFallback?.air_date || '',
+            });
+            if (i < epEntries.length - 1) await utils.sleep(500);
+            continue;
+          }
 
-        let streamUrl = null;
-        try {
-          const hash = await getStreamHash(epHalim.postId, epHalim.nonce, epHalim.episode, trackServer, epUrl);
-          streamUrl = proxyUrl(buildStreamUrl(hash), STREAM_REFERER);
-          process.stdout.write(` ${hash.substring(0, 8)}… ✅\n`);
-        } catch (err) {
-          process.stdout.write(` ⚠️  ${err.message}\n`);
+          try {
+            const hash = await getStreamHash(epHalim.postId, epHalim.nonce, epHalim.episode, trackServer, epUrl);
+            streamUrl = proxyUrl(buildStreamUrl(hash), STREAM_REFERER);
+            process.stdout.write(` ${hash.substring(0, 8)}… ✅\n`);
+          } catch (err) {
+            process.stdout.write(` ⚠️  ${err.message}\n`);
+          }
         }
 
         const tmdbEp = ms ? msEp : (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || (mapped ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i]));
@@ -452,8 +463,9 @@ async function main() {
           release_date: tmdbEp?.air_date || '',
         });
 
-        if (i < epEntries.length - 1) await utils.sleep(600);
+        if (!old && i < epEntries.length - 1) await utils.sleep(600);
       }
+      reuse.summary();
 
       if (autoSplit && !splitEps && !ms) {
         resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
