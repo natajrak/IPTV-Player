@@ -1303,7 +1303,7 @@ const PREVIEW_BLOB_CACHE = new Map();
 const PREVIEW_HOVER_DELAY = 400;
 function derivePreviewUrl(coverUrl) {
   if (!coverUrl) return null;
-  const m = String(coverUrl).match(/^(https?:\/\/[^/]+)\/img2\/([a-f0-9]+)\/([^/]+)\/cover\.[a-z]+$/i);
+  const m = String(coverUrl).match(/^(https?:\/\/[^/]+)\/img2\/(?:s\d+\/)?([a-f0-9]+)\/([^/?#]+)\/cover\.[a-z]+(?:[?#].*)?$/i);
   if (!m) return null;
   return `${m[1]}/preview/${m[2]}/${m[3]}/preview.mp4`;
 }
@@ -1682,7 +1682,7 @@ function _fetchPartStations() {
       const stations = (_node$stations3 = node.stations) !== null && _node$stations3 !== void 0 && _node$stations3.length ? node.stations : ((_node$groups2 = node.groups) === null || _node$groups2 === void 0 || (_node$groups2 = _node$groups2[0]) === null || _node$groups2 === void 0 ? void 0 : _node$groups2.stations) || [];
       moviePartCache[url] = stations;
       return stations;
-    } catch (_unused3) {
+    } catch (_unused4) {
       return [];
     }
   });
@@ -1946,7 +1946,8 @@ function playEpisode(index, inheritedReferer) {
     displayMain = episodeTitle;
     displaySub = currentSeasonTitle;
   }
-  playerTitle.innerHTML = `<span class="player-title-main">${esc(displayMain)}</span>${displaySub ? `<span class="player-title-sub">${esc(displaySub)}</span>` : ""}`;
+  const titleBadge = isAvMode && station.badge ? `<span class="player-title-badge">${esc(station.badge)}</span>` : "";
+  playerTitle.innerHTML = `<span class="player-title-row"><span class="player-title-main">${esc(displayMain)}</span>${titleBadge}</span>${displaySub ? `<span class="player-title-sub">${esc(displaySub)}</span>` : ""}`;
   btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
   btnNextEp.disabled = !resolveAdjacentEpisode(1);
   btnEpisodes.innerHTML = `${EPISODES_ICON}<span>${index + 1}/${currentStations.length}</span>`;
@@ -2293,7 +2294,7 @@ function parseVttTime(str) {
   if (parts.length === 2) return +parts[0] * 60 + parseFloat(parts[1]);
   return parseFloat(str);
 }
-function parseVttThumbnails(vttText, baseUrl) {
+function parseVttThumbnails(vttText, resolveImg) {
   const cues = [];
   const blocks = vttText.replace(/\r\n/g, "\n").split(/\n\n+/);
   for (const block of blocks) {
@@ -2306,7 +2307,7 @@ function parseVttThumbnails(vttText, baseUrl) {
     const imgLine = lines.find(l => l.includes("#xywh=") || /\.(jpg|jpeg|png|webp)/i.test(l));
     if (!imgLine) continue;
     const [imgPath, fragment] = imgLine.trim().split("#xywh=");
-    const url = imgPath.startsWith("http") ? imgPath : baseUrl + imgPath;
+    const url = resolveImg(imgPath);
     let x = 0,
       y = 0,
       w = 160,
@@ -2334,13 +2335,30 @@ function parseVttThumbnails(vttText, baseUrl) {
 }
 function getPreviewUrls(streamUrl) {
   if (!streamUrl) return null;
-  const match = streamUrl.match(/^(https?:\/\/.+\/)video\.m3u8/);
+  let raw = streamUrl;
+  let wrap = u => u;
+  try {
+    const outer = new URL(streamUrl);
+    const inner = outer.searchParams.get("url");
+    if (inner) {
+      raw = inner;
+      wrap = u => {
+        const w = new URL(outer.href);
+        w.searchParams.set("url", u);
+        return w.href;
+      };
+    }
+  } catch (_unused3) {
+    return null;
+  }
+  const match = raw.match(/^(https?:\/\/.+\/)video\.m3u8(?:[?#]|$)/);
   if (!match) return null;
   const base = match[1];
+  const resolve = path => wrap(/^https?:/i.test(path) ? path : base + path);
   return {
-    vtt: base + "preview.vtt",
-    sprite: base + "preview.jpg",
-    base
+    vtt: resolve("preview.vtt"),
+    sprite: resolve("preview.jpg"),
+    resolve
   };
 }
 function loadSeekPreview() {
@@ -2357,7 +2375,7 @@ function loadSeekPreview() {
     if (!r.ok) throw new Error(r.status);
     return r.text();
   }).then(text => {
-    seekPreviewCues = parseVttThumbnails(text, urls.base);
+    seekPreviewCues = parseVttThumbnails(text, urls.resolve);
     seekPreviewSpriteUrl = urls.sprite;
     if (seekPreviewCues.length > 0) {
       const img = new Image();

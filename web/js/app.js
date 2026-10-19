@@ -1646,7 +1646,7 @@ const PREVIEW_HOVER_DELAY = 400;
 function derivePreviewUrl(coverUrl) {
   if (!coverUrl) return null;
   const m = String(coverUrl).match(
-    /^(https?:\/\/[^/]+)\/img2\/([a-f0-9]+)\/([^/]+)\/cover\.[a-z]+$/i,
+    /^(https?:\/\/[^/]+)\/img2\/(?:s\d+\/)?([a-f0-9]+)\/([^/?#]+)\/cover\.[a-z]+(?:[?#].*)?$/i,
   );
   if (!m) return null;
   return `${m[1]}/preview/${m[2]}/${m[3]}/preview.mp4`;
@@ -2436,7 +2436,11 @@ function playEpisode(index, inheritedReferer) {
     displayMain = episodeTitle;
     displaySub = currentSeasonTitle;
   }
-  playerTitle.innerHTML = `<span class="player-title-main">${esc(displayMain)}</span>${displaySub ? `<span class="player-title-sub">${esc(displaySub)}</span>` : ""}`;
+  const titleBadge =
+    isAvMode && station.badge
+      ? `<span class="player-title-badge">${esc(station.badge)}</span>`
+      : "";
+  playerTitle.innerHTML = `<span class="player-title-row"><span class="player-title-main">${esc(displayMain)}</span>${titleBadge}</span>${displaySub ? `<span class="player-title-sub">${esc(displaySub)}</span>` : ""}`;
   btnPrevEp.disabled = !resolveAdjacentEpisode(-1);
   btnNextEp.disabled = !resolveAdjacentEpisode(1);
   btnEpisodes.innerHTML = `${EPISODES_ICON}<span>${index + 1}/${currentStations.length}</span>`;
@@ -2935,8 +2939,8 @@ function parseVttTime(str) {
   return parseFloat(str);
 }
 
-/** Parse VTT text → array of cues with sprite coordinates */
-function parseVttThumbnails(vttText, baseUrl) {
+/** Parse VTT text → array of cues with sprite coordinates (resolveImg: path ใน VTT → URL ที่โหลดได้) */
+function parseVttThumbnails(vttText, resolveImg) {
   const cues = [];
   // Split by double-newline (cue blocks)
   const blocks = vttText.replace(/\r\n/g, "\n").split(/\n\n+/);
@@ -2954,7 +2958,7 @@ function parseVttThumbnails(vttText, baseUrl) {
     );
     if (!imgLine) continue;
     const [imgPath, fragment] = imgLine.trim().split("#xywh=");
-    const url = imgPath.startsWith("http") ? imgPath : baseUrl + imgPath;
+    const url = resolveImg(imgPath);
     let x = 0,
       y = 0,
       w = 160,
@@ -2973,13 +2977,33 @@ function parseVttThumbnails(vttText, baseUrl) {
   return cues;
 }
 
-/** Derive preview VTT/sprite URLs จาก stream URL (AV wowstream pattern) */
+/**
+ * Derive preview VTT/sprite URLs จาก stream URL — preview.vtt / preview.jpg อยู่ folder เดียวกับ video.m3u8
+ * stream ที่ห่อ hls-proxy (?url=...&referer=...) → ห่อไฟล์ preview ผ่าน proxy เดิมด้วย เพราะ CDN เช็ค Referer
+ */
 function getPreviewUrls(streamUrl) {
   if (!streamUrl) return null;
-  const match = streamUrl.match(/^(https?:\/\/.+\/)video\.m3u8/);
+  let raw = streamUrl;
+  let wrap = (u) => u;
+  try {
+    const outer = new URL(streamUrl);
+    const inner = outer.searchParams.get("url");
+    if (inner) {
+      raw = inner;
+      wrap = (u) => {
+        const w = new URL(outer.href);
+        w.searchParams.set("url", u);
+        return w.href;
+      };
+    }
+  } catch {
+    return null;
+  }
+  const match = raw.match(/^(https?:\/\/.+\/)video\.m3u8(?:[?#]|$)/);
   if (!match) return null;
   const base = match[1];
-  return { vtt: base + "preview.vtt", sprite: base + "preview.jpg", base };
+  const resolve = (path) => wrap(/^https?:/i.test(path) ? path : base + path);
+  return { vtt: resolve("preview.vtt"), sprite: resolve("preview.jpg"), resolve };
 }
 
 /** โหลด VTT ของ episode ปัจจุบัน (AV เท่านั้น) */
@@ -2999,7 +3023,7 @@ function loadSeekPreview() {
       return r.text();
     })
     .then((text) => {
-      seekPreviewCues = parseVttThumbnails(text, urls.base);
+      seekPreviewCues = parseVttThumbnails(text, urls.resolve);
       seekPreviewSpriteUrl = urls.sprite;
       // Preload sprite image
       if (seekPreviewCues.length > 0) {
