@@ -8,6 +8,26 @@
 
 ---
 
+## กฎการทำงาน (ใช้ทั้ง local และ cloud session)
+
+- ตอบเป็นภาษาไทย
+- **ก่อนเขียนโค้ด** เสนอ plan ก่อน (ข้อความ หรือ PlantUML) แล้วรอผู้ใช้อนุญาต
+- **หลังเขียนโค้ด** ให้ sub-agent validate งานทุกครั้ง โดยส่ง plan ให้ validator เข้าใจเจตนาด้วย
+- ห้ามเดา ห้ามใช้วิธีลัด/hack ให้แค่ "พอรันได้" ห้ามทำเกิน scope ที่ตกลง — ข้อมูลไม่พอหรือไม่มั่นใจให้ถามก่อน
+- ลด comment `//` และ `/* */` ให้น้อยที่สุด ใช้ docBlock `/** */` ได้
+- **Commit**:
+  - local — ผู้ใช้ commit เอง เว้นแต่สั่งให้ commit/push
+  - cloud session (`$CLAUDE_CODE_REMOTE=true`) — commit ลง branch แยกแล้วเปิด PR ห้าม push เข้า `main` ตรง (ผู้ใช้ merge เอง)
+
+### งานที่ต้องทำบนเครื่อง local (cloud ทำไม่ได้)
+
+- **AV** (`fetch-123av.js`, `--refresh-stream`) — 123av บล็อก IP datacenter ดึงได้จาก IP บ้านเท่านั้น
+- **Build APK** (`android/`) — ต้องใช้ JDK 17 + Android SDK บนเครื่อง
+- **CMS / ทดสอบใน browser จริง** — ใช้ dev server `localhost:4000`
+- fetch script อื่นบน cloud: ต้องเปิด network ของ environment ให้ถึงโดเมนเว็บนั้น + `api.themoviedb.org` และตั้ง env `TMDB_API_KEY` (เพราะ `tools/.env` ไม่อยู่ใน git) — บางเว็บอาจบล็อก IP cloud
+
+---
+
 ## Repository
 
 - **GitHub**: `natajrak/IPTV-Player` (branch: `main`)

@@ -1,6 +1,7 @@
 git-push.bat
 serve-web.bat
-.claude/
+.claude/*
+!.claude/settings.json
 
 # tools
 tools/node_modules/
