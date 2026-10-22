@@ -1,0 +1,85 @@
+##### app-Dp3E9sRe.js
+
+m.f||(m.f=["assets/Anime-ONRkgpjO.js","assets/AdsBannerGrid-CBSDAXfJ.js","assets/_plugin-vue_export-helper-DlAUqK2U.js","assets/CommentSection.vue_vue_type_script_setup_true_lang-B-Jodvq8.js","assets/TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js","assets/useImageFallback-BZLsBBZQ.js","assets/useImageOptimizer-BlgxJ_Jr.js","assets/AppLayout.vue_vue_type_script_setup_true_lang-D5-N
+
+e))&&ft(e.then)&&ft(e.catch),Qd=((e,t)=>e?setImmediate:t?((r,n)=>(jr.addEventListener("message",({source:i,data:o})=>{i===jr&&o===r&&n.length&&n.shift()()},!1),i=>{n.push(i),jr.postMessage(r,"*")}))(`axios@${Math.random()}`,[]):r=>setTimeout(r))(typeof setImmediate=="function",ft(jr.postMessage)),c_=typeof queueMicrotask<"u"?queueMicrotask.bind(jr):typeof process<"u"&&process.nextTick||Qd,u_=e=>e!
+
+=null&&a.status==null&&(a.status=t.status),s&&Object.assign(a,s),a}constructor(t,r,n,i,o){super(t),Object.defineProperty(this,"message",{value:t,enumerable:!0,writable:!0,configurable:!0}),this.name="AxiosError",this.isAxiosError=!0,r&&(this.code=r),n&&(this.config=n),i&&(this.request=i),o&&(this.response=o,this.status=o.status)}toJSON(){return{message:this.message,name:this.name,description:this.
+
+es(this.toJSON())[Symbol.iterator]()}toString(){return Object.entries(this.toJSON()).map(([t,r])=>t+": "+r).join(` `)}getSetCookie(){return this.get("set-cookie")||[]}get[Symbol.toStringTag](){return"AxiosHeaders"}static from(t){return t instanceof this?t:new this(t)}static concat(t,...r){const n=new this(t);return r.forEach(i=>n.set(i)),n}static accessor(t){const n=(this[qu]=this[qu]={accessors:{
+
+ct","boolean","number","function","string","symbol"].forEach((e,t)=>{$o[e]=function(n){return typeof n===e||"a"+(t<1?"n ":" ")+e}});const Zu={};$o.transitional=function(t,r,n){function i(o,s){return"[Axios v"+ch+"] Transitional option '"+o+"'"+s+(n?". "+n:"")}return(o,s,a)=>{if(t===!1)throw new ee(i(s," has been removed"+(r?" in "+r:"")),ee.ERR_DEPRECATED);return r&&!Zu[s]&&(Zu[s]=!0,console.warn(
+
+this.unsubscribe(r),t.signal}static source(){let t;return{token:new uh(function(i){t=i}),cancel:t}}};function rS(e){return function(r){return e.apply(null,r)}}function nS(e){return M.isObject(e)&&e.isAxiosError===!0}const qa={Continue:100,SwitchingProtocols:101,Processing:102,EarlyHints:103,Ok:200,Created:201,Accepted:202,NonAuthoritativeInformation:203,NoContent:204,ResetContent:205,PartialConten
+
+fh(e){const t=new Hr(e),r=Wd(Hr.prototype.request,t);return M.extend(r,Hr.prototype,t,{allOwnKeys:!0}),M.extend(r,t,null,{allOwnKeys:!0}),r.create=function(i){return fh(Gr(e,i))},r}const ke=fh(pi);ke.Axios=Hr;ke.CanceledError=gi;ke.CancelToken=tS;ke.isCancel=nh;ke.VERSION=ch;ke.toFormData=Fo;ke.AxiosError=ee;ke.Cancel=ke.CanceledError;ke.all=function(t){return Promise.all(t)};ke.spread=rS;ke.isAxi
+
+CancelToken=tS;ke.isCancel=nh;ke.VERSION=ch;ke.toFormData=Fo;ke.AxiosError=ee;ke.Cancel=ke.CanceledError;ke.all=function(t){return Promise.all(t)};ke.spread=rS;ke.isAxiosError=nS;ke.mergeConfig=Gr;ke.AxiosHeaders=dt;ke.formToJSON=e=>rh(M.isHTMLForm(e)?new FormData(e):e);ke.getAdapter=lh.getAdapter;ke.HttpStatusCode=qa;ke.default=ke;const{Axios:UA,AxiosError:WA,CanceledError:VA,isCancel:dh,CancelTo
+
+.isHTMLForm(e)?new FormData(e):e);ke.getAdapter=lh.getAdapter;ke.HttpStatusCode=qa;ke.default=ke;const{Axios:UA,AxiosError:WA,CanceledError:VA,isCancel:dh,CancelToken:KA,VERSION:GA,all:zA,Cancel:JA,isAxiosError:hh,spread:XA,toFormData:QA,AxiosHeaders:YA,HttpStatusCode:ZA,formToJSON:eO,getAdapter:tO,mergeConfig:iS}=ke;var oS=class{constructor(e){this.config={},this.defaults=e}extend(e){return e&&(t
+
+,e,t,r)),post:(e,t={},r={})=>Ln(Dn("post",e,t,r)),patch:(e,t={},r={})=>Ln(Dn("patch",e,t,r)),put:(e,t={},r={})=>Ln(Dn("put",e,t,r)),delete:(e,t={},r={})=>Ln(Dn("delete",e,t,r)),use(e){return ci=e,Pr},axios(){return ci},fingerprintRequestsUsing(e){return Sg=e===null?()=>null:e,Pr},determineSuccessUsing(e){return Eg=e,Pr}},Dn=(e,t,r,n)=>({url:t,method:e,...n,...["get","delete"].includes(e)?{params:N
+
+##### Episode-BRglffOd.js
+
+u,b as e,u as o,e as i,f as x,r as U,h as F,l as g,i as d,t as c,M as G,g as p,F as w,j as M,n as _,k as m}from"./app-Dp3E9sRe.js";import{_ as J}from"./_plugin-vue_export-helper-DlAUqK2U.js";import"./TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js";import"./index-DsPzi5BM.js";const P=["content"],q=["content"],Q=["content"],R=["content"],W=["content"],X={class:"mx-auto max-w-7xl py-
+
+tps://schema.org","@type":"VideoObject",name:`${a.cat_title} - ${t.list_title}`,description:v.value,thumbnailUrl:$.value||void 0,inLanguage:"th"};t.upload_date_iso&&(s.uploadDate=t.upload_date_iso),t.player_url&&(s.embedUrl=t.player_url);const j={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"หน้าแรก",item:"https://kurokamii.com"},{"@
+
+[d(" ← กลับไปหน้าข้อมูลอนิเมะ ",-1)])]),_:1},8,["href"]),e("h1",Z,[d(c(n.anime.cat_title)+" ",1),e("span",ee,c(n.currentEpisode.list_title),1)])]),e("div",te,[e("div",ne,[e("div",se,[n.currentEpisode.player_url?(i(),l("iframe",{key:0,src:n.currentEpisode.player_url,class:"absolute inset-0 h-full w-full",frameborder:"0",allowfullscreen:"",allow:"autoplay; encrypted-media; picture-in-picture",referr
+
+##### CommentSection.vue_vue_type_script_setup_true_lang-B-Jodvq8.js
+
+Ar,S as Rr,B as Un,a as xn,g as $e,t as Ue,E as Te,k as Be,e as z,F as It,j as kn,o as vr,T as ui,U as pi,i as bt,V as Mn,f as bn,W as sr,M as di,X as fi}from"./app-Dp3E9sRe.js";import{_ as hi}from"./TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js";const{entries:Or,setPrototypeOf:or,isFrozen:gi,getPrototypeOf:mi,getOwnPropertyDescriptor:bi}=Object;let{freeze:Oe,seal:Ge,create:Ot}=O
+
+value),u=Be(()=>i.value?.id??r.value?.id??null),c=Be(()=>i.value?.name??r.value?.name??null),f=Te([]),g=Te(!1),E=Te(1),_=Te(1),M=Te(0);async function N(S=1){g.value=!0;try{const F=await(await fetch(`/api/comments/${e.commentableType}/${e.commentableId}?page=${S}`)).json();S===1?f.value=F.data:f.value.push(...F.data),E.value=F.current_page,_.value=F.last_page,M.value=F.total}finally{g.value=!1}}asy
+
+e.commentableId}?page=${S}`)).json();S===1?f.value=F.data:f.value.push(...F.data),E.value=F.current_page,_.value=F.last_page,M.value=F.total}finally{g.value=!1}}async function P(S,m,F){(await fetch("/api/comments",{method:"POST",headers:{"Content-Type":"application/json","X-XSRF-TOKEN":H()},credentials:"same-origin",body:JSON.stringify({body:S,commentable_type:e.commentableType,commentable_id:e.co
+
+,headers:{"Content-Type":"application/json","X-XSRF-TOKEN":H()},credentials:"same-origin",body:JSON.stringify({body:S,commentable_type:e.commentableType,commentable_id:e.commentableId,parent_id:m,"cf-turnstile-response":F??""})})).ok&&await N(1)}async function ne(S,m){(await fetch(`/api/comments/${S}`,{method:"PUT",headers:{"Content-Type":"application/json","X-XSRF-TOKEN":H()},credentials:"same-or
+
+mments/${S}`,{method:"PUT",headers:{"Content-Type":"application/json","X-XSRF-TOKEN":H()},credentials:"same-origin",body:JSON.stringify({body:m})})).ok&&await N(1)}async function fe(S){(await fetch(`/api/comments/${S}`,{method:"DELETE",headers:{"X-XSRF-TOKEN":H()},credentials:"same-origin"})).ok&&await N(1)}async function Q(S,m){const F=await fetch(`/api/comments/${S}/react`,{method:"POST",headers
+
+##### TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js
+
+import{e as h,c as f,d as k,u as s,a as b,B as g,g as y,k as p,X as w}from"./app-Dp3E9sRe.js";const V="https://challenges.cloudflare.com/turnstile/v0/api.js",m="cfTurnstileOnLoad";let n=typeof window<"u"&&window.turnstile!==void 0?"ready":"unloaded",d;const C=k({name:"VueTurnstile",emits:["update:modelValue","error","unsupported","expi
+
+String,required:!1,default:""},appearance:{type:String,required:!1,default:"always"},renderOnMount:{type:Boolean,required:!1,default:!0}},data(){return{resetTimeout:void 0,widgetId:void 0}},computed:{turnstileOptions(){return{sitekey:this.siteKey,theme:this.theme,language:this.language,size:this.size,callback:this.callback,action:this.action,appearance:this.appearance,"error-callback":this.errorCa
+
+{this.$emit("expired")},unsupportedCallback(){this.$emit("unsupported")},errorCallback(t){this.$emit("error",t)},callback(t){this.$emit("update:modelValue",t),this.startResetTimeout()},reset(){window.turnstile&&(this.$emit("update:modelValue",""),window.turnstile.reset())},remove(){this.widgetId&&(window.turnstile.remove(this.widgetId),this.widgetId=void 0)},render(){this.widgetId=window.turnstile
+
+mit("update:modelValue",""),window.turnstile.reset())},remove(){this.widgetId&&(window.turnstile.remove(this.widgetId),this.widgetId=void 0)},render(){this.widgetId=window.turnstile.render(this.$refs.turnstile,this.turnstileOptions)},startResetTimeout(){this.resetTimeout=setTimeout(()=>{this.reset()},this.resetInterval)}},async mounted(){const t=new Promise((r,e)=>{d={resolve:r,reject:e},n==="read
+
+y"},await(()=>{if(n==="unloaded"){n="loading";const r=`${V}?onload=${m}&render=explicit`,e=document.createElement("script");e.src=r,e.async=!0,e.addEventListener("error",()=>{d.reject("Failed to load Turnstile.")}),document.head.appendChild(e)}return t})(),this.renderOnMount&&this.render()},beforeUnmount(){this.remove(),clearTimeout(this.resetTimeout)}}),I=(t,r)=>{const e=t.__vccOpts||t;for(const[
+
+dChild(e)}return t})(),this.renderOnMount&&this.render()},beforeUnmount(){this.remove(),clearTimeout(this.resetTimeout)}}),I=(t,r)=>{const e=t.__vccOpts||t;for(const[a,i]of r)e[a]=i;return e},T={ref:"turnstile"};function $(t,r,e,a,i,l){return h(),f("div",T,null,512)}const q=I(C,[["render",$]]),_={key:0,class:"my-3"},S=k({__name:"TurnstileWidget",props:{modelValue:{}},emits:["update:modelValue"],se
+
+v",T,null,512)}const q=I(C,[["render",$]]),_={key:0,class:"my-3"},S=k({__name:"TurnstileWidget",props:{modelValue:{}},emits:["update:modelValue"],setup(t,{emit:r}){const e=t,a=r,i=w(),l=p(()=>i.props.turnstileSiteKey),o=p({get:()=>e.modelValue??"",set:u=>a("update:modelValue",u)});return(u,c)=>s(l)?(h(),f("div",_,[b(s(q),{modelValue:s(o),"onUpdate:modelValue":c[0]||(c[0]=v=>g(o)?o.value=v:null),"s
+
+##### Anime-ONRkgpjO.js
+
+ as S,o as v}from"./useImageOptimizer-BlgxJ_Jr.js";import{_ as R}from"./AppLayout.vue_vue_type_script_setup_true_lang-D5-N_OBK.js";import{_ as G}from"./_plugin-vue_export-helper-DlAUqK2U.js";import"./TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js";import"./index-DsPzi5BM.js";const J=["content"],U=["content"],W=["content"],Z=["content"],Q=["content"],X={class:"mx-auto max-w-7xl py-
+
+:leading-relaxed prose-p:text-neutral-300 max-w-none text-left"},Fe=["innerHTML"],Re={key:0,class:"mb-8 overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 shadow-lg",style:{"--theme-player-accent":"#ff55a5","--theme-player-accent-fg":"#fff","--theme-player-bg":"#0a0a0a","--theme-player-fg":"#d4d4d4"}},Ge={class:"space-y-6 p-6"},Je={class:"mb-3 text-sm font-bold tracking-wider tex
+
+:"Opening",songs:u.anime.opening_themes},{label:"Ending",songs:u.anime.ending_themes}].filter(o=>o.songs.length>0));N(()=>{j.value.some(o=>o.songs.some(t=>t.youtube!==null))&&V(()=>import("./theme-yt-player-RqNjXgpy.js"),[])});const B=b(()=>({1:"ซับไทย",2:"พากย์ไทย",3:"เดอะมูฟวี่"})[u.anime.cat_type]??"ซับไทย"),L=b(()=>u.anime.episode_list[u.anime.episode_list.length-1]),z=o=>o.list_id,T={1:"ซับไท
+
+y.src,height:c.spotify.height,width:"100%",loading:"lazy",allow:"encrypted-media",title:`Spotify: ${c.name}`,style:{border:"0","border-radius":"12px"}},null,8,Ze)):l("",!0),c.youtube?(i(),a("theme-yt-player",{key:1,"^video-id":c.youtube,"^song":c.name},null,8,Qe)):l("",!0)]))),128))])]))),128))])])):l("",!0),s.anime.characters.length?(i(),a("div",Xe,[t[25]||(t[25]=e("div",{class:"flex items-center
+
+##### AnimeCard.vue_vue_type_script_setup_true_lang-mdS0gY3C.js
+
+##### Login-BfYJmbPU.js
+
+import{_ as b}from"./TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js";import{d as w,ac as _,c as l,a,u as r,h as g,w as f,b as t,V as y,R as i,S as p,e as n,t as d,g as u,ad as h,i as m,l as v,F as k}from"
+
+s:"flex items-center gap-2 text-sm text-neutral-400"},T=["disabled"],q={class:"mt-6 text-center text-sm text-neutral-400"},R=w({__name:"Login",setup(D){const s=_({email:"",password:"",remember:!1,"cf-turnstile-response":""});function x(){s.post("/member/login",{onFinish:()=>s.reset("password")})}return(K,e)=>{const c=b;return n(),l(k,null,[a(r(g),{title:"เข้าสู่ระบบ | KuroKami"}),a(V,null,{default
+
+cus:ring-1 focus:ring-[#ff55a5]",placeholder:"••••••••"},null,512),[[p,r(s).password]]),r(s).errors.password?(n(),l("p",U,d(r(s).errors.password),1)):u("",!0)]),t("div",null,[a(c,{modelValue:r(s)["cf-turnstile-response"],"onUpdate:modelValue":e[2]||(e[2]=o=>r(s)["cf-turnstile-response"]=o)},null,8,["modelValue"]),r(s).errors["cf-turnstile-response"]?(n(),l("p",B,d(r(s).errors["cf-turnstile-respons
+
+##### Register-DT3fYuwy.js
+
+import{_ as b}from"./TurnstileWidget.vue_vue_type_script_setup_true_lang-CHX_le4q.js";import{d as w,ac as g,c as l,a,u as r,h as _,w as f,b as o,V as y,R as i,S as d,e as n,t as u,g as m,i as p,l as h,F as v}from"./app-Dp
+
+mt-1.5 text-xs text-red-400"},C=["disabled"],S={class:"mt-6 text-center text-sm text-neutral-400"},E=w({__name:"Register",setup(T){const t=g({name:"",email:"",password:"",password_confirmation:"","cf-turnstile-response":""});function x(){t.post("/member/register",{onFinish:()=>t.reset("password","password_confirmation")})}return(D,e)=>{const c=b;return n(),l(v,null,[a(r(_),{title:"สมัครสมาชิก | Ku
+
+ors placeholder:text-neutral-500 focus:border-[#ff55a5] focus:ring-1 focus:ring-[#ff55a5]",placeholder:"••••••••"},null,512),[[d,r(t).password_confirmation]])]),o("div",null,[a(c,{modelValue:r(t)["cf-turnstile-response"],"onUpdate:modelValue":e[4]||(e[4]=s=>r(t)["cf-turnstile-response"]=s)},null,8,["modelValue"]),r(t).errors["cf-turnstile-response"]?(n(),l("p",B,u(r(t).errors["cf-turnstile-respons
