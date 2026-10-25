@@ -231,8 +231,16 @@
                             "url": "https://hls.animeindy.com:8443/vid/N15HRJf0v6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-09-12"
+                        },
+                        {
+                            "name": "ตอน 24 - Higashi Village and Nishino Village",
+                            "image": "https://image.tmdb.org/t/p/original/3BtE9tMJM9iThpIKwjsg3gY38c1.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/wCcRfI9fv/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-09-19"
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -499,8 +507,6 @@
     "updated_at": "2026-09-19T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }
