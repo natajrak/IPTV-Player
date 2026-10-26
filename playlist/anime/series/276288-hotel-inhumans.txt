@@ -121,7 +121,7 @@
                 {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/ai8bAVcPIy77yrqt6WvtztAaHwJ.jpg",
-                    "referer": "https://animehdzeroo.net/anime/6066",
+                    "referer": "https://ahdzero.com/anime/6066",
                     "stations": [
                         {
                             "name": "Ep. 1 - Sister Sister",
@@ -233,12 +233,61 @@
             ],
             "release_date": "2025-07-06",
             "updated_at": "2025-09-28T00:00:00.000Z"
+        },
+        {
+            "name": "Season 2",
+            "image": "https://image.tmdb.org/t/p/original/edCc7fsPUERfsYr31dlNsSMUbxA.jpg",
+            "groups": [
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/edCc7fsPUERfsYr31dlNsSMUbxA.jpg",
+                    "referer": "https://ahdzero.com/anime/7053",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Piano Lesson 1",
+                            "image": "https://image.tmdb.org/t/p/original/5TzkdUqtvXAGrxvD3G8M0Vc8nrr.jpg",
+                            "url": "https://app.akuma-stream.com/watch/55c8010a-756f-4de3-b314-950ccce39ef0",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://animehdzeroo.net/",
+                            "release_date": "2026-10-04"
+                        },
+                        {
+                            "name": "Ep. 2 - Piano Lesson 2",
+                            "image": "https://image.tmdb.org/t/p/original/M1zaSjSyTuNoXwb5pyXTPl9Oeo.jpg",
+                            "url": "https://app.akuma-stream.com/watch/ed903ae9-a109-46fd-ac9f-3af5ba1ad4a2",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://animehdzeroo.net/",
+                            "release_date": "2026-10-11"
+                        },
+                        {
+                            "name": "Ep. 3 - A Sweet Job 1",
+                            "image": "https://image.tmdb.org/t/p/original/pISMSQ6sbTtB3xHwqnmngmxyLmA.jpg",
+                            "url": "https://app.akuma-stream.com/watch/03c95806-182b-4513-b2cd-cdd21c9b056c",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://animehdzeroo.net/",
+                            "release_date": "2026-10-18"
+                        },
+                        {
+                            "name": "Ep. 4 - A Sweet Job 2, First Guest",
+                            "image": "https://image.tmdb.org/t/p/original/uooYjbq7WbuP9q03Db8YrqwegqI.jpg",
+                            "url": "https://app.akuma-stream.com/watch/82926a24-8625-4e8d-8237-b87cf93d575a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://animehdzeroo.net/",
+                            "release_date": "2026-10-25"
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-10-04",
+            "updated_at": "2026-10-25T00:00:00.000Z"
         }
     ],
     "release_date": "2025-07-06",
-    "updated_at": "2025-09-28T00:00:00.000Z",
-    "season_count": 1,
+    "updated_at": "2026-10-25T00:00:00.000Z",
+    "season_count": 2,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 2,
+        "track": null
     }
 }
