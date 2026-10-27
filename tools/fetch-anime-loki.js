@@ -115,6 +115,15 @@ async function fetchHtml(url, extraHeaders = {}) {
  *   (บาง episode มี '(รออัพ)' = ยังไม่มี stream)
  * - 1 URL หน้า anime = 1 track (sub/dub แยก URL)
  */
+/** hostname ไม่มี www — หน้าเว็บอาจมีลิงก์โฆษณาไปเว็บอื่นที่มี /watch/ เหมือนกัน */
+function hostOf(u, base) {
+  try {
+    return new URL(u, base).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
 async function parseAnimePage(url) {
   console.log(`\n📄 กำลัง fetch หน้า anime: ${url}`);
   const html = await fetchHtml(url);
@@ -131,10 +140,12 @@ async function parseAnimePage(url) {
   const seen = new Set();
   const episodes = [];
 
+  const pageHost = hostOf(url);
   $('a[href*="/watch/"]').each((_, el) => {
     const $el = $(el);
     const epUrl = ($el.attr('href') || '').trim();
     if (!epUrl || seen.has(epUrl)) return;
+    if (hostOf(epUrl, url) !== pageHost) return;
     seen.add(epUrl);
 
     const text = ($el.find('p').first().text() || $el.text() || '').trim();

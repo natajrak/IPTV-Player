@@ -83,6 +83,15 @@ async function fetchHtml(url) {
   return res.text();
 }
 
+/** hostname ไม่มี www — หน้ารายการมีลิงก์โฆษณาไปเว็บอื่นที่มี /watch/ เหมือนกัน (เช่น anime-no1.com) */
+function hostOf(u, base) {
+  try {
+    return new URL(u, base).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
 // ───── Source-specific: parse series page → episode list ─────
 async function parseSeriesPage(url) {
   console.log(`\n📄 กำลัง fetch หน้ารายการ: ${url}`);
@@ -99,10 +108,12 @@ async function parseSeriesPage(url) {
 
   const seen = new Set();
   const episodes = [];
+  const pageHost = hostOf(url);
 
   $("a[href*='/watch/']").each((_, el) => {
     const epUrl = $(el).attr('href');
     if (!epUrl || seen.has(epUrl)) return;
+    if (hostOf(epUrl, url) !== pageHost) return;
     seen.add(epUrl);
 
     const thumb = $(el).find('img').attr('src') || '';

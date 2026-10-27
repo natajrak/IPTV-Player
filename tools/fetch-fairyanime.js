@@ -89,6 +89,15 @@ function extractEpNum(rawTitle) {
   return m ? parseInt(m[1]) : null;
 }
 
+/** hostname ไม่มี www — หน้าเว็บอาจมีลิงก์โฆษณาไปเว็บอื่นที่มี /watch/ เหมือนกัน */
+function hostOf(u, base) {
+  try {
+    return new URL(u, base).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
 async function fetchEpisodePage(url) {
   const html = await fetchText(url, { Referer: FAIRY_BASE + '/' });
   const $ = cheerio.load(html);
@@ -101,7 +110,8 @@ async function fetchEpisodePage(url) {
     const text = $(el).text();
     if (/ถัดไป|next/i.test(text)) {
       const href = $(el).attr('href');
-      if (href) nextUrl = href.startsWith('http') ? href : `${FAIRY_BASE}${href}`;
+      const full = href && (href.startsWith('http') ? href : `${FAIRY_BASE}${href}`);
+      if (full && hostOf(full) === hostOf(FAIRY_BASE)) nextUrl = full;
     }
   });
 
@@ -168,6 +178,7 @@ async function parseListingPage(listingUrl, wantTrack) {
     const href = $(el).attr('href');
     if (!href) return;
     const fullUrl = href.startsWith('http') ? href : `${FAIRY_BASE}${href}`;
+    if (hostOf(fullUrl) !== hostOf(FAIRY_BASE)) return;
     const text = $(el).text().trim();
     if (/ถัดไป|next|ก่อนหน้า|prev/i.test(text)) return;
     if (seenUrls.has(fullUrl)) return;
