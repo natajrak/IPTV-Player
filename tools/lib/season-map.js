@@ -6,7 +6,8 @@
  * --multi-season            อ่าน episode_count ของแต่ละ season จาก TMDB ให้อัตโนมัติ
  *                           ใช้ต่อเมื่อผลรวมตรงกับจำนวนตอนฝั่ง source เป๊ะเท่านั้น
  *
- * เลขตอนเริ่มนับ 1 ใหม่ทุก season เพราะยึด episode_number ของ TMDB season นั้นๆ
+ * เลขตอนยึด episode_number ของ TMDB season นั้นๆ — ปกติเริ่ม 1 ใหม่ทุก season
+ * แต่บางเรื่อง TMDB นับต่อเนื่องข้าม season (Hunter x Hunter S2 = 63–136) ก็ใช้เลขนั้นตาม TMDB
  */
 
 const fs = require('fs');
@@ -152,11 +153,19 @@ async function prepareMultiSeason({
   return { plan: res.plan, assign: expandSeasonPlan(res.plan), data };
 }
 
-/** metadata ของตอนที่ index นี้ ตาม season ที่ถูก assign ไว้ */
+/**
+ * metadata + label ของตอนที่ index นี้ ตาม season ที่ถูก assign ไว้
+ * season ที่ TMDB นับเลขต่อจาก season ก่อน (ตอนแรกไม่ใช่ 1) → จับคู่ตามลำดับ แล้วใช้ episode_number ของ TMDB เป็น label
+ */
 function episodeAt(ms, i) {
   const a = ms.assign[i];
-  const sd = ms.data.get(a.seasonNum);
-  const tmdbEp = sd?.episodes.find((e) => e.episode_number === a.epNum) || sd?.episodes[a.epNum - 1];
+  const episodes = ms.data.get(a.seasonNum)?.episodes || [];
+  const firstNum = episodes.length ? Math.min(...episodes.map((e) => e.episode_number)) : 1;
+  if (firstNum > 1) {
+    const tmdbEp = episodes[a.epNum - 1];
+    return { label: String(tmdbEp?.episode_number ?? firstNum + a.epNum - 1), tmdbEp };
+  }
+  const tmdbEp = episodes.find((e) => e.episode_number === a.epNum) || episodes[a.epNum - 1];
   return { label: String(a.epNum), tmdbEp };
 }
 
