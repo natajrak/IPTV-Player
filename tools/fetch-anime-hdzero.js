@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * fetch-anime-hdzero.js
- * สร้าง / อัปเดต playlist JSON จาก animehdzeroo.net พร้อม metadata จาก TMDB
+ * สร้าง / อัปเดต playlist JSON จาก ahdzero.com พร้อม metadata จาก TMDB
  * Stream ผ่าน Cloudflare Worker proxy (CORS bypass)
  *
  * ─── Flags ───────────────────────────────────────────────────────────────
- *   <url>              URL หน้า anime บน animehdzeroo.net
- *                      เช่น https://animehdzeroo.net/anime/6787
+ *   <url>              URL หน้า anime บน ahdzero.com
+ *                      เช่น https://ahdzero.com/anime/6787
  *   --track=th|subth  th = พากย์ไทย, subth = ซับไทย (default: th)
  *   --season=N        ระบุ season ที่จะ fetch หรืออัปเดต (default: 1)
  *   --output=FILE     ชื่อไฟล์ผลลัพธ์ใน playlist/anime/series/ (ไม่ต้องใส่ path)
@@ -27,7 +27,8 @@
  *   --only-new        ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
- *   - Domain: animehdzeroo.net (migrated from anime-hd-zero.com → anime-hdzero.com)
+ *   - Domain: ahdzero.com (anime-hd-zero.com → anime-hdzero.com → animehdzeroo.net → ahdzero.com;
+ *     โดเมนเก่า redirect 301 มาที่ ahdzero.com พร้อม path เดิม)
  *   - เว็บเลิกใช้ Inertia SPA แล้ว ตอนนี้เป็น Laravel Blade แบบ server-rendered
  *     จึง parse จาก HTML ตรงๆ ไม่ต้องยิง X-Inertia อีก:
  *       · ชื่อเรื่อง/โปสเตอร์ ← JSON-LD `TVSeries` (fallback: og:title / og:image)
@@ -84,10 +85,10 @@ if (!seriesUrl && !updateMeta) {
 const { isMovie, playlistDir: PLAYLIST_DIR, indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE } =
   makePaths({ typeArg, scriptDir: __dirname });
 
-// anime-hd-zero.com → animehdzeroo.net migration + Inertia SPA → Blade (server-rendered).
+// โดเมนปัจจุบัน ahdzero.com (เดิม animehdzeroo.net) + Inertia SPA → Blade (server-rendered).
 // Stream URLs are signed/expiring — playlist stores the player page URL + resolver flag,
 // Player resolves via /resolve/anime-hdzero on the CF worker at play time.
-const SITE_BASE = 'https://animehdzeroo.net';
+const SITE_BASE = 'https://ahdzero.com';
 const REFERER = `${SITE_BASE}/`;
 
 const HEADERS = {

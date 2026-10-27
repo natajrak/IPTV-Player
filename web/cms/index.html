@@ -1654,7 +1654,7 @@ function initSourceFilters() {
     const tabId = sel.dataset.tab;
     const sources = ADD_SCRIPTS[tabId] || [];
     sel.innerHTML = `<option value="">ทุกแหล่ง</option>` +
-      sources.map(s => `<option value="${esc(s.id)}">${esc(s.label)}</option>`).join('');
+      sources.map(s => `<option value="${esc(s.label)}">${esc(s.label)}</option>`).join('');
     sel.addEventListener('change', () => {
       sourceFilters[tabId] = sel.value;
       sel.classList.toggle('filtered', !!sel.value);
@@ -1664,6 +1664,19 @@ function initSourceFilters() {
 }
 // Defer until ADD_SCRIPTS is defined (it's declared further down in the script).
 setTimeout(initSourceFilters, 0);
+
+/** เพิ่มตัวเลือกของแหล่งที่เจอในข้อมูลแต่ไม่มี script (เช่น track ที่เพิ่มเอง) — ค่าเป็น label ให้ตรงกับ data-sources */
+function syncSourceOptions(tabId) {
+  const sel = document.querySelector(`.source-filter-sel[data-tab="${tabId}"]`);
+  const wrap = document.getElementById('tbl-' + tabId);
+  if (!sel || !wrap) return;
+  const have = new Set([...sel.options].map(o => o.value));
+  const found = new Set();
+  wrap.querySelectorAll('tbody tr[data-sources]').forEach(r => {
+    r.dataset.sources.split(',').forEach(x => { if (x) found.add(x); });
+  });
+  [...found].filter(x => !have.has(x)).sort().forEach(x => sel.add(new Option(x, x)));
+}
 
 // ── Helpers ──────────────────────────────────────────────────────
 function esc(s) {
@@ -1771,6 +1784,7 @@ function sourceLabelFromReferer(refererUrl) {
     ['anime-hd-zero', 'anime-hdzero'],
     ['anime-hdzero',  'anime-hdzero'],
     ['animehdzero',   'anime-hdzero'],
+    ['ahdzero',       'anime-hdzero'],
     ['anifume',       'anifume'],
     ['rukoluo',       'anifume'],
     ['anime-th',      'anime-th'],
@@ -1833,8 +1847,10 @@ function collectSources(items) {
   if (!Array.isArray(items)) return '';
   const set = new Set();
   for (const it of items) {
-    const lbl = sourceLabelFromReferer(it?.referer);
-    if (lbl) set.add(lbl);
+    for (const ref of String(it?.referer || '').split(',')) {
+      const lbl = sourceLabelFromReferer(ref.trim());
+      if (lbl) set.add(lbl);
+    }
   }
   return [...set].join(',');
 }
@@ -1925,6 +1941,7 @@ async function loadTab(tabId) {
 
     if (cfg.kind === 'series') renderSeries(wrap, stats, items, cfg.tmdbKind, tabId);
     else                       renderMovies(wrap, stats, items, cfg.tmdbKind, tabId);
+    syncSourceOptions(tabId);
     applyTabFilter(tabId);
 
   } catch (e) {
@@ -2381,7 +2398,7 @@ const ANIME_SOURCES = [
   { id: 'kurokamii',     label: 'kurokamii',     file: 'fetch-kurokamii.js',     url: 'https://kurokamii.com/'    },
   { id: 'fairyanime',    label: 'fairyanime',    file: 'fetch-fairyanime.js',    url: 'https://fairyanime.net/'   },
   { id: 'animeruka',     label: 'animeruka',     file: 'fetch-animeruka.js',     url: 'https://animeruka.com/'    },
-  { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://animehdzeroo.net/' },
+  { id: 'anime-hdzero',  label: 'anime-hdzero',  file: 'fetch-anime-hdzero.js',  url: 'https://ahdzero.com/'      },
   { id: 'anifume',       label: 'anifume',       file: 'fetch-anifume.js',       url: 'https://anifume.com/'      },
   { id: 'anime-th',      label: 'anime-th',      file: 'fetch-anime-th.js',      url: 'https://anime-th.com/'     },
   { id: 'anime-hit',     label: 'anime-hit',     file: 'fetch-anime-hit.js',     url: 'https://anime-hit.com/'    },
@@ -3755,7 +3772,7 @@ function scriptFromReferer(url) {
     if (host.includes('kurokamii') || host.includes('akuma-player')) return 'fetch-kurokamii.js';
     if (host.includes('fairyanime'))                        return 'fetch-fairyanime.js';
     if (host.includes('animeruka') || host.includes('animemami')) return 'fetch-animeruka.js';
-    if (host.includes('anime-hdzero') || host.includes('anime-hd-zero') || host.includes('animehdzero')) return 'fetch-anime-hdzero.js';
+    if (host.includes('anime-hdzero') || host.includes('anime-hd-zero') || host.includes('animehdzero') || host.includes('ahdzero')) return 'fetch-anime-hdzero.js';
     if (host.includes('anifume'))                           return 'fetch-anifume.js';
     if (host.includes('anime-th'))                          return 'fetch-anime-th.js';
     if (host.includes('anime-hit'))                         return 'fetch-anime-hit.js';
