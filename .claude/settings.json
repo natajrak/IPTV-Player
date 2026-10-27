@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__claude-in-chrome__tabs_context_mcp",
-      "ClaudeInChromeDomain(claude.ai)"
+      "ClaudeInChromeDomain(claude.ai)",
+      "ClaudeInChromeDomain(localhost:4000)"
     ]
   },
   "hooks": {
