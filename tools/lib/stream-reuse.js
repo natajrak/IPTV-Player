@@ -7,7 +7,8 @@
  *
  * ไม่ใช้ลิงก์เดิมเลย (ดึงใหม่ทุกตอน) เมื่อ:
  *   - track เดิมมาจากแหล่งอื่น (referer ของ track ไม่มี URL ที่ดึงรอบนี้) — url/referer/resolver เป็นของอีกเว็บ
- *   - โหมด append (epOffset > 0 และมี track อยู่แล้ว) — label รอบนี้ไม่รวม offset จึงชนกับตอนเดิมของภาคก่อน
+ *   - โหมด append (epOffset > 0 และมี track อยู่แล้ว) — ไฟล์ที่สร้างก่อน offsetEpisodeLabel ตั้งชื่อตอนต่อภาคโดยไม่รวม offset
+ *     label จึงอาจชนกับตอนของภาคก่อน และใน CMS รอบแรกของ chain เขียน track ใหม่ทั้งหมดอยู่แล้ว ไม่มีตอนเดิมให้ใช้ซ้ำ
  */
 
 const { matchesSeasonName } = require('./utils');

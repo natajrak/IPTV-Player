@@ -265,11 +265,12 @@ async function main() {
       }
       console.log(`📌 ใช้ section: "${chosen.name}" (${chosen.track}) — ${chosen.episodes.length} ตอน (lang=${halimLang})`);
 
-      const offset = episodes.length;
       for (const ep of chosen.episodes) {
-        ep._partOffset = offset;
-        episodes.push(ep);
+        ep.postId = result.postId;
+        ep.srcEpNum = ep.epNum;
       }
+      utils.continuePartNumbering(episodes, chosen.episodes);
+      episodes.push(...chosen.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${chosen.episodes.length} ตอน (รวม ${episodes.length})`);
     }
 
@@ -400,7 +401,7 @@ async function main() {
           ({ epNum: tmdbEpNum, label } = epMap[i]);
         } else {
           tmdbEpNum = epNum + epOffset;
-          label = epNum;
+          label = utils.offsetEpisodeLabel(epNum, epOffset);
         }
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
           || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i + epOffset]);
@@ -414,7 +415,7 @@ async function main() {
       } else {
         let streamUrl = null;
         try {
-          const playerId = await getPlayerId(postId, epNum, halimLang, 1);
+          const playerId = await getPlayerId(ep.postId || postId, ep.srcEpNum ?? epNum, halimLang, 1);
           streamUrl      = buildStreamUrl(playerId);
           process.stdout.write(` id=${playerId}`);
         } catch (err) {

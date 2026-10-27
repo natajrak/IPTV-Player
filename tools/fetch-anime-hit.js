@@ -132,21 +132,26 @@ async function parseSeriesPage(url) {
     let sortKey = 9000;
     let epLabel = '';
 
-    // 1) Try /video/{slug}-ep-{N}(-suffix)? — match ep number after `-ep-`
-    const urlMatch = decodedUrl.match(/-ep-(\d+(?:\.\d+)?|ova\d*|sp\d*)\b/i)
-      || decodedUrl.match(/-ep-(\d+)$/i);
-    if (urlMatch) slug = urlMatch[1];
+    // 1) ตอนพิเศษ/ตอนครึ่งจาก URL: -ep-ova, -ep-sp, -ep-12.5 (li id เป็นแค่ลำดับ)
+    const specialMatch = decodedUrl.match(/-ep-(\d+\.\d+|ova\d*|sp\d*)\b/i);
+    if (specialMatch) slug = specialMatch[1];
 
-    // 2) From <li id="N">
+    // 2) From <li id="N"> — เลขตอนใน URL เชื่อไม่ได้ (เช่น ตอน 14 ใช้ slug ...-ep-2-1h32a40)
     if (!slug && /^\d+$/.test(liId)) slug = liId;
 
-    // 3) From title text "ตอนที่ N"
+    // 3) /video/{slug}-ep-{N}(-suffix)?
+    if (!slug) {
+      const urlMatch = decodedUrl.match(/-ep-(\d+)\b/i);
+      if (urlMatch) slug = urlMatch[1];
+    }
+
+    // 4) From title text "ตอนที่ N"
     if (!slug) {
       const textNum = epTitle.match(/ตอนที่\s*([\d.]+)/i) || epTitle.match(/episode\s*(\d+)/i);
       if (textNum) slug = textNum[1];
     }
 
-    // 4) Trailing number in URL
+    // 5) Trailing number in URL
     if (!slug) {
       const trailingNum = decodedUrl.match(/[-–](\d+)\/?(?:\?.*)?$/);
       if (trailingNum) slug = trailingNum[1];
@@ -380,7 +385,7 @@ async function main() {
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[tmdbEpNum - 1];
       } else {
         tmdbEpNum = !isNaN(epNumInt) ? epNumInt + epOffset : NaN;
-        label = epLabel;
+        label = utils.offsetEpisodeLabel(epLabel, epOffset);
         tmdbEp = !isNaN(tmdbEpNum)
           ? (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset])
           : null;

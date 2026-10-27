@@ -1197,8 +1197,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 28,
-                                        "end": 118.7
+                                        "start": 127.1,
+                                        "end": 217.8
                                     }
                                 ]
                             }
@@ -1291,7 +1291,7 @@
                         {
                             "name": "Ep. 8 - Grab Hold of Hope",
                             "image": "https://image.tmdb.org/t/p/original/ahfjB8XwBSgfGVHrGQriQ06ZkZ2.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/AM0cfSSeD1/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/AM0cfSSeD1/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-12-02",
                             "skip": {
@@ -1301,6 +1301,23 @@
                                         "type": "op",
                                         "start": 95.2,
                                         "end": 185.9
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 9 - Changing Heart",
+                            "image": "https://image.tmdb.org/t/p/original/1scRjE0LLeOIuhpYoaKUhGpX6N1.jpg",
+                            "url": "https://sv2.team-indy.net/video/KB6Fxk3K0/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-12-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.2,
+                                        "end": 126.9
                                     }
                                 ]
                             }
@@ -1325,7 +1342,7 @@
                         {
                             "name": "Ep. 11 - Charging Emotions",
                             "image": "https://image.tmdb.org/t/p/original/1nxMfMhm8hY7ntr3Yq1bJ83cJdA.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/PIY69LuAd/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/PIY69LuAd/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-12-30",
                             "skip": {
@@ -1342,7 +1359,7 @@
                         {
                             "name": "Ep. 12 - True Heart",
                             "image": "https://image.tmdb.org/t/p/original/nchGX8JXn1UNtn1JnjVovIceFad.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/7SQJkLiCW3/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/7SQJkLiCW3/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-01-20",
                             "skip": {
@@ -1359,7 +1376,7 @@
                         {
                             "name": "Ep. 13 - Thank God She's Still a Pervert!",
                             "image": "https://image.tmdb.org/t/p/original/ykG7sydA3Z5lvqmw8QMwEf3qXrj.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/SrfS7GpEgj/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/SrfS7GpEgj/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-01-27",
                             "skip": {
@@ -1376,7 +1393,7 @@
                         {
                             "name": "Ep. 14 - The Overpowered Vampire Princess and the Godlike Rabbit's Grand Battle",
                             "image": "https://image.tmdb.org/t/p/original/4QVRzIVphgnhyLtaJ0tfRWOZMDm.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/NQixGI901l/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/NQixGI901l/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-02-03",
                             "skip": {
@@ -1393,7 +1410,7 @@
                         {
                             "name": "Ep. 15 - What Makes a Hero",
                             "image": "https://image.tmdb.org/t/p/original/qgPfDubw0ZioSDRcMdCwuOVgKao.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/NHWpn9R7m/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/NHWpn9R7m/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-02-10",
                             "skip": {
@@ -1410,7 +1427,7 @@
                         {
                             "name": "Ep. 16 - The Key to the World",
                             "image": "https://image.tmdb.org/t/p/original/gRcAcDz4LQexGnjIau55ZFwYC8U.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/XZctfQB1af/video.mp4/playlist.m3u8",
+                            "url": "https://sv2.team-indy.net/video/XZctfQB1af/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2025-02-17",
                             "skip": {
@@ -1420,23 +1437,6 @@
                                         "type": "op",
                                         "start": 58.6,
                                         "end": 149.3
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 9 - Changing Heart",
-                            "image": "https://image.tmdb.org/t/p/original/1scRjE0LLeOIuhpYoaKUhGpX6N1.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/KB6Fxk3K0/video.mp4/playlist.m3u8",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-09",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 36.2,
-                                        "end": 126.9
                                     }
                                 ]
                             }

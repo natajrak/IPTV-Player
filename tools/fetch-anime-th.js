@@ -321,7 +321,7 @@ async function main() {
           ({ epNum: tmdbEpNum, label } = epMap[i]);
         } else {
           tmdbEpNum = epNum + epOffset;
-          label = epNum;
+          label = utils.offsetEpisodeLabel(epNum, epOffset);
         }
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
           || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : undefined);

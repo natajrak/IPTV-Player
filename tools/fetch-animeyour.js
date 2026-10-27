@@ -148,14 +148,16 @@ async function parseSeriesPage(url) {
     let sortKey = 9000;
     let epLabel = '';
 
-    // 1) URL pattern: /ep/<slug>-ep-<N>/
-    const decodedUrl = decodeURIComponent(epUrl);
-    const urlMatch = decodedUrl.match(/-ep-(\d+)(?:[-/]|$)/i)
-      || decodedUrl.match(/-(\d+)\/?$/);
-    if (urlMatch) slug = urlMatch[1];
+    // 1) <li id="N"> — เลขใน slug เชื่อไม่ได้ (WordPress เติม -2, -3 หรือ token สุ่มท้าย slug)
+    if (/^\d+$/.test(liId)) slug = liId;
 
-    // 2) <li id="N">
-    if (!slug && /^\d+$/.test(liId)) slug = liId;
+    // 2) URL pattern: /ep/<slug>-ep-<N>/
+    const decodedUrl = decodeURIComponent(epUrl);
+    if (!slug) {
+      const urlMatch = decodedUrl.match(/-ep-(\d+)(?:[-/]|$)/i)
+        || decodedUrl.match(/-(\d+)\/?$/);
+      if (urlMatch) slug = urlMatch[1];
+    }
 
     // 3) title attribute: "...ตอนที่ N พากย์ไทย"
     if (!slug) {
@@ -357,7 +359,7 @@ async function main() {
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[tmdbEpNum - 1];
       } else {
         tmdbEpNum = !isNaN(epNumInt) ? epNumInt + epOffset : NaN;
-        label = epLabel;
+        label = utils.offsetEpisodeLabel(epLabel, epOffset);
         tmdbEp = !isNaN(tmdbEpNum)
           ? (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset])
           : null;

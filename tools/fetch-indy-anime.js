@@ -124,10 +124,18 @@ async function parseSeriesPage(url) {
     let sortKey = 9000;
     let epLabel = '';
 
-    const urlMatch = decodedUrl.match(/(?:episode|ep)[-–](\d+)/i)
-      || decodedUrl.match(/(?:episode|ep)[-–](ova\d*|sp\d*)\b/i)
-      || decodedUrl.match(/ตอนที่[-–](\d+)/);
-    if (urlMatch) slug = urlMatch[1];
+    // เลขที่เว็บแสดง (<span.prefix_ep>ตอนที่</span><span.ep-num>18</span>) — slug ใน URL เชื่อไม่ได้ (ep-1h0du40, ep-2-1h32a40)
+    const shownPrefix = $(el).find('.prefix_ep').text().trim();
+    const shownNum = $(el).find('.ep-num').text().trim();
+    if (shownPrefix === 'ตอนที่' && /^\d+(?:\.\d+)?$/.test(shownNum)) slug = shownNum;
+    else if (/^OVA$/i.test(shownPrefix) && /^\d*$/.test(shownNum)) slug = `ova${shownNum}`;
+
+    if (!slug) {
+      const urlMatch = decodedUrl.match(/(?:episode|ep)[-–](\d+)/i)
+        || decodedUrl.match(/(?:episode|ep)[-–](ova\d*|sp\d*)\b/i)
+        || decodedUrl.match(/ตอนที่[-–](\d+)/);
+      if (urlMatch) slug = urlMatch[1];
+    }
 
     if (!slug) {
       const textNum = epTitle.match(/ตอนที่\s*([\d.]+)/i) || epTitle.match(/episode\s*(\d+)/i);
@@ -280,17 +288,22 @@ async function main() {
       const result = await parseSeriesPage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const offset = episodes.length;
-      for (const ep of result.episodes) {
-        if (offset > 0) {
-          const origNum = parseInt(ep.epLabel);
-          if (!isNaN(origNum)) {
-            ep.epLabel = String(origNum + offset);
-            ep.sortKey = origNum + offset;
+      const numOf = (ep) => (/^\d+(?:\.\d+)?$/.test(ep.epLabel) ? Number(ep.epLabel) : NaN);
+      const prevNums = episodes.map(numOf).filter(Number.isFinite);
+      const pageNums = result.episodes.map(numOf).filter(Number.isFinite);
+      const prevMax = prevNums.length ? Math.max(...prevNums) : 0;
+      const pageMin = pageNums.length ? Math.min(...pageNums) : Infinity;
+      if (prevNums.length && pageMin <= prevMax) {
+        const offset = prevMax - pageMin + 1;
+        for (const ep of result.episodes) {
+          const n = numOf(ep);
+          if (Number.isFinite(n)) {
+            ep.epLabel = String(n + offset);
+            ep.sortKey = n + offset;
           }
         }
-        episodes.push(ep);
       }
+      episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }
 
@@ -420,7 +433,7 @@ async function main() {
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[tmdbEpNum - 1];
       } else {
         tmdbEpNum = !isNaN(epNumInt) ? epNumInt + epOffset : NaN;
-        label = epLabel;
+        label = utils.offsetEpisodeLabel(epLabel, epOffset);
         tmdbEp = !isNaN(tmdbEpNum)
           ? (tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum) || tmdbEpisodes[i + epOffset])
           : null;

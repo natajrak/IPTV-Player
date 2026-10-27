@@ -71,6 +71,33 @@ function buildStationName(epNum, epTitle, isDubbedTrack) {
   return isDubbedTrack ? `ตอน ${epNum} - ${epTitle}` : `Ep. ${epNum} - ${epTitle}`;
 }
 
+/**
+ * เลขตอนที่ใช้ตั้งชื่อ station เมื่อต่อภาคด้วย --ep-offset: "2" + 12 → "14", "11.5" + 12 → "23.5"
+ * label ที่ไม่ใช่ตัวเลข (OVA, SP) คืนค่าเดิม
+ */
+function offsetEpisodeLabel(label, epOffset) {
+  const str = String(label);
+  if (!(epOffset > 0) || !/^\d+(?:\.\d+)?$/.test(str)) return str;
+  return String(Number(str) + epOffset);
+}
+
+/**
+ * multi-URL: ตอนของ URL ถัดไปที่เว็บนับเลขใหม่ (เลขชนกับ URL ก่อนหน้า) → เลื่อนให้ต่อจากเลขสูงสุดก่อนหน้า
+ * ถ้าเว็บนับเลขต่อเนื่องอยู่แล้ว (เลขไม่ชน) คงเลขเดิม
+ */
+function continuePartNumbering(prevEpisodes, partEpisodes) {
+  const prevNums = prevEpisodes.map((e) => e.epNum).filter(Number.isFinite);
+  const pageNums = partEpisodes.map((e) => e.epNum).filter(Number.isFinite);
+  if (!prevNums.length || !pageNums.length) return;
+  const prevMax = Math.max(...prevNums);
+  const pageMin = Math.min(...pageNums);
+  if (pageMin > prevMax) return;
+  const offset = prevMax - pageMin + 1;
+  for (const ep of partEpisodes) {
+    if (Number.isFinite(ep.epNum)) ep.epNum += offset;
+  }
+}
+
 const TRACK_MAP = { th: 'พากย์ไทย', subth: 'ซับไทย' };
 
 // Set/clear track.status = 'completed' based on whether the playlist has
@@ -104,6 +131,8 @@ module.exports = {
   isSpecialSeasonName,
   matchesSeasonName,
   buildStationName,
+  offsetEpisodeLabel,
+  continuePartNumbering,
   markTrackComplete,
   TRACK_MAP,
 };

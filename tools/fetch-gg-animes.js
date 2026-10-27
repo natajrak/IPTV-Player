@@ -252,11 +252,8 @@ async function main() {
       const result = await parseAnimePage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const offset = episodes.length;
-      for (const ep of result.episodes) {
-        ep._partOffset = offset;
-        episodes.push(ep);
-      }
+      utils.continuePartNumbering(episodes, result.episodes);
+      episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }
 
@@ -387,7 +384,7 @@ async function main() {
           ({ epNum: tmdbEpNum, label } = epMap[i]);
         } else {
           tmdbEpNum = epNum + epOffset;
-          label = epNum;
+          label = utils.offsetEpisodeLabel(epNum, epOffset);
         }
         tmdbEp = tmdbEpisodes.find((e) => e.episode_number === tmdbEpNum)
           || (epMap ? tmdbEpisodes[tmdbEpNum - 1] : tmdbEpisodes[i + epOffset]);
