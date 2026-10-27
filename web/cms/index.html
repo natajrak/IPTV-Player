@@ -1830,6 +1830,7 @@ function sourceLabelFromReferer(refererUrl) {
     ['24playerhd',    '24playerhd'],
     ['upde',          'upde'],
     ['fpic.cc',       'upde'],
+    ['123hd.net',     '123hd'],
   ];
   for (const [needle, val] of map) { if (host.includes(needle)) return val; }
   // host ที่ยังไม่ได้ map — ตัด subdomain นำหน้ากับ TLD ออก จะได้ไม่โผล่ ".com" ให้เห็น
@@ -2421,6 +2422,7 @@ const LIVE_SOURCES = [
   { id: '24hdx',    label: '24-hdx',   file: 'fetch-24hdx.js',    url: 'https://www.24-hdx.com/'      },
   { id: '7hd',      label: '7-hd',     file: 'fetch-7hd.js',      url: 'https://7-hd.com/'            },
   { id: 'upde',     label: 'upde',     file: 'fetch-upde.js',     url: 'https://upde.cc/', seriesOnly: true },
+  { id: '123hd',    label: '123hd',    file: 'fetch-123hd.js',    url: 'https://123hd.net/'           },
 ];
 const ADD_SCRIPTS = {
   'anime-series': ANIME_SOURCES,
@@ -3795,6 +3797,7 @@ function scriptFromReferer(url) {
     if (host.includes('24hd') || host.includes('player77hdfree') || host.includes('vdohls') || host.includes('vh010')) return 'fetch-24hd.js';
     if (host.includes('allinhd'))                          return 'fetch-allinhd.js';
     if (host.includes('upde') || host.includes('fpic.cc'))  return 'fetch-upde.js';
+    if (host === '123hd.net')                                return 'fetch-123hd.js';
     if (host.includes('123av') || host.includes('javxx'))   return 'fetch-123av.js';
   } catch {}
   return null;
