@@ -224,7 +224,8 @@ parts (ภาค) → tracks (2 ชั้น) — รองรับหลาย
 
 ### fetch-indy-anime.js
 - **แหล่ง**: indy-anime.net
-- **Stream**: `https://hls.animeindy.com:8443/vid/{hash}/video.mp4/playlist.m3u8`
+- **Stream หลัก**: server 👑 (MP4 ตรง) `https://sv2.team-indy.net/video/{hash}/video.mp4` — อ่านจากหน้า embed ของปุ่ม server 👑 (`/server2/{hash}/`) แล้วเช็คว่าใช้ได้
+- **Fallback**: HLS `https://hls.animeindy.com:8443/vid/{hash}/video.mp4/playlist.m3u8` (Server 1/2 บนเว็บ — บางตอนไฟล์ HLS ถูกลบ 404)
 - **PLAYLIST_DIR**: `playlist/anime/series`
 - **ใช้สำหรับ update-meta** ของทุก series (ใช้ script เดียวกัน ไม่มีโค้ด source-specific ใน update-meta path)
 

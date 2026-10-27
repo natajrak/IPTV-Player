@@ -26,8 +26,11 @@
  *   --only-new        ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
- *   - Stream URL รูปแบบ: https://hls.animeindy.com:8443/vid/{HASH}/video.mp4/playlist.m3u8
- *   - ไม่ต้องใช้ proxy (CDN รองรับ CORS)
+ *   - Stream หลัก: server 👑 (MP4 ตรง) https://sv2.team-indy.net/video/{HASH}/video.mp4
+ *     อ่าน URL จากหน้า embed ของปุ่ม server 👑 (/server2/{HASH}/) แล้วเช็คว่าใช้ได้ก่อน
+ *   - Fallback: HLS https://hls.animeindy.com:8443/vid/{HASH}/video.mp4/playlist.m3u8
+ *     (แหล่งเดียวกับ Server 1/2 บนเว็บ — บางตอนไฟล์ HLS ถูกลบ 404 แต่ MP4 ยังอยู่)
+ *   - ไม่ต้องใช้ proxy (ทั้งสองแหล่งเปิด CORS)
  *   - Shared logic อยู่ใน tools/lib/ (env, utils, tmdb, playlist-io, update-meta)
  */
 
@@ -164,10 +167,40 @@ async function parseSeriesPage(url) {
 }
 
 // ───── Source-specific: extract stream URL from episode page ─────
+/**
+ * server 👑 (MP4) ก่อน → ใช้ไม่ได้ค่อย fallback HLS — ทุกลิงก์เช็คว่าเล่นได้จริงก่อนคืนค่า
+ * ใช้ไม่ได้ทั้งคู่ → throw (ผู้เรียกใส่ลิงก์หน้าตอนแทน แล้ว --only-new จะลองใหม่รอบหน้า)
+ */
 async function getStreamUrl(epPageUrl) {
   const html = await fetchHtml(epPageUrl);
   const $ = cheerio.load(html);
 
+  const mp4 = await getCrownServerMp4($);
+  if (mp4) return mp4;
+
+  const hls = findHlsUrl($, html);
+  if (hls && await isHlsAlive(hls)) {
+    process.stdout.write(' 🔁 server 👑 ใช้ไม่ได้ → HLS');
+    return hls;
+  }
+  throw new Error(hls ? 'server 👑 และ HLS ใช้ไม่ได้ทั้งคู่' : `ไม่พบ stream ใน ${epPageUrl}`);
+}
+
+/** URL MP4 จากหน้า embed ของปุ่ม server 👑 (data-id ชี้ /server2/{HASH}/) — null ถ้าไม่มี/ใช้ไม่ได้ */
+async function getCrownServerMp4($) {
+  const embedUrl = $('.server-item [data-id*="/server2/"]').attr('data-id') || '';
+  if (!embedUrl) return null;
+  try {
+    const embedHtml = await fetchHtml(embedUrl);
+    const mp4 = (embedHtml.match(/https?:\/\/[^"'\s]+\.mp4(?:\?[^"'\s]*)?(?=["'\s]|$)/i) || [])[0];
+    return mp4 && await isMp4Alive(mp4) ? mp4 : null;
+  } catch {
+    return null;
+  }
+}
+
+/** HLS จาก iframe/script ของหน้าตอน (แหล่งเดียวกับ Server 1/2) */
+function findHlsUrl($, html) {
   const iframeSrc = $("iframe[src*='team-indy.net/embed'], iframe[src*='indy-anime.net/embed']").attr('src') || '';
   const hashFromIframe = (iframeSrc.match(/\/embed\/([a-zA-Z0-9]+)\//i) || [])[1];
   if (hashFromIframe) return buildStreamUrl(hashFromIframe);
@@ -178,9 +211,28 @@ async function getStreamUrl(epPageUrl) {
   if (hashFromScript) return buildStreamUrl(hashFromScript);
 
   const directMatch = html.match(/https?:\/\/hls\.animeindy\.com[^"'\s]+playlist\.m3u8/i);
-  if (directMatch) return directMatch[0];
+  return directMatch ? directMatch[0] : null;
+}
 
-  throw new Error(`ไม่พบ stream hash ใน ${epPageUrl}`);
+async function isHlsAlive(url) {
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': HEADERS['User-Agent'] } });
+    return res.ok && (await res.text()).trimStart().startsWith('#EXTM3U');
+  } catch {
+    return false;
+  }
+}
+
+/** ขอแค่ 2 byte แรก — ไฟล์เต็มหลายร้อย MB */
+async function isMp4Alive(url) {
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': HEADERS['User-Agent'], Range: 'bytes=0-1' } });
+    const type = res.headers.get('content-type') || '';
+    await res.body?.cancel();
+    return (res.status === 206 || res.status === 200) && /video|octet-stream/i.test(type);
+  } catch {
+    return false;
+  }
 }
 
 function buildStreamUrl(hash) {
