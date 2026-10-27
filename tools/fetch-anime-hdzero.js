@@ -20,7 +20,7 @@
  *                     ชื่อออกเป็น "ตอน N (1/2)" และตอนถัดไปเลขตาม TMDB ไม่ drift
  *   --multi-season    เว็บรวมทุก season เป็นลิสต์เดียว → แบ่งลง season ตาม TMDB
  *                     ใช้เมื่อผลรวม episode_count ตรงกับจำนวนตอน source เป๊ะ
- *                     เลขตอนเริ่มนับ 1 ใหม่ทุก season
+ *                     เลขตอนตาม episode_number ของ TMDB (ปกติเริ่ม 1 ใหม่ทุก season)
  *   --season-map=A,B  ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
@@ -326,7 +326,8 @@ async function main() {
     // Map source index → เลขตอน TMDB (--split-eps = ระบุจุดแบ่งเอง)
     // --auto-split จะ rewrite ชื่อ/ภาพ/วันฉายอีกครั้งหลังลูป โดยวัด stream จริง
     let resolvedSplitEps = splitEps;
-    const epMap = buildEpisodeMap({ sourceCount: episodes.length, epOffset, splitEps: resolvedSplitEps });
+    const numBase = utils.tmdbNumberBase(tmdbEpisodes);
+    const epMap = buildEpisodeMap({ sourceCount: episodes.length, epOffset: epOffset + numBase, splitEps: resolvedSplitEps });
     if (!autoSplit && !ms) {
       suggestSplitEps({ sourceCount: episodes.length, tmdbEpisodes, epOffset, splitEps: resolvedSplitEps });
     }
@@ -357,7 +358,7 @@ async function main() {
       } else {
         const mapped = epMap[i];
         label = mapped.label;
-        tmdbEp = tmdbEpisodes.find((e) => e.episode_number === mapped.epNum) || tmdbEpisodes[mapped.epNum - 1];
+        tmdbEp = tmdbEpisodes.find((e) => e.episode_number === mapped.epNum) || tmdbEpisodes[mapped.epNum - 1 - numBase];
       }
 
       const old = reuse.find(label, { notUrls: [ep.url], season: ms ? `Season ${ms.assign[i].seasonNum}` : null });

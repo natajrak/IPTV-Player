@@ -49,6 +49,7 @@ const ALLOWED_SCRIPTS = new Set([
   'fetch-123av.js',
   'fetch-allinhd.js',
   'fetch-037hdd.js',
+  'fetch-upde.js',
   'fetch-fairyanime.js',
 ]);
 

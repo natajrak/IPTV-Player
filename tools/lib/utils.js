@@ -133,6 +133,16 @@ function dropSpecialEpisodes(episodes) {
   return regular;
 }
 
+/**
+ * TMDB บาง season นับเลขตอนต่อจาก season ก่อน (Keroro S2 = 52–103) → คืนค่าที่ต้องบวกให้ตอนแรกของ source
+ * ตรงกับ episode_number ตัวแรกของ season (season ปกติที่เริ่ม 1 คืน 0)
+ */
+function tmdbNumberBase(tmdbEpisodes) {
+  const nums = (tmdbEpisodes || []).map((e) => e.episode_number).filter(Number.isFinite);
+  const first = nums.length ? Math.min(...nums) : 1;
+  return first > 1 ? first - 1 : 0;
+}
+
 const TRACK_MAP = { th: 'พากย์ไทย', subth: 'ซับไทย' };
 
 // Set/clear track.status = 'completed' based on whether the playlist has
@@ -171,6 +181,7 @@ module.exports = {
   continueLabelNumbering,
   isSpecialEpisode,
   dropSpecialEpisodes,
+  tmdbNumberBase,
   markTrackComplete,
   TRACK_MAP,
 };

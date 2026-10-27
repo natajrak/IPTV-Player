@@ -24,7 +24,7 @@
  *                     (flag นี้ assume เว็บลิสต์ตอนของ season เรียงต่อเนื่องครบ)
  *   --multi-season    เว็บรวมทุก season เป็นลิสต์เดียว → แบ่งลง season ตาม TMDB
  *                     ใช้เมื่อผลรวม episode_count ตรงกับจำนวนตอน source เป๊ะ
- *                     เลขตอนเริ่มนับ 1 ใหม่ทุก season
+ *                     เลขตอนตาม episode_number ของ TMDB (ปกติเริ่ม 1 ใหม่ทุก season)
  *   --season-map=A,B  ระบุจำนวนตอนของแต่ละ season เอง (เมื่อ auto ไม่ลงตัว)
  *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
