@@ -133,6 +133,7 @@ async function parseSeriesPage(url) {
 
   const seen = new Set();
   const episodes = [];
+  let skippedSpecials = 0;
 
   // จำกัด selector ใน main ep list (<ul id="MVP"> มี <li id="N">) — กัน sidebar แนะนำ
   $("ul#MVP a.ep-a-link, ul#MVP a[href*='/ep/']").each((_, el) => {
@@ -148,11 +149,17 @@ async function parseSeriesPage(url) {
     let sortKey = 9000;
     let epLabel = '';
 
+    // ตอนพิเศษ (OVA/SP) ไม่ใส่ใน playlist — li id เป็นแค่ลำดับ ตอนปกติที่ตามหลังจึงต้องหักออก
+    const decodedUrl = decodeURIComponent(epUrl);
+    if (utils.isSpecialEpisode(`${decodedUrl} ${titleAttr}`)) {
+      skippedSpecials++;
+      return;
+    }
+
     // 1) <li id="N"> — เลขใน slug เชื่อไม่ได้ (WordPress เติม -2, -3 หรือ token สุ่มท้าย slug)
-    if (/^\d+$/.test(liId)) slug = liId;
+    if (/^\d+$/.test(liId)) slug = String(Number(liId) - skippedSpecials);
 
     // 2) URL pattern: /ep/<slug>-ep-<N>/
-    const decodedUrl = decodeURIComponent(epUrl);
     if (!slug) {
       const urlMatch = decodedUrl.match(/-ep-(\d+)(?:[-/]|$)/i)
         || decodedUrl.match(/-(\d+)\/?$/);
@@ -182,7 +189,7 @@ async function parseSeriesPage(url) {
   episodes.sort((a, b) => a.sortKey - b.sortKey);
 
   if (!episodes.length) throw new Error('ไม่พบ ep URL ในหน้านี้ — ตรวจสอบ URL หรือ cookies');
-  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
+  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน${skippedSpecials ? ` (ข้ามตอนพิเศษ ${skippedSpecials})` : ''}`);
   return { title, posterImg, episodes };
 }
 
@@ -244,17 +251,8 @@ async function main() {
       const result = await parseSeriesPage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const offset = episodes.length;
-      for (const ep of result.episodes) {
-        if (offset > 0) {
-          const origNum = parseInt(ep.epLabel);
-          if (!isNaN(origNum)) {
-            ep.epLabel = String(origNum + offset);
-            ep.sortKey = origNum + offset;
-          }
-        }
-        episodes.push(ep);
-      }
+      utils.continueLabelNumbering(episodes, result.episodes);
+      episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }
 

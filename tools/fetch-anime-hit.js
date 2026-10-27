@@ -112,6 +112,7 @@ async function parseSeriesPage(url) {
     || '';
 
   const seen = new Set();
+  let specialsBefore = 0;
   const episodes = [];
 
   // Episode anchors: <ul id="MVP"><li id="{N}"><a class="ep-a-link" href="/video/...">
@@ -137,7 +138,8 @@ async function parseSeriesPage(url) {
     if (specialMatch) slug = specialMatch[1];
 
     // 2) From <li id="N"> — เลขตอนใน URL เชื่อไม่ได้ (เช่น ตอน 14 ใช้ slug ...-ep-2-1h32a40)
-    if (!slug && /^\d+$/.test(liId)) slug = liId;
+    if (!slug && /^\d+$/.test(liId)) slug = String(Number(liId) - specialsBefore);
+    if (specialMatch) specialsBefore++;
 
     // 3) /video/{slug}-ep-{N}(-suffix)?
     if (!slug) {
@@ -245,17 +247,8 @@ async function main() {
       const result = await parseSeriesPage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const offset = episodes.length;
-      for (const ep of result.episodes) {
-        if (offset > 0) {
-          const origNum = parseInt(ep.epLabel);
-          if (!isNaN(origNum)) {
-            ep.epLabel = String(origNum + offset);
-            ep.sortKey = origNum + offset;
-          }
-        }
-        episodes.push(ep);
-      }
+      utils.continueLabelNumbering(episodes, result.episodes);
+      episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }
 

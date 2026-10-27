@@ -149,6 +149,7 @@ async function parseAnimePage(url) {
     seen.add(epUrl);
 
     const text = ($el.find('p').first().text() || $el.text() || '').trim();
+    if (utils.isSpecialEpisode(text)) return;
 
     // เรื่องแบบ multi-part (พาร์ท 1, พาร์ท 2) จะมี "ตอนที่ NN (XX)" ที่ XX = absolute ep
     //   เช่น "พาร์ท 2 ตอนที่ 01 (14) ซับไทย" → absolute ep 14

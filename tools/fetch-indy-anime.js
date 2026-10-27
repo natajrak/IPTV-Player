@@ -288,21 +288,7 @@ async function main() {
       const result = await parseSeriesPage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      const numOf = (ep) => (/^\d+(?:\.\d+)?$/.test(ep.epLabel) ? Number(ep.epLabel) : NaN);
-      const prevNums = episodes.map(numOf).filter(Number.isFinite);
-      const pageNums = result.episodes.map(numOf).filter(Number.isFinite);
-      const prevMax = prevNums.length ? Math.max(...prevNums) : 0;
-      const pageMin = pageNums.length ? Math.min(...pageNums) : Infinity;
-      if (prevNums.length && pageMin <= prevMax) {
-        const offset = prevMax - pageMin + 1;
-        for (const ep of result.episodes) {
-          const n = numOf(ep);
-          if (Number.isFinite(n)) {
-            ep.epLabel = String(n + offset);
-            ep.sortKey = n + offset;
-          }
-        }
-      }
+      utils.continueLabelNumbering(episodes, result.episodes);
       episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }

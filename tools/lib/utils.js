@@ -86,16 +86,39 @@ function offsetEpisodeLabel(label, epOffset) {
  * ถ้าเว็บนับเลขต่อเนื่องอยู่แล้ว (เลขไม่ชน) คงเลขเดิม
  */
 function continuePartNumbering(prevEpisodes, partEpisodes) {
-  const prevNums = prevEpisodes.map((e) => e.epNum).filter(Number.isFinite);
-  const pageNums = partEpisodes.map((e) => e.epNum).filter(Number.isFinite);
-  if (!prevNums.length || !pageNums.length) return;
-  const prevMax = Math.max(...prevNums);
-  const pageMin = Math.min(...pageNums);
-  if (pageMin > prevMax) return;
-  const offset = prevMax - pageMin + 1;
+  const offset = partOffset(prevEpisodes.map((e) => e.epNum), partEpisodes.map((e) => e.epNum));
+  if (!offset) return;
   for (const ep of partEpisodes) {
     if (Number.isFinite(ep.epNum)) ep.epNum += offset;
   }
+}
+
+/** เหมือน continuePartNumbering แต่สำหรับ script ที่เก็บเลขเป็น { epLabel, sortKey } (label ที่ไม่ใช่ตัวเลข เช่น OVA คงเดิม) */
+function continueLabelNumbering(prevEpisodes, partEpisodes) {
+  const numOf = (ep) => (/^\d+(?:\.\d+)?$/.test(ep.epLabel) ? Number(ep.epLabel) : NaN);
+  const offset = partOffset(prevEpisodes.map(numOf), partEpisodes.map(numOf));
+  if (!offset) return;
+  for (const ep of partEpisodes) {
+    const n = numOf(ep);
+    if (Number.isFinite(n)) {
+      ep.epLabel = String(n + offset);
+      ep.sortKey = n + offset;
+    }
+  }
+}
+
+function partOffset(prevNums, pageNums) {
+  const prev = prevNums.filter(Number.isFinite);
+  const page = pageNums.filter(Number.isFinite);
+  if (!prev.length || !page.length) return 0;
+  const prevMax = Math.max(...prev);
+  const pageMin = Math.min(...page);
+  return pageMin > prevMax ? 0 : prevMax - pageMin + 1;
+}
+
+/** รายการตอนพิเศษ (OVA / OAD / SP / ตอนพิเศษ) จากชื่อหรือ URL ของรายการตอนบนเว็บ */
+function isSpecialEpisode(text) {
+  return /(?:^|[^a-z])(?:ova|oad|sp)(?:[^a-z]|$)|ตอนพิเศษ/i.test(String(text || ''));
 }
 
 const TRACK_MAP = { th: 'พากย์ไทย', subth: 'ซับไทย' };
@@ -133,6 +156,8 @@ module.exports = {
   buildStationName,
   offsetEpisodeLabel,
   continuePartNumbering,
+  continueLabelNumbering,
+  isSpecialEpisode,
   markTrackComplete,
   TRACK_MAP,
 };
