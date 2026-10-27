@@ -138,7 +138,7 @@ async function parseAnimePage(url) {
     || '').trim();
 
   const seen = new Set();
-  const episodes = [];
+  let episodes = [];
 
   const pageHost = hostOf(url);
   $('a[href*="/watch/"]').each((_, el) => {
@@ -149,7 +149,6 @@ async function parseAnimePage(url) {
     seen.add(epUrl);
 
     const text = ($el.find('p').first().text() || $el.text() || '').trim();
-    if (utils.isSpecialEpisode(text)) return;
 
     // เรื่องแบบ multi-part (พาร์ท 1, พาร์ท 2) จะมี "ตอนที่ NN (XX)" ที่ XX = absolute ep
     //   เช่น "พาร์ท 2 ตอนที่ 01 (14) ซับไทย" → absolute ep 14
@@ -168,8 +167,9 @@ async function parseAnimePage(url) {
     const partNum = partMatch ? parseInt(partMatch[1]) : null;
 
     const isPending = /รออัพ/.test(text);
-    episodes.push({ url: epUrl, epNum, partNum, label: text, isPending });
+    episodes.push({ url: epUrl, epNum, partNum, label: text, isPending, isSpecial: utils.isSpecialEpisode(text) });
   });
+  episodes = utils.dropSpecialEpisodes(episodes);
 
   // sort by (partNum, epNum) — ภาค 1 ก่อน ภาค 2, แต่ละ ภาค เรียงตอน
   episodes.sort((a, b) => (a.partNum ?? 0) - (b.partNum ?? 0) || a.epNum - b.epNum);

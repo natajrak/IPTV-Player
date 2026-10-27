@@ -113,7 +113,7 @@ async function parseSeriesPage(url) {
 
   const seen = new Set();
   let specialsBefore = 0;
-  const episodes = [];
+  let episodes = [];
 
   // Episode anchors: <ul id="MVP"><li id="{N}"><a class="ep-a-link" href="/video/...">
   $('ul#MVP li a.ep-a-link, a.ep-a-link').each((_, el) => {
@@ -138,8 +138,9 @@ async function parseSeriesPage(url) {
     if (specialMatch) slug = specialMatch[1];
 
     // 2) From <li id="N"> — เลขตอนใน URL เชื่อไม่ได้ (เช่น ตอน 14 ใช้ slug ...-ep-2-1h32a40)
-    if (!slug && /^\d+$/.test(liId)) slug = String(Number(liId) - specialsBefore);
-    if (specialMatch) specialsBefore++;
+    const isSpecial = /^(?:ova|sp)/i.test(specialMatch?.[1] || '') || utils.isSpecialEpisode(epTitle);
+    if (!slug && /^\d+$/.test(liId)) slug = String(Number(liId) - (isSpecial ? 0 : specialsBefore));
+    if (specialMatch || isSpecial) specialsBefore++;
 
     // 3) /video/{slug}-ep-{N}(-suffix)?
     if (!slug) {
@@ -183,9 +184,10 @@ async function parseSeriesPage(url) {
       sortKey = episodes.length + 1;
     }
 
-    episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel });
+    episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel, isSpecial });
   });
 
+  episodes = utils.dropSpecialEpisodes(episodes);
   episodes.sort((a, b) => a.sortKey - b.sortKey);
   console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
   return { title, posterImg, episodes };

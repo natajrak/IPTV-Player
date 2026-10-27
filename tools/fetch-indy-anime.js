@@ -107,7 +107,7 @@ async function parseSeriesPage(url) {
     || '';
 
   const seen = new Set();
-  const episodes = [];
+  let episodes = [];
   const pageHost = hostOf(url);
 
   $("a[href*='/watch/']").each((_, el) => {
@@ -177,9 +177,11 @@ async function parseSeriesPage(url) {
       sortKey = episodes.length + 1;
     }
 
-    episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel });
+    const isSpecial = /^(?:ova|sp)/i.test(slug) || utils.isSpecialEpisode(shownPrefix);
+    episodes.push({ url: epUrl, thumb, epTitle, sortKey, epLabel, isSpecial });
   });
 
+  episodes = utils.dropSpecialEpisodes(episodes);
   episodes.sort((a, b) => a.sortKey - b.sortKey);
   console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
   return { title, posterImg, episodes };

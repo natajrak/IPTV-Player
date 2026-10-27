@@ -132,8 +132,8 @@ async function parseSeriesPage(url) {
     || '';
 
   const seen = new Set();
-  const episodes = [];
-  let skippedSpecials = 0;
+  let episodes = [];
+  let specialsBefore = 0;
 
   // จำกัด selector ใน main ep list (<ul id="MVP"> มี <li id="N">) — กัน sidebar แนะนำ
   $("ul#MVP a.ep-a-link, ul#MVP a[href*='/ep/']").each((_, el) => {
@@ -149,15 +149,13 @@ async function parseSeriesPage(url) {
     let sortKey = 9000;
     let epLabel = '';
 
-    // ตอนพิเศษ (OVA/SP) ไม่ใส่ใน playlist — li id เป็นแค่ลำดับ ตอนปกติที่ตามหลังจึงต้องหักออก
+    // ตอนพิเศษ (OVA/SP) ถูกตัดทิ้งท้าย parse — li id เป็นแค่ลำดับ ตอนปกติที่ตามหลังจึงต้องหักออก
     const decodedUrl = decodeURIComponent(epUrl);
-    if (utils.isSpecialEpisode(`${decodedUrl} ${titleAttr}`)) {
-      skippedSpecials++;
-      return;
-    }
+    const isSpecial = utils.isSpecialEpisode(`${decodedUrl} ${titleAttr}`);
 
     // 1) <li id="N"> — เลขใน slug เชื่อไม่ได้ (WordPress เติม -2, -3 หรือ token สุ่มท้าย slug)
-    if (/^\d+$/.test(liId)) slug = String(Number(liId) - skippedSpecials);
+    if (/^\d+$/.test(liId)) slug = String(Number(liId) - (isSpecial ? 0 : specialsBefore));
+    if (isSpecial) specialsBefore++;
 
     // 2) URL pattern: /ep/<slug>-ep-<N>/
     if (!slug) {
@@ -183,13 +181,14 @@ async function parseSeriesPage(url) {
       sortKey = episodes.length + 1;
     }
 
-    episodes.push({ url: epUrl, thumb: '', epTitle: titleAttr, sortKey, epLabel });
+    episodes.push({ url: epUrl, thumb: '', epTitle: titleAttr, sortKey, epLabel, isSpecial });
   });
 
+  episodes = utils.dropSpecialEpisodes(episodes);
   episodes.sort((a, b) => a.sortKey - b.sortKey);
 
   if (!episodes.length) throw new Error('ไม่พบ ep URL ในหน้านี้ — ตรวจสอบ URL หรือ cookies');
-  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน${skippedSpecials ? ` (ข้ามตอนพิเศษ ${skippedSpecials})` : ''}`);
+  console.log(`✅ พบ: "${title}" — ${episodes.length} ตอน`);
   return { title, posterImg, episodes };
 }
 

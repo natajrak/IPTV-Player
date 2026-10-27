@@ -111,7 +111,7 @@ function partOffset(prevNums, pageNums) {
   const prev = prevNums.filter(Number.isFinite);
   const page = pageNums.filter(Number.isFinite);
   if (!prev.length || !page.length) return 0;
-  const prevMax = Math.max(...prev);
+  const prevMax = Math.floor(Math.max(...prev));
   const pageMin = Math.min(...page);
   return pageMin > prevMax ? 0 : prevMax - pageMin + 1;
 }
@@ -119,6 +119,18 @@ function partOffset(prevNums, pageNums) {
 /** รายการตอนพิเศษ (OVA / OAD / SP / ตอนพิเศษ) จากชื่อหรือ URL ของรายการตอนบนเว็บ */
 function isSpecialEpisode(text) {
   return /(?:^|[^a-z])(?:ova|oad|sp)(?:[^a-z]|$)|ตอนพิเศษ/i.test(String(text || ''));
+}
+
+/**
+ * ตัดตอนพิเศษ (ep.isSpecial) ออกจากรายการตอนของหน้าเว็บ
+ * ถ้าทั้งหน้ามีแต่ตอนพิเศษ (หน้าที่ใช้ทำ Specials) คงไว้ทั้งหมด
+ */
+function dropSpecialEpisodes(episodes) {
+  const regular = episodes.filter((ep) => !ep.isSpecial);
+  if (!regular.length) return episodes;
+  const dropped = episodes.length - regular.length;
+  if (dropped) console.log(`ℹ️  ข้ามตอนพิเศษ (OVA/SP) ${dropped} ตอน`);
+  return regular;
 }
 
 const TRACK_MAP = { th: 'พากย์ไทย', subth: 'ซับไทย' };
@@ -158,6 +170,7 @@ module.exports = {
   continuePartNumbering,
   continueLabelNumbering,
   isSpecialEpisode,
+  dropSpecialEpisodes,
   markTrackComplete,
   TRACK_MAP,
 };
