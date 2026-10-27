@@ -329,7 +329,7 @@ async function main() {
       console.log(`📁 บันทึก main file: ${mainPath}`);
       io.updateIndex({
         indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
-        seriesTitle, posterUrl, filename: mainFile, upsert: true,
+        seriesTitle: mainPlaylist.name, posterUrl: mainPlaylist.image, filename: mainFile, upsert: true,
         releaseDate: mainPlaylist.release_date || '',
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
