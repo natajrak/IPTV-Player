@@ -3102,6 +3102,14 @@ function closePlayer() {
   }
   if (document.pictureInPictureElement) document.exitPictureInPicture().catch(() => {});
   btnPip.classList.remove("active");
+  const fsEl = getFullscreenElement();
+  if (fsEl && playerOverlay.contains(fsEl)) {
+    exitFullscreenNow();
+  } else if (playerVideo.webkitDisplayingFullscreen && typeof playerVideo.webkitExitFullscreen === "function") {
+    try {
+      playerVideo.webkitExitFullscreen();
+    } catch (e) {}
+  }
   destroyHls();
   hidePlayerNotice();
   hidePlayerLoading();
