@@ -24,6 +24,11 @@
                                         "type": "op",
                                         "start": 0,
                                         "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.6,
+                                        "end": 1391.3
                                     }
                                 ]
                             }
@@ -56,8 +61,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 46.8,
-                                        "end": 136.8
+                                        "start": 30.7,
+                                        "end": 119.6
                                     }
                                 ]
                             }
@@ -73,8 +78,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 53.5,
-                                        "end": 143.5
+                                        "start": 96.7,
+                                        "end": 185.6
                                     }
                                 ]
                             }
@@ -84,7 +89,22 @@
                             "image": "https://image.tmdb.org/t/p/original/n6QJfcMTgKXr6EILrEpkWRxylhb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa40e8727581f10daf872279d%2Fa40e8727581f10daf872279d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2014-05-07"
+                            "release_date": "2014-05-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.7,
+                                        "end": 173.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.3,
+                                        "end": 1371.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Interesting",
@@ -97,8 +117,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 44.9,
-                                        "end": 134.9
+                                        "start": 28.6,
+                                        "end": 117.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.6,
+                                        "end": 1428
                                     }
                                 ]
                             }
@@ -114,8 +139,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 84.7,
-                                        "end": 174.7
+                                        "start": 68.6,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.2,
+                                        "end": 1427.7
                                     }
                                 ]
                             }
@@ -131,8 +161,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 111.8,
-                                        "end": 201.8
+                                        "start": 95.6,
+                                        "end": 184.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1217,
+                                        "end": 1306
                                     }
                                 ]
                             }
@@ -142,7 +177,17 @@
                             "image": "https://image.tmdb.org/t/p/original/xB3mHHJakxDAtsaMsAVmeKWT9rE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F925ec4f2fb8ebf5e01e137ed%2F925ec4f2fb8ebf5e01e137ed.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2014-06-04"
+                            "release_date": "2014-06-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.2,
+                                        "end": 1428.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Blue Rose",
@@ -155,8 +200,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 103.9,
-                                        "end": 193.9
+                                        "start": 85.6,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.6,
+                                        "end": 1427.9
                                     }
                                 ]
                             }
@@ -166,7 +216,17 @@
                             "image": "https://image.tmdb.org/t/p/original/dhj4ryopygULu0WLF4J1iLI85Fo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F761d989e1f9a61cebbcad87c%2F761d989e1f9a61cebbcad87c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2014-06-18"
+                            "release_date": "2014-06-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.7,
+                                        "end": 1427.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Rule Number 10",

@@ -58,8 +58,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 138.1,
-                                        "end": 228.1
+                                        "start": 118.8,
+                                        "end": 208
                                     },
                                     {
                                         "type": "ed",
@@ -89,6 +89,11 @@
                                         "type": "op",
                                         "start": 0,
                                         "end": 90.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1404.4
                                     }
                                 ]
                             }
@@ -109,8 +114,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.9,
-                                        "end": 1405.9
+                                        "start": 1280.1,
+                                        "end": 1370.3
                                     }
                                 ]
                             }
@@ -120,7 +125,22 @@
                             "image": "https://image.tmdb.org/t/p/original/clEl71Ca1M79QITiPVAumFeI9fU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FP9FQu1gi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FP9FQu1gi",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-08-22"
+                            "release_date": "2026-08-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.1,
+                                        "end": 121
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.9,
+                                        "end": 1394.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The White Cat and the Lazy Girl",
@@ -133,13 +153,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 25.2,
-                                        "end": 115.2
+                                        "start": 13,
+                                        "end": 103.9
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.8,
-                                        "end": 1405.8
+                                        "start": 1290.2,
+                                        "end": 1379.9
                                     }
                                 ]
                             }
@@ -149,7 +169,22 @@
                             "image": "https://image.tmdb.org/t/p/original/8LyS8lZJvQHgZ4mgeixQYEmiktT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4FvuZwvt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4FvuZwvt",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-09-05"
+                            "release_date": "2026-09-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.4,
+                                        "end": 138.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1270.5,
+                                        "end": 1359.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -163,14 +198,39 @@
                             "image": "https://image.tmdb.org/t/p/original/gHF7zX41f5dMnJMuFm4jXOCQ5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UbANXGNXyV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-04"
+                            "release_date": "2026-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Mother Cat and the Girl",
                             "image": "https://image.tmdb.org/t/p/original/gRvIuDtYCmeStqpdXinlJnfasAM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/duB7GX6VNF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-11"
+                            "release_date": "2026-07-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Kittens and the Winged Uncle",
@@ -221,7 +281,22 @@
                             "image": "https://image.tmdb.org/t/p/original/ojGWEXcSaePcgFQftxANAXEmvTS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qlShPRKIMH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-01"
+                            "release_date": "2026-08-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.7,
+                                        "end": 206
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Evening of Foxtails",
@@ -236,6 +311,11 @@
                                         "type": "op",
                                         "start": 0,
                                         "end": 90.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1404.5
                                     }
                                 ]
                             }
@@ -267,7 +347,22 @@
                             "image": "https://image.tmdb.org/t/p/original/clEl71Ca1M79QITiPVAumFeI9fU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/93KfkE9s8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-22"
+                            "release_date": "2026-08-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.6,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.9,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The White Cat and the Lazy Girl",
@@ -296,7 +391,22 @@
                             "image": "https://image.tmdb.org/t/p/original/8LyS8lZJvQHgZ4mgeixQYEmiktT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TPSHJkKmhN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-05"
+                            "release_date": "2026-09-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.1,
+                                        "end": 158
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Final Resting Place",
@@ -311,6 +421,11 @@
                                         "type": "op",
                                         "start": 36.3,
                                         "end": 126.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.4,
+                                        "end": 1379.6
                                     }
                                 ]
                             }

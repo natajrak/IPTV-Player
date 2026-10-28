@@ -17,7 +17,17 @@
                             "url": "https://app.akuma-stream.com/watch/5170abcc-20f4-4c34-ad57-865e2e3d58bb",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2025-07-03"
+                            "release_date": "2025-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1253.1,
+                                        "end": 1344.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Hero's Conditions",
@@ -30,9 +40,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 263.3,
+                                        "end": 353.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.5,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -48,9 +63,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 187.9,
+                                        "end": 277.6
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.5,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -66,9 +86,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 182.5,
+                                        "end": 272
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.7,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -84,9 +109,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 244.5,
+                                        "end": 334
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.2,
+                                        "end": 1415.4
                                     }
                                 ]
                             }
@@ -102,9 +132,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 16.2,
+                                        "end": 108.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.6,
+                                        "end": 1415.4
                                     }
                                 ]
                             }
@@ -120,9 +155,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 83.3,
+                                        "end": 172.9
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.6,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -138,9 +178,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 69.2,
+                                        "end": 159
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.4,
+                                        "end": 1415.4
                                     }
                                 ]
                             }
@@ -156,9 +201,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 123.5,
+                                        "end": 214.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.9,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -174,9 +224,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 89.3,
+                                        "end": 179.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.2,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -187,7 +242,22 @@
                             "url": "https://app.akuma-stream.com/watch/05c16a0d-1eff-4e4f-9977-6c8330c74471",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2025-09-11"
+                            "release_date": "2025-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 152.3,
+                                        "end": 242
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1271.7,
+                                        "end": 1360.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Heroic Tale Continues",
@@ -221,7 +291,17 @@
                             "url": "https://app.akuma-stream.com/watch/49fa6104-6b3b-471b-838f-26abe4d02dcd",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2025-07-03"
+                            "release_date": "2025-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1253.9,
+                                        "end": 1344.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Hero's Conditions",
@@ -234,9 +314,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 263.4,
+                                        "end": 352.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.5,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -252,9 +337,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 187.9,
+                                        "end": 278
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.5,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -270,9 +360,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 182.5,
+                                        "end": 272
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.8,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -288,9 +383,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 244.5,
+                                        "end": 334
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.3,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -306,9 +406,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 16,
+                                        "end": 108.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.5,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -324,9 +429,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 83.1,
+                                        "end": 173.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.6,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -342,9 +452,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 69,
+                                        "end": 159
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.4,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -360,9 +475,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 123.5,
+                                        "end": 215.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1325.9,
+                                        "end": 1415.6
                                     }
                                 ]
                             }
@@ -378,9 +498,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 89.3,
+                                        "end": 179.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327.2,
-                                        "end": 1417.2
+                                        "start": 1324.2,
+                                        "end": 1415.7
                                     }
                                 ]
                             }

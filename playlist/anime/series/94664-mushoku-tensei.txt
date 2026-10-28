@@ -29,8 +29,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.1,
-                                        "end": 1415.6
+                                        "start": 1323,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -44,6 +44,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 163.1,
+                                        "end": 210
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1325.1,
@@ -62,9 +67,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 111.8,
+                                        "end": 150.2
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1325.2,
-                                        "end": 1415.7
+                                        "start": 1323.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -80,8 +90,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1328.9,
-                                        "end": 1415.5
+                                        "start": 1324.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -95,6 +105,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 327.4,
+                                        "end": 357.4
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1325,
@@ -114,8 +129,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.2,
-                                        "end": 1415.7
+                                        "start": 1323,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -125,7 +140,17 @@
                             "image": "https://image.tmdb.org/t/p/original/A68qEBAuk5ubUWdt6zTqiT2NiAB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/g3Lml8cO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-03-01"
+                            "release_date": "2021-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 98.5,
+                                        "end": 128.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - การพบพาน",
@@ -138,8 +163,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.2,
-                                        "end": 1415.7
+                                        "start": 1323.4,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -155,8 +180,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1328.8,
-                                        "end": 1415.6
+                                        "start": 1325.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -166,7 +191,17 @@
                             "image": "https://image.tmdb.org/t/p/original/3Wx5JiTG3pj0ShBiW84QLam3gyx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/abSLvxj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-03-22"
+                            "release_date": "2021-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1316.1,
+                                        "end": 1395.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ผู้หญิงที่มีดวงตาปีศาจ",
@@ -180,7 +215,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1325.5,
-                                        "end": 1415.9
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -196,8 +231,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1416
+                                        "start": 1325.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -213,8 +248,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1331.1,
-                                        "end": 1416.1
+                                        "start": 1325.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -230,8 +265,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1416
+                                        "start": 1325.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -248,7 +283,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1325.5,
-                                        "end": 1415.9
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -287,6 +322,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 253.4,
+                                        "end": 284.7
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1325.6,
                                         "end": 1416
@@ -304,9 +344,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 60.4,
+                                        "end": 89.8
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1416
+                                        "start": 1325.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -320,6 +365,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 63.8,
+                                        "end": 95.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1325.6,
@@ -346,8 +396,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1317.6,
-                                        "end": 1408
+                                        "start": 1317.4,
+                                        "end": 1364.2
                                     }
                                 ]
                             }
@@ -376,13 +426,7 @@
                             "release_date": "2023-07-10",
                             "skip": {
                                 "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 86.5,
-                                        "end": 176.4
-                                    }
-                                ]
+                                "segments": []
                             }
                         },
                         {
@@ -395,9 +439,9 @@
                                 "source": "manual",
                                 "segments": [
                                     {
-                                        "type": "op",
-                                        "start": 133.6,
-                                        "end": 223.5
+                                        "type": "mixed-op",
+                                        "start": 153.2,
+                                        "end": 228
                                     }
                                 ]
                             }
@@ -413,8 +457,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 192.4,
-                                        "end": 282.3
+                                        "start": 122.3,
+                                        "end": 213
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.5,
+                                        "end": 1358.5
                                     }
                                 ]
                             }
@@ -429,9 +478,9 @@
                                 "source": "manual",
                                 "segments": [
                                     {
-                                        "type": "op",
-                                        "start": 66.5,
-                                        "end": 156.4
+                                        "type": "ed",
+                                        "start": 1321.3,
+                                        "end": 1411.3
                                     }
                                 ]
                             }
@@ -447,8 +496,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 98.6,
-                                        "end": 188.5
+                                        "start": 62.5,
+                                        "end": 151.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1424.4
                                     }
                                 ]
                             }
@@ -464,8 +518,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 239.6,
-                                        "end": 329.5
+                                        "start": 142.6,
+                                        "end": 232
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.5,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -481,8 +540,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 115.5,
-                                        "end": 205.4
+                                        "start": 218.6,
+                                        "end": 309.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -498,8 +562,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 191.5,
-                                        "end": 281.4
+                                        "start": 87.6,
+                                        "end": 177.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -515,8 +584,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 78.5,
-                                        "end": 168.4
+                                        "start": 96.6,
+                                        "end": 188
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1424.4
                                     }
                                 ]
                             }
@@ -532,8 +606,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 342.2,
-                                        "end": 432.1
+                                        "start": 88.4,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.7,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -543,14 +622,39 @@
                             "image": "https://image.tmdb.org/t/p/original/uTL8idBcXNkWg1ZNUhDNACDRnn4.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/bHo6xtMyzB/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-09-18"
+                            "release_date": "2023-09-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.3,
+                                        "end": 185.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - อยากจะบอก",
                             "image": "https://image.tmdb.org/t/p/original/pDxepnPctRVozi3uER4AZitz0Yv.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/C8LwFUS5kL/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-09-25"
+                            "release_date": "2023-09-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.6,
+                                        "end": 210
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - บ้านในฝัน",
@@ -564,63 +668,183 @@
                             "image": "https://image.tmdb.org/t/p/original/t9goEAxsd8LudOnzgHJHMwIFzJB.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/h7JVXwkwIC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-15"
+                            "release_date": "2024-04-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.3,
+                                        "end": 176
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ไกลโพ้น",
                             "image": "https://image.tmdb.org/t/p/original/73G9pW6Hq6KSe32iYcSrwSllppN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/5NneJsIFDc/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-22"
+                            "release_date": "2024-04-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.3,
+                                        "end": 223.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - นอร์นกับไอช่า",
                             "image": "https://image.tmdb.org/t/p/original/9YJCqvhLiRHHIfaR7PE1ou3ny3w.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/n4MRFdQhS/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-04-29"
+                            "release_date": "2024-04-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.3,
+                                        "end": 282.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.7,
+                                        "end": 1412.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ความรู้สึกของพี่ชาย",
                             "image": "https://image.tmdb.org/t/p/original/5uqn76jSS3Zy3NPbPSvO6bLIR08.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/lfSIejnnoV/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-06"
+                            "release_date": "2024-05-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.1,
+                                        "end": 156.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - จุดพลิกผัน 3",
                             "image": "https://image.tmdb.org/t/p/original/lBwC3cCgMuGJRxAX52tRJaWi6dd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/QlT9GqAkSC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-13"
+                            "release_date": "2024-05-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.1,
+                                        "end": 188
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - การเดินทางในทะเลทราย",
                             "image": "https://image.tmdb.org/t/p/original/xSi2t4SSx7XGrLdzy8Gp9GLJ1SD.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/BGm2ISpwFB/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-27"
+                            "release_date": "2024-05-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 238.6,
+                                        "end": 329.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - เข้าสู่เขาวงกต",
                             "image": "https://image.tmdb.org/t/p/original/6UmlIWL3pW28dMVmPJvI0cGm8uY.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8mh3VoC63r/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-03"
+                            "release_date": "2024-06-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 115.6,
+                                        "end": 205
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - วงเวทที่ชั้นหก",
                             "image": "https://image.tmdb.org/t/p/original/2iZ0wOEnZ6DyvBWqdLPvPDFjU8q.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/RZk6fs268z/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-10"
+                            "release_date": "2024-06-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.7,
+                                        "end": 281
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.6,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - พ่อแม่",
                             "image": "https://image.tmdb.org/t/p/original/oe5fQnzK6uixFvpmN0w0WAuc3Lk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/44cGIhnrm0/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-17"
+                            "release_date": "2024-06-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78,
+                                        "end": 168
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - กลับกันเถอะ",
@@ -682,6 +906,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 84.3,
+                                        "end": 148.6
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1325.4,
                                         "end": 1414.9
@@ -700,8 +929,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.4,
-                                        "end": 1414.9
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -717,8 +946,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1324.9,
-                                        "end": 1414.3
+                                        "start": 1323.3,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -732,6 +961,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 158.6,
+                                        "end": 195.5
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1324.9,
@@ -750,6 +984,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 187,
+                                        "end": 218.5
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1324.9,
                                         "end": 1414.3
@@ -762,7 +1001,17 @@
                             "image": "https://image.tmdb.org/t/p/original/6381zSllVVPtSsMUx2UazOTj0wM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vd81iYIpQZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 196.3,
+                                        "end": 238.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ขั้นที่สี่",
@@ -773,6 +1022,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 79.3,
+                                        "end": 116.5
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1324.9,
@@ -786,35 +1040,95 @@
                             "image": "https://image.tmdb.org/t/p/original/38UxygrYWG3Ln7ql3hjfoFjvfjZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DcBkwjX8d8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 237.5,
+                                        "end": 288.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ร้องคร่ำครวญ",
                             "image": "https://image.tmdb.org/t/p/original/gvYNNlx7erytSG0e1oeYxOA2BHx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/H3qQif6Iiv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - เข้าเฝ้าจอมมารอมตะ",
                             "image": "https://image.tmdb.org/t/p/original/c1ILhYyuPRejU39IrDBu767Pqba.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/06feR4wajc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 269.8,
+                                        "end": 321.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324,
+                                        "end": 1407.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - จุดเปลี่ยน 4",
                             "image": "https://image.tmdb.org/t/p/original/cVco0tzbJkJjx38r6JIZRDfT6cp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6XeCnh9iCK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - จุดจบและการเริ่มต้น",
                             "image": "https://image.tmdb.org/t/p/original/kdn38Map1ghm92x6AhjdVzfIQ07.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F8pT9th6Bn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1412.3
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -832,6 +1146,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 84.4,
+                                        "end": 152.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1325.4,
@@ -851,8 +1170,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1325.4,
-                                        "end": 1414.9
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -884,6 +1203,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 160.6,
+                                        "end": 195.5
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1324.9,
                                         "end": 1414.3
@@ -901,6 +1225,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "mixed-op",
+                                        "start": 179.8,
+                                        "end": 218.5
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1324.9,
                                         "end": 1414.3
@@ -913,7 +1242,17 @@
                             "image": "https://image.tmdb.org/t/p/original/6381zSllVVPtSsMUx2UazOTj0wM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NpS5KD2m23/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 153.2,
+                                        "end": 194.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Phase Four",
@@ -924,6 +1263,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 31,
+                                        "end": 74.7
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1324.9,
@@ -943,8 +1287,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1324.9,
-                                        "end": 1414.3
+                                        "start": 1323.3,
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -988,7 +1332,17 @@
                             "image": "https://image.tmdb.org/t/p/original/cVco0tzbJkJjx38r6JIZRDfT6cp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CX2YAGcL2B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - An End and a Beginning",
@@ -1019,7 +1373,17 @@
                             "image": "https://image.tmdb.org/t/p/original/wr6b0gP5nRqZNnjcRZt1rVQ0IZ8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iqh7A5sq3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-28"
+                            "release_date": "2026-09-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

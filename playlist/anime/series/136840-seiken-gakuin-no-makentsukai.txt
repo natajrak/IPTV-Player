@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/rKd3NJblRLfrLb7I0VV2TkK640f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TBjQ6Flhvf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-10-03"
+                            "release_date": "2023-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1424.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - โชคชะตาที่แบกรับ",
@@ -78,8 +88,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301.3,
-                                        "end": 1391
+                                        "start": 1299.7,
+                                        "end": 1389.7
                                     }
                                 ]
                             }
@@ -93,6 +103,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.5,
+                                        "end": 251.5
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1296.2,
@@ -127,6 +142,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 227.5,
+                                        "end": 315.5
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1316.2,

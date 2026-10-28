@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/foXvhDu0iRMyAMxUWoZ7FVvnlR9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xE9qZFvUif/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-11"
+                            "release_date": "2026-04-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.5,
+                                        "end": 1379.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Noren Mitsuoka",
@@ -29,13 +39,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 90.5,
-                                        "end": 180.5
+                                        "start": 84.2,
+                                        "end": 173.9
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1267.6,
-                                        "end": 1357.6
+                                        "start": 1256.3,
+                                        "end": 1346.5
                                     }
                                 ]
                             }
@@ -50,9 +60,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 15.5,
+                                        "end": 105
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1278.5,
-                                        "end": 1368.5
+                                        "start": 1267.9,
+                                        "end": 1357.5
                                     }
                                 ]
                             }
@@ -62,7 +77,22 @@
                             "image": "https://image.tmdb.org/t/p/original/u8vWZsKkNp7pgxiPkhC9To3ZDtI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5gGLEus0n0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-02"
+                            "release_date": "2026-05-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.1,
+                                        "end": 156
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.2,
+                                        "end": 1398.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - There's a Unicorn Up Ahead",
@@ -74,9 +104,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 139
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1232.6,
-                                        "end": 1322.6
+                                        "start": 1221.2,
+                                        "end": 1312
                                     }
                                 ]
                             }
@@ -92,13 +127,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 95.2,
-                                        "end": 185.2
+                                        "start": 99.5,
+                                        "end": 188.9
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1283.8,
-                                        "end": 1373.8
+                                        "start": 1273.6,
+                                        "end": 1362.8
                                     }
                                 ]
                             }
@@ -114,13 +149,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 90
+                                        "start": 114.6,
+                                        "end": 204
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1340.6,
-                                        "end": 1419.9
+                                        "start": 1329.7,
+                                        "end": 1419.3
                                     }
                                 ]
                             }
@@ -135,9 +170,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 149
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1243.6,
-                                        "end": 1333.6
+                                        "start": 1233.6,
+                                        "end": 1323.1
                                     }
                                 ]
                             }
@@ -153,13 +193,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 42.6,
-                                        "end": 132.6
+                                        "start": 36.6,
+                                        "end": 126
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1269.7,
-                                        "end": 1359.7
+                                        "start": 1260,
+                                        "end": 1348.5
                                     }
                                 ]
                             }
@@ -175,8 +215,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 63.5,
-                                        "end": 153.5
+                                        "start": 57.5,
+                                        "end": 146.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.5,
+                                        "end": 1351.5
                                     }
                                 ]
                             }
@@ -197,8 +242,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1340.3,
-                                        "end": 1419.9
+                                        "start": 1330,
+                                        "end": 1419.3
                                     }
                                 ]
                             }
@@ -213,9 +258,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 44.5,
+                                        "end": 134
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1340.3,
-                                        "end": 1425
+                                        "start": 1329.7,
+                                        "end": 1419.8
                                     }
                                 ]
                             }
@@ -233,7 +283,17 @@
                             "image": "https://image.tmdb.org/t/p/original/foXvhDu0iRMyAMxUWoZ7FVvnlR9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fl7AfiF1fl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-11"
+                            "release_date": "2026-04-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.5,
+                                        "end": 1379.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Noren Mitsuoka",
@@ -246,13 +306,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 90.5,
-                                        "end": 180.5
+                                        "start": 84.4,
+                                        "end": 173.9
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1267.6,
-                                        "end": 1357.6
+                                        "start": 1257.5,
+                                        "end": 1346.4
                                     }
                                 ]
                             }
@@ -267,9 +327,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 15.5,
+                                        "end": 105
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1278.5,
-                                        "end": 1368.5
+                                        "start": 1268.2,
+                                        "end": 1357.5
                                     }
                                 ]
                             }
@@ -279,7 +344,22 @@
                             "image": "https://image.tmdb.org/t/p/original/u8vWZsKkNp7pgxiPkhC9To3ZDtI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gtgkLPrZrD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-02"
+                            "release_date": "2026-05-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.5,
+                                        "end": 156
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.7,
+                                        "end": 1398.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - There's a Unicorn Up Ahead",
@@ -291,9 +371,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 48.8,
+                                        "end": 139
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1232.6,
-                                        "end": 1322.6
+                                        "start": 1221.3,
+                                        "end": 1311.5
                                     }
                                 ]
                             }
@@ -309,13 +394,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 95.2,
-                                        "end": 185.2
+                                        "start": 99.5,
+                                        "end": 188.9
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1283.8,
-                                        "end": 1373.8
+                                        "start": 1273.6,
+                                        "end": 1362.6
                                     }
                                 ]
                             }
@@ -331,13 +416,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0,
-                                        "end": 90
+                                        "start": 114.6,
+                                        "end": 204
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1340.6,
-                                        "end": 1419.9
+                                        "start": 1329.8,
+                                        "end": 1419.3
                                     }
                                 ]
                             }
@@ -352,9 +437,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 149
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1243.6,
-                                        "end": 1333.6
+                                        "start": 1233.6,
+                                        "end": 1323.2
                                     }
                                 ]
                             }
@@ -370,13 +460,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 42.6,
-                                        "end": 132.6
+                                        "start": 36.6,
+                                        "end": 126
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1269.7,
-                                        "end": 1359.7
+                                        "start": 1260,
+                                        "end": 1348.5
                                     }
                                 ]
                             }
@@ -392,8 +482,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 63.5,
-                                        "end": 153.5
+                                        "start": 57.6,
+                                        "end": 147
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.3,
+                                        "end": 1351.5
                                     }
                                 ]
                             }
@@ -414,8 +509,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1340.3,
-                                        "end": 1419.9
+                                        "start": 1329.7,
+                                        "end": 1419.3
                                     }
                                 ]
                             }
@@ -430,9 +525,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 43.9,
+                                        "end": 134
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1340.3,
-                                        "end": 1425
+                                        "start": 1329.8,
+                                        "end": 1420.4
                                     }
                                 ]
                             }

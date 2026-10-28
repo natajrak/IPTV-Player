@@ -22,8 +22,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 139,
-                                        "end": 228
+                                        "start": 139.8,
+                                        "end": 226.3
                                     }
                                 ]
                             }
@@ -1034,35 +1034,105 @@
                             "image": "https://image.tmdb.org/t/p/original/l3SDfjBMLRtN4z2FB3tZzYZq1zT.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GfUr3LU9u9/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-27"
+                            "release_date": "2026-09-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 26 - Canarre in Crisis",
                             "image": "https://image.tmdb.org/t/p/original/awUy4KEeOzQ5yS7hcVG71I0tgdQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xxt9CVRJR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-04"
+                            "release_date": "2026-10-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 205.5,
+                                        "end": 295.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 27 - Zaht and Braham",
                             "image": "https://image.tmdb.org/t/p/original/vH0hEop8EdKgx0fMg6VlkADm0Iw.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0iSLkYJrVA/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-11"
+                            "release_date": "2026-10-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.1,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 28 - End of Hostilities",
                             "image": "https://image.tmdb.org/t/p/original/kvabi9yzGmJwjZhsKCicezQy7Uk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/617X2zhHj4/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-18"
+                            "release_date": "2026-10-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.2,
+                                        "end": 235.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1403.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 29 - The End of Vasmarque",
                             "image": "https://image.tmdb.org/t/p/original/50i2NNral2lNbIVPs6vEj6pmHlx.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xeGCLzkvD6/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-26"
+                            "release_date": "2026-10-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.5,
+                                        "end": 136
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.7,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

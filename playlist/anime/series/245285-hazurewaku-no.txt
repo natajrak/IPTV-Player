@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/gBY5YNRNnbXOscNbHMRBDsI6ME5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ujm2jz3PRr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-05"
+                            "release_date": "2024-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - โบราณสถานร้าง",
@@ -45,6 +55,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 260.6,
+                                        "end": 350.3
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1332.8,
                                         "end": 1423.3
@@ -61,6 +76,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.6,
+                                        "end": 166.4
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -79,6 +99,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 132.5,
+                                        "end": 222.1
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1355.8,
                                         "end": 1446.3
@@ -95,6 +120,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.1,
+                                        "end": 222.2
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1316.7,
@@ -113,6 +143,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 114.6,
+                                        "end": 204.1
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1355.8,
                                         "end": 1446.3
@@ -129,6 +164,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.3,
+                                        "end": 127.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -147,9 +187,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 82.4,
+                                        "end": 172.6
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1320.7,
-                                        "end": 1411.2
+                                        "start": 1319.3,
+                                        "end": 1409.6
                                     }
                                 ]
                             }
@@ -163,6 +208,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 175.2,
+                                        "end": 264
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -193,7 +243,17 @@
                             "image": "https://image.tmdb.org/t/p/original/4DqCKpVOQxZLSv6Akcth1b2GcuO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HvlDeU20u3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-27"
+                            "release_date": "2024-09-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.5,
+                                        "end": 1434.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -208,7 +268,17 @@
                             "image": "https://image.tmdb.org/t/p/original/gBY5YNRNnbXOscNbHMRBDsI6ME5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Shcwbjss9J/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-07-05"
+                            "release_date": "2024-07-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Ruins of Disposal",
@@ -237,6 +307,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 261.2,
+                                        "end": 350.2
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1332.8,
                                         "end": 1423.3
@@ -253,6 +328,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.8,
+                                        "end": 167.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -288,6 +368,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 133.3,
+                                        "end": 222.2
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1316.7,
                                         "end": 1407.2
@@ -304,6 +389,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.2,
+                                        "end": 204.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -322,6 +412,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 37.4,
+                                        "end": 127.1
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1355.8,
                                         "end": 1446.3
@@ -339,9 +434,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 82.4,
+                                        "end": 172.2
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1320.7,
-                                        "end": 1411.2
+                                        "start": 1320.5,
+                                        "end": 1409.6
                                     }
                                 ]
                             }
@@ -355,6 +455,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 175.2,
+                                        "end": 264
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1355.8,
@@ -385,7 +490,17 @@
                             "image": "https://image.tmdb.org/t/p/original/4DqCKpVOQxZLSv6Akcth1b2GcuO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nAGBIR80Aq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-27"
+                            "release_date": "2024-09-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.5,
+                                        "end": 1434.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -22,8 +22,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 194.6,
-                                        "end": 284.6
+                                        "start": 193.4,
+                                        "end": 283
                                     }
                                 ]
                             }
@@ -59,6 +59,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.5,
+                                        "end": 241
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.3,
@@ -121,6 +126,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 134
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1330.3,
                                         "end": 1420
@@ -137,6 +147,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.4,
+                                        "end": 234
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.1,
@@ -156,8 +171,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 261.5,
-                                        "end": 351.5
+                                        "start": 259.9,
+                                        "end": 350
                                     },
                                     {
                                         "type": "ed",
@@ -177,6 +192,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 91.2,
+                                        "end": 181.4
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1330.1,
                                         "end": 1420
@@ -193,6 +213,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.4,
+                                        "end": 189
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.1,
@@ -228,7 +253,17 @@
                             "image": "https://image.tmdb.org/t/p/original/o5fB5YFhQVoExIPXo8WKcrt4VlD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ri5KWBT2nE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-22"
+                            "release_date": "2025-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.9,
+                                        "end": 198
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -286,6 +321,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.2,
+                                        "end": 241
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.3,
@@ -348,6 +388,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 134
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1330.3,
                                         "end": 1420
@@ -364,6 +409,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.4,
+                                        "end": 234.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.1,
@@ -383,13 +433,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 261.5,
-                                        "end": 351.5
+                                        "start": 259.9,
+                                        "end": 350
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330.1,
-                                        "end": 1420
+                                        "start": 1328.5,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -403,6 +453,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 181.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.1,
@@ -420,6 +475,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.3,
+                                        "end": 189
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330.1,
@@ -455,7 +515,17 @@
                             "image": "https://image.tmdb.org/t/p/original/o5fB5YFhQVoExIPXo8WKcrt4VlD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/eepFuZbnWl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-06-22"
+                            "release_date": "2025-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109,
+                                        "end": 198
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

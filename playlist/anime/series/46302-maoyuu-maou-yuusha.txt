@@ -24,6 +24,11 @@
                                         "type": "op",
                                         "start": 78.7,
                                         "end": 168.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.9,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -41,6 +46,11 @@
                                         "type": "op",
                                         "start": 24.7,
                                         "end": 114.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.8,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -58,6 +68,11 @@
                                         "type": "op",
                                         "start": 36.7,
                                         "end": 126.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415.3
                                     }
                                 ]
                             }
@@ -75,6 +90,11 @@
                                         "type": "op",
                                         "start": 28.6,
                                         "end": 118.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -92,6 +112,11 @@
                                         "type": "op",
                                         "start": 87.5,
                                         "end": 177.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -109,6 +134,11 @@
                                         "type": "op",
                                         "start": 35.6,
                                         "end": 125.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.7,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -126,6 +156,11 @@
                                         "type": "op",
                                         "start": 88.6,
                                         "end": 178.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -143,6 +178,11 @@
                                         "type": "op",
                                         "start": 67.8,
                                         "end": 157.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.2,
+                                        "end": 1415.2
                                     }
                                 ]
                             }
@@ -160,6 +200,11 @@
                                         "type": "op",
                                         "start": 51.6,
                                         "end": 141.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1247.5,
+                                        "end": 1336.2
                                     }
                                 ]
                             }
@@ -177,6 +222,11 @@
                                         "type": "op",
                                         "start": 40.6,
                                         "end": 130.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.5,
+                                        "end": 1411.2
                                     }
                                 ]
                             }
@@ -203,7 +253,17 @@
                             "image": "https://image.tmdb.org/t/p/original/zCLNcnObFMJ3sj6GzMZ7F6jFBbY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKR2OaCJl%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKR2OaCJl",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2013-03-29"
+                            "release_date": "2013-03-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1247.5,
+                                        "end": 1335
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

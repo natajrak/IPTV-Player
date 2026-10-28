@@ -16,14 +16,44 @@
                             "image": "https://image.tmdb.org/t/p/original/dANVFFO2YFJdo8WVLJcq5dTcLBP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FddITtadQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FddITtadQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-04-13"
+                            "release_date": "2004-04-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.7,
+                                        "end": 1351.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Episode 2",
                             "image": "https://image.tmdb.org/t/p/original/nVY1ORBD9vJ8HuGI5zk0pZVsDlu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEHc550Fv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEHc550Fv",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-04-20"
+                            "release_date": "2004-04-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.2,
+                                        "end": 1351.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - OK, Here Are Your Scores",
@@ -36,8 +66,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 9.8,
-                                        "end": 99.8
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.1,
+                                        "end": 1351.2
                                     }
                                 ]
                             }
@@ -47,14 +82,44 @@
                             "image": "https://image.tmdb.org/t/p/original/73W8HmQquBQIjxSsa1TnizfMXCS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWh5d5mCm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWh5d5mCm",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-05-04"
+                            "release_date": "2004-05-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.8,
+                                        "end": 1351
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - All Right!",
                             "image": "https://image.tmdb.org/t/p/original/zc8LVwIFoGUBYQXOFg8IS8wTFZR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6qk1artN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6qk1artN",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-05-11"
+                            "release_date": "2004-05-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.9,
+                                        "end": 1351.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - We're After You",
@@ -67,8 +132,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 9.8,
-                                        "end": 99.8
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.6,
+                                        "end": 1351
                                     }
                                 ]
                             }
@@ -78,7 +148,22 @@
                             "image": "https://image.tmdb.org/t/p/original/qqli9nCrf8iHjjUYiocv6RBJ862.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQoaA51AW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQoaA51AW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-05-25"
+                            "release_date": "2004-05-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.6,
+                                        "end": 1351.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - I'll Kill You Without a Moment's Hesitation",
@@ -91,8 +176,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 9.8,
-                                        "end": 99.8
+                                        "start": 0.5,
+                                        "end": 91.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.8,
+                                        "end": 1351.1
                                     }
                                 ]
                             }
@@ -102,14 +192,44 @@
                             "image": "https://image.tmdb.org/t/p/original/uJG4aitr2gcI9Aq96prFjU1hAUU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEyRaVo9a%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEyRaVo9a",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-06-08"
+                            "release_date": "2004-06-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.6,
+                                        "end": 1351.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Kato, You Wait Here",
                             "image": "https://image.tmdb.org/t/p/original/pSiIYuLCcyFqAuQgnigYsrDOYvW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgUxWAPpo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgUxWAPpo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2004-06-15"
+                            "release_date": "2004-06-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.2,
+                                        "end": 1351
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Please Die",
@@ -122,8 +242,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 9.7,
-                                        "end": 99.7
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.5,
+                                        "end": 1346.9
                                     }
                                 ]
                             }
@@ -132,13 +257,43 @@
                             "name": "ตอน 12",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpUYGwHb4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpUYGwHb4",
                             "referer": "https://anime-th.com/",
-                            "release_date": ""
+                            "release_date": "",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261,
+                                        "end": 1351
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fk7xXE6Gr%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fk7xXE6Gr",
                             "referer": "https://anime-th.com/",
-                            "release_date": ""
+                            "release_date": "",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.9,
+                                        "end": 1351
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/mLRu2jXtou4J80ZSNpmxRuKJz8l.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/duoC5FhMO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-07"
+                            "release_date": "2026-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.1,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Rirui's Talent",
@@ -34,8 +44,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1324.7,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -56,8 +66,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1325.7,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -73,13 +83,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 128.5,
-                                        "end": 218.6
+                                        "start": 132.6,
+                                        "end": 222
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -100,8 +110,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1334.1,
-                                        "end": 1389.5
+                                        "start": 1297.4,
+                                        "end": 1388.2
                                     }
                                 ]
                             }
@@ -122,8 +132,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.3,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -139,13 +149,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 72,
-                                        "end": 162.1
+                                        "start": 70.3,
+                                        "end": 161.2
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1324.1,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -166,8 +176,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1325.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -188,8 +198,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1326.1,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -210,8 +220,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1324.6,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -232,8 +242,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.9,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -243,7 +253,17 @@
                             "image": "https://image.tmdb.org/t/p/original/emqLESCyQk5jPEvQLXEScWnYvl3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9CsQk7XFch/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-25"
+                            "release_date": "2026-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.5,
+                                        "end": 1392.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -258,7 +278,17 @@
                             "image": "https://image.tmdb.org/t/p/original/mLRu2jXtou4J80ZSNpmxRuKJz8l.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gdJrEmhpVV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-07"
+                            "release_date": "2026-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Rirui's Talent",
@@ -276,8 +306,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1324.7,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -298,8 +328,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1325.7,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -315,13 +345,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 128.5,
-                                        "end": 218.6
+                                        "start": 132.6,
+                                        "end": 222
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -342,8 +372,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1334.1,
-                                        "end": 1389.5
+                                        "start": 1297.4,
+                                        "end": 1388.2
                                     }
                                 ]
                             }
@@ -364,8 +394,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.3,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -381,13 +411,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 72,
-                                        "end": 162.1
+                                        "start": 70.3,
+                                        "end": 161.2
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1323.9,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -408,8 +438,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1325.6,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -430,8 +460,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361.3,
-                                        "end": 1416.7
+                                        "start": 1326.1,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -452,8 +482,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1324.6,
+                                        "end": 1414.9
                                     }
                                 ]
                             }
@@ -474,8 +504,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1361,
-                                        "end": 1416.4
+                                        "start": 1325.9,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -485,7 +515,17 @@
                             "image": "https://image.tmdb.org/t/p/original/emqLESCyQk5jPEvQLXEScWnYvl3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tgThPO0wr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-25"
+                            "release_date": "2026-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.5,
+                                        "end": 1392.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

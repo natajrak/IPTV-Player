@@ -197,7 +197,17 @@
                             "image": "https://image.tmdb.org/t/p/original/wyMVCJ4pBiZRI67KU704UFEBueJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Vzx7SxeKDh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-12"
+                            "release_date": "2026-07-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 278.8,
+                                        "end": 369.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Will I Be Living Here?",
@@ -215,8 +225,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1364.1,
-                                        "end": 1429.9
+                                        "start": 1339.9,
+                                        "end": 1429.3
                                     }
                                 ]
                             }
@@ -232,13 +242,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 132.2,
-                                        "end": 223.4
+                                        "start": 131.5,
+                                        "end": 221
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1341.5,
-                                        "end": 1431.5
+                                        "start": 1317.4,
+                                        "end": 1407.2
                                     }
                                 ]
                             }
@@ -259,8 +269,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1364.1,
-                                        "end": 1431.9
+                                        "start": 1340.1,
+                                        "end": 1431.4
                                     }
                                 ]
                             }
@@ -278,6 +288,11 @@
                                         "type": "op",
                                         "start": 113,
                                         "end": 204.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.2,
+                                        "end": 1429.3
                                     }
                                 ]
                             }
@@ -293,13 +308,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 81,
-                                        "end": 172.2
+                                        "start": 80.8,
+                                        "end": 170.3
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1295.4,
-                                        "end": 1385.4
+                                        "start": 1269.9,
+                                        "end": 1362.4
                                     }
                                 ]
                             }
@@ -320,8 +335,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.9,
-                                        "end": 1427.9
+                                        "start": 1315.1,
+                                        "end": 1404.8
                                     }
                                 ]
                             }
@@ -331,28 +346,83 @@
                             "image": "https://image.tmdb.org/t/p/original/tcTnCHnPkseV7VJSOHrtzH5myFc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EonujzBXEC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-30"
+                            "release_date": "2026-08-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158,
+                                        "end": 248
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.4,
+                                        "end": 1429.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - I Will Make Sure to Save You",
                             "image": "https://image.tmdb.org/t/p/original/hVDWV3ZHwR8GVRSP4Kwr4oie7Wv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dqtrkXmov1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-06"
+                            "release_date": "2026-09-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.9,
+                                        "end": 199
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1431.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Split Curses, Too",
                             "image": "https://image.tmdb.org/t/p/original/rbLxx4bizOF57HWGEAFizZHITWm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/N4yEjyLnT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-13"
+                            "release_date": "2026-09-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.8,
+                                        "end": 181.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.9,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Quite the Villainess",
                             "image": "https://image.tmdb.org/t/p/original/6bLSYTdPbTS79f9AKwshS0Osby1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zCAOWPYsNi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-20"
+                            "release_date": "2026-09-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1417.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -27,8 +27,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1329.5,
+                                        "end": 1419.7
                                     }
                                 ]
                             }
@@ -49,8 +49,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1330.3,
+                                        "end": 1419.7
                                     }
                                 ]
                             }
@@ -65,9 +65,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 124.4
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327,
-                                        "end": 1417
+                                        "start": 1321.2,
+                                        "end": 1411.2
                                     }
                                 ]
                             }
@@ -82,9 +87,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 109.8,
+                                        "end": 199
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1329.9,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -100,8 +110,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.1,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -122,8 +132,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.1,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -144,8 +154,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1330.6,
+                                        "end": 1419.7
                                     }
                                 ]
                             }
@@ -155,7 +165,17 @@
                             "image": "https://image.tmdb.org/t/p/original/e4ZpdAOyk5XK2TKXJ8NXvEsQNxn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/s3nGtLnD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-02"
+                            "release_date": "2022-03-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1370.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - I Do Not Dislike This Sort of Turn of Events",
@@ -167,9 +187,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 69.7,
+                                        "end": 160.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.4,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -190,8 +215,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.1,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -212,8 +237,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.2,
+                                        "end": 1419.6
                                     }
                                 ]
                             }
@@ -223,7 +248,17 @@
                             "image": "https://image.tmdb.org/t/p/original/jYpthJMwvrFFakOeiCJ43N7jBzF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5BlBdrVY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-30"
+                            "release_date": "2022-03-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.8,
+                                        "end": 233.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -249,8 +284,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1329.3,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -271,8 +306,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1330.6,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -287,9 +322,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 35.1,
+                                        "end": 124.2
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1327,
-                                        "end": 1417
+                                        "start": 1321.4,
+                                        "end": 1411.1
                                     }
                                 ]
                             }
@@ -304,9 +344,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 109.8,
+                                        "end": 199
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.1,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -322,8 +367,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.2,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -344,8 +389,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.2,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -366,8 +411,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.3
+                                        "start": 1330.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -377,7 +422,17 @@
                             "image": "https://image.tmdb.org/t/p/original/e4ZpdAOyk5XK2TKXJ8NXvEsQNxn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RziPdORw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-02"
+                            "release_date": "2022-03-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1370.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - I Do Not Dislike This Sort of Turn of Events",
@@ -389,9 +444,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 69.4,
+                                        "end": 160.1
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.5,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -412,8 +472,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.3,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -434,8 +494,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1335.9,
-                                        "end": 1420.2
+                                        "start": 1330.3,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -445,7 +505,17 @@
                             "image": "https://image.tmdb.org/t/p/original/jYpthJMwvrFFakOeiCJ43N7jBzF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dYMgGj7r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-30"
+                            "release_date": "2022-03-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 143.4,
+                                        "end": 233.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

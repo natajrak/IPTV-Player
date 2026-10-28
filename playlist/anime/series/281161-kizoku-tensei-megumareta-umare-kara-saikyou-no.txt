@@ -21,9 +21,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 141.8,
+                                        "end": 233
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.2
+                                        "start": 1332.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -38,9 +43,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 269.5,
+                                        "end": 360
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1331.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -50,7 +60,22 @@
                             "image": "https://image.tmdb.org/t/p/original/a9z2r0uF1BKz4sjFmmogjugz2et.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZOkQqQgxjI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-22"
+                            "release_date": "2026-01-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 329.4,
+                                        "end": 419
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Almerian Rebellion",
@@ -62,9 +87,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 159,
+                                        "end": 248.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1329.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -79,6 +109,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 249.2,
+                                        "end": 339.1
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1332.1,
                                         "end": 1422
@@ -91,7 +126,22 @@
                             "image": "https://image.tmdb.org/t/p/original/oCPyCmAchDsNxoKzHKGnmROCRNr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8u8hqK9J1J/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-12"
+                            "release_date": "2026-02-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164.2,
+                                        "end": 254.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Emperor's Wishes",
@@ -102,6 +152,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 199.8,
+                                        "end": 289.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1332.1,
@@ -115,7 +170,22 @@
                             "image": "https://image.tmdb.org/t/p/original/uVmtcTmLFKXhnyExc1U2f5Gk1oZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/r1eNW2G8O/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-26"
+                            "release_date": "2026-02-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 290.5,
+                                        "end": 379.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1421.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Highest Trust",
@@ -126,6 +196,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 269.7,
+                                        "end": 358.9
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1332.1,
@@ -139,14 +214,39 @@
                             "image": "https://image.tmdb.org/t/p/original/rF1l8hGqIASQowmrIRBaWBarogN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3KXPNcEgO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-12"
+                            "release_date": "2026-03-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 290.3,
+                                        "end": 380.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.4,
+                                        "end": 1421.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Disinheritance",
                             "image": "https://image.tmdb.org/t/p/original/mWHURblyusb07yWAwLN2LcRFLfK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/v5gMZAwxjN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-19"
+                            "release_date": "2026-03-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 201.8,
+                                        "end": 292.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Nobility",
@@ -158,9 +258,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 17,
+                                        "end": 106.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1331.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -183,9 +288,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 141.7,
+                                        "end": 233
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.2
+                                        "start": 1331.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -200,9 +310,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 269.4,
+                                        "end": 360
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1331.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }
@@ -212,7 +327,22 @@
                             "image": "https://image.tmdb.org/t/p/original/a9z2r0uF1BKz4sjFmmogjugz2et.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Jy3j1QqVRd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-01-22"
+                            "release_date": "2026-01-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 329.2,
+                                        "end": 419
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Almerian Rebellion",
@@ -224,9 +354,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 158.9,
+                                        "end": 248.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1329.5,
+                                        "end": 1421.4
                                     }
                                 ]
                             }
@@ -241,6 +376,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 249,
+                                        "end": 339.1
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1332.1,
                                         "end": 1422
@@ -253,7 +393,22 @@
                             "image": "https://image.tmdb.org/t/p/original/oCPyCmAchDsNxoKzHKGnmROCRNr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NDdaoHTei/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-12"
+                            "release_date": "2026-02-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164.2,
+                                        "end": 254.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Emperor's Wishes",
@@ -264,6 +419,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 199.8,
+                                        "end": 289.1
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1332.1,
@@ -277,7 +437,22 @@
                             "image": "https://image.tmdb.org/t/p/original/uVmtcTmLFKXhnyExc1U2f5Gk1oZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ttGVJ7cr1X/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-02-26"
+                            "release_date": "2026-02-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.5,
+                                        "end": 219.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332,
+                                        "end": 1421.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Highest Trust",
@@ -288,6 +463,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 269.7,
+                                        "end": 358.9
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1332.1,
@@ -301,14 +481,39 @@
                             "image": "https://image.tmdb.org/t/p/original/rF1l8hGqIASQowmrIRBaWBarogN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IyeFDPZBo8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-12"
+                            "release_date": "2026-03-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 290.3,
+                                        "end": 380.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332,
+                                        "end": 1421.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Disinheritance",
                             "image": "https://image.tmdb.org/t/p/original/mWHURblyusb07yWAwLN2LcRFLfK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ggOt6d3Rr1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-03-19"
+                            "release_date": "2026-03-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 201.8,
+                                        "end": 292.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Nobility",
@@ -320,9 +525,14 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 17,
+                                        "end": 106.3
+                                    },
+                                    {
                                         "type": "ed",
-                                        "start": 1332.1,
-                                        "end": 1422.1
+                                        "start": 1331.5,
+                                        "end": 1421.5
                                     }
                                 ]
                             }

@@ -29,8 +29,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 54.7,
-                                        "end": 145.5
+                                        "start": 59.7,
+                                        "end": 149
                                     }
                                 ]
                             }
@@ -40,7 +40,17 @@
                             "image": "https://image.tmdb.org/t/p/original/cKULApd20mjn58WEipxSVTUeSYR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ELteFRrpX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-20"
+                            "release_date": "2026-04-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.1,
+                                        "end": 197.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Meeting In Kalhn",
@@ -53,8 +63,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 178.6,
-                                        "end": 269.4
+                                        "start": 183.5,
+                                        "end": 273.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1416.1
                                     }
                                 ]
                             }
@@ -77,8 +92,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 91.7,
-                                        "end": 182.5
+                                        "start": 96.6,
+                                        "end": 187.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1416
                                     }
                                 ]
                             }
@@ -88,7 +108,22 @@
                             "image": "https://image.tmdb.org/t/p/original/3OQqavOLJDIZF0qbNQs9NKO7Iq9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2CtrbuxN2r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-18"
+                            "release_date": "2026-05-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.7,
+                                        "end": 241
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Misgivings of the Knights Moralis",
@@ -101,8 +136,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 255.7,
-                                        "end": 346.5
+                                        "start": 260.6,
+                                        "end": 350.1
                                     }
                                 ]
                             }
@@ -118,8 +153,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 378.6,
-                                        "end": 469.4
+                                        "start": 383.4,
+                                        "end": 474.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.6,
+                                        "end": 1416.1
                                     }
                                 ]
                             }
@@ -142,8 +182,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 63.7,
-                                        "end": 154.5
+                                        "start": 68,
+                                        "end": 158.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.4,
+                                        "end": 1416
                                     }
                                 ]
                             }
@@ -153,14 +198,44 @@
                             "image": "https://image.tmdb.org/t/p/original/1RT02SNw5fXmdTfHXUjtyUFqXRd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ullv8d9YC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-22"
+                            "release_date": "2026-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.6,
+                                        "end": 245
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Forbidden Magic",
                             "image": "https://image.tmdb.org/t/p/original/7kyQxkRLm9AnEPnVL6lTSW4tTdE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kyR2YQbKiH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-29"
+                            "release_date": "2026-06-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.3,
+                                        "end": 1417.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -188,8 +263,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 54.7,
-                                        "end": 145.5
+                                        "start": 59.7,
+                                        "end": 149
                                     }
                                 ]
                             }
@@ -199,7 +274,17 @@
                             "image": "https://image.tmdb.org/t/p/original/cKULApd20mjn58WEipxSVTUeSYR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sw545Okwf5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-20"
+                            "release_date": "2026-04-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107,
+                                        "end": 197.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Meeting In Kalhn",
@@ -212,8 +297,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 178.6,
-                                        "end": 269.4
+                                        "start": 183.5,
+                                        "end": 273.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1416.1
                                     }
                                 ]
                             }
@@ -236,8 +326,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 91.7,
-                                        "end": 182.5
+                                        "start": 96.6,
+                                        "end": 187.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1416
                                     }
                                 ]
                             }
@@ -247,7 +342,22 @@
                             "image": "https://image.tmdb.org/t/p/original/3OQqavOLJDIZF0qbNQs9NKO7Iq9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iGDg3Pq5sH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-18"
+                            "release_date": "2026-05-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.7,
+                                        "end": 241
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Misgivings of the Knights Moralis",
@@ -260,8 +370,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 255.7,
-                                        "end": 346.5
+                                        "start": 260.6,
+                                        "end": 350.1
                                     }
                                 ]
                             }
@@ -277,8 +387,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 378.6,
-                                        "end": 469.4
+                                        "start": 383.3,
+                                        "end": 474.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.6,
+                                        "end": 1416.1
                                     }
                                 ]
                             }
@@ -301,8 +416,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 63.7,
-                                        "end": 154.5
+                                        "start": 68,
+                                        "end": 158.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1416
                                     }
                                 ]
                             }
@@ -312,14 +432,44 @@
                             "image": "https://image.tmdb.org/t/p/original/1RT02SNw5fXmdTfHXUjtyUFqXRd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/V53ThIgLOp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-22"
+                            "release_date": "2026-06-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.6,
+                                        "end": 245
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Forbidden Magic",
                             "image": "https://image.tmdb.org/t/p/original/7kyQxkRLm9AnEPnVL6lTSW4tTdE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vF7thq3fh1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-29"
+                            "release_date": "2026-06-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.2,
+                                        "end": 1416.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

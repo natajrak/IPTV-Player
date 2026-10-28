@@ -3751,12 +3751,15 @@ function formatSeasonEpisodeMeta(seasonTitle, stationName, fallbackIndex) {
 }
 /* ===== Skip OP/ED/recap (station.skip ใน playlist) ===== */
 const SKIP_LABELS = {
+  intro: "ข้ามหน้าเปิด",
   recap: "ข้ามย้อนความ",
   op: "ข้ามเพลงเปิด",
   "mixed-op": "ข้ามเพลงเปิด",
   ed: "ข้ามเพลงปิด",
   "mixed-ed": "ข้ามเพลงปิด",
 };
+/** เพลงเปิด/ปิดผสมฉาก (มีเนื้อเรื่องซ้อน) — แสดงปุ่มให้กดข้ามเองเท่านั้น ห้าม auto skip */
+const MANUAL_ONLY_SKIP_TYPES = new Set(["mixed-op", "mixed-ed"]);
 const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
 let skipSegments = [];
 let activeSkipSegment = null;
@@ -3841,7 +3844,11 @@ function updateSkipSegment() {
     return;
   }
   if (!upnextToast.classList.contains("hidden")) return;
-  if (autoSkipEnabled && !suppressedSkipSegments.has(seg)) {
+  if (
+    autoSkipEnabled &&
+    !MANUAL_ONLY_SKIP_TYPES.has(seg.type) &&
+    !suppressedSkipSegments.has(seg)
+  ) {
     suppressedSkipSegments.add(seg);
     performSkip(seg, { auto: true });
     return;

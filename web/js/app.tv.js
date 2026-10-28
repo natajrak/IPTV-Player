@@ -2890,12 +2890,14 @@ function formatSeasonEpisodeMeta(seasonTitle, stationName, fallbackIndex) {
   };
 }
 const SKIP_LABELS = {
+  intro: "ข้ามหน้าเปิด",
   recap: "ข้ามย้อนความ",
   op: "ข้ามเพลงเปิด",
   "mixed-op": "ข้ามเพลงเปิด",
   ed: "ข้ามเพลงปิด",
   "mixed-ed": "ข้ามเพลงปิด"
 };
+const MANUAL_ONLY_SKIP_TYPES = new Set(["mixed-op", "mixed-ed"]);
 const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
 let skipSegments = [];
 let activeSkipSegment = null;
@@ -2958,7 +2960,7 @@ function updateSkipSegment() {
     return;
   }
   if (!upnextToast.classList.contains("hidden")) return;
-  if (autoSkipEnabled && !suppressedSkipSegments.has(seg)) {
+  if (autoSkipEnabled && !MANUAL_ONLY_SKIP_TYPES.has(seg.type) && !suppressedSkipSegments.has(seg)) {
     suppressedSkipSegments.add(seg);
     performSkip(seg, {
       auto: true

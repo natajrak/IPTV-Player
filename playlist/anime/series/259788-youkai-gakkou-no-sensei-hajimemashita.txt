@@ -22,13 +22,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 157,
-                                        "end": 247
+                                        "start": 157.2,
+                                        "end": 244.7
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1328.1,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -49,8 +49,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1329.9,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -68,6 +68,11 @@
                                         "type": "op",
                                         "start": 72,
                                         "end": 162
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.6,
+                                        "end": 1421.3
                                     }
                                 ]
                             }
@@ -85,6 +90,11 @@
                                         "type": "op",
                                         "start": 83,
                                         "end": 173
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1421.3
                                     }
                                 ]
                             }
@@ -102,6 +112,11 @@
                                         "type": "op",
                                         "start": 72.3,
                                         "end": 162.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1421.3
                                     }
                                 ]
                             }
@@ -119,6 +134,11 @@
                                         "type": "op",
                                         "start": 82.1,
                                         "end": 172.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1421.3
                                     }
                                 ]
                             }
@@ -134,13 +154,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 61.1,
-                                        "end": 151.1
+                                        "start": 61.6,
+                                        "end": 148.3
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1329.6,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -161,8 +181,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1330.3,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -183,8 +203,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1338,
-                                        "end": 1428
+                                        "start": 1330.4,
+                                        "end": 1421.4
                                     }
                                 ]
                             }
@@ -202,6 +222,11 @@
                                         "type": "op",
                                         "start": 42.2,
                                         "end": 132.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1421.3
                                     }
                                 ]
                             }
@@ -222,8 +247,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1329.4,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -244,8 +269,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1330.1,
+                                        "end": 1421.2
                                     }
                                 ]
                             }
@@ -255,84 +280,264 @@
                             "image": "https://image.tmdb.org/t/p/original/71OswoOzxxSYsqxd0stSAfc8pfA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5jW5EfaRt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 109.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Zashiki-san's Bed-and-Breakfast Home",
                             "image": "https://image.tmdb.org/t/p/original/cQaMptQeJXUaYcz0KZs2c9aOFnj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YCrWBq8AhL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-14"
+                            "release_date": "2025-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 152.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.8,
+                                        "end": 1420.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Abe no Seimei, Haruaki Abe, and Shutendouji",
                             "image": "https://image.tmdb.org/t/p/original/qUEKqGz74bH5MJo7vQPO65bVSBQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ApGtwza0nR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-21"
+                            "release_date": "2025-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.5,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.2,
+                                        "end": 1391.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - The Great Hyakki Academy Island Chase!!",
                             "image": "https://image.tmdb.org/t/p/original/1uybYfh17togQ4iy6H29TdQk6nc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zvAxEcod1k/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-28"
+                            "release_date": "2025-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 188.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Summer! The Ocean! Huh? It's Already August 31st...",
                             "image": "https://image.tmdb.org/t/p/original/axiCKjnQrOVQBBPbrodagEe0Ukk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8mgtuktJc4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-04"
+                            "release_date": "2025-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.8,
+                                        "end": 131.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - The Temporary Teacher, Ebisu-sensei",
                             "image": "https://image.tmdb.org/t/p/original/ianCNelEnMSPmpnE7ObwUOBbh4F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MHq4OhVlDZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-11"
+                            "release_date": "2025-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.3,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Welcome to the Youkai Train",
                             "image": "https://image.tmdb.org/t/p/original/1WR4ymVewCOR1irm47UffqzpV5F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xILPTAPRM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-18"
+                            "release_date": "2025-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 103.4,
+                                        "end": 192.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - The Night Parade Cultural Festival",
                             "image": "https://image.tmdb.org/t/p/original/uSmJ8luvBluphbDSLnwZDCjgzY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MHZcgzLBco/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-25"
+                            "release_date": "2025-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.5,
+                                        "end": 104.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Underground Night Parade Cultural Festival",
                             "image": "https://image.tmdb.org/t/p/original/r4LkLCRsZsqpO2z52HjHIPHaJtz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Cw8nM4ww2k/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-04"
+                            "release_date": "2025-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.5,
+                                        "end": 172.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Goodbye, Ren-Ren",
                             "image": "https://image.tmdb.org/t/p/original/frlkbaAh5CcRSnMTR60V43sCE9H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XjAnLpyJwE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-11"
+                            "release_date": "2025-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.2,
+                                        "end": 142.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The Gashadokuro, Kuniko Utagawa",
                             "image": "https://image.tmdb.org/t/p/original/fX9QvjYI2Ng9nPJ8ebokDXziMgW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wyDFgB7Ro1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-18"
+                            "release_date": "2025-03-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.4,
+                                        "end": 120.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.1,
+                                        "end": 1430.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - The Bond Continuing with Ren-Ren. The Teacher from Ghoul School Will Do His Best!",
                             "image": "https://image.tmdb.org/t/p/original/crfXXxNJPGs6AmFS2BLwbWyASSM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/N425xsxKmJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-25"
+                            "release_date": "2025-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.4,
+                                        "end": 201.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.3,
+                                        "end": 1440.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -399,6 +604,11 @@
                                         "type": "op",
                                         "start": 72,
                                         "end": 162
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -416,6 +626,11 @@
                                         "type": "op",
                                         "start": 83,
                                         "end": 173
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -433,6 +648,11 @@
                                         "type": "op",
                                         "start": 72.3,
                                         "end": 162.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -450,6 +670,11 @@
                                         "type": "op",
                                         "start": 82.1,
                                         "end": 172.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -470,8 +695,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1328.2,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -492,8 +717,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1330.1,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -514,8 +739,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1338,
-                                        "end": 1428
+                                        "start": 1330,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -533,6 +758,11 @@
                                         "type": "op",
                                         "start": 42.2,
                                         "end": 132.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -553,8 +783,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1329.3,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -575,8 +805,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1337.8,
-                                        "end": 1427.8
+                                        "start": 1330.1,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
@@ -586,84 +816,264 @@
                             "image": "https://image.tmdb.org/t/p/original/71OswoOzxxSYsqxd0stSAfc8pfA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ead1le8Pej/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-07"
+                            "release_date": "2025-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 109.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Zashiki-san's Bed-and-Breakfast Home",
                             "image": "https://image.tmdb.org/t/p/original/cQaMptQeJXUaYcz0KZs2c9aOFnj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bFwWHcyxum/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-14"
+                            "release_date": "2025-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.4,
+                                        "end": 153
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Abe no Seimei, Haruaki Abe, and Shutendouji",
                             "image": "https://image.tmdb.org/t/p/original/qUEKqGz74bH5MJo7vQPO65bVSBQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iUlSKAu6fT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-21"
+                            "release_date": "2025-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 132.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.1,
+                                        "end": 1392.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - The Great Hyakki Academy Island Chase!!",
                             "image": "https://image.tmdb.org/t/p/original/1uybYfh17togQ4iy6H29TdQk6nc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7DvewaqBBt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-28"
+                            "release_date": "2025-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.3,
+                                        "end": 188.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.7,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Summer! The Ocean! Huh? It's Already August 31st...",
                             "image": "https://image.tmdb.org/t/p/original/axiCKjnQrOVQBBPbrodagEe0Ukk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VSZxQxO37j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-04"
+                            "release_date": "2025-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.6,
+                                        "end": 131.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - The Temporary Teacher, Ebisu-sensei",
                             "image": "https://image.tmdb.org/t/p/original/ianCNelEnMSPmpnE7ObwUOBbh4F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dolOqppHoO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-11"
+                            "release_date": "2025-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.3,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Welcome to the Youkai Train",
                             "image": "https://image.tmdb.org/t/p/original/1WR4ymVewCOR1irm47UffqzpV5F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9hp6PlfQH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-18"
+                            "release_date": "2025-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 103.4,
+                                        "end": 192.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - The Night Parade Cultural Festival",
                             "image": "https://image.tmdb.org/t/p/original/uSmJ8luvBluphbDSLnwZDCjgzY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RwU7lLFfEL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-25"
+                            "release_date": "2025-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.6,
+                                        "end": 105.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - The Underground Night Parade Cultural Festival",
                             "image": "https://image.tmdb.org/t/p/original/r4LkLCRsZsqpO2z52HjHIPHaJtz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nOjlksiRzu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-04"
+                            "release_date": "2025-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.5,
+                                        "end": 172.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Goodbye, Ren-Ren",
                             "image": "https://image.tmdb.org/t/p/original/frlkbaAh5CcRSnMTR60V43sCE9H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VOXCtW0u5f/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-11"
+                            "release_date": "2025-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - The Gashadokuro, Kuniko Utagawa",
                             "image": "https://image.tmdb.org/t/p/original/fX9QvjYI2Ng9nPJ8ebokDXziMgW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WR0XpjMr9o/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-18"
+                            "release_date": "2025-03-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.6,
+                                        "end": 120.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.5,
+                                        "end": 1429.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - The Bond Continuing with Ren-Ren. The Teacher from Ghoul School Will Do His Best!",
                             "image": "https://image.tmdb.org/t/p/original/crfXXxNJPGs6AmFS2BLwbWyASSM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RdjPDNIwDy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-25"
+                            "release_date": "2025-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.5,
+                                        "end": 201.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.1,
+                                        "end": 1439.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

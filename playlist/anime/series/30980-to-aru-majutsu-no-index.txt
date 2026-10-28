@@ -9,28 +9,48 @@
                 {
                     "name": "พากย์ไทย",
                     "image": "https://image.tmdb.org/t/p/original/4TvhWtBEphk9sBJraEz8D4kJqhl.jpg",
-                    "referer": "https://fairyanime.net/watch/POukcmK86w.html",
+                    "referer": "https://anime-th.com/anime/toaru-majutsu-no-index-1-thai/",
                     "stations": [
                         {
                             "name": "ตอน 1 - เมืองแห่งการศึกษา",
                             "image": "https://image.tmdb.org/t/p/original/o0wBri3WibVRP7g19RMQIK1rzP4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpvJdFGAZ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpvJdFGAZ",
-                            "referer": "",
-                            "release_date": "2008-10-05"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-10-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.5,
+                                        "end": 121.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ล่าสังหารจอมราชันแม่มด อินโนเซนต์อุส",
                             "image": "https://image.tmdb.org/t/p/original/nx0q8KYWbnzwuUd3tWdaZghX1K4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FO97L22id%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FO97L22id",
-                            "referer": "",
+                            "referer": "https://anime-th.com/",
                             "release_date": "2008-10-12",
                             "skip": {
                                 "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 37.2,
-                                        "end": 127.2
+                                        "start": 20.1,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.3,
+                                        "end": 1399.4
                                     }
                                 ]
                             }
@@ -39,155 +59,485 @@
                             "name": "ตอน 3 - เนสเซสซาริอุส",
                             "image": "https://image.tmdb.org/t/p/original/lUKK39Bu0jKowauz6e5jGtTvUyL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FT1BOnR6j%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FT1BOnR6j",
-                            "referer": "",
-                            "release_date": "2008-10-19"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-10-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ความทรงจำที่สมบูรณ์",
                             "image": "https://image.tmdb.org/t/p/original/d1tAAUxID3OCNZxavHcKOWntm6e.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4YDjPYDa%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4YDjPYDa",
-                            "referer": "",
-                            "release_date": "2008-10-26"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-10-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20,
+                                        "end": 109.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - เส้นตายตอนเที่ยงคืน",
                             "image": "https://image.tmdb.org/t/p/original/eUtafduLCMt6J7GHmZtycCFcLO0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FsFiPTTk4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FsFiPTTk4",
-                            "referer": "",
-                            "release_date": "2008-11-02"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-11-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13,
+                                        "end": 101.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.1,
+                                        "end": 1399.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - อิมเมจินเบรกเกอร์",
-                            "image": "https://image.tmdb.org/t/p/original/1aTIEwIAYVCq4YY5xP22IfLR8Qb.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/rTntgpZLWN27gUgwyLHCHz9A4Tu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWgsePInk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWgsePInk",
-                            "referer": "",
-                            "release_date": "2008-11-09"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-11-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.5,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.1,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - รงเรียนกวดวิชา มิซาว่า",
                             "image": "https://image.tmdb.org/t/p/original/6u6FMNTrfShaiUA3VaLFoPQZlJb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLx2ssrRj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLx2ssrRj",
-                            "referer": "",
-                            "release_date": "2008-11-16"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-11-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.8,
+                                        "end": 114.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - อาร์ส แมกนา ดินแดนแห่งทองคำ",
-                            "image": "https://image.tmdb.org/t/p/original/nMgN2UXcxIx5HcpEwmElaYfXp3U.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/qnIjFO485ittRG9d0Mii9pEr8vB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FACpnwOBv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FACpnwOBv",
-                            "referer": "",
-                            "release_date": "2008-11-23"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-11-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.1,
+                                        "end": 107.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.5,
+                                        "end": 1401.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - นักฆ่าผีดูดเลือด",
                             "image": "https://image.tmdb.org/t/p/original/jQS56lYn5YfbD7saGOVeCwqZ1H9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FN6S1kyQs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FN6S1kyQs",
-                            "referer": "",
-                            "release_date": "2008-11-30"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-11-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - มิซากะ มิโคโตะ",
-                            "image": "https://image.tmdb.org/t/p/original/dviE4eoh2VZ9T4QMXSDSeZQCXfb.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/dMNucmnhzu6lqxrvDItJbC6f77X.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqBl42vow%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqBl42vow",
-                            "referer": "",
-                            "release_date": "2008-12-07"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-12-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.4,
+                                        "end": 160.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ซิสเตอร์",
                             "image": "https://image.tmdb.org/t/p/original/sMuHIEEyuaiVl9Pbb1RCsF4mSy.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiNvLnzNz%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiNvLnzNz",
-                            "referer": "",
-                            "release_date": "2008-12-14"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-12-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 104.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.2,
+                                        "end": 1400.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - เลเวล 6 ความสามารถที่แท้จริง",
                             "image": "https://image.tmdb.org/t/p/original/6NXdRxn5EdDJRoLSzZXKc1xy4Vh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuXVTGjSH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuXVTGjSH",
-                            "referer": "",
-                            "release_date": "2008-12-21"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-12-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 109.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.4,
+                                        "end": 1348.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - แอคเซราเลเตอร์",
-                            "image": "https://image.tmdb.org/t/p/original/yKl4HKalJ8UOMXTrfXiGFrSk2Dv.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/6CYy8oLbbV7RUekz0OyypRzTFKD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6E88FBgu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6E88FBgu",
-                            "referer": "",
-                            "release_date": "2008-12-28"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2008-12-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 132.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - แข็งแกร่งที่สุด ปะทะ อ่อนแอที่สุด",
                             "image": "https://image.tmdb.org/t/p/original/ysElcJRLrO2Mi2Qmz6oQMeed6ra.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDNhsLBMm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDNhsLBMm",
-                            "referer": "",
-                            "release_date": "2009-01-08"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-01-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.8,
+                                        "end": 108.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1404.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - แองเจิลฟอล เทพธิดาตกสวรรค์",
-                            "image": "https://image.tmdb.org/t/p/original/wiHulFIusZS5EilZLyWjkkU8Ynl.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/2rhD5HtQY5UoSNvmgUsTyipD4t8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2eaMZ9LO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2eaMZ9LO",
-                            "referer": "",
-                            "release_date": "2009-01-15"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-01-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.3,
+                                        "end": 221
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.1,
+                                        "end": 1391.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - คุณพ่อคามิโจ โทยะ",
                             "image": "https://image.tmdb.org/t/p/original/czgbqOd83Z1KOIaZseAaPyiSMvQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F14tlLTME%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F14tlLTME",
-                            "referer": "",
-                            "release_date": "2009-01-22"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-01-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.1,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - พลังแห่งเทพเจ้า อัครเทวทูต",
                             "image": "https://image.tmdb.org/t/p/original/ckmPRnfPkZnl343bG0mJjlm68On.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYLxUVhJx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYLxUVhJx",
-                            "referer": "",
-                            "release_date": "2009-01-29"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-01-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ของเลียนแบบ ของปลอม",
-                            "image": "https://image.tmdb.org/t/p/original/ppCEElREi4qXcKMf0LEtD8Vvm1d.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/dWcXv33dZTAjw3Po9aDPLPXPeEu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fz1flXpD3%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fz1flXpD3",
-                            "referer": "",
-                            "release_date": "2009-02-05"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-02-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 152.1,
+                                        "end": 226
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.4,
+                                        "end": 1401.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ลาสต์ออร์เดอร์ งานสุดท้าย",
                             "image": "https://image.tmdb.org/t/p/original/vugEQs6Dse3zikBRNEsrpNR4dMu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWPb37ZO4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWPb37ZO4",
-                            "referer": "",
-                            "release_date": "2009-02-12"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-02-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - โค้ดไวรัส สัญญาณสุดท้าย",
-                            "image": "https://image.tmdb.org/t/p/original/e3Nm3PbVqB06PXuepk6lfCUNgx0.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/wKtKHKPyr7pP9w3YPWbw9AvTIO4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRHbKeU8h%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRHbKeU8h",
-                            "referer": "",
-                            "release_date": "2009-02-19"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-02-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - เคาน์เตอร์สต๊อป ความจริงที่ไม่ชัดเจน",
-                            "image": "https://image.tmdb.org/t/p/original/kkSkzJwXblZkTLTY9zHVGccQ31F.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/5QAddSMPYGJmPJ66irRYsBLD0ox.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F7gIP52bQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F7gIP52bQ",
-                            "referer": "",
-                            "release_date": "2009-02-26"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-02-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.5,
+                                        "end": 161.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1405.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - โกเลม รูปปั้นหิน",
-                            "image": "https://image.tmdb.org/t/p/original/bNOMVpoGWerMMoQgOBvfAg3ILuY.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/syWfkN1JsnbZ3xcooQLTq2FaNEG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFO17Q4DS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFO17Q4DS",
-                            "referer": "",
-                            "release_date": "2009-03-05"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-03-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.3,
+                                        "end": 108.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1405.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - เพื่อน คาซาคิริ เฮียวกะ",
-                            "image": "https://image.tmdb.org/t/p/original/1ZpoytWjAJRItTw4r9EbKFAUf4v.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/m7V4Fa3N3FsjWuwovARn1E2OYHN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgJgdw7sT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgJgdw7sT",
-                            "referer": "",
-                            "release_date": "2009-03-12"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-03-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.8,
+                                        "end": 147
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.2,
+                                        "end": 1397.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - เขตการศึกษาจินตภาพ สถาบันวิจัยธาตุทั้งห้า",
                             "image": "https://image.tmdb.org/t/p/original/t2jjrKq8P4HBPxBjoY1l8Cs2ckh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSl5u2ff2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSl5u2ff2",
-                            "referer": "",
-                            "release_date": "2009-03-19"
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2009-03-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.8,
+                                        "end": 132.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.2,
+                                        "end": 1319.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -195,28 +545,48 @@
                 {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/4TvhWtBEphk9sBJraEz8D4kJqhl.jpg",
-                    "referer": "https://fairyanime.net/watch/RwY5o7rF5L.html",
+                    "referer": "https://indy-anime.net/to-aru-majutsu-no-index/",
                     "stations": [
                         {
                             "name": "Ep. 1 - Academy City",
                             "image": "https://image.tmdb.org/t/p/original/o0wBri3WibVRP7g19RMQIK1rzP4.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMvn4DGwH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMvn4DGwH",
-                            "referer": "",
-                            "release_date": "2008-10-05"
+                            "url": "https://hls.animeindy.com:8443/vid/eNdFv9QN/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-10-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.6,
+                                        "end": 121.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Innocentius (The Witch Hunter King)",
                             "image": "https://image.tmdb.org/t/p/original/nx0q8KYWbnzwuUd3tWdaZghX1K4.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fr6pYRwkb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fr6pYRwkb",
-                            "referer": "",
+                            "url": "https://hls.animeindy.com:8443/vid/j2InptZ4/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
                             "release_date": "2008-10-12",
                             "skip": {
                                 "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 37.2,
-                                        "end": 127.2
+                                        "start": 20.2,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
                                     }
                                 ]
                             }
@@ -224,156 +594,481 @@
                         {
                             "name": "Ep. 3 - Necessarius (The Church of Necessary Evil)",
                             "image": "https://image.tmdb.org/t/p/original/lUKK39Bu0jKowauz6e5jGtTvUyL.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZo4xROil%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZo4xROil",
-                            "referer": "",
-                            "release_date": "2008-10-19"
+                            "url": "https://hls.animeindy.com:8443/vid/drC5sX1Q/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-10-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 109.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Perfect Memory Ability",
                             "image": "https://image.tmdb.org/t/p/original/d1tAAUxID3OCNZxavHcKOWntm6e.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fyg26kg7a%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fyg26kg7a",
-                            "referer": "",
-                            "release_date": "2008-10-26"
+                            "url": "https://hls.animeindy.com:8443/vid/AMWNzmxY/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-10-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Limit (12 o'clock)",
                             "image": "https://image.tmdb.org/t/p/original/eUtafduLCMt6J7GHmZtycCFcLO0.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVmWWZwLj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVmWWZwLj",
-                            "referer": "",
-                            "release_date": "2008-11-02"
+                            "url": "https://hls.animeindy.com:8443/vid/D1Oed9vG/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-11-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 109.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Imagine Breaker",
-                            "image": "https://image.tmdb.org/t/p/original/1aTIEwIAYVCq4YY5xP22IfLR8Qb.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNxvlWOnd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNxvlWOnd",
-                            "referer": "",
-                            "release_date": "2008-11-09"
+                            "image": "https://image.tmdb.org/t/p/original/rTntgpZLWN27gUgwyLHCHz9A4Tu.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/He7MuzH/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-11-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.5,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Science Cult (Misawa Cram School)",
                             "image": "https://image.tmdb.org/t/p/original/6u6FMNTrfShaiUA3VaLFoPQZlJb.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKnaOxy7p%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKnaOxy7p",
-                            "referer": "",
-                            "release_date": "2008-11-16"
+                            "url": "https://hls.animeindy.com:8443/vid/8Y0jjKa7/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-11-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.5,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Ars Magna (Golden Transmutation)",
-                            "image": "https://image.tmdb.org/t/p/original/nMgN2UXcxIx5HcpEwmElaYfXp3U.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fdo896tiC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fdo896tiC",
-                            "referer": "",
-                            "release_date": "2008-11-23"
+                            "image": "https://image.tmdb.org/t/p/original/qnIjFO485ittRG9d0Mii9pEr8vB.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/1MbUv022/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-11-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Deep Blood (Vampire Killer)",
                             "image": "https://image.tmdb.org/t/p/original/jQS56lYn5YfbD7saGOVeCwqZ1H9.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXvZohZmi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXvZohZmi",
-                            "referer": "",
-                            "release_date": "2008-11-30"
+                            "url": "https://hls.animeindy.com:8443/vid/2G4xS0/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-11-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Mikoto Misaka (Sissy)",
-                            "image": "https://image.tmdb.org/t/p/original/dviE4eoh2VZ9T4QMXSDSeZQCXfb.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fqvt3pfZo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fqvt3pfZo",
-                            "referer": "",
-                            "release_date": "2008-12-07"
+                            "image": "https://image.tmdb.org/t/p/original/dMNucmnhzu6lqxrvDItJbC6f77X.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/SHCD8HX/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-12-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.4,
+                                        "end": 160.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Sisters (Sisters)",
                             "image": "https://image.tmdb.org/t/p/original/sMuHIEEyuaiVl9Pbb1RCsF4mSy.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOaLyCSCD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOaLyCSCD",
-                            "referer": "",
-                            "release_date": "2008-12-14"
+                            "url": "https://hls.animeindy.com:8443/vid/xVruxTnb/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-12-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.2,
+                                        "end": 109.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Level 6 (Absolute Ability)",
                             "image": "https://image.tmdb.org/t/p/original/6NXdRxn5EdDJRoLSzZXKc1xy4Vh.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F41y4eUmF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F41y4eUmF",
-                            "referer": "",
-                            "release_date": "2008-12-21"
+                            "url": "https://hls.animeindy.com:8443/vid/bAQfOOZZ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-12-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 109.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.5,
+                                        "end": 1348.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Accelerator (One Way)",
-                            "image": "https://image.tmdb.org/t/p/original/yKl4HKalJ8UOMXTrfXiGFrSk2Dv.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvCIHQZX0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvCIHQZX0",
-                            "referer": "",
-                            "release_date": "2008-12-28"
+                            "image": "https://image.tmdb.org/t/p/original/6CYy8oLbbV7RUekz0OyypRzTFKD.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/dl2XN7Ab/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2008-12-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 132.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Weakest vs. Strongest (Strongest vs. Weakest)",
                             "image": "https://image.tmdb.org/t/p/original/ysElcJRLrO2Mi2Qmz6oQMeed6ra.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEpXhIzhp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEpXhIzhp",
-                            "referer": "",
-                            "release_date": "2009-01-08"
+                            "url": "https://hls.animeindy.com:8443/vid/pe5U41Fa/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-01-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.9,
+                                        "end": 109.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Angel Fall (Angel Fall)",
-                            "image": "https://image.tmdb.org/t/p/original/wiHulFIusZS5EilZLyWjkkU8Ynl.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpztmYj2d%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpztmYj2d",
-                            "referer": "",
-                            "release_date": "2009-01-15"
+                            "image": "https://image.tmdb.org/t/p/original/2rhD5HtQY5UoSNvmgUsTyipD4t8.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/HHGoNw2g/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-01-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.3,
+                                        "end": 221
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Toya Kamijo (Father)",
                             "image": "https://image.tmdb.org/t/p/original/czgbqOd83Z1KOIaZseAaPyiSMvQ.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZhA6dSY6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZhA6dSY6",
-                            "referer": "",
-                            "release_date": "2009-01-22"
+                            "url": "https://hls.animeindy.com:8443/vid/nHAtEC07/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-01-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.1,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - The Power of God (Archangel)",
                             "image": "https://image.tmdb.org/t/p/original/ckmPRnfPkZnl343bG0mJjlm68On.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHohOof0o%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHohOof0o",
-                            "referer": "",
-                            "release_date": "2009-01-29"
+                            "url": "https://hls.animeindy.com:8443/vid/nx2QhO4A/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-01-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Replica (Impostor)",
-                            "image": "https://image.tmdb.org/t/p/original/ppCEElREi4qXcKMf0LEtD8Vvm1d.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuJ76QfQj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuJ76QfQj",
-                            "referer": "",
-                            "release_date": "2009-02-05"
+                            "image": "https://image.tmdb.org/t/p/original/dWcXv33dZTAjw3Po9aDPLPXPeEu.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/woukpiKk/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-02-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 152.1,
+                                        "end": 226
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Last Order (The End)",
                             "image": "https://image.tmdb.org/t/p/original/vugEQs6Dse3zikBRNEsrpNR4dMu.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXo6Czvg6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXo6Czvg6",
-                            "referer": "",
-                            "release_date": "2009-02-12"
+                            "url": "https://hls.animeindy.com:8443/vid/2JN2IJuZ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-02-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Virus Code (Final Signal)",
-                            "image": "https://image.tmdb.org/t/p/original/e3Nm3PbVqB06PXuepk6lfCUNgx0.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8ZNQV6Wg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8ZNQV6Wg",
-                            "referer": "",
-                            "release_date": "2009-02-19"
+                            "image": "https://image.tmdb.org/t/p/original/wKtKHKPyr7pP9w3YPWbw9AvTIO4.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/4a6Jfl9H/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-02-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Counter Stop (Identity Unknown)",
-                            "image": "https://image.tmdb.org/t/p/original/kkSkzJwXblZkTLTY9zHVGccQ31F.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQs9OYfjp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQs9OYfjp",
-                            "referer": "",
-                            "release_date": "2009-02-26"
+                            "image": "https://image.tmdb.org/t/p/original/5QAddSMPYGJmPJ66irRYsBLD0ox.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/ZRF0jY04/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-02-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.6,
+                                        "end": 161.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1405.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Golem (Stone Figure)",
-                            "image": "https://image.tmdb.org/t/p/original/bNOMVpoGWerMMoQgOBvfAg3ILuY.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVbqri9bI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVbqri9bI",
-                            "referer": "",
-                            "release_date": "2009-03-05"
+                            "image": "https://image.tmdb.org/t/p/original/syWfkN1JsnbZ3xcooQLTq2FaNEG.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/uYt9dyWG/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-03-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.8,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1405.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Friends (Hyoka Kazakiri)",
-                            "image": "https://image.tmdb.org/t/p/original/1ZpoytWjAJRItTw4r9EbKFAUf4v.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2O6Hw2nQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2O6Hw2nQ",
-                            "referer": "",
-                            "release_date": "2009-03-12"
+                            "image": "https://image.tmdb.org/t/p/original/m7V4Fa3N3FsjWuwovARn1E2OYHN.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/0iDCVeoK/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-03-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.8,
+                                        "end": 147
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.6,
+                                        "end": 1405.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Imaginary Number School District - Five-Element Agency",
                             "image": "https://image.tmdb.org/t/p/original/t2jjrKq8P4HBPxBjoY1l8Cs2ckh.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FojOkBtKa%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FojOkBtKa",
-                            "referer": "",
-                            "release_date": "2009-03-19"
+                            "url": "https://hls.animeindy.com:8443/vid/oqUcSqWQ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2009-03-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.8,
+                                        "end": 132.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -396,105 +1091,320 @@
                             "image": "https://image.tmdb.org/t/p/original/kvGZ9muExl6fLo9IEAZ222q1aCj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEOcI74Jr%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEOcI74Jr",
                             "referer": "",
-                            "release_date": "2010-10-08"
+                            "release_date": "2010-10-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 160.5,
+                                        "end": 240
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1205.3,
+                                        "end": 1294.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - หน่วยฮาวน์ด็อก",
                             "image": "https://image.tmdb.org/t/p/original/jADG0zAvB1rrHhj4lKYykeq6XNw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBXBULpls%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBXBULpls",
                             "referer": "",
-                            "release_date": "2010-10-15"
+                            "release_date": "2010-10-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.9,
+                                        "end": 226.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.5,
+                                        "end": 1399.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - นิกายอามาคุสะ",
                             "image": "https://image.tmdb.org/t/p/original/iOLG0IQcfbihEcVh2yUbnpsIEtn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FsIR1CNKo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FsIR1CNKo",
                             "referer": "",
-                            "release_date": "2010-10-22"
+                            "release_date": "2010-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.3,
+                                        "end": 197.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306,
+                                        "end": 1394.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - โชลล์เฟียร์",
                             "image": "https://image.tmdb.org/t/p/original/wsuc2zOr1P63pI097uXJILSHWLS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQmLl9RMH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQmLl9RMH",
                             "referer": "",
-                            "release_date": "2010-10-29"
+                            "release_date": "2010-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.6,
+                                        "end": 152
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.7,
+                                        "end": 1405.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ไม้กายสิทธิ์ดอกบัว",
                             "image": "https://image.tmdb.org/t/p/original/4rfIeMatBR5JNsrrHvMEStattmt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcqVXSsJV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcqVXSsJV",
                             "referer": "",
-                            "release_date": "2010-11-05"
+                            "release_date": "2010-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.2,
+                                        "end": 104.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.4,
+                                        "end": 1399.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - เศษซาก",
                             "image": "https://image.tmdb.org/t/p/original/bNM6bx2rmo8jdljQw1MRW57qtF9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Ff57CllTu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Ff57CllTu",
                             "referer": "",
-                            "release_date": "2010-11-12"
+                            "release_date": "2010-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.4,
+                                        "end": 176.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1396.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - มูฟพอยต์",
                             "image": "https://image.tmdb.org/t/p/original/aZ9fAtvBO70ojUJcHaoRV0ylbPx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fo4UJ7mBD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fo4UJ7mBD",
                             "referer": "",
-                            "release_date": "2010-11-19"
+                            "release_date": "2010-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.8,
+                                        "end": 109.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.5,
+                                        "end": 1396.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ไดฮะเซย์ไซ",
                             "image": "https://image.tmdb.org/t/p/original/mcLBDxFpCyp1xGHCdrUMnHTh4D2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0VHgM06Z%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0VHgM06Z",
                             "referer": "",
-                            "release_date": "2010-11-26"
+                            "release_date": "2010-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.7,
+                                        "end": 197.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.4,
+                                        "end": 1399.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - กำบังขวางเส้นทาง",
                             "image": "https://image.tmdb.org/t/p/original/6xSgpZaZJUQV16oyN0ZUrs8p6My.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbJnJ3T0i%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbJnJ3T0i",
                             "referer": "",
-                            "release_date": "2010-12-03"
+                            "release_date": "2010-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.6,
+                                        "end": 107
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.5,
+                                        "end": 1400.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ชวเลข",
                             "image": "https://image.tmdb.org/t/p/original/gmakXNFnRZkG5njXLWhyRDdj9OH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQfBCsVDo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQfBCsVDo",
                             "referer": "",
-                            "release_date": "2010-12-10"
+                            "release_date": "2010-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.5,
+                                        "end": 151.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ดาบสังหารนักบุญ",
                             "image": "https://image.tmdb.org/t/p/original/6tlgpEE7Gc7eGVqXweRNC5Hjm3w.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FE4B2IqWP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FE4B2IqWP",
                             "referer": "",
-                            "release_date": "2010-12-17"
+                            "release_date": "2010-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.1,
+                                        "end": 177
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - หอดูดาว",
                             "image": "https://image.tmdb.org/t/p/original/ud5XJdGYsbFIVqAmQkkozFMB0hW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVusgtDv2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVusgtDv2",
                             "referer": "",
-                            "release_date": "2010-12-24"
+                            "release_date": "2010-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.9,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.3,
+                                        "end": 1397
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - โครเช ดิ ปิเอโตร (สาวกแห่งกางเขน)",
                             "image": "https://image.tmdb.org/t/p/original/5SgEu9GnzDlu3Za66umGAo8Ol8I.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FACoZAYVR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FACoZAYVR",
                             "referer": "",
-                            "release_date": "2011-01-07"
+                            "release_date": "2011-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.4,
+                                        "end": 111.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1405.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - เมืองแห่งสายน้ำ",
                             "image": "https://image.tmdb.org/t/p/original/4HJ7AZKFmYR8x0xweurpp8t8Yxn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBC4RZmZc%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBC4RZmZc",
                             "referer": "",
-                            "release_date": "2011-01-14"
+                            "release_date": "2011-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.6,
+                                        "end": 157.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - กองเรือราชินี",
                             "image": "https://image.tmdb.org/t/p/original/jCZ7FHXt63JFyoDLtCPV8tjrYfC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F93k3j5TA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F93k3j5TA",
                             "referer": "",
-                            "release_date": "2011-01-21"
+                            "release_date": "2011-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - โรซาลีโอแห่งการนัดหมาย",
@@ -508,56 +1418,171 @@
                             "image": "https://image.tmdb.org/t/p/original/xjvMmX1aIVZuW8nHnDWPfuXcPGx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5znmUWbn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5znmUWbn",
                             "referer": "",
-                            "release_date": "2011-02-04"
+                            "release_date": "2011-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.2,
+                                        "end": 136.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ซีเรียลนัมเบอร์",
                             "image": "https://image.tmdb.org/t/p/original/sdx0F5p05XzL1IE3cNGeWQRDFyp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQUFyIdTo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQUFyIdTo",
                             "referer": "",
-                            "release_date": "2011-02-11"
+                            "release_date": "2011-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78,
+                                        "end": 159
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - นักวิจัย",
                             "image": "https://image.tmdb.org/t/p/original/u6CwqAyJIfL5PjXNp0zmE7rtIVs.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcfwWwEU5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcfwWwEU5",
                             "referer": "",
-                            "release_date": "2011-02-18"
+                            "release_date": "2011-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.8,
+                                        "end": 221
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - หน่วยฮาวน์ด็อก",
                             "image": "https://image.tmdb.org/t/p/original/9qCQVmM35kvVvJ5jTyWxZiNgETX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJHESZPkR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJHESZPkR",
                             "referer": "",
-                            "release_date": "2011-02-25"
+                            "release_date": "2011-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.7,
+                                        "end": 107
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - อุปกรณ์ติดตั้งการเรียนรู้ เทสตาเม้นท์",
                             "image": "https://image.tmdb.org/t/p/original/i4y56yEJlD95AYQi1zZfAvgi0r7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKqtyd1fp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKqtyd1fp",
                             "referer": "",
-                            "release_date": "2011-03-04"
+                            "release_date": "2011-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 148.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - อาคมทัณฑ์สวรรค์",
                             "image": "https://image.tmdb.org/t/p/original/eIgpcLRrOXvTa05rq6qpWnrfocH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSrc5MnDA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSrc5MnDA",
                             "referer": "",
-                            "release_date": "2011-03-11"
+                            "release_date": "2011-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.3,
+                                        "end": 85.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213.2,
+                                        "end": 1302.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ก่อนเปิดศึก",
                             "image": "https://image.tmdb.org/t/p/original/vHRFIKMYEQJQ4Fh73cWoYID82A9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqhbUnQu7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqhbUnQu7",
                             "referer": "",
-                            "release_date": "2011-03-25"
+                            "release_date": "2011-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.4,
+                                        "end": 1394.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - กลุ่มติดอาวุธ (สกิลเอาท์)",
                             "image": "https://image.tmdb.org/t/p/original/isOotcfOdwfxveBshbPjRwJsGDj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiJqeZQCX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiJqeZQCX",
                             "referer": "",
-                            "release_date": "2011-04-01"
+                            "release_date": "2011-04-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.5,
+                                        "end": 227.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -572,161 +1597,496 @@
                             "image": "https://image.tmdb.org/t/p/original/kvGZ9muExl6fLo9IEAZ222q1aCj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0Zf1qsPh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0Zf1qsPh",
                             "referer": "",
-                            "release_date": "2010-10-08"
+                            "release_date": "2010-10-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.5,
+                                        "end": 239
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1204.3,
+                                        "end": 1293.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Book of Law",
                             "image": "https://image.tmdb.org/t/p/original/jADG0zAvB1rrHhj4lKYykeq6XNw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpShWa7oV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpShWa7oV",
                             "referer": "",
-                            "release_date": "2010-10-15"
+                            "release_date": "2010-10-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.4,
+                                        "end": 226.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.8,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Amakusa Church",
                             "image": "https://image.tmdb.org/t/p/original/iOLG0IQcfbihEcVh2yUbnpsIEtn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXzZWto09%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXzZWto09",
                             "referer": "",
-                            "release_date": "2010-10-22"
+                            "release_date": "2010-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.6,
+                                        "end": 192.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.5,
+                                        "end": 1399.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Sheol Fear (Voice of the Magicbane)",
                             "image": "https://image.tmdb.org/t/p/original/wsuc2zOr1P63pI097uXJILSHWLS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FAPCkktqw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FAPCkktqw",
                             "referer": "",
-                            "release_date": "2010-10-29"
+                            "release_date": "2010-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.6,
+                                        "end": 146.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Lotus Wand",
                             "image": "https://image.tmdb.org/t/p/original/4rfIeMatBR5JNsrrHvMEStattmt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FtTxPXxTd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FtTxPXxTd",
                             "referer": "",
-                            "release_date": "2010-11-05"
+                            "release_date": "2010-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.4,
+                                        "end": 107
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Remnant (Wreckage)",
                             "image": "https://image.tmdb.org/t/p/original/bNM6bx2rmo8jdljQw1MRW57qtF9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMJlTRsoN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMJlTRsoN",
                             "referer": "",
-                            "release_date": "2010-11-12"
+                            "release_date": "2010-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.4,
+                                        "end": 177.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1309.9,
+                                        "end": 1399.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Move Point (Coordinate Relocation)",
                             "image": "https://image.tmdb.org/t/p/original/aZ9fAtvBO70ojUJcHaoRV0ylbPx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgOsqcvDs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgOsqcvDs",
                             "referer": "",
-                            "release_date": "2010-11-19"
+                            "release_date": "2010-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Daihasei Festival",
                             "image": "https://image.tmdb.org/t/p/original/mcLBDxFpCyp1xGHCdrUMnHTh4D2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1O2Hv24w%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1O2Hv24w",
                             "referer": "",
-                            "release_date": "2010-11-26"
+                            "release_date": "2010-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.5,
+                                        "end": 202.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.1,
+                                        "end": 1399.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Route Disturb (Pursuit Inhibited)",
                             "image": "https://image.tmdb.org/t/p/original/6xSgpZaZJUQV16oyN0ZUrs8p6My.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8LXHlv1x%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8LXHlv1x",
                             "referer": "",
-                            "release_date": "2010-12-03"
+                            "release_date": "2010-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.5,
+                                        "end": 1399.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Shorthand (Stenographic Sourebook)",
                             "image": "https://image.tmdb.org/t/p/original/gmakXNFnRZkG5njXLWhyRDdj9OH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FTZ0FxrNH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FTZ0FxrNH",
                             "referer": "",
-                            "release_date": "2010-12-10"
+                            "release_date": "2010-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.2,
+                                        "end": 149.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1311.4,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Stab Sword",
                             "image": "https://image.tmdb.org/t/p/original/6tlgpEE7Gc7eGVqXweRNC5Hjm3w.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FTCxxJkdm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FTCxxJkdm",
                             "referer": "",
-                            "release_date": "2010-12-17"
+                            "release_date": "2010-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 172
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.1,
+                                        "end": 1403.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Belvedere (The Observatory)",
                             "image": "https://image.tmdb.org/t/p/original/ud5XJdGYsbFIVqAmQkkozFMB0hW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvoGPSNtL%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvoGPSNtL",
                             "referer": "",
-                            "release_date": "2010-12-24"
+                            "release_date": "2010-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10.5,
+                                        "end": 99.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.4,
+                                        "end": 1402.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Croce di Pietro (Apostolic Cross)",
                             "image": "https://image.tmdb.org/t/p/original/5SgEu9GnzDlu3Za66umGAo8Ol8I.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2JcQg6yT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2JcQg6yT",
                             "referer": "",
-                            "release_date": "2011-01-07"
+                            "release_date": "2011-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 110.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - City of Water",
                             "image": "https://image.tmdb.org/t/p/original/4HJ7AZKFmYR8x0xweurpp8t8Yxn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDkWs1unN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDkWs1unN",
                             "referer": "",
-                            "release_date": "2011-01-14"
+                            "release_date": "2011-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.9,
+                                        "end": 148
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Queen's Fleet",
                             "image": "https://image.tmdb.org/t/p/original/jCZ7FHXt63JFyoDLtCPV8tjrYfC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FM9XDdrqX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FM9XDdrqX",
                             "referer": "",
-                            "release_date": "2011-01-21"
+                            "release_date": "2011-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.7,
+                                        "end": 166
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Rosary of the Appointed Time",
                             "image": "https://image.tmdb.org/t/p/original/AdnCWWxdoqBz6SnVRo3gumk9Jtk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FeQmQLS8v%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FeQmQLS8v",
                             "referer": "",
-                            "release_date": "2011-01-28"
+                            "release_date": "2011-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 80.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Penalty Game",
                             "image": "https://image.tmdb.org/t/p/original/xjvMmX1aIVZuW8nHnDWPfuXcPGx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvNxGN5mk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvNxGN5mk",
                             "referer": "",
-                            "release_date": "2011-02-04"
+                            "release_date": "2011-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.4,
+                                        "end": 136.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.7,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Serial Number (Specimen Number)",
                             "image": "https://image.tmdb.org/t/p/original/sdx0F5p05XzL1IE3cNGeWQRDFyp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2dVQ1PL9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2dVQ1PL9",
                             "referer": "",
-                            "release_date": "2011-02-11"
+                            "release_date": "2011-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.7,
+                                        "end": 159
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - The Researcher (Amata Kihara)",
                             "image": "https://image.tmdb.org/t/p/original/u6CwqAyJIfL5PjXNp0zmE7rtIVs.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRTMG43XJ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRTMG43XJ",
                             "referer": "",
-                            "release_date": "2011-02-18"
+                            "release_date": "2011-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.5,
+                                        "end": 220
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.7,
+                                        "end": 1404.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Hound Dog (Hound Squad)",
                             "image": "https://image.tmdb.org/t/p/original/9qCQVmM35kvVvJ5jTyWxZiNgETX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fs85u29Qs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fs85u29Qs",
                             "referer": "",
-                            "release_date": "2011-02-25"
+                            "release_date": "2011-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.6,
+                                        "end": 104.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Testament (Learning Device)",
                             "image": "https://image.tmdb.org/t/p/original/i4y56yEJlD95AYQi1zZfAvgi0r7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlAYUtuqm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlAYUtuqm",
                             "referer": "",
-                            "release_date": "2011-03-04"
+                            "release_date": "2011-03-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 149
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - The Divine Retribution Spell",
                             "image": "https://image.tmdb.org/t/p/original/eIgpcLRrOXvTa05rq6qpWnrfocH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F7jPu3vHT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F7jPu3vHT",
                             "referer": "",
-                            "release_date": "2011-03-11"
+                            "release_date": "2011-03-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 84.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1207.3,
+                                        "end": 1296.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Prewar",
                             "image": "https://image.tmdb.org/t/p/original/vHRFIKMYEQJQ4Fh73cWoYID82A9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fhcp3zhIT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fhcp3zhIT",
                             "referer": "",
-                            "release_date": "2011-03-25"
+                            "release_date": "2011-03-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1404.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Skill Out (Armed Gang)",
@@ -756,35 +2116,110 @@
                             "image": "https://image.tmdb.org/t/p/original/nveNwcDEo3iwW0pdTuDteDeqaoj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FrPsmSLqW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FrPsmSLqW",
                             "referer": "",
-                            "release_date": "2018-10-05"
+                            "release_date": "2018-10-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.4,
+                                        "end": 176.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1287.3,
+                                        "end": 1375.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Right Seat of God",
                             "image": "https://image.tmdb.org/t/p/original/zSz446jST1A6v0wH0DR9ZdFD2LZ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fh3bAns6N%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fh3bAns6N",
                             "referer": "",
-                            "release_date": "2018-10-12"
+                            "release_date": "2018-10-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 166.6,
+                                        "end": 257.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Document of C.",
                             "image": "https://image.tmdb.org/t/p/original/kB1LOvHZhbPpDEd85QokIznnV6O.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F22ryZPWS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F22ryZPWS",
                             "referer": "",
-                            "release_date": "2018-10-19"
+                            "release_date": "2018-10-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1403.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Dark Side of Academy City",
                             "image": "https://image.tmdb.org/t/p/original/vSn19O0lOR78p3b6wE9aMlbRBc4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkqrdPMBg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkqrdPMBg",
                             "referer": "",
-                            "release_date": "2018-10-26"
+                            "release_date": "2018-10-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.4,
+                                        "end": 1393.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Dark Matter",
                             "image": "https://image.tmdb.org/t/p/original/t2NeQSuXz7ClizKFr7g8xSegOKN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FL1oBElr2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FL1oBElr2",
                             "referer": "",
-                            "release_date": "2018-11-02"
+                            "release_date": "2018-11-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Super-espers",
@@ -798,14 +2233,44 @@
                             "image": "https://image.tmdb.org/t/p/original/whTfUVmlbbLUwN0UGnBj4Sjl4FR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbFnU3kwI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbFnU3kwI",
                             "referer": "",
-                            "release_date": "2018-11-16"
+                            "release_date": "2018-11-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.2,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Saint Breakout",
                             "image": "https://image.tmdb.org/t/p/original/eOY2WgUuWkwqtrFVTkQShP3yluP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMFbPZCSw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMFbPZCSw",
                             "referer": "",
-                            "release_date": "2018-11-23"
+                            "release_date": "2018-11-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.4,
+                                        "end": 226.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1276.5,
+                                        "end": 1365.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Holy Mother Veneration",
@@ -819,35 +2284,100 @@
                             "image": "https://image.tmdb.org/t/p/original/i5uq4bEuwd0Xq4JibYfOCfTAXDa.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FetNO8QhK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FetNO8QhK",
                             "referer": "",
-                            "release_date": "2018-12-07"
+                            "release_date": "2018-12-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.6,
+                                        "end": 216
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1404.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - British Labyrinth",
                             "image": "https://image.tmdb.org/t/p/original/56J6lU5C9rk0WUUJmdJpI074mm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNv2tfMw4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNv2tfMw4",
                             "referer": "",
-                            "release_date": "2018-12-14"
+                            "release_date": "2018-12-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.6,
+                                        "end": 125
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.5,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Mercenaries",
                             "image": "https://image.tmdb.org/t/p/original/r9BBWdCCpBI28lqULT2xLTrc5a9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fcyy5AYrG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fcyy5AYrG",
                             "referer": "",
-                            "release_date": "2018-12-21"
+                            "release_date": "2018-12-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90,
+                                        "end": 179
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.1,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Curtana Original",
                             "image": "https://image.tmdb.org/t/p/original/plIuM4wNI0p2hM73Dwb0tzAucZg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FGdTvdzv2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FGdTvdzv2",
                             "referer": "",
-                            "release_date": "2018-12-28"
+                            "release_date": "2018-12-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.6,
+                                        "end": 154.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Heroes",
                             "image": "https://image.tmdb.org/t/p/original/p7iWTrdRgb5HrLBsnyF4zRU6ENq.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUOMu9kDf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUOMu9kDf",
                             "referer": "",
-                            "release_date": "2019-01-11"
+                            "release_date": "2019-01-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1279,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Spark Signal",
@@ -875,21 +2405,66 @@
                             "image": "https://image.tmdb.org/t/p/original/fXI4IDlANgknzMFUKxrTdeUETOr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBc1SBRTM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBc1SBRTM",
                             "referer": "",
-                            "release_date": "2019-02-08"
+                            "release_date": "2019-02-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.8,
+                                        "end": 175
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.1,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Misaka Worst",
                             "image": "https://image.tmdb.org/t/p/original/sILzmiZeZSftByS1bQSpembCq4T.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWYlT3x3z%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWYlT3x3z",
                             "referer": "",
-                            "release_date": "2019-02-15"
+                            "release_date": "2019-02-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.9,
+                                        "end": 210.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1404.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - A Reason to Protect",
                             "image": "https://image.tmdb.org/t/p/original/5jPXE2Tinf4n5KWEgPCPfak0sZ8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F34UIvSSh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F34UIvSSh",
                             "referer": "",
-                            "release_date": "2019-02-22"
+                            "release_date": "2019-02-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.2,
+                                        "end": 142
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - The Star of B'Tselem",
@@ -903,14 +2478,34 @@
                             "image": "https://image.tmdb.org/t/p/original/jS2CNebpXJGqwYQJ34VriXFShAQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdTpfXAYA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdTpfXAYA",
                             "referer": "",
-                            "release_date": "2019-03-08"
+                            "release_date": "2019-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111,
+                                        "end": 200
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Fuse=KAZAKIRI",
                             "image": "https://image.tmdb.org/t/p/original/iXtbo4SpeDX0LmiMjfdxzLhq7TR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F91j0tXyX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F91j0tXyX",
                             "referer": "",
-                            "release_date": "2019-03-15"
+                            "release_date": "2019-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.6,
+                                        "end": 162
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - List of Prohibited Books (Index)",

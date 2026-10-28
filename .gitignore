@@ -6,3 +6,5 @@ serve-web.bat
 # tools
 tools/node_modules/
 tools/*.log
+tools/.venv-skip/
+tools/.skip-audit-cache/

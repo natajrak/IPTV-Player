@@ -24,6 +24,11 @@
                                         "type": "op",
                                         "start": 224.7,
                                         "end": 314.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.9,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -193,8 +198,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 67.2,
-                                        "end": 157.1
+                                        "start": 64.7,
+                                        "end": 155.1
                                     },
                                     {
                                         "type": "ed",
@@ -216,14 +221,39 @@
                             "image": "https://image.tmdb.org/t/p/original/1G39k5mUVwJ2DQebqJ5QDmlCdM4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jhzxxmDHhk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.4,
+                                        "end": 155.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Leave the Next 10 Years and Beyond to Me Too",
                             "image": "https://image.tmdb.org/t/p/original/6UZpKnWVrWib6anpZCUX6I6HG7D.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UN3Qhkkc7T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-21"
+                            "release_date": "2026-09-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.5,
+                                        "end": 140
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -246,6 +276,11 @@
                                         "type": "op",
                                         "start": 224.7,
                                         "end": 314.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.1,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -442,8 +477,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1415.5
+                                        "start": 1323.5,
+                                        "end": 1415
                                     }
                                 ]
                             }
@@ -459,8 +494,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 68.5,
-                                        "end": 158.4
+                                        "start": 66,
+                                        "end": 157.1
                                     },
                                     {
                                         "type": "ed",

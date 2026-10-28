@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/izUk4dmeE4l4xSn22nwcZcfZRcm.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/wvWBrtO21x/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.6,
+                                        "end": 1447.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Unopened Door",
@@ -29,8 +39,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 169.5,
-                                        "end": 254.5
+                                        "start": 164.6,
+                                        "end": 253.9
                                     },
                                     {
                                         "type": "ed",
@@ -51,8 +61,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 192.4,
-                                        "end": 277.4
+                                        "start": 187.5,
+                                        "end": 276.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342,
+                                        "end": 1431.5
                                     }
                                 ]
                             }
@@ -68,8 +83,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 122.5,
-                                        "end": 207.5
+                                        "start": 116.6,
+                                        "end": 207
                                     },
                                     {
                                         "type": "ed",
@@ -90,8 +105,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 64.7,
-                                        "end": 149.7
+                                        "start": 59.4,
+                                        "end": 149
                                     },
                                     {
                                         "type": "ed",
@@ -106,35 +121,110 @@
                             "image": "https://image.tmdb.org/t/p/original/xtakCzHbcUqpCV9MiN9i0BWupDD.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/uFgPlnASBi/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-07"
+                            "release_date": "2026-08-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.6,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324,
+                                        "end": 1412.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - All Eyes on Arata",
                             "image": "https://image.tmdb.org/t/p/original/xPez0LbsgfGlwBQxwjDhLOLvNWD.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/s6e5gqDn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-14"
+                            "release_date": "2026-08-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.4,
+                                        "end": 151
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.5,
+                                        "end": 1430.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Fly to Manatsu's Kaiju Island!!",
                             "image": "https://image.tmdb.org/t/p/original/muLpHYab3tPcPOlLGhS0muvjsQY.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/hKNbNCJf3B/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-21"
+                            "release_date": "2026-08-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.5,
+                                        "end": 125
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1251.7,
+                                        "end": 1342.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Release the Torrent of Complaints, Kaiju Girl!",
                             "image": "https://image.tmdb.org/t/p/original/4G89b0rbyBt5PBTVbmSNKp6Qu4O.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/VnWOCHOGIQ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-08-28"
+                            "release_date": "2026-08-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 206.7,
+                                        "end": 297
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1447.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Don't Cry, Heartbroken Kaiju",
                             "image": "https://image.tmdb.org/t/p/original/5QKbxSg0YyH9Bv354LDZNggrAfc.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/AVvlvIggh3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-04"
+                            "release_date": "2026-09-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.4,
+                                        "end": 262.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.1,
+                                        "end": 1447.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -148,7 +238,17 @@
                             "image": "https://image.tmdb.org/t/p/original/izUk4dmeE4l4xSn22nwcZcfZRcm.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/B0trr0RjV8/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-07-03"
+                            "release_date": "2026-07-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.6,
+                                        "end": 1447.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Unopened Door",
@@ -161,8 +261,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 169.5,
-                                        "end": 254.5
+                                        "start": 164.6,
+                                        "end": 253.9
                                     },
                                     {
                                         "type": "ed",
@@ -183,8 +283,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 192.4,
-                                        "end": 277.4
+                                        "start": 187.5,
+                                        "end": 276.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.3,
+                                        "end": 1431.5
                                     }
                                 ]
                             }
@@ -200,8 +305,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 122.5,
-                                        "end": 207.5
+                                        "start": 116.6,
+                                        "end": 207
                                     },
                                     {
                                         "type": "ed",
@@ -222,8 +327,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 64.7,
-                                        "end": 149.7
+                                        "start": 59.4,
+                                        "end": 149
                                     },
                                     {
                                         "type": "ed",
@@ -244,8 +349,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 60.6,
-                                        "end": 145.6
+                                        "start": 55.6,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333.9,
+                                        "end": 1422.6
                                     }
                                 ]
                             }
@@ -261,8 +371,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 66.4,
-                                        "end": 151.4
+                                        "start": 61.4,
+                                        "end": 151
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1420.6
                                     }
                                 ]
                             }
@@ -278,8 +393,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 40.1,
-                                        "end": 125.1
+                                        "start": 35.5,
+                                        "end": 125
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1252,
+                                        "end": 1342.6
                                     }
                                 ]
                             }
@@ -295,8 +415,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 212.6,
-                                        "end": 297.6
+                                        "start": 207,
+                                        "end": 297
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.5,
+                                        "end": 1447.9
                                     }
                                 ]
                             }
@@ -312,8 +437,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 178.6,
-                                        "end": 263.6
+                                        "start": 173.4,
+                                        "end": 262.9
                                     },
                                     {
                                         "type": "ed",
@@ -334,8 +459,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 73.6,
-                                        "end": 158.6
+                                        "start": 68.1,
+                                        "end": 158.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.4,
+                                        "end": 1447.9
                                     }
                                 ]
                             }
@@ -351,8 +481,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 37.4,
-                                        "end": 122.4
+                                        "start": 32.5,
+                                        "end": 122.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.6,
+                                        "end": 1393.2
                                     }
                                 ]
                             }

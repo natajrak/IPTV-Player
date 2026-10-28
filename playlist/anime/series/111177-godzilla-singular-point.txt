@@ -28,6 +28,11 @@
                                 "source": "manual",
                                 "segments": [
                                     {
+                                        "type": "op",
+                                        "start": 77.6,
+                                        "end": 166.6
+                                    },
+                                    {
                                         "type": "ed",
                                         "start": 1326.7,
                                         "end": 1417.3
@@ -48,6 +53,11 @@
                                         "type": "op",
                                         "start": 175.1,
                                         "end": 265.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.8
                                     }
                                 ]
                             }
@@ -57,7 +67,22 @@
                             "image": "https://image.tmdb.org/t/p/original/4GPLh0HeI10q2AjWPaygPf4isKK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aZZKb6q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-04-22"
+                            "release_date": "2021-04-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 190.6,
+                                        "end": 279.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1416.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - นักทฤษฎี",
@@ -68,6 +93,11 @@
                             "skip": {
                                 "source": "manual",
                                 "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.7
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
@@ -81,14 +111,44 @@
                             "image": "https://image.tmdb.org/t/p/original/dudWOaGE4cuBHo0UhhdPdPneNCG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/P1F4fLXP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-05-06"
+                            "release_date": "2021-05-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79,
+                                        "end": 168.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.2,
+                                        "end": 1416.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - อำนาจสูงสุด",
                             "image": "https://image.tmdb.org/t/p/original/lE9rT3RGHzKqvaxeqj1dLiJ20gr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LN7mFeL1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-05-13"
+                            "release_date": "2021-05-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.6,
+                                        "end": 120.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1427
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ปะติดปะต่อ",
@@ -106,8 +166,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1326.7,
-                                        "end": 1417.3
+                                        "start": 1336.6,
+                                        "end": 1426.8
                                     }
                                 ]
                             }
@@ -117,7 +177,22 @@
                             "image": "https://image.tmdb.org/t/p/original/8yUdnPVxT8HoHsGwHYvCn2Rp79G.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5b5A1Ctd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-05-27"
+                            "release_date": "2021-05-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.7,
+                                        "end": 145.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ถอดความหมาย",
@@ -154,6 +229,11 @@
                                         "type": "op",
                                         "start": 93.8,
                                         "end": 183.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1426.9
                                     }
                                 ]
                             }
@@ -171,6 +251,11 @@
                                         "type": "op",
                                         "start": 69.1,
                                         "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.7,
+                                        "end": 1416.8
                                     }
                                 ]
                             }

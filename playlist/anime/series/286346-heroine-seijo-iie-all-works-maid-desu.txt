@@ -27,8 +27,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -49,8 +49,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -71,8 +71,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -115,8 +115,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -233,7 +233,22 @@
                             "image": "https://image.tmdb.org/t/p/original/r8CgfpFy2QfAwFVCCQBfmSyGoiA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DF8riTqtwL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-16"
+                            "release_date": "2026-09-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86,
+                                        "end": 174.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1238,
+                                        "end": 1325.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -259,8 +274,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -281,8 +296,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -303,8 +318,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -347,8 +362,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.8,
-                                        "end": 1409.6
+                                        "start": 1319.5,
+                                        "end": 1408.5
                                     }
                                 ]
                             }
@@ -473,6 +488,11 @@
                                         "type": "op",
                                         "start": 88.3,
                                         "end": 178.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1240.5,
+                                        "end": 1329.5
                                     }
                                 ]
                             }

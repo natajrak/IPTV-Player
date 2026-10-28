@@ -22,8 +22,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 93,
-                                        "end": 137
+                                        "start": 92.5,
+                                        "end": 181.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -39,8 +44,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 205.9,
-                                        "end": 249.9
+                                        "start": 204.8,
+                                        "end": 294.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -50,7 +60,22 @@
                             "image": "https://image.tmdb.org/t/p/original/9eAK2JDLJCMxpcaYmLiFSRNq3Fn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yrdxiCtwVF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-25"
+                            "release_date": "2025-01-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.5,
+                                        "end": 156.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Relics, Secret Quests, and Dark Gods Keep Interfering with My Work, so I'll Destroy Them All",
@@ -63,8 +88,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 122.9,
-                                        "end": 166.9
+                                        "start": 121.4,
+                                        "end": 211.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -80,8 +110,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 171.7,
-                                        "end": 215.7
+                                        "start": 171.3,
+                                        "end": 260.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -97,8 +132,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 81.8,
-                                        "end": 125.8
+                                        "start": 81.6,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.8,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -108,42 +148,122 @@
                             "image": "https://image.tmdb.org/t/p/original/jG3wBW82TK3bAvdb83u1glH3Pbg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dbOKkgYQm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-22"
+                            "release_date": "2025-02-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.5,
+                                        "end": 256.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.6,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - I May Be a Useless Healer, but I'm Going to Do Everything I Can",
                             "image": "https://image.tmdb.org/t/p/original/jBx4qqVkX2ks7bnG641uua4pX0q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WEGGIMdgsN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-01"
+                            "release_date": "2025-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.6,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - I May Be in My Third Year as a Guild Receptionist, but I'm Starting New-Employee Training",
                             "image": "https://image.tmdb.org/t/p/original/e3CEq1nqo8TQdml8M21wKPbTA6O.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DzePkEBc7j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-08"
+                            "release_date": "2025-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.7,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - A Ghost May Show Up During Training, but Nobody Told Me About It",
                             "image": "https://image.tmdb.org/t/p/original/hSM5vkQfHmFVctfyieylCPTOKqp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o7Mu2uXXhz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-15"
+                            "release_date": "2025-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.3,
+                                        "end": 225.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.8,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - It May Be a Trap, but I Have to Keep Moving Forward",
                             "image": "https://image.tmdb.org/t/p/original/nRbDmgMozUIYbvvTnoZDEPnbFDx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uKpJD0sYCL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-22"
+                            "release_date": "2025-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 196.5,
+                                        "end": 285.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.9,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - I May Be a Guild Receptionist, But I'll Fight to the Bitter End to Get Out of Working Overtime",
                             "image": "https://image.tmdb.org/t/p/original/4WtYEwOl3gwfu3CAkwlLSdwSgzl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hGD8jBz7KF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-29"
+                            "release_date": "2025-03-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.1,
+                                        "end": 175.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -164,8 +284,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 93,
-                                        "end": 137
+                                        "start": 92.4,
+                                        "end": 181.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -181,8 +306,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 205.9,
-                                        "end": 249.9
+                                        "start": 209.9,
+                                        "end": 299.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1347.5,
+                                        "end": 1437.3
                                     }
                                 ]
                             }
@@ -192,7 +322,22 @@
                             "image": "https://image.tmdb.org/t/p/original/9eAK2JDLJCMxpcaYmLiFSRNq3Fn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kEd2l3w0vr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-25"
+                            "release_date": "2025-01-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.5,
+                                        "end": 156.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Relics, Secret Quests, and Dark Gods Keep Interfering with My Work, so I'll Destroy Them All",
@@ -205,8 +350,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 122.9,
-                                        "end": 166.9
+                                        "start": 121,
+                                        "end": 211.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1432.1
                                     }
                                 ]
                             }
@@ -222,8 +372,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 171.7,
-                                        "end": 215.7
+                                        "start": 171.1,
+                                        "end": 260.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -239,8 +394,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 81.8,
-                                        "end": 125.8
+                                        "start": 81.6,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.9,
+                                        "end": 1432
                                     }
                                 ]
                             }
@@ -250,42 +410,122 @@
                             "image": "https://image.tmdb.org/t/p/original/jG3wBW82TK3bAvdb83u1glH3Pbg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YVMoKt0MWP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-22"
+                            "release_date": "2025-02-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.5,
+                                        "end": 256.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.7,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - I May Be a Useless Healer, but I'm Going to Do Everything I Can",
                             "image": "https://image.tmdb.org/t/p/original/jBx4qqVkX2ks7bnG641uua4pX0q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/V9GikkotDx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-01"
+                            "release_date": "2025-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.6,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - I May Be in My Third Year as a Guild Receptionist, but I'm Starting New-Employee Training",
                             "image": "https://image.tmdb.org/t/p/original/e3CEq1nqo8TQdml8M21wKPbTA6O.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lC2tZ2NR0q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-08"
+                            "release_date": "2025-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - A Ghost May Show Up During Training, but Nobody Told Me About It",
                             "image": "https://image.tmdb.org/t/p/original/hSM5vkQfHmFVctfyieylCPTOKqp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jc4XUGQEUr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-15"
+                            "release_date": "2025-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136,
+                                        "end": 225.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.9,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - It May Be a Trap, but I Have to Keep Moving Forward",
                             "image": "https://image.tmdb.org/t/p/original/nRbDmgMozUIYbvvTnoZDEPnbFDx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NjXgMD4dTg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-22"
+                            "release_date": "2025-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 196.5,
+                                        "end": 285.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - I May Be a Guild Receptionist, But I'll Fight to the Bitter End to Get Out of Working Overtime",
                             "image": "https://image.tmdb.org/t/p/original/4WtYEwOl3gwfu3CAkwlLSdwSgzl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JieTzzfWJx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-29"
+                            "release_date": "2025-03-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.1,
+                                        "end": 175.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -16,84 +16,249 @@
                             "image": "https://image.tmdb.org/t/p/original/p6gcZP2kXzJU23f4iIZ8VRNBOgM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f05BQfMQB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-02"
+                            "release_date": "2025-07-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2602,
+                                        "end": 2690.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - จ้าวอสูรผู้ถูกจองจำ",
                             "image": "https://image.tmdb.org/t/p/original/sm8730WgxgnzbyjF7LkKUDCRYsV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YaXXpPFFbU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-09"
+                            "release_date": "2025-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.7,
+                                        "end": 1409.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - หน้าที่ของผู้กล้า",
                             "image": "https://image.tmdb.org/t/p/original/fd8BwdvNr9TuF0jbErD1kicwYSD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9kXWOk1bos/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-16"
+                            "release_date": "2025-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.7,
+                                        "end": 160.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - พรสวรรค์ทางเวทมนตร์",
                             "image": "https://image.tmdb.org/t/p/original/cRAhwJ5ntAU2ZAfKHnIR92Tdq2g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/K3K27G7AXF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-23"
+                            "release_date": "2025-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.4,
+                                        "end": 197
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320,
+                                        "end": 1409.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - การเดินทัพของโบเรต",
                             "image": "https://image.tmdb.org/t/p/original/uv4GxBWga1IEq3ZzmHjkgDkrj58.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vME50QeZK3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-30"
+                            "release_date": "2025-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.6,
+                                        "end": 243.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.1,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - จอมเวทผู้บงการแมลง",
                             "image": "https://image.tmdb.org/t/p/original/lDQ848fqBcpQE9712delcPZomCa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UWs1JNlIdv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-06"
+                            "release_date": "2025-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.7,
+                                        "end": 1409.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ไม้ตายเวทมนตร์",
                             "image": "https://image.tmdb.org/t/p/original/qJxOXe29wNUB9QPrBZkRmcsnIzE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UYyr381kjY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-13"
+                            "release_date": "2025-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.1,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การหลั่งไหลของแมลง",
                             "image": "https://image.tmdb.org/t/p/original/eZ8ea6KhcSUJySh6c21v070LTuq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ij8jRQZeFk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-20"
+                            "release_date": "2025-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.6,
+                                        "end": 214.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.6,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - สมรภูมิไฮดราท",
                             "image": "https://image.tmdb.org/t/p/original/dL6nEfMJAtZIu1Lw4iUomDNN9zS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mxVzJM2OJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-27"
+                            "release_date": "2025-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 273.6,
+                                        "end": 363
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1318.5,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - มาร์โกและโดเรล",
                             "image": "https://image.tmdb.org/t/p/original/iyNvl1eocZ7Z2ufN56lz65rvb33.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xzNfXamCOa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-03"
+                            "release_date": "2025-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 169.6,
+                                        "end": 259
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.6,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ผู้กล้าตัวปลอม",
                             "image": "https://image.tmdb.org/t/p/original/ekjkrhDUyKWvrBxpZNnULvJNTn5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EbPS2KINUi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-10"
+                            "release_date": "2025-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.6,
+                                        "end": 230
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Return of the King",
                             "image": "https://image.tmdb.org/t/p/original/1tms3Vdvk5Kql7iaRJlTorsR5G8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T0H1KQb0hC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-17"
+                            "release_date": "2025-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.7,
+                                        "end": 1393.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +273,249 @@
                             "image": "https://image.tmdb.org/t/p/original/p6gcZP2kXzJU23f4iIZ8VRNBOgM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/n26KCynPzh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-02"
+                            "release_date": "2025-07-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2601.9,
+                                        "end": 2690.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Beast Lord in Captivity",
                             "image": "https://image.tmdb.org/t/p/original/sm8730WgxgnzbyjF7LkKUDCRYsV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RP3bC4UsyJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-09"
+                            "release_date": "2025-07-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.6,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Hero's Duty",
                             "image": "https://image.tmdb.org/t/p/original/fd8BwdvNr9TuF0jbErD1kicwYSD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fgGxKJm4BJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-16"
+                            "release_date": "2025-07-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.7,
+                                        "end": 160.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.9,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Magical Talent",
                             "image": "https://image.tmdb.org/t/p/original/cRAhwJ5ntAU2ZAfKHnIR92Tdq2g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QI82xASJq3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-23"
+                            "release_date": "2025-07-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.2,
+                                        "end": 197
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.1,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Boelate's March",
                             "image": "https://image.tmdb.org/t/p/original/uv4GxBWga1IEq3ZzmHjkgDkrj58.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EJKdANg1o/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-30"
+                            "release_date": "2025-07-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.6,
+                                        "end": 243.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Insect Controlling Wizard",
                             "image": "https://image.tmdb.org/t/p/original/lDQ848fqBcpQE9712delcPZomCa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1ERKYbq4Ci/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-06"
+                            "release_date": "2025-08-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Secrets of Magic",
                             "image": "https://image.tmdb.org/t/p/original/qJxOXe29wNUB9QPrBZkRmcsnIzE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/a8y7suuULs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-13"
+                            "release_date": "2025-08-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Current of Insects",
                             "image": "https://image.tmdb.org/t/p/original/eZ8ea6KhcSUJySh6c21v070LTuq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/65pyhyTslh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-20"
+                            "release_date": "2025-08-20",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.5,
+                                        "end": 214
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.5,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - War Zone Hiderat",
                             "image": "https://image.tmdb.org/t/p/original/dL6nEfMJAtZIu1Lw4iUomDNN9zS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jhhRoIwi7z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-27"
+                            "release_date": "2025-08-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 273.6,
+                                        "end": 363
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1318.5,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Margo and Drel",
                             "image": "https://image.tmdb.org/t/p/original/iyNvl1eocZ7Z2ufN56lz65rvb33.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/L3aQgItjOd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-03"
+                            "release_date": "2025-09-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 169.6,
+                                        "end": 259
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.6,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Fake Hero",
                             "image": "https://image.tmdb.org/t/p/original/ekjkrhDUyKWvrBxpZNnULvJNTn5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sHo22ab1Pu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-10"
+                            "release_date": "2025-09-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.6,
+                                        "end": 230
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Return of the King",
                             "image": "https://image.tmdb.org/t/p/original/1tms3Vdvk5Kql7iaRJlTorsR5G8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZkTaW5gbHw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-17"
+                            "release_date": "2025-09-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.7,
+                                        "end": 1393.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

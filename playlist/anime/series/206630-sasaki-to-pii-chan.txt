@@ -9,19 +9,29 @@
                 {
                     "name": "พากย์ไทย",
                     "image": "https://image.tmdb.org/t/p/original/t0pLQlwJiGe0HODy5Yk1bMo12P.jpg",
-                    "referer": "https://indy-anime.net/sasaki-to-pii-chan/",
+                    "referer": "https://indy-anime.net/sasaki-to-pii-chan-dubth/",
                     "stations": [
                         {
                             "name": "ตอน 1 - Real Life and Fantasy",
                             "image": "https://image.tmdb.org/t/p/original/wieOzsGCLDaxZLJ3sIx1uLsmjj9.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/SheKKc3HHY/video.mp4/playlist.m3u8",
+                            "url": "https://hls.animeindy.com:8443/vid/gyXfVk3WHS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-01-05"
+                            "release_date": "2024-01-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2810.2,
+                                        "end": 2899.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - A First Job and a Partner",
                             "image": "https://image.tmdb.org/t/p/original/avld1DbKFy72Jl6roIyFJik49tH.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/47XYBwDNjY/video.mp4/playlist.m3u8",
+                            "url": "https://hls.animeindy.com:8443/vid/JlHrceQczy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-01-12",
                             "skip": {
@@ -29,8 +39,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 103.1,
-                                        "end": 194.5
+                                        "start": 102.9,
+                                        "end": 192.9
                                     }
                                 ]
                             }
@@ -38,7 +48,7 @@
                         {
                             "name": "ตอน 3 - The War and the Young Lady",
                             "image": "https://image.tmdb.org/t/p/original/l7aERvSE6mI7VRQFlIUWOtASjPO.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/F4QaZQ6tx1/video.mp4/playlist.m3u8",
+                            "url": "https://hls.animeindy.com:8443/vid/8UPEcbEa4V/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-01-19",
                             "skip": {
@@ -48,6 +58,11 @@
                                         "type": "op",
                                         "start": 70,
                                         "end": 161.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
@@ -55,7 +70,7 @@
                         {
                             "name": "ตอน 4 - The Prince and the Sage",
                             "image": "https://image.tmdb.org/t/p/original/vPhhlvFnzrfCUQxDQhlsjRbVgMV.jpg",
-                            "url": "https://hls.animeindy.com:8443/vid/SLXKRDmJ4C/video.mp4/playlist.m3u8",
+                            "url": "https://hls.animeindy.com:8443/vid/jVe3zg85of/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-01-26",
                             "skip": {
@@ -65,12 +80,274 @@
                                         "type": "op",
                                         "start": 49.2,
                                         "end": 140.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
                         },
                         {
                             "name": "ตอน 5 - A Magical Man and a Third World",
+                            "image": "https://image.tmdb.org/t/p/original/sgaoNxU0kJe5SJSFxjj7i9cwH5Y.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/xYhIFqhIbn/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-02-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.8,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 6 - Interview and Wine and Dine",
+                            "image": "https://image.tmdb.org/t/p/original/egIOnR73uPhCv04xBnXTnGY48AP.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/Y8bsiOS0QJ/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-02-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.3,
+                                        "end": 220.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 7 - Martial and Political Force",
+                            "image": "https://image.tmdb.org/t/p/original/u4pGiIcVZN7OASkJSoFuQpwVVct.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/adAM9FF1ke/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.9,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 8 - Suspicions and Sightseeing",
+                            "image": "https://image.tmdb.org/t/p/original/vqhzxePHjF5EfQwsz7LF9W86gJF.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/gSiiiK434K/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-02-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.4,
+                                        "end": 108.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 9 - Executions and Negotiations",
+                            "image": "https://image.tmdb.org/t/p/original/q1rgkoSwN4epVcYk8kiD9vmO0ef.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/5mo0ytovDt/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-03-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.8,
+                                        "end": 165.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.8,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 10 - Value and Dignity",
+                            "image": "https://image.tmdb.org/t/p/original/jHyaKPU1QpgtpRw91x5KLMpwrc4.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/CBs5QN9R91/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.2,
+                                        "end": 217.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.8,
+                                        "end": 1391.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 11 - Imagination and Counters",
+                            "image": "https://image.tmdb.org/t/p/original/cos0Y7VmhxYBoxauVljxhM5cDIU.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/AoMYkmDUhq/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-03-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 175.8,
+                                        "end": 266.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 12 - Real Life, Fantasy, and the Fourth World",
+                            "image": "https://image.tmdb.org/t/p/original/opnKolPR0aH83yKfa6AvC92FOb.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/9cZVrtqkM/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102,
+                                        "end": 191.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.8,
+                                        "end": 1375.6
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "status": "completed"
+                },
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/t0pLQlwJiGe0HODy5Yk1bMo12P.jpg",
+                    "referer": "https://indy-anime.net/sasaki-to-pii-chan/",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - Real Life and Fantasy",
+                            "image": "https://image.tmdb.org/t/p/original/wieOzsGCLDaxZLJ3sIx1uLsmjj9.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/SheKKc3HHY/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-01-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2810.2,
+                                        "end": 2899.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 2 - A First Job and a Partner",
+                            "image": "https://image.tmdb.org/t/p/original/avld1DbKFy72Jl6roIyFJik49tH.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/47XYBwDNjY/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-01-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 103,
+                                        "end": 193
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 3 - The War and the Young Lady",
+                            "image": "https://image.tmdb.org/t/p/original/l7aERvSE6mI7VRQFlIUWOtASjPO.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/F4QaZQ6tx1/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-01-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 160
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 4 - The Prince and the Sage",
+                            "image": "https://image.tmdb.org/t/p/original/vPhhlvFnzrfCUQxDQhlsjRbVgMV.jpg",
+                            "url": "https://hls.animeindy.com:8443/vid/SLXKRDmJ4C/video.mp4/playlist.m3u8",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2024-01-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.4,
+                                        "end": 139.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 5 - A Magical Man and a Third World",
                             "image": "https://image.tmdb.org/t/p/original/sgaoNxU0kJe5SJSFxjj7i9cwH5Y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HJgGvtX5Qh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
@@ -80,14 +357,19 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 55.4,
-                                        "end": 146.8
+                                        "start": 55.8,
+                                        "end": 145
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.4
                                     }
                                 ]
                             }
                         },
                         {
-                            "name": "ตอน 6 - Interview and Wine and Dine",
+                            "name": "Ep. 6 - Interview and Wine and Dine",
                             "image": "https://image.tmdb.org/t/p/original/egIOnR73uPhCv04xBnXTnGY48AP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sYJMRj2wj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
@@ -97,21 +379,41 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 130.3,
-                                        "end": 221.7
+                                        "start": 131.3,
+                                        "end": 220.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
                         },
                         {
-                            "name": "ตอน 7 - Martial and Political Force",
+                            "name": "Ep. 7 - Martial and Political Force",
                             "image": "https://image.tmdb.org/t/p/original/u4pGiIcVZN7OASkJSoFuQpwVVct.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PE8Nu4iY1Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-02-13"
+                            "release_date": "2024-02-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.9,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "name": "ตอน 8 - Suspicions and Sightseeing",
+                            "name": "Ep. 8 - Suspicions and Sightseeing",
                             "image": "https://image.tmdb.org/t/p/original/vqhzxePHjF5EfQwsz7LF9W86gJF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/h4bwZnCfff/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
@@ -121,14 +423,14 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 18.3,
-                                        "end": 109.7
+                                        "start": 18.4,
+                                        "end": 108.1
                                     }
                                 ]
                             }
                         },
                         {
-                            "name": "ตอน 9 - Executions and Negotiations",
+                            "name": "Ep. 9 - Executions and Negotiations",
                             "image": "https://image.tmdb.org/t/p/original/q1rgkoSwN4epVcYk8kiD9vmO0ef.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/thHsIyi9Ac/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
@@ -138,21 +440,41 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 75.4,
-                                        "end": 166.8
+                                        "start": 75.8,
+                                        "end": 165.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.8,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
                         },
                         {
-                            "name": "ตอน 10 - Value and Dignity",
+                            "name": "Ep. 10 - Value and Dignity",
                             "image": "https://image.tmdb.org/t/p/original/jHyaKPU1QpgtpRw91x5KLMpwrc4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Nm5cz27o7A/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-08"
+                            "release_date": "2024-03-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.2,
+                                        "end": 217.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.8,
+                                        "end": 1391.5
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "name": "ตอน 11 - Imagination and Counters",
+                            "name": "Ep. 11 - Imagination and Counters",
                             "image": "https://image.tmdb.org/t/p/original/cos0Y7VmhxYBoxauVljxhM5cDIU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EpkqF9BHX7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
@@ -162,18 +484,38 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 176.4,
-                                        "end": 267.8
+                                        "start": 175.8,
+                                        "end": 266.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.5
                                     }
                                 ]
                             }
                         },
                         {
-                            "name": "ตอน 12 - Real Life, Fantasy, and the Fourth World",
+                            "name": "Ep. 12 - Real Life, Fantasy, and the Fourth World",
                             "image": "https://image.tmdb.org/t/p/original/opnKolPR0aH83yKfa6AvC92FOb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fUdgEHRsCZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-03-22"
+                            "release_date": "2024-03-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102,
+                                        "end": 191.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.8,
+                                        "end": 1375.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -189,38 +531,100 @@
                 {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/eN7DNrJMtbq6q3iW1HMLh1POY1R.jpg",
-                    "referer": "https://anime-your.com/sasaki-to-pii-chan-season-2/",
+                    "referer": "https://indy-anime.net/sasaki-to-pii-chan-season-2/",
                     "stations": [
                         {
                             "name": "Ep. 1 - Mother and Child",
                             "image": "https://image.tmdb.org/t/p/original/g98fE1I7bgwCVb966PkeqQxKkpk.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/qTHgrOBSRh/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-07"
+                            "url": "https://sv2.team-indy.net/video/GgwiYjbbKt/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2750.5,
+                                        "end": 2839.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Death Games and Demons",
                             "image": "https://image.tmdb.org/t/p/original/umHA5DIbrPPDPTxggNRV0JhS4oD.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/TO8aEb7bqJ/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-14"
+                            "url": "https://sv2.team-indy.net/video/lZV0PKSilz/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 157.2,
+                                        "end": 247.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Concealment and Infiltration",
                             "image": "https://image.tmdb.org/t/p/original/k5ziwXk4EyQaXjgOTaJYG3Qu2Qc.jpg",
-                            "url": "https://moji.abcdxzy.xyz:8443/vod/uRtAMt4nY/video.mp4/playlist.m3u8",
-                            "referer": "https://animeyour.com/",
-                            "release_date": "2026-10-21"
+                            "url": "https://sv2.team-indy.net/video/QA3D5RAPeI/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.5,
+                                        "end": 161.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 4 - Angel and Boy",
+                            "image": "https://image.tmdb.org/t/p/original/7TJ8e4XzyI8BjDBmZn7VhiaaBvB.jpg",
+                            "url": "https://sv2.team-indy.net/video/aGiRCDRa8T/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 162.4,
+                                        "end": 252
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-07",
-            "updated_at": "2026-10-21T00:00:00.000Z"
+            "updated_at": "2026-10-28T00:00:00.000Z"
         }
     ],
     "release_date": "2024-01-05",
-    "updated_at": "2026-10-21T00:00:00.000Z",
+    "updated_at": "2026-10-28T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",
