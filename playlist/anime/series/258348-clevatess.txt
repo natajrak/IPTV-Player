@@ -670,21 +670,66 @@
                             "image": "https://image.tmdb.org/t/p/original/2h6AN2iRNH3pvniztkcWzRyp6U0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCMYEYzPt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCMYEYzPt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.4,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Memories of a Friend",
                             "image": "https://image.tmdb.org/t/p/original/z17JtEyd55BQ81fCfp6yWdgNuQ3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FewKcH5yC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FewKcH5yC",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Mirror Labyrinth",
                             "image": "https://image.tmdb.org/t/p/original/vcE68NhZXODAaviyOQDm8DAkp9h.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fm3PkRnUe%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fm3PkRnUe",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.9,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -825,49 +870,149 @@
                             "image": "https://image.tmdb.org/t/p/original/2h6AN2iRNH3pvniztkcWzRyp6U0.jpg",
                             "url": "https://sv2.team-indy.net/video/rrH8cw2rLW/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-19"
+                            "release_date": "2026-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.5,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.6,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Memories of a Friend",
                             "image": "https://image.tmdb.org/t/p/original/z17JtEyd55BQ81fCfp6yWdgNuQ3.jpg",
                             "url": "https://sv2.team-indy.net/video/NaBKS2t1Xr/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-26"
+                            "release_date": "2026-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.5,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Mirror Labyrinth",
                             "image": "https://image.tmdb.org/t/p/original/vcE68NhZXODAaviyOQDm8DAkp9h.jpg",
                             "url": "https://sv2.team-indy.net/video/lznkuCjRax/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-02"
+                            "release_date": "2026-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.2,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1419.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Second Trial",
                             "image": "https://image.tmdb.org/t/p/original/x5LNOFLzYf1NItyV4dl1mKd0BKe.jpg",
                             "url": "https://sv2.team-indy.net/video/iz2QpTKUC/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-09"
+                            "release_date": "2026-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155,
+                                        "end": 244.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - What's Reflected in the Mirror",
                             "image": "https://image.tmdb.org/t/p/original/xOPpRs9wEAHb6h3RLkOTrGXiYzW.jpg",
                             "url": "https://sv2.team-indy.net/video/hYLRvaTAjv/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-16"
+                            "release_date": "2026-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.2,
+                                        "end": 134.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Millennium of a Dark Beast Lord",
                             "image": "https://image.tmdb.org/t/p/original/ip4hB6Z3wh9jLcZJriZUrUFwoNy.jpg",
                             "url": "https://sv2.team-indy.net/video/IMBNGDIdD8/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-23"
+                            "release_date": "2026-09-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.9,
+                                        "end": 154
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - True Hero",
                             "image": "https://image.tmdb.org/t/p/original/rwUcmIvdPEroxb1N3viwdtyS4kU.jpg",
                             "url": "https://sv2.team-indy.net/video/o7u489F9t/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-30"
+                            "release_date": "2026-09-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.6,
+                                        "end": 1353.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
