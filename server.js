@@ -209,18 +209,21 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // ── GET/POST /api/skip-jobs ── สถานะงานตรวจ OP/ED อัตโนมัติ / เปิด-ปิด ({ enabled })
+  // ── GET/POST /api/skip-jobs ── สถานะงานตรวจ OP/ED อัตโนมัติ / เปิด-ปิด ({ enabled }) / ล้างประวัติ ({ clearHistory: true })
   if (pathname === '/api/skip-jobs' && (req.method === 'GET' || req.method === 'POST')) {
     if (req.method === 'POST') {
       let body;
       try { body = JSON.parse(await readBody(req)); }
       catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
-      if (typeof body.enabled !== 'boolean') {
+      if (body.clearHistory === true) {
+        skipAuto.clearHistory();
+      } else if (typeof body.enabled === 'boolean') {
+        skipAuto.setEnabled(body.enabled);
+      } else {
         res.writeHead(400, { 'Content-Type': 'text/plain' });
-        res.end('Invalid: need enabled (boolean)');
+        res.end('Invalid: need enabled (boolean) or clearHistory: true');
         return;
       }
-      skipAuto.setEnabled(body.enabled);
     }
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
     res.end(JSON.stringify(skipAuto.status()));

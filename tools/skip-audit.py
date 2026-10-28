@@ -27,9 +27,12 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
                                            ค่าที่ผู้ใช้ตรวจด้วยตา ใช้แทนค่าที่ตรวจพบของตอนนั้น (ปรับขอบตามนโยบายให้อัตโนมัติ
                                            ถ้า report มี start_shift/end_shift) — เขียนเสมอไม่สน tolerance/support
         --tolerance S                      ประเมิน ok/fix ใหม่ด้วย tolerance นี้ (default ตาม report)
-        --source NAME                      ค่า skip.source เมื่อ --fill ต้องสร้าง skip object ใหม่ (default manual;
+        --source NAME                      ค่า skip.source เมื่อ --fill/--mark-none ต้องสร้าง skip object ใหม่ (default manual;
                                            job อัตโนมัติใช้ audit = ยังไม่มีคนยืนยัน; --set เขียน manual เสมอ; skip เดิมคง source เดิม)
-        --json-out PATH                    เขียนผลแบบ machine-readable {playlist, changes[], outliers[]} (เขียนแม้ไม่มีอะไรแก้)
+        --json-out PATH                    เขียนผลแบบ machine-readable {playlist, changes[], outliers[], marked[]} (เขียนแม้ไม่มีอะไรแก้)
+        --mark-none                        ตอนที่ตรวจได้แต่ไม่พบ op/ed/intro เลย และยังไม่มี skip → เขียน skip {source: --source, segments: []}
+                                           ยกเว้นตอนเดียวกันในแทร็กอื่นของ season (ที่อยู่ใน report) มี op/ed/intro หรือตรวจไม่ได้
+                                           (= ตรวจแล้วไม่พบ กัน job อัตโนมัติตรวจซ้ำ; --fill รอบหลังยังเติมทับได้; ถ้าใส่ --kinds จะไม่ mark)
         recap และ type อื่นที่ไม่ใช่ op/ed ไม่ถูกแตะ
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
@@ -953,8 +956,8 @@ def cmd_apply(args):
         report = json.load(f)
     if os.path.realpath(report['playlist']) != os.path.realpath(args.playlist):
         raise SystemExit(f'report นี้เป็นของ {report["playlist"]} ไม่ใช่ {args.playlist}')
-    if not args.fix and not args.fill and not args.set and not args.remove:
-        raise SystemExit('ต้องระบุ --fix และ/หรือ --fill (หรือ --set/--remove)')
+    if not args.fix and not args.fill and not args.set and not args.remove and not args.mark_none:
+        raise SystemExit('ต้องระบุ --fix และ/หรือ --fill (หรือ --set/--remove/--mark-none)')
     tol = args.tolerance if args.tolerance is not None else report['tolerance']
     if args.backup_dir:
         os.makedirs(args.backup_dir, exist_ok=True)
@@ -970,6 +973,7 @@ def cmd_apply(args):
             raise SystemExit(f'--remove รูปแบบไม่ถูกต้อง: {item!r} (ต้องเป็น "TRACK|LABEL|op")')
         removals.add((m.group(1), m.group(2), m.group(3)))
     changes = []
+    marked = []
     for season, track in walk_tracks(playlist):
         tn = track_name(season, track)
         if tn not in by_track or (args.tracks and tn not in args.tracks):
@@ -1035,6 +1039,11 @@ def cmd_apply(args):
                     changes.append((tn, label, kind, 'fill', None, (num(dt['start']), num(dt['end'])), dt))
             if touched:
                 st['skip']['segments'].sort(key=lambda s: float(s.get('start', 0)))
+            elif (args.mark_none and not args.kinds and not st.get('skip') and not row.get('error')
+                  and all((row.get(k) or {}).get('verdict') == 'none' for k in KIND_TYPES)
+                  and not _cross_track_evidence(by_track, season.get('name'), tn, label)):
+                st['skip'] = {'source': args.source, 'segments': []}
+                marked.append((tn, label))
 
     if overrides:
         raise SystemExit('--set ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in overrides))
@@ -1042,9 +1051,9 @@ def cmd_apply(args):
         raise SystemExit('--remove ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in removals))
     for tn, label, kind, dt, med in skipped_outliers:
         print(f'ข้าม {tn:<24}ตอน {str(label):<8}{kind:<4}{fmt_t(dt["start"])}-{fmt_t(dt["end"])}  (ยาว {dt["end"] - dt["start"]:.1f}s ต่างจากค่ากลางของแทร็ก {med:.1f}s — ต้องยืนยันด้วย --set)')
-    if not changes:
+    if not changes and not marked:
         if args.json_out:
-            _write_json_out(args.json_out, args.playlist, changes, skipped_outliers)
+            _write_json_out(args.json_out, args.playlist, changes, skipped_outliers, marked)
         print('ไม่มีอะไรต้องแก้')
         return
     out = json.dumps(playlist, ensure_ascii=False, indent=4)
@@ -1053,17 +1062,36 @@ def cmd_apply(args):
     with open(args.playlist, 'w', encoding='utf-8') as f:
         f.write(out)
     if args.json_out:
-        _write_json_out(args.json_out, args.playlist, changes, skipped_outliers)
+        _write_json_out(args.json_out, args.playlist, changes, skipped_outliers, marked)
     for tn, label, kind, how, old, new, dt in changes:
         o = f'{fmt_t(old[0])}-{fmt_t(old[1])} → ' if old else ''
         n = f'{fmt_t(new[0])}-{fmt_t(new[1])}' if new else '(ลบ)'
         print(f'{how:<5}{tn:<24}ตอน {str(label):<8}{kind:<4}{o}{n}  (support={dt["support"] if dt["support"] is not None else "-"} sim={dt["sim"] if dt["sim"] is not None else "-"})')
-    print(f'\nแก้ {len(changes)} รายการ → {args.playlist}')
+    for tn, label in marked:
+        print(f'none {tn:<24}ตอน {str(label):<8}(ตรวจแล้วไม่พบ op/ed/intro)')
+    print(f'\nแก้ {len(changes) + len(marked)} รายการ → {args.playlist}')
 
 
-def _write_json_out(path, playlist_path, changes, outliers):
+def _cross_track_evidence(by_track, season_name, tn, label):
+    """ตอนเดียวกันในแทร็กอื่นของ season เดียวกัน (ใน report) มี op/ed/intro (ค่าเดิมหรือที่ตรวจพบ) หรือตรวจไม่ได้
+    → --mark-none ไม่ทำเครื่องหมาย (ตรวจไม่พบในแทร็กนี้อาจเพราะเสียงคนละ cut/พากย์ทับ ไม่ใช่ไม่มีจริง)"""
+    for other in by_track.values():
+        if other['track'] == tn or other.get('season') != season_name:
+            continue
+        for row in other['episodes']:
+            if (row['label'] or f'#{row["idx"]}') != label:
+                continue
+            if row.get('error'):
+                return True
+            if any((row.get(k) or {}).get('existing') or (row.get(k) or {}).get('detected') for k in KIND_TYPES):
+                return True
+    return False
+
+
+def _write_json_out(path, playlist_path, changes, outliers, marked=()):
     """ผลของ apply แบบ machine-readable สำหรับ job อัตโนมัติ — label ตรงกับที่ --episodes รับ (เลขตอน หรือ #idx)
-    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง"""
+    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง
+    marked = ตอนที่ --mark-none เขียน skip {segments: []} (ตรวจแล้วไม่พบ op/ed/intro)"""
     out = {
         'playlist': os.path.realpath(playlist_path),
         'changes': [
@@ -1083,6 +1111,7 @@ def _write_json_out(path, playlist_path, changes, outliers):
             }
             for tn, label, kind, dt, med in outliers
         ],
+        'marked': [{'track': tn, 'label': label} for tn, label in marked],
     }
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
@@ -1163,8 +1192,9 @@ def main():
     a.add_argument('--set', nargs='*', help='ค่าที่ผู้ใช้ยืนยันเอง "TRACK|LABEL|op=START-END"')
     a.add_argument('--kinds', nargs='*', choices=['op', 'ed', 'intro'], help='จำกัดเฉพาะ op / ed / intro')
     a.add_argument('--remove', nargs='*', help='ลบ segment "TRACK|LABEL|op"')
-    a.add_argument('--source', default='manual', help='skip.source เมื่อ --fill สร้าง skip object ใหม่ (default manual; job อัตโนมัติใช้ audit)')
-    a.add_argument('--json-out', help='เขียนผล apply แบบ JSON {playlist, changes[], outliers[]}')
+    a.add_argument('--mark-none', action='store_true', help='ตอนที่ตรวจแล้วไม่พบ op/ed/intro และยังไม่มี skip → เขียน skip ว่าง (segments: [])')
+    a.add_argument('--source', default='manual', help='skip.source เมื่อ --fill / --mark-none สร้าง skip object ใหม่ (default manual; job อัตโนมัติใช้ audit)')
+    a.add_argument('--json-out', help='เขียนผล apply แบบ JSON {playlist, changes[], outliers[], marked[]}')
     args = p.parse_args()
     if args.cmd == 'report':
         cmd_report(args)
