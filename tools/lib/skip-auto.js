@@ -194,7 +194,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     seq = Number(data.seq) || 0;
     for (const job of (data.queue || []).map(fromStored)) {
       if (!fs.existsSync(job.file)) continue;
-      queue.push({ ...job, status: job.status === 'waiting' ? 'waiting' : 'queued', phase: null });
+      queue.push({ ...job, status: job.status === 'waiting' && job.notBefore ? 'waiting' : 'queued', phase: null });
     }
     history.push(...(data.history || []).slice(0, HISTORY_SIZE).map(fromStored));
   }
@@ -251,9 +251,9 @@ function createSkipAuto({ root, playlistDirOf }) {
       for (const l of labels) rest.delete(l);
       if (!rest.size) job.tracks.delete(track);
     }
-    const notBefore = nextWorkerReset();
-    const message = `CF worker quota หมด (429) — เลื่อนไปตรวจ ${toBangkokTime(notBefore)}`;
     const waiting = queue.find((j) => j.file === job.file && j.status === 'waiting');
+    const notBefore = waiting?.notBefore || nextWorkerReset();
+    const message = `CF worker quota หมด (429) — เลื่อนไปตรวจ ${toBangkokTime(notBefore)}`;
     if (waiting) mergeTracks(waiting.tracks, failed);
     else queue.push(newJob(job.file, failed, { name: job.name, status: 'waiting', notBefore, message }));
     log(`waiting ${job.file} — ${countEpisodes(failed)} ตอน — ${message}`);
@@ -428,6 +428,8 @@ function createSkipAuto({ root, playlistDirOf }) {
     running = nextReady();
     if (!running) return;
     running.notBefore = null;
+    running.status = 'running';
+    running.message = '';
     persist();
     try {
       await runJob(running);
