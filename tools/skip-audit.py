@@ -27,6 +27,9 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
                                            ค่าที่ผู้ใช้ตรวจด้วยตา ใช้แทนค่าที่ตรวจพบของตอนนั้น (ปรับขอบตามนโยบายให้อัตโนมัติ
                                            ถ้า report มี start_shift/end_shift) — เขียนเสมอไม่สน tolerance/support
         --tolerance S                      ประเมิน ok/fix ใหม่ด้วย tolerance นี้ (default ตาม report)
+        --source NAME                      ค่า skip.source เมื่อ --fill ต้องสร้าง skip object ใหม่ (default manual;
+                                           job อัตโนมัติใช้ audit = ยังไม่มีคนยืนยัน; --set เขียน manual เสมอ; skip เดิมคง source เดิม)
+        --json-out PATH                    เขียนผลแบบ machine-readable {playlist, changes[], outliers[]} (เขียนแม้ไม่มีอะไรแก้)
         recap และ type อื่นที่ไม่ใช่ op/ed ไม่ถูกแตะ
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
@@ -120,7 +123,9 @@ def episode_label(name):
 
 # ---------------------------------------------------------------- stream access
 
-DIRECT_PROXY_HOSTS = ('cdn2.maimeorder.com',)
+DIRECT_PROXY_HOSTS = ('cdn2.maimeorder.com', 'anime.tonytonychopper.net', 'main.108player.com')
+SEGMENT_ONLY_HOSTS = ('cdn2.maimeorder.com',)
+FORCE_HLS_HOSTS = ('anime.tonytonychopper.net',)
 
 
 def _unwrap_proxy(url):
@@ -136,24 +141,48 @@ def _unwrap_proxy(url):
     return inner, (q.get('referer') or [None])[0]
 
 
+def _resolve_akuma_local(station):
+    """akuma-stream (kurokamii / anime-hdzero): หน้า watch มี /api/manifest/{uuid}/master.m3u8?token=... (ลอจิกเดียวกับ resolveAkumaStream ใน worker)
+    ดึงจากเครื่องตรง — Referer ต้องเป็น origin ของหน้า watch เอง"""
+    origin = '{0.scheme}://{0.netloc}'.format(urllib.parse.urlparse(station['url']))
+    html = _http_get(station['url'], origin + '/').decode('utf-8', 'replace')
+    m = re.search(r'''src\s*=\s*["']?(/api/manifest/[^"']+\.m3u8\?[^"'\s]+)''', html, re.I)
+    if not m:
+        raise RuntimeError('ไม่พบ manifest URL ใน watch page')
+    return origin + m.group(1), origin + '/'
+
+
+LOCAL_RESOLVERS = {'kurokamii': _resolve_akuma_local, 'anime-hdzero': _resolve_akuma_local}
+
+
 def resolve_stream(station):
+    """คืน (stream_url, referer_override) — resolver ที่ทำในเครื่องได้ทำก่อน ไม่ได้ค่อยถาม worker /resolve/"""
     resolver = station.get('resolver')
     if not resolver:
-        return station['url']
+        return station['url'], None
+    local = LOCAL_RESOLVERS.get(resolver)
+    if local:
+        try:
+            return local(station)
+        except Exception as e:
+            log(f'    local resolver {resolver} ล้มเหลว ({e}) → ใช้ worker')
     url = WORKER_RESOLVE + resolver + '?url=' + urllib.parse.quote(station['url'], safe='')
     req = urllib.request.Request(url, headers={'User-Agent': UA})
     with urllib.request.urlopen(req, timeout=60) as resp:
         data = json.loads(resp.read().decode('utf-8'))
     if not data.get('stream'):
         raise RuntimeError(data.get('error') or 'resolver returned no stream')
-    return data['stream']
+    return data['stream'], None
 
 
 def hls_opts(url):
     """option ของ HLS demuxer (segment ปลอมนามสกุล .webp/.html) — ใส่ไม่ได้กับไฟล์ mp4 ตรง (ffmpeg จะ error 'Option not found')"""
     if re.search(r'\.(mp4|m4v|mkv|webm|mov|avi|ts)(\?|$)', url, re.I) or not url.startswith('http'):
         return []
-    return ['-allowed_extensions', 'ALL', '-extension_picky', '0']
+    opts = ['-allowed_extensions', 'ALL', '-extension_picky', '0']
+    if urllib.parse.urlparse(url).netloc in FORCE_HLS_HOSTS:
+        opts += ['-f', 'hls']
+    return opts
 
 
 def ff_headers(referer):
@@ -435,16 +464,17 @@ EMPTY_FEATURES = {'bands': np.zeros((0, N_BANDS), dtype=np.float16), 'hashes': n
 
 
 def _fetch_features(station, head, tail):
-    url = resolve_stream(station)
-    referer = station.get('referer')
+    url, referer = resolve_stream(station)
+    referer = referer or station.get('referer')
     direct = _unwrap_proxy(url)
     if direct:
         url, referer = direct[0], direct[1] or referer
+    segment_only = urllib.parse.urlparse(url).netloc in SEGMENT_ONLY_HOSTS
     with tempfile.TemporaryDirectory() as td:
         hw = os.path.join(td, 'h.wav')
         tw = os.path.join(td, 't.wav')
         try:
-            if direct:
+            if segment_only:
                 raise RuntimeError('does not contain any stream (direct segment fetch)')
             duration = probe_duration(url, referer)
             tail_offset = max(0.0, duration - tail)
@@ -776,6 +806,9 @@ def cmd_report(args):
             other = [s for s in ((st.get('skip') or {}).get('segments') or []) if s.get('type') not in OP_TYPES + ED_TYPES + INTRO_TYPES]
             if other:
                 row['other_segments'] = other
+            source = (st.get('skip') or {}).get('source')
+            if source and source != 'manual':
+                row['skip_source'] = source
             rows.append(row)
         report['tracks'].append({'track': tn, 'season': season.get('name'), 'episodes': rows})
 
@@ -905,6 +938,8 @@ def print_report(report):
                 notes.append('ERR ' + ep['error'][:60])
             if ep.get('other_segments'):
                 notes.append('other=' + ','.join(s.get('type', '?') for s in ep['other_segments']))
+            if ep.get('skip_source'):
+                notes.append(f'skip={ep["skip_source"]}')
             w = [8, 16, 16, 13, 11, 16, 16, 13, 11]
             print(''.join(f'{c:<{w[i]}}' for i, c in enumerate(cells)) + ' '.join(notes))
     print('\nสรุป: ' + ', '.join(f'{k}={v}' for k, v in sorted(totals.items())))
@@ -941,7 +976,8 @@ def cmd_apply(args):
             continue
         stations = track.get('stations') or []
         for row in by_track[tn]['episodes']:
-            if args.episodes and (row['label'] or f'#{row["idx"]}') not in args.episodes:
+            label = row['label'] or f'#{row["idx"]}'
+            if args.episodes and label not in args.episodes:
                 continue
             if row['idx'] >= len(stations) or stations[row['idx']].get('name') != row['name']:
                 raise SystemExit(f'ไฟล์เปลี่ยนไปจากตอน report: {tn} #{row["idx"]} {row["name"]!r} — รัน report ใหม่')
@@ -965,10 +1001,10 @@ def cmd_apply(args):
                     if seg:
                         st['skip']['segments'].remove(seg)
                         touched = True
-                        changes.append((tn, row['label'], kind, 'rm', (seg['start'], seg['end']), None, {'support': '-', 'sim': '-'}))
+                        changes.append((tn, label, kind, 'rm', (seg['start'], seg['end']), None, {'support': None, 'sim': None}))
                     continue
                 if ov:
-                    dt = {'start': ov[0], 'end': ov[1], 'support': 'manual', 'sim': '-'}
+                    dt = {'start': ov[0], 'end': ov[1], 'support': 'manual', 'sim': None}
                     v = 'fix' if seg else 'missing'
                     if v == 'fix' and seg['start'] == num(dt['start']) and seg['end'] == num(dt['end']):
                         continue
@@ -980,7 +1016,7 @@ def cmd_apply(args):
                         continue
                     med = _median_length(by_track[tn], kind) if kind != 'intro' else None
                     if med is not None and abs((dt['end'] - dt['start']) - med) > LENGTH_OUTLIER_SEC:
-                        skipped_outliers.append((tn, row['label'], kind, dt))
+                        skipped_outliers.append((tn, label, kind, dt, med))
                         continue
                     v, _, _ = verdict(r['existing'], dt, tol)
                 if v == 'fix' and (args.fix or ov):
@@ -988,14 +1024,15 @@ def cmd_apply(args):
                     seg['start'] = num(dt['start'])
                     seg['end'] = num(dt['end'])
                     touched = True
-                    changes.append((tn, row['label'], kind, 'fix', old, (seg['start'], seg['end']), dt))
+                    changes.append((tn, label, kind, 'fix', old, (seg['start'], seg['end']), dt))
                 elif v == 'missing' and (args.fill or ov):
-                    skip = st.setdefault('skip', {'source': 'manual', 'segments': []})
-                    skip.setdefault('source', 'manual')
+                    source = 'manual' if ov else args.source
+                    skip = st.setdefault('skip', {'source': source, 'segments': []})
+                    skip.setdefault('source', source)
                     segs = skip.setdefault('segments', [])
                     segs.append({'type': kind, 'start': num(dt['start']), 'end': num(dt['end'])})
                     touched = True
-                    changes.append((tn, row['label'], kind, 'fill', None, (num(dt['start']), num(dt['end'])), dt))
+                    changes.append((tn, label, kind, 'fill', None, (num(dt['start']), num(dt['end'])), dt))
             if touched:
                 st['skip']['segments'].sort(key=lambda s: float(s.get('start', 0)))
 
@@ -1003,9 +1040,11 @@ def cmd_apply(args):
         raise SystemExit('--set ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in overrides))
     if removals:
         raise SystemExit('--remove ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in removals))
-    for tn, label, kind, dt in skipped_outliers:
-        print(f'ข้าม {tn:<24}ตอน {str(label):<8}{kind:<4}{fmt_t(dt["start"])}-{fmt_t(dt["end"])}  (ยาว {dt["end"] - dt["start"]:.1f}s ต่างจากค่ากลางของแทร็ก — ต้องยืนยันด้วย --set)')
+    for tn, label, kind, dt, med in skipped_outliers:
+        print(f'ข้าม {tn:<24}ตอน {str(label):<8}{kind:<4}{fmt_t(dt["start"])}-{fmt_t(dt["end"])}  (ยาว {dt["end"] - dt["start"]:.1f}s ต่างจากค่ากลางของแทร็ก {med:.1f}s — ต้องยืนยันด้วย --set)')
     if not changes:
+        if args.json_out:
+            _write_json_out(args.json_out, args.playlist, changes, skipped_outliers)
         print('ไม่มีอะไรต้องแก้')
         return
     out = json.dumps(playlist, ensure_ascii=False, indent=4)
@@ -1013,11 +1052,40 @@ def cmd_apply(args):
         out += '\n'
     with open(args.playlist, 'w', encoding='utf-8') as f:
         f.write(out)
+    if args.json_out:
+        _write_json_out(args.json_out, args.playlist, changes, skipped_outliers)
     for tn, label, kind, how, old, new, dt in changes:
         o = f'{fmt_t(old[0])}-{fmt_t(old[1])} → ' if old else ''
         n = f'{fmt_t(new[0])}-{fmt_t(new[1])}' if new else '(ลบ)'
-        print(f'{how:<5}{tn:<24}ตอน {str(label):<8}{kind:<4}{o}{n}  (support={dt["support"]} sim={dt["sim"]})')
+        print(f'{how:<5}{tn:<24}ตอน {str(label):<8}{kind:<4}{o}{n}  (support={dt["support"] if dt["support"] is not None else "-"} sim={dt["sim"] if dt["sim"] is not None else "-"})')
     print(f'\nแก้ {len(changes)} รายการ → {args.playlist}')
+
+
+def _write_json_out(path, playlist_path, changes, outliers):
+    """ผลของ apply แบบ machine-readable สำหรับ job อัตโนมัติ — label ตรงกับที่ --episodes รับ (เลขตอน หรือ #idx)
+    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง"""
+    out = {
+        'playlist': os.path.realpath(playlist_path),
+        'changes': [
+            {
+                'track': tn, 'label': label, 'kind': kind, 'action': how,
+                'start': new[0] if new else None, 'end': new[1] if new else None,
+                'old': {'start': old[0], 'end': old[1]} if old else None,
+                'support': dt.get('support'), 'sim': dt.get('sim'),
+            }
+            for tn, label, kind, how, old, new, dt in changes
+        ],
+        'outliers': [
+            {
+                'track': tn, 'label': label, 'kind': kind, 'start': dt['start'], 'end': dt['end'],
+                'length': round(dt['end'] - dt['start'], 1), 'median': round(med, 1),
+                'support': dt.get('support'), 'sim': dt.get('sim'),
+            }
+            for tn, label, kind, dt, med in outliers
+        ],
+    }
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(out, f, ensure_ascii=False, indent=2)
 
 
 def _median_length(track_report, kind):
@@ -1095,6 +1163,8 @@ def main():
     a.add_argument('--set', nargs='*', help='ค่าที่ผู้ใช้ยืนยันเอง "TRACK|LABEL|op=START-END"')
     a.add_argument('--kinds', nargs='*', choices=['op', 'ed', 'intro'], help='จำกัดเฉพาะ op / ed / intro')
     a.add_argument('--remove', nargs='*', help='ลบ segment "TRACK|LABEL|op"')
+    a.add_argument('--source', default='manual', help='skip.source เมื่อ --fill สร้าง skip object ใหม่ (default manual; job อัตโนมัติใช้ audit)')
+    a.add_argument('--json-out', help='เขียนผล apply แบบ JSON {playlist, changes[], outliers[]}')
     args = p.parse_args()
     if args.cmd == 'report':
         cmd_report(args)

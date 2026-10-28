@@ -376,7 +376,22 @@
                             "image": "https://image.tmdb.org/t/p/original/raT8261E7QtGW1tXYbqAWASXKDB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJjCDXDjV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJjCDXDjV",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-08-02"
+                            "release_date": "2024-08-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84,
+                                        "end": 175.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - I Parry Deadly Poison",

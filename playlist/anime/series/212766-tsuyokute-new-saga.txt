@@ -516,7 +516,22 @@
                             "url": "https://app.akuma-stream.com/watch/0cb1ad35-81dd-470a-b8e3-93c09d9c390e",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2025-09-11"
+                            "release_date": "2025-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 152.2,
+                                        "end": 242
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1174.1,
+                                        "end": 1263.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Heroic Tale Continues",
@@ -530,8 +545,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1274.3,
-                                        "end": 1364.3
+                                        "start": 1271.7,
+                                        "end": 1361.5
                                     }
                                 ]
                             }

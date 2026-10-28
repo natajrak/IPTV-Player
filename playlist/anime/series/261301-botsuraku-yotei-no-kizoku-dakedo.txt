@@ -77,7 +77,17 @@
                             "image": "https://image.tmdb.org/t/p/original/17fpvSLzZ39JM5G6NaJhT227n2M.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJDLrGmfK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJDLrGmfK",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2025-01-21"
+                            "release_date": "2025-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.4,
+                                        "end": 140
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Liam Tries Getting Engaged to the Princess",
