@@ -62,6 +62,33 @@
     }
     .header-nav .nav-link:hover { color: var(--text); background: var(--bg3); }
     .header-nav .nav-link i { font-size: 14px; line-height: 1; }
+    .skipjobs { position: relative; }
+    .skipjobs[hidden] { display: none; }
+    .skipjobs-btn { background: none; border: 0; cursor: pointer; font-family: inherit; white-space: nowrap; }
+    .skipjobs-btn.busy { color: var(--blue); }
+    .skipjobs-btn.attn { color: #e0a040; }
+    .skipjobs-panel {
+      position: absolute; right: 0; top: calc(100% + 6px); z-index: 60;
+      width: min(440px, calc(100vw - 32px)); max-height: 65vh; overflow: auto;
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 12px; font-size: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
+    .skipjobs-panel.hidden { display: none; }
+    .skipjobs-toggle { display: flex; align-items: center; gap: 6px; color: var(--text2); padding-bottom: 8px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .skipjobs-note { color: #e0a040; padding-top: 8px; }
+    .skipjobs-empty { color: var(--text3); padding-top: 8px; }
+    .skipjobs-job { padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .skipjobs-job:last-child { border-bottom: 0; }
+    .skipjobs-head { display: flex; gap: 8px; align-items: baseline; }
+    .skipjobs-name { color: var(--text); font-weight: 500; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .skipjobs-state { color: var(--text3); flex-shrink: 0; }
+    .skipjobs-state.running { color: var(--blue); }
+    .skipjobs-state.failed { color: #e05050; }
+    .skipjobs-msg { color: var(--text3); margin-top: 2px; }
+    .skipjobs-items { margin-top: 4px; color: var(--text2); line-height: 1.6; }
+    .skipjobs-items .k { display: inline-block; min-width: 64px; color: var(--text3); }
+    .skipjobs-items .rv { color: #e0a040; }
+    .skipjobs-items .er { color: #e05050; }
 
     /* ── Tabs ────────────────────────────────────────── */
     .tabs {
@@ -885,6 +912,13 @@
   <h1><span class="dot">▌</span> BKL-Player [CMS]</h1>
   <span class="sub" id="data-source"></span>
   <nav class="header-nav">
+    <div class="skipjobs" id="skipjobs" hidden>
+      <button type="button" class="nav-link skipjobs-btn" id="skipjobs-btn" title="ตรวจ OP/ED อัตโนมัติหลัง fetch ตอนใหม่"><i class="fi fi-sr-forward" aria-hidden="true"></i><span id="skipjobs-label">OP/ED</span></button>
+      <div class="skipjobs-panel hidden" id="skipjobs-panel">
+        <label class="skipjobs-toggle"><input type="checkbox" id="skipjobs-enabled"> ตรวจ OP/ED อัตโนมัติหลัง fetch ตอนใหม่ (Anime Series)</label>
+        <div id="skipjobs-list"></div>
+      </div>
+    </div>
     <a href="/web/" target="_blank" class="nav-link" title="Player"><i class="fi fi-sr-play-circle" aria-hidden="true"></i><span>Player</span></a>
   </nav>
 </header>
@@ -2621,9 +2655,11 @@ async function openEpBoard(file, tabId, title, kind) {
   document.getElementById('eb-hint').textContent   = '— ' + (splitTitle(title).en || title);
   modal.classList.remove('hidden');
 
+  const openedAt = Date.now();
   try {
     const pl = await getJSON('/' + filePath);
     ebCtx = await buildBoardState(pl, { file, tabId, title, kind, dir, filePath });
+    ebCtx.openedAt = openedAt;
     renderBoard();
   } catch (err) {
     document.getElementById('eb-board').innerHTML =
@@ -3157,6 +3193,8 @@ document.getElementById('eb-close').addEventListener('click', () => closeEpBoard
 document.getElementById('eb-cancel').addEventListener('click', () => closeEpBoard(false));
 document.getElementById('eb-save').addEventListener('click', async () => {
   if (!ebCtx) return;
+  if (IS_LOCAL) await refreshSkipJobs();
+  if (ebCtx.skipStale && !confirm('ระบบเพิ่งเติม OP/ED ให้ไฟล์นี้หลังจากเปิดหน้านี้ — บันทึกตอนนี้จะทับค่าที่เติม\nต้องการบันทึกต่อหรือไม่? (แนะนำ: ปิดแล้วเปิดใหม่ก่อน)')) return;
   const tabId  = ebCtx.tabId;
   const btn    = document.getElementById('eb-save');
   const status = document.getElementById('eb-status');
@@ -4076,7 +4114,8 @@ function openSkipModal(si, li, ci) {
   const followNote = followers.length
     ? ` · กรอกครั้งแรก: จะคัดลอกไปตอนเดียวกันใน ${followers.map(f => f.lane.name).join(', ')} ด้วย`
     : '';
-  document.getElementById('skip-source').textContent = (skip ? 'กรอกแล้ว' : 'ยังไม่มีข้อมูล') + followNote;
+  const skipState = !skip ? 'ยังไม่มีข้อมูล' : skip.source === 'audit' ? 'ระบบเติมอัตโนมัติ (ยังไม่ยืนยัน — กดบันทึกเพื่อยืนยัน)' : 'กรอกแล้ว';
+  document.getElementById('skip-source').textContent = skipState + followNote;
   const segs = Array.isArray(skip?.segments) && skip.segments.length ? skip.segments : [{ type: 'op' }];
   document.getElementById('skip-seg-list').innerHTML = segs.map(skipRowHtml).join('');
   updateSkipSummary();
@@ -4554,6 +4593,111 @@ buildAddButtons();
 
   // Boot: load custom tabs
   loadCustomTabs();
+}
+
+// ── Skip jobs (ตรวจ OP/ED อัตโนมัติหลัง fetch) ────────────────────
+const SKIP_KIND_LABEL = { op: 'OP', ed: 'ED', intro: 'Intro' };
+let skipJobsSeen = 0;
+
+/** "Season 1/ซับไทย · ตอน 12 · OP 1:23–2:53" */
+function skipJobItem(it) {
+  const range = Number.isFinite(it.start) && Number.isFinite(it.end) ? ` ${formatSkipTime(it.start)}–${formatSkipTime(it.end)}` : '';
+  return `${esc(it.track)} · ตอน ${esc(it.label)}${it.kind ? ` · ${SKIP_KIND_LABEL[it.kind] || esc(it.kind)}${range}` : ''}`;
+}
+
+function skipJobHtml(job) {
+  const name = splitTitle(job.name || '').en || job.name || job.fileRel;
+  const state = job.status === 'running' ? (job.phase === 'apply' ? 'กำลังบันทึก' : 'กำลังตรวจ')
+    : job.status === 'queued' ? 'รอคิว'
+    : job.status === 'waiting' ? 'รอ quota worker'
+    : job.status === 'done' ? `เติม ${job.filled.length} · ต้องดู ${job.review.length}${job.errors.length ? ` · ตรวจไม่ได้ ${job.errors.length}` : ''}`
+    : job.status === 'skipped' ? 'ข้าม' : 'ล้มเหลว';
+  const items = [
+    ...job.filled.map(f => `<div><span class="k">เติมแล้ว</span>${skipJobItem(f)}</div>`),
+    ...job.review.map(r => `<div class="rv"><span class="k">ต้องดู</span>${skipJobItem(r)} <span title="${esc(r.reason)}">(${esc(r.reason)})</span></div>`),
+    ...job.errors.map(e => `<div class="er"><span class="k">ตรวจไม่ได้</span>${skipJobItem(e)}</div>`),
+  ];
+  const waiting = ['queued', 'waiting', 'running'].includes(job.status)
+    ? `<div class="skipjobs-msg">ตอนใหม่ ${job.newEpisodes} ตอน</div>` : '';
+  return `<div class="skipjobs-job">
+    <div class="skipjobs-head"><span class="skipjobs-name" title="${esc(job.fileRel)}">${esc(name)}</span><span class="skipjobs-state ${esc(job.status)}">${state}</span></div>
+    ${job.message ? `<div class="skipjobs-msg">${esc(job.message)}</div>` : ''}${waiting}
+    ${items.length ? `<div class="skipjobs-items">${items.join('')}</div>` : ''}
+  </div>`;
+}
+
+function renderSkipJobs(st) {
+  const btn   = document.getElementById('skipjobs-btn');
+  const label = document.getElementById('skipjobs-label');
+  const queued = st.queue.filter(j => j.status === 'queued').length;
+  const busy  = (st.running ? 1 : 0) + queued;
+  const unseen = st.recent.filter(j => Date.parse(j.finishedAt) > skipJobsSeen);
+  const unseenReview = unseen.reduce((n, j) => n + j.review.length + j.errors.length + (j.status === 'failed' ? 1 : 0), 0);
+  btn.classList.toggle('busy', busy > 0);
+  btn.classList.toggle('attn', !busy && unseenReview > 0);
+  label.textContent = !st.enabled ? 'OP/ED · ปิด'
+    : busy ? `OP/ED · กำลังตรวจ${queued ? ` (+${queued})` : ''}`
+    : unseenReview ? `OP/ED · ต้องดู ${unseenReview}` : 'OP/ED';
+  document.getElementById('skipjobs-enabled').checked = st.enabled;
+  const jobs = [st.running, ...st.queue, ...st.recent].filter(Boolean);
+  document.getElementById('skipjobs-list').innerHTML =
+    (st.available ? '' : '<div class="skipjobs-note">ไม่พบ tools/.venv-skip — ตรวจอัตโนมัติไม่ได้</div>')
+    + (jobs.length ? jobs.map(skipJobHtml).join('') : '<div class="skipjobs-empty">ยังไม่มีงาน</div>');
+  if (ebCtx && !ebCtx.skipStale) {
+    const touched = st.recent.some(j => j.fileRel === ebCtx.filePath && j.filled.length && Date.parse(j.finishedAt) > ebCtx.openedAt);
+    if (touched) {
+      ebCtx.skipStale = true;
+      document.getElementById('eb-status').textContent = '⚠ ระบบเพิ่งเติม OP/ED ให้ไฟล์นี้ — ปิดแล้วเปิดใหม่ก่อนแก้ไข';
+    }
+  }
+  return busy > 0;
+}
+
+/** โหลดสถานะงานแล้ว render — คืน true ถ้ายังมีงานรัน/รอคิว */
+async function refreshSkipJobs() {
+  try {
+    const r = await fetch('/api/skip-jobs', { cache: 'no-store' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    document.getElementById('skipjobs').hidden = false;
+    return renderSkipJobs(await r.json());
+  } catch {
+    document.getElementById('skipjobs').hidden = true;
+    return false;
+  }
+}
+
+async function pollSkipJobs() {
+  const busy = await refreshSkipJobs();
+  setTimeout(pollSkipJobs, busy ? 4000 : 15000);
+}
+
+if (IS_LOCAL) {
+  document.getElementById('skipjobs-btn').addEventListener('click', e => {
+    e.stopPropagation();
+    const panel = document.getElementById('skipjobs-panel');
+    panel.classList.toggle('hidden');
+    if (!panel.classList.contains('hidden')) {
+      skipJobsSeen = Date.now();
+      document.getElementById('skipjobs-btn').classList.remove('attn');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#skipjobs')) document.getElementById('skipjobs-panel').classList.add('hidden');
+  });
+  document.getElementById('skipjobs-enabled').addEventListener('change', async e => {
+    try {
+      const r = await fetch('/api/skip-jobs', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ enabled: e.target.checked }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      renderSkipJobs(await r.json());
+    } catch (err) {
+      e.target.checked = !e.target.checked;
+      alert('เปลี่ยนการตั้งค่าไม่สำเร็จ: ' + err.message);
+    }
+  });
+  pollSkipJobs();
 }
 
 // ── Boot ─────────────────────────────────────────────────────────

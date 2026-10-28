@@ -6,6 +6,7 @@ const fs           = require('fs');
 const path         = require('path');
 const url          = require('url');
 const { spawn }    = require('child_process');
+const { createSkipAuto } = require('./tools/lib/skip-auto');
 
 const PORT      = process.env.PORT || 4000;
 const ROOT      = __dirname;
@@ -63,6 +64,9 @@ const PLAYLIST_DIRS = {
 };
 
 const CUSTOM_TABS_PATH = path.join(ROOT, 'playlist', 'custom-tabs.json');
+
+/** ตรวจ OP/ED อัตโนมัติหลัง fetch ตอนใหม่ (tools/lib/skip-auto.js) */
+const skipAuto = createSkipAuto({ root: ROOT, playlistDirOf: tab => getPlaylistDir(tab) });
 
 /** Load custom tabs and merge with built-in PLAYLIST_DIRS */
 function getPlaylistDir(tabKey) {
@@ -140,6 +144,14 @@ const server = http.createServer(async (req, res) => {
       try { res.write(`data: ${JSON.stringify(obj)}\n\n`); } catch {}
     };
 
+    const ticket = await skipAuto.beginFetch(args, () => send({ t: 'out', v: '⏳ รอบันทึกผลตรวจ OP/ED ของไฟล์นี้ให้เสร็จก่อน...\n' }));
+    let ended = false;
+    const endFetch = code => {
+      if (ended) return;
+      ended = true;
+      skipAuto.afterFetch(ticket, code);
+    };
+
     const proc = spawn('node', [script, ...args], {
       cwd: TOOLS_DIR,
       env: { ...process.env, FORCE_COLOR: '0' },
@@ -147,8 +159,9 @@ const server = http.createServer(async (req, res) => {
 
     proc.stdout.on('data', chunk => send({ t: 'out', v: chunk.toString() }));
     proc.stderr.on('data', chunk => send({ t: 'err', v: chunk.toString() }));
-    proc.on('close',  code => { send({ t: 'done', code }); res.end(); });
+    proc.on('close',  code => { endFetch(code); send({ t: 'done', code }); res.end(); });
     proc.on('error',  err  => {
+      endFetch(1);
       send({ t: 'err',  v: `\nProcess error: ${err.message}\n` });
       send({ t: 'done', code: 1 });
       res.end();
@@ -184,15 +197,33 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    fs.writeFile(fullPath, JSON.stringify(data, null, 4), err => {
-      if (err) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end(err.message);
+    try {
+      await skipAuto.withFile(fullPath, () => fs.promises.writeFile(fullPath, JSON.stringify(data, null, 4)));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end(err.message);
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end('{"ok":true}');
+    return;
+  }
+
+  // ── GET/POST /api/skip-jobs ── สถานะงานตรวจ OP/ED อัตโนมัติ / เปิด-ปิด ({ enabled })
+  if (pathname === '/api/skip-jobs' && (req.method === 'GET' || req.method === 'POST')) {
+    if (req.method === 'POST') {
+      let body;
+      try { body = JSON.parse(await readBody(req)); }
+      catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+      if (typeof body.enabled !== 'boolean') {
+        res.writeHead(400, { 'Content-Type': 'text/plain' });
+        res.end('Invalid: need enabled (boolean)');
         return;
       }
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end('{"ok":true}');
-    });
+      skipAuto.setEnabled(body.enabled);
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+    res.end(JSON.stringify(skipAuto.status()));
     return;
   }
 
