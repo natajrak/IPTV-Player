@@ -16,35 +16,105 @@
                             "image": "https://image.tmdb.org/t/p/original/bhaXvXAXuKRLYw5jPpWBkbq9plk.jpg",
                             "url": "https://sv2.team-indy.net/video/VB97IyGewB/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-03"
+                            "release_date": "2026-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.7,
+                                        "end": 122.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Fia and the Knight Brigade",
                             "image": "https://image.tmdb.org/t/p/original/6FEZygThdi0UAgOJsCxiIZWKuHl.jpg",
                             "url": "https://sv2.team-indy.net/video/vsGMSm4Vox/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-10"
+                            "release_date": "2026-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.3,
+                                        "end": 135.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1185.4,
+                                        "end": 1274.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Saint's State of Being",
                             "image": "https://image.tmdb.org/t/p/original/p1s6PduYdMArPftWlYVkjN2Z6TY.jpg",
                             "url": "https://sv2.team-indy.net/video/iIiFQtVg5S/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-17"
+                            "release_date": "2026-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.9,
+                                        "end": 238
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Fourth Monster Tamer Knight Brigade",
                             "image": "https://image.tmdb.org/t/p/original/tFBbWONPUVLPLCoG4bQ7KcXFpsv.jpg",
                             "url": "https://sv2.team-indy.net/video/P6N5bX35v9/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-24"
+                            "release_date": "2026-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158,
+                                        "end": 247.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Calamitous Monsters",
                             "image": "https://image.tmdb.org/t/p/original/an713lUWXoZCMg3LMAX34yF07Az.jpg",
                             "url": "https://sv2.team-indy.net/video/eZaufueOv9/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-31"
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.6,
+                                        "end": 202
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

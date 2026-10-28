@@ -14,6 +14,7 @@
  * - ตอนใหม่ที่ report ตรวจไม่ได้ในขณะที่ CF worker ตอบ 429 (quota รายวันหมด) → แยกเฉพาะตอนนั้นไปตรวจหลัง quota reset (00:00 UTC)
  *   ไม่ลองซ้ำถี่ๆ เพราะจะกิน quota ที่ player ใช้เล่น (skip-audit ดึงตรงจากเครื่องได้หลาย host จึงดูจากผล report ไม่เดาจาก URL)
  * - คิว + ประวัติเก็บใน tools/.skip-audit-cache/auto/queue.json — restart server แล้วงานไม่หาย
+ * - status() เทียบรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ กับไฟล์ปัจจุบัน → ติด resolved เมื่อผู้ใช้จัดการแล้ว (กรอกช่วง / ยืนยันว่าไม่มี)
  */
 
 const fs = require('fs');
@@ -32,6 +33,7 @@ const APPLY_TIMEOUT_MS = 60 * 1000;
 const WAIT_POLL_MS = 1000;
 const EXTRA_PATH = ['/opt/homebrew/bin', '/usr/local/bin'];
 const KINDS = ['op', 'ed', 'intro'];
+const KIND_SEGMENT_TYPES = { op: ['op', 'mixed-op'], ed: ['ed', 'mixed-ed'], intro: ['intro'] };
 const WORKER_ORIGIN = 'https://shy-haze-2452.natajrak-p.workers.dev';
 const WORKER_RESET_DELAY_MS = 2 * 60 * 1000;
 
@@ -339,6 +341,55 @@ function createSkipAuto({ root, playlistDirOf }) {
     }
     log(`waiting ${job.file} — ${countEpisodes(failed)} ตอน — ${message}`);
     return `เลื่อน ${countEpisodes(failed)} ตอนที่ตรวจไม่ได้ (CF worker quota หมด) ไปตรวจ ${toBangkokTime(notBefore)}`;
+  }
+
+  const indexCache = new Map();
+
+  /** station ของไฟล์ตาม `${track}|${label}` (label ซ้ำใน track = null) — อ่านใหม่เมื่อ mtime/ขนาดไฟล์เปลี่ยน */
+  function stationIndex(file) {
+    let stamp;
+    try {
+      const st = fs.statSync(file);
+      stamp = `${st.mtimeMs}:${st.size}`;
+    } catch {
+      return null;
+    }
+    const hit = indexCache.get(file);
+    if (hit && hit.stamp === stamp) return hit.index;
+    const index = new Map();
+    for (const { trackName, idx, station } of walkStations(readPlaylist(file))) {
+      const key = `${trackName}|${episodeLabelOf(station) || `#${idx}`}`;
+      index.set(key, index.has(key) ? null : station);
+    }
+    indexCache.set(file, { stamp, index });
+    return index;
+  }
+
+  /**
+   * สถานะปัจจุบันในไฟล์ของรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ — null = ยังไม่ได้จัดการ
+   * - มี kind: มีช่วงชนิดนั้นแล้ว → {start, end, type, source}; skip.none มีชนิดนั้น หรือ manual ที่ไม่มีช่วงเลย → {none: true}
+   * - ไม่มี kind: ผู้ใช้บันทึกค่าตอนนั้นแล้ว (source manual) → {manual: true}
+   */
+  function resolutionOf(index, item) {
+    const skip = index?.get(`${item.track}|${item.label}`)?.skip;
+    if (!skip) return null;
+    const segs = skip.segments || [];
+    if (!item.kind) return skip.source === 'manual' ? { manual: true } : null;
+    const seg = segs.find((x) => KIND_SEGMENT_TYPES[item.kind]?.includes(x.type));
+    if (seg) return { start: seg.start, end: seg.end, type: seg.type, source: skip.source };
+    if ((skip.none || []).includes(item.kind) || (skip.source === 'manual' && !segs.length)) return { none: true };
+    return null;
+  }
+
+  /** publicJob + resolved ของรายการที่ต้องให้คนจัดการ (เทียบกับไฟล์ตอนนี้) */
+  function publicJobWithResolution(job) {
+    const out = publicJob(job);
+    const index = stationIndex(job.file);
+    const annotate = (items) => (items || []).map((it) => ({ ...it, resolved: resolutionOf(index, it) }));
+    out.review = annotate(out.review);
+    out.errors = annotate(out.errors);
+    out.none = annotate(out.none);
+    return out;
   }
 
   function publicJob(job) {
@@ -756,7 +807,7 @@ function createSkipAuto({ root, playlistDirOf }) {
         available: available(),
         running: running && !running.cancelled ? publicJob(running) : null,
         queue: queue.map(publicJob),
-        recent: history.map(publicJob),
+        recent: history.map(publicJobWithResolution),
       };
     },
   };

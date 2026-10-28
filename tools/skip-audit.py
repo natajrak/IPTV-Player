@@ -34,6 +34,8 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
                                            ยกเว้นตอนเดียวกันในแทร็กอื่นของ season (ที่อยู่ใน report) มี op/ed/intro หรือตรวจไม่ได้
                                            (= ตรวจแล้วไม่พบ กัน job อัตโนมัติตรวจซ้ำ; --fill รอบหลังยังเติมทับได้; ถ้าใส่ --kinds จะไม่ mark)
         recap และ type อื่นที่ไม่ใช่ op/ed ไม่ถูกแตะ
+        ชนิดที่ผู้ใช้ยืนยันว่าไม่มี (station.skip.none เช่น ["op"] จากช่องติ๊กใน CMS) --fill จะไม่เติม
+        (--set ยังเขียนได้ และเอาชนิดนั้นออกจาก none)
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
 intro = หน้าเปิด/splash ของเว็บต้นทางที่หัวไฟล์ (3–29 วิ เริ่มที่ 0:00 ซ้ำกันทุกตอน) ตรวจและเติมให้อัตโนมัติเช่นกัน
@@ -1018,6 +1020,8 @@ def cmd_apply(args):
                     min_support = 1 if kind == 'intro' and dt['sim'] >= 0.9 else args.min_support
                     if dt['support'] < min_support:
                         continue
+                    if not r['existing'] and kind in ((st.get('skip') or {}).get('none') or []):
+                        continue
                     med = _median_length(by_track[tn], kind) if kind != 'intro' else None
                     if med is not None and abs((dt['end'] - dt['start']) - med) > LENGTH_OUTLIER_SEC:
                         skipped_outliers.append((tn, label, kind, dt, med))
@@ -1035,6 +1039,10 @@ def cmd_apply(args):
                     skip.setdefault('source', source)
                     segs = skip.setdefault('segments', [])
                     segs.append({'type': kind, 'start': num(dt['start']), 'end': num(dt['end'])})
+                    if ov and kind in (skip.get('none') or []):
+                        skip['none'] = [k for k in skip['none'] if k != kind]
+                        if not skip['none']:
+                            del skip['none']
                     touched = True
                     changes.append((tn, label, kind, 'fill', None, (num(dt['start']), num(dt['end'])), dt))
             if touched:
