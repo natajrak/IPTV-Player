@@ -6,8 +6,9 @@
  * - report ทุก track ของ season ที่มีตอนใหม่ (ให้ skip-audit เทียบพากย์/ซับได้) แล้ว apply --fill ทีละ track เฉพาะตอนใหม่
  * - apply ไม่เริ่มระหว่างที่ fetch ไฟล์เดียวกันรันอยู่ และ fetch/save ไฟล์นั้นต้องรอ apply จบ (beginFetch / withFile)
  * - ค่าที่เติมได้ skip.source = 'audit' (CMS เขียนเป็น 'manual' เมื่อผู้ใช้กดบันทึก)
- * - track ที่ต้องดึงผ่าน CF worker แล้ว worker ตอบ 429 (quota รายวันหมด) → เลื่อนงานไปหลัง quota reset (00:00 UTC)
- *   ไม่ลองซ้ำถี่ๆ เพราะจะกิน quota ที่ player ใช้เล่น
+ * - ตอนใหม่ที่ report ตรวจไม่ได้ในขณะที่ CF worker ตอบ 429 (quota รายวันหมด) → แยกเฉพาะตอนนั้นไปตรวจหลัง quota reset (00:00 UTC)
+ *   ไม่ลองซ้ำถี่ๆ เพราะจะกิน quota ที่ player ใช้เล่น (skip-audit ดึงตรงจากเครื่องได้หลาย host จึงดูจากผล report ไม่เดาจาก URL)
+ * - คิว + ประวัติเก็บใน tools/.skip-audit-cache/auto/queue.json — restart server แล้วงานไม่หาย
  */
 
 const fs = require('fs');
@@ -69,8 +70,7 @@ async function workerQuotaExceeded() {
   }
 }
 
-/** station ที่ skip-audit ต้องผ่าน worker: มี resolver หรือ URL ห่อ worker */
-const usesWorker = (station) => !!station.resolver || String(station.url || '').startsWith(WORKER_ORIGIN);
+const toBangkokTime = (ms) => new Date(ms).toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
 
 /**
  * @param {object} opts
@@ -84,6 +84,7 @@ function createSkipAuto({ root, playlistDirOf }) {
   const workDir = path.join(toolsDir, '.skip-audit-cache', 'auto');
   const logPath = path.join(toolsDir, '.skip-audit-cache', 'auto-jobs.log');
   const configPath = path.join(workDir, 'config.json');
+  const queuePath = path.join(workDir, 'queue.json');
 
   const fetching = new Map();
   const locked = new Set();
@@ -163,6 +164,101 @@ function createSkipAuto({ root, playlistDirOf }) {
   }
 
   const countEpisodes = (byTrack) => [...byTrack.values()].reduce((n, s) => n + s.size, 0);
+
+  const toStored = (job) => ({ ...job, tracks: [...job.tracks].map(([t, labels]) => [t, [...labels]]) });
+  const fromStored = (job) => ({ ...job, tracks: new Map((job.tracks || []).map(([t, labels]) => [t, new Set(labels)])) });
+
+  /** เขียนคิว (รวมงานที่กำลังรัน — โหลดกลับมาเป็น queued) + ประวัติ ลงไฟล์ */
+  function persist() {
+    const data = {
+      seq,
+      queue: [running, ...queue].filter(Boolean).map(toStored),
+      history: history.map(toStored),
+    };
+    try {
+      fs.mkdirSync(workDir, { recursive: true });
+      fs.writeFileSync(`${queuePath}.tmp`, JSON.stringify(data));
+      fs.renameSync(`${queuePath}.tmp`, queuePath);
+    } catch (err) {
+      console.warn(`[skip-auto] บันทึกคิวไม่สำเร็จ: ${err.message}`);
+    }
+  }
+
+  function restore() {
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(queuePath, 'utf-8'));
+    } catch {
+      return;
+    }
+    seq = Number(data.seq) || 0;
+    for (const job of (data.queue || []).map(fromStored)) {
+      if (!fs.existsSync(job.file)) continue;
+      queue.push({ ...job, status: job.status === 'waiting' ? 'waiting' : 'queued', phase: null });
+    }
+    history.push(...(data.history || []).slice(0, HISTORY_SIZE).map(fromStored));
+  }
+
+  function newJob(file, tracks, extra = {}) {
+    return {
+      id: ++seq,
+      file,
+      fileRel: rel(file),
+      name: '',
+      tracks,
+      status: 'queued',
+      phase: null,
+      attempts: 0,
+      message: '',
+      filled: [],
+      review: [],
+      errors: [],
+      applied: [],
+      queuedAt: new Date().toISOString(),
+      startedAt: null,
+      finishedAt: null,
+      ...extra,
+    };
+  }
+
+  const mergeTracks = (target, tracks) => {
+    for (const [track, labels] of tracks) {
+      if (!target.has(track)) target.set(track, new Set());
+      for (const l of labels) target.get(track).add(l);
+    }
+  };
+
+  /** ตอนใหม่ที่ report ตรวจไม่ได้ (episodes[].error) แยกตาม track */
+  function failedEpisodes(job, report) {
+    const failed = new Map();
+    for (const tr of report.tracks || []) {
+      const labels = job.tracks.get(tr.track);
+      if (!labels) continue;
+      for (const row of tr.episodes || []) {
+        const label = row.label || `#${row.idx}`;
+        if (!row.error || !labels.has(label)) continue;
+        if (!failed.has(tr.track)) failed.set(tr.track, new Set());
+        failed.get(tr.track).add(label);
+      }
+    }
+    return failed;
+  }
+
+  /** ย้ายตอนที่ตรวจไม่ได้เพราะ worker quota หมด ไปเป็นงานรอ quota reset (รวมกับงานรอของไฟล์เดียวกัน) */
+  function deferEpisodes(job, failed) {
+    for (const [track, labels] of failed) {
+      const rest = job.tracks.get(track);
+      for (const l of labels) rest.delete(l);
+      if (!rest.size) job.tracks.delete(track);
+    }
+    const notBefore = nextWorkerReset();
+    const message = `CF worker quota หมด (429) — เลื่อนไปตรวจ ${toBangkokTime(notBefore)}`;
+    const waiting = queue.find((j) => j.file === job.file && j.status === 'waiting');
+    if (waiting) mergeTracks(waiting.tracks, failed);
+    else queue.push(newJob(job.file, failed, { name: job.name, status: 'waiting', notBefore, message }));
+    log(`waiting ${job.file} — ${countEpisodes(failed)} ตอน — ${message}`);
+    return `เลื่อน ${countEpisodes(failed)} ตอนที่ตรวจไม่ได้ (CF worker quota หมด) ไปตรวจ ${toBangkokTime(notBefore)}`;
+  }
 
   function publicJob(job) {
     const { tracks, file, applied, ...rest } = job;
@@ -264,18 +360,6 @@ function createSkipAuto({ root, playlistDirOf }) {
     for (const { season, trackName } of walkStations(playlist)) if (seasons.has(season.name)) reportTracks.add(trackName);
     if (!reportTracks.size) return finish(job, 'done', 'ไม่มีตอนใหม่เหลือในไฟล์');
 
-    const needsWorker = [...walkStations(playlist)].some((e) => reportTracks.has(e.trackName) && usesWorker(e.station));
-    if (needsWorker && (await workerQuotaExceeded())) {
-      job.attempts--;
-      job.status = 'waiting';
-      job.phase = null;
-      job.notBefore = nextWorkerReset();
-      job.message = `CF worker quota หมด (429) — เลื่อนไปตรวจ ${new Date(job.notBefore).toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })}`;
-      log(`waiting ${job.file} — ${job.message}`);
-      queue.push(job);
-      return;
-    }
-
     fs.mkdirSync(workDir, { recursive: true });
     const reportPath = path.join(workDir, `report-${job.id}.json`);
     const applyPaths = [];
@@ -283,6 +367,8 @@ function createSkipAuto({ root, playlistDirOf }) {
       const rep = await run(['report', job.file, '--out', reportPath, '--workers', '2', '--tracks', ...reportTracks], REPORT_TIMEOUT_MS);
       if (rep.code !== 0 || !fs.existsSync(reportPath)) return finish(job, 'failed', `report ล้มเหลว (exit ${rep.code}): ${lastLine(rep.stderr)}`);
       const report = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
+      const failed = failedEpisodes(job, report);
+      if (failed.size && (await workerQuotaExceeded())) job.message = deferEpisodes(job, failed);
 
       job.phase = 'apply';
       for (const [track, labels] of job.tracks) {
@@ -342,45 +428,28 @@ function createSkipAuto({ root, playlistDirOf }) {
     running = nextReady();
     if (!running) return;
     running.notBefore = null;
+    persist();
     try {
       await runJob(running);
     } catch (err) {
       finish(running, 'failed', err.message);
     } finally {
       running = null;
+      persist();
       setImmediate(pump);
     }
   }
 
   function enqueue(file, tracks) {
-    const pending = queue.find((j) => j.file === file);
-    if (pending) {
-      for (const [track, labels] of tracks) {
-        if (!pending.tracks.has(track)) pending.tracks.set(track, new Set());
-        for (const l of labels) pending.tracks.get(track).add(l);
-      }
-      return;
-    }
-    queue.push({
-      id: ++seq,
-      file,
-      fileRel: rel(file),
-      name: '',
-      tracks,
-      status: 'queued',
-      phase: null,
-      attempts: 0,
-      message: '',
-      filled: [],
-      review: [],
-      errors: [],
-      applied: [],
-      queuedAt: new Date().toISOString(),
-      startedAt: null,
-      finishedAt: null,
-    });
+    const pending = queue.find((j) => j.file === file && j.status === 'queued');
+    if (pending) mergeTracks(pending.tracks, tracks);
+    else queue.push(newJob(file, tracks));
+    persist();
     setImmediate(pump);
   }
+
+  restore();
+  setImmediate(pump);
 
   /** ไฟล์ที่ fetch script เขียน: {id}-{slug}.txt ถ้าระบุ --id-prefix/--tmdb-id (เหมือน fetch script) ไม่งั้นค้นแบบ resolvePlaylistFile */
   function resolveOutput(dir, fname, idPrefix) {
