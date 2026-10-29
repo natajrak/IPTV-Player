@@ -16,70 +16,220 @@
                             "image": "https://image.tmdb.org/t/p/original/mtlDuXNptLIb0oQdZtI0fqGHxiO.jpg",
                             "url": "https://sv2.team-indy.net/video/xpz1vdYxmw/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-04"
+                            "release_date": "2026-07-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.1,
+                                        "end": 133
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Choice Is Yours",
                             "image": "https://image.tmdb.org/t/p/original/tozBPIkomDmttin0zxbhapeKjoI.jpg",
                             "url": "https://sv2.team-indy.net/video/hDB4Hkt1x/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-11"
+                            "release_date": "2026-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.5,
+                                        "end": 116.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - WHAT'S MY NAME?",
                             "image": "https://image.tmdb.org/t/p/original/noelV8o6ce1hD4D1B3j4pqjYYMk.jpg",
                             "url": "https://sv2.team-indy.net/video/yxmvXqikFo/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-18"
+                            "release_date": "2026-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.5,
+                                        "end": 170
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Two Is Not Enough",
                             "image": "https://image.tmdb.org/t/p/original/ib4rN6DP5AI2hXpnJAHnHwl3aO4.jpg",
                             "url": "https://sv2.team-indy.net/video/r2sfi8wrm5/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-25"
+                            "release_date": "2026-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.1,
+                                        "end": 165
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Young Gunz",
                             "image": "https://image.tmdb.org/t/p/original/8N7CHwRGxu8KDmG3PSWCmSEmQjV.jpg",
                             "url": "https://sv2.team-indy.net/video/OnoD2tm7YA/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-01"
+                            "release_date": "2026-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 280.9,
+                                        "end": 370
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Turn Up",
                             "image": "https://image.tmdb.org/t/p/original/yVxqhICVEU4ztKNntVhZvJx7z1H.jpg",
                             "url": "https://sv2.team-indy.net/video/Fgu1E758hd/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-08"
+                            "release_date": "2026-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - 3 ON THREE",
                             "image": "https://image.tmdb.org/t/p/original/v5iYrBms75S6oYdKfPUTOoyArx7.jpg",
                             "url": "https://sv2.team-indy.net/video/1vndCrDRCq/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-15"
+                            "release_date": "2026-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.5,
+                                        "end": 181
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Underdog",
                             "image": "https://image.tmdb.org/t/p/original/qBm8UkREhTjjU92yTWnSHKpp3AB.jpg",
                             "url": "https://sv2.team-indy.net/video/IC3KgP9yX/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-22"
+                            "release_date": "2026-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ONE",
                             "image": "https://image.tmdb.org/t/p/original/uJzpTjpRat858KREeOb6bsaghtS.jpg",
                             "url": "https://sv2.team-indy.net/video/xZIo6QhwFZ/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-29"
+                            "release_date": "2026-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.8,
+                                        "end": 171.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Deadly Skillz",
                             "image": "https://image.tmdb.org/t/p/original/3aX0H50OGsxcIQyBB2V5nHrqel2.jpg",
                             "url": "https://sv2.team-indy.net/video/Wke3l4n2bp/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-05"
+                            "release_date": "2026-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.6,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },

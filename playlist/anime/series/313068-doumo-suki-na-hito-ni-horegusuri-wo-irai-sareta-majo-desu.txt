@@ -30,28 +30,88 @@
                             "image": "https://image.tmdb.org/t/p/original/iVMn0wKWjLWzCYz5mlt6Oxy54HW.jpg",
                             "url": "https://sv2.team-indy.net/video/6FWUVCvg8w/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-05"
+                            "release_date": "2026-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 246.6,
+                                        "end": 337.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Good Witch of the Lake",
                             "image": "https://image.tmdb.org/t/p/original/6D8iNp8YpV6SFFlA7uKGAWovSGO.jpg",
                             "url": "https://sv2.team-indy.net/video/iQdURaeGhi/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-12"
+                            "release_date": "2026-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 189
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Black Tea Scented Witch's Song",
                             "image": "https://image.tmdb.org/t/p/original/87FIm0cbVhirCzV3Uc77pDKNQEA.jpg",
                             "url": "https://sv2.team-indy.net/video/P6DDnRmQSI/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-19"
+                            "release_date": "2026-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96,
+                                        "end": 187.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Knight's Duty Even Unknown to the Witch",
                             "image": "https://image.tmdb.org/t/p/original/mi6y2W9QOZ7aRPUbF3FVyVpc4xX.jpg",
                             "url": "https://sv2.team-indy.net/video/cZt0KUaNDg/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-26"
+                            "release_date": "2026-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.4,
+                                        "end": 242
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

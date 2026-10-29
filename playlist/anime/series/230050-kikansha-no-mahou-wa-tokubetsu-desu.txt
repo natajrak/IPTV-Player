@@ -331,16 +331,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 4 - Beginning",
+                            "image": "https://image.tmdb.org/t/p/original/dOVcn2eDLCWChHGqnOspJwaTJ9E.jpg",
+                            "url": "https://sv2.team-indy.net/video/JrCt0Swlkn/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.8,
+                                        "end": 151
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-08",
-            "updated_at": "2026-10-22T00:00:00.000Z"
+            "updated_at": "2026-10-29T00:00:00.000Z"
         }
     ],
     "release_date": "2023-10-08",
-    "updated_at": "2026-10-22T00:00:00.000Z",
+    "updated_at": "2026-10-29T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",

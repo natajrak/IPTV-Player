@@ -16,28 +16,68 @@
                             "image": "https://image.tmdb.org/t/p/original/oBWLrOEpLTQN4K0mRU4jUbtRDik.jpg",
                             "url": "https://sv2.team-indy.net/video/yWEcetIjyR/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-05"
+                            "release_date": "2026-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47,
+                                        "end": 107
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Episode 2",
                             "image": "https://image.tmdb.org/t/p/original/tRlAPYRvZOriGqow3J2BxZTXE3U.jpg",
                             "url": "https://sv2.team-indy.net/video/LEEUq0afCX/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-12"
+                            "release_date": "2026-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.5,
+                                        "end": 160
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Episode 3",
                             "image": "https://image.tmdb.org/t/p/original/urqtngM3N9fmiZbQKqkKcku0lTu.jpg",
                             "url": "https://sv2.team-indy.net/video/Pjl61EBXH/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-19"
+                            "release_date": "2026-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.4,
+                                        "end": 178.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Episode 4",
                             "image": "https://image.tmdb.org/t/p/original/bX0fgeGjzBGnzBlbZeYZzqZyJ4V.jpg",
                             "url": "https://sv2.team-indy.net/video/dwNJW7BRpv/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-26"
+                            "release_date": "2026-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.7,
+                                        "end": 157
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
