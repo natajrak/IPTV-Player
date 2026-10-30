@@ -2104,16 +2104,67 @@
                             "image": "https://image.tmdb.org/t/p/original/zolzvsVRHj2Y5toRZdWAOdLlCb5.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/6smxW8Lyl/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-11"
+                            "release_date": "2026-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 340,
+                                        "end": 428.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340,
+                                        "end": 1429.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - Granville's Hope",
                             "image": "https://image.tmdb.org/t/p/original/hjk4atAZnudp5oCFe1R8RvMwoAW.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/W0dn771P/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-18"
+                            "release_date": "2026-09-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.9,
+                                        "end": 206.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356,
+                                        "end": 1445.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 24 - The Hero Awakens",
+                            "image": "https://image.tmdb.org/t/p/original/Ag3tp12uy0nhSJuAe6lI6oNxyK7.jpg",
+                            "url": "https://moji.abcdxzy.xyz:8443/vod/jez8e2XFOQ/video.mp4/playlist.m3u8",
+                            "referer": "https://animeyour.com/",
+                            "release_date": "2026-09-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.6,
+                                        "end": 140.7
+                                    }
+                                ],
+                                "none": [
+                                    "ed"
+                                ]
+                            }
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -2609,8 +2660,6 @@
     "updated_at": "2026-09-25T00:00:00.000Z",
     "season_count": 5,
     "completion": {
-        "status": "incomplete",
-        "season": 4,
-        "track": "th"
+        "status": "completed"
     }
 }
