@@ -176,6 +176,8 @@ const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
 const btnAutoSkip = document.getElementById("btn-auto-skip");
+const btnPrevCheckpoint = document.getElementById("btn-prev-checkpoint");
+const btnNextCheckpoint = document.getElementById("btn-next-checkpoint");
 const skipSegmentBtn = document.getElementById("skip-segment-btn");
 const skipNotice = document.getElementById("skip-notice");
 const epPanel = document.getElementById("ep-panel");
@@ -2900,6 +2902,11 @@ const SKIP_LABELS = {
 const MANUAL_ONLY_SKIP_TYPES = new Set(["mixed-op", "mixed-ed"]);
 const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
 let skipSegments = [];
+let checkpoints = [];
+let checkpointTitles = {
+  prev: "",
+  next: ""
+};
 let activeSkipSegment = null;
 let suppressedSkipSegments = new Set();
 let skipSelfSeekAt = 0;
@@ -2940,6 +2947,9 @@ function resetSkipSegments({
   skipNotice.classList.add("hidden");
   clearTimeout(skipNoticeTimer);
   btnAutoSkip.hidden = true;
+  resetCheckpoints({
+    restoreFocus
+  });
 }
 function startSkipSegments(station) {
   resetSkipSegments();
@@ -2947,8 +2957,10 @@ function startSkipSegments(station) {
   if (!skipSegments.length) return;
   btnAutoSkip.hidden = false;
   renderAutoSkipButton();
+  startCheckpoints();
 }
 function updateSkipSegment() {
+  updateCheckpointButtons();
   if (!skipSegments.length || playerVideo.readyState < 1) return;
   const t = Number(playerVideo.currentTime) || 0;
   if (!playerVideo.seeking) lastPlaybackPos = t;
@@ -2982,6 +2994,8 @@ function performSkip(seg, {
 function showSkipButton(seg) {
   skipSegmentBtn.textContent = SKIP_LABELS[seg.type];
   skipSegmentBtn.classList.remove("hidden");
+  skipNotice.classList.add("hidden");
+  clearTimeout(skipNoticeTimer);
   const active = document.activeElement;
   const userOnControls = playerOverlay.classList.contains("show-ui") && active && active !== btnPlayPause && active !== document.body && playerOverlay.contains(active);
   if (!epPanel.classList.contains("hidden") || userOnControls) return;
@@ -3015,6 +3029,143 @@ btnAutoSkip.addEventListener("click", e => {
   writeAutoSkipPref(autoSkipEnabled);
   renderAutoSkipButton();
   showPlayerUI();
+});
+const CHECKPOINT_NAMES = {
+  intro: "หน้าเปิด",
+  recap: "ย้อนความ",
+  op: "เพลงเปิด",
+  "mixed-op": "เพลงเปิด",
+  ed: "เพลงปิด",
+  "mixed-ed": "เพลงปิด"
+};
+const CHECKPOINT_MERGE_SEC = 1;
+const CHECKPOINT_NEXT_GAP_SEC = 1;
+const CHECKPOINT_PREV_GAP_SEC = 3;
+const CHECKPOINT_END_GUARD_SEC = 2;
+function buildCheckpoints() {
+  const duration = Number(playerVideo.duration);
+  const knownDuration = Number.isFinite(duration) && duration > 0;
+  const limit = knownDuration ? duration - CHECKPOINT_END_GUARD_SEC : Infinity;
+  const points = [{
+    time: 0,
+    label: "เริ่มเรื่อง",
+    segment: null
+  }];
+  for (const seg of skipSegments) {
+    const name = CHECKPOINT_NAMES[seg.type];
+    points.push({
+      time: seg.start,
+      label: `เริ่ม${name}`,
+      segment: seg
+    });
+    points.push({
+      time: seg.end,
+      label: `จบ${name}`,
+      segment: null
+    });
+  }
+  points.sort((a, b) => a.time - b.time);
+  const merged = [];
+  for (const p of points) {
+    if (p.time > limit) continue;
+    const last = merged[merged.length - 1];
+    if (last && p.time - last.time < CHECKPOINT_MERGE_SEC) {
+      if (!last.segment && p.segment) {
+        last.segment = p.segment;
+        last.label = p.label;
+      }
+      continue;
+    }
+    merged.push(_objectSpread({}, p));
+  }
+  if (knownDuration) merged.push({
+    time: duration,
+    label: "จบเรื่อง",
+    segment: null,
+    end: true
+  });
+  return merged;
+}
+function findCheckpoint(direction, t) {
+  if (direction > 0) return checkpoints.find(p => p.time > t + CHECKPOINT_NEXT_GAP_SEC) || null;
+  for (let i = checkpoints.length - 1; i >= 0; i--) {
+    if (checkpoints[i].time < t - CHECKPOINT_PREV_GAP_SEC) return checkpoints[i];
+  }
+  return null;
+}
+function checkpointText(p) {
+  return `${p.label} ${formatTime(p.time)}`;
+}
+function renderCheckpointButton(btn, key, target, prefix, emptyText) {
+  const title = target ? `${prefix}: ${checkpointText(target)}` : emptyText;
+  if (checkpointTitles[key] === title) return;
+  checkpointTitles[key] = title;
+  btn.title = title;
+  btn.setAttribute("aria-label", title);
+  btn.classList.toggle("no-target", !target);
+}
+function updateCheckpointButtons() {
+  if (!checkpoints.length) return;
+  const t = Number(playerVideo.currentTime) || 0;
+  renderCheckpointButton(btnPrevCheckpoint, "prev", findCheckpoint(-1, t), "ไปจุดก่อนหน้า", "ไม่มีจุดก่อนหน้า");
+  renderCheckpointButton(btnNextCheckpoint, "next", findCheckpoint(1, t), "ไปจุดถัดไป", "ไม่มีจุดถัดไป");
+}
+function rebuildCheckpoints() {
+  checkpoints = buildCheckpoints();
+  checkpointTitles = {
+    prev: "",
+    next: ""
+  };
+  updateCheckpointButtons();
+}
+function startCheckpoints() {
+  btnPrevCheckpoint.hidden = false;
+  btnNextCheckpoint.hidden = false;
+  rebuildCheckpoints();
+}
+function resetCheckpoints({
+  restoreFocus = true
+} = {}) {
+  checkpoints = [];
+  checkpointTitles = {
+    prev: "",
+    next: ""
+  };
+  const active = document.activeElement;
+  if (restoreFocus && (active === btnPrevCheckpoint || active === btnNextCheckpoint)) focusTVElement(btnPlayPause);
+  btnPrevCheckpoint.hidden = true;
+  btnNextCheckpoint.hidden = true;
+}
+function jumpToCheckpoint(direction) {
+  showPlayerUI();
+  if (!checkpoints.length || playerVideo.readyState < 1) return;
+  const target = findCheckpoint(direction, Number(playerVideo.currentTime) || 0);
+  if (!target) {
+    if (skipSegmentBtn.classList.contains("hidden")) showSkipNotice(direction > 0 ? "ไม่มีจุดถัดไป" : "ไม่มีจุดก่อนหน้า");
+    return;
+  }
+  if (target.end) {
+    cancelUpnext();
+    if (playerVideo.paused) playerVideo.play().catch(() => {});
+    playerVideo.currentTime = playerVideo.duration;
+    return;
+  }
+  if (target.segment) suppressedSkipSegments.add(target.segment);
+  skipSelfSeekAt = Date.now();
+  playerVideo.currentTime = target.time;
+  if (!target.segment || target.segment !== activeSkipSegment) showSkipNotice(checkpointText(target));
+  updateCheckpointButtons();
+}
+btnPrevCheckpoint.addEventListener("click", e => {
+  e.stopPropagation();
+  jumpToCheckpoint(-1);
+});
+btnNextCheckpoint.addEventListener("click", e => {
+  e.stopPropagation();
+  jumpToCheckpoint(1);
+});
+playerVideo.addEventListener("durationchange", () => {
+  if (skipSegments.length) rebuildCheckpoints();
 });
 playerVideo.addEventListener("seeking", () => {
   if (skipSelfSeekAt && Date.now() - skipSelfSeekAt < 1000) {

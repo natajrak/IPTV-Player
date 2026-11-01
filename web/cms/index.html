@@ -4725,7 +4725,7 @@ function skipJobHtml(job) {
   const open = !!skipJobsOpen.get(job.id);
   const caret = items.length ? `<span class="skipjobs-caret">${open ? '▾' : '▸'}</span>` : '';
   return `<div class="skipjobs-job${open ? '' : ' collapsed'}" data-job="${esc(job.id)}">
-    <div class="skipjobs-head${items.length ? ' toggle' : ''}">${caret}<span class="skipjobs-name" title="${esc(job.fileRel)}">${esc(name)}</span><span class="skipjobs-state ${esc(job.status)}">${state}</span></div>
+    <div class="skipjobs-head${items.length ? ' toggle' : ''}">${caret}<span class="skipjobs-name" title="${esc(job.fileRel)}">${esc(name)}${job.season ? ` — ${esc(job.season)}` : ''}</span><span class="skipjobs-state ${esc(job.status)}">${state}</span></div>
     ${job.message ? `<div class="skipjobs-msg">${esc(job.message)}</div>` : ''}${job.note ? `<div class="skipjobs-msg">${esc(job.note)}</div>` : ''}${waiting}
     ${items.length ? `<div class="skipjobs-items">${items.join('')}</div>` : ''}
   </div>`;

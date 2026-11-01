@@ -23,7 +23,8 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
         --remove "Season 1/ซับไทย|1|op" [...]  ลบ segment op/ed ของตอนนั้น (ค่าเดิมผิดและตรวจไม่พบ เช่น placeholder 0:00-1:30)
         ช่วงที่ยาวต่างจากค่ากลางของแทร็กเกิน 3 วิ จะถูกข้าม (พิมพ์แจ้ง) ต้องยืนยันด้วย --set
         --min-support N                    ใช้เฉพาะ region ที่ตอนข้างเคียงยืนยัน ≥ N ครั้ง (default 2)
-        --set "Season 1/พากย์ไทย|1|op=0:52-2:22" [...]   (kind: op | ed | intro = หน้าเปิด/splash ของเว็บต้นทาง)
+        --set "Season 1/พากย์ไทย|1|op=0:52-2:22" [...]   (kind: op | ed | intro = หน้าเปิด/splash ของเว็บต้นทาง
+                                           | credits = end credit ที่มีฉากคั่นหลัง ED เก็บเป็น ed ช่วงที่สอง)
                                            ค่าที่ผู้ใช้ตรวจด้วยตา ใช้แทนค่าที่ตรวจพบของตอนนั้น (ปรับขอบตามนโยบายให้อัตโนมัติ
                                            ถ้า report มี start_shift/end_shift) — เขียนเสมอไม่สน tolerance/support
         --tolerance S                      ประเมิน ok/fix ใหม่ด้วย tolerance นี้ (default ตาม report)
@@ -36,6 +37,16 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
         recap และ type อื่นที่ไม่ใช่ op/ed ไม่ถูกแตะ
         ชนิดที่ผู้ใช้ยืนยันว่าไม่มี (station.skip.none เช่น ["op"] จากช่องติ๊กใน CMS) --fill จะไม่เติม
         (--set ยังเขียนได้ และเอาชนิดนั้นออกจาก none)
+
+ED / end credit (ผู้ใช้กำหนด 2026-11-02):
+    ความเงียบสนิทต่อจากเพลงปิดนับเป็น ED ไม่จำกัดความยาว; ED ที่ไปถึงท้ายวิดีโอจบที่วินาทีสุดท้ายของวิดีโอ (ไม่หักขอบ)
+    เครดิตเงียบจนจบไฟล์ ≥ 10 วิ (มักนำด้วยเสียง Netflix "ta-dum" — fingerprint ใน tools/skip-refs/netflix-sting.npy):
+    ห่างจาก ED ≤ 8 วิ → รวบเข้า ED ถึงท้ายไฟล์; มีฉากคั่น → kind credits = ed ช่วงที่สอง (ไม่ต้องมีตอนข้างเคียงยืนยัน)
+    sting ใน 2 วิแรกของไฟล์ + ความเงียบต่อท้าย → intro ของ Netflix (เมื่อไม่พบ intro จากตอนข้างเคียง)
+
+OP/ED ที่จับได้สั้นกว่าเพลงเต็ม (ผู้ใช้เสนอ 2026-11-02): ช่วงเสียงต่างกันสั้น ๆ กลางเพลงทำให้จับต้นเพลงช้า แต่จุดจบตรงทุกตอน
+    → นับถอยจากจุดจบด้วยความยาวเพลงเต็มของแทร็ก (~90±5 วิ, กลุ่มที่ยาวที่สุดซึ่งมี ≥ 3 ตอน) หาจุดที่เสียงเริ่มเหมือนตอนข้างเคียง
+    ใช้เมื่อช่วงที่ขยายเหมือนตอนข้างเคียงจริง; OP ที่เริ่มใน 1.5 วิแรกของไฟล์เริ่มที่ 0:00; รายงานแสดง "ขยายต้นเพลงย้อนจากจุดจบ"
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
 intro = หน้าเปิด/splash ของเว็บต้นทางที่หัวไฟล์ (3–29 วิ เริ่มที่ 0:00 ซ้ำกันทุกตอน) ตรวจและเติมให้อัตโนมัติเช่นกัน
@@ -59,12 +70,14 @@ import tempfile
 import time
 import urllib.parse
 import urllib.request
+import warnings
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from statistics import median
 
 import numpy as np
 from scipy import ndimage, signal
+from scipy.signal import fftconvolve
 from scipy.io import wavfile
 
 SR = 8000
@@ -99,6 +112,31 @@ SILENCE_FLOOR = float(np.log(1e-9 * 64)) + 1.0
 SILENCE_EXTEND_SEC = 2.5
 SILENCE_BLIP_SEC = 0.1
 ED_EOF_TOL_SEC = 1.5
+CREDITS_MIN_SEC = 10.0
+CLEAN_SIM = 0.85
+CLEAN_HOLD_SEC = 5.0
+CLEAN_MIN_TRIM_SEC = 1.5
+CLEAN_MIN_EPISODES = 3
+CLEAN_STRONG_SEC = 4.0
+CREDITS_MERGE_GAP_SEC = 8.0
+EXTEND_REF_MIN_SEC = 85.0
+EXTEND_REF_MAX_SEC = 95.0
+EXTEND_REF_CLUSTER_SEC = 1.5
+EXTEND_SPAN = 4
+EXTEND_SONG_SIM = 0.5
+EXTEND_HOLD_SIM = 0.7
+EXTEND_MAX_DIP_SEC = 3.5
+EXTEND_MAX_DEEP_SEC = 1.5
+EXTEND_SEARCH_FWD_SEC = 3.0
+EXTEND_SEARCH_BACK_SEC = 2.0
+EXTEND_WINDOW_TOL_SEC = 0.5
+EXTEND_MIN_VALID = 0.8
+EXTEND_MIN_SEC = 1.5
+HEAD_SNAP_SEC = 1.5
+STING_SIM = 0.9
+STING_LEAD_SEC = 2.0
+STING_INTRO_MAX_SEC = 20.0
+STING_REF_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'skip-refs', 'netflix-sting.npy')
 NEIGHBOR_SPAN = 2
 DEFAULT_HEAD = 480
 DEFAULT_TAIL = 300
@@ -112,7 +150,7 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 OP_TYPES = ('op', 'mixed-op')
 ED_TYPES = ('ed', 'mixed-ed')
 INTRO_TYPES = ('intro',)
-KIND_TYPES = {'op': OP_TYPES, 'ed': ED_TYPES, 'intro': INTRO_TYPES}
+KIND_TYPES = {'op': OP_TYPES, 'ed': ED_TYPES, 'intro': INTRO_TYPES, 'credits': ED_TYPES}
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_CACHE = os.path.join(REPO_ROOT, 'tools', '.skip-audit-cache')
@@ -647,7 +685,7 @@ def detect_track(episodes, feats, start_shift=0.0, end_shift=0.0):
                 for r in match_regions(fi['tail'], other):
                     s = fi['tail_offset'] + r['start_f'] / FPS
                     e = fi['tail_offset'] + r['end_f'] / FPS
-                    tail_regions.append((s, e, r['sim']))
+                    tail_regions.append((s, e, r['sim'], other['bands'], r['offset']))
         if compared == 0:
             result[ep['idx']] = {'op': None, 'ed': None, 'error': 'ไม่มีตอนข้างเคียงให้เทียบ', 'duration': fi['duration']}
             continue
@@ -656,17 +694,191 @@ def detect_track(episodes, feats, start_shift=0.0, end_shift=0.0):
             tail_regions = [r for r in tail_regions if _overlap(op['start'], op['end'], r[0], r[1]) < 0.5]
             intro_regions = [r for r in intro_regions if r[1] <= op['start'] + 1.0]
         ed = _extend_ed_tail(_consensus(tail_regions), fi) if fi['tail_offset'] > 0 else None
-        intro = _consensus(intro_regions)
+        if ed:
+            ed['clipped'] = bool(ed['start'] - fi['tail_offset'] <= 1.0)
+            ed['clean_start'] = _clean_start(fi, ed, [(r[3], r[4]) for r in tail_regions if _overlap(ed['start'], ed['song_end'], r[0], r[1]) >= 0.5])
+        credits = _detect_credits(fi) if fi['tail_offset'] > 0 else None
+        if credits and ed and credits['start'] - ed['end'] <= CREDITS_MERGE_GAP_SEC:
+            ed['end'] = max(ed['end'], credits['end'])
+            ed['to_eof'] = True
+            credits = None
+        intro = _consensus(intro_regions) or _detect_sting_intro(fi, op)
+        eof = round(int(fi['duration'] * 10) / 10, 1)
         ed = _shift(ed, start_shift, end_shift)
-        if ed and ed.get('to_eof'):
-            ed['end'] = round(int(fi['duration'] * 10) / 10, 1)
+        credits = _shift(credits, start_shift, end_shift)
+        for region in (ed, credits):
+            if region and region.get('to_eof'):
+                region['end'] = eof
         result[ep['idx']] = {
             'op': _shift(op, start_shift, end_shift),
             'ed': ed,
             'intro': _shift(intro, start_shift, end_shift),
+            'credits': credits,
             'duration': fi['duration'],
         }
+    ed_trim_active = _trim_mixed_ed_start(result)
+    _extend_to_song_length(episodes, feats, result, start_shift, end_shift, skip_ed=ed_trim_active)
     return result
+
+
+def _clean_start(fi, ed, pairs):
+    """จุดที่เพลงปิดเริ่มเป็น "เพลงล้วน": ต้นเพลงที่ฉากยังเล่น/มีเสียงพูดทับ (ต่างกันทุกตอน) ค่าคล้ายกับตอนข้างเคียงจะต่ำ
+    → จุดแรกที่ค่ากลาง sim ของตอนข้างเคียง ≥ CLEAN_SIM ต่อเนื่อง CLEAN_HOLD_SEC (ผู้ใช้เริ่ม ED หลังเสียงพูดจบ)"""
+    if len(pairs) < 2:
+        return None
+    a = fi['tail']['bands']
+    to = fi['tail_offset']
+    curves = [_smooth(np.nan_to_num(frame_similarity(a, b, off), nan=0.0), int(0.5 * FPS)) for b, off in pairs]
+    m = np.median(np.array(curves), axis=0)
+    hold = int(CLEAN_HOLD_SEC * FPS)
+    lo = max(0, int((ed['start'] - to) * FPS))
+    hi = int((ed['song_end'] - to) * FPS) - hold
+    for f in range(lo, min(hi, len(m) - hold)):
+        if m[f] >= CLEAN_SIM and np.all(m[f:f + hold] >= CLEAN_SIM - 0.05):
+            return to + f / FPS
+    return None
+
+
+def _trim_mixed_ed_start(result):
+    """ED ที่ต้นเพลงมีเสียงฉากทับ ≥ CLEAN_MIN_TRIM_SEC → เริ่มที่ song_end − ค่ากลางความยาว "เพลงล้วน" ของแทร็ก
+    (ตำแหน่งในเพลงที่เสียงพูดจบมักเท่ากันทุกตอน; ใช้ค่ากลางกันตอนข้างเคียงที่เสียงพูดทับนานผิดปกติ) — ไม่เลื่อนให้เร็วขึ้น
+    ยกเว้น ED ที่ชนขอบต้นของเสียงท้ายที่ดึงมา (clipped: เครดิตยาวดัน ED ออกนอกหน้าต่าง TAIL) → ใช้ค่ากลางเดียวกันขยายจุดเริ่ม
+    ตัดเฉพาะแทร็กที่มีรูปแบบนี้ชัด (≥ CLEAN_MIN_EPISODES ตอนที่เสียงทับ ≥ CLEAN_STRONG_SEC) — เรื่องที่ต้นเพลงแค่เบา/คล้ายต่ำเล็กน้อย
+    (เช่น Index ที่ผู้ใช้เริ่ม ED ตั้งแต่เพลงเริ่ม) จะไม่ถูกตัด — คืน True เมื่อแทร็กนี้ใช้กฎตัดต้นเพลง"""
+    all_eds = [r['ed'] for r in result.values() if r.get('ed')]
+    eds = [ed for ed in all_eds if ed.get('clean_start') is not None]
+    lens = [_song_end(ed) - ed['clean_start'] for ed in eds]
+    if len(lens) < CLEAN_MIN_EPISODES:
+        return False
+    best = None
+    for center in lens:
+        cluster = [x for x in lens if abs(x - center) <= LENGTH_OUTLIER_SEC]
+        if best is None or len(cluster) > len(best):
+            best = cluster
+    pure = median(best)
+    op_end = {id(r['ed']): r['op']['end'] for r in result.values() if r.get('ed') and r.get('op')}
+    for ed in all_eds:
+        if ed.get('clipped'):
+            target = max(round(_song_end(ed) - pure, 1), op_end.get(id(ed), 0.0))
+            if ed['start'] - target >= CLEAN_MIN_TRIM_SEC:
+                ed['extended'] = round(ed['start'] - target, 1)
+                ed['start'] = max(0.0, target)
+    strong = sum(1 for ed in eds if ed['clean_start'] - ed['start'] >= CLEAN_STRONG_SEC)
+    if strong < CLEAN_MIN_EPISODES:
+        return False
+    for ed in eds:
+        if ed.get('extended') or ed['clean_start'] - ed['start'] < CLEAN_MIN_TRIM_SEC:
+            continue
+        target = round(_song_end(ed) - pure, 1)
+        if target - ed['start'] >= CLEAN_MIN_TRIM_SEC:
+            ed['trimmed'] = round(target - ed['start'], 1)
+            ed['start'] = target
+    return True
+
+
+def _ref_song_length(regions, shift_gap):
+    """ความยาวเพลงเต็มของแทร็ก (วินาทีก่อนปรับขอบ): กลุ่มความยาว ±EXTEND_REF_CLUSTER_SEC ที่ยาวที่สุดซึ่งมี ≥ CLEAN_MIN_EPISODES ตอน
+    และอยู่ในช่วง EXTEND_REF_MIN_SEC–EXTEND_REF_MAX_SEC (~90±5 วิ ตามผู้ใช้) — เพลงที่ถูกตัดมีแต่สั้นลง จึงเลือกกลุ่มที่ยาวที่สุด ไม่ใช่กลุ่มที่ใหญ่ที่สุด"""
+    lens = sorted((_song_len(r) + shift_gap for r in regions if r['support'] >= 2), reverse=True)
+    for center in lens:
+        cluster = [x for x in lens if abs(x - center) <= EXTEND_REF_CLUSTER_SEC]
+        ref = median(cluster)
+        if len(cluster) >= CLEAN_MIN_EPISODES and EXTEND_REF_MIN_SEC <= ref <= EXTEND_REF_MAX_SEC:
+            return ref
+    return None
+
+
+def _longest_run(mask):
+    best = run = 0
+    for x in mask:
+        run = run + 1 if x else 0
+        best = max(best, run)
+    return best
+
+
+def _song_start_from_end(episodes, feats, i, part, s0, e0, ref):
+    """จุดเริ่มเพลงที่นับถอยจากจุดจบ e0 ด้วยความยาว ref (วินาทีก่อนปรับขอบ) — None เมื่อยืนยันกับตอนข้างเคียงไม่ได้
+    เทียบกับตอนข้างเคียง ±EXTEND_SPAN ด้วย offset ของช่วงซ้ำเดียวกัน; เฟรมนอกหน้าต่างเสียงที่ดึงมา (NaN) ไม่นับเป็นความต่าง"""
+    fi = feats.get(episodes[i]['idx'])
+    to = fi['tail_offset'] if part == 'tail' else 0.0
+    if part == 'tail' and e0 - ref < to - EXTEND_WINDOW_TOL_SEC:
+        return None
+    my_key = station_key(episodes[i]['station'])
+    curves = []
+    for j in range(i - EXTEND_SPAN, i + EXTEND_SPAN + 1):
+        if j == i or not 0 <= j < len(episodes):
+            continue
+        fj = feats.get(episodes[j]['idx'])
+        if not fj or station_key(episodes[j]['station']) == my_key:
+            continue
+        for r in match_regions(fi[part], fj[part]):
+            if _overlap(s0, e0, to + r['start_f'] / FPS, to + r['end_f'] / FPS) >= 0.5:
+                raw = frame_similarity(fi[part]['bands'], fj[part]['bands'], r['offset'])
+                curve = _smooth(np.nan_to_num(raw, nan=0.0), int(0.5 * FPS))
+                curve[np.isnan(raw)] = np.nan
+                curves.append(curve)
+                break
+    if len(curves) < 2:
+        return None
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore', RuntimeWarning)
+        m = np.nanmedian(np.array(curves), axis=0)
+    k = int((max(to, e0 - ref) - to) * FPS)
+    k1 = int((s0 - to) * FPS)
+    limit = k + int(EXTEND_SEARCH_FWD_SEC * FPS)
+    while k < k1 and (np.isnan(m[k]) or m[k] < EXTEND_SONG_SIM):
+        k += 1
+        if k > limit:
+            return None
+    floor = max(0, k - int(EXTEND_SEARCH_BACK_SEC * FPS))
+    while k > floor and not np.isnan(m[k - 1]) and m[k - 1] >= EXTEND_SONG_SIM:
+        k -= 1
+    if k1 - k < EXTEND_MIN_SEC * FPS:
+        return None
+    seg = m[k:k1]
+    if np.mean(np.isnan(seg)) > 1.0 - EXTEND_MIN_VALID:
+        return None
+    vals = np.nan_to_num(seg, nan=0.0)
+    if _longest_run(vals < EXTEND_HOLD_SIM) > EXTEND_MAX_DIP_SEC * FPS or _longest_run(vals < EXTEND_SONG_SIM) > EXTEND_MAX_DEEP_SEC * FPS:
+        return None
+    return to + k / FPS
+
+
+def _extend_to_song_length(episodes, feats, result, start_shift, end_shift, skip_ed=False):
+    """OP/ED ที่สั้นกว่าความยาวเพลงเต็มของแทร็กเกิน LENGTH_OUTLIER_SEC (ช่วงเสียงต่างกันสั้น ๆ กลางเพลงทำให้ _walk หยุดก่อนถึงต้นเพลง
+    เช่น REBORN! / Arifureta) → นับถอยจากจุดจบเพลงด้วยความยาวอ้างอิง แล้วหาจุดที่เสียงเริ่มเหมือนตอนข้างเคียง
+    (เลื่อนไปข้างหน้า ≤ EXTEND_SEARCH_FWD_SEC / ถอยหลัง ≤ EXTEND_SEARCH_BACK_SEC) — ผู้ใช้เสนอ 2026-11-02
+    ยอมรับเมื่อช่วงที่ขยายเหมือนตอนข้างเคียง ≥ 2 ตอน: ช่วง sim < EXTEND_HOLD_SIM ยาวไม่เกิน EXTEND_MAX_DIP_SEC,
+    ช่วง sim < EXTEND_SONG_SIM ยาวไม่เกิน EXTEND_MAX_DEEP_SEC, เฟรมที่เทียบได้ ≥ EXTEND_MIN_VALID
+    OP ที่เริ่มภายใน HEAD_SNAP_SEC แรกของไฟล์ → เริ่มที่ 0:00; ED ไม่เริ่มก่อน OP จบ
+    แทร็กที่ใช้กฎตัดต้น ED ที่มีเสียงพูดทับ (skip_ed) ไม่ขยาย ED เพราะผู้ใช้เริ่ม ED หลังเสียงพูดจบโดยตั้งใจ"""
+    shift_gap = start_shift - end_shift
+    for kind, part in (('op', 'head'), ('ed', 'tail')):
+        if kind == 'ed' and skip_ed:
+            continue
+        items = [(i, result[ep['idx']]) for i, ep in enumerate(episodes) if (result.get(ep['idx']) or {}).get(kind)]
+        ref = _ref_song_length([r[kind] for _, r in items], shift_gap)
+        if ref is None:
+            continue
+        for i, r in items:
+            region = r[kind]
+            if region.get('trimmed') or region.get('extended'):
+                continue
+            s0 = region['start'] - start_shift
+            e0 = _song_end(region) - end_shift
+            if e0 - s0 >= ref - LENGTH_OUTLIER_SEC:
+                continue
+            new = _song_start_from_end(episodes, feats, i, part, s0, e0, ref)
+            if new is None:
+                continue
+            if kind == 'op' and new < HEAD_SNAP_SEC:
+                new = 0.0
+            if kind == 'ed' and r.get('op'):
+                new = max(new, r['op']['end'] - end_shift)
+            new_start = round(max(0.0, new + start_shift), 1)
+            if region['start'] - new_start >= EXTEND_MIN_SEC:
+                region['from_end'] = round(region['start'] - new_start, 1)
+                region['start'] = new_start
 
 
 def _shift(region, start_delta, end_delta):
@@ -677,6 +889,8 @@ def _shift(region, start_delta, end_delta):
         r['end'] = round(max(r['start'] + 1.0, r['end'] + end_delta), 1)
         if 'song_end' in r:
             r['song_end'] = round(max(r['start'] + 1.0, r['song_end'] + end_delta), 1)
+        if r.get('clean_start') is not None:
+            r['clean_start'] = round(r['clean_start'] + start_delta, 1)
     return region
 
 
@@ -706,6 +920,111 @@ def _extend_ed_tail(ed, fi):
     if fi['duration'] - ed['end'] <= ED_EOF_TOL_SEC:
         ed['to_eof'] = True
     return ed
+
+
+_sting_cache = {}
+
+
+def _sting_ref():
+    """fingerprint เสียง Netflix "ta-dum" (~3.6 วิ, log-band ต่อเฟรม) — None ถ้าไม่มีไฟล์อ้างอิง"""
+    if 'ref' not in _sting_cache:
+        ref = np.load(STING_REF_PATH).astype(np.float32) if os.path.exists(STING_REF_PATH) else None
+        if ref is not None:
+            ref = ref - ref.mean(axis=1, keepdims=True)
+            ref = ref / (np.linalg.norm(ref, axis=1, keepdims=True) + 1e-6)
+        _sting_cache['ref'] = ref
+    return _sting_cache['ref']
+
+
+def _sting_hits(bands, lo, hi):
+    """เฟรมเริ่มของ sting ที่อยู่ในช่วงเฟรม [lo, hi] → list ของ (frame, sim) เรียงตามเวลา (sim ≥ STING_SIM)"""
+    ref = _sting_ref()
+    if ref is None or len(bands) == 0:
+        return []
+    k = len(ref)
+    lo = max(0, lo)
+    seg = bands[lo:min(len(bands), hi + k)].astype(np.float32)
+    if len(seg) < k:
+        return []
+    seg = seg - seg.mean(axis=1, keepdims=True)
+    seg = seg / (np.linalg.norm(seg, axis=1, keepdims=True) + 1e-6)
+    corr = fftconvolve(seg, ref[::-1], mode='valid', axes=0).sum(axis=1) / k
+    hits = []
+    for f in np.nonzero(corr >= STING_SIM)[0]:
+        if hits and f - hits[-1][0] < k:
+            if corr[f] > hits[-1][1]:
+                hits[-1] = (int(f), float(corr[f]))
+            continue
+        hits.append((int(f), float(corr[f])))
+    return [(lo + f, round(v, 2)) for f, v in hits]
+
+
+def _quiet_frames(bands):
+    return np.log(np.exp(bands.astype(np.float32)).sum(axis=1)) < SILENCE_FLOOR
+
+
+def _detect_credits(fi):
+    """end credit เงียบสนิทจนจบไฟล์ (เช่นเครดิตพากย์ Netflix) ยาว ≥ CREDITS_MIN_SEC → region ถึงท้ายวิดีโอ
+    ถ้ามี Netflix sting นำหน้าความเงียบ เริ่มที่ sting (ผู้ใช้นับ sting เป็นส่วนของเครดิต); ไม่ต้องมีตอนข้างเคียงยืนยัน"""
+    bands = fi['tail']['bands']
+    if len(bands) == 0:
+        return None
+    quiet = _quiet_frames(bands)
+    blip = int(SILENCE_BLIP_SEC * FPS)
+    start, gap = len(quiet), 0
+    for j in range(len(quiet) - 1, -1, -1):
+        if quiet[j]:
+            start, gap = j, 0
+        else:
+            gap += 1
+            if gap > blip:
+                break
+    if start >= len(quiet) or (len(quiet) - start) / FPS < CREDITS_MIN_SEC:
+        return None
+    if fi['duration'] - (fi['tail_offset'] + len(quiet) / FPS) > ED_EOF_TOL_SEC:
+        return None
+    ref = _sting_ref()
+    k = len(ref) if ref is not None else 0
+    sim = 1.0
+    hits = _sting_hits(bands, start - k - int(STING_LEAD_SEC * FPS), start - k + int(STING_LEAD_SEC * FPS))
+    if hits:
+        start, sim = hits[-1]
+    limit = int(SILENCE_EXTEND_SEC * FPS)
+    n = 0
+    while start > 0 and quiet[start - 1] and n < limit:
+        start -= 1
+        n += 1
+    return {'start': fi['tail_offset'] + start / FPS, 'end': fi['duration'], 'support': 1, 'sim': sim,
+            'alts': [], 'to_eof': True, 'sting': bool(hits)}
+
+
+def _detect_sting_intro(fi, op):
+    """intro ของ Netflix: sting ใน STING_LEAD_SEC แรกของไฟล์ + ความเงียบต่อท้าย → 0 ถึงจบความเงียบ (ไม่เกิน STING_INTRO_MAX_SEC
+    และไม่ทับ OP)"""
+    bands = fi['head']['bands']
+    hits = _sting_hits(bands, 0, int(STING_LEAD_SEC * FPS))
+    if not hits:
+        return None
+    f0, sim = hits[0]
+    quiet = _quiet_frames(bands)
+    blip = int(SILENCE_BLIP_SEC * FPS)
+    end = f0 + len(_sting_ref())
+    j = next((x for x in range(end, min(len(quiet), end + int(STING_LEAD_SEC * FPS))) if quiet[x]), None)
+    if j is None:
+        return None
+    gap = 0
+    while j < len(quiet) and (j - f0) / FPS < STING_INTRO_MAX_SEC:
+        if quiet[j]:
+            end, gap = j + 1, 0
+        else:
+            gap += 1
+            if gap > blip:
+                break
+        j += 1
+    end_sec = end / FPS
+    if op and end_sec > op['start']:
+        end_sec = op['start']
+    return {'start': 0.0, 'end': end_sec, 'support': 1, 'sim': sim, 'alts': [], 'sting': True}
 
 
 def _song_end(region):
@@ -768,6 +1087,14 @@ def existing_segment(station, types):
         if seg.get('type') in types:
             return seg
     return None
+
+
+def segment_for(station, kind):
+    """segment เดิมของ kind — credits = ED-family ช่วงที่สอง (เครดิตที่มีฉากคั่นหลัง ED เก็บเป็น ed อีกช่วง)"""
+    if kind != 'credits':
+        return existing_segment(station, KIND_TYPES[kind])
+    eds = [s for s in (((station.get('skip') or {}).get('segments')) or []) if s.get('type') in ED_TYPES]
+    return eds[1] if len(eds) > 1 else None
 
 
 def verdict(existing, detected, tol, error=None):
@@ -842,8 +1169,8 @@ def cmd_report(args):
             d = det[ep['idx']]
             err = ep['error'] or d.get('error')
             row = {'idx': ep['idx'], 'label': ep['label'], 'name': st.get('name'), 'duration': d.get('duration'), 'error': err}
-            for kind, types in KIND_TYPES.items():
-                ex = existing_segment(st, types)
+            for kind in KIND_TYPES:
+                ex = segment_for(st, kind)
                 dt = d.get(kind)
                 v, ds, de = verdict(ex, dt, args.tolerance, error=err)
                 row[kind] = {
@@ -920,8 +1247,14 @@ def _adopt_other_track(ep, kind, dt, od, other_track):
         return False
     dt['start'], dt['end'] = od['start'], od['end']
     dt['song_end'] = _song_end(od)
+    dt.pop('to_eof', None)
+    if od.get('to_eof'):
+        dt['to_eof'] = True
     if ep.get('duration'):
-        dt['end'] = round(min(dt['end'], ep['duration'] - 0.5), 1)
+        if dt.get('to_eof'):
+            dt['end'] = round(int(ep['duration'] * 10) / 10, 1)
+        else:
+            dt['end'] = round(min(dt['end'], ep['duration'] - 0.5), 1)
     dt['sim'] = min(dt['sim'], od['sim'])
     ep[kind]['from_track'] = other_track.split('/')[-1]
     if ep[kind]['existing']:
@@ -976,17 +1309,25 @@ def print_report(report):
                     notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ค่ากลาง')
                 elif dt and abs(_song_len(dt) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
                     notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ~90s')
+                if dt and dt.get('trimmed'):
+                    notes.append(f'{kind} ตัดต้นเพลงที่มีเสียงฉากทับ {dt["trimmed"]:.1f}s')
+                if dt and dt.get('extended'):
+                    notes.append(f'{kind} ต้นเพลงอยู่ก่อนช่วงเสียงท้ายที่ดึงมา ขยายตามความยาวกลาง {dt["extended"]:.1f}s')
+                if dt and dt.get('from_end'):
+                    notes.append(f'{kind} ขยายต้นเพลงย้อนจากจุดจบตามความยาวเพลงเต็ม {dt["from_end"]:.1f}s')
                 if dt and dt.get('to_eof'):
                     notes.append(f'{kind} ถึงท้ายวิดีโอ (เพลงจบ {fmt_t(_song_end(dt))})')
                 elif dt and dt['end'] - _song_end(dt) >= 1.0:
                     notes.append(f'{kind} รวมเครดิตเงียบ {dt["end"] - _song_end(dt):.1f}s')
                 if ex and abs((float(ex['end']) - float(ex['start'])) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
                     notes.append(f'{kind} เดิมยาว {float(ex["end"]) - float(ex["start"]):.1f}s')
-            intro = ep.get('intro') or {}
-            if intro.get('detected') or intro.get('existing'):
-                dti, exi = intro.get('detected'), intro.get('existing')
-                notes.append('intro ' + (f'{fmt_t(exi["start"])}-{fmt_t(exi["end"])} เดิม ' if exi else '') + (f'{fmt_t(dti["start"])}-{fmt_t(dti["end"])} ตรวจพบ ' if dti else '') + f'({intro.get("verdict")})')
-                totals[f'intro:{intro.get("verdict")}'] += 1
+            for extra in ('intro', 'credits'):
+                rx = ep.get(extra) or {}
+                if rx.get('detected') or rx.get('existing'):
+                    dti, exi = rx.get('detected'), rx.get('existing')
+                    sting = ' sting' if dti and dti.get('sting') else ''
+                    notes.append(f'{extra} ' + (f'{fmt_t(exi["start"])}-{fmt_t(exi["end"])} เดิม ' if exi else '') + (f'{fmt_t(dti["start"])}-{fmt_t(dti["end"])} ตรวจพบ{sting} ' if dti else '') + f'({rx.get("verdict")})')
+                    totals[f'{extra}:{rx.get("verdict")}'] += 1
             if ep.get('error'):
                 notes.append('ERR ' + ep['error'][:60])
             if ep.get('other_segments'):
@@ -1018,7 +1359,7 @@ def cmd_apply(args):
     skipped_outliers = []
     removals = set()
     for item in args.remove or []:
-        m = re.match(r'^(.+?)\|(.+?)\|(op|ed|intro)$', item.strip())
+        m = re.match(r'^(.+?)\|(.+?)\|(op|ed|intro|credits)$', item.strip())
         if not m:
             raise SystemExit(f'--remove รูปแบบไม่ถูกต้อง: {item!r} (ต้องเป็น "TRACK|LABEL|op")')
         removals.add((m.group(1), m.group(2), m.group(3)))
@@ -1042,7 +1383,7 @@ def cmd_apply(args):
                 if r is None:
                     continue
                 dt = r['detected']
-                seg = existing_segment(st, types)
+                seg = segment_for(st, kind)
                 ov = overrides.pop((tn, row['label'], kind), None)
                 rm = (tn, row['label'], kind) in removals
                 if rm:
@@ -1065,12 +1406,14 @@ def cmd_apply(args):
                 else:
                     if not dt or row.get('error') or r['verdict'] in ('review', 'error'):
                         continue
-                    min_support = 1 if kind == 'intro' and dt['sim'] >= 0.9 else args.min_support
+                    min_support = 1 if (kind == 'intro' and dt['sim'] >= 0.9) or kind == 'credits' else args.min_support
                     if dt['support'] < min_support:
                         continue
                     if not r['existing'] and kind in ((st.get('skip') or {}).get('none') or []):
                         continue
-                    med = _median_length(by_track[tn], kind) if kind != 'intro' else None
+                    if kind == 'credits' and _covered_by_ed(st, dt):
+                        continue
+                    med = _median_length(by_track[tn], kind) if kind in ('op', 'ed') else None
                     if med is not None and abs(_song_len(dt) - med) > LENGTH_OUTLIER_SEC:
                         skipped_outliers.append((tn, label, kind, dt, med))
                         continue
@@ -1086,7 +1429,7 @@ def cmd_apply(args):
                     skip = st.setdefault('skip', {'source': source, 'segments': []})
                     skip.setdefault('source', source)
                     segs = skip.setdefault('segments', [])
-                    segs.append({'type': kind, 'start': num(dt['start']), 'end': num(dt['end'])})
+                    segs.append({'type': 'ed' if kind == 'credits' else kind, 'start': num(dt['start']), 'end': num(dt['end'])})
                     if ov and kind in (skip.get('none') or []):
                         skip['none'] = [k for k in skip['none'] if k != kind]
                         if not skip['none']:
@@ -1173,6 +1516,14 @@ def _write_json_out(path, playlist_path, changes, outliers, marked=()):
         json.dump(out, f, ensure_ascii=False, indent=2)
 
 
+def _covered_by_ed(station, dt):
+    """เครดิตที่ตรวจพบอยู่ใน ED เดิมเกินครึ่งแล้ว (เช่นผู้ใช้รวบ ED ถึงท้ายไฟล์ไว้) → ไม่เติมซ้ำ"""
+    for s in ((station.get('skip') or {}).get('segments') or []):
+        if s.get('type') in ED_TYPES and _overlap(float(s['start']), float(s['end']), dt['start'], dt['end']) >= 0.5:
+            return True
+    return False
+
+
 def _median_length(track_report, kind):
     """ความยาวอ้างอิงของแทร็ก = กลุ่มความยาวที่มีสมาชิกมากที่สุด (ช่วง ±3 วิ) จากแถวที่เชื่อถือได้ (ok/fix/missing)
     ถ้าเท่ากันเลือกกลุ่มที่ใกล้ 90 วิ — กันทั้งกรณีเพลงผสมฉากลากค่ากลางลง และกรณีแถว review มาบิดค่าอ้างอิง"""
@@ -1193,7 +1544,7 @@ def _parse_overrides(items, start_shift, end_shift):
     """'Season 1/พากย์ไทย|1|op=0:52-2:22' → {(track, label, kind): (start, end)} หลังปรับขอบตามนโยบาย"""
     out = {}
     for item in items:
-        m = re.match(r'^(.+?)\|(.+?)\|(op|ed|intro)=([\d:.]+)-([\d:.]+)$', item.strip())
+        m = re.match(r'^(.+?)\|(.+?)\|(op|ed|intro|credits)=([\d:.]+)-([\d:.]+)$', item.strip())
         if not m:
             raise SystemExit(f'--set รูปแบบไม่ถูกต้อง: {item!r} (ต้องเป็น "TRACK|LABEL|op=START-END" หรือ intro=)')
         start = _parse_time(m.group(4)) + start_shift
@@ -1246,7 +1597,7 @@ def main():
     a.add_argument('--backup-dir')
     a.add_argument('--min-support', type=int, default=2, help='ต้องมีตอนข้างเคียงยืนยันอย่างน้อยกี่ครั้ง (default 2)')
     a.add_argument('--set', nargs='*', help='ค่าที่ผู้ใช้ยืนยันเอง "TRACK|LABEL|op=START-END"')
-    a.add_argument('--kinds', nargs='*', choices=['op', 'ed', 'intro'], help='จำกัดเฉพาะ op / ed / intro')
+    a.add_argument('--kinds', nargs='*', choices=['op', 'ed', 'intro', 'credits'], help='จำกัดเฉพาะ op / ed / intro / credits')
     a.add_argument('--remove', nargs='*', help='ลบ segment "TRACK|LABEL|op"')
     a.add_argument('--mark-none', action='store_true', help='ตอนที่ตรวจแล้วไม่พบ op/ed/intro และยังไม่มี skip → เขียน skip ว่าง (segments: [])')
     a.add_argument('--source', default='manual', help='skip.source เมื่อ --fill / --mark-none สร้าง skip object ใหม่ (default manual; job อัตโนมัติใช้ audit)')

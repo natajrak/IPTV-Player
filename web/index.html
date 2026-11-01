@@ -87,9 +87,11 @@
       <div id="player-btn-row">
         <div class="bar-group">
           <button id="btn-prev-ep" title="ตอนก่อนหน้า"><i class="fi fi-sc-step-backward" aria-hidden="true"></i></button>
+          <button id="btn-prev-checkpoint" title="ไปจุดก่อนหน้า" aria-label="ไปจุดก่อนหน้า" hidden><i class="fi fi-sr-forward-fast" aria-hidden="true"></i></button>
           <button id="btn-rewind" title="ย้อน 10 วินาที"><i class="fi fi-sr-rewind" aria-hidden="true"></i></button>
           <button id="btn-playpause" title="เล่น/หยุด"><i class="fi fi-sr-play" aria-hidden="true"></i></button>
           <button id="btn-forward" title="ข้าม 10 วินาที"><i class="fi fi-sr-forward" aria-hidden="true"></i></button>
+          <button id="btn-next-checkpoint" title="ไปจุดถัดไป" aria-label="ไปจุดถัดไป" hidden><i class="fi fi-sr-forward-fast" aria-hidden="true"></i></button>
           <button id="btn-next-ep" title="ตอนถัดไป"><i class="fi fi-sc-step-forward" aria-hidden="true"></i></button>
           <span id="player-time">0:00 / 0:00</span>
         </div>
@@ -140,7 +142,7 @@
       document.head.appendChild(hlsFallback);
     }
   </script>
-  <script src="js/app.tv.js?v=66"></script>
+  <script src="js/app.tv.js?v=67"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/cac5OY1meq4yOjd9lGIhZRXNKCK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Dhjw4i57Dg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-06"
+                            "release_date": "2026-04-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1417.5,
+                                        "end": 1438.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The School of the Grassland",
@@ -31,6 +41,11 @@
                                         "type": "op",
                                         "start": 59.7,
                                         "end": 149
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1418.7,
+                                        "end": 1434.1
                                     }
                                 ]
                             }
@@ -48,6 +63,11 @@
                                         "type": "op",
                                         "start": 107.1,
                                         "end": 197.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1418.6,
+                                        "end": 1438.1
                                     }
                                 ]
                             }
@@ -69,7 +89,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1325.7,
-                                        "end": 1416.1
+                                        "end": 1438.2
                                     }
                                 ]
                             }
@@ -79,7 +99,17 @@
                             "image": "https://image.tmdb.org/t/p/original/8ttC4PNqm8FpzwMJ3vIraRaMtlR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GsoxOcyxBo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-04"
+                            "release_date": "2026-05-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1418.8,
+                                        "end": 1434.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - A Light on a Rainy Day",
@@ -98,7 +128,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326,
-                                        "end": 1416
+                                        "end": 1434.1
                                     }
                                 ]
                             }
@@ -120,7 +150,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1416.1
+                                        "end": 1440.2
                                     }
                                 ]
                             }
@@ -138,6 +168,11 @@
                                         "type": "op",
                                         "start": 260.6,
                                         "end": 350.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1418.8,
+                                        "end": 1436.2
                                     }
                                 ]
                             }
@@ -159,7 +194,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.6,
-                                        "end": 1416.1
+                                        "end": 1440.2
                                     }
                                 ]
                             }
@@ -169,7 +204,17 @@
                             "image": "https://image.tmdb.org/t/p/original/C7M36VC0CP051TA1xaPgdoEoGx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/APee0mX8D/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-08"
+                            "release_date": "2026-06-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1418.6,
+                                        "end": 1438.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Test in Serpentback Cave",
@@ -188,7 +233,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.4,
-                                        "end": 1416
+                                        "end": 1434.1
                                     }
                                 ]
                             }
@@ -210,7 +255,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1416.1
+                                        "end": 1438.2
                                     }
                                 ]
                             }

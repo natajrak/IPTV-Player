@@ -186,7 +186,17 @@
                             "image": "https://image.tmdb.org/t/p/original/rwtivqiOAJXdW7K8UPY2KUmL1v9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCSBlIt8w%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCSBlIt8w",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-06-24"
+                            "release_date": "2011-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1485.6,
+                                        "end": 1503.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

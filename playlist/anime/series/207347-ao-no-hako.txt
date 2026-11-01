@@ -578,7 +578,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1331.2,
-                                        "end": 1421.5
+                                        "end": 1527.2
                                     }
                                 ]
                             }
@@ -601,6 +601,11 @@
                                         "type": "ed",
                                         "start": 1331,
                                         "end": 1409
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1420,
+                                        "end": 1529.1
                                     }
                                 ]
                             }
@@ -622,7 +627,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1331.6,
-                                        "end": 1421.5
+                                        "end": 1541.4
                                     }
                                 ]
                             }
@@ -636,6 +641,11 @@
                             "skip": {
                                 "source": "audit",
                                 "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 11
+                                    },
                                     {
                                         "type": "op",
                                         "start": 11.5,
@@ -696,7 +706,17 @@
                             "image": "https://image.tmdb.org/t/p/original/pyIWyOKZMnWBk6jAIrbnDOc0bP1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wqe6whSK1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-07"
+                            "release_date": "2024-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Can I Have One?",
@@ -710,7 +730,17 @@
                             "image": "https://image.tmdb.org/t/p/original/hzvtE1H7wPCom0pHwrrlKwgrOn2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fczsTwLXlw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-21"
+                            "release_date": "2024-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - I'll Be Rooting for You",

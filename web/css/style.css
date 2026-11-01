@@ -1379,6 +1379,35 @@ button:focus:not(:focus-visible),
   color: #4fc3f7;
 }
 
+/* ===== Checkpoint jump (เริ่มเรื่อง / เริ่ม-จบ ช่วงข้าม) ===== */
+#btn-prev-checkpoint,
+#btn-next-checkpoint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+#btn-prev-checkpoint[hidden],
+#btn-next-checkpoint[hidden] {
+  display: none;
+}
+#btn-prev-checkpoint i,
+#btn-next-checkpoint i {
+  font-size: 14px;
+  line-height: 1;
+  display: block;
+}
+/* ชุดไอคอนทึบไม่มี backward-fast → กลับด้าน forward-fast */
+#btn-prev-checkpoint i {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+/* ไม่มีจุดให้ไป — ไม่ใช้ disabled (focus รีโมทหลุดตอนกดจนสุด) และจางแค่ไอคอน ให้ focus ring ยังชัด */
+#btn-prev-checkpoint.no-target i,
+#btn-next-checkpoint.no-target i {
+  opacity: 0.3;
+}
+
 #btn-fullscreen i {
   font-size: 14px;
   line-height: 1;

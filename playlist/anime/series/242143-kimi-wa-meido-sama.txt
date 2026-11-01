@@ -51,6 +51,11 @@
                                         "type": "ed",
                                         "start": 1278.7,
                                         "end": 1367.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1380.1,
+                                        "end": 1390
                                     }
                                 ]
                             }
@@ -192,7 +197,17 @@
                             "image": "https://image.tmdb.org/t/p/original/mqgRdFguD9S7bM7ukwOxOdxNUMP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/asblnaDcz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.8,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - You and the Forbidden Fruit.",
@@ -308,6 +323,11 @@
                                         "type": "ed",
                                         "start": 1278,
                                         "end": 1367.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1380,
+                                        "end": 1390
                                     }
                                 ]
                             }
@@ -449,7 +469,17 @@
                             "image": "https://image.tmdb.org/t/p/original/mqgRdFguD9S7bM7ukwOxOdxNUMP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yvD28taLA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.7,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - You and the Forbidden Fruit.",

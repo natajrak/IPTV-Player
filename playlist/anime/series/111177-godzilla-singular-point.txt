@@ -16,7 +16,17 @@
                             "image": "https://image.tmdb.org/t/p/original/9xoTUioqUESxSYG7mfkfnX4P3Io.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uJKR5Ror/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-04-01"
+                            "release_date": "2021-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1421.4,
+                                        "end": 1472
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - เล่นสนุก",
@@ -35,7 +45,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1417.3
+                                        "end": 1476
                                     }
                                 ]
                             }
@@ -57,7 +67,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1416.8
+                                        "end": 1474
                                     }
                                 ]
                             }
@@ -79,7 +89,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.5,
-                                        "end": 1416.7
+                                        "end": 1472
                                     }
                                 ]
                             }
@@ -101,7 +111,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1417.3
+                                        "end": 1476
                                     }
                                 ]
                             }
@@ -123,7 +133,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.2,
-                                        "end": 1416.8
+                                        "end": 1476
                                     }
                                 ]
                             }
@@ -145,7 +155,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1336.8,
-                                        "end": 1427
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -167,7 +177,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1336.6,
-                                        "end": 1426.8
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -189,7 +199,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1336.8,
-                                        "end": 1426.9
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -211,7 +221,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1328.8,
-                                        "end": 1419.4
+                                        "end": 1480
                                     }
                                 ]
                             }
@@ -233,7 +243,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1336.8,
-                                        "end": 1426.9
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -255,7 +265,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1326.7,
-                                        "end": 1416.8
+                                        "end": 1476
                                     }
                                 ]
                             }
@@ -278,6 +288,11 @@
                                         "type": "ed",
                                         "start": 1296.7,
                                         "end": 1387.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1426.3,
+                                        "end": 1475
                                     }
                                 ]
                             }

@@ -49,8 +49,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1310.3,
-                                        "end": 1399.4
+                                        "start": 1316,
+                                        "end": 1405
                                     }
                                 ]
                             }
@@ -66,7 +66,7 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 20,
+                                        "start": 21,
                                         "end": 109
                                     },
                                     {
@@ -330,8 +330,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 147.3,
-                                        "end": 221
+                                        "start": 131,
+                                        "end": 220
                                     },
                                     {
                                         "type": "ed",
@@ -352,8 +352,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 36.1,
-                                        "end": 110
+                                        "start": 20.5,
+                                        "end": 109
                                     },
                                     {
                                         "type": "ed",
@@ -374,8 +374,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 36.3,
-                                        "end": 110
+                                        "start": 20.5,
+                                        "end": 109.2
                                     },
                                     {
                                         "type": "ed",
@@ -396,8 +396,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 152.1,
-                                        "end": 226
+                                        "start": 136.5,
+                                        "end": 225.3
                                     },
                                     {
                                         "type": "ed",
@@ -866,8 +866,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 147.3,
-                                        "end": 221
+                                        "start": 131,
+                                        "end": 220
                                     },
                                     {
                                         "type": "ed",
@@ -888,8 +888,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 36.1,
-                                        "end": 110
+                                        "start": 20.5,
+                                        "end": 109
                                     },
                                     {
                                         "type": "ed",
@@ -910,8 +910,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 36.3,
-                                        "end": 110
+                                        "start": 20.5,
+                                        "end": 109.2
                                     },
                                     {
                                         "type": "ed",
@@ -932,8 +932,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 152.1,
-                                        "end": 226
+                                        "start": 136.5,
+                                        "end": 225.3
                                     },
                                     {
                                         "type": "ed",
@@ -1097,8 +1097,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 160.5,
-                                        "end": 240
+                                        "start": 150.4,
+                                        "end": 239.2
                                     },
                                     {
                                         "type": "ed",
@@ -1119,8 +1119,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 155.9,
-                                        "end": 226.4
+                                        "start": 136,
+                                        "end": 224.5
                                     },
                                     {
                                         "type": "ed",
@@ -1141,8 +1141,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 127.3,
-                                        "end": 197.3
+                                        "start": 107,
+                                        "end": 195.9
                                     },
                                     {
                                         "type": "ed",
@@ -2226,7 +2226,15 @@
                             "image": "https://image.tmdb.org/t/p/original/iHHfhqceV2AsbHvpKcVSBkeb5Ut.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMhhi38pW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMhhi38pW",
                             "referer": "",
-                            "release_date": "2018-11-09"
+                            "release_date": "2018-11-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [],
+                                "none": [
+                                    "op",
+                                    "ed"
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Third Level",

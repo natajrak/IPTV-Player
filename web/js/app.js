@@ -210,6 +210,8 @@ const btnFullscreen = document.getElementById("btn-fullscreen");
 const btnEpisodes = document.getElementById("btn-episodes");
 const btnShuffle = document.getElementById("btn-shuffle");
 const btnAutoSkip = document.getElementById("btn-auto-skip");
+const btnPrevCheckpoint = document.getElementById("btn-prev-checkpoint");
+const btnNextCheckpoint = document.getElementById("btn-next-checkpoint");
 const skipSegmentBtn = document.getElementById("skip-segment-btn");
 const skipNotice = document.getElementById("skip-notice");
 const epPanel = document.getElementById("ep-panel");
@@ -3762,6 +3764,8 @@ const SKIP_LABELS = {
 const MANUAL_ONLY_SKIP_TYPES = new Set(["mixed-op", "mixed-ed"]);
 const AUTO_SKIP_STORAGE_KEY = "bkl-auto-skip";
 let skipSegments = [];
+let checkpoints = [];
+let checkpointTitles = { prev: "", next: "" };
 let activeSkipSegment = null;
 let suppressedSkipSegments = new Set();
 let skipSelfSeekAt = 0;
@@ -3819,6 +3823,7 @@ function resetSkipSegments({ restoreFocus = true } = {}) {
   skipNotice.classList.add("hidden");
   clearTimeout(skipNoticeTimer);
   btnAutoSkip.hidden = true;
+  resetCheckpoints({ restoreFocus });
 }
 
 /** ตั้งช่วงข้ามของตอนที่เริ่มเล่น */
@@ -3828,10 +3833,12 @@ function startSkipSegments(station) {
   if (!skipSegments.length) return;
   btnAutoSkip.hidden = false;
   renderAutoSkipButton();
+  startCheckpoints();
 }
 
 /** เรียกทุก timeupdate — แสดง/ซ่อนปุ่มตามช่วงเวลา หรือข้ามเองถ้าเปิดข้ามอัตโนมัติ */
 function updateSkipSegment() {
+  updateCheckpointButtons();
   if (!skipSegments.length || playerVideo.readyState < 1) return;
   const t = Number(playerVideo.currentTime) || 0;
   if (!playerVideo.seeking) lastPlaybackPos = t;
@@ -3873,6 +3880,8 @@ function performSkip(seg, { auto = false } = {}) {
 function showSkipButton(seg) {
   skipSegmentBtn.textContent = SKIP_LABELS[seg.type];
   skipSegmentBtn.classList.remove("hidden");
+  skipNotice.classList.add("hidden");
+  clearTimeout(skipNoticeTimer);
   const active = document.activeElement;
   const userOnControls =
     playerOverlay.classList.contains("show-ui") &&
@@ -3917,6 +3926,166 @@ btnAutoSkip.addEventListener("click", (e) => {
   writeAutoSkipPref(autoSkipEnabled);
   renderAutoSkipButton();
   showPlayerUI();
+});
+
+/* ===== Checkpoint jump: 0:00 + เริ่ม/จบ ของทุกช่วงข้าม ===== */
+const CHECKPOINT_NAMES = {
+  intro: "หน้าเปิด",
+  recap: "ย้อนความ",
+  op: "เพลงเปิด",
+  "mixed-op": "เพลงเปิด",
+  ed: "เพลงปิด",
+  "mixed-ed": "เพลงปิด",
+};
+/** จุดที่ห่างกันไม่ถึงค่านี้ (วิ) รวมเป็นจุดเดียว เช่น จบหน้าเปิด = เริ่มเพลงเปิด */
+const CHECKPOINT_MERGE_SEC = 1;
+/** จุดถัดไปต้องอยู่หลังเวลาปัจจุบันเกินค่านี้ — กดซ้ำตรงจุดเดิมแล้วไปจุดต่อไป */
+const CHECKPOINT_NEXT_GAP_SEC = 1;
+/** จุดก่อนหน้าต้องอยู่ก่อนเวลาปัจจุบันเกินค่านี้ — เพิ่งกระโดดมาแล้วกดย้อนจะไปจุดก่อนนั้น */
+const CHECKPOINT_PREV_GAP_SEC = 3;
+/** จุดที่อยู่ในช่วงท้ายไฟล์นี้ (วิ) ถูกแทนด้วยจุด "จบเรื่อง" (ท้ายไฟล์ → Up Next) */
+const CHECKPOINT_END_GUARD_SEC = 2;
+
+/**
+ * จุดกระโดดของตอนนี้ เรียงตามเวลา — segment = ช่วงข้ามที่จุดนี้เป็นจุดเริ่ม
+ * (กระโดดเข้าจุดเริ่มช่วง = ตั้งใจดูช่วงนั้น → ไม่ auto skip)
+ * end = จุด "จบเรื่อง" ท้ายไฟล์ (มีเมื่อรู้ความยาวแล้ว) — จุดอื่นที่ชิดท้ายไฟล์ถูกแทนด้วยจุดนี้
+ */
+function buildCheckpoints() {
+  const duration = Number(playerVideo.duration);
+  const knownDuration = Number.isFinite(duration) && duration > 0;
+  const limit = knownDuration ? duration - CHECKPOINT_END_GUARD_SEC : Infinity;
+  const points = [{ time: 0, label: "เริ่มเรื่อง", segment: null }];
+  for (const seg of skipSegments) {
+    const name = CHECKPOINT_NAMES[seg.type];
+    points.push({ time: seg.start, label: `เริ่ม${name}`, segment: seg });
+    points.push({ time: seg.end, label: `จบ${name}`, segment: null });
+  }
+  points.sort((a, b) => a.time - b.time);
+  const merged = [];
+  for (const p of points) {
+    if (p.time > limit) continue;
+    const last = merged[merged.length - 1];
+    if (last && p.time - last.time < CHECKPOINT_MERGE_SEC) {
+      if (!last.segment && p.segment) {
+        last.segment = p.segment;
+        last.label = p.label;
+      }
+      continue;
+    }
+    merged.push({ ...p });
+  }
+  if (knownDuration)
+    merged.push({ time: duration, label: "จบเรื่อง", segment: null, end: true });
+  return merged;
+}
+
+function findCheckpoint(direction, t) {
+  if (direction > 0)
+    return checkpoints.find((p) => p.time > t + CHECKPOINT_NEXT_GAP_SEC) || null;
+  for (let i = checkpoints.length - 1; i >= 0; i--) {
+    if (checkpoints[i].time < t - CHECKPOINT_PREV_GAP_SEC) return checkpoints[i];
+  }
+  return null;
+}
+
+function checkpointText(p) {
+  return `${p.label} ${formatTime(p.time)}`;
+}
+
+/** title/aria-label บอกจุดที่จะไป + จางเมื่อไม่มีจุด (ไม่ disabled กัน focus รีโมทหลุด) */
+function renderCheckpointButton(btn, key, target, prefix, emptyText) {
+  const title = target ? `${prefix}: ${checkpointText(target)}` : emptyText;
+  if (checkpointTitles[key] === title) return;
+  checkpointTitles[key] = title;
+  btn.title = title;
+  btn.setAttribute("aria-label", title);
+  btn.classList.toggle("no-target", !target);
+}
+
+function updateCheckpointButtons() {
+  if (!checkpoints.length) return;
+  const t = Number(playerVideo.currentTime) || 0;
+  renderCheckpointButton(
+    btnPrevCheckpoint,
+    "prev",
+    findCheckpoint(-1, t),
+    "ไปจุดก่อนหน้า",
+    "ไม่มีจุดก่อนหน้า",
+  );
+  renderCheckpointButton(
+    btnNextCheckpoint,
+    "next",
+    findCheckpoint(1, t),
+    "ไปจุดถัดไป",
+    "ไม่มีจุดถัดไป",
+  );
+}
+
+function rebuildCheckpoints() {
+  checkpoints = buildCheckpoints();
+  checkpointTitles = { prev: "", next: "" };
+  updateCheckpointButtons();
+}
+
+function startCheckpoints() {
+  btnPrevCheckpoint.hidden = false;
+  btnNextCheckpoint.hidden = false;
+  rebuildCheckpoints();
+}
+
+/** ซ่อนปุ่ม — ถ้า focus อยู่บนปุ่ม ย้ายกลับไปปุ่มเล่น/หยุด กัน focus ค้างบนปุ่มที่ซ่อนแล้ว */
+function resetCheckpoints({ restoreFocus = true } = {}) {
+  checkpoints = [];
+  checkpointTitles = { prev: "", next: "" };
+  const active = document.activeElement;
+  if (restoreFocus && (active === btnPrevCheckpoint || active === btnNextCheckpoint))
+    focusTVElement(btnPlayPause);
+  btnPrevCheckpoint.hidden = true;
+  btnNextCheckpoint.hidden = true;
+}
+
+/**
+ * จุด "จบเรื่อง": seek ไปท้ายไฟล์ตอน pause อยู่จะไม่เกิด ended
+ * → สั่งเล่นก่อน ให้ onended พาไป Up Next (หรือปิด player ถ้าเป็นตอนสุดท้าย) เหมือนดูจบเอง
+ * ล้าง countdown ของ Up Next รอบก่อน (จบแล้วกดย้อนแล้วกดจบซ้ำ) กัน interval เก่าค้างเล่นตอนถัดไปซ้ำทุกวินาที
+ */
+function jumpToCheckpoint(direction) {
+  showPlayerUI();
+  if (!checkpoints.length || playerVideo.readyState < 1) return;
+  const target = findCheckpoint(direction, Number(playerVideo.currentTime) || 0);
+  if (!target) {
+    if (skipSegmentBtn.classList.contains("hidden"))
+      showSkipNotice(direction > 0 ? "ไม่มีจุดถัดไป" : "ไม่มีจุดก่อนหน้า");
+    return;
+  }
+  if (target.end) {
+    cancelUpnext();
+    if (playerVideo.paused) playerVideo.play().catch(() => {});
+    playerVideo.currentTime = playerVideo.duration;
+    return;
+  }
+  if (target.segment) suppressedSkipSegments.add(target.segment);
+  skipSelfSeekAt = Date.now();
+  playerVideo.currentTime = target.time;
+  if (!target.segment || target.segment !== activeSkipSegment)
+    showSkipNotice(checkpointText(target));
+  updateCheckpointButtons();
+}
+
+btnPrevCheckpoint.addEventListener("click", (e) => {
+  e.stopPropagation();
+  jumpToCheckpoint(-1);
+});
+
+btnNextCheckpoint.addEventListener("click", (e) => {
+  e.stopPropagation();
+  jumpToCheckpoint(1);
+});
+
+/** ความยาวไฟล์มาทีหลัง startSkipSegments → คำนวณจุดใหม่ (ตัดจุดท้ายไฟล์) */
+playerVideo.addEventListener("durationchange", () => {
+  if (skipSegments.length) rebuildCheckpoints();
 });
 
 /** ผู้ใช้ seek ถอยกลับเข้าช่วงข้ามเอง = ตั้งใจดู → ไม่ข้ามอัตโนมัติซ้ำในช่วงนั้น */
