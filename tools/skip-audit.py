@@ -22,7 +22,7 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
         --kinds op|ed                      จำกัดเฉพาะ OP หรือ ED (default ทั้งคู่; --set ไม่ถูกกรอง)
         --remove "Season 1/ซับไทย|1|op" [...]  ลบ segment op/ed ของตอนนั้น (ค่าเดิมผิดและตรวจไม่พบ เช่น placeholder 0:00-1:30)
         ช่วงที่ยาวต่างจากค่ากลางของแทร็กเกิน 3 วิ จะถูกข้าม (พิมพ์แจ้ง) ต้องยืนยันด้วย --set
-        --min-support N                    ใช้เฉพาะ region ที่ตอนข้างเคียงยืนยัน ≥ N ครั้ง (default 2)
+        --min-support N                    ใช้เฉพาะ region ที่ตอนข้างเคียงยืนยัน ≥ N ครั้ง (default 2; OP/ED ที่จุดตัดภาพยืนยันทั้งสองขอบลดลง 1)
         --set "Season 1/พากย์ไทย|1|op=0:52-2:22" [...]   (kind: op | ed | intro = หน้าเปิด/splash ของเว็บต้นทาง
                                            | credits = end credit ที่มีฉากคั่นหลัง ED เก็บเป็น ed ช่วงที่สอง)
                                            ค่าที่ผู้ใช้ตรวจด้วยตา ใช้แทนค่าที่ตรวจพบของตอนนั้น (ปรับขอบตามนโยบายให้อัตโนมัติ
@@ -47,6 +47,10 @@ ED / end credit (ผู้ใช้กำหนด 2026-11-02):
 OP/ED ที่จับได้สั้นกว่าเพลงเต็ม (ผู้ใช้เสนอ 2026-11-02): ช่วงเสียงต่างกันสั้น ๆ กลางเพลงทำให้จับต้นเพลงช้า แต่จุดจบตรงทุกตอน
     → นับถอยจากจุดจบด้วยความยาวเพลงเต็มของแทร็ก (~90±5 วิ, กลุ่มที่ยาวที่สุดซึ่งมี ≥ 3 ตอน) หาจุดที่เสียงเริ่มเหมือนตอนข้างเคียง
     ใช้เมื่อช่วงที่ขยายเหมือนตอนข้างเคียงจริง; OP ที่เริ่มใน 1.5 วิแรกของไฟล์เริ่มที่ 0:00; รายงานแสดง "ขยายต้นเพลงย้อนจากจุดจบ"
+
+ขอบตามจุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02): หลังจับขอบจากเสียง ดึงภาพ ±4 วิรอบแต่ละขอบ (ภาพย่อ 32×18 ขาวดำ 25 fps,
+    cache เป็น <key>-v<t>.npy) หาจุดตัดภาพภายใน ±1.5 วิที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือน → ใช้เป็นขอบ (ปรับขอบ ±0.5 ตามนโยบายต่อ)
+    ไม่พบจุดตัดชัดเจน/ดึงตรงไม่ได้ (ต้องผ่าน worker) → คงขอบเสียง; ปิดด้วย report --no-visual
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
 intro = หน้าเปิด/splash ของเว็บต้นทางที่หัวไฟล์ (3–29 วิ เริ่มที่ 0:00 ซ้ำกันทุกตอน) ตรวจและเติมให้อัตโนมัติเช่นกัน
@@ -133,6 +137,17 @@ EXTEND_WINDOW_TOL_SEC = 0.5
 EXTEND_MIN_VALID = 0.8
 EXTEND_MIN_SEC = 1.5
 HEAD_SNAP_SEC = 1.5
+VISUAL_WINDOW_SEC = 4.0
+VISUAL_FPS = 25
+VISUAL_W, VISUAL_H = 32, 18
+VISUAL_FLAT_NORM = 30.0
+VISUAL_CUT_FACTOR = 4.0
+VISUAL_CUT_MIN = 2.0
+VISUAL_SNAP_MAX_SEC = 1.5
+VISUAL_ALIGN_MAX_SEC = 2.0
+VISUAL_ALIGN_MIN_SIM = 0.7
+VISUAL_MIN_SCORE = 0.3
+VISUAL_CREDITS_GAP_SEC = 1.0
 STING_SIM = 0.9
 STING_LEAD_SEC = 2.0
 STING_INTRO_MAX_SEC = 20.0
@@ -881,6 +896,201 @@ def _extend_to_song_length(episodes, feats, result, start_shift, end_shift, skip
                 region['start'] = new_start
 
 
+def _video_source(station):
+    """(url, referer) สำหรับดึงภาพ — None เมื่อดึงตรงจากเครื่องไม่ได้ (ต้องผ่าน worker / host ที่ ffmpeg เปิดไม่ได้) เพื่อไม่ใช้ quota ของ worker"""
+    resolver = station.get('resolver')
+    referer = station.get('referer')
+    if resolver:
+        local = LOCAL_RESOLVERS.get(resolver)
+        if not local:
+            return None
+        try:
+            url, override = local(station)
+        except Exception:
+            return None
+        referer = override or referer
+    else:
+        url = station['url']
+    direct = _unwrap_proxy(url)
+    if direct:
+        url, referer = direct[0], direct[1] or referer
+    host = urllib.parse.urlparse(url).netloc
+    if host.endswith('workers.dev') or host in SEGMENT_ONLY_HOSTS:
+        return None
+    return url, referer
+
+
+def _grab_frames(src, t0, length, path):
+    """ภาพขาวดำ VISUAL_W×VISUAL_H ที่ VISUAL_FPS ช่วง [t0, t0+length) — cache เป็น .npy; ดึงไม่ได้คืน None"""
+    if os.path.exists(path):
+        return np.load(path)
+    url, referer = src
+    cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', *hls_opts(url)]
+    if url.startswith('http'):
+        cmd += ['-headers', ff_headers(referer)]
+    cmd += ['-ss', f'{t0:.3f}', '-i', url, '-t', f'{length:.3f}', '-an',
+            '-vf', f'fps={VISUAL_FPS},scale={VISUAL_W}:{VISUAL_H},format=gray', '-f', 'rawvideo', 'pipe:1']
+    try:
+        out = subprocess.run(cmd, capture_output=True, timeout=300)
+    except subprocess.TimeoutExpired:
+        return None
+    frames = np.frombuffer(out.stdout, dtype=np.uint8)
+    size = VISUAL_W * VISUAL_H
+    if out.returncode != 0 or len(frames) < size * VISUAL_FPS * length * 0.8:
+        return None
+    frames = frames[:len(frames) // size * size].reshape(-1, VISUAL_H, VISUAL_W)
+    tmp = path + f'.{os.getpid()}.tmp.npy'
+    np.save(tmp, frames)
+    os.replace(tmp, path)
+    return frames
+
+
+def _image_sim(a, b):
+    """correlation ของภาพย่อสองภาพ — ภาพเรียบ (จอดำ/ขาว) เทียบไม่ได้ คืน NaN"""
+    a = a.astype(np.float32) - a.mean()
+    b = b.astype(np.float32) - b.mean()
+    na, nb = np.linalg.norm(a), np.linalg.norm(b)
+    if na < VISUAL_FLAT_NORM or nb < VISUAL_FLAT_NORM:
+        return np.nan
+    return float((a * b).sum() / (na * nb))
+
+
+def _visual_edge(frames, others, side):
+    """จุดตัดภาพที่เป็นขอบ OP/ED ใน frames (หน้าต่าง ±VISUAL_WINDOW_SEC รอบขอบเสียง) — คืน (τ วินาทีจากขอบเสียง, score) หรือ None
+    จัดแนวภาพกับตอนข้างเคียงแต่ละตอน (เลื่อนหา ≤ VISUAL_ALIGN_MAX_SEC จากช่วงที่อยู่ในเพลงแน่ๆ) → ค่ากลางความเหมือนต่อเฟรม
+    → จุดตัด (ภาพเปลี่ยนกะทันหัน ≤ VISUAL_SNAP_MAX_SEC จากขอบเสียง) ที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือนมากที่สุด
+    side 0 = ขอบเริ่ม (หลังจุดตัดเหมือน), 1 = ขอบจบ (ก่อนจุดตัดเหมือน)"""
+    n = len(frames)
+    centre = int(VISUAL_WINDOW_SEC * VISUAL_FPS)
+    if side == 0:
+        inner = range(centre + VISUAL_FPS, min(n, centre + 3 * VISUAL_FPS))
+    else:
+        inner = range(max(0, centre - 3 * VISUAL_FPS), centre - VISUAL_FPS)
+    shift_max = int(VISUAL_ALIGN_MAX_SEC * VISUAL_FPS)
+    curves = []
+    for other in others:
+        best = None
+        for dk in range(-shift_max, shift_max + 1):
+            vals = [v for v in (_image_sim(frames[k], other[k + dk]) for k in inner if 0 <= k + dk < len(other)) if v == v]
+            if len(vals) < VISUAL_FPS:
+                continue
+            score = float(np.mean(vals))
+            if best is None or score > best[0]:
+                best = (score, dk)
+        if not best or best[0] < VISUAL_ALIGN_MIN_SIM:
+            continue
+        curve = np.full(n, np.nan)
+        for k in range(n):
+            vals = [v for v in (_image_sim(frames[k], other[k + best[1] + e]) for e in (-1, 0, 1) if 0 <= k + best[1] + e < len(other)) if v == v]
+            if vals:
+                curve[k] = max(vals)
+        curves.append(curve)
+    if not curves:
+        return None
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore', RuntimeWarning)
+        m = np.nanmedian(np.array(curves), axis=0)
+        diff = np.abs(np.diff(frames.astype(np.float32), axis=0)).mean(axis=(1, 2))
+        floor = VISUAL_CUT_FACTOR * np.median(diff) + VISUAL_CUT_MIN
+        best = None
+        for k in range(len(diff)):
+            c = k + 1
+            if diff[k] <= floor or diff[k] < diff[max(0, k - 2):k + 3].max() or abs(c - centre) > VISUAL_SNAP_MAX_SEC * VISUAL_FPS:
+                continue
+            pre = m[max(0, c - VISUAL_FPS):c]
+            post = m[c:c + VISUAL_FPS]
+            if len(pre) < VISUAL_FPS // 2 or len(post) < VISUAL_FPS // 2:
+                continue
+            a, b = np.nanmean(pre), np.nanmean(post)
+            if np.isnan(a) or np.isnan(b):
+                continue
+            score = float(b - a if side == 0 else a - b)
+            if best is None or score > best[1]:
+                best = ((c - centre) / VISUAL_FPS, score)
+    if not best or best[1] < VISUAL_MIN_SCORE:
+        return None
+    return best
+
+
+def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers):
+    """ขยับขอบ OP/ED ไปที่จุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02: เพลงมักคร่อมจุดตัดภาพ ±1 วิ ทั้งสองทิศ)
+    ดึงภาพ ±VISUAL_WINDOW_SEC รอบขอบเสียงแต่ละขอบ เทียบกับตอนข้างเคียง ±NEIGHBOR_SPAN — ไม่พบจุดตัดที่ชัดเจนคงขอบเสียงเดิม
+    ไม่แตะ: ED ที่ตัดต้นเพลงเพราะเสียงพูดทับ (trimmed), ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)"""
+    edges = {}
+    for ep in episodes:
+        r = det.get(ep['idx']) or {}
+        dur = r.get('duration') or 0.0
+        for kind in ('op', 'ed'):
+            region = r.get(kind)
+            if not region:
+                continue
+            if not (kind == 'ed' and region.get('trimmed')):
+                edges[(ep['idx'], kind, 0)] = region['start'] - start_shift
+            if kind == 'op' or not region.get('to_eof') and region['end'] - _song_end(region) < VISUAL_CREDITS_GAP_SEC:
+                edges[(ep['idx'], kind, 1)] = _song_end(region) - end_shift
+        for key in [k for k in edges if k[0] == ep['idx']]:
+            t = edges[key]
+            if t - VISUAL_WINDOW_SEC < 0 or t + VISUAL_WINDOW_SEC > dur:
+                del edges[key]
+    if not edges:
+        return
+    by_idx = {ep['idx']: ep for ep in episodes}
+
+    def work(idx):
+        """ภาพทุกขอบของตอน idx — ดึงไม่ได้ด้วยสาเหตุใดก็ตามคืนเท่าที่ได้ (ไม่ให้ report ล้ม)"""
+        out = {}
+        try:
+            st = by_idx[idx]['station']
+            src = _video_source(st)
+            if not src:
+                return out
+            for key, t in edges.items():
+                if key[0] != idx:
+                    continue
+                path = os.path.join(cache_dir, f'{station_key(st)}-v{int(round((t - VISUAL_WINDOW_SEC) * 10))}.npy')
+                frames = _grab_frames(src, t - VISUAL_WINDOW_SEC, 2 * VISUAL_WINDOW_SEC, path)
+                if frames is not None and len(frames) >= 2 * VISUAL_WINDOW_SEC * VISUAL_FPS * 0.9:
+                    out[key] = frames
+        except Exception as e:
+            log(f'    ดึงภาพไม่ได้ ({e})')
+        return out
+
+    frames = {}
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as ex:
+        for got in ex.map(work, sorted({k[0] for k in edges})):
+            frames.update(got)
+    order = [ep['idx'] for ep in episodes]
+    snapped = 0
+    for key, a in frames.items():
+        idx, kind, side = key
+        pos = order.index(idx)
+        others = [frames[(order[j], kind, side)] for j in range(pos - NEIGHBOR_SPAN, pos + NEIGHBOR_SPAN + 1)
+                  if j != pos and 0 <= j < len(order) and (order[j], kind, side) in frames]
+        found = _visual_edge(a, others, side)
+        if not found:
+            continue
+        r = det[idx]
+        region = r[kind]
+        tau = found[0]
+        if side == 0:
+            new = round(max(0.0, edges[key] + tau + start_shift), 1)
+            if kind == 'ed' and r.get('op') and new < r['op']['end']:
+                continue
+            if _song_end(region) - new < MIN_REGION_SEC:
+                continue
+            region['start'] = new
+        else:
+            new = round(edges[key] + tau + end_shift, 1)
+            if new - region['start'] < MIN_REGION_SEC:
+                continue
+            region['end'] = new
+            if 'song_end' in region:
+                region['song_end'] = new
+        region.setdefault('visual', {})['start' if side == 0 else 'end'] = round(tau, 2)
+        snapped += 1
+    log(f'  🎞 ขอบตามจุดตัดภาพ {snapped}/{len(edges)} ขอบ (ดึงภาพได้ {len(frames)})')
+
+
 def _shift(region, start_delta, end_delta):
     if not region:
         return region
@@ -1163,6 +1373,8 @@ def cmd_report(args):
         episodes = [{'idx': i, 'label': episode_label(st.get('name')), 'station': st, 'error': errors.get((tn, i))} for i, st in enumerate(stations)]
         tfeats = {i: feats.get((tn, i)) for i in range(len(stations))}
         det = detect_track(episodes, tfeats, args.start_shift, args.end_shift)
+        if args.visual:
+            _snap_to_video(episodes, det, cache_dir, args.start_shift, args.end_shift, args.workers)
         rows = []
         for ep in episodes:
             st = ep['station']
@@ -1313,6 +1525,8 @@ def print_report(report):
                     notes.append(f'{kind} ตัดต้นเพลงที่มีเสียงฉากทับ {dt["trimmed"]:.1f}s')
                 if dt and dt.get('extended'):
                     notes.append(f'{kind} ต้นเพลงอยู่ก่อนช่วงเสียงท้ายที่ดึงมา ขยายตามความยาวกลาง {dt["extended"]:.1f}s')
+                if dt and dt.get('visual'):
+                    notes.append(f'{kind} ตามจุดตัดภาพ ' + ' '.join(f'{k} {v:+.2f}s' for k, v in dt['visual'].items()))
                 if dt and dt.get('from_end'):
                     notes.append(f'{kind} ขยายต้นเพลงย้อนจากจุดจบตามความยาวเพลงเต็ม {dt["from_end"]:.1f}s')
                 if dt and dt.get('to_eof'):
@@ -1337,6 +1551,13 @@ def print_report(report):
             w = [8, 16, 16, 13, 11, 16, 16, 13, 11]
             print(''.join(f'{c:<{w[i]}}' for i, c in enumerate(cells)) + ' '.join(notes))
     print('\nสรุป: ' + ', '.join(f'{k}={v}' for k, v in sorted(totals.items())))
+
+
+def _visually_confirmed(kind, dt):
+    """OP/ED ที่จุดตัดภาพยืนยันทั้งขอบเริ่มและขอบจบ (_snap_to_video) — หลักฐานจากภาพแยกจากเสียง จึงลดจำนวนตอนข้างเคียงที่ต้องยืนยันลง 1
+    (ผู้ใช้อนุมัติ 2026-11-02: ตอนแรก/ตอนที่ข้างเคียงไม่มี ED ยืนยันด้วยเสียงได้ตอนเดียว)"""
+    visual = dt.get('visual') or {}
+    return kind in ('op', 'ed') and 'start' in visual and 'end' in visual
 
 
 def cmd_apply(args):
@@ -1407,6 +1628,8 @@ def cmd_apply(args):
                     if not dt or row.get('error') or r['verdict'] in ('review', 'error'):
                         continue
                     min_support = 1 if (kind == 'intro' and dt['sim'] >= 0.9) or kind == 'credits' else args.min_support
+                    if _visually_confirmed(kind, dt):
+                        min_support = max(1, min_support - 1)
                     if dt['support'] < min_support:
                         continue
                     if not r['existing'] and kind in ((st.get('skip') or {}).get('none') or []):
@@ -1586,6 +1809,7 @@ def main():
     r.add_argument('--cache-dir', default=DEFAULT_CACHE)
     r.add_argument('--start-shift', type=float, default=DEFAULT_START_SHIFT, help='ปรับจุดเริ่มของ OP/ED/intro (วินาที, default +0.5)')
     r.add_argument('--end-shift', type=float, default=DEFAULT_END_SHIFT, help='ปรับจุดจบของ OP/ED/intro (วินาที, default -0.5)')
+    r.add_argument('--no-visual', dest='visual', action='store_false', help='ไม่ขยับขอบตามจุดตัดภาพ (ไม่ดึงภาพจากวิดีโอ)')
     a = sub.add_parser('apply')
     a.add_argument('playlist')
     a.add_argument('report')
