@@ -4,6 +4,7 @@
 const http         = require('http');
 const fs           = require('fs');
 const path         = require('path');
+const os           = require('os');
 const url          = require('url');
 const { spawn }    = require('child_process');
 const { createSkipAuto } = require('./tools/lib/skip-auto');
@@ -64,6 +65,9 @@ const PLAYLIST_DIRS = {
 };
 
 const CUSTOM_TABS_PATH = path.join(ROOT, 'playlist', 'custom-tabs.json');
+
+/** สำเนาไฟล์ playlist ก่อนรอบแรกของ chain ใน CMS — รอบถัดไปอ่านผ่าน --chain-base (tools/lib/playlist-io.js loadPrevious) */
+const CHAIN_BASE_DIR = path.join(os.tmpdir(), 'bkl-play-chain-base');
 
 /** ตรวจ OP/ED อัตโนมัติหลัง fetch ตอนใหม่ (tools/lib/skip-auto.js) */
 const skipAuto = createSkipAuto({ root: ROOT, playlistDirOf: tab => getPlaylistDir(tab) });
@@ -227,6 +231,42 @@ const server = http.createServer(async (req, res) => {
     }
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
     res.end(JSON.stringify(skipAuto.status()));
+    return;
+  }
+
+  // ── POST /api/chain-base ── { filePath } → { path } สำเนาไฟล์ก่อนรอบแรกของ chain (ยังไม่มีไฟล์ = { path: null })
+  if (req.method === 'POST' && pathname === '/api/chain-base') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { filePath } = body;
+    const fullPath = typeof filePath === 'string' ? path.join(ROOT, filePath) : '';
+    if (!fullPath.startsWith(path.join(ROOT, 'playlist') + path.sep) || !fullPath.endsWith('.txt')) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('Forbidden');
+      return;
+    }
+
+    let dest = null;
+    try {
+      await skipAuto.withFile(fullPath, async () => {
+        if (!fs.existsSync(fullPath)) return;
+        const base = path.basename(fullPath, '.txt');
+        await fs.promises.mkdir(CHAIN_BASE_DIR, { recursive: true });
+        for (const f of await fs.promises.readdir(CHAIN_BASE_DIR)) {
+          if (f.startsWith(`${base}.`) && /^\d+\.json$/.test(f.slice(base.length + 1))) await fs.promises.rm(path.join(CHAIN_BASE_DIR, f), { force: true });
+        }
+        dest = path.join(CHAIN_BASE_DIR, `${base}.${Date.now()}.json`);
+        await fs.promises.copyFile(fullPath, dest);
+      });
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end(err.message);
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ path: dest }));
     return;
   }
 

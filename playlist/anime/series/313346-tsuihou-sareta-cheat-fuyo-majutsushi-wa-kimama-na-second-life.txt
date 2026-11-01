@@ -16,31 +16,93 @@
                             "image": "https://image.tmdb.org/t/p/original/2gfGd9W8C9f2Uuf2KK2T4Ave6pa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Q6WpucqZu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-07"
+                            "release_date": "2026-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Enhanced Clothes I Was Wearing Were Destroyed by a Devastating Blow, and a Traumatized Girl in Casual Clothes Hit Me With All Her Might.",
                             "image": "https://image.tmdb.org/t/p/original/9nd5vh6Lome9Vkyki9L5Swsrft7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vVCi6SWxe5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-14"
+                            "release_date": "2026-10-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.4,
+                                        "end": 149
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - When I Went to Apologize With a Friend Who Was a Shut-In for Two Years, We Were Unexpectedly Served Apple Bunnies, so I Think She’s Been Forgiven.",
                             "image": "https://image.tmdb.org/t/p/original/wvo2oDC48Xg9rdGPOfVnZ9gJa8S.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ot3aXKal7T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-21"
+                            "release_date": "2026-10-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 133
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 4 - There’s Something I’ve Learned From Ending Up Naked Twice... When You’re Naked, You Get Bitten Twice.",
+                            "image": "https://image.tmdb.org/t/p/original/brsomKe13kNvc42p8rzgksCadap.jpg",
+                            "url": "https://sv2.team-indy.net/video/uFUYsZgFzQ/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.7,
+                                        "end": 127.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-07",
-            "updated_at": "2026-10-21T00:00:00.000Z"
+            "updated_at": "2026-10-28T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-07",
-    "updated_at": "2026-10-21T00:00:00.000Z",
+    "updated_at": "2026-10-28T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

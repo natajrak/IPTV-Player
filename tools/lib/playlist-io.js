@@ -9,6 +9,19 @@ function loadPlaylist(filePath) {
   catch { return null; }
 }
 
+/**
+ * playlist ก่อนรอบนี้ — แหล่งลิงก์เดิม (--only-new) และ skip ที่ต้องยกไปใส่ station ใหม่
+ * chainBase (--chain-base): สำเนาไฟล์ก่อนรอบแรกของ chain ใน CMS (URL หลายสคริปต์ต่อกันใน track เดียว)
+ * รอบแรกเขียนทับ track ไปแล้ว รอบถัดไปจึงต้องอ่านจากสำเนา ไม่งั้นตอนของรอบนี้ไม่มีให้เทียบ
+ */
+function loadPrevious(filePath, chainBase = '') {
+  if (!chainBase) return loadPlaylist(filePath);
+  const base = loadPlaylist(chainBase);
+  if (base) return base;
+  console.warn(`⚠️  อ่าน --chain-base ไม่ได้ (${chainBase}) — ใช้ไฟล์ปัจจุบันแทน`);
+  return loadPlaylist(filePath);
+}
+
 function savePlaylist(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 4), 'utf-8');
 }
@@ -424,6 +437,7 @@ function resolvePlaylistFile({ playlistDir, fname }) {
 
 module.exports = {
   loadPlaylist,
+  loadPrevious,
   savePlaylist,
   stampPlaylist,
   buildOrMergePlaylist,

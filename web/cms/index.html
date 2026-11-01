@@ -1501,6 +1501,7 @@
         <div class="skip-none-row">
           <label><input type="checkbox" id="skip-none-op"> ยืนยันไม่มี OP</label>
           <label><input type="checkbox" id="skip-none-ed"> ยืนยันไม่มี ED</label>
+          <label><input type="checkbox" id="skip-none-intro"> ยืนยันไม่มี Intro</label>
         </div>
       </div>
       <div id="skip-summary"></div>
@@ -2810,7 +2811,7 @@ function renderSkipBadge(card, si, li, ci) {
   const skip = card.skip;
   const count = Array.isArray(skip?.segments) ? skip.segments.length : 0;
   const cls = skip ? ' manual' : '';
-  const noneText = (skip?.none || []).map(k => `ไม่มี ${k.toUpperCase()}`).join(', ');
+  const noneText = (skip?.none || []).map(k => `ไม่มี ${SKIP_KIND_LABEL[k] || k.toUpperCase()}`).join(', ');
   const tip = skip ? `กรอกแล้ว (${count} ช่วง${noneText ? `, ${noneText}` : ''}) — คลิกเพื่อแก้` : 'ยังไม่มีเวลาข้าม — คลิกเพื่อใส่';
   return `<button class="eb-card-skip${cls}" data-si="${si}" data-li="${li}" data-ci="${ci}" title="${esc(tip)}">⏭${count || ''}</button>`;
 }
@@ -3460,10 +3461,10 @@ const CHAIN_OFFSET_PLACEHOLDER = '--ep-offset=<ต่อจากรอบก่
  * แปลงรอบเป็นคำสั่ง — รอบแรกใช้ args ตามฟอร์ม รอบถัดไปต่อท้าย track ด้วย --ep-offset ที่คำนวณตอนรัน
  * คืน { steps: [{ script, args, chain }], cmd }
  */
-function buildScriptSteps(groups, baseArgs) {
+function buildScriptSteps(groups, baseArgs, extraArgsFor = () => []) {
   const steps = groups.map((g, i) => ({
     script: g.file,
-    args: [g.urls.join(','), ...(i === 0 ? baseArgs : baseArgs.filter(a => !a.startsWith('--ep-offset=')))],
+    args: [g.urls.join(','), ...(i === 0 ? baseArgs : baseArgs.filter(a => !a.startsWith('--ep-offset='))), ...extraArgsFor(g.file)],
     chain: i > 0,
   }));
   const cmd = steps.map(st => `node ${st.script} ${st.args.join(' ')}${st.chain ? ' ' + CHAIN_OFFSET_PLACEHOLDER : ''}`).join('\n');
@@ -3475,11 +3476,33 @@ function buildScriptSteps(groups, baseArgs) {
  * จับคู่แบบเดียวกับ resolvePlaylistFile ฝั่ง tools: ชื่อตรง หรือ ลงท้ายด้วย "-<ชื่อ>"
  */
 async function resolveOutputFile(tabId, fname) {
+  const filePath = await findOutputFile(tabId, fname);
+  if (!filePath) throw new Error(`ไม่พบไฟล์ ${fname.replace(/\.txt$/, '')}.txt`);
+  return filePath;
+}
+
+/** เหมือน resolveOutputFile แต่ไม่มีไฟล์คืน null */
+async function findOutputFile(tabId, fname) {
   const files = await getJSON(`/api/playlist-files?tab=${encodeURIComponent(tabId)}&t=${Date.now()}`);
   const want = fname.replace(/\.txt$/, '');
   const hit = files.find(f => f.full === want) || files.find(f => f.full.endsWith(`-${want}`));
-  if (!hit) throw new Error(`ไม่พบไฟล์ ${want}.txt`);
-  return `${TABS[tabId].index.replace(/index\.txt$/, '')}${hit.full}.txt`;
+  return hit ? `${TABS[tabId].index.replace(/index\.txt$/, '')}${hit.full}.txt` : null;
+}
+
+/**
+ * สำเนาไฟล์ก่อนรอบแรกของ chain → path สำหรับ --chain-base ของรอบถัดไป (ยังไม่มีไฟล์ = null)
+ * รอบแรกเขียนทับ track ทั้งหมด รอบถัดไปจึงต้องอ่านลิงก์เดิม (--only-new) และ skip ของตอนตัวเองจากสำเนานี้
+ */
+async function snapshotChainBase(target) {
+  const filePath = await findOutputFile(target.tabId, target.fname);
+  if (!filePath) return null;
+  const resp = await fetch('/api/chain-base', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filePath }),
+  });
+  if (!resp.ok) throw new Error(`${resp.status} ${await resp.text()}`);
+  return (await resp.json()).path;
 }
 
 /** เลขตอนสูงสุดของ season/track ในไฟล์ playlist (อ่านไฟล์ล่าสุดจาก dev server) — 0 ถ้าไม่พบ */
@@ -3500,10 +3523,20 @@ async function maxEpisodeInTrack(target) {
 
 /**
  * รันทีละรอบตามลำดับ — รอบที่ต่อท้าย (chain) ใส่ --ep-offset = เลขตอนสูงสุดหลังรอบก่อน
+ * และ --chain-base = สำเนาไฟล์ก่อนรอบแรก (ถ้ามีไฟล์เดิม)
  * หยุดทันทีเมื่อรอบใดล้มเหลว คืน exit code ของรอบสุดท้ายที่รัน
  */
 async function runScriptSteps(steps, bodyEl, target) {
   const note = (text, cls) => bodyEl.appendChild(Object.assign(document.createElement('span'), { className: cls || '', textContent: text }));
+  let chainBase = null;
+  if (steps.some(st => st.chain)) {
+    try {
+      chainBase = await snapshotChainBase(target);
+    } catch (e) {
+      note(`\n✗ สำเนาไฟล์ก่อนเริ่มรอบแรกไม่ได้: ${e.message}\n`, 'log-fail');
+      return 1;
+    }
+  }
   for (let i = 0; i < steps.length; i++) {
     const step = steps[i];
     let args = step.args;
@@ -3519,7 +3552,7 @@ async function runScriptSteps(steps, bodyEl, target) {
         note(`\n✗ ไม่พบตอนใน ${target.trackName} หลังรอบก่อน — หยุดเพื่อกันเขียนทับ track\n`, 'log-fail');
         return 1;
       }
-      args = [...args, `--ep-offset=${offset}`];
+      args = [...args, `--ep-offset=${offset}`, ...(chainBase ? [`--chain-base=${chainBase}`] : [])];
     }
     if (steps.length > 1) note(`\n▶ รอบ ${i + 1}/${steps.length}: node ${step.script} ${args.join(' ')}\n`, 'log-done');
     const code = await runScript(step.script, args, bodyEl);
@@ -3922,12 +3955,14 @@ function buildRfCmd() {
   }
   const onlyNew = rfIsSeries && document.querySelector('input[name="rf-mode"]:checked')?.value === 'new';
   const autoSplitOn = !rfSplitVal && document.getElementById('rf-auto-split').checked;
+  const noopFiles = onlyNew && !autoSplitOn ? [...new Set(groups.map(g => g.file).filter(f => ONLY_NEW_NOOP[f]))] : [];
   const note = !onlyNew ? ''
-    : groups.length > 1 ? 'URL หลายสคริปต์ต่อกัน — ขั้นแรกเขียนทับ track ก่อน ขั้นถัดไปจึงหาลิงก์เดิมไม่เจอ ต้องดึงใหม่ทั้งหมด'
-    : autoSplitOn ? 'ตรวจจับตอนพิเศษอัตโนมัติจะจัดชื่อตอนใหม่หลังดึง จึงจับคู่ตอนเดิมไม่ได้'
-    : ONLY_NEW_NOOP[groups[0].file] || '';
-  if (onlyNew && !note) baseArgs.push('--only-new');
-  const built = buildScriptSteps(groups, baseArgs);
+    : autoSplitOn ? 'ดึงใหม่ทั้งหมด: ตรวจจับตอนพิเศษอัตโนมัติจะจัดชื่อตอนใหม่หลังดึง จึงจับคู่ตอนเดิมไม่ได้'
+    : !noopFiles.length ? ''
+    : groups.length === 1 ? `ดึงใหม่ทั้งหมด: ${ONLY_NEW_NOOP[groups[0].file]}`
+    : `ดึงใหม่ทั้งหมดเฉพาะรอบของ ${noopFiles.map(f => `${f} (${ONLY_NEW_NOOP[f]})`).join(', ')}`;
+  const built = buildScriptSteps(groups, baseArgs,
+    file => (onlyNew && !autoSplitOn && !ONLY_NEW_NOOP[file] ? ['--only-new'] : []));
   built.target = { tabId: rfCtx.tabId, fname, seasonNum: season, trackName: track === 'subth' ? 'ซับไทย' : 'พากย์ไทย' };
   built.note = note;
   return built;
@@ -3939,7 +3974,7 @@ function refreshRfCmd() {
   cmdEl.textContent = p ? p.cmd : '(กรุณากรอก URL และ Output)';
   cmdEl.className   = p && !p.error ? 'cmd-text' : 'cmd-text placeholder';
   const noteEl = document.getElementById('rf-mode-note');
-  noteEl.textContent = p?.note ? `ดึงใหม่ทั้งหมด: ${p.note}` : '';
+  noteEl.textContent = p?.note || '';
   noteEl.classList.toggle('hidden', !p?.note);
 }
 
@@ -4029,6 +4064,8 @@ const SKIP_TYPE_OPTIONS = [
   ['ed', 'เพลงปิด'],
   ['mixed-ed', 'เพลงปิด (ผสมฉาก)'],
 ];
+/** ชนิดที่ติ๊ก "ยืนยันไม่มี" ได้ (เก็บใน skip.none — ระบบตรวจจะไม่เติม และรายการ ต้องดู ของชนิดนั้นถือว่าจัดการแล้ว) */
+const SKIP_NONE_KINDS = ['op', 'ed', 'intro'];
 let skipCtx = null;
 const SKIP_DEFAULT_LENGTH = 90;
 
@@ -4086,10 +4123,10 @@ function readSkipRows() {
     segments.push({ type: rows[i].querySelector('.skip-type').value, start: Math.round(start * 10) / 10, end: Math.round(end * 10) / 10 });
   }
   segments.sort((a, b) => a.start - b.start);
-  const none = ['op', 'ed'].filter(k => document.getElementById(`skip-none-${k}`).checked);
+  const none = SKIP_NONE_KINDS.filter(k => document.getElementById(`skip-none-${k}`).checked);
   for (const k of none) {
     if (segments.some(seg => seg.type === k || seg.type === `mixed-${k}`)) {
-      return { error: `ติ๊ก "ยืนยันไม่มี ${k.toUpperCase()}" แต่ยังมีช่วง ${k.toUpperCase()} อยู่` };
+      return { error: `ติ๊ก "ยืนยันไม่มี ${SKIP_KIND_LABEL[k]}" แต่ยังมีช่วง ${SKIP_KIND_LABEL[k]} อยู่` };
     }
   }
   return { segments, none };
@@ -4109,7 +4146,7 @@ function updateSkipSummary() {
   el.className = '';
   const parts = [
     ...segments.map(seg => `${SKIP_TYPE_OPTIONS.find(o => o[0] === seg.type)[1]} ${formatSkipTime(seg.start)}–${formatSkipTime(seg.end)}`),
-    ...none.map(k => `ไม่มี ${k.toUpperCase()}`),
+    ...none.map(k => `ไม่มี ${SKIP_KIND_LABEL[k]}`),
   ];
   el.textContent = segments.length
     ? parts.join(' · ')
@@ -4158,7 +4195,7 @@ function openSkipModal(si, li, ci) {
   document.getElementById('skip-source').textContent = skipState + followNote;
   const segs = Array.isArray(skip?.segments) && skip.segments.length ? skip.segments : [{ type: 'op' }];
   document.getElementById('skip-seg-list').innerHTML = segs.map(skipRowHtml).join('');
-  for (const k of ['op', 'ed']) document.getElementById(`skip-none-${k}`).checked = (skip?.none || []).includes(k);
+  for (const k of SKIP_NONE_KINDS) document.getElementById(`skip-none-${k}`).checked = (skip?.none || []).includes(k);
   updateSkipSummary();
   document.getElementById('skip-modal').classList.remove('hidden');
 }
@@ -4186,7 +4223,7 @@ document.getElementById('skip-seg-list').addEventListener('input', e => {
   updateSkipSummary();
 });
 document.getElementById('skip-seg-list').addEventListener('change', updateSkipSummary);
-for (const k of ['op', 'ed']) document.getElementById(`skip-none-${k}`).addEventListener('change', updateSkipSummary);
+for (const k of SKIP_NONE_KINDS) document.getElementById(`skip-none-${k}`).addEventListener('change', updateSkipSummary);
 document.getElementById('skip-seg-list').addEventListener('click', e => {
   const btn = e.target.closest('.skip-remove');
   if (!btn) return;

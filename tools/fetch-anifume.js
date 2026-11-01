@@ -496,7 +496,7 @@ async function main() {
         partCount: mainPlaylist.part_count ?? null,
       });
     } else if (ms) {
-      const previousPlaylist = io.loadPlaylist(outputPath);
+      const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
       const playlist = writeMultiSeason({
         ms, outputPath, seriesTitle, posterUrl, stations,
         trackName, trackReferer: seriesUrl,
@@ -514,7 +514,7 @@ async function main() {
         completion: playlist.completion ?? null,
       });
     } else {
-      const previousPlaylist = io.loadPlaylist(outputPath);
+      const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: seriesUrl, tmdbSeasonName,

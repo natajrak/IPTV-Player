@@ -16,7 +16,22 @@
                             "image": "https://image.tmdb.org/t/p/original/iVMn0wKWjLWzCYz5mlt6Oxy54HW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Frp9syKSB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Frp9syKSB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-05"
+                            "release_date": "2026-10-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 247.5,
+                                        "end": 337
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -32,17 +47,17 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-10-05",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 246.6,
-                                        "end": 337.2
+                                        "start": 247.5,
+                                        "end": 337
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330.2,
-                                        "end": 1419.4
+                                        "start": 1330.5,
+                                        "end": 1420
                                     }
                                 ]
                             }
@@ -64,14 +79,14 @@
                                     {
                                         "type": "ed",
                                         "start": 1329.7,
-                                        "end": 1419.3
+                                        "end": 1419.9
                                     }
                                 ]
                             }
                         },
                         {
                             "name": "Ep. 3 - The Black Tea Scented Witch's Song",
-                            "image": "https://image.tmdb.org/t/p/original/87FIm0cbVhirCzV3Uc77pDKNQEA.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/8ISCGvGQqbDJ9oRo4ebbEIa2Grh.jpg",
                             "url": "https://sv2.team-indy.net/video/P6DDnRmQSI/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-10-19",
@@ -86,14 +101,14 @@
                                     {
                                         "type": "ed",
                                         "start": 1330,
-                                        "end": 1419.3
+                                        "end": 1419.9
                                     }
                                 ]
                             }
                         },
                         {
                             "name": "Ep. 4 - A Knight's Duty Even Unknown to the Witch",
-                            "image": "https://image.tmdb.org/t/p/original/mi6y2W9QOZ7aRPUbF3FVyVpc4xX.jpg",
+                            "image": "https://image.tmdb.org/t/p/original/zD3FlwGA2Tu916SFtDNJZo3iyPZ.jpg",
                             "url": "https://sv2.team-indy.net/video/cZt0KUaNDg/video.mp4",
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-10-26",
@@ -108,7 +123,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1329.2,
-                                        "end": 1419.4
+                                        "end": 1420
                                     }
                                 ]
                             }

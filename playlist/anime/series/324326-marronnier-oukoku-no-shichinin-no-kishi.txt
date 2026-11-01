@@ -16,28 +16,110 @@
                             "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
                             "url": "https://sv2.team-indy.net/video/2AqIwKu1Qr/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-03"
+                            "release_date": "2026-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.6,
+                                        "end": 1485.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Spring by the Lake",
                             "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
                             "url": "https://sv2.team-indy.net/video/MYpArYyLnU/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-10"
+                            "release_date": "2026-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1397.1,
+                                        "end": 1485.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Recklessness",
                             "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
                             "url": "https://sv2.team-indy.net/video/SIEVV483L5/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-17"
+                            "release_date": "2026-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.4,
+                                        "end": 148.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.3,
+                                        "end": 1478
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Eleonora",
                             "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
                             "url": "https://sv2.team-indy.net/video/20eaAGV/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-24"
+                            "release_date": "2026-10-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 150.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.8,
+                                        "end": 1479.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 5 - When We Go Home",
+                            "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
+                            "url": "https://sv2.team-indy.net/video/cLa30biVaL/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.4,
+                                        "end": 156.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1397.1,
+                                        "end": 1485.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -51,42 +133,125 @@
                             "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
                             "url": "https://app.akuma-stream.com/watch/637483e4-98a6-420d-af51-640a892cfc1e",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-03"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.5,
+                                        "end": 1485.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Spring by the Lake",
                             "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
                             "url": "https://app.akuma-stream.com/watch/695cb9a7-e579-4d01-91ae-c158a33b9a0c",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-10"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.8,
+                                        "end": 1485
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Recklessness",
                             "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
                             "url": "https://app.akuma-stream.com/watch/b583f64a-1a54-41be-b131-540166f15940",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-17"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.8,
+                                        "end": 155.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Eleonora",
                             "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
                             "url": "https://app.akuma-stream.com/watch/8d3e4239-e24f-4fd1-a02c-5a0f43680e51",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-24"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.8,
+                                        "end": 156.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1395.7,
+                                        "end": 1485.5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 5 - When We Go Home",
+                            "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
+                            "url": "https://app.akuma-stream.com/watch/f2f09a73-7c36-47a3-a49e-3c453ff5c220",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.1,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.7,
+                                        "end": 1485.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-03",
-            "updated_at": "2026-10-24T00:00:00.000Z"
+            "updated_at": "2026-10-31T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-03",
-    "updated_at": "2026-10-24T00:00:00.000Z",
+    "updated_at": "2026-10-31T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

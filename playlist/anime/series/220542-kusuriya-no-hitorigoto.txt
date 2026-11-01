@@ -9,371 +9,1196 @@
                 {
                     "name": "พากย์ไทย",
                     "image": "https://image.tmdb.org/t/p/original/7qx7OwBZcI0dRWc8DrbtxY5IrlV.jpg",
-                    "referer": "https://anime-th.com/anime/kusuriya-no-hitorigototh/,https://anime-th.com/anime/kusuriya-no-hitorigoto-2nd-season-th/,https://indy-anime.net/kusuriya-no-hitorigoto-3rd/",
+                    "referer": "https://ahdzero.com/anime/5607,https://ahdzero.com/anime/6120,https://ahdzero.com/anime/7032",
                     "stations": [
                         {
                             "name": "ตอน 1 - เมาเมา",
                             "image": "https://image.tmdb.org/t/p/original/ggj0UKd4j5uwYPEuuS9KmO76Lcn.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpDJ8UDpM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpDJ8UDpM",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "url": "https://app.akuma-stream.com/watch/d786f960-4e58-45f2-8afb-65b08e08700a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 88.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.5,
+                                        "end": 1352.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - หมอยาผู้เย็นชา",
                             "image": "https://image.tmdb.org/t/p/original/pYC0kEvnKtVm50uD2rBmtrZZnix.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOKdnSFAl%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOKdnSFAl",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "url": "https://app.akuma-stream.com/watch/a9e4b031-4038-4c13-9424-0da070861d75",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.4,
+                                        "end": 1351.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - วิญญาณที่กำลังปั่นป่วน",
                             "image": "https://image.tmdb.org/t/p/original/nfrCtoX4yRh7WyF9unECvML4dyG.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPkAhW5e2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPkAhW5e2",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "url": "https://app.akuma-stream.com/watch/b03b34ae-633d-40da-890a-85a3e4116d27",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.9,
+                                        "end": 87.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.7,
+                                        "end": 1351.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ภัยคุกคาม",
                             "image": "https://image.tmdb.org/t/p/original/56uZXOtpTuUvyuYGEpSLNJtJOBO.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjAK0Rdkf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjAK0Rdkf",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-29"
+                            "url": "https://app.akuma-stream.com/watch/6f41453f-ac99-45b4-8fc3-3c4247506dfd",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 86.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.2,
+                                        "end": 1351.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ปฏิบัติการแอบแฝง",
                             "image": "https://image.tmdb.org/t/p/original/45h60UAouIJHiKRCI8zx6Vb38Nh.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHnJSot1y%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHnJSot1y",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-05"
+                            "url": "https://app.akuma-stream.com/watch/2c963cc9-099e-4e53-95a4-68519b6f3632",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 77.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1253.7,
+                                        "end": 1343.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - งานเลี้ยงในอุทยาน",
                             "image": "https://image.tmdb.org/t/p/original/lk1dC3AFErQwPjaKlHHc6f7g7rz.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fn3Cz73lF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fn3Cz73lF",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-12"
+                            "url": "https://app.akuma-stream.com/watch/01ead03d-e7ec-4223-839f-94832e2cefe8",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.2,
+                                        "end": 86.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261,
+                                        "end": 1351
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ถึงวันกลับบ้าน",
                             "image": "https://image.tmdb.org/t/p/original/5wBAUmOAlu9z2chOoqke2wwI6G9.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHJxnwqsU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHJxnwqsU",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-19"
+                            "url": "https://app.akuma-stream.com/watch/13e312ee-f665-408a-b953-106bc4f869b5",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 4.1,
+                                        "end": 87.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.3,
+                                        "end": 1351.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ลำต้นข้าวสาลี",
                             "image": "https://image.tmdb.org/t/p/original/j9m1E9HOJVl4pjnJRhjH445EYmx.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBKXA89PT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBKXA89PT",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-26"
+                            "url": "https://app.akuma-stream.com/watch/ff91031b-b476-4aa3-bfc9-afa7044953d4",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 80.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.6,
+                                        "end": 1345.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ฆ่าตัวตายหรือถูกฆาตกรรม",
                             "image": "https://image.tmdb.org/t/p/original/u9rreY8RcnIsmx8kvCDhEy1BvXz.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FC80qlMJF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FC80qlMJF",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-03"
+                            "url": "https://app.akuma-stream.com/watch/ff35ed57-1ddd-4d82-ac69-160f722498d3",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.6,
+                                        "end": 87.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.5,
+                                        "end": 1351.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - น้ำผึ้ง",
                             "image": "https://image.tmdb.org/t/p/original/brTsGje2MKuCHQuj8UVF1VjTSUv.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FH2AVUB3l%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FH2AVUB3l",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-10"
+                            "url": "https://app.akuma-stream.com/watch/493e8039-b927-42d8-be3a-f3717c01e3df",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 88.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1261.3,
+                                        "end": 1352.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - จากสองกลายเป็นหนึ่ง",
                             "image": "https://image.tmdb.org/t/p/original/9K1ZNqTYK8ty1Olj2jGJAZ3l4y3.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzGFY61ZC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzGFY61ZC",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-17"
+                            "url": "https://app.akuma-stream.com/watch/a00d4027-a7c3-44af-a11a-2943298e4f14",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.5,
+                                        "end": 1351.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ขันทีและนางโลม",
                             "image": "https://image.tmdb.org/t/p/original/xa9CovqvQIgYENhpHdqun3JTn4A.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCzgciU79%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCzgciU79",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-24"
+                            "url": "https://app.akuma-stream.com/watch/24ca1237-229f-4cfd-88ac-5ef536f9f752",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2023-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.5,
+                                        "end": 1351.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - รับใช้ในพระราชฐานชั้นนอก",
                             "image": "https://image.tmdb.org/t/p/original/wIIuz0ZkiKKdBSUyZfAIH25uPNF.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FoZb0Yoqp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FoZb0Yoqp",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-07"
+                            "url": "https://app.akuma-stream.com/watch/ae4cf954-0c34-4fc6-91b8-2dde8af2db08",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.5,
+                                        "end": 179.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1263.5,
+                                        "end": 1351.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - พระสนมซู่เฟยคนใหม่",
                             "image": "https://image.tmdb.org/t/p/original/l3lUDpsjugdQFEn5X44CrLgisx.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5M27luoi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5M27luoi",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-14"
+                            "url": "https://app.akuma-stream.com/watch/13c8b42e-2084-49ce-b66e-c69f51cd375a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1262,
+                                        "end": 1352.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ปลาดิบ",
                             "image": "https://image.tmdb.org/t/p/original/ghhWjMzXRuJ8q4sUFydIzLI1QkH.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Frh9Zap0p%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Frh9Zap0p",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-21"
+                            "url": "https://app.akuma-stream.com/watch/b7198745-64ae-475f-91b5-b29af53af24a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.8,
+                                        "end": 86.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.4,
+                                        "end": 1351.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ตะกั่ว",
                             "image": "https://image.tmdb.org/t/p/original/hpzqYrNAhG9sLiAp1pm0oSWDGxf.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPks3f44m%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPks3f44m",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-28"
+                            "url": "https://app.akuma-stream.com/watch/1a6738d2-81ec-427e-86bc-3e122ed30ccd",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1256.5,
+                                        "end": 1346.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - เดินทางไปรอบเมือง",
                             "image": "https://image.tmdb.org/t/p/original/wahEWKAq9HFzMLVxBCexHFWLlWd.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1WhmkRIC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1WhmkRIC",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-04"
+                            "url": "https://app.akuma-stream.com/watch/53c50689-3557-4341-b70d-cf4024793723",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.4,
+                                        "end": 86.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.8,
+                                        "end": 1350.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - รากัน",
                             "image": "https://image.tmdb.org/t/p/original/3nVPYisofFOJuLJHf4zx3RvMdMf.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSwsoQ5Jl%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSwsoQ5Jl",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-11"
+                            "url": "https://app.akuma-stream.com/watch/1f571390-f8c2-4199-b671-13a9b07c5175",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 84.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.5,
+                                        "end": 1348.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - โอกาสหรือสิ่งที่มากกว่านั้น",
                             "image": "https://image.tmdb.org/t/p/original/5Y1BHMhhCHwWwxAqNoQYGyZvMWk.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlBDFkLwN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlBDFkLwN",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-18"
+                            "url": "https://app.akuma-stream.com/watch/c0fdfdb7-57fc-4d34-b506-a22b1fb08d4f",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.1,
+                                        "end": 86.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.5,
+                                        "end": 1351.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ดอกลำโพง",
                             "image": "https://image.tmdb.org/t/p/original/kFOrOTXNY7jhLRpe9PzX7bdPtxA.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2PDjpCl0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2PDjpCl0",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-25"
+                            "url": "https://app.akuma-stream.com/watch/e700c732-07c8-499c-abb1-63fa5ca3321e",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.5,
+                                        "end": 1350.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - วิธีซื้อสัญญา",
                             "image": "https://image.tmdb.org/t/p/original/u1C8TsL5XhXNdZOJrat2q7coqvX.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXKydQEoQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXKydQEoQ",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-03"
+                            "url": "https://app.akuma-stream.com/watch/3dc73dac-7e27-4d04-8e71-6051eda6f50b",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.4,
+                                        "end": 87.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1263.5,
+                                        "end": 1352
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - กุหลาบสีน้ำเงิน",
                             "image": "https://image.tmdb.org/t/p/original/2g0c1GFAnj6MJkOpnRgcfh5emAP.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOIQHZpea%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOIQHZpea",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-10"
+                            "url": "https://app.akuma-stream.com/watch/36d9fe8d-0d61-4e53-8190-d5d5269e73ce",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.7,
+                                        "end": 1351.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - เทียนดอกกับส้มกบ",
                             "image": "https://image.tmdb.org/t/p/original/gPYAVIMNiBLLfNlF1VVVi9SiECT.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQbbSISW8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQbbSISW8",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-17"
+                            "url": "https://app.akuma-stream.com/watch/c59d95a2-6e02-4b5e-b249-5e094a3f70e9",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1260.9,
+                                        "end": 1351.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - จินชิและเมาเมา",
                             "image": "https://image.tmdb.org/t/p/original/7eVCn6wFG1RFqxj0IMpaJFtelKr.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FN0b1fIDo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FN0b1fIDo",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-24"
+                            "url": "https://app.akuma-stream.com/watch/f38cdb12-0a7e-4366-bddc-f4928221970d",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1,
+                                        "end": 87.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - เมาเมากับเหมาเหมา",
                             "image": "https://image.tmdb.org/t/p/original/h4tYrFlKXhemuE0YF0ar0EUvroO.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F067Q38Tp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F067Q38Tp",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-10"
+                            "url": "https://app.akuma-stream.com/watch/becef6a6-e533-4346-a77d-fc17680dfd59",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-01-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.5,
+                                        "end": 87.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1421.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - กองคาราวาน",
                             "image": "https://image.tmdb.org/t/p/original/nCapHwoHz6V8VrWCEGiHssz49h0.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLYM2t52c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLYM2t52c",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-17"
+                            "url": "https://app.akuma-stream.com/watch/09ea894e-0b10-4a4f-af8f-c561a0130832",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-01-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 86.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - เห็ดรามนุษย์",
                             "image": "https://image.tmdb.org/t/p/original/tFPBXCR1Jo9A7ZoUwvPF6HAmCaZ.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyCfBECLK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyCfBECLK",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-24"
+                            "url": "https://app.akuma-stream.com/watch/8d15f003-6122-442c-bc3d-7a2e693b42c4",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-01-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - กระจกเงา",
                             "image": "https://image.tmdb.org/t/p/original/z2OTLkElbiOhfsE6IsPMoi00v51.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FS7SOHjSR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FS7SOHjSR",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-31"
+                            "url": "https://app.akuma-stream.com/watch/c5b87026-1dfd-4af6-b951-9676342f17e5",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-01-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.6,
+                                        "end": 87.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1421.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - ภูตจันทรา",
                             "image": "https://image.tmdb.org/t/p/original/143mDiJ8ULLPhoxNUA0hzo1HLGC.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FolXpj6EN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FolXpj6EN",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-07"
+                            "url": "https://app.akuma-stream.com/watch/633b2f65-8ed6-4c80-b733-19c80cec0e05",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-02-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 85.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - ตำหนักผลึกอีกแล้ว",
                             "image": "https://image.tmdb.org/t/p/original/whLAWqw9p1j00Kg1SPpkoLBS84N.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcUR4JC99%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcUR4JC99",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-14"
+                            "url": "https://app.akuma-stream.com/watch/2b640923-ef7c-4cf0-b543-07f53fdd6384",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-02-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.6,
+                                        "end": 86.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - วิหารแห่งทางเลือก",
                             "image": "https://image.tmdb.org/t/p/original/7TM4gXLGfSsOcwGI9jNFJou9OpO.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FU9KdONw2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FU9KdONw2",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-21"
+                            "url": "https://app.akuma-stream.com/watch/13912d04-a4bd-4c43-9c45-549893d442a8",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-02-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 86.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1420.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 32 - พระพันปี",
                             "image": "https://image.tmdb.org/t/p/original/jaqu3IEYCdb7a81Ds8alAZzbdci.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdteOXnpe%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdteOXnpe",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-28"
+                            "url": "https://app.akuma-stream.com/watch/f3c95a73-c041-49b4-816d-86476c87cb47",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-02-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.6,
+                                        "end": 86
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 33 - จักรพรรดิองค์ก่อน",
                             "image": "https://image.tmdb.org/t/p/original/9ktpNrO00JSCCnJKsQVwJRg3JDA.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQXpVA6F7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQXpVA6F7",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-07"
+                            "url": "https://app.akuma-stream.com/watch/51911984-4b59-40ff-9b70-893b9e52edb9",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-03-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 85.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 34 - เรื่องผีๆ",
                             "image": "https://image.tmdb.org/t/p/original/UcVVBCuaDYl0wYvqc4zpDQGsPt.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2R355jCt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2R355jCt",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-14"
+                            "url": "https://app.akuma-stream.com/watch/16b4a308-5b5f-4d6e-ac29-dc297953fedc",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-03-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 86
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 35 - การล่า",
                             "image": "https://image.tmdb.org/t/p/original/t4GzrtK8d5gnYZSDbL6KyWge5UM.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUe44TeZy%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUe44TeZy",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-21"
+                            "url": "https://app.akuma-stream.com/watch/bd04dc61-d017-45c6-afa2-499f76772a0a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-03-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 85.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 36 - คาซุยเก็ตสึ",
                             "image": "https://image.tmdb.org/t/p/original/zgjUkqozVrok2N2Psx1mnImB293.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FtPMJEGyj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FtPMJEGyj",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-28"
+                            "url": "https://app.akuma-stream.com/watch/551f7094-a0fb-4c43-a0bf-d55b4dfdfb1a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-03-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 86
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 37 - โรงอาบน้ำ",
                             "image": "https://image.tmdb.org/t/p/original/kI2zOM5V6GCIIIogL18813FVFws.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbRiMHJdm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbRiMHJdm",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-04"
+                            "url": "https://app.akuma-stream.com/watch/c36a3bc1-4b3f-41d8-bc12-c5c69daa5027",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-04-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 38 - ผีเริงระบำ",
                             "image": "https://image.tmdb.org/t/p/original/bHOorPq5DchhLMjazBlCh2z6JEM.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fxh0rChxs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fxh0rChxs",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-11"
+                            "url": "https://app.akuma-stream.com/watch/13e63932-e6a9-41ba-a897-d6e6b2a2ad11",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-04-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1,
+                                        "end": 86.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.5,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 39 - น้ำแข็ง",
                             "image": "https://image.tmdb.org/t/p/original/1Lj3paEEJfyj7p5px9bRYFQ5w8q.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUlxz0V53%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUlxz0V53",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-18"
+                            "url": "https://app.akuma-stream.com/watch/c345c81e-5d01-4729-a891-aac9cbfcd788",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-04-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.4,
+                                        "end": 87.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 40 - แรงอาฆาต",
                             "image": "https://image.tmdb.org/t/p/original/vdCTCYwTYjp0kwXnvKuW9AFD2rw.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F604FHF82%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F604FHF82",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-25"
+                            "url": "https://app.akuma-stream.com/watch/fda954ab-e254-4b19-8a5c-dee0beef8abd",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-04-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.9,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 41 - หมู่บ้านจิ้งจอก",
                             "image": "https://image.tmdb.org/t/p/original/8xfyqGYZZYYRuWELOXRG6iRKxvH.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FI0l209SG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FI0l209SG",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-02"
+                            "url": "https://app.akuma-stream.com/watch/0d8841df-40e1-4e85-9f84-fbbb1824f805",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-05-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.6,
+                                        "end": 86.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1421.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 42 - โทงเทงแดง",
                             "image": "https://image.tmdb.org/t/p/original/zqMohdhn3Gktsb3iJuHAFmVFife.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFRuz3ay6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFRuz3ay6",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-09"
+                            "url": "https://app.akuma-stream.com/watch/7d1aaa68-9d70-4161-a1e5-797f29a2765a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-05-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.4,
+                                        "end": 87.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 43 - เทศกาล",
                             "image": "https://image.tmdb.org/t/p/original/wzS7Z2pCm8pb7FRB1RmDRwAM3P9.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FucjLdT9S%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FucjLdT9S",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-23"
+                            "url": "https://app.akuma-stream.com/watch/940f2151-f186-4cea-8623-6a00de3d54a9",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-05-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 85.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 44 - ป้อมปราการ",
                             "image": "https://image.tmdb.org/t/p/original/d5AryVUWdepadXAWQ9HsgxxDI6c.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYdIGLsjO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYdIGLsjO",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-30"
+                            "url": "https://app.akuma-stream.com/watch/031baeca-6ea8-4210-bc25-0446b7f15854",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-05-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1420.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 45 - ถาดคางคก",
                             "image": "https://image.tmdb.org/t/p/original/oZRwFAUC4l1LkCm8iuiynYiRSqH.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FR8eGoefu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FR8eGoefu",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-06"
+                            "url": "https://app.akuma-stream.com/watch/016ec65a-a8a4-4394-ab53-cb2acd06b72a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-06-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.8,
+                                        "end": 87.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333,
+                                        "end": 1422.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 46 - กองทัพต้องห้าม",
                             "image": "https://image.tmdb.org/t/p/original/pR4p2bbc2IX5MIJfHIdmVDTZuxI.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuEBOOfrb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuEBOOfrb",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-13"
+                            "url": "https://app.akuma-stream.com/watch/f6fdaa29-e993-46c2-89af-2aeb49f25c7d",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-06-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.6,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 47 - ตระกูลชิ",
                             "image": "https://image.tmdb.org/t/p/original/d6bh5ReV4bruLInJZlGoUXy1Qcp.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Ftdzb0jOn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Ftdzb0jOn",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-27"
+                            "url": "https://app.akuma-stream.com/watch/94c3858c-e366-44b4-a1de-a2c9f8e211c3",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-06-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 48 - จุดเริ่มต้น",
                             "image": "https://image.tmdb.org/t/p/original/5QU9GNW9UlLGJUFWGRc1DJXa2KU.jpg",
-                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbYZSJmP9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbYZSJmP9",
-                            "referer": "https://anime-th.com/",
-                            "release_date": "2025-07-04"
+                            "url": "https://app.akuma-stream.com/watch/f7fec309-8869-41cb-b7b8-1f0dcbd037be",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2025-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.6,
+                                        "end": 87.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 49 - ตั๊กแตน",
                             "image": "https://image.tmdb.org/t/p/original/v2k4Nj11mnVwyUhqktOmYr3E4yV.jpg",
-                            "url": "https://sv2.team-indy.net/video/aJeYuZwVnW/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-02"
+                            "url": "https://app.akuma-stream.com/watch/87c32f0c-f0aa-4a6b-b070-bebf4c959d9f",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.5,
+                                        "end": 154.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.7,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 50 - เสื้อคลุมหนังหนูไฟ",
                             "image": "https://image.tmdb.org/t/p/original/7DRz65EauLk7RL1MD5x2fhMLG2V.jpg",
-                            "url": "https://sv2.team-indy.net/video/fTg5tv2MUO/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-09"
+                            "url": "https://app.akuma-stream.com/watch/5d3876d5-4418-4379-94db-b1387066fd0b",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.6,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 51 - ถ้าไม่มีขนมปัง",
                             "image": "https://image.tmdb.org/t/p/original/6qGra1rXcn4V6tWwgeo5O7vuOMI.jpg",
-                            "url": "https://sv2.team-indy.net/video/3iM7eXKSB2/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-16"
+                            "url": "https://app.akuma-stream.com/watch/fca29641-77a2-484f-a7f7-c01bd979cfd6",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.6,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 52 - The Last Volume",
                             "image": "https://image.tmdb.org/t/p/original/n0nwtYSLA4ylr7XaqUBrKT4MtHH.jpg",
-                            "url": "https://sv2.team-indy.net/video/OPtvIwKryo/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-23"
+                            "url": "https://app.akuma-stream.com/watch/c6425c02-5974-4a0d-9968-b75f2a9a8511",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.7,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 53 - The White-Snake Immortal",
+                            "image": "https://image.tmdb.org/t/p/original/8se2jeVA9b18GWm1jWK2yHkazL6.jpg",
+                            "url": "https://app.akuma-stream.com/watch/9dd72610-edc6-449d-a778-5d0fdade5f7d",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.8,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -387,346 +1212,1051 @@
                             "image": "https://image.tmdb.org/t/p/original/ggj0UKd4j5uwYPEuuS9KmO76Lcn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FGbiE9ADf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FGbiE9ADf",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.8,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Chilly Apothecary",
                             "image": "https://image.tmdb.org/t/p/original/pYC0kEvnKtVm50uD2rBmtrZZnix.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FmfWf1uix%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FmfWf1uix",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.5,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Unsettling Matter of the Spirit",
                             "image": "https://image.tmdb.org/t/p/original/nfrCtoX4yRh7WyF9unECvML4dyG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOwgGmJ78%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOwgGmJ78",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-22"
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.5,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Threat",
                             "image": "https://image.tmdb.org/t/p/original/56uZXOtpTuUvyuYGEpSLNJtJOBO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxbV69Eve%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxbV69Eve",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-10-29"
+                            "release_date": "2023-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Covert Operations",
                             "image": "https://image.tmdb.org/t/p/original/45h60UAouIJHiKRCI8zx6Vb38Nh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fa0Vn0gvT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fa0Vn0gvT",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-05"
+                            "release_date": "2023-11-05",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.1,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Garden Party",
                             "image": "https://image.tmdb.org/t/p/original/lk1dC3AFErQwPjaKlHHc6f7g7rz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FI9r46CmG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FI9r46CmG",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-12"
+                            "release_date": "2023-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.5,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Homecoming",
                             "image": "https://image.tmdb.org/t/p/original/5wBAUmOAlu9z2chOoqke2wwI6G9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FfjegFfAb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FfjegFfAb",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-19"
+                            "release_date": "2023-11-19",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.8,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Wheat Stalks",
                             "image": "https://image.tmdb.org/t/p/original/j9m1E9HOJVl4pjnJRhjH445EYmx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgOYFromi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgOYFromi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-11-26"
+                            "release_date": "2023-11-26",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.8,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Suicide or Murder?",
                             "image": "https://image.tmdb.org/t/p/original/u9rreY8RcnIsmx8kvCDhEy1BvXz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnT91nZiq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnT91nZiq",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-03"
+                            "release_date": "2023-12-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Honey",
                             "image": "https://image.tmdb.org/t/p/original/brTsGje2MKuCHQuj8UVF1VjTSUv.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FwbLdfqBo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FwbLdfqBo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-10"
+                            "release_date": "2023-12-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Reducing Two to One",
                             "image": "https://image.tmdb.org/t/p/original/9K1ZNqTYK8ty1Olj2jGJAZ3l4y3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzGuAaiTf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzGuAaiTf",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-17"
+                            "release_date": "2023-12-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Eunuch and the Courtesan",
                             "image": "https://image.tmdb.org/t/p/original/xa9CovqvQIgYENhpHdqun3JTn4A.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FE02q79O4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FE02q79O4",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2023-12-24"
+                            "release_date": "2023-12-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Serving in the Outer Court",
                             "image": "https://image.tmdb.org/t/p/original/wIIuz0ZkiKKdBSUyZfAIH25uPNF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlXJ2aSul%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlXJ2aSul",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94,
+                                        "end": 184
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.5,
+                                        "end": 1355.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - The New Pure Consort",
                             "image": "https://image.tmdb.org/t/p/original/l3lUDpsjugdQFEn5X44CrLgisx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhtG4Zez1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhtG4Zez1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-14"
+                            "release_date": "2024-01-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.3,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Raw Fish",
                             "image": "https://image.tmdb.org/t/p/original/ghhWjMzXRuJ8q4sUFydIzLI1QkH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5IrLmhaN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5IrLmhaN",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.6,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Lead",
                             "image": "https://image.tmdb.org/t/p/original/hpzqYrNAhG9sLiAp1pm0oSWDGxf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWSDFMiQg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWSDFMiQg",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-01-28"
+                            "release_date": "2024-01-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.7,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - A Jaunt Around Town",
                             "image": "https://image.tmdb.org/t/p/original/wahEWKAq9HFzMLVxBCexHFWLlWd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4IAF2UVH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4IAF2UVH",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Lakan",
                             "image": "https://image.tmdb.org/t/p/original/3nVPYisofFOJuLJHf4zx3RvMdMf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJTpMPX6d%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJTpMPX6d",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.6,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Chance or Something More",
                             "image": "https://image.tmdb.org/t/p/original/5Y1BHMhhCHwWwxAqNoQYGyZvMWk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSntYwmY5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSntYwmY5",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.3,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Thornapple",
                             "image": "https://image.tmdb.org/t/p/original/kFOrOTXNY7jhLRpe9PzX7bdPtxA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4BEHBPS2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4BEHBPS2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.3,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - How to Buy Out a Contract",
                             "image": "https://image.tmdb.org/t/p/original/u1C8TsL5XhXNdZOJrat2q7coqvX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fm4VaivON%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fm4VaivON",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.9,
+                                        "end": 1355.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Blue Roses",
                             "image": "https://image.tmdb.org/t/p/original/2g0c1GFAnj6MJkOpnRgcfh5emAP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FO9hXawxW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FO9hXawxW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265.2,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Balsam and Woodsorrel",
                             "image": "https://image.tmdb.org/t/p/original/gPYAVIMNiBLLfNlF1VVVi9SiECT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F87X9L1o6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F87X9L1o6",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.8,
+                                        "end": 1355.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Jinshi and Maomao",
                             "image": "https://image.tmdb.org/t/p/original/7eVCn6wFG1RFqxj0IMpaJFtelKr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqbQPIjni%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqbQPIjni",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - Maomao and Maomao",
                             "image": "https://image.tmdb.org/t/p/original/h4tYrFlKXhemuE0YF0ar0EUvroO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHCQpJLgM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHCQpJLgM",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-10"
+                            "release_date": "2025-01-10",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 26 - Caravan",
                             "image": "https://image.tmdb.org/t/p/original/nCapHwoHz6V8VrWCEGiHssz49h0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpriRIDJ5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpriRIDJ5",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-17"
+                            "release_date": "2025-01-17",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 27 - Corpse Fungus",
                             "image": "https://image.tmdb.org/t/p/original/tFPBXCR1Jo9A7ZoUwvPF6HAmCaZ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJ2rClwBa%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJ2rClwBa",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-24"
+                            "release_date": "2025-01-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 28 - Mirror",
                             "image": "https://image.tmdb.org/t/p/original/z2OTLkElbiOhfsE6IsPMoi00v51.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvvnqRyWq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvvnqRyWq",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-01-31"
+                            "release_date": "2025-01-31",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 29 - The Moon Fairy",
                             "image": "https://image.tmdb.org/t/p/original/143mDiJ8ULLPhoxNUA0hzo1HLGC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F7E69IhC0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F7E69IhC0",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-07"
+                            "release_date": "2025-02-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 30 - The Crystal Pavilion, for the Third Time",
                             "image": "https://image.tmdb.org/t/p/original/whLAWqw9p1j00Kg1SPpkoLBS84N.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0vpxr93V%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0vpxr93V",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-14"
+                            "release_date": "2025-02-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 31 - The Shrine of Choosing",
                             "image": "https://image.tmdb.org/t/p/original/7TM4gXLGfSsOcwGI9jNFJou9OpO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fc4rx6yES%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fc4rx6yES",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-21"
+                            "release_date": "2025-02-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 32 - The Empress Dowager",
                             "image": "https://image.tmdb.org/t/p/original/jaqu3IEYCdb7a81Ds8alAZzbdci.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FrMTalDZ9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FrMTalDZ9",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-02-28"
+                            "release_date": "2025-02-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.9,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 33 - The Late Emperor",
                             "image": "https://image.tmdb.org/t/p/original/9ktpNrO00JSCCnJKsQVwJRg3JDA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYIvAn3Mp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYIvAn3Mp",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-07"
+                            "release_date": "2025-03-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.6,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 34 - A Ghost Story",
                             "image": "https://image.tmdb.org/t/p/original/UcVVBCuaDYl0wYvqc4zpDQGsPt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYq50cgxd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYq50cgxd",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-14"
+                            "release_date": "2025-03-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 35 - The Hunt",
                             "image": "https://image.tmdb.org/t/p/original/t4GzrtK8d5gnYZSDbL6KyWge5UM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCf8YoM2j%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCf8YoM2j",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-21"
+                            "release_date": "2025-03-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.2,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 36 - Ka Zuigetsu",
                             "image": "https://image.tmdb.org/t/p/original/zgjUkqozVrok2N2Psx1mnImB293.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fmd5H1vBS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fmd5H1vBS",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-03-28"
+                            "release_date": "2025-03-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.8,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 37 - The Baths",
                             "image": "https://image.tmdb.org/t/p/original/kI2zOM5V6GCIIIogL18813FVFws.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVEbzBrn2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVEbzBrn2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-04"
+                            "release_date": "2025-04-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 38 - The Dancing Ghost",
                             "image": "https://image.tmdb.org/t/p/original/bHOorPq5DchhLMjazBlCh2z6JEM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fphv7ufqm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fphv7ufqm",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-11"
+                            "release_date": "2025-04-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.8,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 39 - Ice",
                             "image": "https://image.tmdb.org/t/p/original/1Lj3paEEJfyj7p5px9bRYFQ5w8q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FGBpv1MsQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FGBpv1MsQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-18"
+                            "release_date": "2025-04-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.6,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 40 - Festering Resentment",
                             "image": "https://image.tmdb.org/t/p/original/vdCTCYwTYjp0kwXnvKuW9AFD2rw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEQztyT0H%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEQztyT0H",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-04-25"
+                            "release_date": "2025-04-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.4,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 41 - The Fox Village",
                             "image": "https://image.tmdb.org/t/p/original/8xfyqGYZZYYRuWELOXRG6iRKxvH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fgr2PygMm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fgr2PygMm",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-02"
+                            "release_date": "2025-05-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.6,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 42 - Lantern Plant",
                             "image": "https://image.tmdb.org/t/p/original/zqMohdhn3Gktsb3iJuHAFmVFife.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlxiF9ziS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlxiF9ziS",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-09"
+                            "release_date": "2025-05-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 43 - Festival",
                             "image": "https://image.tmdb.org/t/p/original/wzS7Z2pCm8pb7FRB1RmDRwAM3P9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9i2WekpH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9i2WekpH",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-23"
+                            "release_date": "2025-05-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.7,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 44 - The Stronghold",
                             "image": "https://image.tmdb.org/t/p/original/d5AryVUWdepadXAWQ9HsgxxDI6c.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJhGWHTau%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJhGWHTau",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-05-30"
+                            "release_date": "2025-05-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 45 - Taibon",
                             "image": "https://image.tmdb.org/t/p/original/oZRwFAUC4l1LkCm8iuiynYiRSqH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhOSkKnIZ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhOSkKnIZ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-06"
+                            "release_date": "2025-06-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 46 - Royal Guard",
                             "image": "https://image.tmdb.org/t/p/original/pR4p2bbc2IX5MIJfHIdmVDTZuxI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhaqVaICk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhaqVaICk",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-13"
+                            "release_date": "2025-06-13",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.3,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 47 - The Shi Clan",
                             "image": "https://image.tmdb.org/t/p/original/d6bh5ReV4bruLInJZlGoUXy1Qcp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F2ozeWNjI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F2ozeWNjI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-06-27"
+                            "release_date": "2025-06-27",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 48 - The Beginning",
                             "image": "https://image.tmdb.org/t/p/original/5QU9GNW9UlLGJUFWGRc1DJXa2KU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXis8VEdI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXis8VEdI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-07-04"
+                            "release_date": "2025-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2023-10-22",
-            "updated_at": "2026-10-23T00:00:00.000Z"
+            "updated_at": "2026-10-30T00:00:00.000Z"
         }
     ],
     "release_date": "2023-10-22",
-    "updated_at": "2026-10-23T00:00:00.000Z",
+    "updated_at": "2026-10-30T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

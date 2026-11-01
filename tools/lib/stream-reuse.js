@@ -7,8 +7,11 @@
  *
  * ไม่ใช้ลิงก์เดิมเลย (ดึงใหม่ทุกตอน) เมื่อ:
  *   - track เดิมมาจากแหล่งอื่น (referer ของ track ไม่มี URL ที่ดึงรอบนี้) — url/referer/resolver เป็นของอีกเว็บ
- *   - โหมด append (epOffset > 0 และมี track อยู่แล้ว) — ไฟล์ที่สร้างก่อน offsetEpisodeLabel ตั้งชื่อตอนต่อภาคโดยไม่รวม offset
- *     label จึงอาจชนกับตอนของภาคก่อน และใน CMS รอบแรกของ chain เขียน track ใหม่ทั้งหมดอยู่แล้ว ไม่มีตอนเดิมให้ใช้ซ้ำ
+ *   - โหมด append (epOffset > 0 และมี track อยู่แล้ว) ที่ไม่ได้มาจาก chain — ไฟล์ที่สร้างก่อน offsetEpisodeLabel ตั้งชื่อตอนต่อภาค
+ *     โดยไม่รวม offset label จึงอาจชนกับตอนของภาคก่อน
+ *
+ * รอบถัดไปของ chain ใน CMS (chainBase) ใช้ลิงก์เดิมได้ — previous คือสำเนาไฟล์ก่อนรอบแรกที่ยังมีตอนของรอบนี้ครบ
+ * ยกเว้น track ที่มี label ซ้ำแม้แต่ตอนเดียว (ไฟล์เก่าที่ตั้งชื่อตอนต่อภาคไม่รวม offset) — label ที่ไม่ซ้ำก็อาจเป็นตอนของภาคอื่น ดึงใหม่ทุกตอน
  */
 
 const { matchesSeasonName } = require('./utils');
@@ -29,16 +32,18 @@ function splitUrls(value) {
 }
 
 /**
- * - previous: playlist เดิม (io.loadPlaylist(outputPath)) — null = ไม่มีไฟล์ ทุกตอนถือเป็นตอนใหม่
+ * - previous: playlist เดิม (io.loadPrevious(outputPath, cli.chainBase)) — null = ไม่มีไฟล์ ทุกตอนถือเป็นตอนใหม่
  * - trackName: track ที่รอบนี้เขียน
  * - sourceUrl: ค่าเดียวกับ trackReferer ที่ส่งให้ buildOrMergePlaylist (URL หน้ารายการ คั่นด้วย , ได้)
  * - seasonName/seasonNum: season ที่รอบนี้เขียน (เลือก season แบบเดียวกับ buildOrMergePlaylist)
  * - epOffset: ค่าที่ส่งให้ buildOrMergePlaylist
+ * - chainBase: previous อ่านจาก --chain-base (io.loadPrevious) — ใช้ลิงก์เดิมในโหมด append ได้
  */
-function createStreamReuse({ enabled, previous, trackName, sourceUrl, seasonName = null, seasonNum = null, epOffset = 0 }) {
+function createStreamReuse({ enabled, previous, trackName, sourceUrl, seasonName = null, seasonNum = null, epOffset = 0, chainBase = false }) {
   const tracks = new Map();
   const sources = splitUrls(sourceUrl);
   const otherSource = new Set();
+  const legacyLabels = new Set();
   let reused = 0;
   let fresh = 0;
 
@@ -66,13 +71,17 @@ function createStreamReuse({ enabled, previous, trackName, sourceUrl, seasonName
         byLabel.set(label, st);
       }
       for (const [label, n] of counts) if (n > 1) byLabel.delete(label);
+      if (chainBase && epOffset > 0 && byLabel.size < counts.size) {
+        byLabel.clear();
+        legacyLabels.add(key);
+      }
     }
     const entry = { exists: !!track, byLabel };
     tracks.set(key, entry);
     return entry;
   };
 
-  const appendMode = !!enabled && !!previous && epOffset > 0 && trackIndex(seasonName, !seasonNum).exists;
+  const appendMode = !!enabled && !!previous && !chainBase && epOffset > 0 && trackIndex(seasonName, !seasonNum).exists;
   const active = !!enabled && !!previous && !appendMode;
 
   return {
@@ -102,6 +111,9 @@ function createStreamReuse({ enabled, previous, trackName, sourceUrl, seasonName
       else if (appendMode) console.log('\nℹ️  --only-new: ใช้กับโหมดต่อภาค (--ep-offset) ไม่ได้ — ดึงทุกตอน');
       if (otherSource.size) {
         console.log(`\nℹ️  --only-new: track "${trackName}" (${[...otherSource].join(', ')}) มาจากแหล่งอื่น — ดึงใหม่ทุกตอน`);
+      }
+      if (legacyLabels.size) {
+        console.log(`\nℹ️  --only-new: track "${trackName}" (${[...legacyLabels].join(', ')}) มีเลขตอนซ้ำ ระบุตอนของรอบนี้จากไฟล์ก่อน chain ไม่ได้แน่นอน — ดึงใหม่ทุกตอน`);
       }
       if (active) console.log(`\n♻️  --only-new: ใช้ลิงก์เดิม ${reused} ตอน, ดึงใหม่ ${fresh} ตอน`);
     },

@@ -239,7 +239,11 @@
                             "image": "https://image.tmdb.org/t/p/original/lEkstbZVdna6nRu7CBWHHnqXsIM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FrOgvdZr8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FrOgvdZr8",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-10-07"
+                            "release_date": "2025-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 2 - Let's Start Breaking Common Ground",
@@ -455,7 +459,11 @@
                             "image": "https://image.tmdb.org/t/p/original/niyn0ERgXDnybyTsmVbiOSQBAkL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzrxuUXlW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzrxuUXlW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-13"
+                            "release_date": "2026-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 15 - A Distant Indigo Night, Remembered",
@@ -474,7 +482,7 @@
                                     {
                                         "type": "ed",
                                         "start": 1325.5,
-                                        "end": 1414
+                                        "end": 1415.1
                                     }
                                 ]
                             }
@@ -496,20 +504,31 @@
                                     {
                                         "type": "ed",
                                         "start": 1325,
-                                        "end": 1413.5
+                                        "end": 1415
                                     }
                                 ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 17 - The Entrance of Summer",
+                            "image": "https://image.tmdb.org/t/p/original/mbiEQvUiqQiCGOOeVLWRPfm0H2e.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbzzHjOhJ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbzzHjOhJ",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
                             }
                         }
                     ]
                 }
             ],
             "release_date": "2025-10-07",
-            "updated_at": "2026-10-27T00:00:00.000Z"
+            "updated_at": "2026-11-03T00:00:00.000Z"
         }
     ],
     "release_date": "2025-10-07",
-    "updated_at": "2026-10-27T00:00:00.000Z",
+    "updated_at": "2026-11-03T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

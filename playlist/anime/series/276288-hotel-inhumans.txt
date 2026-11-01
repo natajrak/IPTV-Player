@@ -248,32 +248,87 @@
                             "image": "https://image.tmdb.org/t/p/original/5TzkdUqtvXAGrxvD3G8M0Vc8nrr.jpg",
                             "url": "https://app.akuma-stream.com/watch/55c8010a-756f-4de3-b314-950ccce39ef0",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-04"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.5,
+                                        "end": 1410
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Piano Lesson 2",
                             "image": "https://image.tmdb.org/t/p/original/M1zaSjSyTuNoXwb5pyXTPl9Oeo.jpg",
                             "url": "https://app.akuma-stream.com/watch/ed903ae9-a109-46fd-ac9f-3af5ba1ad4a2",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-11"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158,
+                                        "end": 248
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1282.2,
+                                        "end": 1372.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A Sweet Job 1",
                             "image": "https://image.tmdb.org/t/p/original/pISMSQ6sbTtB3xHwqnmngmxyLmA.jpg",
                             "url": "https://app.akuma-stream.com/watch/03c95806-182b-4513-b2cd-cdd21c9b056c",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-18"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.1,
+                                        "end": 198.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1318.1,
+                                        "end": 1409.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Sweet Job 2, First Guest",
                             "image": "https://image.tmdb.org/t/p/original/uooYjbq7WbuP9q03Db8YrqwegqI.jpg",
                             "url": "https://app.akuma-stream.com/watch/82926a24-8625-4e8d-8237-b87cf93d575a",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-10-25"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 306.7,
+                                        "end": 396.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1318.9,
+                                        "end": 1409.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

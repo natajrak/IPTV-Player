@@ -115,16 +115,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 6 - A Plan to Capture the Black King",
+                            "image": "https://image.tmdb.org/t/p/original/ge04YFTDskpJPe09sJ4ZisjKXhM.jpg",
+                            "url": "https://sv2.team-indy.net/video/EDWge9zGC2/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 261.5,
+                                        "end": 351
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.4,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-03",
-            "updated_at": "2026-10-31T00:00:00.000Z"
+            "updated_at": "2026-11-07T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-03",
-    "updated_at": "2026-10-31T00:00:00.000Z",
+    "updated_at": "2026-11-07T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

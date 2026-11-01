@@ -203,6 +203,28 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 10 - Negotiation",
+                            "image": "https://image.tmdb.org/t/p/original/eMDDVMpIb5MhNG2bbfqoxOZkMgG.jpg",
+                            "url": "https://moji.abcdxzy.xyz:8443/vod/a0wz5QMznx/video.mp4/playlist.m3u8",
+                            "referer": "https://animeyour.com/",
+                            "release_date": "2026-09-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120,
+                                        "end": 210
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.3,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -579,16 +601,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 18 - Blacksmith Veruga",
+                            "image": "https://image.tmdb.org/t/p/original/4u58kUcxeT4mDWNryWBwcKYKNKw.jpg",
+                            "url": "https://sv2.team-indy.net/video/yRhF9IwwEK/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.6,
+                                        "end": 152
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.5,
+                                        "end": 1390
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-07-03",
-            "updated_at": "2026-10-23T00:00:00.000Z"
+            "updated_at": "2026-10-30T00:00:00.000Z"
         }
     ],
     "release_date": "2026-07-03",
-    "updated_at": "2026-10-23T00:00:00.000Z",
+    "updated_at": "2026-10-30T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

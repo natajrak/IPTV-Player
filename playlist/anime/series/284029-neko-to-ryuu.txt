@@ -16,14 +16,42 @@
                             "image": "https://image.tmdb.org/t/p/original/gHF7zX41f5dMnJMuFm4jXOCQ5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzBmAhQ0B%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzBmAhQ0B",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-07-04"
+                            "release_date": "2026-07-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ],
+                                "none": [
+                                    "op"
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Mother Cat and the Girl",
                             "image": "https://image.tmdb.org/t/p/original/gRvIuDtYCmeStqpdXinlJnfasAM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgBC3mDes%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgBC3mDes",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-07-11"
+                            "release_date": "2026-07-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Kittens and the Winged Uncle",
@@ -74,7 +102,22 @@
                             "image": "https://image.tmdb.org/t/p/original/ojGWEXcSaePcgFQftxANAXEmvTS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcYWLaZsL%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcYWLaZsL",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2026-08-01"
+                            "release_date": "2026-08-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116,
+                                        "end": 206
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Evening of Foxtails",
@@ -185,8 +228,53 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 11 - Final Resting Place",
+                            "image": "https://image.tmdb.org/t/p/original/n4T8vAYpKCSKvrXgrnuq65im6PF.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMUdFLi5w%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMUdFLi5w",
+                            "referer": "https://fairyanime.net/",
+                            "release_date": "2026-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.6,
+                                        "end": 126.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.6,
+                                        "end": 1379.8
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 12 - The Cat and the Royal Capital Festival",
+                            "image": "https://image.tmdb.org/t/p/original/9B9HZH7fQ3rYLVYSZEXMMnBjZ1z.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuTsZr6Uv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuTsZr6Uv",
+                            "referer": "https://fairyanime.net/",
+                            "release_date": "2026-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 158.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -464,8 +552,6 @@
     "updated_at": "2026-09-19T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }

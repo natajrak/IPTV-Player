@@ -41,7 +41,7 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
 intro = หน้าเปิด/splash ของเว็บต้นทางที่หัวไฟล์ (3–29 วิ เริ่มที่ 0:00 ซ้ำกันทุกตอน) ตรวจและเติมให้อัตโนมัติเช่นกัน
     (splash สั้นและเหมือนกันเป๊ะ จึงยอมรับเมื่อมีตอนข้างเคียงยืนยันแค่ 1 ครั้งถ้า sim ≥ 0.9)
     (player รองรับ type 'intro' ตั้งแต่ v66; auto skip ข้ามได้)
-นโยบายขอบช่วง (ผู้ใช้กำหนด 2026-10-28): ทั้ง OP และ ED → start +0.5 วิ, end -0.5 วิ (หดเข้าข้างละ 0.5 วิ;
+นโยบายขอบช่วง (ผู้ใช้กำหนด 2026-10-28, ลองใช้ 1 วิ แล้วกลับเป็น 0.5 วิ 2026-11-01): OP / ED / intro → start +0.5 วิ, end -0.5 วิ (หดเข้าข้างละ 0.5 วิ;
     player เช็คจาก timeupdate ทุก ~250 ms จึงละเอียดพอ)
     --start-shift / --end-shift ของ report ปรับได้ (ค่าที่แสดงและเขียนคือค่าหลังปรับแล้ว)
 """
@@ -97,6 +97,8 @@ CROSS_TRACK_TOL = 3.0
 MAX_TRACK_SHIFT_SEC = 60.0
 SILENCE_FLOOR = float(np.log(1e-9 * 64)) + 1.0
 SILENCE_EXTEND_SEC = 2.5
+SILENCE_BLIP_SEC = 0.1
+ED_EOF_TOL_SEC = 1.5
 NEIGHBOR_SPAN = 2
 DEFAULT_HEAD = 480
 DEFAULT_TAIL = 300
@@ -653,11 +655,14 @@ def detect_track(episodes, feats, start_shift=0.0, end_shift=0.0):
         if op:
             tail_regions = [r for r in tail_regions if _overlap(op['start'], op['end'], r[0], r[1]) < 0.5]
             intro_regions = [r for r in intro_regions if r[1] <= op['start'] + 1.0]
-        ed = _consensus(tail_regions) if fi['tail_offset'] > 0 else None
+        ed = _extend_ed_tail(_consensus(tail_regions), fi) if fi['tail_offset'] > 0 else None
         intro = _consensus(intro_regions)
+        ed = _shift(ed, start_shift, end_shift)
+        if ed and ed.get('to_eof'):
+            ed['end'] = round(int(fi['duration'] * 10) / 10, 1)
         result[ep['idx']] = {
             'op': _shift(op, start_shift, end_shift),
-            'ed': _shift(ed, start_shift, end_shift),
+            'ed': ed,
             'intro': _shift(intro, start_shift, end_shift),
             'duration': fi['duration'],
         }
@@ -670,7 +675,45 @@ def _shift(region, start_delta, end_delta):
     for r in [region] + (region.get('alts') or []):
         r['start'] = round(max(0.0, r['start'] + start_delta), 1)
         r['end'] = round(max(r['start'] + 1.0, r['end'] + end_delta), 1)
+        if 'song_end' in r:
+            r['song_end'] = round(max(r['start'] + 1.0, r['song_end'] + end_delta), 1)
     return region
+
+
+def _extend_ed_tail(ed, fi):
+    """ED: ความเงียบสนิทที่ต่อจากเพลง (end credit ไม่มีเสียง) นับเป็น ED ทั้งหมด ไม่จำกัดความยาวแบบ _extend_over_silence
+    ED ที่ไปถึงท้ายวิดีโอ (วิดีโอถูกตัด หรือเงียบจนจบไฟล์) → to_eof: จุดจบ = วินาทีสุดท้ายของวิดีโอ ไม่หักขอบ
+    song_end = จุดจบของเพลงเอง ใช้เทียบความยาวกับตอนอื่น/อีกแทร็ก (ช่วงเงียบยาวไม่เท่ากันทุกตอน)"""
+    if not ed:
+        return ed
+    ed['song_end'] = ed['end']
+    bands = fi['tail']['bands']
+    if len(bands):
+        quiet = np.log(np.exp(bands.astype(np.float32)).sum(axis=1)) < SILENCE_FLOOR
+        blip = int(SILENCE_BLIP_SEC * FPS)
+        k = int(round((ed['end'] - fi['tail_offset']) * FPS))
+        last, gap, j = k, 0, k + 1
+        while 0 <= j < len(quiet):
+            if quiet[j]:
+                last, gap = j, 0
+            else:
+                gap += 1
+                if gap > blip:
+                    break
+            j += 1
+        if last > k:
+            ed['end'] = fi['tail_offset'] + last / FPS
+    if fi['duration'] - ed['end'] <= ED_EOF_TOL_SEC:
+        ed['to_eof'] = True
+    return ed
+
+
+def _song_end(region):
+    return region.get('song_end', region['end'])
+
+
+def _song_len(region):
+    return _song_end(region) - region['start']
 
 
 def _consensus(regions):
@@ -845,7 +888,7 @@ def _cross_track_check(report):
                         od = match and match[kind]['detected']
                         if not od:
                             continue
-                        if abs(od['start'] - dt['start']) > CROSS_TRACK_TOL or abs(od['end'] - dt['end']) > CROSS_TRACK_TOL:
+                        if abs(od['start'] - dt['start']) > CROSS_TRACK_TOL or abs(_song_end(od) - _song_end(dt)) > CROSS_TRACK_TOL:
                             if _same_region_shifted(dt, od):
                                 continue
                             if _adopt_other_track(ep, kind, dt, od, o['track']):
@@ -858,24 +901,25 @@ def _same_region_shifted(dt, od):
     """2 แทร็กเป็นไฟล์คนละตัดต่อ (เช่น ซับไทยมี bumper หน้าไฟล์ 4 วิ) — ช่วงเลื่อนทั้งก้อนเท่ากันและยาวเท่ากัน
     → ถือว่าตรงกัน (ต่างกันเพราะไฟล์ ไม่ใช่เพราะจับผิด)"""
     ds = od['start'] - dt['start']
-    de = od['end'] - dt['end']
+    de = _song_end(od) - _song_end(dt)
     if abs(ds) > MAX_TRACK_SHIFT_SEC:
         return False
-    return abs(ds - de) <= 1.5 and abs((dt['end'] - dt['start']) - (od['end'] - od['start'])) <= 1.5
+    return abs(ds - de) <= 1.5 and abs(_song_len(dt) - _song_len(od)) <= 1.5
 
 
 def _adopt_other_track(ep, kind, dt, od, other_track):
     """2 แทร็กเริ่มหรือจบพร้อมกัน (วิดีโอชุดเดียวกัน) แต่แทร็กนี้จับได้สั้นกว่า (เสียงพากย์ทับหัว/ท้ายเพลง) ขณะที่อีกแทร็กยาว ~90 วิ
     → ใช้ช่วงของอีกแทร็กแทน (คง verdict เดิม) และบันทึกที่มาไว้ในหมายเหตุ"""
-    mine = dt['end'] - dt['start']
-    theirs = od['end'] - od['start']
+    mine = _song_len(dt)
+    theirs = _song_len(od)
     starts_agree = abs(od['start'] - dt['start']) <= CROSS_TRACK_TOL
-    ends_agree = abs(od['end'] - dt['end']) <= CROSS_TRACK_TOL
+    ends_agree = abs(_song_end(od) - _song_end(dt)) <= CROSS_TRACK_TOL
     if not (starts_agree or ends_agree):
         return False
     if abs(theirs - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL or mine >= theirs - CROSS_TRACK_TOL:
         return False
     dt['start'], dt['end'] = od['start'], od['end']
+    dt['song_end'] = _song_end(od)
     if ep.get('duration'):
         dt['end'] = round(min(dt['end'], ep['duration'] - 0.5), 1)
     dt['sim'] = min(dt['sim'], od['sim'])
@@ -928,10 +972,14 @@ def print_report(report):
                     notes.append(f'{kind} ≠ {r["cross_track"]}')
                 if r.get('from_track'):
                     notes.append(f'{kind} ใช้ช่วงของ{r["from_track"]}')
-                if dt and med_len[kind] is not None and abs((dt['end'] - dt['start']) - med_len[kind]) > LENGTH_OUTLIER_SEC:
-                    notes.append(f'{kind} ยาว {dt["end"] - dt["start"]:.1f}s ≠ ค่ากลาง')
-                elif dt and abs((dt['end'] - dt['start']) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
-                    notes.append(f'{kind} ยาว {dt["end"] - dt["start"]:.1f}s ≠ ~90s')
+                if dt and med_len[kind] is not None and abs(_song_len(dt) - med_len[kind]) > LENGTH_OUTLIER_SEC:
+                    notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ค่ากลาง')
+                elif dt and abs(_song_len(dt) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
+                    notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ~90s')
+                if dt and dt.get('to_eof'):
+                    notes.append(f'{kind} ถึงท้ายวิดีโอ (เพลงจบ {fmt_t(_song_end(dt))})')
+                elif dt and dt['end'] - _song_end(dt) >= 1.0:
+                    notes.append(f'{kind} รวมเครดิตเงียบ {dt["end"] - _song_end(dt):.1f}s')
                 if ex and abs((float(ex['end']) - float(ex['start'])) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
                     notes.append(f'{kind} เดิมยาว {float(ex["end"]) - float(ex["start"]):.1f}s')
             intro = ep.get('intro') or {}
@@ -1023,7 +1071,7 @@ def cmd_apply(args):
                     if not r['existing'] and kind in ((st.get('skip') or {}).get('none') or []):
                         continue
                     med = _median_length(by_track[tn], kind) if kind != 'intro' else None
-                    if med is not None and abs((dt['end'] - dt['start']) - med) > LENGTH_OUTLIER_SEC:
+                    if med is not None and abs(_song_len(dt) - med) > LENGTH_OUTLIER_SEC:
                         skipped_outliers.append((tn, label, kind, dt, med))
                         continue
                     v, _, _ = verdict(r['existing'], dt, tol)
@@ -1114,7 +1162,7 @@ def _write_json_out(path, playlist_path, changes, outliers, marked=()):
         'outliers': [
             {
                 'track': tn, 'label': label, 'kind': kind, 'start': dt['start'], 'end': dt['end'],
-                'length': round(dt['end'] - dt['start'], 1), 'median': round(med, 1),
+                'length': round(_song_len(dt), 1), 'median': round(med, 1),
                 'support': dt.get('support'), 'sim': dt.get('sim'),
             }
             for tn, label, kind, dt, med in outliers
@@ -1128,7 +1176,7 @@ def _write_json_out(path, playlist_path, changes, outliers, marked=()):
 def _median_length(track_report, kind):
     """ความยาวอ้างอิงของแทร็ก = กลุ่มความยาวที่มีสมาชิกมากที่สุด (ช่วง ±3 วิ) จากแถวที่เชื่อถือได้ (ok/fix/missing)
     ถ้าเท่ากันเลือกกลุ่มที่ใกล้ 90 วิ — กันทั้งกรณีเพลงผสมฉากลากค่ากลางลง และกรณีแถว review มาบิดค่าอ้างอิง"""
-    lens = [ep[kind]['detected']['end'] - ep[kind]['detected']['start']
+    lens = [_song_len(ep[kind]['detected'])
             for ep in track_report['episodes'] if ep.get(kind) and ep[kind]['detected'] and ep[kind]['verdict'] in ('ok', 'fix', 'missing')]
     if not lens:
         return None
@@ -1185,8 +1233,8 @@ def main():
     r.add_argument('--workers', type=int, default=4)
     r.add_argument('--tracks', nargs='*')
     r.add_argument('--cache-dir', default=DEFAULT_CACHE)
-    r.add_argument('--start-shift', type=float, default=DEFAULT_START_SHIFT, help='ปรับจุดเริ่มของ OP/ED (วินาที, default +0.5)')
-    r.add_argument('--end-shift', type=float, default=DEFAULT_END_SHIFT, help='ปรับจุดจบของ OP/ED (วินาที, default -0.5)')
+    r.add_argument('--start-shift', type=float, default=DEFAULT_START_SHIFT, help='ปรับจุดเริ่มของ OP/ED/intro (วินาที, default +0.5)')
+    r.add_argument('--end-shift', type=float, default=DEFAULT_END_SHIFT, help='ปรับจุดจบของ OP/ED/intro (วินาที, default -0.5)')
     a = sub.add_parser('apply')
     a.add_argument('playlist')
     a.add_argument('report')

@@ -13,7 +13,7 @@
 // Features:
 //   - CORS bypass (fetch server-side จาก CF edge)
 //   - m3u8 URL rewrite: absolute / protocol-relative (//) / relative path (/) + URI="..." attrs
-//     ยกเว้น DIRECT_HOSTS (CDN ที่เปิด CORS + ไฟล์ GB-scale) → ปล่อย URL ตรง ไม่ห่อ worker
+//     ยกเว้น DIRECT_HOSTS (CDN ที่เปิด CORS อยู่แล้ว) → ปล่อย URL ตรง ไม่ห่อ worker
 //   - Binary passthrough สำหรับ TS segments
 //   - รองรับ Referer spoofing (Origin **ไม่ส่งโดยอัตโนมัติ** — ต้องขอผ่าน &origin=
 //     เพราะบาง CDN เช่น main.108player.com คืน body ว่างทันทีที่เจอ Origin)
@@ -32,7 +32,9 @@ const PRE_WARM_SEGMENT_LIMIT = 40; // ภายใต้ subrequest limit ขอ
 //   1. Range simulation ของ worker ต้อง buffer ก้อนเต็ม → ชน memory limit 128MB → 503
 //   2. pre-warm จะพยายามโหลดไฟล์เต็มซ้ำๆ (URL เดิมทุกบรรทัดใน playlist แบบ BYTERANGE)
 // ให้ browser ยิง Range ตรงไป CDN เอง (CORS ผ่านอยู่แล้ว) — key/manifest ยังผ่าน worker ตามเดิม
-const DIRECT_HOSTS = /(^|\.)akuma-cdn(-\d+)?\.xyz$/i;
+// CDN segment ของ fairyanime (fa-newNN[-x].top, aniNN.top) เปิด CORS และไม่เช็ค referer เช่นกัน
+// segment ขนาดหลาย MB ที่ส่งผ่าน worker ถูกตัดกลางทางบ่อย (seek แล้วค้าง) → ให้ browser โหลดตรง
+const DIRECT_HOSTS = /(^|\.)(akuma-cdn(-\d+)?\.xyz|fa-new\d+(-[a-z])?\.top|ani\d+\.top)$/i;
 
 /** JSON response helper สำหรับ resolver endpoints */
 function jsonResponse(body, status = 200, cacheSec = 0) {
@@ -230,13 +232,13 @@ export default {
     //     ทำให้ตอนนั้นเล่นไม่ได้เลย (เคยเกิดกับ gg-player.xyz/cdn/hls/.../master.txt)
     // Segments (.ts/.m4s) ยัง cache ปกติเพราะใหญ่ + ไม่มีปัญหาเดิม
     const isHlsPlaylist = /\.(m3u8|txt)(\?|$)/i.test(targetUrl);
-    const resp = await fetchProxyWithRetry(targetUrl, {
+    const upstreamOptions = {
       headers: upstreamHeaders,
       redirect: "follow",
       cf: isHlsPlaylist ? {} : { cacheTtl: 86400, cacheEverything: true },
-    });
+    };
+    const resp = await fetchProxyWithRetry(targetUrl, upstreamOptions);
     const contentType   = resp.headers.get("content-type") || "";
-    const upstreamLen   = resp.headers.get("content-length");
     const workerOrigin  = new URL(request.url).origin;
 
     // ─── Peek first chunk to detect HLS without consuming full body ───
@@ -267,20 +269,27 @@ export default {
     const needFullBuffer = isHls || isJsonWrappedHls || requestRange != null || isHead;
 
     // ─── Path A: ต้อง buffer ทั้งก้อน (HLS / Range / HEAD) ───
+    // body ที่ได้สั้นกว่า Content-Length (upstream/CF ปิด stream ก่อนครบแบบไม่ error) → fetch ใหม่ทั้งก้อน
+    // ครบรอบแล้วยังสั้น ตอบ 502 แทนการส่งไฟล์ขาด (client จะ retry เอง)
     if (needFullBuffer) {
-      const chunks = [firstChunk];
-      let total    = firstChunk.length;
-      if (!firstDone) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          chunks.push(value);
-          total += value.length;
-        }
+      let expected = expectedBodyLength(resp);
+      let merged = await readBodyOrEmpty(reader, expected, firstChunk, firstDone);
+      let shortLen = merged.length;
+      for (let attempt = 1; merged && isShortBody(merged, expected) && attempt < FULL_BODY_ATTEMPTS; attempt++) {
+        shortLen = merged.length;
+        merged = null;
+        await sleep(FULL_BODY_RETRY_DELAY_MS * attempt);
+        const again = await fetchProxyWithRetry(targetUrl, upstreamOptions);
+        if (!again.ok || !again.body) break;
+        expected = expectedBodyLength(again);
+        merged = await readBodyOrEmpty(again.body.getReader(), expected);
       }
-      const merged = new Uint8Array(total);
-      let off = 0;
-      for (const c of chunks) { merged.set(c, off); off += c.length; }
+      if (!merged || isShortBody(merged, expected)) {
+        return new Response(`Upstream body truncated: ${merged ? merged.length : shortLen}/${expected}`, {
+          status: 502,
+          headers: { "Access-Control-Allow-Origin": "*", "Content-Type": "text/plain", "Cache-Control": "no-store" },
+        });
+      }
       const buffer = merged.buffer;
 
       // ─── HLS playlist (incl. JSON-wrapped): rewrite URLs + pre-warm cache ───
@@ -424,7 +433,25 @@ export default {
       "Accept-Ranges": "bytes",
       "Cache-Control": "public, max-age=86400",
     };
-    if (upstreamLen) streamHeaders["Content-Length"] = upstreamLen;
+
+    // รู้ความยาว → FixedLengthStream ให้ client ได้ Content-Length จริง (ReadableStream ธรรมดา runtime ตัด header ทิ้ง)
+    // ถ้า upstream จบก่อนครบ ต่อด้วย Range 1 ครั้ง ไม่ครบอีก = abort → client เห็นเป็น network error
+    // (ไม่งั้น browser ถือว่าไฟล์ขาดคือไฟล์ครบ → decode error + ค้างใน cache 1 วัน)
+    const expectedLen = expectedBodyLength(resp);
+    if (expectedLen) {
+      const { readable, writable } = new FixedLengthStream(expectedLen);
+      ctx.waitUntil(pipeExactLength({
+        reader, firstChunk, firstDone, writable, expectedLen,
+        resume: (from) => fetch(targetUrl, {
+          headers: { ...upstreamHeaders, "Range": `bytes=${from}-` },
+          redirect: "follow",
+        }),
+      }));
+      return new Response(readable, {
+        status: 200,
+        headers: { ...streamHeaders, "Content-Length": String(expectedLen) },
+      });
+    }
 
     const stream = new ReadableStream({
       start(controller) {
@@ -451,6 +478,97 @@ export default {
     });
   },
 };
+
+const FULL_BODY_ATTEMPTS = 3;
+const FULL_BODY_RETRY_DELAY_MS = 300;
+
+/** ความยาว body ที่ต้องได้ — ใช้ได้เฉพาะ 2xx ที่ไม่ถูกบีบอัด (runtime คลาย gzip ให้ → content-length เป็นของก้อนบีบอัด) */
+function expectedBodyLength(resp) {
+  if (!resp.ok || resp.headers.get("content-encoding")) return 0;
+  const n = parseInt(resp.headers.get("content-length") || "", 10);
+  return Number.isFinite(n) && n > 0 ? n : 0;
+}
+
+function isShortBody(bytes, expected) {
+  return expected > 0 && bytes.length < expected;
+}
+
+async function readAllBytes(reader, firstChunk = null, firstDone = false) {
+  const chunks = firstChunk ? [firstChunk] : [];
+  let total = firstChunk ? firstChunk.length : 0;
+  if (!firstDone) {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      total += value.length;
+    }
+  }
+  const merged = new Uint8Array(total);
+  let off = 0;
+  for (const c of chunks) { merged.set(c, off); off += c.length; }
+  return merged;
+}
+
+/** รู้ความยาว (expected > 0) แล้วอ่าน error กลางทาง → คืน body ว่าง ให้ถือเป็นไฟล์ขาดแล้ว fetch ใหม่ ไม่รู้ความยาว → throw เหมือนเดิม */
+async function readBodyOrEmpty(reader, expected, firstChunk = null, firstDone = false) {
+  try {
+    return await readAllBytes(reader, firstChunk, firstDone);
+  } catch (err) {
+    if (expected > 0) return new Uint8Array(0);
+    throw err;
+  }
+}
+
+/**
+ * ส่ง body ลง FixedLengthStream ให้ครบ expectedLen พอดี
+ * upstream จบก่อนครบ (หรืออ่าน error) → resume(from) ขอส่วนที่เหลือด้วย Range 1 ครั้ง
+ * ยังไม่ครบ / ได้เกิน / Content-Range ไม่ตรง → abort writable (client ได้ network error ไม่ใช่ไฟล์ขาด)
+ */
+async function pipeExactLength({ reader, firstChunk, firstDone, writable, expectedLen, resume }) {
+  const writer = writable.getWriter();
+  let received = 0;
+  const write = async (chunk) => {
+    if (received + chunk.length > expectedLen) throw new Error(`body longer than ${expectedLen}`);
+    received += chunk.length;
+    await writer.write(chunk);
+  };
+  /** อ่านจนครบหรือ upstream จบ — tolerateReadError: upstream อ่าน error ถือเป็นจบก่อนครบ (ไปต่อด้วย resume) */
+  const drain = async (r, tolerateReadError) => {
+    while (received < expectedLen) {
+      let chunk;
+      try {
+        chunk = await r.read();
+      } catch (err) {
+        if (tolerateReadError) return;
+        throw err;
+      }
+      if (chunk.done) return;
+      await write(chunk.value);
+    }
+  };
+  let current = reader;
+  try {
+    await write(firstChunk);
+    if (!firstDone) await drain(reader, true);
+    if (received < expectedLen) {
+      try { await reader.cancel(); } catch (_) {}
+      const more = await resume(received);
+      const range = more.headers.get("content-range") || "";
+      if (more.status !== 206 || !range.startsWith(`bytes ${received}-`)) {
+        try { await more.body?.cancel(); } catch (_) {}
+        throw new Error(`resume failed at ${received}: HTTP ${more.status} ${range}`);
+      }
+      current = more.body.getReader();
+      await drain(current, false);
+    }
+    if (received < expectedLen) throw new Error(`upstream body truncated: ${received}/${expectedLen}`);
+    await writer.close();
+  } catch (err) {
+    try { await current.cancel(); } catch (_) {}
+    try { await writer.abort(err); } catch (_) {}
+  }
+}
 
 // Detect TS/media segments disguised with fake extensions (.jpg, .html, .png, etc.)
 // TS sync byte = 0x47 (G), repeats every 188 bytes

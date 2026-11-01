@@ -16,136 +16,466 @@
                             "image": "https://image.tmdb.org/t/p/original/xAUiRr8Q4NQKSqX0SMNMkwVbvcb.jpg",
                             "url": "https://sv2.team-indy.net/video/MGvuHzznar/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-02"
+                            "release_date": "2026-04-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 321.9,
+                                        "end": 412.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1211,
+                                        "end": 1301
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1425,
+                                        "end": 1525
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Locksmith",
                             "image": "https://image.tmdb.org/t/p/original/cJWxtODFHxCUKsnCXy2Kp86dzHw.jpg",
                             "url": "https://sv2.team-indy.net/video/h540JNfKPD/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-09"
+                            "release_date": "2026-04-09",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.5,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1508
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - 3+(←)1",
                             "image": "https://image.tmdb.org/t/p/original/qYKosyOOSbxA0Gxsg6ZGzZqs4Lm.jpg",
                             "url": "https://sv2.team-indy.net/video/fsZT7Vhc8h/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-16"
+                            "release_date": "2026-04-16",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.6,
+                                        "end": 173
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1518
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Impenetrable",
                             "image": "https://image.tmdb.org/t/p/original/90ZEbUGOQPuGV5zbSfpnJHohAQq.jpg",
                             "url": "https://sv2.team-indy.net/video/Ou128SNFO/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-23"
+                            "release_date": "2026-04-23",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.8,
+                                        "end": 176.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1512
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Change",
                             "image": "https://image.tmdb.org/t/p/original/p8DGb1cjIhakmWORa61PFRSsWDo.jpg",
                             "url": "https://sv2.team-indy.net/video/4wRDxbZW/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-30"
+                            "release_date": "2026-04-30",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0,
+                                        "end": 10
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 125.6,
+                                        "end": 216.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1209,
+                                        "end": 1298.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1436,
+                                        "end": 1520
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - New Semester",
                             "image": "https://image.tmdb.org/t/p/original/9vbKmuW6ZuMOmYnmI3mluYaFrq3.jpg",
                             "url": "https://sv2.team-indy.net/video/CmZVyezU6z/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-07"
+                            "release_date": "2026-05-07",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.2,
+                                        "end": 231.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332,
+                                        "end": 1519
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Loneliness and Solitude",
                             "image": "https://image.tmdb.org/t/p/original/l9gsJ2Hv6xYHCXNnFgexMhYkJvy.jpg",
                             "url": "https://sv2.team-indy.net/video/APGYGUnrDB/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-14"
+                            "release_date": "2026-05-14",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 157.5,
+                                        "end": 246.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1512
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - On Equal Footing",
                             "image": "https://image.tmdb.org/t/p/original/qmViLcAXGu4A93Gl5ksdPS37Sfh.jpg",
                             "url": "https://sv2.team-indy.net/video/eTvyJ81FO/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-21"
+                            "release_date": "2026-05-21",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.8,
+                                        "end": 228.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1252.3,
+                                        "end": 1341.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1425,
+                                        "end": 1515
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Self-Awareness",
                             "image": "https://image.tmdb.org/t/p/original/y2MWjNqzDyEIHqmcXCJfE1SLZKC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/w9EEBJG7AV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-28"
+                            "release_date": "2026-05-28",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 198.3,
+                                        "end": 289.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.5,
+                                        "end": 1510
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Spring",
                             "image": "https://image.tmdb.org/t/p/original/qPjRp98ypN9nYrFarNZUuVWcWnL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1skJ11m4u0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-04"
+                            "release_date": "2026-06-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.8,
+                                        "end": 145.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1521
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Inversion",
                             "image": "https://image.tmdb.org/t/p/original/sl4gBzIE0u2Qvvr6PdJPciI6gdx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SASTCF85i/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-11"
+                            "release_date": "2026-06-11",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.2,
+                                        "end": 105.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312,
+                                        "end": 1402
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1424,
+                                        "end": 1512
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Thunder",
                             "image": "https://image.tmdb.org/t/p/original/Atp4qBiDI9DolgHDDdBEYX7wrUP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nEpPiflwv8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-18"
+                            "release_date": "2026-06-18",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 206.6,
+                                        "end": 296.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1241,
+                                        "end": 1331
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1423.5,
+                                        "end": 1513
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Perception",
                             "image": "https://image.tmdb.org/t/p/original/dBOB7kV5DmjOYG64pNq6JUt690v.jpg",
                             "url": "https://sv2.team-indy.net/video/r0CQ9wtYat/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-25"
+                            "release_date": "2026-06-25",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.4,
+                                        "end": 168.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1517
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Bombshell",
                             "image": "https://image.tmdb.org/t/p/original/78VF56LrrQmzJ7nT2BYRS1zgSHC.jpg",
                             "url": "https://sv2.team-indy.net/video/z1uU8BR6Fr/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-02"
+                            "release_date": "2026-07-02",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1368,
+                                        "end": 1503
+                                    }
+                                ],
+                                "none": [
+                                    "op"
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Clouds and Rain",
                             "image": "https://image.tmdb.org/t/p/original/8wdW0AV65gRnvTPNFV6UUSKoNaF.jpg",
                             "url": "https://sv2.team-indy.net/video/3I2cKEUf6Y/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-01"
+                            "release_date": "2026-10-01",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1304,
+                                        "end": 1393.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1424,
+                                        "end": 1534
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Stop and Go",
                             "image": "https://image.tmdb.org/t/p/original/hVgHna4dQ2drYdvnxAZN6XlEezG.jpg",
                             "url": "https://sv2.team-indy.net/video/6QClmrHTSg/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-08"
+                            "release_date": "2026-10-08",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.7,
+                                        "end": 189
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1476
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - True Feelings",
                             "image": "https://image.tmdb.org/t/p/original/xLrBDefoJRnfEIIDbNIwB64Z2iS.jpg",
                             "url": "https://sv2.team-indy.net/video/8WNaV5U9GX/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-15"
+                            "release_date": "2026-10-15",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74,
+                                        "end": 163.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313,
+                                        "end": 1402.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1425,
+                                        "end": 1525
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Relief",
                             "image": "https://image.tmdb.org/t/p/original/zqjhLXg0oMo78I8lgrVgD1QzWqv.jpg",
                             "url": "https://sv2.team-indy.net/video/WHgGfTQi7l/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-22"
+                            "release_date": "2026-10-22",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194,
+                                        "end": 283.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303,
+                                        "end": 1392.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1425,
+                                        "end": 1541
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 19 - Transition",
+                            "image": "https://image.tmdb.org/t/p/original/ikSTYPR5Z8Cfb2hO0UPEYqOenuk.jpg",
+                            "url": "https://sv2.team-indy.net/video/VSgLEUhLdC/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-29",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 88.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334,
+                                        "end": 1422.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-04-02",
-            "updated_at": "2026-10-22T00:00:00.000Z"
+            "updated_at": "2026-10-29T00:00:00.000Z"
         }
     ],
     "release_date": "2026-04-02",
-    "updated_at": "2026-10-22T00:00:00.000Z",
+    "updated_at": "2026-10-29T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

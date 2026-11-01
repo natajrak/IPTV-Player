@@ -16,31 +16,98 @@
                             "image": "https://image.tmdb.org/t/p/original/kkDx2SP47tzylSIadCemWp6vUX9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzgMIgxza%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzgMIgxza",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-04"
+                            "release_date": "2026-10-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.4,
+                                        "end": 156.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Mimi the Girl",
                             "image": "https://image.tmdb.org/t/p/original/y20tsuAVOiDEVtuSFSxhTh0PLMi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Frl4BRBK1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Frl4BRBK1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-11"
+                            "release_date": "2026-10-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.8,
+                                        "end": 124.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.2,
+                                        "end": 1396.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Elma",
                             "image": "https://image.tmdb.org/t/p/original/x3LHeh7rAqITJrtzH9FuxOB1OCD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F94Xy1kVo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F94Xy1kVo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-18"
+                            "release_date": "2026-10-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.5,
+                                        "end": 162.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.5,
+                                        "end": 1379.6
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 4 - A New Daily Life",
+                            "image": "https://image.tmdb.org/t/p/original/wVqpyOVfxJBjJVfNXRmIChPBgON.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbKRcI51e%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbKRcI51e",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-10-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.6,
+                                        "end": 176.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-04",
-            "updated_at": "2026-10-18T00:00:00.000Z"
+            "updated_at": "2026-10-25T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-04",
-    "updated_at": "2026-10-18T00:00:00.000Z",
+    "updated_at": "2026-10-25T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

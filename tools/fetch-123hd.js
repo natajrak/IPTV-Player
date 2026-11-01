@@ -330,7 +330,7 @@ async function main() {
   });
 
   const reuse = createStreamReuse({
-    enabled: onlyNew, previous: io.loadPlaylist(outputPath),
+    enabled: onlyNew, previous: io.loadPrevious(outputPath, cli.chainBase), chainBase: !!cli.chainBase,
     trackName, sourceUrl: pageUrl, seasonName: playlistSeasonName, seasonNum: playlistSeasonNum, epOffset: 0,
   });
 
@@ -385,7 +385,7 @@ async function main() {
     resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset: 0, isDubbedTrack });
   }
 
-  const previousPlaylist = io.loadPlaylist(outputPath);
+  const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
   let playlist;
   if (ms) {
     playlist = writeMultiSeason({ ms, outputPath, seriesTitle, posterUrl, stations, trackName, trackReferer: pageUrl });

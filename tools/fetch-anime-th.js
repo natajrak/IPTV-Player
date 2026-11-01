@@ -300,7 +300,7 @@ async function main() {
     const playlistSeasonName = seasonName || `Season ${playlistSeasonNum}`;
 
     const reuse = createStreamReuse({
-      enabled: onlyNew && !isMovie, previous: io.loadPlaylist(outputPath),
+      enabled: onlyNew && !isMovie, previous: io.loadPrevious(outputPath, cli.chainBase), chainBase: !!cli.chainBase,
       trackName, sourceUrl: seriesUrl, seasonName: playlistSeasonName, seasonNum: playlistSeasonNum, epOffset: ms ? 0 : epOffset,
     });
 
@@ -398,7 +398,7 @@ async function main() {
         seasonCount: null, completion: null,
       });
     } else if (ms) {
-      const previousPlaylist = io.loadPlaylist(outputPath);
+      const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
       const playlist = writeMultiSeason({
         ms, outputPath, seriesTitle, posterUrl, stations,
         trackName, trackReferer: seriesUrl,
@@ -416,7 +416,7 @@ async function main() {
         completion: playlist.completion ?? null,
       });
     } else {
-      const previousPlaylist = io.loadPlaylist(outputPath);
+      const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
       const playlist = io.buildOrMergePlaylist({
         outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
         trackName, trackReferer: seriesUrl, tmdbSeasonName,

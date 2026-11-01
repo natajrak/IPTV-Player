@@ -3,7 +3,9 @@
     "allow": [
       "mcp__claude-in-chrome__tabs_context_mcp",
       "ClaudeInChromeDomain(claude.ai)",
-      "ClaudeInChromeDomain(localhost:4000)"
+      "ClaudeInChromeDomain(localhost:4000)",
+      "mcp__claude-in-chrome__tabs_create_mcp",
+      "ClaudeInChromeDomain(shy-haze-2452.natajrak-p.workers.dev)"
     ]
   },
   "hooks": {

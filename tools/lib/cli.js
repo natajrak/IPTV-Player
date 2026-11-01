@@ -54,6 +54,8 @@ function parseArgs(argv = process.argv) {
   const seasonMap = get('--season-map');
   const multiSeason = args.includes('--multi-season');
 
+  const chainBase = get('--chain-base');
+
   const partRaw = get('--part');
   const partNum = partRaw ? (parseInt(partRaw) || null) : null;
 
@@ -86,6 +88,7 @@ function parseArgs(argv = process.argv) {
     multiSeason,
     partNum,
     typeArg,
+    chainBase,
     hasFlag,
     get,
   };
