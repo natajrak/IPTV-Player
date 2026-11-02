@@ -15,7 +15,20 @@
                             "image": "https://image.tmdb.org/t/p/original/tR1TuQnj9P5sdQQMWs4dW2eBl8u.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FmWaFGFK8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FmWaFGFK8",
                             "referer": "",
-                            "release_date": "2014-04-06"
+                            "release_date": "2014-04-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1415.5
+                                    }
+                                ],
+                                "none": [
+                                    "op"
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - การเข้าศึกษา ตอน 2",
@@ -24,12 +37,17 @@
                             "referer": "",
                             "release_date": "2014-04-13",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 148.5,
                                         "end": 237.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -63,13 +81,16 @@
                             "referer": "",
                             "release_date": "2014-04-27",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 123.5,
                                         "end": 212.4
                                     }
+                                ],
+                                "none": [
+                                    "ed"
                                 ]
                             }
                         },
@@ -190,12 +211,17 @@
                             "referer": "",
                             "release_date": "2014-06-08",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 70.5,
                                         "end": 159.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1415.5
                                     }
                                 ]
                             }
@@ -361,13 +387,16 @@
                             "referer": "",
                             "release_date": "2014-08-03",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 164.5,
                                         "end": 253.5
                                     }
+                                ],
+                                "none": [
+                                    "ed"
                                 ]
                             }
                         },
@@ -532,13 +561,16 @@
                             "referer": "",
                             "release_date": "2014-09-28",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 109.5,
                                         "end": 199
                                     }
+                                ],
+                                "none": [
+                                    "ed"
                                 ]
                             }
                         }
@@ -554,7 +586,20 @@
                             "image": "https://image.tmdb.org/t/p/original/tR1TuQnj9P5sdQQMWs4dW2eBl8u.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QwFEjl3Q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-04-06"
+                            "release_date": "2014-04-06",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1415.5
+                                    }
+                                ],
+                                "none": [
+                                    "op"
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Enrollment Part II",
@@ -1096,7 +1141,20 @@
                             "image": "https://image.tmdb.org/t/p/original/7dQfoKgbOeCXqK03g7OOrTFfXhw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qbzDKRmf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-04"
+                            "release_date": "2020-10-04",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1349,
+                                        "end": 1425
+                                    }
+                                ],
+                                "none": [
+                                    "op"
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Visitor Arc II",
@@ -1105,12 +1163,17 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2020-10-11",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 62.5,
                                         "end": 151.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342,
+                                        "end": 1424.5
                                     }
                                 ]
                             }
@@ -1122,7 +1185,7 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2020-10-18",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
@@ -1131,7 +1194,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1362.8,
+                                        "start": 1342,
                                         "end": 1424.5
                                     }
                                 ]
@@ -1144,8 +1207,19 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2020-10-25",
                             "skip": {
-                                "source": "audit",
-                                "segments": []
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92,
+                                        "end": 182
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342,
+                                        "end": 1424.5
+                                    }
+                                ]
                             }
                         },
                         {
@@ -1155,7 +1229,7 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2020-11-01",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
@@ -1164,7 +1238,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1349,
+                                        "start": 1336,
                                         "end": 1397.3
                                     }
                                 ]

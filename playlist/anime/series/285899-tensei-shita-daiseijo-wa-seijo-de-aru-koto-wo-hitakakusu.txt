@@ -62,13 +62,16 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2026-10-17",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 148.5,
                                         "end": 237.5
                                     }
+                                ],
+                                "none": [
+                                    "ed"
                                 ]
                             }
                         },

@@ -109,6 +109,28 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 6 - First Boss Raid",
+                            "image": "https://image.tmdb.org/t/p/original/vnY6aKuYvkPcsUY3dKjvrlvbUnj.jpg",
+                            "url": "https://sv2.team-indy.net/video/fWC7oDsw8O/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.5,
+                                        "end": 199.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -193,16 +215,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - Family's Trust",
+                            "image": "https://image.tmdb.org/t/p/original/uTQq95tDMWkMnKL65c3U1Lk5lgu.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0Mh4OHSF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0Mh4OHSF",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-10-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.5,
+                                        "end": 199.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-02",
-            "updated_at": "2026-10-30T00:00:00.000Z"
+            "updated_at": "2026-11-06T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-02",
-    "updated_at": "2026-10-30T00:00:00.000Z",
+    "updated_at": "2026-11-06T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

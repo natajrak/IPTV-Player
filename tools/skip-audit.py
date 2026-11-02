@@ -53,6 +53,8 @@ OP/ED ที่จับได้สั้นกว่าเพลงเต็�
     (ปรับขอบ ±0.5 ตามนโยบายต่อ) — ขอบเริ่มค้นเข้าไปในเพลงได้ 20 วิ (เพลงขึ้นก่อนภาพ), นอกนั้น ±1.5 วิ
     (ออกนอกเพลงไกลเสี่ยงลามเข้าเนื้อเรื่อง; ขอบจบค้นลึกไม่ได้เพราะช็อตท้ายเพลงมักต่างกันทุกตอน)
     ยกเว้นเพลงที่จับจากเสียงได้สั้นกว่าความยาวเต็มของแทร็ก → ขอบจบค้นออกนอกเพลงเพิ่มได้เท่าส่วนที่ขาด (≤ 10 วิ)
+    เทียบกับค่ากลางของตอนข้างเคียงก่อน ไม่พบ → ค่าสูงสุด (วิดีโอ OP/ED หลายแบบที่หัวยาวต่างกัน)
+    ED ที่ถูกตัดต้นเพลงเพราะเสียงพูดทับ ค้นจากจุดเริ่มเพลงก่อนตัด พบจุดตัดภาพ → ใช้แทนการตัด
     ไม่พบจุดตัดชัดเจน/ดึงตรงไม่ได้ (ต้องผ่าน worker) → คงขอบเสียง; ปิดด้วย report --no-visual
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
@@ -1254,7 +1256,10 @@ def _visual_edge(win, others, side, deficit=0.0):
     """จุดตัดภาพที่เป็นขอบ OP/ED — win/others = (frames, ดัชนีเฟรมของขอบเสียง); คืน (τ วินาทีจากขอบเสียง, score) หรือ None
     จัดแนวภาพกับตอนข้างเคียงแต่ละตอน (เลื่อนหาตาม _visual_align_range จากช่วงอ้างอิง _visual_inner ซึ่งอยู่ในเพลงแน่ๆ)
     → ค่ากลางความเหมือนต่อเฟรม → จุดตัด (ภาพเปลี่ยนกะทันหันเทียบกับทั้งหน้าต่างหรือกับความเคลื่อนไหวรอบ ๆ ±1 วิ)
-    ในระยะค้นหาที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือนมากที่สุด — side 0 = ขอบเริ่ม (หลังจุดตัดเหมือน), 1 = ขอบจบ (ก่อนจุดตัดเหมือน)"""
+    ในระยะค้นหาที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือนมากที่สุด — side 0 = ขอบเริ่ม (หลังจุดตัดเหมือน), 1 = ขอบจบ (ก่อนจุดตัดเหมือน)
+    ไม่พบด้วยค่ากลาง → ลองค่าสูงสุดของตอนข้างเคียง (ฝั่งเพลงเหมือนอย่างน้อย 1 ตอน อีกฝั่งไม่เหมือนตอนใดเลย): วิดีโอ OP/ED ที่ออกอากาศ
+    มีหลายแบบที่หัวยาวต่างกัน เช่น Mahouka S1 ตอน 10–11 หัว ED ยาวกว่าตอน 8, 9, 12 อยู่ 1.1 วิ — ใช้เป็นทางสำรองเท่านั้น
+    (ใช้แทนค่ากลางเลยแล้ว SAO ตอน 6 เลือกจุดตัดผิด 4.8 วิ)"""
     frames, centre = win
     ua = _unit_frames(frames)
     n = len(ua)
@@ -1291,29 +1296,30 @@ def _visual_edge(win, others, side, deficit=0.0):
         if not curves:
             return None
         lo, hi = _visual_range(side, deficit)
-        m = np.nanmedian(np.array(curves), axis=0)
         diff = np.abs(np.diff(frames.astype(np.float32), axis=0)).mean(axis=(1, 2))
         local = np.array([np.median(diff[max(0, k - VISUAL_FPS):k + VISUAL_FPS + 1]) for k in range(len(diff))])
         floor = VISUAL_CUT_FACTOR * np.minimum(np.median(diff), local) + VISUAL_CUT_MIN
-        best = None
-        for k in range(len(diff)):
-            c = k + 1
-            tau = (c - centre) / VISUAL_FPS
-            if diff[k] <= floor[k] or diff[k] < diff[max(0, k - 2):k + 3].max() or not lo <= tau <= hi:
-                continue
-            pre = m[max(0, c - VISUAL_FPS):c]
-            post = m[c:c + VISUAL_FPS]
-            if len(pre) < VISUAL_FPS // 2 or len(post) < VISUAL_FPS // 2:
-                continue
-            pa, pb = np.nanmean(pre), np.nanmean(post)
-            if np.isnan(pa) or np.isnan(pb):
-                continue
-            score = float(pb - pa if side == 0 else pa - pb)
-            if best is None or score > best[1]:
-                best = (tau, score)
-    if not best or best[1] < VISUAL_MIN_SCORE:
-        return None
-    return best
+        stack = np.array(curves)
+        for m in (np.nanmedian(stack, axis=0), np.nanmax(stack, axis=0)):
+            best = None
+            for k in range(len(diff)):
+                c = k + 1
+                tau = (c - centre) / VISUAL_FPS
+                if diff[k] <= floor[k] or diff[k] < diff[max(0, k - 2):k + 3].max() or not lo <= tau <= hi:
+                    continue
+                pre = m[max(0, c - VISUAL_FPS):c]
+                post = m[c:c + VISUAL_FPS]
+                if len(pre) < VISUAL_FPS // 2 or len(post) < VISUAL_FPS // 2:
+                    continue
+                pa, pb = np.nanmean(pre), np.nanmean(post)
+                if np.isnan(pa) or np.isnan(pb):
+                    continue
+                score = float(pb - pa if side == 0 else pa - pb)
+                if best is None or score > best[1]:
+                    best = (tau, score)
+            if best and best[1] >= VISUAL_MIN_SCORE:
+                return best
+    return None
 
 
 def _audio_ref(fi, t0, t1):
@@ -1335,7 +1341,9 @@ def _audio_ref(fi, t0, t1):
 def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, feats=None):
     """ขยับขอบ OP/ED ไปที่จุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02: เพลงมักคร่อมจุดตัดภาพ ±1 วิ ทั้งสองทิศ, บางเรื่องเพลงขึ้นก่อนภาพหลายวิ)
     ดึงภาพรอบขอบเสียงแต่ละขอบ (_visual_span, ตัดตามขอบไฟล์) เทียบกับตอนข้างเคียง ±NEIGHBOR_SPAN — ไม่พบจุดตัดที่ชัดเจนคงขอบเสียงเดิม
-    ไม่แตะ: ED ที่ตัดต้นเพลงเพราะเสียงพูดทับ (trimmed), ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)"""
+    ED ที่ตัดต้นเพลงเพราะเสียงพูดทับ (trimmed) ค้นจากจุดเริ่มเพลงก่อนตัด — พบจุดตัดภาพที่ตรงกับตอนข้างเคียงใช้จุดตัดภาพแทนการตัด
+    (ตอนข้างเคียงที่มีเสียงพูดทับจริงทำให้ค่ากลางเพี้ยน เช่น Mahouka S2 ตอน 3, 12 ถูกตัดเกินภาพ ED 20 วิ) ไม่พบคงการตัดเดิม
+    ไม่แตะ: ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)"""
     shift_gap = start_shift - end_shift
     ref = {kind: _ref_song_length([r[kind] for r in det.values() if r.get(kind)], shift_gap) for kind in ('op', 'ed')}
     edges = {}
@@ -1347,9 +1355,7 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
             if not region:
                 continue
             deficit = max(0.0, ref[kind] - (_song_len(region) + shift_gap)) if ref[kind] else 0.0
-            found = []
-            if not (kind == 'ed' and region.get('trimmed')):
-                found.append((0, region['start'] - start_shift))
+            found = [(0, region['start'] - (region.get('trimmed') or 0.0) - start_shift)]
             if kind == 'op' or not region.get('to_eof') and region['end'] - _song_end(region) < VISUAL_CREDITS_GAP_SEC:
                 found.append((1, _song_end(region) - end_shift))
             for side, t in found:
@@ -1404,6 +1410,7 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
             if _song_end(region) - new < MIN_REGION_SEC:
                 continue
             region['start'] = new
+            region.pop('trimmed', None)
         else:
             new = round(edges[key][0] + tau + end_shift, 1)
             if new - region['start'] < MIN_REGION_SEC:
