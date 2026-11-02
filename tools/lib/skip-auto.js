@@ -17,6 +17,10 @@
  *   ไม่ลองซ้ำถี่ๆ เพราะจะกิน quota ที่ player ใช้เล่น (skip-audit ดึงตรงจากเครื่องได้หลาย host จึงดูจากผล report ไม่เดาจาก URL)
  * - คิว + ประวัติเก็บใน tools/.skip-audit-cache/auto/queue.json — restart server แล้วงานไม่หาย
  * - status() เทียบรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ กับไฟล์ปัจจุบัน → ติด resolved เมื่อผู้ใช้จัดการแล้ว (กรอกช่วง / ยืนยันว่าไม่มี)
+ * - recheck(file, season) = ผู้ใช้สั่งตรวจใหม่ทั้ง season จาก CMS (ไม่ต้อง fetch): ทุกตอนที่มี URL ยกเว้นตอนที่ผู้ใช้ยืนยันว่า
+ *   ไม่มีช่วงข้ามเลย (manual + segments ว่าง); apply เพิ่ม --fix แก้เวลาช่วงเดิมที่คลาดเกิน tolerance (ทุก source)
+ *   ไม่มีเพดานตอน, timeout report ตามจำนวนตอน, ไม่ขึ้นกับสวิตช์เปิด/ปิดตรวจอัตโนมัติ
+ *   ผลล่าสุดต่อ season เก็บใน tools/.skip-audit-cache/auto/rechecked.json (CMS แสดงความคืบหน้า)
  */
 
 const fs = require('fs');
@@ -31,6 +35,7 @@ const MAX_EPISODES_PER_SEASON = 30;
 const MAX_ATTEMPTS = 3;
 const HISTORY_SIZE = 20;
 const REPORT_TIMEOUT_MS = 30 * 60 * 1000;
+const RECHECK_REPORT_MS_PER_STATION = 60 * 1000;
 const APPLY_TIMEOUT_MS = 60 * 1000;
 const WAIT_POLL_MS = 1000;
 const EXTRA_PATH = ['/opt/homebrew/bin', '/usr/local/bin'];
@@ -118,6 +123,7 @@ function createSkipAuto({ root, playlistDirOf }) {
   const logPath = path.join(toolsDir, '.skip-audit-cache', 'auto-jobs.log');
   const configPath = path.join(workDir, 'config.json');
   const queuePath = path.join(workDir, 'queue.json');
+  const recheckedPath = path.join(workDir, 'rechecked.json');
 
   const fetching = new Map();
   const locked = new Set();
@@ -132,8 +138,37 @@ function createSkipAuto({ root, playlistDirOf }) {
     enabled = JSON.parse(fs.readFileSync(configPath, 'utf-8')).enabled !== false;
   } catch {}
 
+  /** ผลตรวจใหม่ล่าสุดต่อ season: `${fileRel}|${season}` → { at, status, filled, fixed, review, none, errors, message } */
+  let rechecked = {};
+  try {
+    rechecked = JSON.parse(fs.readFileSync(recheckedPath, 'utf-8')) || {};
+  } catch {}
+
   const available = () => fs.existsSync(python) && fs.existsSync(script);
   const rel = (file) => path.relative(root, file).split(path.sep).join('/');
+
+  /** review/errors นับเฉพาะที่ยังไม่ resolved ตอนงานจบ (ให้ตรงกับ "ต้องดู" ในแผงงานของ CMS) */
+  function recordRecheck(job) {
+    const index = stationIndex(job.file);
+    const pending = (items) => items.filter((it) => !resolutionOf(index, it)).length;
+    rechecked[`${job.fileRel}|${job.season}`] = {
+      at: job.finishedAt,
+      status: job.status,
+      filled: job.filled.length,
+      fixed: job.fixed.length,
+      review: pending(job.review),
+      none: job.none.length,
+      errors: pending(job.errors),
+      message: job.message || '',
+    };
+    try {
+      fs.mkdirSync(workDir, { recursive: true });
+      fs.writeFileSync(`${recheckedPath}.tmp`, JSON.stringify(rechecked));
+      fs.renameSync(`${recheckedPath}.tmp`, recheckedPath);
+    } catch (err) {
+      console.warn(`[skip-auto] บันทึกผลตรวจใหม่ไม่สำเร็จ: ${err.message}`);
+    }
+  }
 
   function log(line) {
     const text = `[${new Date().toISOString()}] ${line}\n`;
@@ -269,9 +304,9 @@ function createSkipAuto({ root, playlistDirOf }) {
     seq = Number(data.seq) || 0;
     for (const job of (data.queue || []).map(fromStored)) {
       if (!fs.existsSync(job.file)) continue;
-      queue.push({ none: [], ...job, season: storedSeason(job), status: job.status === 'waiting' && job.notBefore ? 'waiting' : 'queued', phase: null });
+      queue.push({ none: [], fixed: [], recheck: false, ...job, season: storedSeason(job), status: job.status === 'waiting' && job.notBefore ? 'waiting' : 'queued', phase: null });
     }
-    history.push(...(data.history || []).slice(0, HISTORY_SIZE).map((j) => ({ none: [], ...fromStored(j) })));
+    history.push(...(data.history || []).slice(0, HISTORY_SIZE).map((j) => ({ none: [], fixed: [], ...fromStored(j) })));
   }
 
   /**
@@ -288,11 +323,13 @@ function createSkipAuto({ root, playlistDirOf }) {
       tracks: new Map(),
       fresh,
       old,
+      recheck: false,
       status: 'queued',
       phase: null,
       attempts: 0,
       message: '',
       filled: [],
+      fixed: [],
       review: [],
       errors: [],
       none: [],
@@ -367,9 +404,10 @@ function createSkipAuto({ root, playlistDirOf }) {
     const message = `CF worker quota หมด (429) — เลื่อนไปตรวจ ${toBangkokTime(notBefore)}`;
     if (waiting) {
       mergeTracks(waiting.fresh, failed);
+      waiting.recheck = waiting.recheck || job.recheck;
       planJob(waiting);
     } else {
-      queue.push(newJob(job.file, job.season, { fresh: failed, name: job.name, status: 'waiting', notBefore, message }));
+      queue.push(newJob(job.file, job.season, { fresh: failed, name: job.name, recheck: job.recheck, status: 'waiting', notBefore, message }));
     }
     log(`waiting ${scopeText(job)} — ${countEpisodes(failed)} ตอน — ${message}`);
     return `เลื่อน ${countEpisodes(failed)} ตอนที่ตรวจไม่ได้ (CF worker quota หมด) ไปตรวจ ${toBangkokTime(notBefore)}`;
@@ -400,6 +438,7 @@ function createSkipAuto({ root, playlistDirOf }) {
   /**
    * สถานะปัจจุบันในไฟล์ของรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ — null = ยังไม่ได้จัดการ
    * - มี kind: มีช่วงชนิดนั้นแล้ว → {start, end, type, source}; skip.none มีชนิดนั้น หรือ manual ที่ไม่มีช่วงเลย → {none: true}
+   * - รายการแจ้ง (notice: ระบบบันทึกค่าแล้วแต่ผิดปกติ เช่นภาพ ED เริ่มช้ากว่าเพลงมาก) → ยังไม่ถือว่าจัดการจนกว่าผู้ใช้กดบันทึก (source manual)
    * - ไม่มี kind: ผู้ใช้บันทึกค่าตอนนั้นแล้ว (source manual) → {manual: true}
    */
   function resolutionOf(index, item) {
@@ -408,7 +447,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     const segs = skip.segments || [];
     if (!item.kind) return skip.source === 'manual' ? { manual: true } : null;
     const seg = segs.find((x) => KIND_SEGMENT_TYPES[item.kind]?.includes(x.type));
-    if (seg) return { start: seg.start, end: seg.end, type: seg.type, source: skip.source };
+    if (seg) return item.notice && skip.source !== 'manual' ? null : { start: seg.start, end: seg.end, type: seg.type, source: skip.source };
     if ((skip.none || []).includes(item.kind) || (skip.source === 'manual' && !segs.length)) return { none: true };
     return null;
   }
@@ -442,15 +481,18 @@ function createSkipAuto({ root, playlistDirOf }) {
     history.length = Math.min(history.length, HISTORY_SIZE);
     const detail = [
       `เติม ${job.filled.length}`,
+      ...(job.recheck ? [`แก้เวลา ${job.fixed.length}`] : []),
       `ต้องดู ${job.review.length}`,
       `ไม่พบ ${job.none.length}`,
       `ตรวจไม่ได้ ${job.errors.length}`,
     ].join(', ');
-    log(`${status} ${scopeText(job)} — ${detail}${job.message ? ` — ${job.message}` : ''}${job.note ? ` — ${job.note}` : ''}`);
+    log(`${status}${job.recheck ? ' (ตรวจใหม่)' : ''} ${scopeText(job)} — ${detail}${job.message ? ` — ${job.message}` : ''}${job.note ? ` — ${job.note}` : ''}`);
     for (const f of job.filled) log(`  fill   ${f.track} ตอน ${f.label} ${f.kind} ${f.start}-${f.end}`);
+    for (const f of job.fixed) log(`  fix    ${f.track} ตอน ${f.label} ${f.kind} ${f.old?.start}-${f.old?.end} → ${f.start}-${f.end}`);
     for (const r of job.review) log(`  review ${r.track} ตอน ${r.label}${r.kind ? ` ${r.kind}` : ''}${r.start != null ? ` ${r.start}-${r.end}` : ''} (${r.reason})`);
     for (const n of job.none) log(`  none   ${n.track} ตอน ${n.label}`);
     for (const e of job.errors) log(`  error  ${e.track} ตอน ${e.label} — ${e.error}`);
+    if (job.recheck) recordRecheck(job);
   }
 
   const KIND_LABEL = { op: 'OP', ed: 'ED', intro: 'Intro' };
@@ -496,9 +538,15 @@ function createSkipAuto({ root, playlistDirOf }) {
     for (const out of applied) {
       for (const c of out.changes || []) {
         const item = { track: c.track, label: c.label, kind: c.kind, start: c.start, end: c.end };
-        if (c.action !== 'fill' || filledKeys.has(keyOf(item))) continue;
+        if ((c.action !== 'fill' && c.action !== 'fix') || filledKeys.has(keyOf(item))) continue;
         filledKeys.add(keyOf(item));
-        job.filled.push(item);
+        if (c.notice) {
+          reviewKeys.add(keyOf(item));
+          job.review.push({ ...item, reason: `${c.notice} — บันทึกค่าแล้ว`, notice: true });
+          continue;
+        }
+        if (c.action === 'fill') job.filled.push(item);
+        else job.fixed.push({ ...item, old: c.old });
       }
     }
     const noneKeys = new Set();
@@ -555,10 +603,10 @@ function createSkipAuto({ root, playlistDirOf }) {
     job.status = 'running';
     job.startedAt = job.startedAt || new Date().toISOString();
     job.attempts++;
-    if (!enabled) return finish(job, 'skipped', 'ปิดการตรวจอัตโนมัติอยู่');
+    if (!enabled && !job.recheck) return finish(job, 'skipped', 'ปิดการตรวจอัตโนมัติอยู่');
     if (!available()) return finish(job, 'skipped', 'ไม่พบ tools/.venv-skip หรือ skip-audit.py');
     const total = countUniqueEpisodes(job.tracks);
-    if (total > MAX_EPISODES_PER_SEASON) return finish(job, 'skipped', `ต้องตรวจ ${total} ตอน เกินเพดาน ${MAX_EPISODES_PER_SEASON} ตอนต่อ season — ตรวจด้วย skip-audit เอง`);
+    if (!job.recheck && total > MAX_EPISODES_PER_SEASON) return finish(job, 'skipped', `ต้องตรวจ ${total} ตอน เกินเพดาน ${MAX_EPISODES_PER_SEASON} ตอนต่อ season — ตรวจด้วย skip-audit เอง`);
 
     job.phase = 'report';
     await waitNoFetch(job.file);
@@ -569,14 +617,20 @@ function createSkipAuto({ root, playlistDirOf }) {
     const seasons = new Set();
     for (const { season, trackName } of walkStations(playlist)) if (job.tracks.has(trackName)) seasons.add(season.name);
     const reportTracks = new Set();
-    for (const { season, trackName } of walkStations(playlist)) if (seasons.has(season.name)) reportTracks.add(trackName);
+    let reportStations = 0;
+    for (const { season, trackName } of walkStations(playlist)) {
+      if (!seasons.has(season.name)) continue;
+      reportTracks.add(trackName);
+      reportStations++;
+    }
     if (!reportTracks.size) return finish(job, 'done', 'ไม่มีตอนใหม่เหลือในไฟล์');
+    const reportTimeout = job.recheck ? Math.max(REPORT_TIMEOUT_MS, reportStations * RECHECK_REPORT_MS_PER_STATION) : REPORT_TIMEOUT_MS;
 
     fs.mkdirSync(workDir, { recursive: true });
     const reportPath = path.join(workDir, `report-${job.id}.json`);
     const applyPaths = [];
     try {
-      const rep = await run(['report', job.file, '--out', reportPath, '--workers', '2', '--tracks', ...reportTracks], REPORT_TIMEOUT_MS);
+      const rep = await run(['report', job.file, '--out', reportPath, '--workers', '2', '--tracks', ...reportTracks], reportTimeout);
       if (job.cancelled) return;
       if (rep.code !== 0 || !fs.existsSync(reportPath)) return finish(job, 'failed', `report ล้มเหลว (exit ${rep.code}): ${lastLine(rep.stderr)}`);
       const report = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
@@ -594,7 +648,7 @@ function createSkipAuto({ root, playlistDirOf }) {
         let res;
         try {
           res = await run(
-            ['apply', job.file, reportPath, '--fill', '--mark-none', '--source', 'audit', '--json-out', outPath, '--tracks', track, '--episodes', ...labels],
+            ['apply', job.file, reportPath, '--fill', ...(job.recheck ? ['--fix'] : []), '--mark-none', '--source', 'audit', '--json-out', outPath, '--tracks', track, '--episodes', ...labels],
             APPLY_TIMEOUT_MS,
           );
         } finally {
@@ -634,7 +688,8 @@ function createSkipAuto({ root, playlistDirOf }) {
       mergeTracks(merged, other.tracks);
       mergeTracks(merged, job.tracks);
     }
-    if (!other || countUniqueEpisodes(merged) > MAX_EPISODES_PER_SEASON) {
+    const uncapped = job.recheck || other?.recheck;
+    if (!other || (!uncapped && countUniqueEpisodes(merged) > MAX_EPISODES_PER_SEASON)) {
       queue.unshift(job);
       return;
     }
@@ -643,6 +698,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     other.old = subtractTracks(other.old, other.fresh);
     other.applied.unshift(...job.applied);
     other.attempts = Math.max(other.attempts, job.attempts);
+    other.recheck = other.recheck || job.recheck;
     planJob(other);
     log(`งาน #${job.id} ${scopeText(job)} — ไฟล์เปลี่ยนระหว่างตรวจ รวมเข้างาน #${other.id}`);
   }
@@ -687,10 +743,20 @@ function createSkipAuto({ root, playlistDirOf }) {
    *   ตอนที่งานเดิมวางแผนตรวจไว้ (tracks) ถือเป็นตอนที่ต้องตรวจของงานใหม่
    * - ถ้ารวมแล้วตอนที่ต้องตรวจเกินเพดาน → ไม่ยกเลิกงานเดิม แยกตอนใหม่เป็นอีกงาน (ตัดตอนที่งานเดิมมีอยู่แล้วออก)
    * - ถ้างานใหม่ไม่มีตอนเพิ่มจากที่งานเดิมวางแผนไว้ → ไม่ทำอะไร (ไม่หยุดงานเดิมโดยเปล่าประโยชน์)
+   * - recheck: งานตรวจใหม่ (ไม่มีเพดาน, apply --fix) — งานที่รวมกับงาน recheck เป็น recheck ด้วย และงานรอ quota ของ season นี้ถูกยกเป็น recheck
    */
-  function enqueue(file, season, fresh, old) {
+  function enqueue(file, season, fresh, old, { recheck = false } = {}) {
     const handled = new Map();
-    for (const j of queue) if (sameScope(j, file, season) && j.status === 'waiting') mergeTracks(handled, j.tracks);
+    let upgradedWaiting = false;
+    for (const j of queue) {
+      if (!sameScope(j, file, season) || j.status !== 'waiting') continue;
+      mergeTracks(handled, j.tracks);
+      if (recheck && !j.recheck) {
+        j.recheck = true;
+        upgradedWaiting = true;
+      }
+    }
+    if (upgradedWaiting) persist();
     const runningHere = !!running && sameScope(running, file, season);
     if (runningHere && running.phase === 'apply') mergeTracks(handled, running.tracks);
     const replaced = queue.filter((j) => sameScope(j, file, season) && j.status === 'queued');
@@ -706,7 +772,8 @@ function createSkipAuto({ root, playlistDirOf }) {
     mergeTracks(candidates, old);
     const mergedFresh = subtractTracks(required, handled);
     const mergedOld = subtractTracks(subtractTracks(candidates, mergedFresh), handled);
-    const canReplace = replaced.length > 0 && countUniqueEpisodes(mergedFresh) <= MAX_EPISODES_PER_SEASON;
+    const uncapped = recheck || replaced.some((j) => j.recheck);
+    const canReplace = replaced.length > 0 && (uncapped || countUniqueEpisodes(mergedFresh) <= MAX_EPISODES_PER_SEASON);
 
     let jobFresh = mergedFresh;
     let jobOld = mergedOld;
@@ -723,7 +790,8 @@ function createSkipAuto({ root, playlistDirOf }) {
     planJob(draft);
     const planned = new Map();
     for (const j of jobReplaced) mergeTracks(planned, j.tracks);
-    if (jobReplaced.length && !subtractTracks(draft.tracks, planned).size) {
+    const upgrades = recheck && !jobReplaced.some((j) => j.recheck);
+    if (jobReplaced.length && !upgrades && !subtractTracks(draft.tracks, planned).size) {
       if (draft.note) log(`${scope} — ${draft.note} — งานเดิมตรวจตอนชุดนี้อยู่แล้ว ไม่สร้างงานใหม่`);
       return;
     }
@@ -732,7 +800,7 @@ function createSkipAuto({ root, playlistDirOf }) {
       return;
     }
 
-    const job = newJob(file, season, { fresh: jobFresh, old: jobOld });
+    const job = newJob(file, season, { fresh: jobFresh, old: jobOld, recheck: recheck || jobReplaced.some((j) => j.recheck) });
     let at = jobReplaced.includes(running) ? 0 : queue.length;
     for (const j of jobReplaced) {
       job.name = job.name || j.name;
@@ -841,6 +909,28 @@ function createSkipAuto({ root, playlistDirOf }) {
       log(`ล้างประวัติ ${n} งาน`);
     },
 
+    /**
+     * ตรวจ OP/ED ใหม่ทั้ง season (ผู้ใช้สั่งจาก CMS) — คืน { ok, episodes } หรือ { ok: false, error }
+     * file = path เต็มของไฟล์ playlist, season = ชื่อ season ตามในไฟล์
+     */
+    recheck(file, season) {
+      if (!available()) return { ok: false, error: 'ไม่พบ tools/.venv-skip หรือ skip-audit.py' };
+      const playlist = readPlaylist(file);
+      if (!playlist) return { ok: false, error: 'อ่านไฟล์ playlist ไม่ได้' };
+      const tracks = new Map();
+      for (const { season: s, trackName, idx, station } of walkStations(playlist)) {
+        if (`${s.name}` !== season || !station.url) continue;
+        const skip = station.skip;
+        if (skip?.source === 'manual' && !(skip.segments || []).length) continue;
+        if (!tracks.has(trackName)) tracks.set(trackName, new Set());
+        tracks.get(trackName).add(episodeLabelOf(station) || `#${idx}`);
+      }
+      if (!tracks.size) return { ok: false, error: `ไม่มีตอนให้ตรวจใน ${season}` };
+      enqueue(file, season, tracks, new Map(), { recheck: true });
+      log(`ตรวจใหม่ ${scopeText({ file, season })} — ${countUniqueEpisodes(tracks)} ตอน`);
+      return { ok: true, episodes: countUniqueEpisodes(tracks) };
+    },
+
     status() {
       return {
         enabled,
@@ -848,6 +938,7 @@ function createSkipAuto({ root, playlistDirOf }) {
         running: running && !running.cancelled ? publicJob(running) : null,
         queue: queue.map(publicJob),
         recent: history.map(publicJobWithResolution),
+        rechecked,
       };
     },
   };

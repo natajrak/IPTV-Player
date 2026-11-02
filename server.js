@@ -7,7 +7,7 @@ const path         = require('path');
 const os           = require('os');
 const url          = require('url');
 const { spawn }    = require('child_process');
-const { createSkipAuto } = require('./tools/lib/skip-auto');
+const { createSkipAuto, SKIP_TABS } = require('./tools/lib/skip-auto');
 
 const PORT      = process.env.PORT || 4000;
 const ROOT      = __dirname;
@@ -231,6 +231,31 @@ const server = http.createServer(async (req, res) => {
     }
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
     res.end(JSON.stringify(skipAuto.status()));
+    return;
+  }
+
+  // ── POST /api/skip-recheck ── { filePath, season } ตรวจ OP/ED ใหม่ทั้ง season (เฉพาะ tab ที่ skip-auto ดูแล)
+  if (req.method === 'POST' && pathname === '/api/skip-recheck') {
+    let body;
+    try { body = JSON.parse(await readBody(req)); }
+    catch { res.writeHead(400, { 'Content-Type': 'text/plain' }); res.end('Bad JSON'); return; }
+
+    const { filePath, season } = body;
+    const fullPath = typeof filePath === 'string' ? path.join(ROOT, filePath) : '';
+    const allowed = [...SKIP_TABS].some(tab => getPlaylistDir(tab) && fullPath.startsWith(path.join(ROOT, getPlaylistDir(tab)) + path.sep));
+    if (!allowed || !fullPath.endsWith('.txt') || !fs.existsSync(fullPath)) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('Forbidden');
+      return;
+    }
+    if (typeof season !== 'string' || !season) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Invalid: need season (string)');
+      return;
+    }
+    const result = skipAuto.recheck(fullPath, season);
+    res.writeHead(result.ok ? 200 : 409, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(result));
     return;
   }
 

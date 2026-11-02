@@ -48,8 +48,11 @@ OP/ED ที่จับได้สั้นกว่าเพลงเต็�
     → นับถอยจากจุดจบด้วยความยาวเพลงเต็มของแทร็ก (~90±5 วิ, กลุ่มที่ยาวที่สุดซึ่งมี ≥ 3 ตอน) หาจุดที่เสียงเริ่มเหมือนตอนข้างเคียง
     ใช้เมื่อช่วงที่ขยายเหมือนตอนข้างเคียงจริง; OP ที่เริ่มใน 1.5 วิแรกของไฟล์เริ่มที่ 0:00; รายงานแสดง "ขยายต้นเพลงย้อนจากจุดจบ"
 
-ขอบตามจุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02): หลังจับขอบจากเสียง ดึงภาพ ±4 วิรอบแต่ละขอบ (ภาพย่อ 32×18 ขาวดำ 25 fps,
-    cache เป็น <key>-v<t>.npy) หาจุดตัดภาพภายใน ±1.5 วิที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือน → ใช้เป็นขอบ (ปรับขอบ ±0.5 ตามนโยบายต่อ)
+ขอบตามจุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02): หลังจับขอบจากเสียง ดึงภาพรอบแต่ละขอบ (ภาพย่อ 32×18 ขาวดำ 25 fps,
+    stream วิดีโอจริงที่เล็กสุด, cache เป็น <key>-v<t0>-<t1>.npy) หาจุดตัดภาพที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือน → ใช้เป็นขอบ
+    (ปรับขอบ ±0.5 ตามนโยบายต่อ) — ขอบเริ่มค้นเข้าไปในเพลงได้ 20 วิ (เพลงขึ้นก่อนภาพ), นอกนั้น ±1.5 วิ
+    (ออกนอกเพลงไกลเสี่ยงลามเข้าเนื้อเรื่อง; ขอบจบค้นลึกไม่ได้เพราะช็อตท้ายเพลงมักต่างกันทุกตอน)
+    ยกเว้นเพลงที่จับจากเสียงได้สั้นกว่าความยาวเต็มของแทร็ก → ขอบจบค้นออกนอกเพลงเพิ่มได้เท่าส่วนที่ขาด (≤ 10 วิ)
     ไม่พบจุดตัดชัดเจน/ดึงตรงไม่ได้ (ต้องผ่าน worker) → คงขอบเสียง; ปิดด้วย report --no-visual
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
@@ -106,11 +109,15 @@ SIM_THRESHOLD_MAX = 0.80
 SIM_THRESHOLD_DROP = 0.25
 SIM_SMOOTH_SEC = 0.8
 MAX_DIP_SEC = 3.0
+BRIDGE_GAP_SEC = 10.0
+BRIDGE_RUN_SEC = 10.0
+BRIDGE_SIM = 0.85
 DIP_FLOOR_DROP = 0.15
 LENGTH_OUTLIER_SEC = 3.0
 TYPICAL_LENGTH_SEC = 90.0
 TYPICAL_LENGTH_TOL = 5.0
 CROSS_TRACK_TOL = 3.0
+CROSS_TRACK_SAME_FILE_SEC = 2.0
 MAX_TRACK_SHIFT_SEC = 60.0
 SILENCE_FLOOR = float(np.log(1e-9 * 64)) + 1.0
 SILENCE_EXTEND_SEC = 2.5
@@ -137,16 +144,22 @@ EXTEND_WINDOW_TOL_SEC = 0.5
 EXTEND_MIN_VALID = 0.8
 EXTEND_MIN_SEC = 1.5
 HEAD_SNAP_SEC = 1.5
-VISUAL_WINDOW_SEC = 4.0
+VISUAL_SNAP_IN_SEC = 20.0
+VISUAL_SNAP_OUT_SEC = 1.5
+VISUAL_SNAP_DEFICIT_MAX_SEC = 10.0
+VISUAL_PAD_SEC = 1.5
+VISUAL_INNER_SEC = (1.0, 3.0)
+VISUAL_IMAGE_CODECS = ('webp', 'png', 'mjpeg', 'gif', 'bmp')
 VISUAL_FPS = 25
 VISUAL_W, VISUAL_H = 32, 18
 VISUAL_FLAT_NORM = 30.0
 VISUAL_CUT_FACTOR = 4.0
 VISUAL_CUT_MIN = 2.0
-VISUAL_SNAP_MAX_SEC = 1.5
 VISUAL_ALIGN_MAX_SEC = 2.0
+VISUAL_ALIGN_LATE_SEC = 10.0
 VISUAL_ALIGN_MIN_SIM = 0.7
 VISUAL_MIN_SCORE = 0.3
+VISUAL_NOTICE_SEC = 5.0
 VISUAL_CREDITS_GAP_SEC = 1.0
 STING_SIM = 0.9
 STING_LEAD_SEC = 2.0
@@ -159,6 +172,10 @@ DEFAULT_TOLERANCE = 1.5
 DEFAULT_START_SHIFT = 0.5
 DEFAULT_END_SHIFT = -0.5
 RETRIES = 3
+SEEK_CHECK_SIM = 0.8
+SEEK_CHECK_TOL_SEC = 0.1
+SEEK_SEARCH_SEC = 30.0
+SEEK_RETRIES = 2
 RETRY_DELAY_SEC = 5
 WORKER_RESOLVE = 'https://shy-haze-2452.natajrak-p.workers.dev/resolve/'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
@@ -447,15 +464,54 @@ def _refine(bands_a, bands_b, offset, core0, core1):
             return core0, core1, float(np.nanmean(sim[core0:core1 + 1]))
         mid = core0 + idx[len(idx) // 2]
     dip_ok = valid & (s > max(0.45, threshold - DIP_FLOOR_DROP))
-    lo = _walk(above, dip_ok, mid, -1)
-    hi = _walk(above, dip_ok, mid, +1)
     raw_above = valid & (np.where(valid, sim, 0.0) > threshold)
-    while lo > 0 and raw_above[lo - 1]:
-        lo -= 1
-    while hi + 1 < len(raw_above) and raw_above[hi + 1]:
-        hi += 1
+    lo = hi = mid
+    while True:
+        lo = _walk(above, dip_ok, lo, -1)
+        hi = _walk(above, dip_ok, hi, +1)
+        while lo > 0 and raw_above[lo - 1]:
+            lo -= 1
+        while hi + 1 < len(raw_above) and raw_above[hi + 1]:
+            hi += 1
+        bridged = _bridge(s, valid, lo, hi)
+        if bridged == (lo, hi):
+            break
+        lo, hi = bridged
     lo, hi = _extend_over_silence(bands_a, lo, hi)
     return lo, hi, float(np.nanmean(sim[lo:hi + 1]))
+
+
+def _bridge(s, valid, lo, hi):
+    """เชื่อมช่วงซ้ำข้ามช่วงเสียงต่างกันกลางเพลง (ยาว ≤ BRIDGE_GAP_SEC ลึกแค่ไหนก็ได้) เมื่ออีกฝั่งเหมือนชัด (≥ BRIDGE_SIM) ต่อเนื่อง ≥ BRIDGE_RUN_SEC
+    และรวมแล้วยาวไม่เกินเพลงปกติ (TYPICAL_LENGTH_SEC + TYPICAL_LENGTH_TOL) — เพลงที่มีท่อนต่างกันระหว่างตอน เช่น Skeleton Knight S2
+    OP ~8 วิ / ED ~1 วิ ที่ _walk ข้ามไม่ได้เพราะลึกเกิน; ความยาวจำกัดไว้กันรวมกับเนื้อหาซ้ำอื่นที่อยู่ติดกัน"""
+    strong = valid & (s >= BRIDGE_SIM)
+    gap = int(BRIDGE_GAP_SEC * FPS)
+    run = int(BRIDGE_RUN_SEC * FPS)
+    max_len = int((TYPICAL_LENGTH_SEC + TYPICAL_LENGTH_TOL) * FPS)
+    n = len(s)
+    changed = True
+    while changed:
+        changed = False
+        j = lo - 1
+        while j >= max(0, lo - 1 - gap) and not strong[j]:
+            j -= 1
+        if 0 <= j and j >= lo - 1 - gap and strong[j]:
+            k = j
+            while k > 0 and strong[k - 1]:
+                k -= 1
+            if j - k + 1 >= run and hi - k <= max_len:
+                lo, changed = k, True
+        j = hi + 1
+        while j <= min(n - 1, hi + 1 + gap) and not strong[j]:
+            j += 1
+        if j < n and j <= hi + 1 + gap and strong[j]:
+            k = j
+            while k + 1 < n and strong[k + 1]:
+                k += 1
+            if k - j + 1 >= run and k - lo <= max_len:
+                hi, changed = k, True
+    return lo, hi
 
 
 def _walk(above, dip_ok, start, step):
@@ -512,6 +568,7 @@ def _load_cache(path, head, tail):
             return {
                 'duration': float(z['duration']),
                 'tail_offset': float(z['tail_offset']),
+                'tail_checked': bool(z['tail_checked']) if 'tail_checked' in z.files else False,
                 'head': {'bands': z['head_bands'], 'hashes': z['head_hashes'], 'frames': int(z['head_frames'])},
                 'tail': {'bands': z['tail_bands'], 'hashes': z['tail_hashes'], 'frames': int(z['tail_frames'])},
             }
@@ -533,6 +590,7 @@ def _fetch_features(station, head, tail):
     with tempfile.TemporaryDirectory() as td:
         hw = os.path.join(td, 'h.wav')
         tw = os.path.join(td, 't.wav')
+        via_segments = False
         try:
             if segment_only:
                 raise RuntimeError('does not contain any stream (direct segment fetch)')
@@ -545,9 +603,105 @@ def _fetch_features(station, head, tail):
             if hls_opts(url) == [] or 'does not contain any stream' not in str(e) and 'received no packets' not in str(e):
                 raise
             duration, tail_offset = _extract_via_segments(url, referer, head, tail, hw, tw)
+            via_segments = True
         fh = analyze_wav(hw)
         ft = analyze_wav(tw) if tail_offset > 0 else dict(EMPTY_FEATURES)
-    return duration, tail_offset, fh, ft
+        checked = True
+        if tail_offset > 0 and hls_opts(url) and not via_segments:
+            status, err = _tail_seek_error(url, referer, ft['bands'], tail_offset, tail)
+            if status == 'nomatch':
+                duration, tail_offset = _extract_via_segments(url, referer, head, tail, hw, tw)
+                fh = analyze_wav(hw)
+                ft = analyze_wav(tw)
+            elif status == 'ok' and abs(err) > SEEK_CHECK_TOL_SEC:
+                log(f'    เสียงท้ายตอนคลาด {err:+.1f}s (HLS seek) → แก้ tail_offset')
+                tail_offset -= err
+            checked = status != 'error'
+    return duration, tail_offset, fh, ft, checked
+
+
+def _direct_stream(station):
+    """(url, referer) ที่ดึงตรงจากเครื่องได้ — None เมื่อต้องผ่าน worker (ไม่ใช้ quota) หรือ resolver ในเครื่องล้มเหลว"""
+    resolver = station.get('resolver')
+    referer = station.get('referer')
+    if resolver:
+        local = LOCAL_RESOLVERS.get(resolver)
+        if not local:
+            return None
+        try:
+            url, override = local(station)
+        except Exception:
+            return None
+        referer = override or referer
+    else:
+        url = station['url']
+    direct = _unwrap_proxy(url)
+    if direct:
+        url, referer = direct[0], direct[1] or referer
+    if urllib.parse.urlparse(url).netloc.endswith('workers.dev'):
+        return None
+    return url, referer
+
+
+def _locate_audio(ref_bands, ref_t0, bands, expect_t):
+    """เวลาจริง (วินาที ตามป้ายเวลาของ ref) ที่เสียง bands เริ่ม — ดูที่คาดไว้ก่อน แล้วค้น ±SEEK_SEARCH_SEC; None เมื่อไม่พบที่เหมือน ≥ SEEK_CHECK_SIM"""
+    def score(off):
+        sim = frame_similarity(ref_bands, bands, off)
+        vals = sim[~np.isnan(sim)]
+        return float(vals.mean()) if len(vals) >= 3 * FPS else -1.0
+    exp = int(round((expect_t - ref_t0) * FPS))
+    near = max(range(exp - 6, exp + 7), key=score)
+    if score(near) >= SEEK_CHECK_SIM:
+        return ref_t0 + near / FPS
+    span = int(SEEK_SEARCH_SEC * FPS)
+    coarse = max(range(exp - span, exp + span + 1, 3), key=score)
+    best = max(range(coarse - 3, coarse + 4), key=score)
+    return ref_t0 + best / FPS if score(best) >= SEEK_CHECK_SIM else None
+
+
+def _hls_media(url, referer):
+    """[(เริ่ม, ยาว, segment url)] จาก variant ที่เล็กที่สุด — [] เมื่อไม่มี หรือเป็น EXT-X-BYTERANGE
+    (ทั้งเรื่องอยู่ไฟล์เดียว เช่น akuma-cdn ระดับ GB — segment url เดียวกันทุกท่อน โหลดตรงๆ ไม่ได้)"""
+    text = _http_get(url, referer).decode('utf-8', 'replace')
+    kind, items = _parse_m3u8(text, url)
+    if kind == 'master':
+        if not items:
+            return []
+        url = items[0][1]
+        text = _http_get(url, referer).decode('utf-8', 'replace')
+        kind, items = _parse_m3u8(text, url)
+    if '#EXT-X-BYTERANGE' in text:
+        return []
+    out, cum = [], 0.0
+    for d, u in items:
+        out.append((cum, d, u))
+        cum += d
+    return out
+
+
+def _tail_seek_error(url, referer, tail_bands, tail_offset, tail):
+    """ffmpeg -ss บน HLS บางเว็บได้เสียงคลาดจากที่ขอ ~10–13 วิ (ป้ายเวลาผิด; พบที่ hls.animeindy 2026-11-02)
+    → โหลด segment ที่ครอบกลางช่วงเสียงท้ายตาม EXTINF (ไม่ seek) แล้วหาตำแหน่งใน tail_bands — คืน (สถานะ, err)
+    'ok': err = เวลาตามป้ายของ tail − เวลาจริง (tail_offset ที่ถูก = tail_offset − err)
+    'unverifiable': เพลย์ลิสต์ไม่มี segment แยก (EXT-X-BYTERANGE ทั้งเรื่องไฟล์เดียว) — เช็คแบบนี้ไม่ได้ตลอดไป
+    'nomatch': หา segment ในเสียงท้ายไม่เจอ (คลาดเกิน SEEK_SEARCH_SEC หรือเสียงเสีย); 'error': โหลด/ถอดไม่ได้ชั่วคราว"""
+    try:
+        probe = tail_offset + tail / 2
+        seg = next(((start, u) for start, d, u in _hls_media(url, referer) if start <= probe < start + d), None)
+        if not seg:
+            return 'unverifiable', None
+        data = _strip_to_ts(_http_get(seg[1], referer))
+        with tempfile.TemporaryDirectory() as td:
+            wav = os.path.join(td, 's.wav')
+            res = subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-i', 'pipe:0', '-vn', '-ac', '1', '-ar', str(SR), wav],
+                                 input=data, capture_output=True, timeout=120)
+            if res.returncode != 0 or not os.path.exists(wav):
+                return 'error', None
+            bands = analyze_wav(wav)['bands']
+    except Exception:
+        return 'error', None
+    found = _locate_audio(tail_bands, tail_offset, bands, seg[0])
+    return ('nomatch', None) if found is None else ('ok', found - seg[0])
 
 
 def _http_get(url, referer, timeout=60):
@@ -647,25 +801,57 @@ def load_or_build(station, head, tail, cache_dir):
     if os.path.exists(path):
         cached = _load_cache(path, head, tail)
         if cached:
-            return cached
+            if cached['tail_checked'] or cached['tail_offset'] <= 0 or _check_cached_tail(station, cached, path, head, tail):
+                return cached
     last_err = None
     for attempt in range(RETRIES):
         try:
-            duration, tail_offset, fh, ft = _fetch_features(station, head, tail)
+            duration, tail_offset, fh, ft, checked = _fetch_features(station, head, tail)
             break
         except Exception as e:
             last_err = e
             time.sleep(RETRY_DELAY_SEC * (attempt + 1))
     else:
         raise last_err
+    feats = {'duration': duration, 'tail_offset': tail_offset, 'tail_checked': checked, 'head': fh, 'tail': ft}
+    _save_cache(path, head, tail, feats)
+    return feats
+
+
+def _save_cache(path, head, tail, f):
     tmp = path + f'.{os.getpid()}.tmp.npz'
     np.savez(
-        tmp, head=head, tail=tail, duration=duration, tail_offset=tail_offset,
-        head_bands=fh['bands'], head_hashes=fh['hashes'], head_frames=fh['frames'],
-        tail_bands=ft['bands'], tail_hashes=ft['hashes'], tail_frames=ft['frames'],
+        tmp, head=head, tail=tail, duration=f['duration'], tail_offset=f['tail_offset'], tail_checked=f['tail_checked'],
+        head_bands=f['head']['bands'], head_hashes=f['head']['hashes'], head_frames=f['head']['frames'],
+        tail_bands=f['tail']['bands'], tail_hashes=f['tail']['hashes'], tail_frames=f['tail']['frames'],
     )
     os.replace(tmp, path)
-    return {'duration': duration, 'tail_offset': tail_offset, 'head': fh, 'tail': ft}
+
+
+def _check_cached_tail(station, cached, path, head, tail):
+    """cache เก่า (ก่อนมีการเช็ค seek) ของสตรีม HLS: เช็คเวลาเสียงท้ายตอนด้วย _tail_seek_error แล้วแก้ tail_offset + บันทึกว่าเช็คแล้ว
+    mp4/ไฟล์ตรง seek แม่นอยู่แล้ว และเพลย์ลิสต์ที่เช็คแบบนี้ไม่ได้ (BYTERANGE) → บันทึกว่าเช็คแล้วเลย
+    ต้องผ่าน worker / โหลดไม่ได้ชั่วคราว → ใช้ cache เดิม (ลองใหม่รอบหน้า); หาไม่เจอ (nomatch) → คืน False ให้ดึงใหม่ทั้งตอน"""
+    try:
+        src = _direct_stream(station)
+        if not src:
+            return True
+        url, referer = src
+        if hls_opts(url):
+            status, err = _tail_seek_error(url, referer, cached['tail']['bands'], cached['tail_offset'], tail)
+            if status == 'error':
+                return True
+            if status == 'nomatch':
+                log(f'    cache เสียงท้ายตอนไม่ตรงกับสตรีม ({station.get("name")}) → ดึงใหม่')
+                return False
+            if status == 'ok' and abs(err) > SEEK_CHECK_TOL_SEC:
+                log(f'    cache เสียงท้ายตอนคลาด {err:+.1f}s ({station.get("name")}) → แก้ tail_offset')
+                cached['tail_offset'] -= err
+        cached['tail_checked'] = True
+        _save_cache(path, head, tail, cached)
+    except Exception as e:
+        log(f'    เช็คเวลาเสียงท้ายตอนไม่ได้ ({station.get("name")}): {e}')
+    return True
 
 
 # ---------------------------------------------------------------- series-level detection
@@ -897,125 +1083,261 @@ def _extend_to_song_length(episodes, feats, result, start_shift, end_shift, skip
 
 
 def _video_source(station):
-    """(url, referer) สำหรับดึงภาพ — None เมื่อดึงตรงจากเครื่องไม่ได้ (ต้องผ่าน worker / host ที่ ffmpeg เปิดไม่ได้) เพื่อไม่ใช้ quota ของ worker"""
-    resolver = station.get('resolver')
-    referer = station.get('referer')
-    if resolver:
-        local = LOCAL_RESOLVERS.get(resolver)
-        if not local:
-            return None
-        try:
-            url, override = local(station)
-        except Exception:
-            return None
-        referer = override or referer
-    else:
-        url = station['url']
-    direct = _unwrap_proxy(url)
-    if direct:
-        url, referer = direct[0], direct[1] or referer
-    host = urllib.parse.urlparse(url).netloc
-    if host.endswith('workers.dev') or host in SEGMENT_ONLY_HOSTS:
+    """(url, referer, stream map) สำหรับดึงภาพ — None เมื่อดึงตรงจากเครื่องไม่ได้ (ต้องผ่าน worker) เพื่อไม่ใช้ quota ของ worker"""
+    src = _direct_stream(station)
+    if not src:
         return None
-    return url, referer
-
-
-def _grab_frames(src, t0, length, path):
-    """ภาพขาวดำ VISUAL_W×VISUAL_H ที่ VISUAL_FPS ช่วง [t0, t0+length) — cache เป็น .npy; ดึงไม่ได้คืน None"""
-    if os.path.exists(path):
-        return np.load(path)
     url, referer = src
-    cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', *hls_opts(url)]
+    host = urllib.parse.urlparse(url).netloc
+    return url, referer, None if host in SEGMENT_ONLY_HOSTS else _video_stream(url, referer)
+
+
+def _video_stream(url, referer):
+    """'0:N' ของ stream วิดีโอจริงที่ความละเอียดต่ำสุด — HLS บางเว็บมี stream รูปปลอม (segment ปลอมเป็น .webp) ปนมา
+    ทำให้ ffmpeg เลือกผิดแล้วไม่ได้ภาพ และมีหลาย variant (เลือกเล็กสุดให้ดึงเร็ว); None = ให้ ffmpeg เลือกเอง"""
+    cmd = ['ffprobe', '-hide_banner', '-loglevel', 'error', *hls_opts(url)]
     if url.startswith('http'):
         cmd += ['-headers', ff_headers(referer)]
-    cmd += ['-ss', f'{t0:.3f}', '-i', url, '-t', f'{length:.3f}', '-an',
-            '-vf', f'fps={VISUAL_FPS},scale={VISUAL_W}:{VISUAL_H},format=gray', '-f', 'rawvideo', 'pipe:1']
+    cmd += ['-show_entries', 'stream=index,codec_type,codec_name,width', '-of', 'json', url]
     try:
-        out = subprocess.run(cmd, capture_output=True, timeout=300)
-    except subprocess.TimeoutExpired:
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        streams = json.loads(out.stdout or '{}').get('streams') or []
+    except Exception:
         return None
-    frames = np.frombuffer(out.stdout, dtype=np.uint8)
-    size = VISUAL_W * VISUAL_H
-    if out.returncode != 0 or len(frames) < size * VISUAL_FPS * length * 0.8:
+    real = [x for x in streams if x.get('codec_type') == 'video' and x.get('codec_name') not in VISUAL_IMAGE_CODECS]
+    if not real:
         return None
-    frames = frames[:len(frames) // size * size].reshape(-1, VISUAL_H, VISUAL_W)
+    return f"0:{min(real, key=lambda x: x.get('width') or float('inf'))['index']}"
+
+
+def _grab_frames(src, t0, length, path, ref=None):
+    """ภาพขาวดำ VISUAL_W×VISUAL_H ที่ VISUAL_FPS ช่วง [t0, t0+length) — cache เป็น .npy; ดึงไม่ได้คืน None
+    HLS: ffmpeg -ss บางเว็บได้ภาพคลาดจากที่ขอ ~10–13 วิ (ป้ายเวลาผิด) → ดึงเสียงมาพร้อมกันแล้วหาตำแหน่งในเสียงที่ cache ไว้ (ref = (bands, เวลาเริ่ม))
+    คลาดเกิน SEEK_CHECK_TOL_SEC → ขยับจุด seek แล้วดึงใหม่ (≤ SEEK_RETRIES ครั้ง); ยืนยันไม่ได้ → โหลด segment ตาม EXTINF เอง (_frames_via_segments)"""
+    if os.path.exists(path):
+        return np.load(path)
+    url, referer, stream = src
+    hls = bool(hls_opts(url))
+    frames = None
+    if urllib.parse.urlparse(url).netloc not in SEGMENT_ONLY_HOSTS and (ref is not None or not hls):
+        ss = t0
+        for _ in range(SEEK_RETRIES + 1):
+            got = _ffmpeg_frames(url, referer, stream, ss, length, with_audio=hls)
+            if got is None:
+                break
+            frames, bands = got
+            if not hls:
+                break
+            start = None if bands is None else _locate_audio(ref[0], ref[1], bands, ss)
+            if start is not None and abs(start - t0) <= SEEK_CHECK_TOL_SEC:
+                break
+            frames = None
+            if start is None:
+                break
+            ss += t0 - start
+    if (frames is None or len(frames) < VISUAL_FPS * length * 0.9) and hls:
+        try:
+            frames = _frames_via_segments(url, referer, t0, length)
+        except Exception:
+            frames = None
+    if frames is None or len(frames) < VISUAL_FPS * length * 0.9:
+        return None
     tmp = path + f'.{os.getpid()}.tmp.npy'
     np.save(tmp, frames)
     os.replace(tmp, path)
     return frames
 
 
-def _image_sim(a, b):
-    """correlation ของภาพย่อสองภาพ — ภาพเรียบ (จอดำ/ขาว) เทียบไม่ได้ คืน NaN"""
-    a = a.astype(np.float32) - a.mean()
-    b = b.astype(np.float32) - b.mean()
-    na, nb = np.linalg.norm(a), np.linalg.norm(b)
-    if na < VISUAL_FLAT_NORM or nb < VISUAL_FLAT_NORM:
-        return np.nan
-    return float((a * b).sum() / (na * nb))
+def _ffmpeg_frames(url, referer, stream, ss, length, with_audio=False):
+    """ffmpeg -ss → (ภาพ, band เสียงช่วงเดียวกัน หรือ None) — ล้มเหลวคืน None"""
+    with tempfile.TemporaryDirectory() as td:
+        wav = os.path.join(td, 'a.wav')
+        cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', *hls_opts(url)]
+        if url.startswith('http'):
+            cmd += ['-headers', ff_headers(referer)]
+        cmd += ['-ss', f'{max(0.0, ss):.3f}', '-i', url, '-t', f'{length:.3f}', '-map', stream or '0:v:0',
+                '-vf', f'fps={VISUAL_FPS},scale={VISUAL_W}:{VISUAL_H},format=gray', '-f', 'rawvideo', 'pipe:1']
+        if with_audio:
+            cmd += ['-map', '0:a:0?', '-t', f'{length:.3f}', '-ac', '1', '-ar', str(SR), '-f', 'wav', wav]
+        try:
+            out = subprocess.run(cmd, capture_output=True, timeout=300)
+        except subprocess.TimeoutExpired:
+            return None
+        if out.returncode != 0:
+            return None
+        bands = None
+        if with_audio and os.path.exists(wav):
+            try:
+                bands = analyze_wav(wav)['bands']
+            except Exception:
+                bands = None
+        return _to_frames(out.stdout), bands
 
 
-def _visual_edge(frames, others, side):
-    """จุดตัดภาพที่เป็นขอบ OP/ED ใน frames (หน้าต่าง ±VISUAL_WINDOW_SEC รอบขอบเสียง) — คืน (τ วินาทีจากขอบเสียง, score) หรือ None
-    จัดแนวภาพกับตอนข้างเคียงแต่ละตอน (เลื่อนหา ≤ VISUAL_ALIGN_MAX_SEC จากช่วงที่อยู่ในเพลงแน่ๆ) → ค่ากลางความเหมือนต่อเฟรม
-    → จุดตัด (ภาพเปลี่ยนกะทันหัน ≤ VISUAL_SNAP_MAX_SEC จากขอบเสียง) ที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือนมากที่สุด
-    side 0 = ขอบเริ่ม (หลังจุดตัดเหมือน), 1 = ขอบจบ (ก่อนจุดตัดเหมือน)"""
-    n = len(frames)
-    centre = int(VISUAL_WINDOW_SEC * VISUAL_FPS)
-    if side == 0:
-        inner = range(centre + VISUAL_FPS, min(n, centre + 3 * VISUAL_FPS))
-    else:
-        inner = range(max(0, centre - 3 * VISUAL_FPS), centre - VISUAL_FPS)
-    shift_max = int(VISUAL_ALIGN_MAX_SEC * VISUAL_FPS)
-    curves = []
-    for other in others:
-        best = None
-        for dk in range(-shift_max, shift_max + 1):
-            vals = [v for v in (_image_sim(frames[k], other[k + dk]) for k in inner if 0 <= k + dk < len(other)) if v == v]
-            if len(vals) < VISUAL_FPS:
-                continue
-            score = float(np.mean(vals))
-            if best is None or score > best[0]:
-                best = (score, dk)
-        if not best or best[0] < VISUAL_ALIGN_MIN_SIM:
-            continue
-        curve = np.full(n, np.nan)
-        for k in range(n):
-            vals = [v for v in (_image_sim(frames[k], other[k + best[1] + e]) for e in (-1, 0, 1) if 0 <= k + best[1] + e < len(other)) if v == v]
-            if vals:
-                curve[k] = max(vals)
-        curves.append(curve)
-    if not curves:
+def _to_frames(raw):
+    data = np.frombuffer(raw, dtype=np.uint8)
+    size = VISUAL_W * VISUAL_H
+    return data[:len(data) // size * size].reshape(-1, VISUAL_H, VISUAL_W)
+
+
+def _frames_via_segments(url, referer, t0, length):
+    """fallback ของ _grab_frames เมื่อ ffmpeg เปิด HLS ตรงไม่ได้ (segment ปลอมเป็นรูป เช่น 108player): โหลดเฉพาะ segment ที่คร่อมช่วง
+    จาก variant ที่เล็กที่สุด ตัด header ปลอม ถอดภาพทีละ segment (timestamp แต่ละ segment อาจเริ่มใหม่) แล้ววางตามเวลา EXTINF"""
+    items = _hls_media(url, referer)
+    if not items:
         return None
+    total = int(round(length * VISUAL_FPS))
+    out = np.zeros((total, VISUAL_H, VISUAL_W), dtype=np.uint8)
+    filled = np.zeros(total, dtype=bool)
+    for s0, d, seg_url in items:
+        if s0 + d <= t0 or s0 >= t0 + length:
+            continue
+        data = _strip_to_ts(_http_get(seg_url, referer))
+        cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-i', 'pipe:0', '-an',
+               '-vf', f'fps={VISUAL_FPS},scale={VISUAL_W}:{VISUAL_H},format=gray', '-f', 'rawvideo', 'pipe:1']
+        res = subprocess.run(cmd, input=data, capture_output=True, timeout=120)
+        for j, frame in enumerate(_to_frames(res.stdout)):
+            k = int(round((s0 + j / VISUAL_FPS - t0) * VISUAL_FPS))
+            if 0 <= k < total:
+                out[k] = frame
+                filled[k] = True
+    return out if filled.mean() >= 0.9 else None
+
+
+def _unit_frames(frames):
+    """ภาพย่อแต่ละเฟรมลบค่าเฉลี่ยแล้วหารความยาว (dot ของสองเฟรม = correlation) — ภาพเรียบ (จอดำ/ขาว) เทียบไม่ได้ เป็น NaN"""
+    f = frames.reshape(len(frames), -1).astype(np.float32)
+    f -= f.mean(axis=1, keepdims=True)
+    norm = np.linalg.norm(f, axis=1)
+    f /= np.maximum(norm, 1e-6)[:, None]
+    f[norm < VISUAL_FLAT_NORM] = np.nan
+    return f
+
+
+def _visual_range(side, deficit=0.0):
+    """ระยะค้นหาจุดตัด (τ ต่ำสุด, สูงสุด) จากขอบเสียง — ขอบเริ่มค้นเข้าไปในเพลงได้ VISUAL_SNAP_IN_SEC (เพลงขึ้นก่อนภาพ เช่น Accel World ~4–10 วิ, SAO ตอน 6 ~13 วิ)
+    นอกนั้น ±VISUAL_SNAP_OUT_SEC: ออกนอกเพลงไกลกว่านี้เสี่ยงลามเข้าเนื้อเรื่อง/การ์ดตัวอย่างตอนต่อไปที่ใช้แม่แบบเดียวกันทุกตอน
+    และขอบจบค้นเข้าในเพลงไกลไม่ได้ เพราะช็อตท้ายเพลงมักต่างกันทุกตอน (ภาพปิดประจำตอน) → จะหด OP/ED ผิด
+    deficit = เพลงที่จับจากเสียงสั้นกว่าความยาวเต็มของแทร็กกี่วิ (เสียงท้ายเพลงถูกกลบ เช่น Skeleton Knight OP ตอน 3–5)
+    → ขอบจบค้นออกนอกเพลงเพิ่มได้เท่านั้น (≤ VISUAL_SNAP_DEFICIT_MAX_SEC) — ผู้ใช้อนุมัติ 2026-11-02
+    ขอบเริ่มไม่ใช้ deficit: ต้นเพลงที่ขาดมีกฎนับถอยจากจุดจบ (_extend_to_song_length) แล้ว และเพลงที่ขึ้นก่อนภาพทำให้ค้นออกไปเจอจุดตัดผิด (Accel World ตอน 23)"""
+    if side == 0:
+        return -VISUAL_SNAP_OUT_SEC, VISUAL_SNAP_IN_SEC
+    return -VISUAL_SNAP_OUT_SEC, VISUAL_SNAP_OUT_SEC + min(max(0.0, deficit), VISUAL_SNAP_DEFICIT_MAX_SEC)
+
+
+def _visual_inner(side):
+    """ช่วงอ้างอิง (τ เริ่ม, จบ) ที่อยู่ในเพลงแน่ๆ ใช้จัดแนวภาพกับตอนข้างเคียง — ถัดจากระยะค้นหาเข้าไปในเพลง VISUAL_INNER_SEC"""
+    lo, hi = _visual_range(side)
+    if side == 0:
+        return hi + VISUAL_INNER_SEC[0], hi + VISUAL_INNER_SEC[1]
+    return lo - VISUAL_INNER_SEC[1], lo - VISUAL_INNER_SEC[0]
+
+
+def _visual_align_range(side):
+    """ระยะเลื่อนจัดแนวภาพกับตอนข้างเคียง (วินาที, ต่ำสุด/สูงสุด) — ขอบเริ่ม: ภาพ OP/ED ไม่ได้ผูกกับจังหวะเพลงเสมอ
+    (SAO ตอน 6 เพลงนำภาพ 13 วิ ตอนข้างเคียงภาพมาพร้อมเพลง) จึงเลื่อนหาได้เท่าระยะค้นหาเข้าไปในเพลง และเลื่อนไปทางตอนข้างเคียงที่เพลงนำนานกว่า
+    ได้ VISUAL_ALIGN_LATE_SEC; ขอบจบ ±VISUAL_ALIGN_MAX_SEC"""
+    if side == 0:
+        return -VISUAL_SNAP_IN_SEC, VISUAL_ALIGN_LATE_SEC
+    return -VISUAL_ALIGN_MAX_SEC, VISUAL_ALIGN_MAX_SEC
+
+
+def _visual_span(side, deficit=0.0):
+    """ช่วงที่ดึงภาพ (τ เริ่ม, จบ) เทียบกับขอบเสียง: ระยะค้นหา + ช่วงอ้างอิง + เผื่อเลื่อนจัดแนว และช่วงคะแนนฝั่งนอก (VISUAL_PAD_SEC)"""
+    lo, hi = _visual_range(side, deficit)
+    a, b = _visual_inner(side)
+    return (lo - VISUAL_PAD_SEC, b + 1.0 + VISUAL_ALIGN_LATE_SEC) if side == 0 else (a - 1.0, hi + VISUAL_PAD_SEC)
+
+
+def _visual_edge(win, others, side, deficit=0.0):
+    """จุดตัดภาพที่เป็นขอบ OP/ED — win/others = (frames, ดัชนีเฟรมของขอบเสียง); คืน (τ วินาทีจากขอบเสียง, score) หรือ None
+    จัดแนวภาพกับตอนข้างเคียงแต่ละตอน (เลื่อนหาตาม _visual_align_range จากช่วงอ้างอิง _visual_inner ซึ่งอยู่ในเพลงแน่ๆ)
+    → ค่ากลางความเหมือนต่อเฟรม → จุดตัด (ภาพเปลี่ยนกะทันหันเทียบกับทั้งหน้าต่างหรือกับความเคลื่อนไหวรอบ ๆ ±1 วิ)
+    ในระยะค้นหาที่ฝั่งเพลงเหมือนตอนข้างเคียงและอีกฝั่งไม่เหมือนมากที่สุด — side 0 = ขอบเริ่ม (หลังจุดตัดเหมือน), 1 = ขอบจบ (ก่อนจุดตัดเหมือน)"""
+    frames, centre = win
+    ua = _unit_frames(frames)
+    n = len(ua)
+    a, b = _visual_inner(side)
+    inner = np.arange(max(0, centre + int(a * VISUAL_FPS)), min(n, centre + int(b * VISUAL_FPS)))
+    dk_lo, dk_hi = (int(x * VISUAL_FPS) for x in _visual_align_range(side))
+    curves = []
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', RuntimeWarning)
+        for other, oc in others:
+            ub = _unit_frames(other)
+            base = oc - centre
+            sims = ua[inner] @ ub.T
+            best = None
+            for dk in range(dk_lo, dk_hi + 1):
+                idx = inner + base + dk
+                ok = (idx >= 0) & (idx < len(ub))
+                vals = sims[np.nonzero(ok)[0], idx[ok]]
+                vals = vals[~np.isnan(vals)]
+                if len(vals) < VISUAL_FPS:
+                    continue
+                score = float(vals.mean())
+                if best is None or score > best[0]:
+                    best = (score, dk)
+            if not best or best[0] < VISUAL_ALIGN_MIN_SIM:
+                continue
+            off = base + best[1]
+            rows = np.full((3, n), np.nan, dtype=np.float32)
+            for i, e in enumerate((-1, 0, 1)):
+                idx = np.arange(n) + off + e
+                ok = (idx >= 0) & (idx < len(ub))
+                rows[i, ok] = np.einsum('ij,ij->i', ua[ok], ub[idx[ok]])
+            curves.append(np.nanmax(rows, axis=0))
+        if not curves:
+            return None
+        lo, hi = _visual_range(side, deficit)
         m = np.nanmedian(np.array(curves), axis=0)
         diff = np.abs(np.diff(frames.astype(np.float32), axis=0)).mean(axis=(1, 2))
-        floor = VISUAL_CUT_FACTOR * np.median(diff) + VISUAL_CUT_MIN
+        local = np.array([np.median(diff[max(0, k - VISUAL_FPS):k + VISUAL_FPS + 1]) for k in range(len(diff))])
+        floor = VISUAL_CUT_FACTOR * np.minimum(np.median(diff), local) + VISUAL_CUT_MIN
         best = None
         for k in range(len(diff)):
             c = k + 1
-            if diff[k] <= floor or diff[k] < diff[max(0, k - 2):k + 3].max() or abs(c - centre) > VISUAL_SNAP_MAX_SEC * VISUAL_FPS:
+            tau = (c - centre) / VISUAL_FPS
+            if diff[k] <= floor[k] or diff[k] < diff[max(0, k - 2):k + 3].max() or not lo <= tau <= hi:
                 continue
             pre = m[max(0, c - VISUAL_FPS):c]
             post = m[c:c + VISUAL_FPS]
             if len(pre) < VISUAL_FPS // 2 or len(post) < VISUAL_FPS // 2:
                 continue
-            a, b = np.nanmean(pre), np.nanmean(post)
-            if np.isnan(a) or np.isnan(b):
+            pa, pb = np.nanmean(pre), np.nanmean(post)
+            if np.isnan(pa) or np.isnan(pb):
                 continue
-            score = float(b - a if side == 0 else a - b)
+            score = float(pb - pa if side == 0 else pa - pb)
             if best is None or score > best[1]:
-                best = ((c - centre) / VISUAL_FPS, score)
+                best = (tau, score)
     if not best or best[1] < VISUAL_MIN_SCORE:
         return None
     return best
 
 
-def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers):
-    """ขยับขอบ OP/ED ไปที่จุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02: เพลงมักคร่อมจุดตัดภาพ ±1 วิ ทั้งสองทิศ)
-    ดึงภาพ ±VISUAL_WINDOW_SEC รอบขอบเสียงแต่ละขอบ เทียบกับตอนข้างเคียง ±NEIGHBOR_SPAN — ไม่พบจุดตัดที่ชัดเจนคงขอบเสียงเดิม
+def _audio_ref(fi, t0, t1):
+    """เสียงที่ cache ไว้ (bands, เวลาเริ่ม) ที่ซ้อนช่วง [t0, t1) มากที่สุด (≥ 5 วิ) ใช้ยืนยันเวลาภาพที่ดึงมา — None เมื่อไม่มี
+    เสียงท้ายตอนใช้เฉพาะที่เช็คเวลาแล้ว (tail_checked) ไม่งั้นอาจ "แก้" ภาพไปตามป้ายเวลาที่ผิด"""
+    if not fi:
+        return None
+    best = None
+    for part, start in (('head', 0.0), ('tail', fi.get('tail_offset') or 0.0)):
+        bands = fi[part]['bands']
+        if part == 'tail' and (start <= 0 or not fi.get('tail_checked')) or not len(bands):
+            continue
+        overlap = min(t1, start + len(bands) / FPS) - max(t0, start)
+        if overlap >= 5.0 and (best is None or overlap > best[0]):
+            best = (overlap, bands, start)
+    return (best[1], best[2]) if best else None
+
+
+def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, feats=None):
+    """ขยับขอบ OP/ED ไปที่จุดตัดภาพ (ผู้ใช้กำหนดขอบตามภาพ 2026-11-02: เพลงมักคร่อมจุดตัดภาพ ±1 วิ ทั้งสองทิศ, บางเรื่องเพลงขึ้นก่อนภาพหลายวิ)
+    ดึงภาพรอบขอบเสียงแต่ละขอบ (_visual_span, ตัดตามขอบไฟล์) เทียบกับตอนข้างเคียง ±NEIGHBOR_SPAN — ไม่พบจุดตัดที่ชัดเจนคงขอบเสียงเดิม
     ไม่แตะ: ED ที่ตัดต้นเพลงเพราะเสียงพูดทับ (trimmed), ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)"""
+    shift_gap = start_shift - end_shift
+    ref = {kind: _ref_song_length([r[kind] for r in det.values() if r.get(kind)], shift_gap) for kind in ('op', 'ed')}
     edges = {}
     for ep in episodes:
         r = det.get(ep['idx']) or {}
@@ -1024,14 +1346,17 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers):
             region = r.get(kind)
             if not region:
                 continue
+            deficit = max(0.0, ref[kind] - (_song_len(region) + shift_gap)) if ref[kind] else 0.0
+            found = []
             if not (kind == 'ed' and region.get('trimmed')):
-                edges[(ep['idx'], kind, 0)] = region['start'] - start_shift
+                found.append((0, region['start'] - start_shift))
             if kind == 'op' or not region.get('to_eof') and region['end'] - _song_end(region) < VISUAL_CREDITS_GAP_SEC:
-                edges[(ep['idx'], kind, 1)] = _song_end(region) - end_shift
-        for key in [k for k in edges if k[0] == ep['idx']]:
-            t = edges[key]
-            if t - VISUAL_WINDOW_SEC < 0 or t + VISUAL_WINDOW_SEC > dur:
-                del edges[key]
+                found.append((1, _song_end(region) - end_shift))
+            for side, t in found:
+                a, b = _visual_span(side, deficit)
+                t0, t1 = max(0.0, t + a), min(dur, t + b)
+                if t1 - t0 >= (b - a) * 0.5 and t0 < t < t1:
+                    edges[(ep['idx'], kind, side)] = (t, round(t0, 1), round(t1, 1), deficit)
     if not edges:
         return
     by_idx = {ep['idx']: ep for ep in episodes}
@@ -1040,17 +1365,17 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers):
         """ภาพทุกขอบของตอน idx — ดึงไม่ได้ด้วยสาเหตุใดก็ตามคืนเท่าที่ได้ (ไม่ให้ report ล้ม)"""
         out = {}
         try:
+            keys = [k for k in edges if k[0] == idx]
             st = by_idx[idx]['station']
             src = _video_source(st)
             if not src:
                 return out
-            for key, t in edges.items():
-                if key[0] != idx:
-                    continue
-                path = os.path.join(cache_dir, f'{station_key(st)}-v{int(round((t - VISUAL_WINDOW_SEC) * 10))}.npy')
-                frames = _grab_frames(src, t - VISUAL_WINDOW_SEC, 2 * VISUAL_WINDOW_SEC, path)
-                if frames is not None and len(frames) >= 2 * VISUAL_WINDOW_SEC * VISUAL_FPS * 0.9:
-                    out[key] = frames
+            for key in keys:
+                t, t0, t1, _ = edges[key]
+                path = os.path.join(cache_dir, f'{station_key(st)}-w{int(round(t0 * 10))}-{int(round(t1 * 10))}.npy')
+                frames = _grab_frames(src, t0, t1 - t0, path, _audio_ref((feats or {}).get(idx), t0, t1))
+                if frames is not None and len(frames) >= (t1 - t0) * VISUAL_FPS * 0.9:
+                    out[key] = (frames, int(round((t - t0) * VISUAL_FPS)))
         except Exception as e:
             log(f'    ดึงภาพไม่ได้ ({e})')
         return out
@@ -1061,26 +1386,26 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers):
             frames.update(got)
     order = [ep['idx'] for ep in episodes]
     snapped = 0
-    for key, a in frames.items():
+    for key, win in frames.items():
         idx, kind, side = key
         pos = order.index(idx)
         others = [frames[(order[j], kind, side)] for j in range(pos - NEIGHBOR_SPAN, pos + NEIGHBOR_SPAN + 1)
                   if j != pos and 0 <= j < len(order) and (order[j], kind, side) in frames]
-        found = _visual_edge(a, others, side)
+        found = _visual_edge(win, others, side, edges[key][3])
         if not found:
             continue
         r = det[idx]
         region = r[kind]
         tau = found[0]
         if side == 0:
-            new = round(max(0.0, edges[key] + tau + start_shift), 1)
+            new = round(max(0.0, edges[key][0] + tau + start_shift), 1)
             if kind == 'ed' and r.get('op') and new < r['op']['end']:
                 continue
             if _song_end(region) - new < MIN_REGION_SEC:
                 continue
             region['start'] = new
         else:
-            new = round(edges[key] + tau + end_shift, 1)
+            new = round(edges[key][0] + tau + end_shift, 1)
             if new - region['start'] < MIN_REGION_SEC:
                 continue
             region['end'] = new
@@ -1374,7 +1699,7 @@ def cmd_report(args):
         tfeats = {i: feats.get((tn, i)) for i in range(len(stations))}
         det = detect_track(episodes, tfeats, args.start_shift, args.end_shift)
         if args.visual:
-            _snap_to_video(episodes, det, cache_dir, args.start_shift, args.end_shift, args.workers)
+            _snap_to_video(episodes, det, cache_dir, args.start_shift, args.end_shift, args.workers, tfeats)
         rows = []
         for ep in episodes:
             st = ep['station']
@@ -1408,7 +1733,10 @@ def cmd_report(args):
 
 def _cross_track_check(report):
     """ตอนเดียวกันในอีกแทร็กของ season เดียวกัน (พากย์/ซับ มักเป็นวิดีโอชุดเดียวกัน) ถ้าค่าที่ตรวจพบต่างกันเกิน
-    CROSS_TRACK_TOL → ลด fix/missing เป็น review (ไม่เขียนอัตโนมัติ) และใส่หมายเหตุ — คนต้องดู"""
+    CROSS_TRACK_TOL → ลด fix/missing เป็น review (ไม่เขียนอัตโนมัติ) และใส่หมายเหตุ — คนต้องดู
+    ลดเป็น review เฉพาะตอนที่วิดีโอสองแทร็กยาวต่างกัน ≤ CROSS_TRACK_SAME_FILE_SEC (ไฟล์เดียวกัน) — คนละไฟล์ตำแหน่ง OP/ED ต่างกันได้จริง
+    (ข้อยกเว้นเดิมยังใช้ทุกกรณี เช่น _adopt_other_track เมื่อจุดเริ่ม/จบตรงกันแต่แทร็กนี้จับสั้น)
+    (ผู้ใช้ยืนยัน 2026-11-02: GGO พากย์ 24:00 / ซับ 23:40 ค่าที่ตรวจพบถูกทั้งสองแทร็ก)"""
     by_season = defaultdict(list)
     for tr in report['tracks']:
         by_season[tr.get('season')].append(tr)
@@ -1431,6 +1759,8 @@ def _cross_track_check(report):
                             if _same_region_shifted(dt, od):
                                 continue
                             if _adopt_other_track(ep, kind, dt, od, o['track']):
+                                continue
+                            if abs((ep.get('duration') or 0.0) - (match.get('duration') or 0.0)) > CROSS_TRACK_SAME_FILE_SEC:
                                 continue
                             ep[kind]['verdict'] = 'review'
                             ep[kind]['cross_track'] = f'{o["track"].split("/")[-1]} {fmt_t(od["start"])}-{fmt_t(od["end"])}'
@@ -1517,7 +1847,7 @@ def print_report(report):
                     notes.append(f'{kind} ≠ {r["cross_track"]}')
                 if r.get('from_track'):
                     notes.append(f'{kind} ใช้ช่วงของ{r["from_track"]}')
-                if dt and med_len[kind] is not None and abs(_song_len(dt) - med_len[kind]) > LENGTH_OUTLIER_SEC:
+                if dt and med_len[kind] is not None and _length_outlier(dt, med_len[kind]):
                     notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ค่ากลาง')
                 elif dt and abs(_song_len(dt) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
                     notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ~90s')
@@ -1637,7 +1967,7 @@ def cmd_apply(args):
                     if kind == 'credits' and _covered_by_ed(st, dt):
                         continue
                     med = _median_length(by_track[tn], kind) if kind in ('op', 'ed') else None
-                    if med is not None and abs(_song_len(dt) - med) > LENGTH_OUTLIER_SEC:
+                    if med is not None and _length_outlier(dt, med):
                         skipped_outliers.append((tn, label, kind, dt, med))
                         continue
                     v, _, _ = verdict(r['existing'], dt, tol)
@@ -1710,9 +2040,24 @@ def _cross_track_evidence(by_track, season_name, tn, label):
     return False
 
 
+def _visual_notice(kind, dt):
+    """ข้อความแจ้งเมื่อจุดตัดภาพห่างจากขอบเพลง ≥ VISUAL_NOTICE_SEC (ผู้ใช้กำหนด 2026-11-02: ถือว่าผิดปกติ ให้แจ้ง "ต้องดู" แต่บันทึกค่าไปเลย
+    เช่น SAO ตอน 6 ภาพ ED เริ่มช้ากว่าเพลง 13 วิ) — None เมื่อไม่ต้องแจ้ง"""
+    if kind not in ('op', 'ed'):
+        return None
+    visual = dt.get('visual') or {}
+    parts = []
+    for edge, word in (('start', 'เริ่ม'), ('end', 'จบ')):
+        tau = visual.get(edge)
+        if tau is not None and abs(tau) >= VISUAL_NOTICE_SEC:
+            parts.append(f'ภาพ {kind.upper()} {word}{"ช้ากว่า" if tau > 0 else "เร็วกว่า"}เพลง {abs(tau):.1f} วิ')
+    return ', '.join(parts) or None
+
+
 def _write_json_out(path, playlist_path, changes, outliers, marked=()):
     """ผลของ apply แบบ machine-readable สำหรับ job อัตโนมัติ — label ตรงกับที่ --episodes รับ (เลขตอน หรือ #idx)
-    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง
+    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); changes[].notice = ข้อความแจ้งให้คนดู (_visual_notice) หรือ null
+    outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง
     marked = ตอนที่ --mark-none เขียน skip {segments: []} (ตรวจแล้วไม่พบ op/ed/intro)"""
     out = {
         'playlist': os.path.realpath(playlist_path),
@@ -1721,7 +2066,7 @@ def _write_json_out(path, playlist_path, changes, outliers, marked=()):
                 'track': tn, 'label': label, 'kind': kind, 'action': how,
                 'start': new[0] if new else None, 'end': new[1] if new else None,
                 'old': {'start': old[0], 'end': old[1]} if old else None,
-                'support': dt.get('support'), 'sim': dt.get('sim'),
+                'support': dt.get('support'), 'sim': dt.get('sim'), 'notice': _visual_notice(kind, dt),
             }
             for tn, label, kind, how, old, new, dt in changes
         ],
@@ -1745,6 +2090,14 @@ def _covered_by_ed(station, dt):
         if s.get('type') in ED_TYPES and _overlap(float(s['start']), float(s['end']), dt['start'], dt['end']) >= 0.5:
             return True
     return False
+
+
+def _length_outlier(dt, med):
+    """ยาวต่างจากค่ากลางแทร็กเกิน LENGTH_OUTLIER_SEC ทั้งความยาวหลังขยับตามจุดตัดภาพและความยาวจากเสียงก่อนขยับ
+    (ภาพยืนยันขอบแยกจากเสียง: เพลงขึ้นก่อนภาพ ~10 วิ ทำให้ช่วงสั้นลงได้โดยไม่ผิด — ผู้ใช้ยืนยัน SAO ตอน 18 ED 2026-11-02)"""
+    visual = dt.get('visual') or {}
+    audio = _song_len(dt) + visual.get('start', 0.0) - visual.get('end', 0.0)
+    return abs(_song_len(dt) - med) > LENGTH_OUTLIER_SEC and abs(audio - med) > LENGTH_OUTLIER_SEC
 
 
 def _median_length(track_report, kind):

@@ -23,11 +23,11 @@
                                     {
                                         "type": "op",
                                         "start": 57.4,
-                                        "end": 147.3
+                                        "end": 146.3
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1327.3,
+                                        "start": 1329.4,
                                         "end": 1418.7
                                     }
                                 ]
@@ -45,11 +45,11 @@
                                     {
                                         "type": "op",
                                         "start": 59.6,
-                                        "end": 149.5
+                                        "end": 148.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330.2,
+                                        "start": 1330.5,
                                         "end": 1419.9
                                     }
                                 ]
@@ -66,12 +66,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 55.7,
-                                        "end": 145.6
+                                        "start": 55.6,
+                                        "end": 144.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.8,
+                                        "start": 1330.6,
                                         "end": 1419.9
                                     }
                                 ]
@@ -89,11 +89,11 @@
                                     {
                                         "type": "op",
                                         "start": 74.5,
-                                        "end": 163.5
+                                        "end": 163.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330,
+                                        "start": 1330.6,
                                         "end": 1419.8
                                     }
                                 ]
@@ -110,12 +110,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 37.5,
-                                        "end": 125.8
+                                        "start": 37.6,
+                                        "end": 126.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1328.8,
+                                        "start": 1330.5,
                                         "end": 1419.9
                                     }
                                 ]
@@ -132,12 +132,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 55.7,
-                                        "end": 145.6
+                                        "start": 55.5,
+                                        "end": 144.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.3,
+                                        "start": 1330.6,
                                         "end": 1420
                                     }
                                 ]
@@ -155,11 +155,11 @@
                                     {
                                         "type": "op",
                                         "start": 77.5,
-                                        "end": 167.4
+                                        "end": 166.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.6,
+                                        "start": 1330.6,
                                         "end": 1419.9
                                     }
                                 ]
@@ -176,12 +176,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 95.5,
-                                        "end": 185.4
+                                        "start": 95.6,
+                                        "end": 184.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330.1,
+                                        "start": 1330.5,
                                         "end": 1419.8
                                     }
                                 ]
@@ -199,11 +199,11 @@
                                     {
                                         "type": "op",
                                         "start": 74.5,
-                                        "end": 164.4
+                                        "end": 163.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.9,
+                                        "start": 1330.6,
                                         "end": 1420
                                     }
                                 ]
@@ -221,11 +221,11 @@
                                     {
                                         "type": "op",
                                         "start": 120.6,
-                                        "end": 210.5
+                                        "end": 209.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.8,
+                                        "start": 1330.5,
                                         "end": 1420
                                     }
                                 ]
@@ -242,12 +242,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 100.6,
-                                        "end": 190.5
+                                        "start": 100.8,
+                                        "end": 189.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.5,
+                                        "start": 1330.5,
                                         "end": 1419.9
                                     }
                                 ]
@@ -258,7 +258,11 @@
                             "image": "https://image.tmdb.org/t/p/original/9k5pk3KOgjsDrBCwLiv93XSmQfr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jMgaoEP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-06-23"
+                            "release_date": "2022-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -515,7 +519,11 @@
                             "image": "https://image.tmdb.org/t/p/original/9k5pk3KOgjsDrBCwLiv93XSmQfr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Qo5ccacL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-06-23"
+                            "release_date": "2022-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -632,8 +640,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 38.8,
-                                        "end": 128.7
+                                        "start": 42.3,
+                                        "end": 131.6
                                     },
                                     {
                                         "type": "ed",
@@ -881,8 +889,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 38.8,
-                                        "end": 128.7
+                                        "start": 43.2,
+                                        "end": 131.5
                                     },
                                     {
                                         "type": "ed",

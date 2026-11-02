@@ -343,6 +343,12 @@
     }
     td:hover .upd-btn { opacity: 1; }
     .upd-btn:hover { color: #4a9eff; }
+    .recheck-btn.st-ok, .recheck-btn.st-ok:hover { opacity: 1; color: #6de06d; }
+    .recheck-btn.st-todo, .recheck-btn.st-todo:hover { opacity: 1; color: #e0a040; }
+    .recheck-btn.st-bad, .recheck-btn.st-bad:hover { opacity: 1; color: #e05050; }
+    .recheck-btn.busy, .recheck-btn.busy:hover { opacity: 1; color: var(--blue); cursor: default; }
+    .recheck-btn.busy i { display: inline-block; animation: recheck-pulse 1.2s ease-in-out infinite; }
+    @keyframes recheck-pulse { 50% { opacity: .3; } }
 
     .edit-title-btn {
       display: inline-flex; align-items: center; gap: 5px;
@@ -2037,6 +2043,25 @@ function updBtn(slug, season, tabId, title, partTmdbId = '') {
   return `<button class="upd-btn" data-slug="${esc(slug)}" data-season="${season}" data-tab="${esc(tabId)}" data-title="${esc(title)}" data-part-tmdb="${esc(partTmdbId)}" title="Update Metadata"><i class="fi fi-sr-rotate-right"></i></button>`;
 }
 
+/** tab ที่ server ตรวจ OP/ED ได้ (SKIP_TABS ใน tools/lib/skip-auto.js) */
+const SKIP_RECHECK_TABS = new Set(['anime-series']);
+
+/** ตอนใน season ที่มี skip แล้ว: none = ไม่มีเลย, partial = บางตอน, full = ครบทุกตอน (นับเฉพาะ station ที่มี url) */
+function skipCoverage(tracks) {
+  const stations = tracks.flatMap(t => t.stations || []).filter(st => st.url);
+  const withSkip = stations.filter(st => st.skip).length;
+  return !withSkip ? 'none' : withSkip === stations.length ? 'full' : 'partial';
+}
+
+/** ปุ่มตรวจ OP/ED ใหม่ทั้ง season (สี/สถานะ + ผลล่าสุดใน tooltip ตั้งโดย applyRecheckButtons) */
+function recheckBtn(tabId, filename, seasonName, tracks) {
+  if (!IS_LOCAL || !SKIP_RECHECK_TABS.has(tabId) || !seasonName) return '';
+  const file = `${TABS[tabId].index.replace(/index\.txt$/, '')}${filename}.txt`;
+  const eps = Math.max(0, ...tracks.map(t => t.stations?.length || 0));
+  const attrs = `data-file="${esc(file)}" data-season="${esc(seasonName)}" data-skip="${skipCoverage(tracks)}"`;
+  return `<button class="upd-btn recheck-btn" ${attrs} data-eps="${eps}" title="ตรวจ OP/ED ใหม่ทั้ง season"><i class="fi fi-rr-forward-fast"></i></button>`;
+}
+
 function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
   let html = `<table>
     <thead><tr>
@@ -2102,7 +2127,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
         <td class="c-no"><span class="row-head">${gid}</span></td>
         <td class="c-art"><span class="row-head">${artTag(poster, true)}</span></td>
         <td class="c-title"><span class="row-head">${seriesTitleCell(title, filename, tabId)}</span><span class="row-cont"><span class="title-cont">↳ ${esc(sznName)}</span></span></td>
-        <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}</td>
+        <td class="c-szn">${esc(sznName)}${updBtn(slug, sznNum, tabId, title)}${recheckBtn(tabId, filename, season.name, tracks)}</td>
         <td class="c-trk">${trackBadges || '<span style="color:var(--text3)">—</span>'}</td>
         <td class="c-tmdb"><span class="row-head">${tmdbCell(tmdbId, tmdbKind)}</span></td>
         <td class="c-release">${dateCell(season.release_date)}</td>
@@ -2116,6 +2141,7 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
   html += '</tbody></table>';
   wrap.innerHTML = html;
   if (stats) stats.textContent = `${items.length} รายการ`;
+  applyRecheckButtons();
 }
 
 // ── Render movies table ──────────────────────────────────────────
@@ -4708,10 +4734,11 @@ function skipJobHtml(job) {
   const state = job.status === 'running' ? (job.phase === 'apply' ? 'กำลังบันทึก' : 'กำลังตรวจ')
     : job.status === 'queued' ? 'รอคิว'
     : job.status === 'waiting' ? 'รอ quota worker'
-    : job.status === 'done' ? `เติม ${job.filled.length + autoFilled} · ต้องดู ${pendingReview}${pendingNone ? ` · ไม่พบ ${pendingNone}` : ''}${pendingErrors ? ` · ตรวจไม่ได้ ${pendingErrors}` : ''}${confirmed ? ` · ยืนยันแล้ว ${confirmed}` : ''}`
+    : job.status === 'done' ? `${job.recheck ? `แก้เวลา ${(job.fixed || []).length} · ` : ''}เติม ${job.filled.length + autoFilled} · ต้องดู ${pendingReview}${pendingNone ? ` · ไม่พบ ${pendingNone}` : ''}${pendingErrors ? ` · ตรวจไม่ได้ ${pendingErrors}` : ''}${confirmed ? ` · ยืนยันแล้ว ${confirmed}` : ''}`
     : job.status === 'skipped' ? 'ข้าม' : 'ล้มเหลว';
   const done = it => `<div><span class="k">${it.resolved.source === 'audit' ? 'เติมแล้ว' : 'ยืนยันแล้ว'}</span>${skipResolvedText(it)}</div>`;
   const items = [
+    ...(job.fixed || []).map(f => `<div><span class="k">แก้เวลา</span>${skipJobItem(f)} <span>(เดิม ${formatSkipTime(f.old?.start)}–${formatSkipTime(f.old?.end)})</span></div>`),
     ...job.filled.map(f => `<div><span class="k">เติมแล้ว</span>${skipJobItem(f)}</div>`),
     ...job.review.map(r => r.resolved ? done(r) : `<div class="rv"><span class="k">ต้องดู</span>${skipJobItem(r)} <span title="${esc(r.reason)}">(${esc(r.reason)})</span></div>`),
     ...(job.none || []).map(n => n.resolved ? done(n) : `<div><span class="k">ไม่พบ</span>${skipJobItem(n)}</div>`),
@@ -4725,13 +4752,67 @@ function skipJobHtml(job) {
   const open = !!skipJobsOpen.get(job.id);
   const caret = items.length ? `<span class="skipjobs-caret">${open ? '▾' : '▸'}</span>` : '';
   return `<div class="skipjobs-job${open ? '' : ' collapsed'}" data-job="${esc(job.id)}">
-    <div class="skipjobs-head${items.length ? ' toggle' : ''}">${caret}<span class="skipjobs-name" title="${esc(job.fileRel)}">${esc(name)}${job.season ? ` — ${esc(job.season)}` : ''}</span><span class="skipjobs-state ${esc(job.status)}">${state}</span></div>
+    <div class="skipjobs-head${items.length ? ' toggle' : ''}">${caret}<span class="skipjobs-name" title="${esc(job.fileRel)}">${esc(name)}${job.season ? ` — ${esc(job.season)}` : ''}${job.recheck ? ' · ตรวจใหม่' : ''}</span><span class="skipjobs-state ${esc(job.status)}">${state}</span></div>
     ${job.message ? `<div class="skipjobs-msg">${esc(job.message)}</div>` : ''}${job.note ? `<div class="skipjobs-msg">${esc(job.note)}</div>` : ''}${waiting}
     ${items.length ? `<div class="skipjobs-items">${items.join('')}</div>` : ''}
   </div>`;
 }
 
+/** สถานะล่าสุดจาก /api/skip-jobs — ใช้ตั้งสถานะปุ่มตรวจใหม่ในตาราง */
+let skipStatus = null;
+
+const RECHECK_TITLE = 'ตรวจ OP/ED ใหม่ทั้ง season';
+/** `${file}|${season}` ที่กดแล้วแต่ server ยังไม่ยืนยันว่าเข้าคิว — กันผลดึงสถานะรอบเก่าทำให้ปุ่มกลับมากดซ้ำได้ */
+const recheckPending = new Set();
+
+/** ปุ่มตรวจใหม่ระหว่างรอคิว/กำลังตรวจ: ไอคอนทึบสีน้ำเงินกระพริบ กดซ้ำไม่ได้ — busyText null = ปุ่มปกติ (title = idleTitle) */
+function setRecheckBusy(btn, busyText, idleTitle = RECHECK_TITLE) {
+  btn.classList.toggle('busy', !!busyText);
+  btn.disabled = !!busyText;
+  btn.title = busyText || idleTitle;
+  btn.querySelector('i').className = `fi ${busyText ? 'fi-sr-forward-fast' : 'fi-rr-forward-fast'}`;
+}
+
+/** tooltip ปุ่มตรวจใหม่: ผลตรวจใหม่ล่าสุดของ season (ถ้ามี) */
+function recheckTitle(r) {
+  if (!r) return RECHECK_TITLE;
+  const detail = r.status === 'done' ? `แก้เวลา ${r.fixed} · เติม ${r.filled} · ต้องดู ${r.review} · ตรวจไม่ได้ ${r.errors}`
+    : r.status === 'skipped' ? 'ข้าม' : 'ล้มเหลว';
+  return `${RECHECK_TITLE}\nล่าสุด ${new Date(r.at).toLocaleString('th-TH')} — ${detail}${r.message ? ` — ${r.message}` : ''}`;
+}
+
+/**
+ * สีปุ่มตรวจใหม่จากความครอบคลุมของ skip + ผลตรวจใหม่ล่าสุด
+ * '' = ยังไม่มี skip เลย, st-bad = ตรวจไม่ได้/ต้องดู/ล้มเหลว, st-ok = ตรวจผ่านและ skip ครบทุกตอน, st-todo = ยังต้องกดตรวจ
+ */
+function recheckState(coverage, r) {
+  if (coverage === 'none') return '';
+  if (r && (r.status === 'failed' || r.errors > 0 || r.review > 0)) return 'st-bad';
+  if (r?.status === 'done' && coverage === 'full') return 'st-ok';
+  return 'st-todo';
+}
+
+/** สถานะปุ่มตรวจใหม่ในตาราง: รอคิว/กำลังตรวจ หรือปุ่มปกติที่มีสีตามผลและ tooltip บอกผลล่าสุด */
+function applyRecheckButtons() {
+  if (!skipStatus) return;
+  const active = new Map();
+  for (const j of [skipStatus.running, ...skipStatus.queue]) {
+    if (j?.recheck) active.set(`${j.fileRel}|${j.season}`, j.status === 'running' ? 'กำลังตรวจ OP/ED ใหม่' : 'รอคิวตรวจ OP/ED ใหม่');
+  }
+  for (const key of recheckPending) if (!active.has(key)) active.set(key, 'รอคิวตรวจ OP/ED ใหม่');
+  document.querySelectorAll('.recheck-btn[data-file]').forEach(btn => {
+    const key = `${btn.dataset.file}|${btn.dataset.season}`;
+    const r = skipStatus.rechecked?.[key];
+    const state = recheckState(btn.dataset.skip, r);
+    btn.classList.remove('st-ok', 'st-todo', 'st-bad');
+    if (state) btn.classList.add(state);
+    setRecheckBusy(btn, active.get(key) || null, recheckTitle(r));
+  });
+}
+
 function renderSkipJobs(st) {
+  skipStatus = st;
+  applyRecheckButtons();
   const btn   = document.getElementById('skipjobs-btn');
   const label = document.getElementById('skipjobs-label');
   const queued = st.queue.filter(j => j.status === 'queued').length;
@@ -4828,6 +4909,35 @@ if (IS_LOCAL) {
     } catch (err) {
       e.target.checked = !e.target.checked;
       alert('เปลี่ยนการตั้งค่าไม่สำเร็จ: ' + err.message);
+    }
+  });
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('.recheck-btn[data-file]');
+    if (!btn) return;
+    e.stopPropagation();
+    if (btn.disabled) return;
+    const { file, season } = btn.dataset;
+    const eps = Number(btn.dataset.eps) || 0;
+    const size = eps > 30 ? ` (${eps} ตอน — เกินเพดานงานอัตโนมัติ อาจใช้เวลานาน)` : '';
+    if (!confirm(`ตรวจ OP/ED ใหม่ ${season}${size}?\nเวลาเดิมที่คลาดเกิน tolerance จะถูกแก้ทับ รวมค่าที่กรอกเอง`)) return;
+    const key = `${file}|${season}`;
+    recheckPending.add(key);
+    setRecheckBusy(btn, 'รอคิวตรวจ OP/ED ใหม่');
+    try {
+      const r = await fetch('/api/skip-recheck', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filePath: file, season }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+      await pollSkipJobs();
+      recheckPending.delete(key);
+      applyRecheckButtons();
+    } catch (err) {
+      recheckPending.delete(key);
+      setRecheckBusy(btn, null, recheckTitle(skipStatus?.rechecked?.[key]));
+      applyRecheckButtons();
+      alert('สั่งตรวจใหม่ไม่สำเร็จ: ' + err.message);
     }
   });
   pollSkipJobs();

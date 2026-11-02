@@ -15,175 +15,534 @@
                             "image": "https://image.tmdb.org/t/p/original/wokec1ewZhYNMLcKuK01H09i2pB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KzMy8y9x/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-07-08"
+                            "release_date": "2012-07-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.9,
+                                        "end": 1395.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Beater",
                             "image": "https://image.tmdb.org/t/p/original/hiBynS5SFi0ltxFsaYtq39C9k76.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JqIuMrI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-07-15"
+                            "release_date": "2012-07-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.6,
+                                        "end": 127.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Red-Nosed Reindeer",
                             "image": "https://image.tmdb.org/t/p/original/kxBO1gp72V4uBWLSACzL3RvEjQ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NkQatORm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-07-22"
+                            "release_date": "2012-07-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.6,
+                                        "end": 213.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Black Swordsman",
                             "image": "https://image.tmdb.org/t/p/original/xg8AqSOPUaEJvaG8GcdPsCIT2MI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qavu6qTI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-07-29"
+                            "release_date": "2012-07-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.6,
+                                        "end": 127.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Murder in the Safe Zone",
                             "image": "https://image.tmdb.org/t/p/original/4r89kn8VYl2NahtGAOS1V552w71.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8ErK2EBR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-08-05"
+                            "release_date": "2012-08-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.6,
+                                        "end": 182.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.9,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Illusionary Avenger",
                             "image": "https://image.tmdb.org/t/p/original/zz9Zw04cvobbS5Bf9MYKxptk9aQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uYEpL0UK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-08-12"
+                            "release_date": "2012-08-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.6,
+                                        "end": 144.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.8,
+                                        "end": 1414.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Temperature of the Heart",
                             "image": "https://image.tmdb.org/t/p/original/iWGUPY39gmNrMmKAfkP8dalEVyz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1nMq2Vvx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-08-19"
+                            "release_date": "2012-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.6,
+                                        "end": 160.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.4,
+                                        "end": 1418.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Sword Dance of Black and White",
                             "image": "https://image.tmdb.org/t/p/original/cmajeWlA7OCpIT2H6JPXIo9Lwdw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/n5owaQY0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-08-26"
+                            "release_date": "2012-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.6,
+                                        "end": 182.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1418.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Blue-Eyed Demon",
                             "image": "https://image.tmdb.org/t/p/original/t2GBif2MdqYhZvQx755Y9xunQkF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UjHV7aA1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-09-02"
+                            "release_date": "2012-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.6,
+                                        "end": 141.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.8,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Crimson Killing Intent",
                             "image": "https://image.tmdb.org/t/p/original/2A6GRQT5uDJhq9vc46fISn0CNzm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vUGBGXIK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-09-09"
+                            "release_date": "2012-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.6,
+                                        "end": 171.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Girl of Morning Dew",
                             "image": "https://image.tmdb.org/t/p/original/tULdNWI4qoToSyO5PUEiwRWncAh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2UKOCIF8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-09-16"
+                            "release_date": "2012-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.6,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Yui's Heart",
                             "image": "https://image.tmdb.org/t/p/original/k8rzVr0A4jtsskjRMLEM5NNlqfr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kwNytdwG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-09-23"
+                            "release_date": "2012-09-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.6,
+                                        "end": 192.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Edge of Hell's Abyss",
                             "image": "https://image.tmdb.org/t/p/original/ooI4fJvu4eUZgvRTQx1v3uzUTLU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Mn1HBFNb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-09-30"
+                            "release_date": "2012-09-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.5,
+                                        "end": 187.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The End of the World",
                             "image": "https://image.tmdb.org/t/p/original/fcnSuM0WQyKODZ6BD1yUGJpDbIf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JwRdBYgr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-10-07"
+                            "release_date": "2012-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.6,
+                                        "end": 148.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.8,
+                                        "end": 1416
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Return",
                             "image": "https://image.tmdb.org/t/p/original/sMmzH8KpSNV9dGEQ3LP1Xzeokfo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Xj8LUtfQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-10-14"
+                            "release_date": "2012-10-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.6,
+                                        "end": 207.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Land of the Fairies",
                             "image": "https://image.tmdb.org/t/p/original/grHJC5Gk7fuk8jywVhs7UYXLiLG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YcihALQ3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-10-21"
+                            "release_date": "2012-10-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.6,
+                                        "end": 158.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Captive Queen",
                             "image": "https://image.tmdb.org/t/p/original/b702zYjB82kk0APiyCCYBn7fGJU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HBKmiGwl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-10-28"
+                            "release_date": "2012-10-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.6,
+                                        "end": 140.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - To the World Tree",
                             "image": "https://image.tmdb.org/t/p/original/kP5JiBHMtIuiTcntCZUe9ERzAYj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/X0yo7RYj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-11-04"
+                            "release_date": "2012-11-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.6,
+                                        "end": 159.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - The Lugru Corridor",
                             "image": "https://image.tmdb.org/t/p/original/eMcIqPhChoBMpzqXG4CIUuEjKR3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/B1zxuO2U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-11-11"
+                            "release_date": "2012-11-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.7,
+                                        "end": 135.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - General of the Blazing Flame",
                             "image": "https://image.tmdb.org/t/p/original/cOpNhZSFZv2ocUaGfZajDlHz7NK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BAEIxocB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-11-18"
+                            "release_date": "2012-11-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.5,
+                                        "end": 157.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.9,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Truth about Alfheim",
                             "image": "https://image.tmdb.org/t/p/original/9AZUXEji3uy6yu7rtnb2iRuapYm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kAFeq2dG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-11-25"
+                            "release_date": "2012-11-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.1,
+                                        "end": 209.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.6,
+                                        "end": 1416.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Grand Quest",
                             "image": "https://image.tmdb.org/t/p/original/d3Bl4GEYdM6rLO2BYoNz2esIAD7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1jKrJYhp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-12-02"
+                            "release_date": "2012-12-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.5,
+                                        "end": 170
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.4,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - Bonds",
                             "image": "https://image.tmdb.org/t/p/original/2OrvGXAS28CGhEs96FCAjkHDAUJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uN6WJ25/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-12-09"
+                            "release_date": "2012-12-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.7,
+                                        "end": 132.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Gilded Hero",
                             "image": "https://image.tmdb.org/t/p/original/3hdDhZFnQ524Tjs5ehiyrDzXJjA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7FJfpwKb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-12-16"
+                            "release_date": "2012-12-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.7,
+                                        "end": 200.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.8,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - The World Seed",
                             "image": "https://image.tmdb.org/t/p/original/oPuUnWxMttvfVXv99aVgXO3qxpV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GVwHhbzZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-12-23"
+                            "release_date": "2012-12-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
