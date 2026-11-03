@@ -16,7 +16,11 @@
                             "image": "https://image.tmdb.org/t/p/original/lEkstbZVdna6nRu7CBWHHnqXsIM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMILhf7d9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMILhf7d9",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2025-10-07"
+                            "release_date": "2025-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 2 - Let's Start Breaking Common Ground",
@@ -117,8 +121,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1323.5,
-                                        "end": 1415
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -134,13 +138,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 3,
-                                        "end": 90.7
+                                        "start": 0.5,
+                                        "end": 89.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1323.7,
-                                        "end": 1415
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -344,8 +348,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1323.6,
-                                        "end": 1415
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -366,8 +370,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1323.6,
-                                        "end": 1415
+                                        "start": 1325.5,
+                                        "end": 1414.5
                                     }
                                 ]
                             }
@@ -427,7 +431,7 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 3,
+                                        "start": 0.5,
                                         "end": 90.4
                                     }
                                 ]

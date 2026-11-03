@@ -110,8 +110,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 13.6,
-                                        "end": 105
+                                        "start": 15.5,
+                                        "end": 104.5
                                     },
                                     {
                                         "type": "ed",
@@ -357,7 +357,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1324.5,
+                                        "start": 1326.5,
                                         "end": 1413.1
                                     }
                                 ]
@@ -445,7 +445,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1323.5,
+                                        "start": 1325.5,
                                         "end": 1415.5
                                     }
                                 ]
@@ -462,8 +462,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 126.5,
-                                        "end": 218
+                                        "start": 128.5,
+                                        "end": 217.4
                                     },
                                     {
                                         "type": "ed",
@@ -484,8 +484,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 121.7,
-                                        "end": 213
+                                        "start": 123.5,
+                                        "end": 212.5
                                     },
                                     {
                                         "type": "ed",
@@ -506,8 +506,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 129.7,
-                                        "end": 221.1
+                                        "start": 131.5,
+                                        "end": 220.5
                                     },
                                     {
                                         "type": "ed",
@@ -550,8 +550,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 150.6,
-                                        "end": 242
+                                        "start": 152.5,
+                                        "end": 241.5
                                     },
                                     {
                                         "type": "ed",
@@ -599,8 +599,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1331,
-                                        "end": 1409
+                                        "start": 1331.6,
+                                        "end": 1529.1
                                     },
                                     {
                                         "type": "ed",
@@ -648,8 +648,8 @@
                                     },
                                     {
                                         "type": "op",
-                                        "start": 11.5,
-                                        "end": 103
+                                        "start": 13.5,
+                                        "end": 102.6
                                     },
                                     {
                                         "type": "ed",
@@ -671,35 +671,110 @@
                             "image": "https://image.tmdb.org/t/p/original/iP1wh8pjHPOP7S7DewTa4KDDgVO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1JeK9Z7p7X/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-03"
+                            "release_date": "2024-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.6,
+                                        "end": 221.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - You Have to Go to Nationals",
                             "image": "https://image.tmdb.org/t/p/original/654vPnrKqjJufJj53Zg5uCV7jpE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LgGzUWHIHM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-10"
+                            "release_date": "2024-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.6,
+                                        "end": 128.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Chii",
                             "image": "https://image.tmdb.org/t/p/original/1PYnJ1W53ZPRyEYpp25EZbvrlJw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lIu5CvLJhC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-17"
+                            "release_date": "2024-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.6,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.5,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - If He Wins",
                             "image": "https://image.tmdb.org/t/p/original/tpNkGMMFxVaaHSUr0xi8WtxWtEs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vcXq9rEmwJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-24"
+                            "release_date": "2024-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Aquarium",
                             "image": "https://image.tmdb.org/t/p/original/9DT2lF6SHysuBkd5vgCXK460WEk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IeXtFEHHfI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-31"
+                            "release_date": "2024-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.6,
+                                        "end": 104.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Wish Me Luck",
@@ -714,6 +789,16 @@
                                         "type": "intro",
                                         "start": 0.5,
                                         "end": 13
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 105.6,
+                                        "end": 194.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.6,
+                                        "end": 1427.5
                                     }
                                 ]
                             }
@@ -723,7 +808,22 @@
                             "image": "https://image.tmdb.org/t/p/original/sxrKwe2e9gWOVURsyHrciPXCh1k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1xxG8hd1vF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-14"
+                            "release_date": "2024-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.2,
+                                        "end": 113.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.2,
+                                        "end": 1415.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Score!",
@@ -738,6 +838,16 @@
                                         "type": "intro",
                                         "start": 0.5,
                                         "end": 13
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 44.6,
+                                        "end": 133.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.5,
+                                        "end": 1428.6
                                     }
                                 ]
                             }
@@ -747,119 +857,359 @@
                             "image": "https://image.tmdb.org/t/p/original/sMA1jXiKf31WxEmtY2OTs7vGpUw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/r9Hn0JeCyf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-28"
+                            "release_date": "2024-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.5,
+                                        "end": 179.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.6,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - It's Not a Good Thing",
                             "image": "https://image.tmdb.org/t/p/original/cUOPnuBTWz7i7jomwRR8XzMkbCd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gVveAS1m8h/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-05"
+                            "release_date": "2024-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Uncool!",
                             "image": "https://image.tmdb.org/t/p/original/rz3xzgykJRv90rk03gzq0PnKPRO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F9gQf2WSKu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-12"
+                            "release_date": "2024-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Girls...",
                             "image": "https://image.tmdb.org/t/p/original/5fBnYivRNHmPUMvVRfWgdPfWKVT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9TnzpkR5Q/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-19"
+                            "release_date": "2024-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.6,
+                                        "end": 125.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - I Want a Back-and-Forth Rally",
                             "image": "https://image.tmdb.org/t/p/original/ihS0QGr6HL8P7L6y7OYSPiwCDR4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5FYotGOpu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-02"
+                            "release_date": "2025-01-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - What's the Connection?",
                             "image": "https://image.tmdb.org/t/p/original/34khq5ncoySUYA9VzauvfgTj6rm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zdn7PYyyLj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-09"
+                            "release_date": "2025-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - August 26",
                             "image": "https://image.tmdb.org/t/p/original/jlXKcCW9TW8PGGjxMoGy1WsPoWt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9mi0J3nAGA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-16"
+                            "release_date": "2025-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.6,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Unfair Woman",
                             "image": "https://image.tmdb.org/t/p/original/4lZji1ZM6IBykmLYxgyuDfFerzm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8dgM3ak5sa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-23"
+                            "release_date": "2025-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 132.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Of Course I Want to See It",
                             "image": "https://image.tmdb.org/t/p/original/r84lf3xXptHTKevjyUJXVqktesr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O3jPUsmI5P/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-01-30"
+                            "release_date": "2025-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.6,
+                                        "end": 185.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - I Know",
                             "image": "https://image.tmdb.org/t/p/original/8gPCl2ceXGssrAydbuKQCG5xGoB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QKPzMP6K6C/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-06"
+                            "release_date": "2025-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.6,
+                                        "end": 177.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - I've Got Plans",
                             "image": "https://image.tmdb.org/t/p/original/vEyVb21mXP7uCk1RgPk0YdNrliD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vtgoYXZLp0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-13"
+                            "release_date": "2025-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.6,
+                                        "end": 125.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - As One of Her Closest Friends",
                             "image": "https://image.tmdb.org/t/p/original/24bKMeaaNypMAqmO3itHxRXsXU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yvqRYQ7QPp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-20"
+                            "release_date": "2025-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.6,
+                                        "end": 238.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - A Chance to Blossom",
                             "image": "https://image.tmdb.org/t/p/original/svItHgAc20VnY829RgeHzg3Hc4W.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WCmsfWBdeD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-02-27"
+                            "release_date": "2025-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.6,
+                                        "end": 217.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Inota!",
                             "image": "https://image.tmdb.org/t/p/original/sVmrm0n8LqRIgQuORsUj1EoKsRd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FuuB06xlAv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-06"
+                            "release_date": "2025-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.6,
+                                        "end": 213.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Spinning",
                             "image": "https://image.tmdb.org/t/p/original/rf35oTeibEneOyZBM4YcccS62Qy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zCH5ciFf1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-13"
+                            "release_date": "2025-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.6,
+                                        "end": 221.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - A Roller Coaster",
                             "image": "https://image.tmdb.org/t/p/original/sLQeOfkntkwEWpjoUa5lEMI8HrK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WrGSQslZCn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-20"
+                            "release_date": "2025-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.5,
+                                        "end": 164.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - Even So",
                             "image": "https://image.tmdb.org/t/p/original/ctkW1CquYlv2DF2z9rpHFqll0VV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O2M6tOtBUG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-03-27"
+                            "release_date": "2025-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.6,
+                                        "end": 242.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.6,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
