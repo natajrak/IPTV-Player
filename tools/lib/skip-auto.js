@@ -18,7 +18,8 @@
  * - คิว + ประวัติเก็บใน tools/.skip-audit-cache/auto/queue.json — restart server แล้วงานไม่หาย
  * - status() เทียบรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ กับไฟล์ปัจจุบัน → ติด resolved เมื่อผู้ใช้จัดการแล้ว (กรอกช่วง / ยืนยันว่าไม่มี)
  * - recheck(file, season) = ผู้ใช้สั่งตรวจใหม่ทั้ง season จาก CMS (ไม่ต้อง fetch): ทุกตอนที่มี URL ยกเว้นตอนที่ผู้ใช้ยืนยันว่า
- *   ไม่มีช่วงข้ามเลย (manual + segments ว่าง); apply เพิ่ม --fix แก้เวลาช่วงเดิมที่คลาดเกิน tolerance (ทุก source)
+ *   ไม่มีช่วงข้ามเลย (manual + segments ว่าง) และตอนที่ผู้ใช้บันทึกเองใน CMS (skip.edited);
+ *   apply เพิ่ม --fix แก้เวลาช่วงเดิมที่คลาดเกิน tolerance (ทุก source ยกเว้น edited)
  *   ไม่มีเพดานตอน, timeout report ตามจำนวนตอน, ไม่ขึ้นกับสวิตช์เปิด/ปิดตรวจอัตโนมัติ
  *   ผลล่าสุดต่อ season เก็บใน tools/.skip-audit-cache/auto/rechecked.json (CMS แสดงความคืบหน้า)
  */
@@ -529,7 +530,7 @@ function createSkipAuto({ root, playlistDirOf }) {
 
   /**
    * สรุปผลของตอนใหม่จาก report + ผล apply (--json-out) ของทุกรอบ
-   * (งานที่ requeue apply track เดิมซ้ำได้ → outlier ซ้ำ จึงนับต่อ track|label|kind ครั้งเดียว)
+   * (งานที่ requeue apply track เดิมซ้ำได้ → ผลซ้ำ จึงนับต่อ track|label|kind ครั้งเดียว)
    */
   function summarize(job, report, applied) {
     const keyOf = (x) => `${x.track}|${x.label}|${x.kind}`;
@@ -556,14 +557,6 @@ function createSkipAuto({ root, playlistDirOf }) {
         if (noneKeys.has(key)) continue;
         noneKeys.add(key);
         job.none.push({ track: m.track, label: m.label });
-      }
-    }
-    for (const out of applied) {
-      for (const o of out.outliers || []) {
-        const item = { track: o.track, label: o.label, kind: o.kind, start: o.start, end: o.end, reason: 'ความยาวต่างจากตอนอื่น' };
-        if (filledKeys.has(keyOf(item)) || reviewKeys.has(keyOf(item))) continue;
-        reviewKeys.add(keyOf(item));
-        job.review.push(item);
       }
     }
     for (const tr of report.tracks || []) {
@@ -921,7 +914,7 @@ function createSkipAuto({ root, playlistDirOf }) {
       for (const { season: s, trackName, idx, station } of walkStations(playlist)) {
         if (`${s.name}` !== season || !station.url) continue;
         const skip = station.skip;
-        if (skip?.source === 'manual' && !(skip.segments || []).length) continue;
+        if (skip?.edited || (skip?.source === 'manual' && !(skip.segments || []).length)) continue;
         if (!tracks.has(trackName)) tracks.set(trackName, new Set());
         tracks.get(trackName).add(episodeLabelOf(station) || `#${idx}`);
       }

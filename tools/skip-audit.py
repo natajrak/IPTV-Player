@@ -21,16 +21,20 @@ skip-audit — ตรวจ/แก้ช่วงข้าม OP/ED (station.ski
         --episodes 1 2 3                   จำกัดเฉพาะ label ตอน (ตอนที่ไม่มีเลขใช้ #idx ตามที่ตารางแสดง)
         --kinds op|ed                      จำกัดเฉพาะ OP หรือ ED (default ทั้งคู่; --set ไม่ถูกกรอง)
         --remove "Season 1/ซับไทย|1|op" [...]  ลบ segment op/ed ของตอนนั้น (ค่าเดิมผิดและตรวจไม่พบ เช่น placeholder 0:00-1:30)
-        ช่วงที่ยาวต่างจากค่ากลางของแทร็กเกิน 3 วิ จะถูกข้าม (พิมพ์แจ้ง) ต้องยืนยันด้วย --set
+        ช่วงที่ "ต้องดู" ยังบันทึก (ผู้ใช้กำหนด 2026-11-03) พร้อม notice: ยาวต่างจากค่ากลางของแทร็กเกิน 3 วิ, ตอนข้างเคียงยืนยันไม่ถึง
+        --min-support, ไม่ตรงกับอีกแทร็ก (เฉพาะเติมใหม่ — แก้ค่าเดิมไม่แจ้ง), เสียงคล้ายต่ำ (OP/ED เขียนเป็น mixed-op/mixed-ed
+        ซึ่ง player ไม่ข้ามอัตโนมัติ; intro/credits ไม่เติม)
+        ตอนที่ผู้ใช้บันทึกเอง (station.skip.edited จาก CMS / --set / --remove) --fill/--fix ไม่แตะ
         --min-support N                    ใช้เฉพาะ region ที่ตอนข้างเคียงยืนยัน ≥ N ครั้ง (default 2; OP/ED ที่จุดตัดภาพยืนยันทั้งสองขอบลดลง 1)
         --set "Season 1/พากย์ไทย|1|op=0:52-2:22" [...]   (kind: op | ed | intro = หน้าเปิด/splash ของเว็บต้นทาง
                                            | credits = end credit ที่มีฉากคั่นหลัง ED เก็บเป็น ed ช่วงที่สอง)
                                            ค่าที่ผู้ใช้ตรวจด้วยตา ใช้แทนค่าที่ตรวจพบของตอนนั้น (ปรับขอบตามนโยบายให้อัตโนมัติ
                                            ถ้า report มี start_shift/end_shift) — เขียนเสมอไม่สน tolerance/support
+                                           --set/--remove ตั้ง skip.source = manual และ skip.edited = true (ค่าที่คนยืนยัน)
         --tolerance S                      ประเมิน ok/fix ใหม่ด้วย tolerance นี้ (default ตาม report)
         --source NAME                      ค่า skip.source เมื่อ --fill/--mark-none ต้องสร้าง skip object ใหม่ (default manual;
-                                           job อัตโนมัติใช้ audit = ยังไม่มีคนยืนยัน; --set เขียน manual เสมอ; skip เดิมคง source เดิม)
-        --json-out PATH                    เขียนผลแบบ machine-readable {playlist, changes[], outliers[], marked[]} (เขียนแม้ไม่มีอะไรแก้)
+                                           job อัตโนมัติใช้ audit = ยังไม่มีคนยืนยัน; --set เขียน manual เสมอ; --fill/--fix คง source เดิม)
+        --json-out PATH                    เขียนผลแบบ machine-readable {playlist, changes[], marked[]} (เขียนแม้ไม่มีอะไรแก้)
         --mark-none                        ตอนที่ตรวจได้แต่ไม่พบ op/ed/intro เลย และยังไม่มี skip → เขียน skip {source: --source, segments: []}
                                            ยกเว้นตอนเดียวกันในแทร็กอื่นของ season (ที่อยู่ใน report) มี op/ed/intro หรือตรวจไม่ได้
                                            (= ตรวจแล้วไม่พบ กัน job อัตโนมัติตรวจซ้ำ; --fill รอบหลังยังเติมทับได้; ถ้าใส่ --kinds จะไม่ mark)
@@ -1914,7 +1918,6 @@ def cmd_apply(args):
 
     by_track = {t['track']: t for t in report['tracks']}
     overrides = _parse_overrides(args.set or [], report.get('start_shift', 0.0), report.get('end_shift', 0.0))
-    skipped_outliers = []
     removals = set()
     for item in args.remove or []:
         m = re.match(r'^(.+?)\|(.+?)\|(op|ed|intro|credits)$', item.strip())
@@ -1935,6 +1938,7 @@ def cmd_apply(args):
             if row['idx'] >= len(stations) or stations[row['idx']].get('name') != row['name']:
                 raise SystemExit(f'ไฟล์เปลี่ยนไปจากตอน report: {tn} #{row["idx"]} {row["name"]!r} — รัน report ใหม่')
             st = stations[row['idx']]
+            edited = bool((st.get('skip') or {}).get('edited'))
             touched = False
             for kind, types in KIND_TYPES.items():
                 r = row.get(kind)
@@ -1953,6 +1957,7 @@ def cmd_apply(args):
                 if rm:
                     if seg:
                         st['skip']['segments'].remove(seg)
+                        st['skip'].update(source='manual', edited=True)
                         touched = True
                         changes.append((tn, label, kind, 'rm', (seg['start'], seg['end']), None, {'support': None, 'sim': None}))
                     continue
@@ -1962,26 +1967,34 @@ def cmd_apply(args):
                     if v == 'fix' and seg['start'] == num(dt['start']) and seg['end'] == num(dt['end']):
                         continue
                 else:
-                    if not dt or row.get('error') or r['verdict'] in ('review', 'error'):
+                    if edited or not dt or row.get('error') or r['verdict'] == 'error':
                         continue
+                    v, _, _ = verdict(r['existing'], dt, tol)
+                    if v == 'review':
+                        if kind not in ('op', 'ed'):
+                            continue
+                        v = 'missing'
+                        dt['mixed'] = True
                     min_support = 1 if (kind == 'intro' and dt['sim'] >= 0.9) or kind == 'credits' else args.min_support
                     if _visually_confirmed(kind, dt):
                         min_support = max(1, min_support - 1)
                     if dt['support'] < min_support:
-                        continue
+                        dt['min_support'] = min_support
                     if not r['existing'] and kind in ((st.get('skip') or {}).get('none') or []):
                         continue
                     if kind == 'credits' and _covered_by_ed(st, dt):
                         continue
                     med = _median_length(by_track[tn], kind) if kind in ('op', 'ed') else None
                     if med is not None and _length_outlier(dt, med):
-                        skipped_outliers.append((tn, label, kind, dt, med))
-                        continue
-                    v, _, _ = verdict(r['existing'], dt, tol)
+                        dt['median_length'] = round(med, 1)
+                    if v == 'missing' and r.get('cross_track'):
+                        dt['cross_track'] = r['cross_track']
                 if v == 'fix' and (args.fix or ov):
                     old = (seg['start'], seg['end'])
                     seg['start'] = num(dt['start'])
                     seg['end'] = num(dt['end'])
+                    if ov:
+                        st['skip'].update(source='manual', edited=True)
                     touched = True
                     changes.append((tn, label, kind, 'fix', old, (seg['start'], seg['end']), dt))
                 elif v == 'missing' and (args.fill or ov):
@@ -1989,7 +2002,10 @@ def cmd_apply(args):
                     skip = st.setdefault('skip', {'source': source, 'segments': []})
                     skip.setdefault('source', source)
                     segs = skip.setdefault('segments', [])
-                    segs.append({'type': 'ed' if kind == 'credits' else kind, 'start': num(dt['start']), 'end': num(dt['end'])})
+                    seg_type = 'ed' if kind == 'credits' else f'mixed-{kind}' if dt.get('mixed') else kind
+                    segs.append({'type': seg_type, 'start': num(dt['start']), 'end': num(dt['end'])})
+                    if ov:
+                        skip.update(source='manual', edited=True)
                     if ov and kind in (skip.get('none') or []):
                         skip['none'] = [k for k in skip['none'] if k != kind]
                         if not skip['none']:
@@ -2008,11 +2024,9 @@ def cmd_apply(args):
         raise SystemExit('--set ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in overrides))
     if removals:
         raise SystemExit('--remove ไม่ตรงกับตอนใดใน report: ' + ', '.join(f'{t}|{l}|{k}' for t, l, k in removals))
-    for tn, label, kind, dt, med in skipped_outliers:
-        print(f'ข้าม {tn:<24}ตอน {str(label):<8}{kind:<4}{fmt_t(dt["start"])}-{fmt_t(dt["end"])}  (ยาว {dt["end"] - dt["start"]:.1f}s ต่างจากค่ากลางของแทร็ก {med:.1f}s — ต้องยืนยันด้วย --set)')
     if not changes and not marked:
         if args.json_out:
-            _write_json_out(args.json_out, args.playlist, changes, skipped_outliers, marked)
+            _write_json_out(args.json_out, args.playlist, changes, marked)
         print('ไม่มีอะไรต้องแก้')
         return
     out = json.dumps(playlist, ensure_ascii=False, indent=4)
@@ -2021,11 +2035,13 @@ def cmd_apply(args):
     with open(args.playlist, 'w', encoding='utf-8') as f:
         f.write(out)
     if args.json_out:
-        _write_json_out(args.json_out, args.playlist, changes, skipped_outliers, marked)
+        _write_json_out(args.json_out, args.playlist, changes, marked)
     for tn, label, kind, how, old, new, dt in changes:
         o = f'{fmt_t(old[0])}-{fmt_t(old[1])} → ' if old else ''
         n = f'{fmt_t(new[0])}-{fmt_t(new[1])}' if new else '(ลบ)'
-        print(f'{how:<5}{tn:<24}ตอน {str(label):<8}{kind:<4}{o}{n}  (support={dt["support"] if dt["support"] is not None else "-"} sim={dt["sim"] if dt["sim"] is not None else "-"})')
+        notice = _notice(kind, dt)
+        print(f'{how:<5}{tn:<24}ตอน {str(label):<8}{kind:<4}{o}{n}  (support={dt["support"] if dt["support"] is not None else "-"} sim={dt["sim"] if dt["sim"] is not None else "-"})'
+              + (f'  ⚠️ ต้องดู: {notice}' if notice else ''))
     for tn, label in marked:
         print(f'none {tn:<24}ตอน {str(label):<8}(ตรวจแล้วไม่พบ op/ed/intro)')
     print(f'\nแก้ {len(changes) + len(marked)} รายการ → {args.playlist}')
@@ -2047,24 +2063,35 @@ def _cross_track_evidence(by_track, season_name, tn, label):
     return False
 
 
-def _visual_notice(kind, dt):
-    """ข้อความแจ้งเมื่อจุดตัดภาพห่างจากขอบเพลง ≥ VISUAL_NOTICE_SEC (ผู้ใช้กำหนด 2026-11-02: ถือว่าผิดปกติ ให้แจ้ง "ต้องดู" แต่บันทึกค่าไปเลย
-    เช่น SAO ตอน 6 ภาพ ED เริ่มช้ากว่าเพลง 13 วิ) — None เมื่อไม่ต้องแจ้ง"""
-    if kind not in ('op', 'ed'):
-        return None
-    visual = dt.get('visual') or {}
+def _notice(kind, dt):
+    """ข้อความแจ้ง "ต้องดู" ของช่วงที่บันทึกแล้วแต่ผิดปกติ (ผู้ใช้กำหนด 2026-11-02/03: แจ้งแต่บันทึกค่าไปเลย) — None เมื่อไม่ต้องแจ้ง
+    - OP/ED: จุดตัดภาพห่างจากขอบเพลง ≥ VISUAL_NOTICE_SEC (SAO ตอน 6 ภาพ ED เริ่มช้ากว่าเพลง 13 วิ)
+      และ ED ที่ยังถูกตัดต้นเพลง (trimmed) ≥ VISUAL_NOTICE_SEC หลังค้นจุดตัดภาพไม่พบ (Mahouka S2 ตอน 11–12 ภาพ ED จริงเริ่มก่อนหน้า)
+    - ค่าที่ apply ใส่ไว้: median_length (ยาวต่างจากค่ากลางแทร็ก), min_support (ตอนข้างเคียงยืนยันไม่ถึงเกณฑ์),
+      cross_track (ไม่ตรงกับอีกแทร็ก), mixed (เสียงคล้ายต่ำ เขียนเป็น mixed-*)"""
     parts = []
-    for edge, word in (('start', 'เริ่ม'), ('end', 'จบ')):
-        tau = visual.get(edge)
-        if tau is not None and abs(tau) >= VISUAL_NOTICE_SEC:
-            parts.append(f'ภาพ {kind.upper()} {word}{"ช้ากว่า" if tau > 0 else "เร็วกว่า"}เพลง {abs(tau):.1f} วิ')
+    if kind in ('op', 'ed'):
+        visual = dt.get('visual') or {}
+        for edge, word in (('start', 'เริ่ม'), ('end', 'จบ')):
+            tau = visual.get(edge)
+            if tau is not None and abs(tau) >= VISUAL_NOTICE_SEC:
+                parts.append(f'ภาพ {kind.upper()} {word}{"ช้ากว่า" if tau > 0 else "เร็วกว่า"}เพลง {abs(tau):.1f} วิ')
+        if (dt.get('trimmed') or 0.0) >= VISUAL_NOTICE_SEC:
+            parts.append(f'{kind.upper()} ตัดต้นเพลง {dt["trimmed"]:.1f} วิ (เสียงพูดทับ) ยืนยันด้วยภาพไม่ได้')
+    if dt.get('median_length') is not None:
+        parts.append(f'{kind.upper()} ยาว {_song_len(dt):.1f} วิ ต่างจากค่ากลางของแทร็ก {dt["median_length"]:.1f} วิ')
+    if dt.get('min_support'):
+        parts.append(f'ตอนข้างเคียงยืนยัน {dt["support"]} ตอน (เกณฑ์ {dt["min_support"]})')
+    if dt.get('cross_track'):
+        parts.append(f'ไม่ตรงกับ {dt["cross_track"]}')
+    if dt.get('mixed'):
+        parts.append(f'เสียงคล้ายตอนอื่นต่ำ (sim {dt["sim"]}) บันทึกเป็น mixed-{kind} ไม่ข้ามอัตโนมัติ')
     return ', '.join(parts) or None
 
 
-def _write_json_out(path, playlist_path, changes, outliers, marked=()):
+def _write_json_out(path, playlist_path, changes, marked=()):
     """ผลของ apply แบบ machine-readable สำหรับ job อัตโนมัติ — label ตรงกับที่ --episodes รับ (เลขตอน หรือ #idx)
-    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); changes[].notice = ข้อความแจ้งให้คนดู (_visual_notice) หรือ null
-    outliers = ช่วงที่ข้ามเพราะยาวต่างจากค่ากลาง
+    changes[].action: fill | fix | rm (rm/fix มี old; rm ไม่มี start/end); changes[].notice = ข้อความแจ้งให้คนดู (_notice) หรือ null
     marked = ตอนที่ --mark-none เขียน skip {segments: []} (ตรวจแล้วไม่พบ op/ed/intro)"""
     out = {
         'playlist': os.path.realpath(playlist_path),
@@ -2073,17 +2100,9 @@ def _write_json_out(path, playlist_path, changes, outliers, marked=()):
                 'track': tn, 'label': label, 'kind': kind, 'action': how,
                 'start': new[0] if new else None, 'end': new[1] if new else None,
                 'old': {'start': old[0], 'end': old[1]} if old else None,
-                'support': dt.get('support'), 'sim': dt.get('sim'), 'notice': _visual_notice(kind, dt),
+                'support': dt.get('support'), 'sim': dt.get('sim'), 'notice': _notice(kind, dt),
             }
             for tn, label, kind, how, old, new, dt in changes
-        ],
-        'outliers': [
-            {
-                'track': tn, 'label': label, 'kind': kind, 'start': dt['start'], 'end': dt['end'],
-                'length': round(_song_len(dt), 1), 'median': round(med, 1),
-                'support': dt.get('support'), 'sim': dt.get('sim'),
-            }
-            for tn, label, kind, dt, med in outliers
         ],
         'marked': [{'track': tn, 'label': label} for tn, label in marked],
     }
@@ -2185,7 +2204,7 @@ def main():
     a.add_argument('--remove', nargs='*', help='ลบ segment "TRACK|LABEL|op"')
     a.add_argument('--mark-none', action='store_true', help='ตอนที่ตรวจแล้วไม่พบ op/ed/intro และยังไม่มี skip → เขียน skip ว่าง (segments: [])')
     a.add_argument('--source', default='manual', help='skip.source เมื่อ --fill / --mark-none สร้าง skip object ใหม่ (default manual; job อัตโนมัติใช้ audit)')
-    a.add_argument('--json-out', help='เขียนผล apply แบบ JSON {playlist, changes[], outliers[], marked[]}')
+    a.add_argument('--json-out', help='เขียนผล apply แบบ JSON {playlist, changes[], marked[]}')
     args = p.parse_args()
     if args.cmd == 'report':
         cmd_report(args)

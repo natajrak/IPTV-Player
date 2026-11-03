@@ -4158,9 +4158,12 @@ function readSkipRows() {
   return { segments, none };
 }
 
-/** skip object ที่บันทึกจากหน้าแก้ช่วงข้าม — none = ชนิดที่ผู้ใช้ยืนยันว่าไม่มี (player ไม่ได้ใช้ ใช้กันระบบตรวจเติม) */
+/**
+ * skip object ที่บันทึกจากหน้าแก้ช่วงข้าม — none = ชนิดที่ผู้ใช้ยืนยันว่าไม่มี (player ไม่ได้ใช้ ใช้กันระบบตรวจเติม)
+ * edited = ผู้ใช้บันทึกเอง → ระบบตรวจ (skip-audit apply / ตรวจใหม่) ไม่เขียนทับ
+ */
 function buildManualSkip(segments, none) {
-  const skip = { source: 'manual', segments: segments.map(seg => ({ ...seg })) };
+  const skip = { source: 'manual', edited: true, segments: segments.map(seg => ({ ...seg })) };
   if (none.length) skip.none = [...none];
   return skip;
 }

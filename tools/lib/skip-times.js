@@ -2,7 +2,8 @@
  * Skip times — ช่วงเวลาข้าม (ย้อนความ / เพลงเปิด / เพลงปิด) ต่อตอน ที่กรอกเองใน CMS
  *
  * station.skip = {
- *   source: 'manual',
+ *   source: 'manual',                                        // 'audit' = ระบบตรวจเติม ยังไม่มีคนยืนยัน
+ *   edited: true,                                            // ผู้ใช้บันทึกเองใน CMS (หรือ skip-audit --set/--remove) → ระบบตรวจไม่เขียนทับ
  *   segments: [ { type: 'op', start: 143, end: 232 }, ... ]   // [] = ยืนยันว่าไม่มีช่วงข้าม
  * }
  *
