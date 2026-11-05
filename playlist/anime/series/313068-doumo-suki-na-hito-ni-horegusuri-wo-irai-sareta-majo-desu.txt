@@ -32,6 +32,28 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 2 - The Good Witch of the Lake",
+                            "image": "https://image.tmdb.org/t/p/original/6D8iNp8YpV6SFFlA7uKGAWovSGO.jpg",
+                            "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fe1jiliWW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fe1jiliWW",
+                            "referer": "https://anime-th.com/",
+                            "release_date": "2026-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.5,
+                                        "end": 188.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -127,16 +149,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - To Be a Witch",
+                            "image": "https://image.tmdb.org/t/p/original/dOhwiMk8Mb0xrN6UuswpwjRAsH0.jpg",
+                            "url": "https://sv2.team-indy.net/video/X4SfjVoeyk/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.5,
+                                        "end": 191.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-05",
-            "updated_at": "2026-10-26T00:00:00.000Z"
+            "updated_at": "2026-11-02T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-05",
-    "updated_at": "2026-10-26T00:00:00.000Z",
+    "updated_at": "2026-11-02T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

@@ -366,16 +366,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - Error",
+                            "image": "https://image.tmdb.org/t/p/original/rhYfALuA75fidn4iOGgDw2lvYQm.jpg",
+                            "url": "https://sv2.team-indy.net/video/fdDtg1PmSs/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.5,
+                                        "end": 181.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-08",
-            "updated_at": "2026-10-29T00:00:00.000Z"
+            "updated_at": "2026-11-05T00:00:00.000Z"
         }
     ],
     "release_date": "2023-10-08",
-    "updated_at": "2026-10-29T00:00:00.000Z",
+    "updated_at": "2026-11-05T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",

@@ -615,16 +615,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - Heroes and Feelings",
+                            "image": "https://image.tmdb.org/t/p/original/kP5gSnFOzy7mRDgshchD22WGUlg.jpg",
+                            "url": "https://sv2.team-indy.net/video/RVJ84nvXv0/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.5,
+                                        "end": 112.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-07",
-            "updated_at": "2026-10-28T00:00:00.000Z"
+            "updated_at": "2026-11-04T00:00:00.000Z"
         }
     ],
     "release_date": "2024-01-05",
-    "updated_at": "2026-10-28T00:00:00.000Z",
+    "updated_at": "2026-11-04T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",

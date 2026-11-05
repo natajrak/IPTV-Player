@@ -782,8 +782,31 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 12 - Divine Punishment! The Skeleton Metes Out Justice That Obliterates Evil!",
+                            "image": "https://image.tmdb.org/t/p/original/8jnNczXyuiZz3KdX9e39yCpOtGZ.jpg",
+                            "url": "https://sv2.team-indy.net/video/AuF98NAYY/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-09-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.5,
+                                        "end": 168.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1294.5,
+                                        "end": 1384.4
+                                    }
+                                ]
+                            }
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -1066,8 +1089,6 @@
     "updated_at": "2026-09-21T00:00:00.000Z",
     "season_count": 2,
     "completion": {
-        "status": "incomplete",
-        "season": 2,
-        "track": "th"
+        "status": "completed"
     }
 }

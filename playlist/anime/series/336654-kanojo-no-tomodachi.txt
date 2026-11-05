@@ -78,16 +78,33 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - Episode 5",
+                            "image": "https://image.tmdb.org/t/p/original/sQ8H9qjsE7NdQFDQY2OQX2n7y74.jpg",
+                            "url": "https://sv2.team-indy.net/video/BFaZ9TbNWB/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.5,
+                                        "end": 198.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-05",
-            "updated_at": "2026-10-26T00:00:00.000Z"
+            "updated_at": "2026-11-02T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-05",
-    "updated_at": "2026-10-26T00:00:00.000Z",
+    "updated_at": "2026-11-02T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

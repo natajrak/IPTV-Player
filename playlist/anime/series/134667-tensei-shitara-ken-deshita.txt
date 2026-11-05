@@ -645,16 +645,39 @@
                                     "ed"
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 6 - The Briny Beach Experience",
+                            "image": "https://image.tmdb.org/t/p/original/y2YDmOnPiV672X1UZDIqcn8UC83.jpg",
+                            "url": "https://sv2.team-indy.net/video/42eDQlF62K/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-12",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.5,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-08",
-            "updated_at": "2026-11-05T00:00:00.000Z"
+            "updated_at": "2026-11-12T00:00:00.000Z"
         }
     ],
     "release_date": "2022-09-28",
-    "updated_at": "2026-11-05T00:00:00.000Z",
+    "updated_at": "2026-11-12T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",

@@ -623,16 +623,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 19 - Empress of the Angler Clan",
+                            "image": "https://image.tmdb.org/t/p/original/laeTCgKUSR2UYC2S1eGjuStmYA0.jpg",
+                            "url": "https://sv2.team-indy.net/video/iNR6emLuoV/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.5,
+                                        "end": 134.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.5,
+                                        "end": 1389.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-07-03",
-            "updated_at": "2026-10-30T00:00:00.000Z"
+            "updated_at": "2026-11-06T00:00:00.000Z"
         }
     ],
     "release_date": "2026-07-03",
-    "updated_at": "2026-10-30T00:00:00.000Z",
+    "updated_at": "2026-11-06T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

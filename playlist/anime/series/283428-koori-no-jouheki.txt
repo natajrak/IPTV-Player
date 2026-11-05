@@ -466,16 +466,43 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 20 - Cultural Festival",
+                            "image": "https://image.tmdb.org/t/p/original/fjrv3rc0SxLw3ivEg4ELa2X3G34.jpg",
+                            "url": "https://sv2.team-indy.net/video/g12SUmx2yO/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.5,
+                                        "end": 194.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.5,
+                                        "end": 1307.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1423.9,
+                                        "end": 1470.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-04-02",
-            "updated_at": "2026-10-29T00:00:00.000Z"
+            "updated_at": "2026-11-05T00:00:00.000Z"
         }
     ],
     "release_date": "2026-04-02",
-    "updated_at": "2026-10-29T00:00:00.000Z",
+    "updated_at": "2026-11-05T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",
