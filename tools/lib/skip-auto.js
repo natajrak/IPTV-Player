@@ -22,6 +22,9 @@
  *   apply เพิ่ม --fix แก้เวลาช่วงเดิมที่คลาดเกิน tolerance (ทุก source ยกเว้น edited)
  *   ไม่มีเพดานตอน, timeout report ตามจำนวนตอน, ไม่ขึ้นกับสวิตช์เปิด/ปิดตรวจอัตโนมัติ
  *   ผลล่าสุดต่อ season เก็บใน tools/.skip-audit-cache/auto/rechecked.json (CMS แสดงความคืบหน้า)
+ * - งานตรวจอัตโนมัติปกติที่ตรวจครบทุกตอนของ season (เช่นเพิ่มเรื่องใหม่) บันทึกผลเหมือนตรวจใหม่;
+ *   ตรวจเฉพาะบางตอน → รวมเข้าผลเดิมของ season (ถ้ามี) — ตอนเปิด server เติมผลจากประวัติงานที่ยังไม่ได้บันทึก
+ * - review/errors ในผลต่อ season นับสดจากไฟล์ปัจจุบัน (items ที่ค้าง) → ผู้ใช้แก้แล้วสีปุ่มใน CMS เปลี่ยนเอง
  */
 
 const fs = require('fs');
@@ -139,7 +142,10 @@ function createSkipAuto({ root, playlistDirOf }) {
     enabled = JSON.parse(fs.readFileSync(configPath, 'utf-8')).enabled !== false;
   } catch {}
 
-  /** ผลตรวจใหม่ล่าสุดต่อ season: `${fileRel}|${season}` → { at, status, filled, fixed, review, none, errors, message } */
+  /**
+   * ผลตรวจล่าสุดต่อ season: `${fileRel}|${season}` → { at, status, filled, fixed, review, none, errors, message, items }
+   * items = รายการต้องดู/ตรวจไม่ได้ที่ยังค้างตอนบันทึก ({ list: 'review'|'errors', track, label, kind, notice })
+   */
   let rechecked = {};
   try {
     rechecked = JSON.parse(fs.readFileSync(recheckedPath, 'utf-8')) || {};
@@ -148,20 +154,67 @@ function createSkipAuto({ root, playlistDirOf }) {
   const available = () => fs.existsSync(python) && fs.existsSync(script);
   const rel = (file) => path.relative(root, file).split(path.sep).join('/');
 
-  /** review/errors นับเฉพาะที่ยังไม่ resolved ตอนงานจบ (ให้ตรงกับ "ต้องดู" ในแผงงานของ CMS) */
-  function recordRecheck(job) {
+  /** งานตรวจครบทุกตอน (ที่มี URL) ของ season ในไฟล์ปัจจุบันหรือไม่ */
+  function coversSeason(job) {
+    const playlist = readPlaylist(job.file);
+    if (!playlist) return false;
+    let any = false;
+    for (const { season, trackName, idx, station } of walkStations(playlist)) {
+      if (`${season.name}` !== job.season || !station.url) continue;
+      any = true;
+      if (!job.tracks.get(trackName)?.has(episodeLabelOf(station) || `#${idx}`)) return false;
+    }
+    return any;
+  }
+
+  /** รายการต้องดู/ตรวจไม่ได้ของงานที่ยังไม่ resolved (เทียบไฟล์ตอนนี้) */
+  function pendingItems(job) {
     const index = stationIndex(job.file);
-    const pending = (items) => items.filter((it) => !resolutionOf(index, it)).length;
-    rechecked[`${job.fileRel}|${job.season}`] = {
-      at: job.finishedAt,
-      status: job.status,
-      filled: job.filled.length,
-      fixed: job.fixed.length,
-      review: pending(job.review),
-      none: job.none.length,
-      errors: pending(job.errors),
-      message: job.message || '',
-    };
+    const pick = (list, items) => items.filter((it) => !resolutionOf(index, it))
+      .map(({ track, label, kind, notice }) => ({ list, track, label, kind, notice }));
+    return [...pick('review', job.review), ...pick('errors', job.errors)];
+  }
+
+  /**
+   * บันทึกผลตรวจต่อ season — ตรวจใหม่ / งานปกติที่ครบทั้ง season แทนผลเดิม,
+   * งานปกติบางตอนที่ done รวมเข้าผลเดิม (ไม่มีผลเดิม = ตอนเก่ายังไม่ได้ตรวจ ไม่บันทึก)
+   */
+  function recordSeason(job) {
+    if (job.season == null || (job.status === 'skipped' && !job.recheck)) return;
+    const key = `${job.fileRel}|${job.season}`;
+    const items = pendingItems(job);
+    const count = (list) => items.filter((it) => it.list === list).length;
+    const prev = rechecked[key];
+    if (job.recheck || coversSeason(job)) {
+      rechecked[key] = {
+        at: job.finishedAt,
+        status: job.status,
+        filled: job.filled.length,
+        fixed: job.fixed.length,
+        review: count('review'),
+        none: job.none.length,
+        errors: count('errors'),
+        message: job.message || '',
+        items,
+      };
+    } else if (prev && job.status === 'done') {
+      const merged = [...(prev.items || []).filter((it) => !job.tracks.get(it.track)?.has(it.label)), ...items];
+      rechecked[key] = {
+        ...prev,
+        at: job.finishedAt,
+        filled: prev.filled + job.filled.length,
+        none: prev.none + job.none.length,
+        review: prev.review + count('review'),
+        errors: prev.errors + count('errors'),
+        items: prev.items ? merged : undefined,
+      };
+    } else {
+      return;
+    }
+    saveRechecked();
+  }
+
+  function saveRechecked() {
     try {
       fs.mkdirSync(workDir, { recursive: true });
       fs.writeFileSync(`${recheckedPath}.tmp`, JSON.stringify(rechecked));
@@ -308,6 +361,48 @@ function createSkipAuto({ root, playlistDirOf }) {
       queue.push({ none: [], fixed: [], recheck: false, ...job, season: storedSeason(job), status: job.status === 'waiting' && job.notBefore ? 'waiting' : 'queued', phase: null });
     }
     history.push(...(data.history || []).slice(0, HISTORY_SIZE).map((j) => ({ none: [], fixed: [], ...fromStored(j) })));
+  }
+
+  /**
+   * เติมผลต่อ season จากประวัติ (งานก่อนมีการบันทึกผลงานปกติ/items):
+   * ผลเดิมที่ไม่มี items → เติมจากงานเดียวกันในประวัติ, งานปกติที่ตรวจครบทั้ง season แต่ยังไม่ได้บันทึก → บันทึก
+   */
+  function backfillRechecked() {
+    let added = 0;
+    for (const job of [...history].reverse()) {
+      const stored = rechecked[`${job.fileRel}|${job.season}`];
+      if (stored && !stored.items && stored.at === job.finishedAt) {
+        stored.items = pendingItems(job);
+        added++;
+        continue;
+      }
+      if (job.recheck || job.season == null || !['done', 'failed'].includes(job.status) || !fs.existsSync(job.file)) continue;
+      const prev = rechecked[`${job.fileRel}|${job.season}`];
+      if (prev && Date.parse(prev.at) >= Date.parse(job.finishedAt)) continue;
+      if (!coversSeason(job)) continue;
+      recordSeason(job);
+      added++;
+    }
+    if (added) {
+      saveRechecked();
+      log(`เติมผลตรวจต่อ season จากประวัติ ${added} season`);
+    }
+  }
+
+  /** ผลต่อ season ที่ส่งให้ CMS — review/errors นับสดจาก items เทียบไฟล์ปัจจุบัน (ผลเก่าที่ไม่มี items ใช้ตัวเลขที่บันทึกไว้) */
+  function publicRechecked() {
+    const out = {};
+    for (const [key, r] of Object.entries(rechecked)) {
+      const { items, ...rest } = r;
+      if (!items) {
+        out[key] = rest;
+        continue;
+      }
+      const index = stationIndex(path.join(root, key.slice(0, key.indexOf('|'))));
+      const pending = (list) => items.filter((it) => it.list === list && !resolutionOf(index, it)).length;
+      out[key] = { ...rest, review: pending('review'), errors: pending('errors') };
+    }
+    return out;
   }
 
   /**
@@ -493,7 +588,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     for (const r of job.review) log(`  review ${r.track} ตอน ${r.label}${r.kind ? ` ${r.kind}` : ''}${r.start != null ? ` ${r.start}-${r.end}` : ''} (${r.reason})`);
     for (const n of job.none) log(`  none   ${n.track} ตอน ${n.label}`);
     for (const e of job.errors) log(`  error  ${e.track} ตอน ${e.label} — ${e.error}`);
-    if (job.recheck) recordRecheck(job);
+    recordSeason(job);
   }
 
   const KIND_LABEL = { op: 'OP', ed: 'ED', intro: 'Intro' };
@@ -814,6 +909,7 @@ function createSkipAuto({ root, playlistDirOf }) {
   }
 
   restore();
+  backfillRechecked();
   setImmediate(pump);
 
   /** ไฟล์ที่ fetch script เขียน: {id}-{slug}.txt ถ้าระบุ --id-prefix/--tmdb-id (เหมือน fetch script) ไม่งั้นค้นแบบ resolvePlaylistFile */
@@ -931,7 +1027,7 @@ function createSkipAuto({ root, playlistDirOf }) {
         running: running && !running.cancelled ? publicJob(running) : null,
         queue: queue.map(publicJob),
         recent: history.map(publicJobWithResolution),
-        rechecked,
+        rechecked: publicRechecked(),
       };
     },
   };

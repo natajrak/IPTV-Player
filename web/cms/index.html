@@ -4813,9 +4813,26 @@ function applyRecheckButtons() {
   });
 }
 
+/** finishedAt ล่าสุดของงานตรวจ OP/ED ที่เห็นแล้ว — null = ยังไม่เคยโหลดสถานะ */
+let skipLastFinished = null;
+
+/** งานตรวจ OP/ED จบใหม่ → โหลด tab ของไฟล์นั้นใหม่ (ถ้าโหลดอยู่) ให้ข้อมูล skip/สีปุ่มเป็นปัจจุบัน */
+function reloadTabsAfterSkipJobs(st) {
+  const latest = st.recent.reduce((max, j) => (j.finishedAt > max ? j.finishedAt : max), '');
+  const fresh = skipLastFinished === null ? [] : st.recent.filter(j => j.finishedAt > skipLastFinished && (j.recheck || j.filled?.length || j.none?.length));
+  skipLastFinished = latest > (skipLastFinished || '') ? latest : (skipLastFinished || '');
+  for (const tabId of SKIP_RECHECK_TABS) {
+    const dir = TABS[tabId]?.index.replace(/index\.txt$/, '');
+    if (!dir || !loaded.has(tabId) || !fresh.some(j => j.fileRel?.startsWith(dir))) continue;
+    loaded.delete(tabId);
+    loadTab(tabId);
+  }
+}
+
 function renderSkipJobs(st) {
   skipStatus = st;
   applyRecheckButtons();
+  reloadTabsAfterSkipJobs(st);
   const btn   = document.getElementById('skipjobs-btn');
   const label = document.getElementById('skipjobs-label');
   const queued = st.queue.filter(j => j.status === 'queued').length;
