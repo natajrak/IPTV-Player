@@ -39,91 +39,277 @@
                             "image": "https://image.tmdb.org/t/p/original/seOnRGCNCN8FR58a6VgEltscSvp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3GE6z5iM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3GE6z5iM",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-04-03"
+                            "release_date": "2010-04-03",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1494.7,
+                                        "end": 1547.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Guild",
                             "image": "https://image.tmdb.org/t/p/original/wZZTqUxFAplf7dKKwdIWU1LGYd4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FplCloPW5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FplCloPW5",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-04-10"
+                            "release_date": "2010-04-10",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1368.5,
+                                        "end": 1453.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - My Song",
                             "image": "https://image.tmdb.org/t/p/original/npyiZDN1tpAac31QCNtLTAmverL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fyf7boA03%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fyf7boA03",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-04-17"
+                            "release_date": "2010-04-17",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1351.1,
+                                        "end": 1436.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Day Game",
                             "image": "https://image.tmdb.org/t/p/original/u59Hy3ghStbpkKtjNSPdbZd9yIq.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBFbDw1GR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBFbDw1GR",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-04-24"
+                            "release_date": "2010-04-24",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1351.8,
+                                        "end": 1435.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Favorite Flavor",
                             "image": "https://image.tmdb.org/t/p/original/6UQK0QWpuDPcjY4yS3jTIW9erv7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVF8yF0eW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVF8yF0eW",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-05-01"
+                            "release_date": "2010-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1373.1,
+                                        "end": 1463
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1493.7,
+                                        "end": 1508.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Family Affair",
                             "image": "https://image.tmdb.org/t/p/original/pVEBrP1FKcMyiQBZyaEP7CXz1Oi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fl07VrPJm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fl07VrPJm",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-05-07"
+                            "release_date": "2010-05-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.9,
+                                        "end": 1457.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Alive",
                             "image": "https://image.tmdb.org/t/p/original/v5qsXlHOPzBpthAL0Z2aHpiq2jy.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpW6BC5gx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpW6BC5gx",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-05-14"
+                            "release_date": "2010-05-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1456.8,
+                                        "end": 1547.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Dancer in the Dark",
                             "image": "https://image.tmdb.org/t/p/original/3VXmqw9lMETGWoulUGf9WJkBm4Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fk67x1AUW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fk67x1AUW",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-05-21"
+                            "release_date": "2010-05-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1366.8,
+                                        "end": 1459
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - In Your Memory",
                             "image": "https://image.tmdb.org/t/p/original/thDLv8fBSsQr03QtYqCj0iNQeDU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fv5UtcwQf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fv5UtcwQf",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-05-28"
+                            "release_date": "2010-05-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1455.7,
+                                        "end": 1547.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Goodbye Days",
                             "image": "https://image.tmdb.org/t/p/original/e10GjZ5ACGtBheCVh4KxKn0PT3q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMEW1s0Hv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMEW1s0Hv",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-06-04"
+                            "release_date": "2010-06-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Change the World",
                             "image": "https://image.tmdb.org/t/p/original/7OqcK6YHbPIE14Jk55Kv9ROkJn1.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FeDkjXT6r%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FeDkjXT6r",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-06-11"
+                            "release_date": "2010-06-11",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1457.1,
+                                        "end": 1549
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Knockin' on Heaven's Door",
                             "image": "https://image.tmdb.org/t/p/original/xAa0RvxFt0dRtyMTYGKRoDKyR6z.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCQKuheBq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCQKuheBq",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-06-18"
+                            "release_date": "2010-06-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Graduation",
                             "image": "https://image.tmdb.org/t/p/original/yjTLgi8JrocMNXTTXNLF9YDMRh3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9nArAuA9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9nArAuA9",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2010-06-25"
+                            "release_date": "2010-06-25",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

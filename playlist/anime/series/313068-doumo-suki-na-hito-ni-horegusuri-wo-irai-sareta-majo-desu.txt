@@ -40,7 +40,8 @@
                             "referer": "https://anime-th.com/",
                             "release_date": "2026-10-12",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",

@@ -37,7 +37,8 @@
                             "referer": "https://ahdzero.com/",
                             "release_date": "2024-01-13",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
