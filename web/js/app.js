@@ -3701,16 +3701,15 @@ playerOverlay.addEventListener(
   { passive: false },
 );
 
-playerOverlay.addEventListener(
-  "touchend",
-  () => {
-    _swipeStart = null;
-    if (!_swipeHandled) return;
-    seekPreview.classList.add("hidden");
-    if (_swipeWasPlaying) playerVideo.play();
-  },
-  { passive: true },
-);
+/** จบ swipe (ยกนิ้ว หรือระบบยกเลิก touch) → ซ่อนภาพตัวอย่าง + เล่นต่อถ้าเดิมเล่นอยู่ */
+function endSwipe() {
+  _swipeStart = null;
+  if (!_swipeHandled) return;
+  seekPreview.classList.add("hidden");
+  if (_swipeWasPlaying) playerVideo.play();
+}
+playerOverlay.addEventListener("touchend", endSwipe, { passive: true });
+playerOverlay.addEventListener("touchcancel", endSwipe, { passive: true });
 
 // Click on video toggles play/pause (ยกเว้นหลัง swipe / แตะเพื่อเรียกแถบควบคุม)
 playerVideo.addEventListener("click", () => {

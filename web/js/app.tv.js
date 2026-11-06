@@ -2842,12 +2842,16 @@ playerOverlay.addEventListener("touchmove", e => {
 }, {
   passive: false
 });
-playerOverlay.addEventListener("touchend", () => {
+function endSwipe() {
   _swipeStart = null;
   if (!_swipeHandled) return;
   seekPreview.classList.add("hidden");
   if (_swipeWasPlaying) playerVideo.play();
-}, {
+}
+playerOverlay.addEventListener("touchend", endSwipe, {
+  passive: true
+});
+playerOverlay.addEventListener("touchcancel", endSwipe, {
   passive: true
 });
 playerVideo.addEventListener("click", () => {
