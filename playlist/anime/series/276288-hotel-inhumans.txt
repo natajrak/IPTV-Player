@@ -334,16 +334,39 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 5 - Follow-up",
+                            "image": "https://image.tmdb.org/t/p/original/sebsllvs7Fu8xkR1jZtZHCPSNcl.jpg",
+                            "url": "https://app.akuma-stream.com/watch/a981c75a-e810-4dde-a1cf-2f42ed2346c1",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 361.5,
+                                        "end": 450.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1277.6,
+                                        "end": 1366.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-04",
-            "updated_at": "2026-10-25T00:00:00.000Z"
+            "updated_at": "2026-11-01T00:00:00.000Z"
         }
     ],
     "release_date": "2025-07-06",
-    "updated_at": "2026-10-25T00:00:00.000Z",
+    "updated_at": "2026-11-01T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",

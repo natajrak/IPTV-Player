@@ -65,7 +65,8 @@
                             "referer": "https://ahdzero.com/",
                             "release_date": "2026-10-19",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
@@ -88,7 +89,8 @@
                             "referer": "https://ahdzero.com/",
                             "release_date": "2026-10-26",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",

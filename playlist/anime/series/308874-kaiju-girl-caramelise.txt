@@ -247,8 +247,31 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 12 - Charge This One Strike with Love",
+                            "image": "https://image.tmdb.org/t/p/original/t4K0tOjV4djnOoDQebXq4TimFXG.jpg",
+                            "url": "https://moji.abcdxzy.xyz:8443/vod/cbAZhADSm3/video.mp4/playlist.m3u8",
+                            "referer": "https://animeyour.com/",
+                            "release_date": "2026-09-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.6,
+                                        "end": 121.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.5,
+                                        "end": 1393.2
+                                    }
+                                ]
+                            }
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -526,8 +549,6 @@
     "updated_at": "2026-09-18T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }

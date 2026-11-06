@@ -57,8 +57,9 @@
     </div>
 
     <!-- Video -->
-    <video id="player-video" autoplay></video>
+    <video id="player-video" autoplay playsinline webkit-playsinline poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></video>
     <div id="player-loading" class="player-loading">
+      <img class="player-loading-logo" src="images/logo/logo.png" alt="" />
       <div class="player-spinner"></div>
     </div>
     <div id="player-notice" class="hidden" role="status" aria-live="polite"></div>
@@ -142,7 +143,7 @@
       document.head.appendChild(hlsFallback);
     }
   </script>
-  <script src="js/app.tv.js?v=68"></script>
+  <script src="js/app.tv.js?v=71"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

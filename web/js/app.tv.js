@@ -363,6 +363,7 @@ function pushSearchIndexEntry(group, historyChain) {
     historyChain: [...historyChain]
   });
 }
+const SEARCH_INDEX_URL_RE = /\/index\.txt(?:[?#]|$)/;
 function buildSearchIndexRecursive(_x6, _x7) {
   return _buildSearchIndexRecursive.apply(this, arguments);
 }
@@ -384,7 +385,8 @@ function _buildSearchIndexRecursive() {
       }
       if (group.url && !group.stations) {
         const resolvedUrl = normalizeUrlByBase(group.url, sourceUrl);
-        if (!resolvedUrl || searchIndexVisitedUrls.has(resolvedUrl)) continue;
+        if (!resolvedUrl || !SEARCH_INDEX_URL_RE.test(resolvedUrl)) continue;
+        if (searchIndexVisitedUrls.has(resolvedUrl)) continue;
         searchIndexVisitedUrls.add(resolvedUrl);
         try {
           const {
@@ -396,7 +398,6 @@ function _buildSearchIndexRecursive() {
             node: childNode,
             title: nextTitle
           }];
-          yield new Promise(r => setTimeout(r, 200));
           yield buildSearchIndexRecursive(childNode, loadedHistory, childSourceUrl);
         } catch (_) {}
       }
@@ -1960,7 +1961,7 @@ function playEpisode(index, inheritedReferer) {
   cancelUpnext();
   resetProgress();
   hidePlayerNotice();
-  showPlayerLoading();
+  showPlayerLoading(true);
   loadSeekPreview();
   const epochAtPlay = ++playEpisodeEpoch;
   startSkipSegments(station);
@@ -2791,7 +2792,11 @@ function showPlayerUI() {
   }
 }
 playerOverlay.addEventListener("mousemove", showPlayerUI);
-playerOverlay.addEventListener("touchstart", showPlayerUI, {
+let _tapRevealedUI = false;
+playerOverlay.addEventListener("touchstart", () => {
+  _tapRevealedUI = !playerOverlay.classList.contains("show-ui");
+  showPlayerUI();
+}, {
   passive: true
 });
 let _swipeStart = null;
@@ -2834,6 +2839,10 @@ playerOverlay.addEventListener("touchend", () => {
 playerVideo.addEventListener("click", () => {
   if (_swipeHandled) {
     _swipeHandled = false;
+    return;
+  }
+  if (_tapRevealedUI) {
+    _tapRevealedUI = false;
     return;
   }
   togglePlayPause();
@@ -3305,13 +3314,19 @@ function destroyHls() {
   }
 }
 playerBack.addEventListener("click", closePlayer);
-function showPlayerLoading() {
+let playerHasFrame = false;
+function showPlayerLoading(newSource) {
+  if (newSource === true) playerHasFrame = false;
+  playerLoading.classList.toggle("initial", !playerHasFrame);
   playerLoading.classList.remove("hidden");
 }
 function hidePlayerLoading() {
   playerLoading.classList.add("hidden");
 }
-playerVideo.addEventListener("loadstart", showPlayerLoading);
+playerVideo.addEventListener("loadstart", () => showPlayerLoading(true));
+playerVideo.addEventListener("loadeddata", () => {
+  playerHasFrame = true;
+});
 playerVideo.addEventListener("waiting", showPlayerLoading);
 playerVideo.addEventListener("seeking", showPlayerLoading);
 playerVideo.addEventListener("canplay", hidePlayerLoading);

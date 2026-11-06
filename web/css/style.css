@@ -1046,6 +1046,29 @@ button:focus:not(:focus-visible),
   opacity: 0;
 }
 
+.player-loading-logo {
+  display: none;
+  width: 40vw;
+  max-width: 480px;
+  height: auto;
+}
+
+.player-loading.initial .player-loading-logo {
+  display: block;
+}
+
+.player-loading.initial:not(.hidden) .player-loading-logo {
+  animation: player-logo-pulse 1.6s ease-in-out infinite;
+}
+
+.player-loading.initial .player-spinner {
+  display: none;
+}
+
+@keyframes player-logo-pulse {
+  50% { opacity: .35; }
+}
+
 .player-spinner {
   width: 48px;
   height: 48px;

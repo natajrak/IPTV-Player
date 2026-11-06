@@ -330,8 +330,7 @@ async function fetchAndRender(
     }
     if (!searchIndexRootNode && title === "Home") {
       searchIndexRootNode = node;
-      // Defer 2 วิให้ user เห็น Home ก่อน แล้วค่อย recursive fetch playlists
-      // (playlists เยอะ ~330 ไฟล์ — burst จะโดน GitHub Raw 429)
+      // Defer 2 วิให้ user เห็น Home ก่อน แล้วค่อยโหลด index.txt ของแต่ละหมวดมาทำ search index
       setTimeout(() => {
         searchIndexPromise = buildSearchIndexRecursive(node, [
           { node, title: "Home" },
@@ -430,6 +429,9 @@ function pushSearchIndexEntry(group, historyChain) {
   });
 }
 
+/** search index โหลดเฉพาะ index.txt ของหมวด (ชื่อเรื่อง) ไม่โหลดไฟล์รายเรื่อง (~330 ไฟล์ ทำให้ค้นหารอนาน) */
+const SEARCH_INDEX_URL_RE = /\/index\.txt(?:[?#]|$)/;
+
 async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
   const groups = node?.groups || [];
   for (const group of groups) {
@@ -447,7 +449,8 @@ async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
 
     if (group.url && !group.stations) {
       const resolvedUrl = normalizeUrlByBase(group.url, sourceUrl);
-      if (!resolvedUrl || searchIndexVisitedUrls.has(resolvedUrl)) continue;
+      if (!resolvedUrl || !SEARCH_INDEX_URL_RE.test(resolvedUrl)) continue;
+      if (searchIndexVisitedUrls.has(resolvedUrl)) continue;
       searchIndexVisitedUrls.add(resolvedUrl);
       try {
         const { data, sourceUrl: childSourceUrl } =
@@ -459,10 +462,6 @@ async function buildSearchIndexRecursive(node, historyChain, sourceUrl = null) {
           ...historyChain,
           { node: childNode, title: nextTitle },
         ];
-        // Throttle: GitHub Raw anonymous limit ~60 req/hr — SW cache จับ hit ก็ delay น้อยลงได้
-        // ~200ms delay = ~5 req/sec = ปลอดภัยสำหรับ cold start (~330 ไฟล์ = 66s)
-        // ต่อมา SW cache hit → response instant → delay ไม่รู้สึก
-        await new Promise((r) => setTimeout(r, 200));
         await buildSearchIndexRecursive(
           childNode,
           loadedHistory,
@@ -2456,7 +2455,7 @@ function playEpisode(index, inheritedReferer) {
   cancelUpnext();
   resetProgress();
   hidePlayerNotice();
-  showPlayerLoading();
+  showPlayerLoading(true);
   loadSeekPreview();
 
   // ถ้ากำลัง AirPlay/Cast อยู่ ต้องข้าม HLS.js → ใช้ native source ต่อเนื่อง
@@ -3627,7 +3626,16 @@ function showPlayerUI() {
 }
 
 playerOverlay.addEventListener("mousemove", showPlayerUI);
-playerOverlay.addEventListener("touchstart", showPlayerUI, { passive: true });
+/** แตะตอนแถบควบคุมซ่อนอยู่ = แค่เรียกแถบขึ้นมา ไม่สลับเล่น/หยุด */
+let _tapRevealedUI = false;
+playerOverlay.addEventListener(
+  "touchstart",
+  () => {
+    _tapRevealedUI = !playerOverlay.classList.contains("show-ui");
+    showPlayerUI();
+  },
+  { passive: true },
+);
 
 // Swipe left/right บน player → real-time scrub (max 90s per full-width swipe)
 let _swipeStart = null; // { x, y, time }
@@ -3682,10 +3690,14 @@ playerOverlay.addEventListener(
   { passive: true },
 );
 
-// Click on video toggles play/pause (ยกเว้นหลัง swipe)
+// Click on video toggles play/pause (ยกเว้นหลัง swipe / แตะเพื่อเรียกแถบควบคุม)
 playerVideo.addEventListener("click", () => {
   if (_swipeHandled) {
     _swipeHandled = false;
+    return;
+  }
+  if (_tapRevealedUI) {
+    _tapRevealedUI = false;
     return;
   }
   togglePlayPause();
@@ -4274,14 +4286,23 @@ function destroyHls() {
 playerBack.addEventListener("click", closePlayer);
 
 /* ===== Player loading spinner ===== */
-function showPlayerLoading() {
+/** มีภาพของ video ปัจจุบันแล้วหรือยัง — ยังไม่มี = โลโก้กระพริบแทนวงหมุน */
+let playerHasFrame = false;
+
+/** newSource = เริ่มโหลด video ใหม่ (event listener ส่ง Event มา จึงเช็ค === true) */
+function showPlayerLoading(newSource) {
+  if (newSource === true) playerHasFrame = false;
+  playerLoading.classList.toggle("initial", !playerHasFrame);
   playerLoading.classList.remove("hidden");
 }
 function hidePlayerLoading() {
   playerLoading.classList.add("hidden");
 }
 
-playerVideo.addEventListener("loadstart", showPlayerLoading);
+playerVideo.addEventListener("loadstart", () => showPlayerLoading(true));
+playerVideo.addEventListener("loadeddata", () => {
+  playerHasFrame = true;
+});
 playerVideo.addEventListener("waiting", showPlayerLoading);
 playerVideo.addEventListener("seeking", showPlayerLoading);
 playerVideo.addEventListener("canplay", hidePlayerLoading);
