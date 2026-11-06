@@ -1055,6 +1055,7 @@ button:focus:not(:focus-visible),
 
 .player-loading.initial .player-loading-logo {
   display: block;
+  opacity: .45;
 }
 
 .player-loading.initial:not(.hidden) .player-loading-logo {
@@ -1066,7 +1067,7 @@ button:focus:not(:focus-visible),
 }
 
 @keyframes player-logo-pulse {
-  50% { opacity: .35; }
+  50% { opacity: .05; }
 }
 
 .player-spinner {

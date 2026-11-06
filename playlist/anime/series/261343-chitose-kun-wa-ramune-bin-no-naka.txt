@@ -528,7 +528,22 @@
                             "name": "Ep. 18 - After-School Pool and Barefoot Ponytail",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYJE6Hnxi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYJE6Hnxi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-11-10"
+                            "release_date": "2026-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.5,
+                                        "end": 173
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

@@ -44,8 +44,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 179,
-                                        "end": 270.7
+                                        "start": 180.6,
+                                        "end": 269.5
                                     },
                                     {
                                         "type": "ed",
@@ -195,6 +195,7 @@
                             "release_date": "2026-08-28",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "ed",
@@ -212,6 +213,7 @@
                             "release_date": "2026-09-04",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
@@ -231,7 +233,23 @@
                             "image": "https://image.tmdb.org/t/p/original/8SApfPGTBto5Isiaxv2bEbHqLOZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/N6kKfuVRW/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-11"
+                            "release_date": "2026-09-11",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 222.6,
+                                        "end": 312
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.5,
+                                        "end": 1390.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -256,8 +274,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301,
-                                        "end": 1391
+                                        "start": 1299.2,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -273,13 +291,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 179,
-                                        "end": 270.7
+                                        "start": 180.6,
+                                        "end": 269.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1298.9,
-                                        "end": 1390
+                                        "start": 1300.5,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -295,8 +313,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 164,
-                                        "end": 255.7
+                                        "start": 165.6,
+                                        "end": 256.3
                                     },
                                     {
                                         "type": "ed",
@@ -317,8 +335,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 146,
-                                        "end": 237.7
+                                        "start": 147.6,
+                                        "end": 236.6
                                     },
                                     {
                                         "type": "ed",
@@ -344,8 +362,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301.1,
-                                        "end": 1391.1
+                                        "start": 1300.6,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -366,8 +384,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301,
-                                        "end": 1391
+                                        "start": 1299.1,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -388,8 +406,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301.1,
-                                        "end": 1391.1
+                                        "start": 1300.6,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -405,8 +423,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 109,
-                                        "end": 200.7
+                                        "start": 110.6,
+                                        "end": 199.5
                                     },
                                     {
                                         "type": "ed",
@@ -427,8 +445,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1301,
-                                        "end": 1391
+                                        "start": 1300.2,
+                                        "end": 1389.4
                                     }
                                 ]
                             }
@@ -471,8 +489,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301.1,
-                                        "end": 1391.1
+                                        "start": 1300.5,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
@@ -493,8 +511,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301,
-                                        "end": 1391
+                                        "start": 1300.5,
+                                        "end": 1389.4
                                     }
                                 ]
                             }
@@ -515,8 +533,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1301.1,
-                                        "end": 1391.1
+                                        "start": 1299.8,
+                                        "end": 1389.5
                                     }
                                 ]
                             }
