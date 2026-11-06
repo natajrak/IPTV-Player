@@ -1362,6 +1362,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
         page: currentPage,
         sort: currentSortOrder,
         url: lastFetchUrl || null,
+        focusIdx: [...grid.querySelectorAll(".card")].indexOf(card),
       });
       const navTitle = sn?.en
         ? sn.th
@@ -1554,6 +1555,10 @@ function goBackOneStep() {
 
   const prev = navHistory.pop();
   if (!prev) return;
+  /** กลับมาแล้ว focus การ์ดเรื่องที่เลือกไว้ (สำคัญกับรีโมท TV) แทนการ์ดแรก */
+  const restoreCard = prev.focusIdx >= 0;
+  if (restoreCard)
+    pendingGridFocus = () => gridView.querySelectorAll(".card")[prev.focusIdx];
   if (prev.url) {
     fetchAndRender(prev.url, prev.title, false, null, {
       page: prev.page,
@@ -1563,7 +1568,7 @@ function goBackOneStep() {
     renderNode(prev.node, prev.title, { page: prev.page, sort: prev.sort });
     showGrid();
   }
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (!restoreCard) window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 /* ===== Render episode cards ===== */
@@ -4299,6 +4304,7 @@ function showGrid() {
 }
 
 function showError(msg) {
+  pendingGridFocus = null;
   loading.classList.add("hidden");
   gridView.classList.add("hidden");
   errorMsg.textContent = msg;

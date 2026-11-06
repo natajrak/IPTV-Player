@@ -1063,7 +1063,8 @@ function renderGroups(groups, sectionTitle, parentNode) {
         title: sectionTitle,
         page: currentPage,
         sort: currentSortOrder,
-        url: lastFetchUrl || null
+        url: lastFetchUrl || null,
+        focusIdx: [...grid.querySelectorAll(".card")].indexOf(card)
       });
       const navTitle = sn !== null && sn !== void 0 && sn.en ? sn.th ? `${sn.en} [${sn.th}]` : sn.en : group.name || "...";
       if (group.url && !group.groups && !group.stations) {
@@ -1225,6 +1226,8 @@ function goBackOneStep() {
   }
   const prev = navHistory.pop();
   if (!prev) return;
+  const restoreCard = prev.focusIdx >= 0;
+  if (restoreCard) pendingGridFocus = () => gridView.querySelectorAll(".card")[prev.focusIdx];
   if (prev.url) {
     fetchAndRender(prev.url, prev.title, false, null, {
       page: prev.page,
@@ -1237,7 +1240,7 @@ function goBackOneStep() {
     });
     showGrid();
   }
-  window.scrollTo({
+  if (!restoreCard) window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
@@ -3327,6 +3330,7 @@ function showGrid() {
   queueFocusRefresh();
 }
 function showError(msg) {
+  pendingGridFocus = null;
   loading.classList.add("hidden");
   gridView.classList.add("hidden");
   errorMsg.textContent = msg;
