@@ -17,7 +17,22 @@
                             "url": "https://app.akuma-stream.com/watch/de3f349b-198b-47dd-8689-e666c746e48a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.5,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Combine Your Friends and Ingredients for a Tasty Rice Dish!",
@@ -25,7 +40,23 @@
                             "url": "https://app.akuma-stream.com/watch/4601104a-2c83-4779-82ee-fd979b36b106",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - War on the Water! Seafood Barbeque!",
@@ -33,7 +64,23 @@
                             "url": "https://app.akuma-stream.com/watch/b8d3f4a8-a1ed-48fd-bd5f-9ade88a00842",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.6,
+                                        "end": 119.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Food Demon Descends! Thou Art Tartar Sauce!",
@@ -41,7 +88,23 @@
                             "url": "https://app.akuma-stream.com/watch/5c8bad8b-99fe-4b28-abe2-70ae531ac2ac",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 48.6,
+                                        "end": 137.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.8
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -58,11 +121,12 @@
                             "release_date": "2026-07-06",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 67.6,
-                                        "end": 157.9
+                                        "start": 70.5,
+                                        "end": 159.5
                                     },
                                     {
                                         "type": "ed",
