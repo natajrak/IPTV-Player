@@ -60,6 +60,8 @@ OP/ED ที่จับได้สั้นกว่าเพลงเต็�
     เทียบกับค่ากลางของตอนข้างเคียงก่อน ไม่พบ → ค่าสูงสุด (วิดีโอ OP/ED หลายแบบที่หัวยาวต่างกัน)
     ED ที่ถูกตัดต้นเพลงเพราะเสียงพูดทับ ค้นจากจุดเริ่มเพลงก่อนตัด พบจุดตัดภาพ → ใช้แทนการตัด
     ไม่พบจุดตัดชัดเจน/ดึงตรงไม่ได้ (ต้องผ่าน worker) → คงขอบเสียง; ปิดด้วย report --no-visual
+    พากย์/ซับ ตอนเดียวกันเริ่มหรือจบตรงกันแต่แทร็กนี้จับสั้นกว่า → ยืมช่วงของอีกแทร็ก (รวมตอนที่ค่าเดิมตรงกับเสียงที่จับได้)
+    เมื่อภาพช่วงที่ยืมตรงกันทั้งสองแทร็ก (ดึงภาพไม่ได้ ยืมตามเสียง)
 
 ค่าที่ตรวจพบเป็นวินาที ละเอียด 0.1 วิ (hop 32 ms)
 intro = หน้าเปิด/splash ของเว็บต้นทางที่หัวไฟล์ (3–29 วิ เริ่มที่ 0:00 ซ้ำกันทุกตอน) ตรวจและเติมให้อัตโนมัติเช่นกัน
@@ -167,6 +169,8 @@ VISUAL_ALIGN_MIN_SIM = 0.7
 VISUAL_MIN_SCORE = 0.3
 VISUAL_NOTICE_SEC = 5.0
 VISUAL_CREDITS_GAP_SEC = 1.0
+CROSS_VISUAL_SPAN_SEC = 20.0
+CROSS_VISUAL_PAD_SEC = 1.5
 STING_SIM = 0.9
 STING_LEAD_SEC = 2.0
 STING_INTRO_MAX_SEC = 20.0
@@ -1735,19 +1739,22 @@ def cmd_report(args):
             rows.append(row)
         report['tracks'].append({'track': tn, 'season': season.get('name'), 'episodes': rows})
 
-    _cross_track_check(report)
+    stations = {(track_name(season, track), i): st for season, track in walk_tracks(playlist) for i, st in enumerate(track.get('stations') or [])}
+    _cross_track_check(report, {'stations': stations, 'feats': feats, 'cache_dir': cache_dir} if args.visual else None)
     if args.out:
         with open(args.out, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
     print_report(report)
 
 
-def _cross_track_check(report):
+def _cross_track_check(report, visual=None):
     """ตอนเดียวกันในอีกแทร็กของ season เดียวกัน (พากย์/ซับ มักเป็นวิดีโอชุดเดียวกัน) ถ้าค่าที่ตรวจพบต่างกันเกิน
-    CROSS_TRACK_TOL → ลด fix/missing เป็น review (ไม่เขียนอัตโนมัติ) และใส่หมายเหตุ — คนต้องดู
+    CROSS_TRACK_TOL → ลด fix/missing เป็น review พร้อมหมายเหตุ (apply ยังบันทึกและแจ้ง "ต้องดู" — ผู้ใช้กำหนด 2026-11-03)
     ลดเป็น review เฉพาะตอนที่วิดีโอสองแทร็กยาวต่างกัน ≤ CROSS_TRACK_SAME_FILE_SEC (ไฟล์เดียวกัน) — คนละไฟล์ตำแหน่ง OP/ED ต่างกันได้จริง
-    (ข้อยกเว้นเดิมยังใช้ทุกกรณี เช่น _adopt_other_track เมื่อจุดเริ่ม/จบตรงกันแต่แทร็กนี้จับสั้น)
-    (ผู้ใช้ยืนยัน 2026-11-02: GGO พากย์ 24:00 / ซับ 23:40 ค่าที่ตรวจพบถูกทั้งสองแทร็ก)"""
+    (ผู้ใช้ยืนยัน 2026-11-02: GGO พากย์ 24:00 / ซับ 23:40 ค่าที่ตรวจพบถูกทั้งสองแทร็ก)
+    _adopt_other_track (จุดเริ่ม/จบตรงกันแต่แทร็กนี้จับสั้น) ใช้กับแถว ok ด้วย: ค่าเดิมที่ตรงกับเสียงที่จับได้สั้นเกินจริง
+    (Blue Box พากย์ ตอน 1 ED จบ 23:20.7 ขณะเครดิตยาวถึงท้ายไฟล์ 23:34) ไม่งั้นตรวจใหม่จะคงค่าสั้นไว้ต่างจากการตรวจหลัง fetch
+    visual = {stations, feats, cache_dir} ให้ยืนยันการยืมช่วงด้วยภาพ (ผู้ใช้กำหนด 2026-11-07) — None = ไม่ดึงภาพ"""
     by_season = defaultdict(list)
     for tr in report['tracks']:
         by_season[tr.get('season')].append(tr)
@@ -1759,7 +1766,7 @@ def _cross_track_check(report):
             for ep in tr['episodes']:
                 for kind in ('op', 'ed'):
                     dt = ep[kind]['detected']
-                    if not dt or ep[kind]['verdict'] not in ('fix', 'missing'):
+                    if not dt or ep[kind]['verdict'] not in ('ok', 'fix', 'missing'):
                         continue
                     for o in others:
                         match = next((e for e in o['episodes'] if e['label'] == ep['label']), None)
@@ -1769,7 +1776,11 @@ def _cross_track_check(report):
                         if abs(od['start'] - dt['start']) > CROSS_TRACK_TOL or abs(_song_end(od) - _song_end(dt)) > CROSS_TRACK_TOL:
                             if _same_region_shifted(dt, od):
                                 continue
-                            if _adopt_other_track(ep, kind, dt, od, o['track']):
+                            pair = visual and (visual['stations'].get((tr['track'], ep['idx'])), visual['stations'].get((o['track'], match['idx'])),
+                                               visual['feats'].get((tr['track'], ep['idx'])), visual['feats'].get((o['track'], match['idx'])), visual['cache_dir'])
+                            if _adopt_other_track(ep, kind, dt, od, o['track'], pair, match.get('duration')):
+                                continue
+                            if ep[kind]['verdict'] == 'ok':
                                 continue
                             if abs((ep.get('duration') or 0.0) - (match.get('duration') or 0.0)) > CROSS_TRACK_SAME_FILE_SEC:
                                 continue
@@ -1787,9 +1798,11 @@ def _same_region_shifted(dt, od):
     return abs(ds - de) <= 1.5 and abs(_song_len(dt) - _song_len(od)) <= 1.5
 
 
-def _adopt_other_track(ep, kind, dt, od, other_track):
+def _adopt_other_track(ep, kind, dt, od, other_track, pair=None, other_duration=None):
     """2 แทร็กเริ่มหรือจบพร้อมกัน (วิดีโอชุดเดียวกัน) แต่แทร็กนี้จับได้สั้นกว่า (เสียงพากย์ทับหัว/ท้ายเพลง) ขณะที่อีกแทร็กยาว ~90 วิ
-    → ใช้ช่วงของอีกแทร็กแทน (คง verdict เดิม) และบันทึกที่มาไว้ในหมายเหตุ"""
+    → ใช้ช่วงของอีกแทร็กแทน (คง verdict เดิม; แถว ok เทียบค่าเดิมใหม่) และบันทึกที่มาไว้ในหมายเหตุ
+    pair = (station นี้, station อีกแทร็ก, feats นี้, feats อีกแทร็ก, cache_dir) → ยืมเมื่อภาพช่วงที่ยืม (จากขอบของแทร็กนี้ถึงขอบของอีกแทร็ก)
+    ตรงกันทั้งสองแทร็ก (_cross_visual_sim ≥ VISUAL_ALIGN_MIN_SIM) — ภาพไม่ตรง = คนละตัดต่อ ไม่ยืม; ดึงภาพไม่ได้ (ต้องผ่าน worker) ยืมตามเสียงอย่างเดิม"""
     mine = _song_len(dt)
     theirs = _song_len(od)
     starts_agree = abs(od['start'] - dt['start']) <= CROSS_TRACK_TOL
@@ -1798,6 +1811,18 @@ def _adopt_other_track(ep, kind, dt, od, other_track):
         return False
     if abs(theirs - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL or mine >= theirs - CROSS_TRACK_TOL:
         return False
+    if pair and pair[0] and pair[1]:
+        if starts_agree:
+            t0, t1 = max(_song_end(dt), _song_end(od) - CROSS_VISUAL_SPAN_SEC) - CROSS_VISUAL_PAD_SEC, _song_end(od) + CROSS_VISUAL_PAD_SEC
+        else:
+            t0, t1 = od['start'] - CROSS_VISUAL_PAD_SEC, min(dt['start'], od['start'] + CROSS_VISUAL_SPAN_SEC) + CROSS_VISUAL_PAD_SEC
+        t0, t1 = max(0.0, t0), min(t1, ep.get('duration') or t1, other_duration or t1)
+        sim = _cross_visual_sim(pair, t0, t1)
+        if sim is not None:
+            ep[kind]['cross_visual'] = round(sim, 2)
+            if sim < VISUAL_ALIGN_MIN_SIM:
+                log(f'    ไม่ยืม {kind} ตอน {ep["label"]} จาก{other_track.split("/")[-1]}: ภาพช่วง {fmt_t(t0)}-{fmt_t(t1)} ไม่ตรงกัน (sim {sim:.2f})')
+                return False
     dt['start'], dt['end'] = od['start'], od['end']
     dt['song_end'] = _song_end(od)
     dt.pop('to_eof', None)
@@ -1817,6 +1842,44 @@ def _adopt_other_track(ep, kind, dt, od, other_track):
         ep[kind]['d_start'], ep[kind]['d_end'] = ds, de
         ep[kind]['verdict'] = 'ok' if abs(ds) <= 1.5 and abs(de) <= 1.5 else 'fix'
     return True
+
+
+def _cross_visual_sim(pair, t0, t1):
+    """ความเหมือนของภาพสองแทร็กช่วง [t0, t1) (ค่าเฉลี่ย correlation ต่อเฟรมหลังจัดแนวเลื่อนได้ ±CROSS_TRACK_TOL)
+    None = ดึงภาพไม่ได้/สั้นเกิน หรือเฟรมเรียบ (จอดำ) จนเทียบไม่ได้"""
+    st_a, st_b, fa, fb, cache_dir = pair
+    if t1 - t0 < 2.0:
+        return None
+    got = []
+    for st, fi in ((st_a, fa), (st_b, fb)):
+        src = _video_source(st)
+        if not src:
+            return None
+        path = os.path.join(cache_dir, f'{station_key(st)}-w{int(round(t0 * 10))}-{int(round(t1 * 10))}.npy')
+        try:
+            frames = _grab_frames(src, round(t0, 1), round(t1 - t0, 1), path, _audio_ref(fi, t0, t1))
+        except Exception as e:
+            log(f'    ดึงภาพไม่ได้ ({e})')
+            return None
+        if frames is None or len(frames) < (t1 - t0) * VISUAL_FPS * 0.5:
+            return None
+        got.append(_unit_frames(frames))
+    ua, ub = got
+    best = None
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore', RuntimeWarning)
+        for dk in range(-int(CROSS_TRACK_TOL * VISUAL_FPS), int(CROSS_TRACK_TOL * VISUAL_FPS) + 1):
+            ia = np.arange(len(ua))
+            ib = ia + dk
+            ok = (ib >= 0) & (ib < len(ub))
+            vals = np.einsum('ij,ij->i', ua[ok], ub[ib[ok]])
+            vals = vals[~np.isnan(vals)]
+            if len(vals) < VISUAL_FPS:
+                continue
+            score = float(vals.mean())
+            if best is None or score > best:
+                best = score
+    return best
 
 
 def fmt_t(sec):
@@ -1857,7 +1920,9 @@ def print_report(report):
                 if r.get('cross_track'):
                     notes.append(f'{kind} ≠ {r["cross_track"]}')
                 if r.get('from_track'):
-                    notes.append(f'{kind} ใช้ช่วงของ{r["from_track"]}')
+                    notes.append(f'{kind} ใช้ช่วงของ{r["from_track"]}' + (f' (ภาพตรงกัน {r["cross_visual"]:.2f})' if r.get('cross_visual') is not None else ''))
+                elif r.get('cross_visual') is not None:
+                    notes.append(f'{kind} ไม่ยืมช่วงจากอีกแทร็ก ภาพไม่ตรงกัน {r["cross_visual"]:.2f}')
                 if dt and med_len[kind] is not None and _length_outlier(dt, med_len[kind]):
                     notes.append(f'{kind} ยาว {_song_len(dt):.1f}s ≠ ค่ากลาง')
                 elif dt and abs(_song_len(dt) - TYPICAL_LENGTH_SEC) > TYPICAL_LENGTH_TOL:
