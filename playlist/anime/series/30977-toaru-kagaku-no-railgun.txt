@@ -258,8 +258,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1319.9,
-                                        "end": 1409.4
+                                        "start": 1320.1,
+                                        "end": 1411
                                     }
                                 ]
                             }
@@ -270,7 +270,17 @@
                             "url": "https://app.akuma-stream.com/watch/e5c5d6fb-cff0-4847-b6a7-58592ad83d43",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2009-12-18"
+                            "release_date": "2009-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.6,
+                                        "end": 125.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - A Bikini Divides the Eyeline Between Top and Bottom, But a One-piece Shows Off the Figure, So They Only Flatter the Slender",
@@ -335,8 +345,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1341.3,
-                                        "end": 1409.5
+                                        "start": 1343.2,
+                                        "end": 1411
                                     }
                                 ]
                             }
@@ -450,8 +460,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1321,
-                                        "end": 1409.3
+                                        "start": 1320.5,
+                                        "end": 1411
                                     }
                                 ]
                             }
@@ -551,7 +561,11 @@
                             "url": "https://app.akuma-stream.com/watch/ca6ac331-7827-4482-94b6-01ca8281bea8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": ""
+                            "release_date": "",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -601,8 +615,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1320.6,
-                                        "end": 1409.4
+                                        "start": 1320.5,
+                                        "end": 1411
                                     }
                                 ]
                             }
@@ -647,8 +661,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1336.6,
-                                        "end": 1410.8
+                                        "start": 1320.5,
+                                        "end": 1411.1
                                     }
                                 ]
                             }
@@ -808,8 +822,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1321.2,
-                                        "end": 1411.1
+                                        "start": 1319.7,
+                                        "end": 1409.2
                                     }
                                 ]
                             }
@@ -1010,8 +1024,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1321,
-                                        "end": 1411
+                                        "start": 1319.1,
+                                        "end": 1409.6
                                     }
                                 ]
                             }
@@ -1033,7 +1047,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1320.5,
+                                        "start": 1326,
                                         "end": 1411
                                     }
                                 ]
@@ -1056,8 +1070,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1322.7,
-                                        "end": 1412
+                                        "start": 1347.8,
+                                        "end": 1410.8
                                     }
                                 ]
                             }
@@ -1099,6 +1113,11 @@
                                         "type": "op",
                                         "start": 198.5,
                                         "end": 288
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1508.3,
+                                        "end": 1518.5
                                     }
                                 ]
                             }
@@ -1140,8 +1159,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1334.8,
-                                        "end": 1411
+                                        "start": 1328.1,
+                                        "end": 1411.1
                                     }
                                 ]
                             }
@@ -1239,7 +1258,22 @@
                             "url": "https://app.akuma-stream.com/watch/cbb1924e-9bdb-4601-b64c-3ba60406d2e6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2013-05-17"
+                            "release_date": "2013-05-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.1,
+                                        "end": 140.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333,
+                                        "end": 1409.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I... I Want to Be of Help To You, Sissy",
@@ -1327,7 +1361,7 @@
                                     },
                                     {
                                         "type": "mixed-ed",
-                                        "start": 1328.1,
+                                        "start": 1319.6,
                                         "end": 1411.8
                                     }
                                 ]
@@ -1368,7 +1402,7 @@
                                     },
                                     {
                                         "type": "mixed-ed",
-                                        "start": 1365,
+                                        "start": 1363.4,
                                         "end": 1410.8
                                     }
                                 ]
@@ -1391,7 +1425,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1357.4,
+                                        "start": 1333.6,
                                         "end": 1411.8
                                     }
                                 ]
@@ -1501,8 +1535,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1287.8,
-                                        "end": 1376.8
+                                        "start": 1285.5,
+                                        "end": 1376.7
                                     }
                                 ]
                             }
@@ -1513,7 +1547,22 @@
                             "url": "https://app.akuma-stream.com/watch/117b73a1-f38d-4453-8ace-6751a3542749",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2013-08-23"
+                            "release_date": "2013-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 205.5,
+                                        "end": 295.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.8,
+                                        "end": 1411.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Febri",
@@ -1568,7 +1617,7 @@
                                 "segments": [
                                     {
                                         "type": "mixed-op",
-                                        "start": 35.3,
+                                        "start": 58.1,
                                         "end": 123.5
                                     }
                                 ]
@@ -1586,8 +1635,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 113.5,
-                                        "end": 190.5
+                                        "start": 101.5,
+                                        "end": 190.6
                                     }
                                 ]
                             }
@@ -1598,7 +1647,11 @@
                             "url": "https://app.akuma-stream.com/watch/336c46f0-57d2-4466-9d75-cd5d37216f30",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2013-09-20"
+                            "release_date": "2013-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 25",
@@ -1631,8 +1684,8 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1315.6,
-                                        "end": 1405
+                                        "start": 1320.1,
+                                        "end": 1410
                                     }
                                 ]
                             }
@@ -1649,13 +1702,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 198.5,
-                                        "end": 287.6
+                                        "start": 144.6,
+                                        "end": 233.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.6,
-                                        "end": 1405.8
+                                        "start": 1320.7,
+                                        "end": 1410.1
                                     }
                                 ]
                             }
@@ -1672,13 +1725,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 99.5,
-                                        "end": 188.5
+                                        "start": 79.5,
+                                        "end": 168.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1320.6,
+                                        "end": 1410.9
                                     }
                                 ]
                             }
@@ -1695,13 +1748,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 142.5,
-                                        "end": 231.6
+                                        "start": 44.6,
+                                        "end": 133.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.7,
-                                        "end": 1405.8
+                                        "start": 1298.1,
+                                        "end": 1389.3
                                     }
                                 ]
                             }
@@ -1718,8 +1771,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 88.5,
-                                        "end": 177.6
+                                        "start": 42.6,
+                                        "end": 131.5
                                     },
                                     {
                                         "type": "ed",
@@ -1741,13 +1794,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 123.5,
-                                        "end": 212.5
+                                        "start": 51.6,
+                                        "end": 140.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1333,
+                                        "end": 1410
                                     }
                                 ]
                             }
@@ -1764,13 +1817,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 85.5,
-                                        "end": 174.6
+                                        "start": 128.5,
+                                        "end": 217.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.7,
-                                        "end": 1405.8
+                                        "start": 1276.3,
+                                        "end": 1365.3
                                     }
                                 ]
                             }
@@ -1787,13 +1840,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 100.6,
-                                        "end": 189.5
+                                        "start": 155.3,
+                                        "end": 244.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1344.3,
-                                        "end": 1405.7
+                                        "start": 1319.7,
+                                        "end": 1410.9
                                     }
                                 ]
                             }
@@ -1810,8 +1863,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 55.6,
-                                        "end": 144.6
+                                        "start": 157.6,
+                                        "end": 246.5
                                     },
                                     {
                                         "type": "mixed-ed",
@@ -1833,13 +1886,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 41.6,
-                                        "end": 130.5
+                                        "start": 90.5,
+                                        "end": 179.4
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1348,
-                                        "end": 1405.8
+                                        "start": 1318.6,
+                                        "end": 1410.8
                                     }
                                 ]
                             }
@@ -1856,8 +1909,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 78.5,
-                                        "end": 167.6
+                                        "start": 73.5,
+                                        "end": 162.6
                                     },
                                     {
                                         "type": "ed",
@@ -1879,13 +1932,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 174.6,
-                                        "end": 263.5
+                                        "start": 167.6,
+                                        "end": 256.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1363.9,
+                                        "end": 1408.9
                                     }
                                 ]
                             }
@@ -1902,13 +1955,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 320.5,
-                                        "end": 409.5
+                                        "start": 46.6,
+                                        "end": 135.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1356.4,
+                                        "end": 1410
                                     }
                                 ]
                             }
@@ -1925,8 +1978,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0.5,
-                                        "end": 89.5
+                                        "start": 79.5,
+                                        "end": 168.6
                                     },
                                     {
                                         "type": "ed",
@@ -1948,13 +2001,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0.5,
-                                        "end": 89.5
+                                        "start": 130.5,
+                                        "end": 219.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1332.9,
+                                        "end": 1409.9
                                     }
                                 ]
                             }
@@ -1971,13 +2024,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 166.6,
-                                        "end": 257.3
+                                        "start": 91.5,
+                                        "end": 180.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1342.1,
-                                        "end": 1405
+                                        "start": 1333,
+                                        "end": 1409.9
                                     }
                                 ]
                             }
@@ -1994,13 +2047,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 109.6,
-                                        "end": 198.5
+                                        "start": 71.5,
+                                        "end": 161
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1404.9
+                                        "start": 1320.5,
+                                        "end": 1409.5
                                     }
                                 ]
                             }
@@ -2022,8 +2075,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1404.9
+                                        "start": 1285.5,
+                                        "end": 1376.8
                                     }
                                 ]
                             }
@@ -2040,13 +2093,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 129.5,
-                                        "end": 218.5
+                                        "start": 204.5,
+                                        "end": 293.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1404.9
+                                        "start": 1318.8,
+                                        "end": 1410.9
                                     }
                                 ]
                             }
@@ -2063,13 +2116,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 78.5,
-                                        "end": 167.6
+                                        "start": 36.6,
+                                        "end": 126
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1404.9
+                                        "start": 1318.7,
+                                        "end": 1409.5
                                     }
                                 ]
                             }
@@ -2086,8 +2139,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 186.5,
-                                        "end": 275.5
+                                        "start": 178.6,
+                                        "end": 268
                                     },
                                     {
                                         "type": "mixed-ed",
@@ -2109,8 +2162,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 55.6,
-                                        "end": 145
+                                        "start": 33.6,
+                                        "end": 122.5
                                     },
                                     {
                                         "type": "ed",
@@ -2132,8 +2185,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 132.5,
-                                        "end": 221.5
+                                        "start": 101.5,
+                                        "end": 190.5
                                     },
                                     {
                                         "type": "ed",
@@ -2410,7 +2463,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1347.9,
+                                        "start": 1328.7,
                                         "end": 1405.8
                                     }
                                 ]
@@ -2520,13 +2573,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 0.5,
-                                        "end": 89.5
+                                        "start": 11.4,
+                                        "end": 99.8
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.5,
-                                        "end": 1405.7
+                                        "start": 1325.8,
+                                        "end": 1416.1
                                     }
                                 ]
                             }
@@ -2544,7 +2597,7 @@
                                     {
                                         "type": "op",
                                         "start": 166.6,
-                                        "end": 257.3
+                                        "end": 255.5
                                     },
                                     {
                                         "type": "ed",
@@ -2640,8 +2693,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1325.2,
-                                        "end": 1404.9
+                                        "start": 1315.5,
+                                        "end": 1405.8
                                     }
                                 ]
                             }
@@ -2709,7 +2762,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1325.2,
+                                        "start": 1320.5,
                                         "end": 1405.6
                                     }
                                 ]
