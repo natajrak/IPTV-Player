@@ -7,6 +7,45 @@
             "image": "https://image.tmdb.org/t/p/original/fbLSbwjd3lNJXiiPYoYvlYpGNjx.jpg",
             "groups": [
                 {
+                    "name": "พากย์ไทย",
+                    "image": "https://image.tmdb.org/t/p/original/fbLSbwjd3lNJXiiPYoYvlYpGNjx.jpg",
+                    "referer": "https://ahdzero.com/anime/7125",
+                    "stations": [
+                        {
+                            "name": "ตอน 1 - Trout Fishing in Another World! ~With a Side of Hot Oni~",
+                            "image": "https://image.tmdb.org/t/p/original/bEXALR3f7qu0tTJCLoeaLdYIScG.jpg",
+                            "url": "https://app.akuma-stream.com/watch/de3f349b-198b-47dd-8689-e666c746e48a",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-07-06"
+                        },
+                        {
+                            "name": "ตอน 2 - Combine Your Friends and Ingredients for a Tasty Rice Dish!",
+                            "image": "https://image.tmdb.org/t/p/original/vf2Wh4K4jl96IukbBFyXdZohlks.jpg",
+                            "url": "https://app.akuma-stream.com/watch/4601104a-2c83-4779-82ee-fd979b36b106",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-07-13"
+                        },
+                        {
+                            "name": "ตอน 3 - War on the Water! Seafood Barbeque!",
+                            "image": "https://image.tmdb.org/t/p/original/tLn23jidGbU9m0greRu7wr6TfCT.jpg",
+                            "url": "https://app.akuma-stream.com/watch/b8d3f4a8-a1ed-48fd-bd5f-9ade88a00842",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-07-20"
+                        },
+                        {
+                            "name": "ตอน 4 - The Food Demon Descends! Thou Art Tartar Sauce!",
+                            "image": "https://image.tmdb.org/t/p/original/wgbpiGsTiOyz8IyC9k9oORUiQMF.jpg",
+                            "url": "https://app.akuma-stream.com/watch/5c8bad8b-99fe-4b28-abe2-70ae531ac2ac",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-07-27"
+                        }
+                    ]
+                },
+                {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/fbLSbwjd3lNJXiiPYoYvlYpGNjx.jpg",
                     "referer": "https://anime-th.com/anime/suterare-seijo-no-isekai-gohan-tabisubz/",
@@ -242,6 +281,8 @@
     "updated_at": "2026-09-21T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 1,
+        "track": "th"
     }
 }

@@ -2309,7 +2309,9 @@
       "updated_at": "2026-09-21T00:00:00.000Z",
       "season_count": 1,
       "completion": {
-        "status": "completed"
+        "status": "incomplete",
+        "season": 1,
+        "track": "th"
       }
     },
     {
@@ -2544,6 +2546,17 @@
       "image": "https://image.tmdb.org/t/p/original/OPJ7k6DMm1o3A0kIXysgrqVT5w.jpg",
       "release_date": "2025-04-06",
       "updated_at": "2025-06-22T00:00:00.000Z",
+      "season_count": 1,
+      "completion": {
+        "status": "completed"
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/playlist/anime/series/197848-nozomanu-fushi-no-boukensha.txt",
+      "name": "The Unwanted Undead Adventurer [เส้นทางพลิกผันของราชันอมตะ]",
+      "image": "https://image.tmdb.org/t/p/original/lQpkZLyw8ID6lZG3djRtihzVWmY.jpg",
+      "release_date": "2024-01-08",
+      "updated_at": "2024-03-22T00:00:00.000Z",
       "season_count": 1,
       "completion": {
         "status": "completed"

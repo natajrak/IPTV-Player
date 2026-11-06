@@ -7,6 +7,57 @@
             "image": "https://image.tmdb.org/t/p/original/rncb111IIBmIIO9I9ENW0Xc8mca.jpg",
             "groups": [
                 {
+                    "name": "พากย์ไทย",
+                    "image": "https://image.tmdb.org/t/p/original/rncb111IIBmIIO9I9ENW0Xc8mca.jpg",
+                    "referer": "https://ahdzero.com/anime/7137",
+                    "stations": [
+                        {
+                            "name": "ตอน 1 - Everyone Knows What It's Like When Nothing Goes Right, but What Do I Do When That Happens? Why, It's Obvious! I Run and Scream My Head Off!",
+                            "image": "https://image.tmdb.org/t/p/original/2gfGd9W8C9f2Uuf2KK2T4Ave6pa.jpg",
+                            "url": "https://app.akuma-stream.com/watch/61630424-46b5-4301-99ba-99f91c160353",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1417.6
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 2 - The Enhanced Clothes I Was Wearing Were Destroyed by a Devastating Blow, and a Traumatized Girl in Casual Clothes Hit Me With All Her Might.",
+                            "image": "https://image.tmdb.org/t/p/original/9nd5vh6Lome9Vkyki9L5Swsrft7.jpg",
+                            "url": "https://app.akuma-stream.com/watch/302fc434-751e-4893-932e-5e3c799a6dbe",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-14"
+                        },
+                        {
+                            "name": "ตอน 3 - When I Went to Apologize With a Friend Who Was a Shut-In for Two Years, We Were Unexpectedly Served Apple Bunnies, so I Think She’s Been Forgiven.",
+                            "image": "https://image.tmdb.org/t/p/original/wvo2oDC48Xg9rdGPOfVnZ9gJa8S.jpg",
+                            "url": "https://app.akuma-stream.com/watch/8db4b86b-3bf8-4990-a326-2e5bb7e333f1",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.6,
+                                        "end": 130.6
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ซับไทย",
                     "image": "https://image.tmdb.org/t/p/original/rncb111IIBmIIO9I9ENW0Xc8mca.jpg",
                     "referer": "https://indy-anime.net/tsuihou-sareta-cheat-fuyo-majutsushi-wa-kimama/",

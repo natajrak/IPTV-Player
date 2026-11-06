@@ -61,8 +61,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 74.5,
-                                        "end": 163.5
+                                        "start": 108.5,
+                                        "end": 197.5
                                     },
                                     {
                                         "type": "ed",
@@ -84,8 +84,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 109.3,
-                                        "end": 198.5
+                                        "start": 74.5,
+                                        "end": 163.6
                                     },
                                     {
                                         "type": "ed",
@@ -101,7 +101,22 @@
                             "url": "https://app.akuma-stream.com/watch/204e4197-6c92-4b3b-a9f7-a040d1616e98",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-05-09"
+                            "release_date": "2017-05-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.5,
+                                        "end": 198.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Sea of Falling Stars",
@@ -109,7 +124,22 @@
                             "url": "https://app.akuma-stream.com/watch/19c59bba-15f9-43e5-91a1-d842bcb8aabb",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-05-16"
+                            "release_date": "2017-05-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.6,
+                                        "end": 137.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Fool and The Star",
@@ -117,7 +147,17 @@
                             "url": "https://app.akuma-stream.com/watch/cbe51102-f7b2-47ed-bc16-71317a9e511d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-05-23"
+                            "release_date": "2017-05-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.5,
+                                        "end": 186.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Reason to Live",
@@ -143,7 +183,17 @@
                             "url": "https://app.akuma-stream.com/watch/a0190f7d-ba87-4d1d-99f0-94a332f845ff",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-06-06"
+                            "release_date": "2017-06-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.6,
+                                        "end": 136.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Face-off! The Magic Corps Battle",
@@ -185,7 +235,17 @@
                             "url": "https://app.akuma-stream.com/watch/05dd62b1-fdee-4cfb-abbb-eba49d831e47",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-04-04"
+                            "release_date": "2017-04-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1455.8,
+                                        "end": 1469
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Just The Slightest Bit of Motivation",
@@ -196,7 +256,13 @@
                             "release_date": "2017-04-11",
                             "skip": {
                                 "source": "audit",
-                                "segments": []
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1454.5,
+                                        "end": 1467.9
+                                    }
+                                ]
                             }
                         },
                         {
@@ -211,8 +277,13 @@
                                 "segments": [
                                     {
                                         "type": "ed",
-                                        "start": 1338.3,
-                                        "end": 1428
+                                        "start": 1330.4,
+                                        "end": 1424.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1455.7,
+                                        "end": 1468.9
                                     }
                                 ]
                             }
@@ -234,8 +305,13 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1338.1,
-                                        "end": 1428
+                                        "start": 1330,
+                                        "end": 1424.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1468.9,
+                                        "end": 1481.9
                                     }
                                 ]
                             }
@@ -246,7 +322,27 @@
                             "url": "https://app.akuma-stream.com/watch/6bf43986-6bd5-4a7d-b79e-75fd18867ee7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-05-02"
+                            "release_date": "2017-05-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.5,
+                                        "end": 163.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1424.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1461.1,
+                                        "end": 1475
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Evil Being",
@@ -267,6 +363,11 @@
                                         "type": "ed",
                                         "start": 1330.5,
                                         "end": 1424.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.5,
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -288,8 +389,13 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1338.6,
-                                        "end": 1428
+                                        "start": 1330.5,
+                                        "end": 1424.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1464.7,
+                                        "end": 1478
                                     }
                                 ]
                             }
@@ -306,8 +412,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 97.6,
-                                        "end": 190.7
+                                        "start": 97.5,
+                                        "end": 186.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1456.9,
+                                        "end": 1470
                                     }
                                 ]
                             }
@@ -326,6 +437,11 @@
                                         "type": "op",
                                         "start": 73.6,
                                         "end": 162.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1478.1,
+                                        "end": 1490.6
                                     }
                                 ]
                             }
@@ -342,8 +458,13 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 47.7,
-                                        "end": 143.9
+                                        "start": 47.6,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1469.7,
+                                        "end": 1483
                                     }
                                 ]
                             }
@@ -361,7 +482,12 @@
                                     {
                                         "type": "op",
                                         "start": 148.6,
-                                        "end": 245.4
+                                        "end": 237.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1477.5,
+                                        "end": 1491
                                     }
                                 ]
                             }
@@ -372,7 +498,17 @@
                             "url": "https://app.akuma-stream.com/watch/796472cf-c569-473d-a678-6878f3f58535",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-06-20"
+                            "release_date": "2017-06-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1429.9,
+                                        "end": 1439.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
