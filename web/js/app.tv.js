@@ -170,6 +170,11 @@ const btnForward = document.getElementById("btn-forward");
 const btnNextEp = document.getElementById("btn-next-ep");
 const btnMute = document.getElementById("btn-mute");
 const volumeSlider = document.getElementById("volume-slider");
+if ((() => {
+  const probe = document.createElement("video");
+  probe.volume = 0.5;
+  return probe.volume !== 0.5;
+})()) volumeSlider.style.display = "none";
 const btnPip = document.getElementById("btn-pip");
 const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
@@ -2396,20 +2401,17 @@ function findPreviewCue(time) {
   return seekPreviewCues.find(c => time >= c.start && time < c.end) || null;
 }
 const progressRow = document.getElementById("player-progress-row");
-progressRow.addEventListener("mousemove", e => {
+function showSeekPreviewAt(time) {
   if (!playerVideo.duration || !seekPreviewCues || seekPreviewCues.length === 0) return;
-  const rect = playerSeek.getBoundingClientRect();
-  const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-  const pct = x / rect.width;
-  const time = pct * playerVideo.duration;
   const cue = findPreviewCue(time);
   if (!cue) {
     seekPreview.classList.add("hidden");
     return;
   }
   const previewW = 160;
+  const rect = playerSeek.getBoundingClientRect();
   const rowRect = progressRow.getBoundingClientRect();
-  let left = e.clientX - rowRect.left;
+  let left = rect.left + time / playerVideo.duration * rect.width - rowRect.left;
   left = Math.max(previewW / 2 + 4, Math.min(left, rowRect.width - previewW / 2 - 4));
   seekPreview.style.left = left + "px";
   seekPreviewTime.textContent = formatTime(time);
@@ -2418,6 +2420,12 @@ progressRow.addEventListener("mousemove", e => {
   seekPreviewThumb.style.backgroundImage = `url(${cue.url})`;
   seekPreviewThumb.style.backgroundPosition = `-${cue.x}px -${cue.y}px`;
   seekPreview.classList.remove("hidden");
+}
+progressRow.addEventListener("mousemove", e => {
+  if (!playerVideo.duration) return;
+  const rect = playerSeek.getBoundingClientRect();
+  const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+  showSeekPreviewAt(x / rect.width * playerVideo.duration);
 });
 progressRow.addEventListener("mouseleave", () => {
   seekPreview.classList.add("hidden");
@@ -2799,11 +2807,15 @@ playerOverlay.addEventListener("touchstart", () => {
 }, {
   passive: true
 });
+const SWIPE_EXCLUDE = "#player-header, #player-bar, #ep-panel, #skip-segment-btn, #upnext-toast";
 let _swipeStart = null;
 let _swipeHandled = false;
 let _swipeWasPlaying = false;
 playerOverlay.addEventListener("touchstart", e => {
-  if (e.touches.length !== 1) return;
+  if (e.touches.length !== 1 || e.target.closest(SWIPE_EXCLUDE)) {
+    _swipeStart = null;
+    return;
+  }
   _swipeStart = {
     x: e.touches[0].clientX,
     y: e.touches[0].clientY,
@@ -2826,12 +2838,14 @@ playerOverlay.addEventListener("touchmove", e => {
   e.preventDefault();
   const secs = dx / window.innerWidth * 90;
   playerVideo.currentTime = Math.max(0, Math.min(playerVideo.duration || 0, _swipeStart.time + secs));
+  showSeekPreviewAt(playerVideo.currentTime);
 }, {
   passive: false
 });
 playerOverlay.addEventListener("touchend", () => {
   _swipeStart = null;
   if (!_swipeHandled) return;
+  seekPreview.classList.add("hidden");
   if (_swipeWasPlaying) playerVideo.play();
 }, {
   passive: true

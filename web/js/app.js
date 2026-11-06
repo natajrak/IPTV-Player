@@ -204,6 +204,15 @@ const btnForward = document.getElementById("btn-forward");
 const btnNextEp = document.getElementById("btn-next-ep");
 const btnMute = document.getElementById("btn-mute");
 const volumeSlider = document.getElementById("volume-slider");
+/** iOS ตั้ง video.volume จากเว็บไม่ได้ (อ่านกลับได้ 1 เสมอ) → ซ่อนแถบเสียง เหลือปุ่ม mute */
+if (
+  (() => {
+    const probe = document.createElement("video");
+    probe.volume = 0.5;
+    return probe.volume !== 0.5;
+  })()
+)
+  volumeSlider.style.display = "none";
 const btnPip = document.getElementById("btn-pip");
 const btnAirPlay = document.getElementById("btn-airplay");
 const btnFullscreen = document.getElementById("btn-fullscreen");
@@ -3053,14 +3062,10 @@ function findPreviewCue(time) {
 
 const progressRow = document.getElementById("player-progress-row");
 
-progressRow.addEventListener("mousemove", (e) => {
+/** แสดงภาพตัวอย่างของเวลา time เหนือตำแหน่งนั้นบน seekbar (ใช้ทั้ง hover เมาส์ และ swipe scrub) */
+function showSeekPreviewAt(time) {
   if (!playerVideo.duration || !seekPreviewCues || seekPreviewCues.length === 0)
     return;
-  const rect = playerSeek.getBoundingClientRect();
-  const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-  const pct = x / rect.width;
-  const time = pct * playerVideo.duration;
-
   const cue = findPreviewCue(time);
   if (!cue) {
     seekPreview.classList.add("hidden");
@@ -3069,8 +3074,10 @@ progressRow.addEventListener("mousemove", (e) => {
 
   // Position tooltip
   const previewW = 160;
+  const rect = playerSeek.getBoundingClientRect();
   const rowRect = progressRow.getBoundingClientRect();
-  let left = e.clientX - rowRect.left;
+  let left =
+    rect.left + (time / playerVideo.duration) * rect.width - rowRect.left;
   left = Math.max(
     previewW / 2 + 4,
     Math.min(left, rowRect.width - previewW / 2 - 4),
@@ -3085,6 +3092,13 @@ progressRow.addEventListener("mousemove", (e) => {
   seekPreviewThumb.style.backgroundPosition = `-${cue.x}px -${cue.y}px`;
 
   seekPreview.classList.remove("hidden");
+}
+
+progressRow.addEventListener("mousemove", (e) => {
+  if (!playerVideo.duration) return;
+  const rect = playerSeek.getBoundingClientRect();
+  const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+  showSeekPreviewAt((x / rect.width) * playerVideo.duration);
 });
 
 progressRow.addEventListener("mouseleave", () => {
@@ -3638,6 +3652,9 @@ playerOverlay.addEventListener(
 );
 
 // Swipe left/right บน player → real-time scrub (max 90s per full-width swipe)
+// ไม่นับ swipe ที่เริ่มบนแถบควบคุม/แผงต่างๆ (ลาก seekbar, volume, เลื่อนแผงเลือกตอน)
+const SWIPE_EXCLUDE =
+  "#player-header, #player-bar, #ep-panel, #skip-segment-btn, #upnext-toast";
 let _swipeStart = null; // { x, y, time }
 let _swipeHandled = false;
 let _swipeWasPlaying = false;
@@ -3645,7 +3662,10 @@ let _swipeWasPlaying = false;
 playerOverlay.addEventListener(
   "touchstart",
   (e) => {
-    if (e.touches.length !== 1) return;
+    if (e.touches.length !== 1 || e.target.closest(SWIPE_EXCLUDE)) {
+      _swipeStart = null;
+      return;
+    }
     _swipeStart = {
       x: e.touches[0].clientX,
       y: e.touches[0].clientY,
@@ -3676,6 +3696,7 @@ playerOverlay.addEventListener(
       0,
       Math.min(playerVideo.duration || 0, _swipeStart.time + secs),
     );
+    showSeekPreviewAt(playerVideo.currentTime);
   },
   { passive: false },
 );
@@ -3685,6 +3706,7 @@ playerOverlay.addEventListener(
   () => {
     _swipeStart = null;
     if (!_swipeHandled) return;
+    seekPreview.classList.add("hidden");
     if (_swipeWasPlaying) playerVideo.play();
   },
   { passive: true },
