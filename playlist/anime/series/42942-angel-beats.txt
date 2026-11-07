@@ -16,7 +16,23 @@
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMPVG7Jbt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMPVG7Jbt",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2010-12-22",
-                            "image": "https://image.tmdb.org/t/p/original/dJ5rVVXVQsoOa9cSr6PdYC9lnmc.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/dJ5rVVXVQsoOa9cSr6PdYC9lnmc.jpg",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1392,
+                                        "end": 1482
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

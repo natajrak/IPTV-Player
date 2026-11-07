@@ -154,8 +154,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 78.5,
-                                        "end": 170
+                                        "start": 80.5,
+                                        "end": 169.5
                                     },
                                     {
                                         "type": "ed",
@@ -176,8 +176,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 57,
-                                        "end": 148
+                                        "start": 58.6,
+                                        "end": 147.5
                                     },
                                     {
                                         "type": "ed",
@@ -280,7 +280,18 @@
                             "image": "https://image.tmdb.org/t/p/original/viUCUWDQFKoWey0MiCdoozufopn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhScrG3S2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhScrG3S2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-05"
+                            "release_date": "2026-04-05",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1365.3,
+                                        "end": 1412.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -433,8 +444,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 78.5,
-                                        "end": 170.1
+                                        "start": 80.5,
+                                        "end": 169.5
                                     },
                                     {
                                         "type": "ed",
@@ -559,7 +570,18 @@
                             "image": "https://image.tmdb.org/t/p/original/viUCUWDQFKoWey0MiCdoozufopn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F42WRqihd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F42WRqihd",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-05"
+                            "release_date": "2026-04-05",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1365.3,
+                                        "end": 1412.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

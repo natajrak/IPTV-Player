@@ -140,16 +140,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 7 - Zavilia",
+                            "image": "https://image.tmdb.org/t/p/original/7VMKM0uGzk29XThIgSYa0i5wmR0.jpg",
+                            "url": "https://sv2.team-indy.net/video/FPhSQ0AHX/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.5,
+                                        "end": 239.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-03",
-            "updated_at": "2026-11-07T00:00:00.000Z"
+            "updated_at": "2026-11-14T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-03",
-    "updated_at": "2026-11-07T00:00:00.000Z",
+    "updated_at": "2026-11-14T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

@@ -252,8 +252,31 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 12 - ONCE AGAIN",
+                            "image": "https://image.tmdb.org/t/p/original/kPwBH6Km9ORiS0d8DE5KAq5Vq2C.jpg",
+                            "url": "https://sv2.team-indy.net/video/kNSJzNpDO3/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.5,
+                                        "end": 109.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.6,
+                                        "end": 1391.7
+                                    }
+                                ]
+                            }
                         }
-                    ]
+                    ],
+                    "status": "completed"
                 },
                 {
                     "name": "ซับไทย",
@@ -536,8 +559,6 @@
     "updated_at": "2026-09-19T00:00:00.000Z",
     "season_count": 1,
     "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": "th"
+        "status": "completed"
     }
 }

@@ -70,6 +70,9 @@ intro = หน้าเปิด/splash ของเว็บต้นทาง�
 นโยบายขอบช่วง (ผู้ใช้กำหนด 2026-10-28, ลองใช้ 1 วิ แล้วกลับเป็น 0.5 วิ 2026-11-01): OP / ED / intro → start +0.5 วิ, end -0.5 วิ (หดเข้าข้างละ 0.5 วิ;
     player เช็คจาก timeupdate ทุก ~250 ms จึงละเอียดพอ)
     --start-shift / --end-shift ของ report ปรับได้ (ค่าที่แสดงและเขียนคือค่าหลังปรับแล้ว)
+    ขอบเริ่มที่ยืนยันด้วยจุดตัดภาพแล้ว (_snap_to_video) ใช้ +VISUAL_START_SHIFT_SEC (0.2 วิ) แทน — ผู้ใช้ 2026-11-07: ข้ามให้เร็วขึ้นได้
+    เพราะจุดตัดภาพแม่น ±0.1 วิ; และค่าเดิมที่ต่างจากขอบที่ยืนยันด้วยภาพเกิน VISUAL_FIX_TOL_SEC (0.3 วิ) ถือว่าต้องแก้ (fix) ไม่รอถึง tolerance 1.5 วิ
+    (ค่าจาก build เก่าของ Misanthrope เร็วกว่าภาพ 0.6–0.9 วิ ค้างอยู่เพราะต่างไม่ถึง 1.5 วิ)
 """
 
 import argparse
@@ -169,6 +172,8 @@ VISUAL_ALIGN_MIN_SIM = 0.7
 VISUAL_MIN_SCORE = 0.3
 VISUAL_NOTICE_SEC = 5.0
 VISUAL_CREDITS_GAP_SEC = 1.0
+VISUAL_START_SHIFT_SEC = 0.2
+VISUAL_FIX_TOL_SEC = 0.3
 CROSS_VISUAL_SPAN_SEC = 20.0
 CROSS_VISUAL_PAD_SEC = 1.5
 STING_SIM = 0.9
@@ -1351,7 +1356,8 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
     ดึงภาพรอบขอบเสียงแต่ละขอบ (_visual_span, ตัดตามขอบไฟล์) เทียบกับตอนข้างเคียง ±NEIGHBOR_SPAN — ไม่พบจุดตัดที่ชัดเจนคงขอบเสียงเดิม
     ED ที่ตัดต้นเพลงเพราะเสียงพูดทับ (trimmed) ค้นจากจุดเริ่มเพลงก่อนตัด — พบจุดตัดภาพที่ตรงกับตอนข้างเคียงใช้จุดตัดภาพแทนการตัด
     (ตอนข้างเคียงที่มีเสียงพูดทับจริงทำให้ค่ากลางเพี้ยน เช่น Mahouka S2 ตอน 3, 12 ถูกตัดเกินภาพ ED 20 วิ) ไม่พบคงการตัดเดิม
-    ไม่แตะ: ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)"""
+    ไม่แตะ: ปลาย ED ที่รวมเครดิตเงียบ/ถึงท้ายไฟล์, ตอนที่ดึงตรงไม่ได้ (ไม่ใช้ worker)
+    ขอบเริ่มที่พบจุดตัดภาพใช้ +VISUAL_START_SHIFT_SEC แทน start_shift (ขอบจบยังใช้ end_shift)"""
     shift_gap = start_shift - end_shift
     ref = {kind: _ref_song_length([r[kind] for r in det.values() if r.get(kind)], shift_gap) for kind in ('op', 'ed')}
     edges = {}
@@ -1412,7 +1418,7 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
         region = r[kind]
         tau = found[0]
         if side == 0:
-            new = round(max(0.0, edges[key][0] + tau + start_shift), 1)
+            new = round(max(0.0, edges[key][0] + tau + VISUAL_START_SHIFT_SEC), 1)
             if kind == 'ed' and r.get('op') and new < r['op']['end']:
                 continue
             if _song_end(region) - new < MIN_REGION_SEC:
@@ -1650,13 +1656,17 @@ def segment_for(station, kind):
 def verdict(existing, detected, tol, error=None):
     """ok/fix = มีค่าเดิม; missing = ไม่มีค่าเดิมแต่ตรวจพบเสียงชัด; review = ตรวจพบแต่ความคล้ายต่ำ
     (เพลงอาจผสมเสียงพูด/ฉาก → ต้องให้คนตัดสิน type ว่าเป็น mixed-* หรือไม่ ไม่เติมอัตโนมัติ)
-    error = ตรวจไม่ได้ (โหลดสตรีมไม่ได้/ไม่มีตอนข้างเคียง) ไม่ตัดสินค่าเดิม"""
+    error = ตรวจไม่ได้ (โหลดสตรีมไม่ได้/ไม่มีตอนข้างเคียง) ไม่ตัดสินค่าเดิม
+    ขอบที่ยืนยันด้วยจุดตัดภาพ (detected.visual.start/end) ใช้ tolerance VISUAL_FIX_TOL_SEC แทน tol"""
     if error:
         return 'error', None, None
     if existing and detected:
+        visual = detected.get('visual') or {}
         ds = round(detected['start'] - float(existing['start']), 1)
         de = round(detected['end'] - float(existing['end']), 1)
-        return ('ok' if abs(ds) <= tol and abs(de) <= tol else 'fix'), ds, de
+        tol_s = VISUAL_FIX_TOL_SEC if visual.get('start') is not None else tol
+        tol_e = VISUAL_FIX_TOL_SEC if visual.get('end') is not None else tol
+        return ('ok' if abs(ds) <= tol_s and abs(de) <= tol_e else 'fix'), ds, de
     if existing and not detected:
         return 'undetected', None, None
     if detected and not existing:
@@ -1834,13 +1844,14 @@ def _adopt_other_track(ep, kind, dt, od, other_track, pair=None, other_duration=
         else:
             dt['end'] = round(min(dt['end'], ep['duration'] - 0.5), 1)
     dt['sim'] = min(dt['sim'], od['sim'])
+    dt.pop('visual', None)
+    if od.get('visual'):
+        dt['visual'] = dict(od['visual'])
     ep[kind]['from_track'] = other_track.split('/')[-1]
     if ep[kind]['existing']:
-        ex = ep[kind]['existing']
-        ds = round(dt['start'] - float(ex['start']), 1)
-        de = round(dt['end'] - float(ex['end']), 1)
+        v, ds, de = verdict(ep[kind]['existing'], dt, DEFAULT_TOLERANCE)
         ep[kind]['d_start'], ep[kind]['d_end'] = ds, de
-        ep[kind]['verdict'] = 'ok' if abs(ds) <= 1.5 and abs(de) <= 1.5 else 'fix'
+        ep[kind]['verdict'] = v
     return True
 
 
