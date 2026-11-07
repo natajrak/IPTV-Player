@@ -17,7 +17,16 @@
                             "url": "https://app.akuma-stream.com/watch/a31a115b-e807-4680-8ff9-795fed392794",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-04-04"
+                            "release_date": "2017-04-04",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [],
+                                "none": [
+                                    "op",
+                                    "ed"
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Just The Slightest Bit of Motivation",
@@ -27,8 +36,13 @@
                             "referer": "https://ahdzero.com/",
                             "release_date": "2017-04-11",
                             "skip": {
-                                "source": "audit",
-                                "segments": []
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [],
+                                "none": [
+                                    "op",
+                                    "ed"
+                                ]
                             }
                         },
                         {
@@ -57,7 +71,8 @@
                             "referer": "https://ahdzero.com/",
                             "release_date": "2017-04-25",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
@@ -66,7 +81,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1328.9,
+                                        "start": 1330,
                                         "end": 1424.5
                                     }
                                 ]
@@ -219,7 +234,16 @@
                             "url": "https://app.akuma-stream.com/watch/17ce5c43-26dc-4b0c-9232-1b2e70af364b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2017-06-20"
+                            "release_date": "2017-06-20",
+                            "skip": {
+                                "source": "manual",
+                                "edited": true,
+                                "segments": [],
+                                "none": [
+                                    "op",
+                                    "ed"
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

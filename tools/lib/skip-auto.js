@@ -11,20 +11,24 @@
  *   (งานที่อยู่ขั้น apply ปล่อยให้จบ; ตอนที่รอ quota worker แยกไว้)
  * - ตอนที่ตรวจแล้วไม่พบ op/ed/intro เลย → apply --mark-none เขียน skip {source: 'audit', segments: []} กันตรวจซ้ำ
  * - report ทุก track ของ season ที่มีตอนใหม่ (ให้ skip-audit เทียบพากย์/ซับได้) แล้ว apply --fill ทีละ track เฉพาะตอนใหม่
+ *   timeout ของ report = max(REPORT_TIMEOUT_MS, จำนวน station ทั้ง season × REPORT_MS_PER_STATION) — โฮสต์ที่ไม่มี cache ใช้ถึง ~4 นาที/ตอน
  * - apply ไม่เริ่มระหว่างที่ fetch ไฟล์เดียวกันรันอยู่ และ fetch/save ไฟล์นั้นต้องรอ apply จบ (beginFetch / withFile)
  * - ค่าที่เติมได้ skip.source = 'audit' (CMS เขียนเป็น 'manual' เมื่อผู้ใช้กดบันทึก)
+ * - ข้อความแจ้ง "ต้องดู" ของ skip-audit (notice / verdict review) ไม่ส่งถึง CMS (ผู้ใช้ 2026-11-07: ค่าที่แจ้งถูกอยู่แล้ว ไม่ต้องเตือน)
+ *   ค่าที่มี notice นับเป็นเติม/แก้เวลาปกติ; ตอนที่ระบบไม่กล้าเติม (verdict review/missing) แสดงเป็นตอนที่ยังว่างในตารางตามเดิม
  * - ตอนใหม่ที่ report ตรวจไม่ได้ในขณะที่ CF worker ตอบ 429 (quota รายวันหมด) → แยกเฉพาะตอนนั้นไปตรวจหลัง quota reset (00:00 UTC)
  *   ไม่ลองซ้ำถี่ๆ เพราะจะกิน quota ที่ player ใช้เล่น (skip-audit ดึงตรงจากเครื่องได้หลาย host จึงดูจากผล report ไม่เดาจาก URL)
  * - คิว + ประวัติเก็บใน tools/.skip-audit-cache/auto/queue.json — restart server แล้วงานไม่หาย
- * - status() เทียบรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ กับไฟล์ปัจจุบัน → ติด resolved เมื่อผู้ใช้จัดการแล้ว (กรอกช่วง / ยืนยันว่าไม่มี)
+ * - status() เทียบรายการ ตรวจไม่ได้/ไม่พบ กับไฟล์ปัจจุบัน → ติด resolved เมื่อผู้ใช้จัดการแล้ว (กรอกช่วง / ยืนยันว่าไม่มี)
  * - recheck(file, season) = ผู้ใช้สั่งตรวจใหม่ทั้ง season จาก CMS (ไม่ต้อง fetch): ทุกตอนที่มี URL ยกเว้นตอนที่ผู้ใช้ยืนยันว่า
  *   ไม่มีช่วงข้ามเลย (manual + segments ว่าง) และตอนที่ผู้ใช้บันทึกเองใน CMS (skip.edited);
  *   apply เพิ่ม --fix แก้เวลาช่วงเดิมที่คลาดเกิน tolerance (ทุก source ยกเว้น edited)
- *   ไม่มีเพดานตอน, timeout report ตามจำนวนตอน, ไม่ขึ้นกับสวิตช์เปิด/ปิดตรวจอัตโนมัติ
+ *   ไม่มีเพดานตอน, ไม่ขึ้นกับสวิตช์เปิด/ปิดตรวจอัตโนมัติ
  *   ผลล่าสุดต่อ season เก็บใน tools/.skip-audit-cache/auto/rechecked.json (CMS แสดงความคืบหน้า)
  * - งานตรวจอัตโนมัติปกติที่ตรวจครบทุกตอนของ season (เช่นเพิ่มเรื่องใหม่) บันทึกผลเหมือนตรวจใหม่;
  *   ตรวจเฉพาะบางตอน → รวมเข้าผลเดิมของ season (ถ้ามี) — ตอนเปิด server เติมผลจากประวัติงานที่ยังไม่ได้บันทึก
- * - review/errors ในผลต่อ season นับสดจากไฟล์ปัจจุบัน (items ที่ค้าง) → ผู้ใช้แก้แล้วสีปุ่มใน CMS เปลี่ยนเอง
+ * - errors ในผลต่อ season นับสดจากไฟล์ปัจจุบัน (items ที่ค้าง) → ผู้ใช้แก้แล้วสีปุ่มใน CMS เปลี่ยนเอง
+ *   (rechecked.json เก่าอาจมี review/items list 'review' ค้างอยู่ — ไม่ใช้แล้ว)
  */
 
 const fs = require('fs');
@@ -39,11 +43,10 @@ const MAX_EPISODES_PER_SEASON = 30;
 const MAX_ATTEMPTS = 3;
 const HISTORY_SIZE = 20;
 const REPORT_TIMEOUT_MS = 30 * 60 * 1000;
-const RECHECK_REPORT_MS_PER_STATION = 60 * 1000;
+const REPORT_MS_PER_STATION = 4 * 60 * 1000;
 const APPLY_TIMEOUT_MS = 60 * 1000;
 const WAIT_POLL_MS = 1000;
 const EXTRA_PATH = ['/opt/homebrew/bin', '/usr/local/bin'];
-const KINDS = ['op', 'ed', 'intro'];
 const KIND_SEGMENT_TYPES = { op: ['op', 'mixed-op'], ed: ['ed', 'mixed-ed'], intro: ['intro'] };
 const WORKER_ORIGIN = 'https://shy-haze-2452.natajrak-p.workers.dev';
 const WORKER_RESET_DELAY_MS = 2 * 60 * 1000;
@@ -143,8 +146,8 @@ function createSkipAuto({ root, playlistDirOf }) {
   } catch {}
 
   /**
-   * ผลตรวจล่าสุดต่อ season: `${fileRel}|${season}` → { at, status, filled, fixed, review, none, errors, message, items }
-   * items = รายการต้องดู/ตรวจไม่ได้ที่ยังค้างตอนบันทึก ({ list: 'review'|'errors', track, label, kind, notice })
+   * ผลตรวจล่าสุดต่อ season: `${fileRel}|${season}` → { at, status, filled, fixed, none, errors, message, items }
+   * items = รายการตรวจไม่ได้ที่ยังค้างตอนบันทึก ({ list: 'errors', track, label, kind })
    */
   let rechecked = {};
   try {
@@ -167,12 +170,11 @@ function createSkipAuto({ root, playlistDirOf }) {
     return any;
   }
 
-  /** รายการต้องดู/ตรวจไม่ได้ของงานที่ยังไม่ resolved (เทียบไฟล์ตอนนี้) */
+  /** รายการตรวจไม่ได้ของงานที่ยังไม่ resolved (เทียบไฟล์ตอนนี้) */
   function pendingItems(job) {
     const index = stationIndex(job.file);
-    const pick = (list, items) => items.filter((it) => !resolutionOf(index, it))
-      .map(({ track, label, kind, notice }) => ({ list, track, label, kind, notice }));
-    return [...pick('review', job.review), ...pick('errors', job.errors)];
+    return job.errors.filter((it) => !resolutionOf(index, it))
+      .map(({ track, label, kind }) => ({ list: 'errors', track, label, kind }));
   }
 
   /**
@@ -191,7 +193,6 @@ function createSkipAuto({ root, playlistDirOf }) {
         status: job.status,
         filled: job.filled.length,
         fixed: job.fixed.length,
-        review: count('review'),
         none: job.none.length,
         errors: count('errors'),
         message: job.message || '',
@@ -204,7 +205,6 @@ function createSkipAuto({ root, playlistDirOf }) {
         at: job.finishedAt,
         filled: prev.filled + job.filled.length,
         none: prev.none + job.none.length,
-        review: prev.review + count('review'),
         errors: prev.errors + count('errors'),
         items: prev.items ? merged : undefined,
       };
@@ -389,18 +389,17 @@ function createSkipAuto({ root, playlistDirOf }) {
     }
   }
 
-  /** ผลต่อ season ที่ส่งให้ CMS — review/errors นับสดจาก items เทียบไฟล์ปัจจุบัน (ผลเก่าที่ไม่มี items ใช้ตัวเลขที่บันทึกไว้) */
+  /** ผลต่อ season ที่ส่งให้ CMS — errors นับสดจาก items เทียบไฟล์ปัจจุบัน (ผลเก่าที่ไม่มี items ใช้ตัวเลขที่บันทึกไว้) */
   function publicRechecked() {
     const out = {};
     for (const [key, r] of Object.entries(rechecked)) {
-      const { items, ...rest } = r;
+      const { items, review, ...rest } = r;
       if (!items) {
         out[key] = rest;
         continue;
       }
       const index = stationIndex(path.join(root, key.slice(0, key.indexOf('|'))));
-      const pending = (list) => items.filter((it) => it.list === list && !resolutionOf(index, it)).length;
-      out[key] = { ...rest, review: pending('review'), errors: pending('errors') };
+      out[key] = { ...rest, errors: items.filter((it) => it.list === 'errors' && !resolutionOf(index, it)).length };
     }
     return out;
   }
@@ -426,7 +425,6 @@ function createSkipAuto({ root, playlistDirOf }) {
       message: '',
       filled: [],
       fixed: [],
-      review: [],
       errors: [],
       none: [],
       applied: [],
@@ -532,9 +530,8 @@ function createSkipAuto({ root, playlistDirOf }) {
   }
 
   /**
-   * สถานะปัจจุบันในไฟล์ของรายการ ต้องดู/ตรวจไม่ได้/ไม่พบ — null = ยังไม่ได้จัดการ
+   * สถานะปัจจุบันในไฟล์ของรายการ ตรวจไม่ได้/ไม่พบ — null = ยังไม่ได้จัดการ
    * - มี kind: มีช่วงชนิดนั้นแล้ว → {start, end, type, source}; skip.none มีชนิดนั้น หรือ manual ที่ไม่มีช่วงเลย → {none: true}
-   * - รายการแจ้ง (notice: ระบบบันทึกค่าแล้วแต่ผิดปกติ เช่นภาพ ED เริ่มช้ากว่าเพลงมาก) → ยังไม่ถือว่าจัดการจนกว่าผู้ใช้กดบันทึก (source manual)
    * - ไม่มี kind: ผู้ใช้บันทึกค่าตอนนั้นแล้ว (source manual) → {manual: true}
    */
   function resolutionOf(index, item) {
@@ -543,7 +540,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     const segs = skip.segments || [];
     if (!item.kind) return skip.source === 'manual' ? { manual: true } : null;
     const seg = segs.find((x) => KIND_SEGMENT_TYPES[item.kind]?.includes(x.type));
-    if (seg) return item.notice && skip.source !== 'manual' ? null : { start: seg.start, end: seg.end, type: seg.type, source: skip.source };
+    if (seg) return { start: seg.start, end: seg.end, type: seg.type, source: skip.source };
     if ((skip.none || []).includes(item.kind) || (skip.source === 'manual' && !segs.length)) return { none: true };
     return null;
   }
@@ -553,7 +550,6 @@ function createSkipAuto({ root, playlistDirOf }) {
     const out = publicJob(job);
     const index = stationIndex(job.file);
     const annotate = (items) => (items || []).map((it) => ({ ...it, resolved: resolutionOf(index, it) }));
-    out.review = annotate(out.review);
     out.errors = annotate(out.errors);
     out.none = annotate(out.none);
     return out;
@@ -578,69 +574,30 @@ function createSkipAuto({ root, playlistDirOf }) {
     const detail = [
       `เติม ${job.filled.length}`,
       ...(job.recheck ? [`แก้เวลา ${job.fixed.length}`] : []),
-      `ต้องดู ${job.review.length}`,
       `ไม่พบ ${job.none.length}`,
       `ตรวจไม่ได้ ${job.errors.length}`,
     ].join(', ');
     log(`${status}${job.recheck ? ' (ตรวจใหม่)' : ''} ${scopeText(job)} — ${detail}${job.message ? ` — ${job.message}` : ''}${job.note ? ` — ${job.note}` : ''}`);
-    for (const f of job.filled) log(`  fill   ${f.track} ตอน ${f.label} ${f.kind} ${f.start}-${f.end}`);
-    for (const f of job.fixed) log(`  fix    ${f.track} ตอน ${f.label} ${f.kind} ${f.old?.start}-${f.old?.end} → ${f.start}-${f.end}`);
-    for (const r of job.review) log(`  review ${r.track} ตอน ${r.label}${r.kind ? ` ${r.kind}` : ''}${r.start != null ? ` ${r.start}-${r.end}` : ''} (${r.reason})`);
+    for (const f of job.filled) log(`  fill   ${f.track} ตอน ${f.label} ${f.kind} ${f.start}-${f.end}` + (f.notice ? ` (${f.notice})` : ''));
+    for (const f of job.fixed) log(`  fix    ${f.track} ตอน ${f.label} ${f.kind} ${f.old?.start}-${f.old?.end} → ${f.start}-${f.end}` + (f.notice ? ` (${f.notice})` : ''));
     for (const n of job.none) log(`  none   ${n.track} ตอน ${n.label}`);
     for (const e of job.errors) log(`  error  ${e.track} ตอน ${e.label} — ${e.error}`);
     recordSeason(job);
   }
 
-  const KIND_LABEL = { op: 'OP', ed: 'ED', intro: 'Intro' };
-
-  /**
-   * ตอนที่ตรวจไม่พบอะไรเลยแต่ --mark-none ไม่ทำเครื่องหมาย เพราะตอนเดียวกันในแทร็กอื่นของ season มี op/ed/intro
-   * หรือตรวจไม่ได้ (ดู _cross_track_evidence ใน skip-audit.py) → รายการ "ต้องดู" พร้อมเวลาจากแทร็กนั้น
-   */
-  function crossTrackReview(report, tr, label) {
-    const items = [];
-    for (const other of report.tracks || []) {
-      if (other.track === tr.track || other.season !== tr.season) continue;
-      const otherName = other.track.split('/').pop();
-      for (const row of (other.episodes || []).filter((r) => (r.label || `#${r.idx}`) === label)) {
-        if (row.error) {
-          items.push({ track: tr.track, label, kind: null, reason: `ตรวจไม่พบ OP/ED และ${otherName}ตรวจไม่ได้ — ดูด้วยตา` });
-          continue;
-        }
-        for (const kind of KINDS) {
-          const seg = row[kind]?.existing || row[kind]?.detected;
-          if (!seg) continue;
-          items.push({ track: tr.track, label, kind, start: seg.start, end: seg.end, reason: `${otherName}มี ${KIND_LABEL[kind]} ช่วงนี้ — แทร็กนี้ตรวจไม่พบ` });
-        }
-      }
-    }
-    return items;
-  }
-
-  /** reason ของแถวที่ skip-audit ไม่เติมเอง (verdict review/missing) */
-  function reviewReason(r) {
-    if (r.cross_track) return `ไม่ตรงกับ ${r.cross_track}`;
-    return r.verdict === 'review' ? 'เสียงคล้ายต่ำ (อาจเป็นเพลงผสมฉาก)' : 'ตอนข้างเคียงยืนยันไม่พอ';
-  }
-
   /**
    * สรุปผลของตอนใหม่จาก report + ผล apply (--json-out) ของทุกรอบ
    * (งานที่ requeue apply track เดิมซ้ำได้ → ผลซ้ำ จึงนับต่อ track|label|kind ครั้งเดียว)
+   * notice ของ skip-audit เก็บติดรายการไว้ดูใน log เท่านั้น ไม่แยกเป็นรายการ "ต้องดู"
    */
   function summarize(job, report, applied) {
     const keyOf = (x) => `${x.track}|${x.label}|${x.kind}`;
     const filledKeys = new Set();
-    const reviewKeys = new Set();
     for (const out of applied) {
       for (const c of out.changes || []) {
-        const item = { track: c.track, label: c.label, kind: c.kind, start: c.start, end: c.end };
+        const item = { track: c.track, label: c.label, kind: c.kind, start: c.start, end: c.end, notice: c.notice || undefined };
         if ((c.action !== 'fill' && c.action !== 'fix') || filledKeys.has(keyOf(item))) continue;
         filledKeys.add(keyOf(item));
-        if (c.notice) {
-          reviewKeys.add(keyOf(item));
-          job.review.push({ ...item, reason: `${c.notice} — บันทึกค่าแล้ว`, notice: true });
-          continue;
-        }
         if (c.action === 'fill') job.filled.push(item);
         else job.fixed.push({ ...item, old: c.old });
       }
@@ -659,30 +616,7 @@ function createSkipAuto({ root, playlistDirOf }) {
       if (!labels) continue;
       for (const row of tr.episodes || []) {
         const label = row.label || `#${row.idx}`;
-        if (!labels.has(label)) continue;
-        if (row.error) {
-          job.errors.push({ track: tr.track, label, error: row.error });
-          continue;
-        }
-        const allNone = KINDS.every((k) => !row[k] || row[k].verdict === 'none');
-        if (allNone && !noneKeys.has(`${tr.track}|${label}`)) {
-          for (const item of crossTrackReview(report, tr, label)) {
-            const key = `${item.track}|${item.label}|${item.kind}`;
-            if (reviewKeys.has(key)) continue;
-            reviewKeys.add(key);
-            job.review.push(item);
-          }
-          continue;
-        }
-        for (const kind of KINDS) {
-          const r = row[kind];
-          const key = `${tr.track}|${label}|${kind}`;
-          if (!r || filledKeys.has(key) || reviewKeys.has(key)) continue;
-          if (r.verdict !== 'review' && r.verdict !== 'missing') continue;
-          reviewKeys.add(key);
-          const d = r.detected;
-          job.review.push({ track: tr.track, label, kind, start: d?.start, end: d?.end, reason: reviewReason(r) });
-        }
+        if (labels.has(label) && row.error) job.errors.push({ track: tr.track, label, error: row.error });
       }
     }
   }
@@ -712,7 +646,7 @@ function createSkipAuto({ root, playlistDirOf }) {
       reportStations++;
     }
     if (!reportTracks.size) return finish(job, 'done', 'ไม่มีตอนใหม่เหลือในไฟล์');
-    const reportTimeout = job.recheck ? Math.max(REPORT_TIMEOUT_MS, reportStations * RECHECK_REPORT_MS_PER_STATION) : REPORT_TIMEOUT_MS;
+    const reportTimeout = Math.max(REPORT_TIMEOUT_MS, reportStations * REPORT_MS_PER_STATION);
 
     fs.mkdirSync(workDir, { recursive: true });
     const reportPath = path.join(workDir, `report-${job.id}.json`);

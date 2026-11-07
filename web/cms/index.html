@@ -95,7 +95,6 @@
     .skipjobs-msg { color: var(--text3); margin-top: 2px; }
     .skipjobs-items { margin-top: 4px; color: var(--text2); line-height: 1.6; }
     .skipjobs-items .k { display: inline-block; min-width: 64px; color: var(--text3); }
-    .skipjobs-items .rv { color: #e0a040; }
     .skipjobs-items .er { color: #e05050; }
 
     /* ── Tabs ────────────────────────────────────────── */
@@ -4090,7 +4089,7 @@ const SKIP_TYPE_OPTIONS = [
   ['ed', 'เพลงปิด'],
   ['mixed-ed', 'เพลงปิด (ผสมฉาก)'],
 ];
-/** ชนิดที่ติ๊ก "ยืนยันไม่มี" ได้ (เก็บใน skip.none — ระบบตรวจจะไม่เติม และรายการ ต้องดู ของชนิดนั้นถือว่าจัดการแล้ว) */
+/** ชนิดที่ติ๊ก "ยืนยันไม่มี" ได้ (เก็บใน skip.none — ระบบตรวจจะไม่เติม และรายการ ตรวจไม่ได้ ของตอนนั้นถือว่าจัดการแล้ว) */
 const SKIP_NONE_KINDS = ['op', 'ed', 'intro'];
 let skipCtx = null;
 const SKIP_DEFAULT_LENGTH = 90;
@@ -4706,7 +4705,7 @@ buildAddButtons();
 // ── Skip jobs (ตรวจ OP/ED อัตโนมัติหลัง fetch) ────────────────────
 const SKIP_KIND_LABEL = { op: 'OP', ed: 'ED', intro: 'Intro' };
 let skipJobsSeen = 0;
-/** id งาน → กางอยู่ไหม (ตั้งค่าเริ่มครั้งแรกที่เห็นงานที่จบแล้ว: กางเฉพาะงานที่มี ต้องดู/ตรวจไม่ได้ และยังไม่เคยเปิดดู) */
+/** id งาน → กางอยู่ไหม (ตั้งค่าเริ่มครั้งแรกที่เห็นงานที่จบแล้ว: กางเฉพาะงานที่มี ตรวจไม่ได้ และยังไม่เคยเปิดดู) */
 const skipJobsOpen = new Map();
 
 /** "Season 1/ซับไทย · ตอน 12 · OP 1:23–2:53" */
@@ -4723,27 +4722,25 @@ function skipResolvedText(it) {
   return skipJobItem({ ...it, start: r.start, end: r.end });
 }
 
-/** จำนวนรายการที่ยังต้องให้คนจัดการ (ต้องดู + ตรวจไม่ได้ ที่ยังไม่ resolved) */
-const skipJobPending = job => job.review.filter(r => !r.resolved).length + job.errors.filter(e => !e.resolved).length;
+/** จำนวนรายการที่ยังต้องให้คนจัดการ (ตรวจไม่ได้ ที่ยังไม่ resolved) */
+const skipJobPending = job => job.errors.filter(e => !e.resolved).length;
 
 function skipJobHtml(job) {
   const name = splitTitle(job.name || '').en || job.name || job.fileRel;
-  const pendingReview = job.review.filter(r => !r.resolved).length;
   const pendingErrors = job.errors.filter(e => !e.resolved).length;
   const pendingNone = (job.none || []).filter(n => !n.resolved).length;
-  const resolvedItems = [...job.review, ...job.errors, ...(job.none || [])].filter(it => it.resolved);
+  const resolvedItems = [...job.errors, ...(job.none || [])].filter(it => it.resolved);
   const autoFilled = resolvedItems.filter(it => it.resolved.source === 'audit').length;
   const confirmed = resolvedItems.length - autoFilled;
   const state = job.status === 'running' ? (job.phase === 'apply' ? 'กำลังบันทึก' : 'กำลังตรวจ')
     : job.status === 'queued' ? 'รอคิว'
     : job.status === 'waiting' ? 'รอ quota worker'
-    : job.status === 'done' ? `${job.recheck ? `แก้เวลา ${(job.fixed || []).length} · ` : ''}เติม ${job.filled.length + autoFilled} · ต้องดู ${pendingReview}${pendingNone ? ` · ไม่พบ ${pendingNone}` : ''}${pendingErrors ? ` · ตรวจไม่ได้ ${pendingErrors}` : ''}${confirmed ? ` · ยืนยันแล้ว ${confirmed}` : ''}`
+    : job.status === 'done' ? `${job.recheck ? `แก้เวลา ${(job.fixed || []).length} · ` : ''}เติม ${job.filled.length + autoFilled}${pendingNone ? ` · ไม่พบ ${pendingNone}` : ''}${pendingErrors ? ` · ตรวจไม่ได้ ${pendingErrors}` : ''}${confirmed ? ` · ยืนยันแล้ว ${confirmed}` : ''}`
     : job.status === 'skipped' ? 'ข้าม' : 'ล้มเหลว';
   const done = it => `<div><span class="k">${it.resolved.source === 'audit' ? 'เติมแล้ว' : 'ยืนยันแล้ว'}</span>${skipResolvedText(it)}</div>`;
   const items = [
     ...(job.fixed || []).map(f => `<div><span class="k">แก้เวลา</span>${skipJobItem(f)} <span>(เดิม ${formatSkipTime(f.old?.start)}–${formatSkipTime(f.old?.end)})</span></div>`),
     ...job.filled.map(f => `<div><span class="k">เติมแล้ว</span>${skipJobItem(f)}</div>`),
-    ...job.review.map(r => r.resolved ? done(r) : `<div class="rv"><span class="k">ต้องดู</span>${skipJobItem(r)} <span title="${esc(r.reason)}">(${esc(r.reason)})</span></div>`),
     ...(job.none || []).map(n => n.resolved ? done(n) : `<div><span class="k">ไม่พบ</span>${skipJobItem(n)}</div>`),
     ...job.errors.map(e => e.resolved ? done(e) : `<div class="er"><span class="k">ตรวจไม่ได้</span>${skipJobItem(e)}</div>`),
   ];
@@ -4779,18 +4776,18 @@ function setRecheckBusy(btn, busyText, idleTitle = RECHECK_TITLE) {
 /** tooltip ปุ่มตรวจใหม่: ผลตรวจใหม่ล่าสุดของ season (ถ้ามี) */
 function recheckTitle(r) {
   if (!r) return RECHECK_TITLE;
-  const detail = r.status === 'done' ? `แก้เวลา ${r.fixed} · เติม ${r.filled} · ต้องดู ${r.review} · ตรวจไม่ได้ ${r.errors}`
+  const detail = r.status === 'done' ? `แก้เวลา ${r.fixed} · เติม ${r.filled} · ตรวจไม่ได้ ${r.errors}`
     : r.status === 'skipped' ? 'ข้าม' : 'ล้มเหลว';
   return `${RECHECK_TITLE}\nล่าสุด ${new Date(r.at).toLocaleString('th-TH')} — ${detail}${r.message ? ` — ${r.message}` : ''}`;
 }
 
 /**
  * สีปุ่มตรวจใหม่จากความครอบคลุมของ skip + ผลตรวจใหม่ล่าสุด
- * '' = ยังไม่มี skip เลย, st-bad = ตรวจไม่ได้/ต้องดู/ล้มเหลว, st-ok = ตรวจผ่านและ skip ครบทุกตอน, st-todo = ยังต้องกดตรวจ
+ * '' = ยังไม่มี skip เลย, st-bad = ตรวจไม่ได้/ล้มเหลว, st-ok = ตรวจผ่านและ skip ครบทุกตอน, st-todo = ยังต้องกดตรวจ
  */
 function recheckState(coverage, r) {
   if (coverage === 'none') return '';
-  if (r && (r.status === 'failed' || r.errors > 0 || r.review > 0)) return 'st-bad';
+  if (r && (r.status === 'failed' || r.errors > 0)) return 'st-bad';
   if (r?.status === 'done' && coverage === 'full') return 'st-ok';
   return 'st-todo';
 }
@@ -4838,12 +4835,12 @@ function renderSkipJobs(st) {
   const queued = st.queue.filter(j => j.status === 'queued').length;
   const busy  = (st.running ? 1 : 0) + queued;
   const unseen = st.recent.filter(j => Date.parse(j.finishedAt) > skipJobsSeen);
-  const unseenReview = unseen.reduce((n, j) => n + skipJobPending(j) + (j.status === 'failed' ? 1 : 0), 0);
+  const unseenAttn = unseen.reduce((n, j) => n + skipJobPending(j) + (j.status === 'failed' ? 1 : 0), 0);
   btn.classList.toggle('busy', busy > 0);
-  btn.classList.toggle('attn', !busy && unseenReview > 0);
+  btn.classList.toggle('attn', !busy && unseenAttn > 0);
   label.textContent = !st.enabled ? 'OP/ED · ปิด'
     : busy ? `OP/ED · กำลังตรวจ${queued ? ` (+${queued})` : ''}`
-    : unseenReview ? `OP/ED · ต้องดู ${unseenReview}` : 'OP/ED';
+    : unseenAttn ? `OP/ED · ตรวจไม่ได้ ${unseenAttn}` : 'OP/ED';
   document.getElementById('skipjobs-enabled').checked = st.enabled;
   document.getElementById('skipjobs-clear').hidden = !st.recent.length;
   const jobs = [st.running, ...st.queue, ...st.recent].filter(Boolean);
