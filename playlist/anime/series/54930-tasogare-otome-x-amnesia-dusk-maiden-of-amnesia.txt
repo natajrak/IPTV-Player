@@ -51,8 +51,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 54.5,
-                                        "end": 142.5
+                                        "start": 54.2,
+                                        "end": 144.1
                                     },
                                     {
                                         "type": "ed",
@@ -114,7 +114,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1269.6,
+                                        "start": 1270.4,
                                         "end": 1356.8
                                     }
                                 ]
@@ -153,12 +153,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 50.8,
-                                        "end": 141.9
+                                        "start": 52.2,
+                                        "end": 141.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1315.6,
+                                        "start": 1316.2,
                                         "end": 1406
                                     }
                                 ]
@@ -176,12 +176,12 @@
                                     {
                                         "type": "op",
                                         "start": 32.6,
-                                        "end": 121.9
+                                        "end": 121.4
                                     },
                                     {
                                         "type": "ed",
                                         "start": 1316.5,
-                                        "end": 1405.9
+                                        "end": 1405.4
                                     }
                                 ]
                             }
@@ -198,7 +198,11 @@
                             "image": "https://image.tmdb.org/t/p/original/ntMpPE9ZIxmg3sCNwl41eshy8q7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0mDFhvFI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0mDFhvFI",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-06-25"
+                            "release_date": "2012-06-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 13",

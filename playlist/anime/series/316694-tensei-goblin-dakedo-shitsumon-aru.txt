@@ -111,7 +111,22 @@
                             "url": "https://app.akuma-stream.com/watch/98e6fb1a-0e2c-4d04-aae5-c32159c55308",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-02"
+                            "release_date": "2026-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.9,
+                                        "end": 184.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - So What's Wrong with Waging Wardrobe Warfare?",
@@ -119,7 +134,22 @@
                             "url": "https://app.akuma-stream.com/watch/11ced624-78f2-4201-9521-f90fe710bd71",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-09"
+                            "release_date": "2026-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.6,
+                                        "end": 221.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },

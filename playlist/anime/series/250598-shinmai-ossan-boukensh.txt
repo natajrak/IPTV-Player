@@ -39,12 +39,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 30,
-                                        "end": 118.9
+                                        "start": 29.3,
+                                        "end": 118.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1334.8,
+                                        "start": 1335.4,
                                         "end": 1425.1
                                     }
                                 ]
@@ -61,8 +61,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 87,
-                                        "end": 176
+                                        "start": 86.3,
+                                        "end": 175.6
                                     },
                                     {
                                         "type": "ed",
@@ -83,8 +83,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 112.2,
-                                        "end": 203.1
+                                        "start": 113.3,
+                                        "end": 202.5
                                     },
                                     {
                                         "type": "ed",
@@ -105,8 +105,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 57,
-                                        "end": 145.8
+                                        "start": 56.3,
+                                        "end": 145.6
                                     },
                                     {
                                         "type": "ed",
@@ -149,8 +149,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 127,
-                                        "end": 215.4
+                                        "start": 126.3,
+                                        "end": 215.5
                                     },
                                     {
                                         "type": "ed",
@@ -171,8 +171,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 43,
-                                        "end": 131.9
+                                        "start": 42.3,
+                                        "end": 131.5
                                     },
                                     {
                                         "type": "ed",
@@ -193,8 +193,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 108.1,
-                                        "end": 195.7
+                                        "start": 107.3,
+                                        "end": 196.5
                                     },
                                     {
                                         "type": "ed",
@@ -209,21 +209,50 @@
                             "image": "https://image.tmdb.org/t/p/original/s8xzLIzqnW5IufJJAku1CcNCICR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fgyixRFyDp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-10"
+                            "release_date": "2024-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.6,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Fistfight on Equal Ground",
                             "image": "https://image.tmdb.org/t/p/original/vJIobcNPaUmfv1lp4G3Mw1T5qsI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7n8EXEIESQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-16"
+                            "release_date": "2024-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Quarter Thumbs Up",
                             "image": "https://image.tmdb.org/t/p/original/d7eklTNStRK0I1k7Lq9xzw9dX8c.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EmVCh296dE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-24"
+                            "release_date": "2024-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -244,8 +273,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 50.6,
-                                        "end": 140
+                                        "start": 50.3,
+                                        "end": 139.5
                                     }
                                 ]
                             }
@@ -261,12 +290,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 30,
-                                        "end": 119.1
+                                        "start": 29.3,
+                                        "end": 118.5
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1334.9,
+                                        "start": 1335.4,
                                         "end": 1425.1
                                     }
                                 ]
@@ -283,8 +312,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 87,
-                                        "end": 176.1
+                                        "start": 86.3,
+                                        "end": 175.6
                                     },
                                     {
                                         "type": "ed",
@@ -305,8 +334,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 112.7,
-                                        "end": 203.1
+                                        "start": 113.3,
+                                        "end": 202.5
                                     },
                                     {
                                         "type": "ed",
@@ -344,12 +373,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 84.1,
-                                        "end": 173.1
+                                        "start": 83.2,
+                                        "end": 172.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1287.1,
+                                        "start": 1286.6,
                                         "end": 1376.6
                                     }
                                 ]
@@ -366,8 +395,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 127,
-                                        "end": 216.1
+                                        "start": 126.3,
+                                        "end": 215.5
                                     },
                                     {
                                         "type": "ed",
@@ -388,8 +417,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 43.1,
-                                        "end": 132
+                                        "start": 42.3,
+                                        "end": 131.5
                                     },
                                     {
                                         "type": "ed",
@@ -410,8 +439,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 107.7,
-                                        "end": 197
+                                        "start": 107.3,
+                                        "end": 196.5
                                     },
                                     {
                                         "type": "ed",
@@ -426,21 +455,50 @@
                             "image": "https://image.tmdb.org/t/p/original/s8xzLIzqnW5IufJJAku1CcNCICR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jhmOHp637F/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-10"
+                            "release_date": "2024-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.6,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Fistfight on Equal Ground",
                             "image": "https://image.tmdb.org/t/p/original/vJIobcNPaUmfv1lp4G3Mw1T5qsI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OXxfKj7SjM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-16"
+                            "release_date": "2024-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1424.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Quarter Thumbs Up",
                             "image": "https://image.tmdb.org/t/p/original/d7eklTNStRK0I1k7Lq9xzw9dX8c.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/z6a1zy7oe4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-09-24"
+                            "release_date": "2024-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"

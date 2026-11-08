@@ -302,7 +302,7 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 59.6,
+                                        "start": 59.1,
                                         "end": 148.9
                                     },
                                     {
@@ -434,12 +434,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 69.5,
+                                        "start": 68.3,
                                         "end": 157.2
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1327.9,
+                                        "start": 1326.8,
                                         "end": 1417.1
                                     }
                                 ]
@@ -478,7 +478,7 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 80.5,
+                                        "start": 80.1,
                                         "end": 170
                                     },
                                     {
@@ -567,173 +567,528 @@
                             "image": "https://image.tmdb.org/t/p/original/7OUSXOcIs9nzdLmLz0Bwdfhrm85.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/L1ynQ3az/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-07-05"
+                            "release_date": "2014-07-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Cold-Hearted Sniper",
                             "image": "https://image.tmdb.org/t/p/original/1sCbBCi1nxPqVhowB4PvH9SJPZr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wMzTk8wa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-07-12"
+                            "release_date": "2014-07-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.3,
+                                        "end": 200.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1412.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Memories of Blood",
                             "image": "https://image.tmdb.org/t/p/original/uYykJcutnYPW8O7LAs0T7MvjXS7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/C9Z0rzS8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-07-19"
+                            "release_date": "2014-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.3,
+                                        "end": 116.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - GGO (Gun Gale Online)",
                             "image": "https://image.tmdb.org/t/p/original/eJjflgwMR7kcUTOrolwqAlppb4f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/i9uM74gx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-07-26"
+                            "release_date": "2014-07-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 156
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Guns and Swords",
                             "image": "https://image.tmdb.org/t/p/original/oJ9RjaDYoyky1neZvAWQRZLPA9E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/juVf5mM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-08-02"
+                            "release_date": "2014-08-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Showdown in the Wilderness",
                             "image": "https://image.tmdb.org/t/p/original/5Q0KetmCeYoWSimDuRp5aQ1jWEJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BeKpPexJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-08-09"
+                            "release_date": "2014-08-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 222
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Crimson Memories",
                             "image": "https://image.tmdb.org/t/p/original/4Woe1gkRDZtZztJu1Spai6dUqDU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/np7RjqDT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-08-16"
+                            "release_date": "2014-08-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.3,
+                                        "end": 144
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Bullet of Bullets",
                             "image": "https://image.tmdb.org/t/p/original/3htNh1oP2IZjXTf2ej2H4ZynxKW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yJjrMn4J/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-08-23"
+                            "release_date": "2014-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.2,
+                                        "end": 163
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Death Gun",
                             "image": "https://image.tmdb.org/t/p/original/ueDp5eL3maMX8ZzTcHUcOeccnbv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YUBoCtwV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-08-30"
+                            "release_date": "2014-08-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.2,
+                                        "end": 231
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.7,
+                                        "end": 1415.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Death Chaser",
                             "image": "https://image.tmdb.org/t/p/original/vs3DpifrmbTGuEEzLDSXAqlhAtS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tCrVe7VH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-09-06"
+                            "release_date": "2014-09-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 134.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - What It Means To Be Strong",
                             "image": "https://image.tmdb.org/t/p/original/chqwmSxOydZpXiad2BMCsYrtUK0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Llmcovnq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-09-13"
+                            "release_date": "2014-09-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.2,
+                                        "end": 185
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Bullet of a Phantom",
                             "image": "https://image.tmdb.org/t/p/original/fH9uKZtzgbsTcIUcjlSOuNCVIoM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8IaXnReg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-09-20"
+                            "release_date": "2014-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 173.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.8,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Phantom Bullet",
                             "image": "https://image.tmdb.org/t/p/original/rZCPOKK3iWsROkGe66IideIFYSl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iAk8p7Fw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-09-27"
+                            "release_date": "2014-09-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.3,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - One Little Step",
                             "image": "https://image.tmdb.org/t/p/original/tMF65VcMIJiUBaJnb0Flq6CZroz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hl17mZ2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-10-04"
+                            "release_date": "2014-10-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - The Queen of the Lake",
                             "image": "https://image.tmdb.org/t/p/original/2e9oCP375GrV99oioySGjl5CVz0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rdLyzLIh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-10-18"
+                            "release_date": "2014-10-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.1,
+                                        "end": 226.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - The King of the Giants",
                             "image": "https://image.tmdb.org/t/p/original/mYSSD9v7EGqPYOapdbIuNSUkcoA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1gSUpWZU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-10-25"
+                            "release_date": "2014-10-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 273.3,
+                                        "end": 362.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Excalibur",
                             "image": "https://image.tmdb.org/t/p/original/vIqsyFzN4IPJF0xTbmfB3hIYK7d.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/X5aU8Yst/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-11-01"
+                            "release_date": "2014-11-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 195.2,
+                                        "end": 285
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Forest House",
                             "image": "https://image.tmdb.org/t/p/original/9AVzrSS0syPcLXakRPROGF2REOA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZCgPqrtW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-11-08"
+                            "release_date": "2014-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.2,
+                                        "end": 168
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Zekken",
                             "image": "https://image.tmdb.org/t/p/original/hQZ4OVlfnc1tp1EZrysc7XiA29r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7oKQNa0b/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-11-15"
+                            "release_date": "2014-11-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 176.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1416
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - The Sleeping Knights",
                             "image": "https://image.tmdb.org/t/p/original/1qwzt6MCPEDZxBbY1DIG8rcOqyp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gw3Mzg7U/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-11-22"
+                            "release_date": "2014-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.2,
+                                        "end": 167.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Monument of Swordsmen",
                             "image": "https://image.tmdb.org/t/p/original/ifdlJmiQmUelFhTDvl56ur4QpyP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hfI3fjYE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-11-29"
+                            "release_date": "2014-11-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1416
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - The End of the Journey",
                             "image": "https://image.tmdb.org/t/p/original/lwKmF4mpen4czxhWoUDEfJCrbSm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZOfXR5IU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-12-06"
+                            "release_date": "2014-12-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The Dream Begins",
                             "image": "https://image.tmdb.org/t/p/original/elqZmxx3KnUFRvzeXJ1Z1iMeABE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dYOOsiRN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-12-13"
+                            "release_date": "2014-12-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.2,
+                                        "end": 219.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Mother's Rosario",
                             "image": "https://image.tmdb.org/t/p/original/gt2yB4qmF96FQHSwbBEuYwTUon1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AiqAT3lo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2014-12-20"
+                            "release_date": "2014-12-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1344,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25",
                             "url": "https://hls.animeindy.com:8443/vid/LiLT15Qg/video.mp4/playlist.m3u8",
-                            "referer": "https://indy-anime.net/"
+                            "referer": "https://indy-anime.net/",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1204.6,
+                                        "end": 1270.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -758,168 +1113,508 @@
                             "image": "https://image.tmdb.org/t/p/original/4FpuWImV6U6SuYT8QY0SQ4LZWGa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OY1KTXn04e/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-10-07"
+                            "release_date": "2018-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2776.3,
+                                        "end": 2865.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ต้นไม้ปีศาจ",
                             "image": "https://image.tmdb.org/t/p/original/vklSxL0fGZsZeMf2JSnlE5CWHZS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/maZbd09Uv6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-10-14"
+                            "release_date": "2018-10-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.3,
+                                        "end": 227.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - เทือกเขาปลายทาง",
                             "image": "https://image.tmdb.org/t/p/original/yubH2VEg4HfRBfxL38uPc0elJv4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mhkUXuYHU0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-10-21"
+                            "release_date": "2018-10-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 139.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ออกเดินทาง",
                             "image": "https://image.tmdb.org/t/p/original/oGEAEJX0UOf00N37rP04iApymsR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XSbnbw2i0B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-10-28"
+                            "release_date": "2018-10-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - โอเชียน เทอเทิล",
                             "image": "https://image.tmdb.org/t/p/original/jq0Q41YWgV3ZcOzG17N2mHVuLkA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UcbP9wChxU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-11-04"
+                            "release_date": "2018-11-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 160.3,
+                                        "end": 249.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - โครงการอลิไซเซชั่น",
                             "image": "https://image.tmdb.org/t/p/original/xXZahtMZSkjhBvu5NrIY2KEA2bN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PivqQip31S/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-11-11"
+                            "release_date": "2018-11-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.3,
+                                        "end": 211.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - โรงเรียนสอนวิชาดาบ",
                             "image": "https://image.tmdb.org/t/p/original/mXyRnt3o7BBIb3esUrbiW1ZZ5cy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PQsEWSwdyC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-11-18"
+                            "release_date": "2018-11-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 128.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ความภาคภูมิใจของนักดาบ",
                             "image": "https://image.tmdb.org/t/p/original/cDMMjmPqU3Bx6CdQLkobJMT1tCJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bZSKsHTfHe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-11-25"
+                            "release_date": "2018-11-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 154.3,
+                                        "end": 243.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ความรับผิดชอบของชนชั้นสูง",
                             "image": "https://image.tmdb.org/t/p/original/mVSRK03EZQVDkg6lpwDcFOSp4bp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YdPg2WwNUK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-12-02"
+                            "release_date": "2018-12-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 158.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - รายการต้องห้าม",
                             "image": "https://image.tmdb.org/t/p/original/UB7mydlawxbobIxqWnV8lh1TcB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sqeamKel5Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-12-09"
+                            "release_date": "2018-12-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - เซ็นทรัลคาทีดรัล",
                             "image": "https://image.tmdb.org/t/p/original/4ER3PIe7IZbHxXi1jAjcvEoGVaI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FNCjE75cZ2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-12-16"
+                            "release_date": "2018-12-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ปราชญ์แห่งหอสมุด",
                             "image": "https://image.tmdb.org/t/p/original/hR3N6Kwr8zlAZgEq3d6OBSgh1L1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aiqPbtWyku/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-12-23"
+                            "release_date": "2018-12-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ผู้ปกครองและคนกลาง",
                             "image": "https://image.tmdb.org/t/p/original/coCo7uFYVrbpwi1hcuO1ZTgL6aQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0mF5YeXbOo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-06"
+                            "release_date": "2019-01-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 154.3,
+                                        "end": 243.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.3,
+                                        "end": 1426.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - อัศวินแดง",
                             "image": "https://image.tmdb.org/t/p/original/9SRBdXwI7kWxCqnjmivCRXbUSgT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FDMWNvgUm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-13"
+                            "release_date": "2019-01-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.4,
+                                        "end": 217.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.3,
+                                        "end": 1426.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - อัศวินผู้ไม่ปรานี",
                             "image": "https://image.tmdb.org/t/p/original/gmHLaLAz9GyxSk3c6meRtHVZy3N.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ik72JZCD98/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-20"
+                            "release_date": "2019-01-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 169.3,
+                                        "end": 258.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.7,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - อัศวินกุมาริกา",
                             "image": "https://image.tmdb.org/t/p/original/bjpJIJCdQE5KPUqntpQMaqUWzJ5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NG2fGOpgh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-27"
+                            "release_date": "2019-01-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.3,
+                                        "end": 153.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - สงบศึก",
                             "image": "https://image.tmdb.org/t/p/original/j2F6KagBjK81YW5zPeG83phCWzJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o9AJWPgNvv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-03"
+                            "release_date": "2019-02-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.3,
+                                        "end": 174.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - วีรบุรุษในตำนาน",
                             "image": "https://image.tmdb.org/t/p/original/gveaJc1HRJAIB0abGsOfoFN4doj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VqbOQVhChF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-10"
+                            "release_date": "2019-02-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ผนึกปิดตาขวา",
                             "image": "https://image.tmdb.org/t/p/original/xbSBljqM4loFC7ZbKnItGFZSXD8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ObAaHgHco4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-24"
+                            "release_date": "2019-02-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.3,
+                                        "end": 221.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ซินเธไซส์",
                             "image": "https://image.tmdb.org/t/p/original/2PyE8uOVgjBvdp89fbamah6RFIs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BmoemoMpk7/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-03"
+                            "release_date": "2019-03-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.3,
+                                        "end": 129.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - อัศวินลำดับที่ 32",
                             "image": "https://image.tmdb.org/t/p/original/hGFKKtPvmhA9AcPjCF2gsrlj2HV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pys2C1F2u/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-10"
+                            "release_date": "2019-03-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.3,
+                                        "end": 141.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ยอดแห่งดาบ",
                             "image": "https://image.tmdb.org/t/p/original/xTT4kEnlAjEPtep3i1ngPRp7adf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jLNOojED0R/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-17"
+                            "release_date": "2019-03-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 140.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - แอดมินิสเตรเตอร์",
                             "image": "https://image.tmdb.org/t/p/original/i1umIkndL7ofm6eSMtO0oHJD51u.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UZH0lbFfA8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-24"
+                            "release_date": "2019-03-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.5,
+                                        "end": 1425.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - วีรบุรุษของฉัน",
                             "image": "https://image.tmdb.org/t/p/original/3na4mgCr70jClF70lGEaG9xcYZz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wIWomriLSw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-31"
+                            "release_date": "2019-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.4,
+                                        "end": 146.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340,
+                                        "end": 1429.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

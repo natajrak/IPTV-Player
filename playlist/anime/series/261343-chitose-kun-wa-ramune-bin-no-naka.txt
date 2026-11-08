@@ -226,7 +226,22 @@
                             "url": "https://app.akuma-stream.com/watch/bf21b9f4-a967-4bc9-be09-5d4cda7d666a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-30"
+                            "release_date": "2026-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.3,
+                                        "end": 151.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - With a Chance of Dreams",
@@ -234,7 +249,17 @@
                             "url": "https://app.akuma-stream.com/watch/f45f5f13-027a-42ac-a759-4d812d5fed16",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-31"
+                            "release_date": "2026-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - The Left-Ear Promise",
@@ -242,7 +267,17 @@
                             "url": "https://app.akuma-stream.com/watch/1d6270bd-8fd0-4a90-8056-f6b14bf1898f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-31"
+                            "release_date": "2026-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -471,7 +506,22 @@
                             "url": "https://app.akuma-stream.com/watch/5769432f-a205-4955-a482-7066eaf91290",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-30"
+                            "release_date": "2026-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.6,
+                                        "end": 151.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1341.6,
+                                        "end": 1378.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - With a Chance of Dreams",
@@ -479,7 +529,22 @@
                             "url": "https://app.akuma-stream.com/watch/c3eb93f3-cbf3-4157-a66d-65dd492bd93c",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-31"
+                            "release_date": "2026-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1339.1,
+                                        "end": 1374
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - The Left-Ear Promise",
@@ -487,7 +552,22 @@
                             "url": "https://app.akuma-stream.com/watch/6951699e-5331-41b4-83ed-c1e94b8006fa",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-03-31"
+                            "release_date": "2026-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1252,
+                                        "end": 1326.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Runaway Senpai and You",

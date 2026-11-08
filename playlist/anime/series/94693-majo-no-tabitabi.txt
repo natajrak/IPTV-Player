@@ -200,7 +200,17 @@
                             "image": "https://image.tmdb.org/t/p/original/sZwM0KBJ6EPGULosCn483QpCD8H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/E20f3Woi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-10-02"
+                            "release_date": "2020-10-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1394.6,
+                                        "end": 1431.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Land of Mages",
@@ -235,12 +245,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 46.6,
-                                        "end": 136.1
+                                        "start": 46.3,
+                                        "end": 135.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.8,
+                                        "start": 1330.2,
                                         "end": 1420
                                     }
                                 ]
@@ -301,12 +311,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 65.8,
-                                        "end": 156.1
+                                        "start": 66.3,
+                                        "end": 155.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1331.1,
+                                        "start": 1330.3,
                                         "end": 1420.1
                                     }
                                 ]
@@ -323,12 +333,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 149.9,
-                                        "end": 240.1
+                                        "start": 150.3,
+                                        "end": 239.6
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1351.1,
+                                        "start": 1350.2,
                                         "end": 1440
                                     }
                                 ]
@@ -345,12 +355,12 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 38.6,
+                                        "start": 39.3,
                                         "end": 129
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1330.7,
+                                        "start": 1330.3,
                                         "end": 1420.1
                                     }
                                 ]
@@ -384,8 +394,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 71.8,
-                                        "end": 163.8
+                                        "start": 72.3,
+                                        "end": 162.1
                                     }
                                 ]
                             }
@@ -402,7 +412,17 @@
                             "image": "https://image.tmdb.org/t/p/original/8L8umxAHgIKQsetN2nnl6CB4NAG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O9tfkL00/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2020-12-18"
+                            "release_date": "2020-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1250.4,
+                                        "end": 1292.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -385,8 +385,8 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1182.7,
-                                        "end": 1271.6
+                                        "start": 1180.8,
+                                        "end": 1266.5
                                     }
                                 ]
                             }
@@ -451,7 +451,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.7,
+                                        "start": 1325.3,
                                         "end": 1415.1
                                     }
                                 ]
@@ -608,84 +608,254 @@
                             "image": "https://image.tmdb.org/t/p/original/5kwVWfXCjPYPa8zowI6ShXkALsR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Djn3d8NPlk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-05"
+                            "release_date": "2024-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 42.9,
+                                        "end": 94.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Great Freight Car Operation",
                             "image": "https://image.tmdb.org/t/p/original/Rz4IrpxeWu7hZ6BIJEB4fknD3X.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Q6ya7sgbcg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-12"
+                            "release_date": "2024-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.6,
+                                        "end": 141.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Clarence and Shirley",
                             "image": "https://image.tmdb.org/t/p/original/hwov2hfzIePDcx8gS9KS9JKrtSj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YaSEDol6bQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-19"
+                            "release_date": "2024-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.7,
+                                        "end": 168.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.3,
+                                        "end": 1410.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Special Rule Launched",
                             "image": "https://image.tmdb.org/t/p/original/Ac7zP8nId2nPLyoJuA6cmzhgSZz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/twcIMsWE85/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-10-26"
+                            "release_date": "2024-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.7,
+                                        "end": 181.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.3,
+                                        "end": 1410.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - BTRY's Choice",
                             "image": "https://image.tmdb.org/t/p/original/99t2LtVT0ztoEYaaPjsRo948Q8o.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SgbcudIKDo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-02"
+                            "release_date": "2024-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.6,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.3,
+                                        "end": 1410.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Offensive and Defensive Battle That Still Has Time",
                             "image": "https://image.tmdb.org/t/p/original/aTO7EeVoJhZ1CPNenqNMhXHmXPM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9Wbgnqa2f8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-09"
+                            "release_date": "2024-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.6,
+                                        "end": 218.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Turn Over",
                             "image": "https://image.tmdb.org/t/p/original/lIi9DTHfVPA8PCpoU1zftyfh2m3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xW81cRpPQx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-16"
+                            "release_date": "2024-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.7,
+                                        "end": 166.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Showdown",
                             "image": "https://image.tmdb.org/t/p/original/hDiVgdOQ5WSVDKqrCW3AQHug93D.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XSPWXFUKO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-23"
+                            "release_date": "2024-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.7,
+                                        "end": 180.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - An Invite to the Battlefield",
                             "image": "https://image.tmdb.org/t/p/original/uuvSx2UO9PhcOSBo0svUIhnJ7Ia.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sG4o8pVVUt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-11-30"
+                            "release_date": "2024-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.6,
+                                        "end": 207.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Devil's Castle",
                             "image": "https://image.tmdb.org/t/p/original/2tIPQzqXKDE6xy7K6kxYp9WCFr4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NNLFfLDCWR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-07"
+                            "release_date": "2024-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.6,
+                                        "end": 158.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Pitohui's Attack",
                             "image": "https://image.tmdb.org/t/p/original/mxHXgcpYs9HDmpB0j12NpDc1pkl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/twnuUleUAY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-14"
+                            "release_date": "2024-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.6,
+                                        "end": 230.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.2,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Reason to Fight",
                             "image": "https://image.tmdb.org/t/p/original/mgsov6Vo0aMkMFzcFO7EVkvRyUF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DUoLnKN3hI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2024-12-21"
+                            "release_date": "2024-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.7,
+                                        "end": 182.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
