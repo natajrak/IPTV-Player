@@ -1682,112 +1682,347 @@
                             "image": "https://image.tmdb.org/t/p/original/yl8210bV4qRUPBpGFmEHRbkG8sU.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8c25Qyij46/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Contract and Payment",
                             "image": "https://image.tmdb.org/t/p/original/yBSNdrbiSSY0IF617InFvQXw6c3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0RoeANxvMG/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.3,
+                                        "end": 171
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1416.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Determination of a Leader",
                             "image": "https://image.tmdb.org/t/p/original/7MqipjUXmGfMZKnwpxR2hnwcmfS.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/kMqOk2fo8k/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.3,
+                                        "end": 214.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.8,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - To Whom the Blade Turns",
                             "image": "https://image.tmdb.org/t/p/original/frVQkedKhzY9gmVCydEiG7VJ48F.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/3kkCoeboV/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.3,
+                                        "end": 194.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.4,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The 20 Million Man",
                             "image": "https://image.tmdb.org/t/p/original/uk28bwhtbaV2fuiNMkr9fz7kANB.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/T6L7jd8Fo9/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-08"
+                            "release_date": "2026-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.3,
+                                        "end": 169.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1416.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - A Turbulent Battle for Recruitment",
                             "image": "https://image.tmdb.org/t/p/original/fsQZd0BndTQlqd94i9FSk4zkffq.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/pE65L82Dt0/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-15"
+                            "release_date": "2026-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 139.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Plotting",
                             "image": "https://image.tmdb.org/t/p/original/2eMWwzG6LfRecO8XKb6fcVbXRfk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/aDPHYySHOI/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-22"
+                            "release_date": "2026-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.3,
+                                        "end": 200.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Subject of the Dragons' Gaze",
                             "image": "https://image.tmdb.org/t/p/original/ghtGd2fgz9H7BTUSIqFQo1BoQrg.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/jyxSPO3L7S/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-04-29"
+                            "release_date": "2026-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.5,
+                                        "end": 119.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1416.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - A Disquieting Beginning",
                             "image": "https://image.tmdb.org/t/p/original/dnu4b8i36fQNzWEEAiuubwNa4yl.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/jz8tgQHWgY/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-06"
+                            "release_date": "2026-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.3,
+                                        "end": 152
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Love Uncommunicated",
                             "image": "https://image.tmdb.org/t/p/original/bTBXjugnBi2JDJ878Lbm1Zgjktn.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/lwuj7QHW9/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-13"
+                            "release_date": "2026-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 156.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Connection",
                             "image": "https://image.tmdb.org/t/p/original/yiARNbRGEyRZw1x3zSRNTvqsEIP.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/ZlwvKrIJDu/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-20"
+                            "release_date": "2026-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.3,
+                                        "end": 152.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1347.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - After Vengeance",
                             "image": "https://image.tmdb.org/t/p/original/pgqP2q5wpsWelYPTpFo1cUgfxQc.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/5nLFVmqbS/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-05-27"
+                            "release_date": "2026-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 122.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Obscured by the Rain",
                             "image": "https://image.tmdb.org/t/p/original/to13ELuiblIykpL4GQbRdpS0FmX.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/gatMb09ELn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-03"
+                            "release_date": "2026-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 132.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The Extraordinary Prodigy",
                             "image": "https://image.tmdb.org/t/p/original/wOP8R0JwnsngyP55cyxoLPgLM83.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/lISDIsfRVI/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-10"
+                            "release_date": "2026-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.3,
+                                        "end": 155
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.8,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Power and Will",
                             "image": "https://image.tmdb.org/t/p/original/v1TYMbjrPsOoq6BiqdVKaPjv4Ah.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/3nCEg7PYkv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-17"
+                            "release_date": "2026-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.4,
+                                        "end": 149.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - For a Desired Future",
                             "image": "https://image.tmdb.org/t/p/original/bAJaxCy2WB1u9UNbJxEvNSGURJa.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/RfzKkZSZeh/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-06-24"
+                            "release_date": "2026-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.5,
+                                        "end": 150.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -1802,112 +2037,342 @@
                             "image": "https://image.tmdb.org/t/p/original/yl8210bV4qRUPBpGFmEHRbkG8sU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zaJC1Tkz4M/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Contract and Payment",
                             "image": "https://image.tmdb.org/t/p/original/yBSNdrbiSSY0IF617InFvQXw6c3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XoMUZwGaX6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Determination of a Leader",
                             "image": "https://image.tmdb.org/t/p/original/7MqipjUXmGfMZKnwpxR2hnwcmfS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WRkitwIyJu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.3,
+                                        "end": 214.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - To Whom the Blade Turns",
                             "image": "https://image.tmdb.org/t/p/original/frVQkedKhzY9gmVCydEiG7VJ48F.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oYDwuqcq5l/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-01"
+                            "release_date": "2026-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.3,
+                                        "end": 194.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The 20 Million Man",
                             "image": "https://image.tmdb.org/t/p/original/uk28bwhtbaV2fuiNMkr9fz7kANB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/L05CRh0bzr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-08"
+                            "release_date": "2026-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 169.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - A Turbulent Battle for Recruitment",
                             "image": "https://image.tmdb.org/t/p/original/fsQZd0BndTQlqd94i9FSk4zkffq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cCDB4zX8sb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-15"
+                            "release_date": "2026-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Plotting",
                             "image": "https://image.tmdb.org/t/p/original/2eMWwzG6LfRecO8XKb6fcVbXRfk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9mw6baf1Ax/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-22"
+                            "release_date": "2026-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.3,
+                                        "end": 199.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Subject of the Dragons' Gaze",
                             "image": "https://image.tmdb.org/t/p/original/ghtGd2fgz9H7BTUSIqFQo1BoQrg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6aZdnG9Gh0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-04-29"
+                            "release_date": "2026-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 118.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Disquieting Beginning",
                             "image": "https://image.tmdb.org/t/p/original/dnu4b8i36fQNzWEEAiuubwNa4yl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jxqIhcipgG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-06"
+                            "release_date": "2026-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.2,
+                                        "end": 151.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Love Uncommunicated",
                             "image": "https://image.tmdb.org/t/p/original/bTBXjugnBi2JDJ878Lbm1Zgjktn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EqMhKmTdZh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-13"
+                            "release_date": "2026-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Connection",
                             "image": "https://image.tmdb.org/t/p/original/yiARNbRGEyRZw1x3zSRNTvqsEIP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OUV8u938KQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-20"
+                            "release_date": "2026-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.2,
+                                        "end": 151.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - After Vengeance",
                             "image": "https://image.tmdb.org/t/p/original/pgqP2q5wpsWelYPTpFo1cUgfxQc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PdjfOXadCs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-05-27"
+                            "release_date": "2026-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 122.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Obscured by the Rain",
                             "image": "https://image.tmdb.org/t/p/original/to13ELuiblIykpL4GQbRdpS0FmX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/laI8w8A5FS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-03"
+                            "release_date": "2026-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - The Extraordinary Prodigy",
                             "image": "https://image.tmdb.org/t/p/original/wOP8R0JwnsngyP55cyxoLPgLM83.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/x6w3wOZCAI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-10"
+                            "release_date": "2026-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Power and Will",
                             "image": "https://image.tmdb.org/t/p/original/v1TYMbjrPsOoq6BiqdVKaPjv4Ah.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3KJVftSFTk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-17"
+                            "release_date": "2026-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - For a Desired Future",
                             "image": "https://image.tmdb.org/t/p/original/bAJaxCy2WB1u9UNbJxEvNSGURJa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QVVxWB80fP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-24"
+                            "release_date": "2026-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
