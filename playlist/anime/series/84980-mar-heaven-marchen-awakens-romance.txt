@@ -16,217 +16,682 @@
                             "image": "https://image.tmdb.org/t/p/original/tqySX9zrqCS4y7344bujcaFU6iB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VSHPZbLn/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-04-03"
+                            "release_date": "2005-04-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Babbo: The Legendary ARM!",
                             "image": "https://image.tmdb.org/t/p/original/5bP2yNCcC3SDB3Nfz2PoiwKKOZl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bB57S2on/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-04-10"
+                            "release_date": "2005-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.1,
+                                        "end": 146.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Jack's Battle Shovel in Action!",
                             "image": "https://image.tmdb.org/t/p/original/l92AdFJDZxiJy6iAojkgnCSvt0x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OTNO7aeM/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-04-17"
+                            "release_date": "2005-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.1,
+                                        "end": 240.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.8,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Lost and Found Babbo!",
                             "image": "https://image.tmdb.org/t/p/original/wD2GmQB3LK2yYGudw308umoDf80.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VCeU9DyE/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-04-24"
+                            "release_date": "2005-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.1,
+                                        "end": 260.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Alviss, The Mysterious Young Man!",
                             "image": "https://image.tmdb.org/t/p/original/dKBkMcvZiPrCug3tmqPFfk5Ntwv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vpCI0VWt/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-05-01"
+                            "release_date": "2005-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.1,
+                                        "end": 130.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Snow: The Young Girl Inside the Ice",
                             "image": "https://image.tmdb.org/t/p/original/kh8U02wXdCWh1cRsOXYlsUUmj0E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/61SPyet9/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-05-08"
+                            "release_date": "2005-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 217.1,
+                                        "end": 307.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Awaken: Meet the Other Ed!",
                             "image": "https://image.tmdb.org/t/p/original/kXmoyqTfacDFzmFgUwdE22IknQ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8I0QBrK4/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-05-15"
+                            "release_date": "2005-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.1,
+                                        "end": 114.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Phantom, The Undead Knight!",
                             "image": "https://image.tmdb.org/t/p/original/l0jWoOKdJdcYvk1bEftqJRimbOM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YITHj3Zz/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-05-22"
+                            "release_date": "2005-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 153.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Training Gate - Merilo and Bumoru",
                             "image": "https://image.tmdb.org/t/p/original/wygLNtS6wFLsBEnQHSzxuYQ0Zwq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pXQJrbc8/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-05-29"
+                            "release_date": "2005-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 110.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Second Great War Begins",
                             "image": "https://image.tmdb.org/t/p/original/aCAsWeja8QPs7guYSdBLWe5UT4u.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iICPELcN/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-06-05"
+                            "release_date": "2005-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 177.1,
+                                        "end": 267.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Babbo: Version 2!",
                             "image": "https://image.tmdb.org/t/p/original/4kVYfzzxKlwQBmfO1QfYIQjFHGD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/40ZxFNTQ/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-06-12"
+                            "release_date": "2005-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.1,
+                                        "end": 190.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Nanashi, Chief of Luberia!",
                             "image": "https://image.tmdb.org/t/p/original/3X9bQn0c8GtXmxdGHV6nvHBhhH0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ka4GlYvS/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-06-19"
+                            "release_date": "2005-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 237.1,
+                                        "end": 327.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Nanashi vs. Orco at the Underground Lake!",
                             "image": "https://image.tmdb.org/t/p/original/eevRjZGaHyvUSqrsZl5167OjUxr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BAVrMLI/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-06-26"
+                            "release_date": "2005-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 255.1,
+                                        "end": 345.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Babbo Version Three: Gargoyle",
                             "image": "https://image.tmdb.org/t/p/original/iRcBTlRe1hbK8vWFfXTXqs2Wb5C.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CTjTMEVK/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-07-03"
+                            "release_date": "2005-07-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.1,
+                                        "end": 160.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - John Peach, The Seventh Team Member?",
                             "image": "https://image.tmdb.org/t/p/original/5VKeA3tMng3DKXBHSWPOoHlL5Dr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Rhnt60ej/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-07-10"
+                            "release_date": "2005-07-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.1,
+                                        "end": 228.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - The War Games Commence!",
                             "image": "https://image.tmdb.org/t/p/original/wtpJQTzPBJkNgk7yr27Cl1POA2n.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xO1po3yR/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-07-17"
+                            "release_date": "2005-07-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.1,
+                                        "end": 160.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - First Battle: Alviss vs. Leno!",
                             "image": "https://image.tmdb.org/t/p/original/nAKJzBCrRNz05qeCKFHXfEPetxb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KVGePKCl/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-07-24"
+                            "release_date": "2005-07-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 346.1,
+                                        "end": 436.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - First Battle: Part 2, Jack vs. Pano!",
                             "image": "https://image.tmdb.org/t/p/original/ixKZLwtKo3Tk09pFmuqifSLFoiG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GUhQOAl0/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-07-31"
+                            "release_date": "2005-07-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.1,
+                                        "end": 145.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Captain Ginta and Gargoyle vs. Garon!",
                             "image": "https://image.tmdb.org/t/p/original/5IQkpPvsjmx2taiBU1jTLKy5L1V.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0mpKrXjl/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-08-07"
+                            "release_date": "2005-08-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.1,
+                                        "end": 154.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Back to the Training Gate! Learn How to Really Fight!",
                             "image": "https://image.tmdb.org/t/p/original/s6SwTeNK8nf2zFDoUkUu5d0ykAJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1DdTdvD8/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-08-14"
+                            "release_date": "2005-08-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 174.1,
+                                        "end": 264.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Desert Field and the Fighting Princess!",
                             "image": "https://image.tmdb.org/t/p/original/jZqzDV0wdtOXGiQIA9163m0QNbC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f5OmBBiK/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-08-21"
+                            "release_date": "2005-08-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.1,
+                                        "end": 257.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Nanashi vs. Loco and the Straw Doll",
                             "image": "https://image.tmdb.org/t/p/original/njDXbzLsqyoRNdLP7w0QRiwpytj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iOtEiTgv/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-08-28"
+                            "release_date": "2005-08-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.2,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - Dorothy: A Witch to be Feared!",
                             "image": "https://image.tmdb.org/t/p/original/qJ6bbFCCTTGfva4BrwwrKFNi4Yc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7owThWFv/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-09-04"
+                            "release_date": "2005-09-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.1,
+                                        "end": 156.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Phantom's Hidden Joy!",
                             "image": "https://image.tmdb.org/t/p/original/nJ5XNvirHDbekWKKHksEjIzGRxI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ipBO6FTU/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-09-11"
+                            "release_date": "2005-09-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 221.1,
+                                        "end": 311.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Alan: The Man Who Came Late!",
                             "image": "https://image.tmdb.org/t/p/original/yK4mO5sQryPAm5O9jptb6dm9cze.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/32t0QZgo/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-09-18"
+                            "release_date": "2005-09-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.1,
+                                        "end": 263.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - Show Your Stuff, Jack: Funky Fungi!",
                             "image": "https://image.tmdb.org/t/p/original/bJroZn6czOkXknOEfcU7cxzPMID.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QxUnXeVi/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-09-25"
+                            "release_date": "2005-09-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 174.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - Snow at the Volcano Mountain Range Field",
                             "image": "https://image.tmdb.org/t/p/original/d6vHThoQYAV36XrjbmcirWTIqad.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FIRVjHbM/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-10-02"
+                            "release_date": "2005-10-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 294.1,
+                                        "end": 384.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - Accursed Candle! Ginta vs. Kannochi!",
                             "image": "https://image.tmdb.org/t/p/original/3GGSfPadggWZYMGgysuCPF85StH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cRR2gZAr/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-10-09"
+                            "release_date": "2005-10-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.1,
+                                        "end": 142.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1421.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - Another Zombie Tattoo! Alviss vs. Rolan!",
                             "image": "https://image.tmdb.org/t/p/original/m0PTTxPTENNBYdyuWg4YKkxwgWA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XIglA4Ws/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-10-16"
+                            "release_date": "2005-10-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 206.1,
+                                        "end": 296.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - Phantom and the Zodiac Knights",
                             "image": "https://image.tmdb.org/t/p/original/tWgBhxpjeA4nPivvrjLj5Rrzq5q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8veNbXm/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-10-23"
+                            "release_date": "2005-10-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.2,
+                                        "end": 245.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1421.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - Shadow Battles! Gargoyle Vs. the Dark Gargoyle!",
                             "image": "https://image.tmdb.org/t/p/original/27DW6XS63qDZs8KAGQvqgpquMH4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VToLKy6a/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-10-30"
+                            "release_date": "2005-10-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 204.1,
+                                        "end": 294
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
