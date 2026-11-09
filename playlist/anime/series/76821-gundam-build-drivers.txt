@@ -393,91 +393,276 @@
                             "image": "https://image.tmdb.org/t/p/original/qVJ1JVWjPcnwk7gdWnDWd7udN7L.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyzA9yaac%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyzA9yaac",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-10"
+                            "release_date": "2019-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194.2,
+                                        "end": 283.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.9,
+                                        "end": 1454.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Unknown Mission",
                             "image": "https://image.tmdb.org/t/p/original/uRplQdOgDDk7potyDydPrZpNgyx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F60gMAK1K%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F60gMAK1K",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-10"
+                            "release_date": "2019-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.2,
+                                        "end": 225.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1454.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - A Place to Protect",
                             "image": "https://image.tmdb.org/t/p/original/qSZ1UQX59QWcRh3ODExUeDJ7zoG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiFX3E2bV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiFX3E2bV",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-17"
+                            "release_date": "2019-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 155
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1369.6,
+                                        "end": 1447.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Wounded Wings",
                             "image": "https://image.tmdb.org/t/p/original/yvCbkcYtekNvmnIJSQwSax7QQbh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fdp8AnbD8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fdp8AnbD8",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-24"
+                            "release_date": "2019-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 252.2,
+                                        "end": 341.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1377,
+                                        "end": 1454.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Now Spread Your Wings",
                             "image": "https://image.tmdb.org/t/p/original/tDiF1f9si2UoIXArYMPQAdHITkA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDnhDB02k%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDnhDB02k",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-31"
+                            "release_date": "2019-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.2,
+                                        "end": 196.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1365.6,
+                                        "end": 1443.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Hero on the Brink",
                             "image": "https://image.tmdb.org/t/p/original/PyaMxy6IaBnhigN8IcM4rZ0DKt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Ffpp6qim0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Ffpp6qim0",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-07"
+                            "release_date": "2019-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 186.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1388.4,
+                                        "end": 1454.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Battered Crown",
                             "image": "https://image.tmdb.org/t/p/original/hbk2SN6BIBADWZLEUbeCVNzeR3y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEzGuMQje%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEzGuMQje",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-14"
+                            "release_date": "2019-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.2,
+                                        "end": 179
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1380.7,
+                                        "end": 1454.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Duty and Illusion",
                             "image": "https://image.tmdb.org/t/p/original/6rrAPu1eOTQeofIaUxYypbNF77P.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2ForbcfXko%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2ForbcfXko",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-21"
+                            "release_date": "2019-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.9,
+                                        "end": 213
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1422.8,
+                                        "end": 1455.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Abyss of Isolation",
                             "image": "https://image.tmdb.org/t/p/original/709i98nHKBFWBV23pWA00PGxn2U.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FU3LfUxIn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FU3LfUxIn",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-28"
+                            "release_date": "2019-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.9,
+                                        "end": 132
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1270.5,
+                                        "end": 1313.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Ones Who Breathe There",
                             "image": "https://image.tmdb.org/t/p/original/yTe4u7AyQeDaWBgZMY5p51G3zuf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5r2ZZHQP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5r2ZZHQP",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-05"
+                            "release_date": "2019-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.2,
+                                        "end": 224.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Last Mission",
                             "image": "https://image.tmdb.org/t/p/original/iVu2fOMCIILVMHH1fRla13iV23l.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1ypjDV1S%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1ypjDV1S",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-12"
+                            "release_date": "2019-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123.3,
+                                        "end": 213
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1413.3,
+                                        "end": 1453.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Shuddering World",
                             "image": "https://image.tmdb.org/t/p/original/xx6Cqo62G1R9vRYkDTvcFNcqXQ5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FK4PfRb9Z%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FK4PfRb9Z",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-19"
+                            "release_date": "2019-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 139.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1414.5,
+                                        "end": 1455
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Somewhere in This Universe",
                             "image": "https://image.tmdb.org/t/p/original/nz6jMP7fFfDxmHr6Mvm5HaPm39d.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FGtleSZSj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FGtleSZSj",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-26"
+                            "release_date": "2019-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1377.1,
+                                        "end": 1453.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -491,147 +676,442 @@
                             "image": "https://image.tmdb.org/t/p/original/qVJ1JVWjPcnwk7gdWnDWd7udN7L.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0Yld4EJ5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0Yld4EJ5",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-10"
+                            "release_date": "2019-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194,
+                                        "end": 283.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.8,
+                                        "end": 1454.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Unknown Mission",
                             "image": "https://image.tmdb.org/t/p/original/uRplQdOgDDk7potyDydPrZpNgyx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FG0dRrStK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FG0dRrStK",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-10"
+                            "release_date": "2019-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.3,
+                                        "end": 224.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.6,
+                                        "end": 1452.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A Place to Protect",
                             "image": "https://image.tmdb.org/t/p/original/qSZ1UQX59QWcRh3ODExUeDJ7zoG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLSzCnsut%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLSzCnsut",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-17"
+                            "release_date": "2019-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65,
+                                        "end": 154.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1369.5,
+                                        "end": 1447.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Wounded Wings",
                             "image": "https://image.tmdb.org/t/p/original/yvCbkcYtekNvmnIJSQwSax7QQbh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1T8pem4r%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1T8pem4r",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-24"
+                            "release_date": "2019-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 252,
+                                        "end": 341.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.9,
+                                        "end": 1454.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Now Spread Your Wings",
                             "image": "https://image.tmdb.org/t/p/original/tDiF1f9si2UoIXArYMPQAdHITkA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8BAmav0T%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8BAmav0T",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-10-31"
+                            "release_date": "2019-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 107.4,
+                                        "end": 196.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1363,
+                                        "end": 1442.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Hero on the Brink",
                             "image": "https://image.tmdb.org/t/p/original/PyaMxy6IaBnhigN8IcM4rZ0DKt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSpAFrQIO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSpAFrQIO",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-07"
+                            "release_date": "2019-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.3,
+                                        "end": 186.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1388.4,
+                                        "end": 1454.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Battered Crown",
                             "image": "https://image.tmdb.org/t/p/original/hbk2SN6BIBADWZLEUbeCVNzeR3y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8PPRrQ0M%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8PPRrQ0M",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-14"
+                            "release_date": "2019-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.1,
+                                        "end": 178.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.1,
+                                        "end": 1454.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Duty and Illusion",
                             "image": "https://image.tmdb.org/t/p/original/6rrAPu1eOTQeofIaUxYypbNF77P.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcUkz6Bji%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcUkz6Bji",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-21"
+                            "release_date": "2019-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.9,
+                                        "end": 212.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Abyss of Isolation",
                             "image": "https://image.tmdb.org/t/p/original/709i98nHKBFWBV23pWA00PGxn2U.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbqgXipob%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbqgXipob",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-11-28"
+                            "release_date": "2019-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.9,
+                                        "end": 132
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1354.6,
+                                        "end": 1406.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Ones Who Breathe There",
                             "image": "https://image.tmdb.org/t/p/original/yTe4u7AyQeDaWBgZMY5p51G3zuf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDr7BFYkL%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDr7BFYkL",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-05"
+                            "release_date": "2019-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138,
+                                        "end": 224.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Last Mission",
                             "image": "https://image.tmdb.org/t/p/original/iVu2fOMCIILVMHH1fRla13iV23l.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FoLMbnD0g%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FoLMbnD0g",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-12"
+                            "release_date": "2019-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123.3,
+                                        "end": 212.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1421.7,
+                                        "end": 1454.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Shuddering World",
                             "image": "https://image.tmdb.org/t/p/original/xx6Cqo62G1R9vRYkDTvcFNcqXQ5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFFJO43qn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFFJO43qn",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-19"
+                            "release_date": "2019-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.5,
+                                        "end": 139.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1426.1,
+                                        "end": 1456.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Somewhere in This Universe",
                             "image": "https://image.tmdb.org/t/p/original/nz6jMP7fFfDxmHr6Mvm5HaPm39d.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FAH32a0sx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FAH32a0sx",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2019-12-26"
+                            "release_date": "2019-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.3,
+                                        "end": 1451.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Encounters, and Then…",
                             "image": "https://image.tmdb.org/t/p/original/upe2TDEnJYZOT6IpBzthT7xMDbu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FORcapEkc%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FORcapEkc",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-04-09"
+                            "release_date": "2020-04-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.5,
+                                        "end": 137.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1298.9,
+                                        "end": 1337.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Mission, Again",
                             "image": "https://image.tmdb.org/t/p/original/e82EhluzS68zLZaoM9bX97mYSlM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQtI1acRo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQtI1acRo",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-04-16"
+                            "release_date": "2020-04-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.8,
+                                        "end": 148
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - To the Heavenly Land",
                             "image": "https://image.tmdb.org/t/p/original/gqDpTAGCQwlYzQ3AePQqQbpiBZm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhNXZzupw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhNXZzupw",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-04-23"
+                            "release_date": "2020-04-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.3,
+                                        "end": 142
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1391.8,
+                                        "end": 1444
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - The Sacred Beast Cuadorn",
                             "image": "https://image.tmdb.org/t/p/original/qdlhAuMbviDKPvLDr4br1TLKCfJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4VHRh2do%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4VHRh2do",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-04-30"
+                            "release_date": "2020-04-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 182.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1404.7,
+                                        "end": 1441.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Perfect Sniper",
                             "image": "https://image.tmdb.org/t/p/original/1hUOejvRrR2aJBp5S6QHRDu7nA0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBNnQa3q2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBNnQa3q2",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-05-07"
+                            "release_date": "2020-05-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 108.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1392,
+                                        "end": 1455
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - If It Weren't for You",
                             "image": "https://image.tmdb.org/t/p/original/qVyaitD4ODd543rrXZbVJQheHEv.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FpoGYy4kd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FpoGYy4kd",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-07-09"
+                            "release_date": "2020-07-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 125.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1353.6,
+                                        "end": 1406.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - A Wish Entrusted",
                             "image": "https://image.tmdb.org/t/p/original/bIWPGkqhmU6kS7Tlo1czQmsO6bI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdVdXQf4J%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdVdXQf4J",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-07-16"
+                            "release_date": "2020-07-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.2,
+                                        "end": 196.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - To Fly Once More",
                             "image": "https://image.tmdb.org/t/p/original/13uumECkaZwoOY3PTBxpM2fUfok.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fj5CyG9Ty%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fj5CyG9Ty",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-07-23"
+                            "release_date": "2020-07-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 147.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1392.3,
+                                        "end": 1444.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Seltsam's Deadline",
@@ -645,28 +1125,78 @@
                             "image": "https://image.tmdb.org/t/p/original/hCwPCF5FLWCBX46L93cZoxCiyAT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLpoKiSLX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLpoKiSLX",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-08-06"
+                            "release_date": "2020-08-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 182.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1368.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Build Divers",
                             "image": "https://image.tmdb.org/t/p/original/5eqM3XMfRa5K07E8pJ5fjAPR72I.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FixDIL2tw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FixDIL2tw",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-08-13"
+                            "release_date": "2020-08-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.2,
+                                        "end": 198
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - To the Tomorrow I Envision",
                             "image": "https://image.tmdb.org/t/p/original/8MrToSMo0uuO86iUmCli1xyNDh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FGVFX7g5C%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FGVFX7g5C",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-08-20"
+                            "release_date": "2020-08-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1365.6,
+                                        "end": 1397.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 26 - Re:Rise",
                             "image": "https://image.tmdb.org/t/p/original/ddGSD77Qk8ulnzFE9parHVUY0gG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuS8yTU3c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuS8yTU3c",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2020-08-27"
+                            "release_date": "2020-08-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 26.3,
+                                        "end": 76
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1454.7,
+                                        "end": 1464.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
