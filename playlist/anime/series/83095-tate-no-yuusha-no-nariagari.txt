@@ -390,91 +390,260 @@
                             "image": "https://image.tmdb.org/t/p/original/tRO0DbjXkA6s7pU0hVJJfrDrPqr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/wz20DjSb/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-06"
+                            "release_date": "2022-04-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.7,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - รอยเท้าของเรย์คิ",
                             "image": "https://image.tmdb.org/t/p/original/2WqmAKbSS78m2udzIWSZSflVU4h.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/yZU3vZBU/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-13"
+                            "release_date": "2022-04-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.3,
+                                        "end": 147.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.8,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ปฐพีสะเทือน",
                             "image": "https://image.tmdb.org/t/p/original/iDeFalJ462DLsGPowJYEoy6BKmo.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/PaacURCW/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-20"
+                            "release_date": "2022-04-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 284.3,
+                                        "end": 373.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.1,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ซากปรักหักพังในหมอก",
                             "image": "https://image.tmdb.org/t/p/original/sPsdHO0u2XQpwE8RE8SkbUeaSGO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/P8waSNw/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-27"
+                            "release_date": "2022-04-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.3,
+                                        "end": 231.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ออสท์ โฮไร",
                             "image": "https://image.tmdb.org/t/p/original/cmbhEixShcIkZdABWO6SwyUsmf9.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/XIdTne4H/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-04"
+                            "release_date": "2022-05-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.3,
+                                        "end": 220.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1414.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ไล่ตาม",
                             "image": "https://image.tmdb.org/t/p/original/6cRt8dAvxM49nuEkPe1e5COsHyP.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/5BAfewtt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-11"
+                            "release_date": "2022-05-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 7 - วงกตไร้ที่สิ้นสุด",
                             "image": "https://image.tmdb.org/t/p/original/n7TO02GB9Y2uPEXBAhusFZfKqZd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/YHKOy7U/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-18"
+                            "release_date": "2022-05-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.3,
+                                        "end": 202.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การลาจากในหิมะขาว",
                             "image": "https://image.tmdb.org/t/p/original/dRIf2z69220x4QOxZqicm3AOB2W.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/1QH169S/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-25"
+                            "release_date": "2022-05-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ฮัมมิ่งเฟอรี่",
                             "image": "https://image.tmdb.org/t/p/original/vlnMMoBwzO5XrCeI82VWAF4nS95.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/1qtMWdJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-01"
+                            "release_date": "2022-06-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.9,
+                                        "end": 194.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.4,
+                                        "end": 1390.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ผู้กล้าแห่งดาบคาตานะ",
                             "image": "https://image.tmdb.org/t/p/original/46ak0sKyNul9dwfx1wbLmVXlGTO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NZBP2roy/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-08"
+                            "release_date": "2022-06-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.3,
+                                        "end": 181.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - คิสึนะ",
                             "image": "https://image.tmdb.org/t/p/original/arCt8efkNt2FCHZUWrrqXrczhiu.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/WRb6Px9q/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-15"
+                            "release_date": "2022-06-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 148.3,
+                                        "end": 237.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.1,
+                                        "end": 1414.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - เหตุผลที่ต่อสู้",
                             "image": "https://image.tmdb.org/t/p/original/k7NAImYQXSeshdC7FAVdV6tX0eQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/acLN6fP0/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-22"
+                            "release_date": "2022-06-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.7,
+                                        "end": 1350.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ถวายดอกไม้รำลึกอดีต",
                             "image": "https://image.tmdb.org/t/p/original/jUPGP1lycBxOJqfibDsWXjMGwge.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/t5myqgqQ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-29"
+                            "release_date": "2022-06-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1222,
+                                        "end": 1278.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -489,91 +658,260 @@
                             "image": "https://image.tmdb.org/t/p/original/tRO0DbjXkA6s7pU0hVJJfrDrPqr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/2chWFFrn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-06"
+                            "release_date": "2022-04-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Footprints of the Spirit Tortoise",
                             "image": "https://image.tmdb.org/t/p/original/2WqmAKbSS78m2udzIWSZSflVU4h.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/hiW65qzR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-13"
+                            "release_date": "2022-04-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.3,
+                                        "end": 147.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Shaking Land",
                             "image": "https://image.tmdb.org/t/p/original/iDeFalJ462DLsGPowJYEoy6BKmo.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/gRpf97OA/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-20"
+                            "release_date": "2022-04-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 284.3,
+                                        "end": 374
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Ruins in the Fog",
                             "image": "https://image.tmdb.org/t/p/original/sPsdHO0u2XQpwE8RE8SkbUeaSGO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/TEbPN4j/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-04-27"
+                            "release_date": "2022-04-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.3,
+                                        "end": 233.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Ost Hourai",
                             "image": "https://image.tmdb.org/t/p/original/cmbhEixShcIkZdABWO6SwyUsmf9.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/DF4BSqYJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-04"
+                            "release_date": "2022-05-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.3,
+                                        "end": 220.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Racing to Catch Up",
                             "image": "https://image.tmdb.org/t/p/original/6cRt8dAvxM49nuEkPe1e5COsHyP.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/bpuhrZZ5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-11"
+                            "release_date": "2022-05-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 7 - Infinite Labyrinth",
                             "image": "https://image.tmdb.org/t/p/original/n7TO02GB9Y2uPEXBAhusFZfKqZd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/TQCLCGoZ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-18"
+                            "release_date": "2022-05-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.3,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - A Parting in the Snow",
                             "image": "https://image.tmdb.org/t/p/original/dRIf2z69220x4QOxZqicm3AOB2W.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/BUFUEDJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-05-25"
+                            "release_date": "2022-05-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.9,
+                                        "end": 244.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Humming Fairy",
                             "image": "https://image.tmdb.org/t/p/original/vlnMMoBwzO5XrCeI82VWAF4nS95.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/PnzyDCj/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-01"
+                            "release_date": "2022-06-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.3,
+                                        "end": 193.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1301.5,
+                                        "end": 1390.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Katana Hero",
                             "image": "https://image.tmdb.org/t/p/original/46ak0sKyNul9dwfx1wbLmVXlGTO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/v5M3FpD/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-08"
+                            "release_date": "2022-06-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.3,
+                                        "end": 181.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.1,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Kizuna",
                             "image": "https://image.tmdb.org/t/p/original/arCt8efkNt2FCHZUWrrqXrczhiu.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/J0mbQ7Vm/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-15"
+                            "release_date": "2022-06-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 148.3,
+                                        "end": 237.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Reason to Fight",
                             "image": "https://image.tmdb.org/t/p/original/k7NAImYQXSeshdC7FAVdV6tX0eQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/A64ZLj3n/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-22"
+                            "release_date": "2022-06-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1262.7,
+                                        "end": 1350.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Flowers Offered in Recollection",
                             "image": "https://image.tmdb.org/t/p/original/jUPGP1lycBxOJqfibDsWXjMGwge.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/okdlyj1M/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-06-29"
+                            "release_date": "2022-06-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1209.5,
+                                        "end": 1278.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

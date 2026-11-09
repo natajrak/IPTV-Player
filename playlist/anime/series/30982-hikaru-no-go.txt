@@ -16,210 +16,670 @@
                             "image": "https://image.tmdb.org/t/p/original/qZdA1k6XaM2M2LwFCrT0C35bBO2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1wzQ8QCE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1wzQ8QCE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-10-10"
+                            "release_date": "2001-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.1,
+                                        "end": 94.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.4,
+                                        "end": 1325.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Discovered Weakness!!",
                             "image": "https://image.tmdb.org/t/p/original/28NzcttiIR9hRIiGthflLmgtipl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVtRbWy3w%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVtRbWy3w",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-10-17"
+                            "release_date": "2001-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.4,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.8,
+                                        "end": 1320.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Akira Bears His Fangs",
                             "image": "https://image.tmdb.org/t/p/original/uCJqOaQJh2NrohQNChwM8MLoPJd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FviXHRUmD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FviXHRUmD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-10-24"
+                            "release_date": "2001-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 94.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.5,
+                                        "end": 1325
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Kaga in Shogi Club",
                             "image": "https://image.tmdb.org/t/p/original/VruV2TLmEWWBbpUwKlS7JlfhD1.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FCJAhAt1E%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FCJAhAt1E",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-10-31"
+                            "release_date": "2001-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.6,
+                                        "end": 99.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.9,
+                                        "end": 1323.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Prediction of an Awakening",
                             "image": "https://image.tmdb.org/t/p/original/70ll8c1CaY2HMJvkqN9JMpIAf9I.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FB9ng5TjX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FB9ng5TjX",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-11-07"
+                            "release_date": "2001-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.9,
+                                        "end": 1325.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Beautiful Match",
                             "image": "https://image.tmdb.org/t/p/original/1a4OtHHtVN7nwaUnaKRO1QiMW22.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjfokLhwI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjfokLhwI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-11-14"
+                            "release_date": "2001-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 99.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.3,
+                                        "end": 1326.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I Won't Play Against You",
                             "image": "https://image.tmdb.org/t/p/original/ohTJbrW6OSJltRSaab0f3EnftmZ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FaNWNqhiS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FaNWNqhiS",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-11-21"
+                            "release_date": "2001-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.9,
+                                        "end": 99.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1231.8,
+                                        "end": 1324.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Scheme in the Rain",
                             "image": "https://image.tmdb.org/t/p/original/klBcYekd6HZ5Z53dRG5ksHcgXdN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyUMAnjWo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyUMAnjWo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-11-28"
+                            "release_date": "2001-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.8,
+                                        "end": 100.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.1,
+                                        "end": 1324.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - An Irritating Presence",
                             "image": "https://image.tmdb.org/t/p/original/1Mk50Y1Y1kmDyrxhwc3hq9BSNw8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNKdJhGCq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNKdJhGCq",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-12-05"
+                            "release_date": "2001-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.3,
+                                        "end": 100.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1231.1,
+                                        "end": 1322.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Third Member",
                             "image": "https://image.tmdb.org/t/p/original/glQtClpjNpLJysBKwrwWAWUSsUI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fno4PP0BW%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fno4PP0BW",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-12-12"
+                            "release_date": "2001-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 1,
+                                        "end": 23.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 34.4,
+                                        "end": 101.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239.5,
+                                        "end": 1329.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Most Inconsiderate Act",
                             "image": "https://image.tmdb.org/t/p/original/hnlS74pJlCmnU37Vyoa4ytJJQ8U.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fshc9zt3t%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fshc9zt3t",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-12-19"
+                            "release_date": "2001-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.5,
+                                        "end": 99.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.7,
+                                        "end": 1323.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - You Are The Third Board",
                             "image": "https://image.tmdb.org/t/p/original/pnnwIdUsb2IqZ516wpytbeHZsZQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fyesyoq52%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fyesyoq52",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2001-12-26"
+                            "release_date": "2001-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.5,
+                                        "end": 99.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.3,
+                                        "end": 1322.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Each of Their Decision",
                             "image": "https://image.tmdb.org/t/p/original/rIWPPIfNwvvJ7YjjroEWaR3KWcv.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEqSn8w5z%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEqSn8w5z",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-01-09"
+                            "release_date": "2002-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12,
+                                        "end": 99.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.8,
+                                        "end": 1326.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The Third Match",
                             "image": "https://image.tmdb.org/t/p/original/cHcRkcux2SWuUkadIk1nn9ZcVoZ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJk4bu8Mt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJk4bu8Mt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-01-19"
+                            "release_date": "2002-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.2,
+                                        "end": 98.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1230.7,
+                                        "end": 1320.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - The Player On The Net",
                             "image": "https://image.tmdb.org/t/p/original/jZQ7Q4kMWk9WCXKEZRZ1IDeLwwQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzfnOtiWt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzfnOtiWt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-01-26"
+                            "release_date": "2002-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.7,
+                                        "end": 99.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.4,
+                                        "end": 1326.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Who Is Sai?",
                             "image": "https://image.tmdb.org/t/p/original/oY9eltwbXyzpoeIOkJionsCZjRI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkoXq74BS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkoXq74BS",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-01-30"
+                            "release_date": "2002-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 101.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1232.3,
+                                        "end": 1330.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - The Match of Revelation",
                             "image": "https://image.tmdb.org/t/p/original/5oVqYRJzkv2t46XEjrOekZYyCCb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJlGITDuh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJlGITDuh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-02-06"
+                            "release_date": "2002-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.7,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.5,
+                                        "end": 1323.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Akira vs. Sai",
                             "image": "https://image.tmdb.org/t/p/original/37snLR3jVn6mFynpd2z5Vub2dB2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXDzNM5S9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXDzNM5S9",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-02-13"
+                            "release_date": "2002-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.2,
+                                        "end": 100.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1230.4,
+                                        "end": 1325.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Hikaru's Strength",
                             "image": "https://image.tmdb.org/t/p/original/iV4xu7YZ9dCeYHc52TEzhIDR3JH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiqPM6klR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiqPM6klR",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-02-20"
+                            "release_date": "2002-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.2,
+                                        "end": 100.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234,
+                                        "end": 1324.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - The Road to Becoming a Pro",
                             "image": "https://image.tmdb.org/t/p/original/lG67BnGz7a0DSkhtXYII5NqS9px.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F7SQBFUBT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F7SQBFUBT",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-02-27"
+                            "release_date": "2002-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.8,
+                                        "end": 101.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.8,
+                                        "end": 1327.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Haze Jr. High Go Club",
                             "image": "https://image.tmdb.org/t/p/original/eBQSiNP21x2cK8F1wPlHP4v5oUz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcE8pPLjC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcE8pPLjC",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-03-06"
+                            "release_date": "2002-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 100.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.5,
+                                        "end": 1326.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - The Insei Examination",
                             "image": "https://image.tmdb.org/t/p/original/1aWHRVLNDgOYvvIuXtX0Xwixn9i.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fwf6CLDYD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fwf6CLDYD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-03-13"
+                            "release_date": "2002-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.9,
+                                        "end": 100.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.1,
+                                        "end": 1325.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The Room of Yuugen",
                             "image": "https://image.tmdb.org/t/p/original/ukHn6EUx0m5iJP3ERDNdfQbVkek.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMn65UZHG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMn65UZHG",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-03-20"
+                            "release_date": "2002-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 101.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.7,
+                                        "end": 1326.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Ouza vs. Akira",
                             "image": "https://image.tmdb.org/t/p/original/2FnjLhVs9tuIFxFYzFumxSiVj4g.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhKwZ8kWD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhKwZ8kWD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-03-27"
+                            "release_date": "2002-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.8,
+                                        "end": 100.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.3,
+                                        "end": 1325.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Sai's Sword Unsheathed (1)",
                             "image": "https://image.tmdb.org/t/p/original/bjp7UN59lPNlEVI4xUOvY9fCBI3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjjB3bYTj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjjB3bYTj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-04-10"
+                            "release_date": "2002-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12,
+                                        "end": 100.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.2,
+                                        "end": 1324.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - The Greatest Wall for Hikaru (2)",
                             "image": "https://image.tmdb.org/t/p/original/pdzHXA3PUtne0xqbvBo5OKFxPFG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FP3vhfPot%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FP3vhfPot",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-04-10"
+                            "release_date": "2002-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.2,
+                                        "end": 101.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.7,
+                                        "end": 1327.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - A Place To Go Back To",
                             "image": "https://image.tmdb.org/t/p/original/v6X3wKhaeG4XvHoHgu5JaIT4562.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FM4e6mr6w%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FM4e6mr6w",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-04-17"
+                            "release_date": "2002-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 100.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239,
+                                        "end": 1327.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - The Wakajishisen",
                             "image": "https://image.tmdb.org/t/p/original/kFA7VvS3fx9zUpOAxnZb1R2Bpam.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvCbyIfkt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvCbyIfkt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-04-24"
+                            "release_date": "2002-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 101.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.5,
+                                        "end": 1326.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.8,
+                                        "end": 1366.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - Kuwabara Honinbou",
                             "image": "https://image.tmdb.org/t/p/original/ssnG1Y9VYME102ZiHCwmPjz33L7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiPUtqJGC%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiPUtqJGC",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-05-01"
+                            "release_date": "2002-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.2,
+                                        "end": 101.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.6,
+                                        "end": 1325.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - Ogata vs Honinbou",
                             "image": "https://image.tmdb.org/t/p/original/gGXpDceEoz1xVVZW1XBGy0x1PZW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FR4DIWSQQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FR4DIWSQQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-05-08"
+                            "release_date": "2002-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1238.1,
+                                        "end": 1327.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
