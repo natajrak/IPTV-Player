@@ -41,11 +41,17 @@
                             "release_date": "2010-07-05",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 123.2,
                                         "end": 212.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1189,
+                                        "end": 1279
                                     }
                                 ]
                             }
@@ -58,11 +64,17 @@
                             "release_date": "2010-07-12",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 80.5,
                                         "end": 169.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1190,
+                                        "end": 1280
                                     }
                                 ]
                             }
@@ -75,11 +87,17 @@
                             "release_date": "2010-07-19",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 116.5,
                                         "end": 205.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1251,
+                                        "end": 1340
                                     }
                                 ]
                             }
@@ -92,11 +110,17 @@
                             "release_date": "2010-07-26",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 49.5,
                                         "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259,
+                                        "end": 1347.5
                                     }
                                 ]
                             }
@@ -109,11 +133,17 @@
                             "release_date": "2010-08-02",
                             "skip": {
                                 "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
                                         "start": 42.3,
                                         "end": 131.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239,
+                                        "end": 1329
                                     }
                                 ]
                             }
