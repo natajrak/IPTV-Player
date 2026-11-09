@@ -19,14 +19,44 @@
                             "image": "https://image.tmdb.org/t/p/original/iEtt2MUt80DZt9bvH7qz30kZmg8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWhGW27oE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWhGW27oE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-07-03"
+                            "release_date": "2006-07-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.2,
+                                        "end": 137
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.2,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Commoner Familiar",
                             "image": "https://image.tmdb.org/t/p/original/jzLY3DyMXBHkh5woUMq4mi80DCp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FENzR6gSG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FENzR6gSG",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-07-10"
+                            "release_date": "2006-07-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 55.3,
+                                        "end": 145.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Subtle Heat's Allure",
@@ -40,70 +70,220 @@
                             "image": "https://image.tmdb.org/t/p/original/un4X7QOMa9QIV0P9XcqnvAssMmF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FT0KLOJab%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FT0KLOJab",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-07-24"
+                            "release_date": "2006-07-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.3,
+                                        "end": 190.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.6,
+                                        "end": 1404.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Princess of Tristain",
                             "image": "https://image.tmdb.org/t/p/original/w89BEBPM8SNyx6x8PXIGPkq1kpB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FsalvS9nw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FsalvS9nw",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-07-31"
+                            "release_date": "2006-07-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 131.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Thief's True Identity",
                             "image": "https://image.tmdb.org/t/p/original/1RaeQzjTsB7lbK5Im4STQtW0qoo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRfZrefAh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRfZrefAh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-08-07"
+                            "release_date": "2006-08-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 154.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Louise's Part-Time Job",
                             "image": "https://image.tmdb.org/t/p/original/1O3p6EF3XUZQWBcCJY385wWJo7G.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FihQ6U0Vp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FihQ6U0Vp",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-08-14"
+                            "release_date": "2006-08-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.2,
+                                        "end": 190.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.9,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Tabitha's Secret",
                             "image": "https://image.tmdb.org/t/p/original/rXu11UPN6Yrq50KxXm6Fbn9HnXK.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fqmdwu82v%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fqmdwu82v",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-08-21"
+                            "release_date": "2006-08-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.9,
+                                        "end": 171.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Louise's Change Of Heart",
                             "image": "https://image.tmdb.org/t/p/original/5RHhiYU1uVfO3AYzLEC0eQXRu7N.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FIhqKiSdO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FIhqKiSdO",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-08-28"
+                            "release_date": "2006-08-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Princess' Request",
                             "image": "https://image.tmdb.org/t/p/original/cUHQxokCPzk0UfnaM6bwGCc5LBN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiFDb2uAI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiFDb2uAI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-09-04"
+                            "release_date": "2006-09-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.7,
+                                        "end": 107.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.9,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Louise's Marriage",
                             "image": "https://image.tmdb.org/t/p/original/nj9KKANGEMTqlL8nePJeCzWbpb7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FBZ82yndh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FBZ82yndh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-09-11"
+                            "release_date": "2006-09-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 174.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.7,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Zero Secret Treasure",
                             "image": "https://image.tmdb.org/t/p/original/u2zc3cPqNMdpATKqaUnKCfX6EMB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQMhM4LBh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQMhM4LBh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-09-18"
+                            "release_date": "2006-09-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 143.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Louise of the Void",
                             "image": "https://image.tmdb.org/t/p/original/k63rwAJaLhSTJvOV1tqfP4CnvjQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuhHFT9rI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuhHFT9rI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2006-09-25"
+                            "release_date": "2006-09-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.2,
+                                        "end": 110.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1402.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -129,49 +309,154 @@
                             "image": "https://image.tmdb.org/t/p/original/zvuxqeMkyGAZrDZirlbhAE8uOgN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSy9nOD1y%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSy9nOD1y",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-07-09"
+                            "release_date": "2007-07-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 197.2,
+                                        "end": 287
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.2,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Vow of Wind and Water",
                             "image": "https://image.tmdb.org/t/p/original/zjk2oGYxRhgEgHNw0weAQ4aBmwf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFsFgRxK2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFsFgRxK2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-07-16"
+                            "release_date": "2007-07-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 44.2,
+                                        "end": 134.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Cleric's Sword",
                             "image": "https://image.tmdb.org/t/p/original/nThE2w1Wqd9ln80dkfZKMfB1tZh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FX0V2yNe7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FX0V2yNe7",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-07-23"
+                            "release_date": "2007-07-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 117.2,
+                                        "end": 207.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Three Vallière Sisters",
                             "image": "https://image.tmdb.org/t/p/original/cvVlLRH2055Bwn2Kl4Tv6t2wGc6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F5oiX1ss2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F5oiX1ss2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-07-30"
+                            "release_date": "2007-07-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 82.3,
+                                        "end": 172.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Spy's Seal",
                             "image": "https://image.tmdb.org/t/p/original/c7KZ9UxirU3BtUQchIstdPoWj54.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FeaxCv6aQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FeaxCv6aQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-08-06"
+                            "release_date": "2007-08-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 53.2,
+                                        "end": 143.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Queen's Holiday",
                             "image": "https://image.tmdb.org/t/p/original/3SEbamIj5npC3QJJULvaed4p2is.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FksrNKuZo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FksrNKuZo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-08-13"
+                            "release_date": "2007-08-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 93.2,
+                                        "end": 183.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Underground Secret Document",
                             "image": "https://image.tmdb.org/t/p/original/pLcyBgld4LKxjXxezgrAVdhw6WD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjdnPb2x5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjdnPb2x5",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-08-20"
+                            "release_date": "2007-08-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 105.2,
+                                        "end": 195.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.2,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Crisis at the Institute of Magic",
@@ -185,28 +470,88 @@
                             "image": "https://image.tmdb.org/t/p/original/nocj9DAGAFskSfzzc3lH40NXts9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8U5CLGLE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8U5CLGLE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-09-03"
+                            "release_date": "2007-09-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 61.2,
+                                        "end": 151.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Enemy on the Snowy Alps",
                             "image": "https://image.tmdb.org/t/p/original/8ZAOCOahCsPK7I41WM7sicX7jVW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSsNzSQVA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSsNzSQVA",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-09-10"
+                            "release_date": "2007-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Silver Pentecost",
                             "image": "https://image.tmdb.org/t/p/original/fWlfqhucqnEIlGVHnWGl9gdCwfL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FO8dpsDuB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FO8dpsDuB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-09-17"
+                            "release_date": "2007-09-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 62.3,
+                                        "end": 152.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Farewell Wedding Ceremony",
                             "image": "https://image.tmdb.org/t/p/original/m2Tzy4YRL0nVdbvfyxvZVYu2caP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnBtvB2Al%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnBtvB2Al",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2007-09-24"
+                            "release_date": "2007-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 89.3,
+                                        "end": 122.9
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1315.2,
+                                        "end": 1406
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -232,35 +577,110 @@
                             "image": "https://image.tmdb.org/t/p/original/7ZewDb88l9YONzOZw8aNJC3MgQ3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0qj9ev0B%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0qj9ev0B",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-07-07"
+                            "release_date": "2008-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.8,
+                                        "end": 189.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Elf of the Forest",
                             "image": "https://image.tmdb.org/t/p/original/jCAMAkd8kOhHxQj7svDSA053758.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLaUmUJK6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLaUmUJK6",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-07-14"
+                            "release_date": "2008-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 171.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Return of the Hero",
                             "image": "https://image.tmdb.org/t/p/original/jyQkO4dva9XYUJX8NKAQ8c1z261.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKtgREhcm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKtgREhcm",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-07-21"
+                            "release_date": "2008-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.7,
+                                        "end": 186.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Rumored Accepted Student",
                             "image": "https://image.tmdb.org/t/p/original/1K78W0K2pDvElWxzIUpgHFODBLr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3xvSmHyd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3xvSmHyd",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-07-28"
+                            "release_date": "2008-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.2,
+                                        "end": 184.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Alluring Women's Bath",
                             "image": "https://image.tmdb.org/t/p/original/7UepUWJS9kek0ZNgUalcTzbYooF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLXpuYabj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLXpuYabj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-08-04"
+                            "release_date": "2008-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 215.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Taboo Magical Potion",
@@ -274,42 +694,132 @@
                             "image": "https://image.tmdb.org/t/p/original/gI1FL83nRxEIxv7XVnFUv9zMaLX.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F54RN2e4h%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F54RN2e4h",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-08-18"
+                            "release_date": "2008-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.2,
+                                        "end": 211.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.2,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Eastern Pursuit!",
                             "image": "https://image.tmdb.org/t/p/original/AfbgozDpgGSh0Es37I6tb5pm3su.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FfgGzcDPv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FfgGzcDPv",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-08-25"
+                            "release_date": "2008-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.2,
+                                        "end": 202.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Tabitha's Younger Sister",
                             "image": "https://image.tmdb.org/t/p/original/kSkwQ0qrErvkfDKtTkwScnQx8zJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLnZUvTDH%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLnZUvTDH",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-09-01"
+                            "release_date": "2008-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.2,
+                                        "end": 230.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Border Mountain Pass",
                             "image": "https://image.tmdb.org/t/p/original/bDjos1r3OfoRMLeJH5TkyOg6VaR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRShEjlUy%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRShEjlUy",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-09-08"
+                            "release_date": "2008-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 147
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.7,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Captive in Alhambra",
                             "image": "https://image.tmdb.org/t/p/original/4lAeSUOIOFJ7Rqg6vJkbgReTRd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4BlT3JZd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4BlT3JZd",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-09-15"
+                            "release_date": "2008-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 157.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.4,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Wings of Freedom",
                             "image": "https://image.tmdb.org/t/p/original/AeuVkSeXPkyJpnO2z9wJ9tvQZdb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjWHlOPgP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjWHlOPgP",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2008-09-22"
+                            "release_date": "2008-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.2,
+                                        "end": 162.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1404.1,
+                                        "end": 1495.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -335,84 +845,259 @@
                             "image": "https://image.tmdb.org/t/p/original/5VLL2vmCCagejSfqQpKGxRhpFHQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMNYHJ7Wx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMNYHJ7Wx",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-01-07"
+                            "release_date": "2012-01-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.2,
+                                        "end": 227.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1404.6,
+                                        "end": 1495.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Aquileia's Shrine Maiden",
                             "image": "https://image.tmdb.org/t/p/original/9QiP0by9roeysiu1W28yiIQfr8O.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWzF19akU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWzF19akU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-01-14"
+                            "release_date": "2012-01-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.4,
+                                        "end": 181.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Incompetent King Gone Mad",
                             "image": "https://image.tmdb.org/t/p/original/iwdJmJzqVeVcJYhHgQ2BQMsaUxf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FaEKADwlT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FaEKADwlT",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-01-21"
+                            "release_date": "2012-01-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 173.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - The Queen's Reward",
                             "image": "https://image.tmdb.org/t/p/original/7SJWiS1H9LN0teGe9op87hUKKVL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fx7Y1tGDG%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fx7Y1tGDG",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-01-28"
+                            "release_date": "2012-01-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1403.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Maidens of De Ornierés",
                             "image": "https://image.tmdb.org/t/p/original/sDu1g3RL11whghlllbpXsIrrHSQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FKCigFBp1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FKCigFBp1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-02-04"
+                            "release_date": "2012-02-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.1,
+                                        "end": 217
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Trouble at the Outdoor Bath",
                             "image": "https://image.tmdb.org/t/p/original/zsSfhZ1eNrRGW2cTqA7CyHGvJsm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPMSYsnQe%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPMSYsnQe",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-02-11"
+                            "release_date": "2012-02-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.4,
+                                        "end": 188
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.1,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Elves from the desert",
                             "image": "https://image.tmdb.org/t/p/original/qWMcaDUILvbTpe7U0P9WsQCvp3L.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4RWieYkY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4RWieYkY",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-02-18"
+                            "release_date": "2012-02-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 169.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.7,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Escape Through the Sewer",
                             "image": "https://image.tmdb.org/t/p/original/akI46S3GCfZF7EPAoy4buZtgk2X.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnqBczE5F%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnqBczE5F",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-02-25"
+                            "release_date": "2012-02-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.2,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Tabitha's Coronation",
                             "image": "https://image.tmdb.org/t/p/original/wttBiaOFD2Cr1l785x1TnQ3OXeA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxXPAURvn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxXPAURvn",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-03-03"
+                            "release_date": "2012-03-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.2,
+                                        "end": 201.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.4,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Awakening of Calamity",
                             "image": "https://image.tmdb.org/t/p/original/bBMraqAz8ZGUSRMrfIyfSf4ouZs.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FAnB34RUE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FAnB34RUE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-03-10"
+                            "release_date": "2012-03-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.2,
+                                        "end": 147
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Louise's Choice",
                             "image": "https://image.tmdb.org/t/p/original/gqKIDg0GbVk4RwkLGmawRTSUiWz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9F8Jd2VO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9F8Jd2VO",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-03-17"
+                            "release_date": "2012-03-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.4,
+                                        "end": 147.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1348.9,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Zero's Familiar",
                             "image": "https://image.tmdb.org/t/p/original/hUzyRRIXV0QemxMZ6tg8rIsgiXY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FztgFB37c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FztgFB37c",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2012-03-24"
+                            "release_date": "2012-03-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.2,
+                                        "end": 118.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1406.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

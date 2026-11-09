@@ -15,84 +15,264 @@
                             "image": "https://image.tmdb.org/t/p/original/uGWwygpgbAr6LkNUw6KpojFwbj0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F510360b1e536e82dfe53bc94%2F510360b1e536e82dfe53bc94.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-07-04"
+                            "release_date": "2017-07-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.8,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Minced Meat Cutlet / Fried Shrimp",
                             "image": "https://image.tmdb.org/t/p/original/4cg35h4HyJdHq0FfhbiDTZhKgvL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F41629e9a1a67b78c1be0ed93%2F41629e9a1a67b78c1be0ed93.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-07-11"
+                            "release_date": "2017-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.9,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Spaghetti with Meat Sauce / Chocolate Parfait",
                             "image": "https://image.tmdb.org/t/p/original/f5KYCFQ5DUnptErYgBOlUEvH7jx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4d7c57aac2a118edaa635512%2F4d7c57aac2a118edaa635512.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-07-18"
+                            "release_date": "2017-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1282.6,
+                                        "end": 1372
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Omelette Rice / Tofu Steak",
                             "image": "https://image.tmdb.org/t/p/original/93SPwBZMpzUDdzotC3ApkDx4wR3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F8eee5f0cc9aa1995d33658f5%2F8eee5f0cc9aa1995d33658f5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-07-25"
+                            "release_date": "2017-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.7,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Pork Cutlet Rice Bowl / Pudding a la Mode",
                             "image": "https://image.tmdb.org/t/p/original/9k5hPArh4qjuWMKMjN3n5ke8Qt5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F5489542bf2ea49ab49dfeddf%2F5489542bf2ea49ab49dfeddf.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-08-01"
+                            "release_date": "2017-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Sandwiches / Steamed Potato With Butter",
                             "image": "https://image.tmdb.org/t/p/original/zkhCdPIdkD6afMj43bzTDJJ3DWD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd665376494379bcae3b15ac0%2Fd665376494379bcae3b15ac0.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-08-08"
+                            "release_date": "2017-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 284.3,
+                                        "end": 373.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Curry Rice / Chicken Curry",
                             "image": "https://image.tmdb.org/t/p/original/evEUicoC2RN8ED4ish140ZP7O0L.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ffcf99ccda38e33b6695e3c97%2Ffcf99ccda38e33b6695e3c97.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-08-15"
+                            "release_date": "2017-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.3,
+                                        "end": 117.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Hamburg Steak / Assorted Cookies",
                             "image": "https://image.tmdb.org/t/p/original/aXXtiJYxlylxGrZ2rszKNG3gWXg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ff497c6499b4e50a9c254c71b%2Ff497c6499b4e50a9c254c71b.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-08-22"
+                            "release_date": "2017-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.4,
+                                        "end": 1381.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Fried Seafood / Melon Soda Float",
                             "image": "https://image.tmdb.org/t/p/original/xeXP0mIRaQcWkr58kRAxTMa6SwC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F313039bd15d57f7bc23530f2%2F313039bd15d57f7bc23530f2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-08-29"
+                            "release_date": "2017-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Crêpes / Natto Spaghetti",
                             "image": "https://image.tmdb.org/t/p/original/2B6v9F3dDuxNDvgAyVrHPaYb237.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa8e26859855050e7722d6d31%2Fa8e26859855050e7722d6d31.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-09-05"
+                            "release_date": "2017-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Carpaccio / Curry Bun",
                             "image": "https://image.tmdb.org/t/p/original/cZ1IX1X8eCiKdN7uS0xkFVs25HY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fc594cc5dbfbc2ff57f1ca585%2Fc594cc5dbfbc2ff57f1ca585.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-09-12"
+                            "release_date": "2017-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 231.4,
+                                        "end": 315.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Pork Soup / Croquettes",
                             "image": "https://image.tmdb.org/t/p/original/oMiFAAeWlrNsLA9VOphj9N9Cj9n.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F959bc4b30dabc09a846f9d88%2F959bc4b30dabc09a846f9d88.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2017-09-19"
+                            "release_date": "2017-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.3,
+                                        "end": 173.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.3,
+                                        "end": 1391.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,84 +295,264 @@
                             "image": "https://image.tmdb.org/t/p/original/irnG4FwkLLGDqIgD2JBDP5gUf0y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ff315ce7ba26faa542e0a0045%2Ff315ce7ba26faa542e0a0045.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-10-02"
+                            "release_date": "2021-10-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.3,
+                                        "end": 188.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Beefsteak / Cream Puff",
                             "image": "https://image.tmdb.org/t/p/original/bhLFRiecxXyQuIEmbWsHcflWinW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd089cf8aa27f28a308e0d5b7%2Fd089cf8aa27f28a308e0d5b7.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-10-09"
+                            "release_date": "2021-10-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Hamburger / Beef Tendon Curry",
                             "image": "https://image.tmdb.org/t/p/original/isvqpgmV8HdKfcvpE6kzRIa8Pkt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9e15467c54a538bb97301b7f%2F9e15467c54a538bb97301b7f.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-10-16"
+                            "release_date": "2021-10-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Children's Lunch / Cream Croquette",
                             "image": "https://image.tmdb.org/t/p/original/ddDjiCZS4XTSiTdL0a6LutJd9nc.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F546f56295cb80920304ed8e3%2F546f56295cb80920304ed8e3.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-10-23"
+                            "release_date": "2021-10-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Scotch Egg / Mont Blanc",
                             "image": "https://image.tmdb.org/t/p/original/bxjp2m0HoReP3ZeOCJjwDWC2lHL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fb4117896f5a2077af390f371%2Fb4117896f5a2077af390f371.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-10-30"
+                            "release_date": "2021-10-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Rice Burger / Pizza",
                             "image": "https://image.tmdb.org/t/p/original/8Msx7VQl8ZUkPw6Y7qrwPh8jwaY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9e9c429cc99658d6af45d24a%2F9e9c429cc99658d6af45d24a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-11-06"
+                            "release_date": "2021-11-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Okonomiyaki / Green Tea Shaved Ice",
                             "image": "https://image.tmdb.org/t/p/original/lCICPsTlvOC0QFT20rQqT9TptLg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F8d19fc55529a45332539a4b5%2F8d19fc55529a45332539a4b5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-11-13"
+                            "release_date": "2021-11-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1340.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Roast Beef / Cheesecake Again",
                             "image": "https://image.tmdb.org/t/p/original/gqveOvoXYG4DjA1dpiNxxomZGZU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F5ec50519f875c8ef7cff8732%2F5ec50519f875c8ef7cff8732.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-11-20"
+                            "release_date": "2021-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Macaroni Gratin / Fruit Jelly",
                             "image": "https://image.tmdb.org/t/p/original/uuTJLlqrYfTC0scrTUTjzi6xw4q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F80478716623e5ccd380ad590%2F80478716623e5ccd380ad590.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-11-27"
+                            "release_date": "2021-11-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Teriyaki Burger / Chocolate Parfait Again",
                             "image": "https://image.tmdb.org/t/p/original/eQHxPLhgDgR0N2AlzpLQxYwkDn8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fdddc030eda55fa8b73be5874%2Fdddc030eda55fa8b73be5874.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-12-04"
+                            "release_date": "2021-12-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Quiche / Coffee Float",
                             "image": "https://image.tmdb.org/t/p/original/bQ0vsy9N7iVhjQJmXNQ8vq7lGsH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ff7fae6a6432f45664909a263%2Ff7fae6a6432f45664909a263.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-12-11"
+                            "release_date": "2021-12-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Pork Loin Cutlet / Buffet",
                             "image": "https://image.tmdb.org/t/p/original/7r8Ws6DYCJETUFDFp6CV46CUCLI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fbc174cb21f98a218e67c95c2%2Fbc174cb21f98a218e67c95c2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2021-12-18"
+                            "release_date": "2021-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.2,
+                                        "end": 1411.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

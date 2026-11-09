@@ -16,175 +16,545 @@
                             "image": "https://image.tmdb.org/t/p/original/g7Grem5RKCCWsLOEbnagP1dKkEG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4DaqwSkg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4DaqwSkg",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-10-05"
+                            "release_date": "2011-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.2,
+                                        "end": 167.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Red That Is",
                             "image": "https://image.tmdb.org/t/p/original/rUBttDlRedG8j0I0fglGLrcdgf2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMZmSlRio%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMZmSlRio",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-10-12"
+                            "release_date": "2011-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140,
+                                        "end": 208.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - From the Crystal White Snow",
                             "image": "https://image.tmdb.org/t/p/original/8KUsGdIf9RWsXmXQ1mWKEc7e4FV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3S4aR4D1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3S4aR4D1",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-10-19"
+                            "release_date": "2011-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.2,
+                                        "end": 144.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - A Whirlwind of Flower Petals Descends",
                             "image": "https://image.tmdb.org/t/p/original/mcyi9AWtowDx5fc5q01f7TcGDVr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1Yuccmdf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1Yuccmdf",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-10-26"
+                            "release_date": "2011-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.8,
+                                        "end": 147.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.6,
+                                        "end": 1357
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Sight of a Midnight Moon",
                             "image": "https://image.tmdb.org/t/p/original/zLNd0BM0RRITjEYG0Fagf1uxsK4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJ633DeAR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJ633DeAR",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-11-02"
+                            "release_date": "2011-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Now Bloom Inside the Nine-fold Palace",
                             "image": "https://image.tmdb.org/t/p/original/wbb7NRSRO3K5ABUUaK6Y079nF2p.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMw6RCguP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMw6RCguP",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-11-09"
+                            "release_date": "2011-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 145.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - But for Autumn's Coming",
                             "image": "https://image.tmdb.org/t/p/original/gxCLeeo1lF9WASykuwnw6q11cSh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZh05PGYc%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZh05PGYc",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-11-16"
+                            "release_date": "2011-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 148.2,
+                                        "end": 217.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Sounds of the Waterfall",
                             "image": "https://image.tmdb.org/t/p/original/7inrcJlU11SI8tBu4zUhbLEN2l7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLHa3lBVu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLHa3lBVu",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-11-23"
+                            "release_date": "2011-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.2,
+                                        "end": 239.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1263.3,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - But I Cannot Hide",
                             "image": "https://image.tmdb.org/t/p/original/5g6oQJ9I3LXcLGGK8ag9x4UuF6o.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRGV3uKYK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRGV3uKYK",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-11-30"
+                            "release_date": "2011-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1253.6,
+                                        "end": 1305.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Exchange Hellos And Goodbyes",
                             "image": "https://image.tmdb.org/t/p/original/bhpGZO4iob90KB5Ww0hDoLYweBe.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fa34n2HKs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fa34n2HKs",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-12-07"
+                            "release_date": "2011-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 104.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Sky is the Road Home",
                             "image": "https://image.tmdb.org/t/p/original/YktyD9hTRtpqLffzZOZCKck41d.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHceLeTrA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHceLeTrA",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-12-14"
+                            "release_date": "2011-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.2,
+                                        "end": 168.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Sets These Forbidden Fields Aglow",
                             "image": "https://image.tmdb.org/t/p/original/9BeRTzMi6BrzjvYhcW0tya98Fhh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuIF7v83n%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuIF7v83n",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2011-12-21"
+                            "release_date": "2011-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 106.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - For You, I Head Out",
                             "image": "https://image.tmdb.org/t/p/original/gAOcfJvOCK9tBy6LoArctz9SvqO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnSPWWUin%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnSPWWUin",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-01-04"
+                            "release_date": "2012-01-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.2,
+                                        "end": 167.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.9,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - For There Is No One Else Out Here",
                             "image": "https://image.tmdb.org/t/p/original/gZPSvWC4Kt0uqTBb8za9YHKUjJz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FTLpqVu6S%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FTLpqVu6S",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-01-11"
+                            "release_date": "2012-01-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.9,
+                                        "end": 141.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - As Though Pearls Have Been Strung Across the Autumn Plain",
                             "image": "https://image.tmdb.org/t/p/original/2rMv90qavn30q3TDu0XDVKneqxG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQwDKzLYn%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQwDKzLYn",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-01-18"
+                            "release_date": "2012-01-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - The Autumn Leaves of Mount Ogura",
                             "image": "https://image.tmdb.org/t/p/original/gag4J19TaDCTXOv24ILexPf3p2X.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSNhYFVnF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSNhYFVnF",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-01-25"
+                            "release_date": "2012-01-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 272.2,
+                                        "end": 341.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1227.2,
+                                        "end": 1296
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - World Offers No Escape",
                             "image": "https://image.tmdb.org/t/p/original/iPDa1ABhjhOuQ1YyetEj1hAu4AI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOh4FMiks%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOh4FMiks",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-02-01"
+                            "release_date": "2012-02-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.2,
+                                        "end": 193.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.1,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - The Plum Blossoms Still Smell the Same",
                             "image": "https://image.tmdb.org/t/p/original/m5P6FyR7EXcVwlpSUtXmpsCmaYQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9BucJjnO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9BucJjnO",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-02-08"
+                            "release_date": "2012-02-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 166.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - As the Years Pass",
                             "image": "https://image.tmdb.org/t/p/original/ba4dsV1yH4mxqbB22jPeeScabUg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZ5wYsWQK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZ5wYsWQK",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-02-15"
+                            "release_date": "2012-02-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 119.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - The Cresting Waves Almost Look Like Clouds in the Skies",
                             "image": "https://image.tmdb.org/t/p/original/zRTavn4oplUHX2FVPxUiPhwkjjw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEf9YRMUw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEf9YRMUw",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-02-22"
+                            "release_date": "2012-02-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 163.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.8,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - As My Sleeves Are Wet with Dew",
                             "image": "https://image.tmdb.org/t/p/original/wLLd9xZ8Ad9WRMBOy8CZhioXVt4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhHXtK1GR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhHXtK1GR",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-02-29"
+                            "release_date": "2012-02-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.2,
+                                        "end": 88.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1272.8,
+                                        "end": 1305.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Just as My Beauty Has Faded",
                             "image": "https://image.tmdb.org/t/p/original/gZFC7vgVHYdw1nA3LbSE0iSSvgM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fs8mxBZac%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fs8mxBZac",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-03-07"
+                            "release_date": "2012-03-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 102.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.6,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The Night is Nearly Past",
                             "image": "https://image.tmdb.org/t/p/original/eyTVfbYTtVC9a0n6FVXkTzR85ll.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhOituyiS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhOituyiS",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-03-14"
+                            "release_date": "2012-03-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21.2,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Nobody Wishes to See the Beautiful Cherry Blossoms",
                             "image": "https://image.tmdb.org/t/p/original/8eb289iYWzQNr7vMqY3gilk7Kbo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWxGpzSrf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWxGpzSrf",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-03-21"
+                            "release_date": "2012-03-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.3,
+                                        "end": 160.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1356.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Moonlight, Clear and Bright",
                             "image": "https://image.tmdb.org/t/p/original/keh1UVALrw846Ek9yG2WAoODv0j.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FStzIQ58V%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FStzIQ58V",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2012-03-28"
+                            "release_date": "2012-03-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.2,
+                                        "end": 105.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

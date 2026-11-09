@@ -20,91 +20,276 @@
                             "image": "https://image.tmdb.org/t/p/original/4kP9LokDvo8houeyTzBBuV8R1zE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9NdsjWjI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9NdsjWjI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-07-07"
+                            "release_date": "2015-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.2,
+                                        "end": 193.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.2,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ผู้พิทักษ์ชั้นต่างๆ",
                             "image": "https://image.tmdb.org/t/p/original/5o2lrKAxesQgnxpaJVhwWXUWP7U.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhPUkVy94%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhPUkVy94",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-07-14"
+                            "release_date": "2015-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.7,
+                                        "end": 230
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.1,
+                                        "end": 1417
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - สมรภูมิรบหมู่บ้านคาร์เน่",
                             "image": "https://image.tmdb.org/t/p/original/xwHETk5U7IQuKvugwH07lqUk1sG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDj2AJsmU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDj2AJsmU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-07-21"
+                            "release_date": "2015-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.7,
+                                        "end": 227
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.1,
+                                        "end": 1417.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ผู้ควบคุมความตาย",
                             "image": "https://image.tmdb.org/t/p/original/bqo2kd8GL2YzSnh8WOVV6zeJQEi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPWvhEkc4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPWvhEkc4",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-07-28"
+                            "release_date": "2015-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.8,
+                                        "end": 127
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.4,
+                                        "end": 1374.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - สองนักผจญภัย",
                             "image": "https://image.tmdb.org/t/p/original/nhhoW3Bbi1tzeJ1P6HRJbPZl6wl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUBWLSMP1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUBWLSMP1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-08-04"
+                            "release_date": "2015-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.5,
+                                        "end": 270
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.7,
+                                        "end": 1417.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - การเดินทาง",
                             "image": "https://image.tmdb.org/t/p/original/jafvepAxmwgeWVqqUVMaiuiw0WR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FgqA1oG0l%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FgqA1oG0l",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-08-11"
+                            "release_date": "2015-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.1,
+                                        "end": 214
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.3,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ราชาผู้ปราดเปรื่องแห่งผืนป่า",
                             "image": "https://image.tmdb.org/t/p/original/9hvjs6o3rml3XweLkTwAtJMCWU9.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4SFZYCcR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4SFZYCcR",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-08-18"
+                            "release_date": "2015-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.8,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.7,
+                                        "end": 1416.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ดาบคู่แห่งความตายแสนโหดเหี้ยม",
                             "image": "https://image.tmdb.org/t/p/original/qIAnSTmlbf11vHbeHPnZ0bIGStN.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRQzc57e7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRQzc57e7",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-08-25"
+                            "release_date": "2015-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.9,
+                                        "end": 204.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328,
+                                        "end": 1417.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - นักรบมืด",
                             "image": "https://image.tmdb.org/t/p/original/AqW3PZN2qOPN8OSqBdbnIuY4AUJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F50SUZhEz%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F50SUZhEz",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-09-01"
+                            "release_date": "2015-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.8,
+                                        "end": 182
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.8,
+                                        "end": 1364.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ผีดูดเลือดตัวจริง",
                             "image": "https://image.tmdb.org/t/p/original/yPz3YYvU8efYVyrMcv6Ij2ZoVpE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F06Ejxwwk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F06Ejxwwk",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-09-08"
+                            "release_date": "2015-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.8,
+                                        "end": 221.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.4,
+                                        "end": 1417.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ความสับสนกับความเข้าใจ",
                             "image": "https://image.tmdb.org/t/p/original/fUtckv6eojYgH9KrRQxztBcnucM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZncrSsP5%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZncrSsP5",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-09-15"
+                            "release_date": "2015-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.9,
+                                        "end": 128.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.1,
+                                        "end": 1417.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - วัลคีรีสีเลือด",
                             "image": "https://image.tmdb.org/t/p/original/hnsec9b5wfmYuxGVp12QOH6NLgb.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Frpp0I2Ec%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Frpp0I2Ec",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-09-22"
+                            "release_date": "2015-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.9,
+                                        "end": 156.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ผู้เล่นปะทะตัวละครไร้ผู้เล่น",
                             "image": "https://image.tmdb.org/t/p/original/nsqs2ba2U8FRj2CAzoZ85DNdEov.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvGscflYU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvGscflYU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-09-29"
+                            "release_date": "2015-09-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.2,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -131,91 +316,255 @@
                             "image": "https://image.tmdb.org/t/p/original/y5PNWb3BLSVUOdhEx8f7AOqoG7Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FunKxz1eB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FunKxz1eB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-01-09"
+                            "release_date": "2018-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1366.9,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ออกเดินทาง",
                             "image": "https://image.tmdb.org/t/p/original/i6OL55ZFealwKazhKreCZmIkMmp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FeAgYZMaY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FeAgYZMaY",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-01-16"
+                            "release_date": "2018-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1367.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - มนุษย์กิ้งก่าระดมพล",
                             "image": "https://image.tmdb.org/t/p/original/ejax8jW5gp75r362PiymeugWLxt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRJ9yjg7m%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRJ9yjg7m",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-01-23"
+                            "release_date": "2018-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.2,
+                                        "end": 245.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1378.6,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - กองทัพแห่งความตาย",
                             "image": "https://image.tmdb.org/t/p/original/jhapIiQz6QWRROxRyo7VYw5uz6A.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLZmEK2yz%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLZmEK2yz",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-01-30"
+                            "release_date": "2018-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.2,
+                                        "end": 201.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - เทพน้ำแข็ง",
                             "image": "https://image.tmdb.org/t/p/original/pEnciyobmifN1ApNL3x99Ou9BG8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FDT3gRW21%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FDT3gRW21",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-02-06"
+                            "release_date": "2018-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 192.2,
+                                        "end": 281.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ผู้อุปถัมภ์และผู้ที่ถูกเก็บมา",
                             "image": "https://image.tmdb.org/t/p/original/oxpjVxdIhB0ikGDfH821lJnXnKA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJKD1iirp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJKD1iirp",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-02-13"
+                            "release_date": "2018-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.2,
+                                        "end": 242.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - กลุ่มบลูโรส",
                             "image": "https://image.tmdb.org/t/p/original/zjuGVNiSV97XPBzbCQBAYEOK9hI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3gVVaA2A%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3gVVaA2A",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-02-20"
+                            "release_date": "2018-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.2,
+                                        "end": 222.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ความรู้สึกของเด็กหนุ่ม",
                             "image": "https://image.tmdb.org/t/p/original/yUqKFACvVllHwTgpl79ruDC34iR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FG62nmLtD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FG62nmLtD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-02-27"
+                            "release_date": "2018-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.8,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - เปลวไฟพุ่งทะยาน",
                             "image": "https://image.tmdb.org/t/p/original/diNisbwHkTEM6vkQlJRyEwikykB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FM6vHt7vu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FM6vHt7vu",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-03-06"
+                            "release_date": "2018-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 106.2,
+                                        "end": 195.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1293.8,
+                                        "end": 1350.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ความปั่นป่วนในเมืองหลวงเริ่มต้นขึ้น",
                             "image": "https://image.tmdb.org/t/p/original/ap6Pic1Vm5wWEyG0YuLBtbcyhjJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxTeRKqa7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxTeRKqa7",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-03-13"
+                            "release_date": "2018-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23,
+                                        "end": 111.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - จัลดาบาโอท",
                             "image": "https://image.tmdb.org/t/p/original/is8hObrVoJhOUi5s5S7eMAEmEOF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FT4MYMlSO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FT4MYMlSO",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-03-20"
+                            "release_date": "2018-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.2,
+                                        "end": 239.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.9,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ศึกแห่งความปั่นป่วนครั้งสุดท้าย",
                             "image": "https://image.tmdb.org/t/p/original/qRAnxDWlk2HRHiEBUvMHIPJgFeI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1mlYWxBg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1mlYWxBg",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-03-27"
+                            "release_date": "2018-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 121.2,
+                                        "end": 210.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - อาวุธลับสุดยอด",
                             "image": "https://image.tmdb.org/t/p/original/jLxv81N8jcKlQlYXYA9R2BM39aA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Frt6hdmVP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Frt6hdmVP",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-04-03"
+                            "release_date": "2018-04-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -242,91 +591,266 @@
                             "image": "https://image.tmdb.org/t/p/original/hRQV2GxCEs4py7JQ99nv3rnqIHm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnUa3hlvD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnUa3hlvD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-07-10"
+                            "release_date": "2018-07-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 154.2,
+                                        "end": 244.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1273.2,
+                                        "end": 1304.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - เยือนหมู่บ้านคาร์เน่อีกครั้ง",
                             "image": "https://image.tmdb.org/t/p/original/5MTK1vSA9Yjh0NcsfxuGWtlLpIr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFhnY7Rxx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFhnY7Rxx",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-07-17"
+                            "release_date": "2018-07-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.3,
+                                        "end": 187.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - วันที่วุ่นวายและน่าตื่นเต้นของเอนรี่",
                             "image": "https://image.tmdb.org/t/p/original/nBtno6Z2cNEQlcqfeyZBxzHKkEx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnstpP8tj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnstpP8tj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-07-24"
+                            "release_date": "2018-07-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1364
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ยักษ์แห่งทิศบูรพา งูปีศาจแห่งทิศประจิม",
                             "image": "https://image.tmdb.org/t/p/original/37Jmrqot5NsGiFWTpT4PDJ652UA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVBEt9bSZ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVBEt9bSZ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-07-31"
+                            "release_date": "2018-07-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.2,
+                                        "end": 176
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ผู้นำสองคน",
                             "image": "https://image.tmdb.org/t/p/original/oMqo6oyjnrwaDXC1M2HGB4FbJeh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFkkqz4fA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFkkqz4fA",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-08-07"
+                            "release_date": "2018-08-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.2,
+                                        "end": 137.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - บัตรเชิญแห่งความตาย",
                             "image": "https://image.tmdb.org/t/p/original/7OjOmPIaUSn6N3Qp5OaKJV7EiCm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPQ6l7NpB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPQ6l7NpB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-08-14"
+                            "release_date": "2018-08-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.3,
+                                        "end": 216.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ผีเสื้อที่ติดกับใยแมงมุม",
                             "image": "https://image.tmdb.org/t/p/original/kYeA85N4nZQy9Qqk0f97EiSKEXK.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdsG3oIee%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdsG3oIee",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-08-21"
+                            "release_date": "2018-08-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.3,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.9,
+                                        "end": 1391.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ความหวังอันริบหรี่",
                             "image": "https://image.tmdb.org/t/p/original/oWWXfvqNzRad3ZKyELAL9Mvn5AY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHQAti7ua%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHQAti7ua",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-08-28"
+                            "release_date": "2018-08-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.3,
+                                        "end": 121.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1185.4,
+                                        "end": 1243.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - สงครามคารม",
                             "image": "https://image.tmdb.org/t/p/original/iW5bHIxzTTmmlh6gJg4gpaTVXCM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbRrWPuMF%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbRrWPuMF",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-09-04"
+                            "release_date": "2018-09-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 150.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - เตรียมพร้อมรบ",
                             "image": "https://image.tmdb.org/t/p/original/b9zmtMt3zU0qpjvtWECFMA3207V.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9ByghK19%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9ByghK19",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-09-11"
+                            "release_date": "2018-09-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.2,
+                                        "end": 130.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - การต่อสู้อีกครั้งหนึ่ง",
                             "image": "https://image.tmdb.org/t/p/original/h1lqFum5vH0gsAVYIwTuK2eDAU5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSQUK4KwM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSQUK4KwM",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-09-18"
+                            "release_date": "2018-09-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.3,
+                                        "end": 147.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ฆ่าล้างบาง",
                             "image": "https://image.tmdb.org/t/p/original/o0kr52klt1Qv3EwQjpCrM7gwd4M.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVcvgFSRo%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVcvgFSRo",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-09-25"
+                            "release_date": "2018-09-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 187
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ตัวต่อตัว",
                             "image": "https://image.tmdb.org/t/p/original/9kpZeXSUhmwqpNlbK1u6m1hc80h.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRoXViMny%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRoXViMny",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2018-10-02"
+                            "release_date": "2018-10-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -353,21 +877,45 @@
                             "image": "https://image.tmdb.org/t/p/original/iwkVCzzY3Z9utQKDIJbbRKR8QsJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnX513Vdy%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnX513Vdy",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-07-05"
+                            "release_date": "2022-07-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 2 - อาณาจักรรี เอสตีเซ",
                             "image": "https://image.tmdb.org/t/p/original/D2C1STGhW0v4fQLEpVFTXexb96.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FofesRSzM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FofesRSzM",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-07-12"
+                            "release_date": "2022-07-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1293.8,
+                                        "end": 1346.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - จักรวรรดิบาฮารุส",
                             "image": "https://image.tmdb.org/t/p/original/nihWW8H0xwqMIRhVzghWZHVJN3J.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fgws0XCNq%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fgws0XCNq",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-07-19"
+                            "release_date": "2022-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.7,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - เจ้าผู้ปกครองจอมอุบาย",
@@ -381,63 +929,182 @@
                             "image": "https://image.tmdb.org/t/p/original/8EODEwH5P98cBhASmtEgrjydDEI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlD2xIWAP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlD2xIWAP",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-08-02"
+                            "release_date": "2022-08-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 179.3,
+                                        "end": 268.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1347.7,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - เจ้าผู้ปกครองจอมอุบาย",
                             "image": "https://image.tmdb.org/t/p/original/cdKnnv4TT6WtqwlVi1mIJZhEd19.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F72ZxYWE3%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F72ZxYWE3",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-08-09"
+                            "release_date": "2022-08-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.2,
+                                        "end": 174.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1354.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ราชามังกรน้ำแข็ง",
                             "image": "https://image.tmdb.org/t/p/original/gJ59fROhqNKmOmWTjDbWPaI5Ifu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiYBYQgeg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiYBYQgeg",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-08-16"
+                            "release_date": "2022-08-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.2,
+                                        "end": 164.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.7,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การลงมือที่ไม่คาดคิด",
                             "image": "https://image.tmdb.org/t/p/original/miWRzjH7KQOTwVs8JtwJvSFXDbI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FD7ONkH6f%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FD7ONkH6f",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-08-23"
+                            "release_date": "2022-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 161.2,
+                                        "end": 251
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1383.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - นับถอยหลังสู่จุดจบ",
                             "image": "https://image.tmdb.org/t/p/original/mM3GDYi4Zx2OjcmdLm5xdxhU78n.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPVXItOkJ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPVXItOkJ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-08-30"
+                            "release_date": "2022-08-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.2,
+                                        "end": 116.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.2,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ราชาองค์สุดท้าย",
                             "image": "https://image.tmdb.org/t/p/original/4Fooq9uyPByLoClZbgq5kh0jh38.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQORljcji%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQORljcji",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-09-06"
+                            "release_date": "2022-09-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 123.2,
+                                        "end": 212.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - หลุมพรางที่แยบยล",
                             "image": "https://image.tmdb.org/t/p/original/t73YTLD7Wm7gD5ZgKjt5Xvavyne.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhxvIhT2H%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhxvIhT2H",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-09-13"
+                            "release_date": "2022-09-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 155
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - บุกเมืองหลวง",
                             "image": "https://image.tmdb.org/t/p/original/u449dFidrESWD0cIw9nvEO8eLRo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4XcFt3JE%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4XcFt3JE",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-09-20"
+                            "release_date": "2022-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 212.2,
+                                        "end": 301.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - แม่มดแห่งอาณาจักรล่มสลาย",
                             "image": "https://image.tmdb.org/t/p/original/qF8JQjzOawnS6LJp4JxIv2APDqi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fy0gp6Wsk%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fy0gp6Wsk",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2022-09-27"
+                            "release_date": "2022-09-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"

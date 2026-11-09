@@ -467,105 +467,335 @@
                             "image": "https://image.tmdb.org/t/p/original/iO77FVGzwJnBJ9tInjkOJRlY7LW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FsuQi0StU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FsuQi0StU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-12-11"
+                            "release_date": "2002-12-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.9,
+                                        "end": 100.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.7,
+                                        "end": 1324.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Top Player in Hiroshima",
                             "image": "https://image.tmdb.org/t/p/original/6I0D2blRJisCIvurrX3W1Jh3hfi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F37ALCpui%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F37ALCpui",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-12-18"
+                            "release_date": "2002-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.1,
+                                        "end": 99.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.4,
+                                        "end": 1323.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I Won't Play Anymore",
                             "image": "https://image.tmdb.org/t/p/original/gkMadwnqEPa7CTB47e1FytgxE6r.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FIwbfiu6l%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FIwbfiu6l",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2002-12-25"
+                            "release_date": "2002-12-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 7.1,
+                                        "end": 100.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1241.8,
+                                        "end": 1325.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Keichou Flowerpots",
                             "image": "https://image.tmdb.org/t/p/original/FOIZKHZtrLAV9ZovMeyQBjdEf0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlJciqA0H%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlJciqA0H",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-01-08"
+                            "release_date": "2003-01-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.6,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1240,
+                                        "end": 1324.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Isumi no Go",
                             "image": "https://image.tmdb.org/t/p/original/ddBzWDMBdElsrjrVX5MOzJqKu7Z.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3juznTtK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3juznTtK",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-01-05"
+                            "release_date": "2003-01-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.4,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237,
+                                        "end": 1324.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Fated Encounter",
                             "image": "https://image.tmdb.org/t/p/original/8e3r8vqDdtum8KzWNZd4qtoTmB5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSsOjSLp1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSsOjSLp1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-01-22"
+                            "release_date": "2003-01-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.2,
+                                        "end": 100.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.2,
+                                        "end": 1324.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Isumi tested",
                             "image": "https://image.tmdb.org/t/p/original/pWqPTiR3WXJU3RNfOwQyVIYw4C8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F13XS5pvp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F13XS5pvp",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-01-29"
+                            "release_date": "2003-01-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.3,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.8,
+                                        "end": 1326.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Forfeits",
                             "image": "https://image.tmdb.org/t/p/original/jUDoi8YWfcIDtXIKTqspmAdloK8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhiD5zV2x%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhiD5zV2x",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-02-05"
+                            "release_date": "2003-02-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.5,
+                                        "end": 100.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.9,
+                                        "end": 1322.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Determined Visitor",
                             "image": "https://image.tmdb.org/t/p/original/5LoUnlti4wEwE6PybHLFPAp2NZM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FXEIzNBY6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FXEIzNBY6",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-02-12"
+                            "release_date": "2003-02-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.2,
+                                        "end": 99.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.5,
+                                        "end": 1323.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Sai was here...",
                             "image": "https://image.tmdb.org/t/p/original/agOeuauN9S05db0NEJC8yzGOP6r.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUO5HZbwN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUO5HZbwN",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-02-19"
+                            "release_date": "2003-02-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 7.4,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1236.6,
+                                        "end": 1324.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1355,
+                                        "end": 1365.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The First Comeback Match",
                             "image": "https://image.tmdb.org/t/p/original/u65CWwapJU3RWfRYm36np1D2CEL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkBwXKSYR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkBwXKSYR",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-02-26"
+                            "release_date": "2003-02-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.3,
+                                        "end": 99.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.7,
+                                        "end": 1322.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - And so they began to run",
                             "image": "https://image.tmdb.org/t/p/original/b6AgPKSiQRtP37G8Bsd6dofj7LV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FATX5PtXV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FATX5PtXV",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-03-05"
+                            "release_date": "2003-03-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.1,
+                                        "end": 99.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.7,
+                                        "end": 1322.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Shindou vs Touya",
                             "image": "https://image.tmdb.org/t/p/original/h8bcBwFqOJhKVXqfIWIpAqOaHME.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkknBf9D2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkknBf9D2",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-03-12"
+                            "release_date": "2003-03-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.6,
+                                        "end": 99.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.5,
+                                        "end": 1321.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Forever Inside You",
                             "image": "https://image.tmdb.org/t/p/original/m8dLi9nPFFKpbr25gvbVQyfWXuU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhWdRK5aB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhWdRK5aB",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-03-19"
+                            "release_date": "2003-03-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 99.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.4,
+                                        "end": 1323.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - That Same Old Smile",
                             "image": "https://image.tmdb.org/t/p/original/jOdgeoEL7ut23rHTGNt3ktD5pGT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVMOq7wui%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVMOq7wui",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2003-03-26"
+                            "release_date": "2003-03-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 100
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.5,
+                                        "end": 1336.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

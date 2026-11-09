@@ -208,84 +208,249 @@
                             "image": "https://image.tmdb.org/t/p/original/wNeKfTka6lIDQCGpZuOMATv0UJD.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/qPx5hapv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-04-10"
+                            "release_date": "2019-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.6,
+                                        "end": 1411
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - มนุษย์ประหลาด",
                             "image": "https://image.tmdb.org/t/p/original/b72sZdqHch1PdqUVF86a66KNu09.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/kWU1GBBl/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-04-17"
+                            "release_date": "2019-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 220.5,
+                                        "end": 309.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1222.6,
+                                        "end": 1312.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - เริ่มการล่า",
                             "image": "https://image.tmdb.org/t/p/original/gedbotRXMOCUC7P9RblaHgw0LuL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EZhtGwY7/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-04-24"
+                            "release_date": "2019-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29,
+                                        "end": 117.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.6,
+                                        "end": 1359.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - กระบองเหล็ก",
                             "image": "https://image.tmdb.org/t/p/original/1I29xRhdTy6A1ybdPHc6Ke4fRV2.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/VHd4ptH/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-05-01"
+                            "release_date": "2019-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.4,
+                                        "end": 198.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.6,
+                                        "end": 1405.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - การประลองศิลปะการต่อสู้",
                             "image": "https://image.tmdb.org/t/p/original/us7myp7Us2h87nZ1f8ACZ6Fcaoz.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/W5IsF6bN/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-05-08"
+                            "release_date": "2019-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.1,
+                                        "end": 200.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1294.6,
+                                        "end": 1383.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สัตว์ประหลาดลุกฮือ",
                             "image": "https://image.tmdb.org/t/p/original/sN0T4orzh3HgMBFoKqI7xcYNjBI.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/9AX7ZSfn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-05-15"
+                            "release_date": "2019-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.2,
+                                        "end": 191
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1292,
+                                        "end": 1381.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ฮีโร่ระดับเอส",
                             "image": "https://image.tmdb.org/t/p/original/c9QhXBPVwOaayJ04FBt3OXjmafV.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/c4NsuMOL/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-05-22"
+                            "release_date": "2019-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.4,
+                                        "end": 115.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.3,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ต่อต้านผู้แข็งแกร่ง",
                             "image": "https://image.tmdb.org/t/p/original/tGKbogDzxuL8KlHOkYm6yKlUzFU.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/erEXOtBK/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-05-29"
+                            "release_date": "2019-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.5,
+                                        "end": 173.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ปัญหาของจอมพลัง",
                             "image": "https://image.tmdb.org/t/p/original/on2YtDbgc6KdbKpRy2DFHShRZP3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/vJTFQCCX/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-06-12"
+                            "release_date": "2019-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.4,
+                                        "end": 118.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ความยุติธรรมถูกโจมตี",
                             "image": "https://image.tmdb.org/t/p/original/zD7LqTECY0MKFVCjsNbdOrBWFQs.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/IS9lRlbJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-06-19"
+                            "release_date": "2019-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.4,
+                                        "end": 185.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1424.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ภาคภูมิหลากหลาย",
                             "image": "https://image.tmdb.org/t/p/original/pILt8SA33A6x06qRg3CgNEiKxs0.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/nleg8nuY/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-06-26"
+                            "release_date": "2019-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 159.4,
+                                        "end": 249
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1424.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - จัดการเหล่าศิษย์ให้เรียบ",
                             "image": "https://image.tmdb.org/t/p/original/vcZkOnTOa9d5K94DkO604RuRuMU.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/x6ZzEHPR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2019-07-03"
+                            "release_date": "2019-07-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.3,
+                                        "end": 1408.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -400,84 +565,254 @@
                             "image": "https://image.tmdb.org/t/p/original/vcyxcIh8GeQBFaFlyDxhbEMB2Ta.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/nahuOa3U8J/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-10-12"
+                            "release_date": "2025-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23,
+                                        "end": 100.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.7,
+                                        "end": 1355.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Monster Traits",
                             "image": "https://image.tmdb.org/t/p/original/eCY9QrCeDElIPruX90uROhbhSRi.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/K4llnmP3rv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-10-19"
+                            "release_date": "2025-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1248.5,
+                                        "end": 1337.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Organism Limits",
                             "image": "https://image.tmdb.org/t/p/original/fibP3gymhfGFGpQSl4ShKKiwjy6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Og3byvTNWt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-10-26"
+                            "release_date": "2025-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.6,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Counterattack Signal",
                             "image": "https://image.tmdb.org/t/p/original/igc9g4lPXA9LfJJq6ljMzZZBTr8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Dp0eOoBRCy/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-11-02"
+                            "release_date": "2025-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.1,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1441
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Monster King",
                             "image": "https://image.tmdb.org/t/p/original/wH70Brocp4BYrGeXmIUkbm2JrU9.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xft8nhJtRp/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-11-09"
+                            "release_date": "2025-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Motley Heroes",
                             "image": "https://image.tmdb.org/t/p/original/kKSF9IqTMWdm4sGKCk47Lmt7UCl.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SJY7n3yUuv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-11-16"
+                            "release_date": "2025-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.1,
+                                        "end": 100.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1267,
+                                        "end": 1356.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Counterstrike",
                             "image": "https://image.tmdb.org/t/p/original/6nLWHeOz01N71TSoYqmzyYNBbxg.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/2XBVDKN63/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-11-23"
+                            "release_date": "2025-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 223.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.5,
+                                        "end": 1395.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Ninja Tale",
                             "image": "https://image.tmdb.org/t/p/original/3vCNftYMhm5kBCpp4InjgKkYVV1.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/b73GPIZ0at/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-11-30"
+                            "release_date": "2025-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Brave Child",
                             "image": "https://image.tmdb.org/t/p/original/5MlU6IV9rJFKXLdi8psKHmIVqLP.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Wh0xWqhNU/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-12-07"
+                            "release_date": "2025-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 143.1,
+                                        "end": 220.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.7,
+                                        "end": 1441
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Immortal Bloodbath",
                             "image": "https://image.tmdb.org/t/p/original/ams5FvPo8vlbf7L76A9xcFMa91K.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/gA4IwJoBnD/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-12-14"
+                            "release_date": "2025-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1359.6,
+                                        "end": 1440.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Top Dragons",
                             "image": "https://image.tmdb.org/t/p/original/iKDIfRto3cb6hgWvhdsNp7bxEKk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/iX88K6aOm4/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-12-21"
+                            "release_date": "2025-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 179.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.5,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Ultimate Lifeform",
                             "image": "https://image.tmdb.org/t/p/original/3CkzWbeQUXTxfIbNghEOZBfOhPY.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NmMGDjDeyt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2025-12-28"
+                            "release_date": "2025-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113,
+                                        "end": 188.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1215.6,
+                                        "end": 1304.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -249,147 +249,462 @@
                             "image": "https://image.tmdb.org/t/p/original/fjcEzOz5FPWWTBqAA9RgYzPaoV1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ogiiPQqF/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-11-06"
+                            "release_date": "2005-11-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 143.1,
+                                        "end": 233
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.6,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Team MAR on the Ropes",
                             "image": "https://image.tmdb.org/t/p/original/jfJglslQAskkMHlzriQ4sfFy8nh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dXT4LRG/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-11-13"
+                            "release_date": "2005-11-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 180
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Aqua, Akko and the Nanashi Method",
                             "image": "https://image.tmdb.org/t/p/original/thxLlhiIuP8KUwe4pgOLzjMtKkV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HRKFGcNl/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-11-20"
+                            "release_date": "2005-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 192.4,
+                                        "end": 284
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Girom Counterattacks! Egola Vs. Gargoyle!",
                             "image": "https://image.tmdb.org/t/p/original/1CTeKUzwINUMF9OnLlWhueeVoRy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZMsBkLUW/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-11-27"
+                            "release_date": "2005-11-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.2,
+                                        "end": 239.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Sing, Crazy Quilt, Sing! Dorothy Vs. Rapunzel!",
                             "image": "https://image.tmdb.org/t/p/original/xOCZx1qD5dj7lFZUDHfDIVBdu34.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/03mM0b8X/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-12-04"
+                            "release_date": "2005-12-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 246.1,
+                                        "end": 336.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - To Caldia, the Land of Witches",
                             "image": "https://image.tmdb.org/t/p/original/eZBTEN0MXHHSsfe91VCrDmKo1Oz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tnsdOLSy/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-12-11"
+                            "release_date": "2005-12-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.1,
+                                        "end": 157.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Phantom Vs. Ginta",
                             "image": "https://image.tmdb.org/t/p/original/oTrOtux4d3yhzJ44f1IeOyzuMw1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bRa3tT5I/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-12-18"
+                            "release_date": "2005-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194.1,
+                                        "end": 284.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1423.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Ash, the Knight Who Protects Children",
                             "image": "https://image.tmdb.org/t/p/original/zKvOwDhdialER7coKQZoARWxnF5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3VVTG7uz/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2005-12-25"
+                            "release_date": "2005-12-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.1,
+                                        "end": 206.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The World's Ugliest Match! Snow Vs. Eemokis!",
                             "image": "https://image.tmdb.org/t/p/original/2mfmVYQGJ0GyL2yEyNvHUg5bB04.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/s02oRty/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-01-08"
+                            "release_date": "2006-01-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.1,
+                                        "end": 206.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1150.2,
+                                        "end": 1330.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Aalviss' Crisis: Stolen Magical Power!",
                             "image": "https://image.tmdb.org/t/p/original/6RbLLGokYrzZJHrUBbQVUoZYyiE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RnpqVx19/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-01-15"
+                            "release_date": "2006-01-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 232,
+                                        "end": 321.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Sensation! The Knight Candice, Stone User!",
                             "image": "https://image.tmdb.org/t/p/original/sTpkJWobO4jsFabz7tiv9Q5NM9X.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hlHcweTq/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-01-22"
+                            "release_date": "2006-01-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 177.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Battle Field of Death! The Psycho Space!",
                             "image": "https://image.tmdb.org/t/p/original/1mNPKvYpxZo4DymYmOmIn0E4hBz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SCgf56oI/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-01-29"
+                            "release_date": "2006-01-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 178.7,
+                                        "end": 264.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Fateful Mortal Combat! Nanashi Vs. Galian!",
                             "image": "https://image.tmdb.org/t/p/original/4frOId4GPKs0rBx5a9YaLP2yTOW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tS9FSIW6/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-02-05"
+                            "release_date": "2006-02-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 185.8,
+                                        "end": 271.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Lightning Vs. Lightning! Nanashi's Memory Returns!",
                             "image": "https://image.tmdb.org/t/p/original/q8AGEIEHx33MK7CXqRvLqdXNpDX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rcleaW7f/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-02-12"
+                            "release_date": "2006-02-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.2,
+                                        "end": 121.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - A Knight Reborn! Ian's Revenge!",
                             "image": "https://image.tmdb.org/t/p/original/8mvmVJ6rHc8D6fbRP3G0Rz5S2yO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BOCpNH0h/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-02-19"
+                            "release_date": "2006-02-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.2,
+                                        "end": 199
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Alviss' Struggle",
                             "image": "https://image.tmdb.org/t/p/original/rkv8IJdv85OFqNXSjpJkjgyASH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Eu2SqbDV/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-02-26"
+                            "release_date": "2006-02-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.2,
+                                        "end": 195.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Dorothy's Anger! The Desert Tower!",
                             "image": "https://image.tmdb.org/t/p/original/yz70qEScKR6BNJQGWV5UGDWwUtA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6rDDXMV7/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-03-05"
+                            "release_date": "2006-03-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.1,
+                                        "end": 212.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - The Zonnens Infiltrate the Training Gate!",
                             "image": "https://image.tmdb.org/t/p/original/8gkMdQ8X4iBeMGYDHxrVzFgjKAx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/liF18Xbs/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-03-12"
+                            "release_date": "2006-03-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.1,
+                                        "end": 217.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1421.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Alviss Vs. Nanashi! Forbidden Labyrinth!",
                             "image": "https://image.tmdb.org/t/p/original/hmuAXzvagxxB9Zh1nLZqbtLE4gc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Qfdjxl9/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-03-19"
+                            "release_date": "2006-03-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.1,
+                                        "end": 155.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.6,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Dorothy Vs. Snow! The Allure of Lippenstift",
                             "image": "https://image.tmdb.org/t/p/original/gyVBtYBvo4eF4JWDh7lE08EfqVm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SDvvZaO7/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-03-26"
+                            "release_date": "2006-03-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.2,
+                                        "end": 162.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1421.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Concentrate! The Power of the Sixth Sense!",
                             "image": "https://image.tmdb.org/t/p/original/hjcTjVNW09b368Cb22P7Cw8jDJh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0ZBIJgOE/video.mp4/playlist.m3u8",
                             "referer": "https://anime-hit.com/",
-                            "release_date": "2006-04-02"
+                            "release_date": "2006-04-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.1,
+                                        "end": 223.1
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

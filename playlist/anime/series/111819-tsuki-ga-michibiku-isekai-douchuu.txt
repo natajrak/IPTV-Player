@@ -15,84 +15,254 @@
                             "image": "https://image.tmdb.org/t/p/original/zw21ulawI2xjBbyUrsTbEU9bKDD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SQPSMScQRn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-07"
+                            "release_date": "2021-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - แมงมุมดำแห่งหายนะ",
                             "image": "https://image.tmdb.org/t/p/original/dZmhrXhl2LNZmns1fXG3aao6FCR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LqRKQpDvjO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-14"
+                            "release_date": "2021-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1414.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - มนุษย์ตื่นตระหนก",
                             "image": "https://image.tmdb.org/t/p/original/jNTQHpQrZSKSxESMAuAQZ4U5uav.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kUpQTP1Ot8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-21"
+                            "release_date": "2021-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.3,
+                                        "end": 131.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - เทศกาลหลังจากนั้น",
                             "image": "https://image.tmdb.org/t/p/original/6cGpr8NWl0oBXJjuhdFTddbmv6a.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zEXKt9F3J8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-28"
+                            "release_date": "2021-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 191.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - การเดินทางรถม้าแห่งความโลภ",
                             "image": "https://image.tmdb.org/t/p/original/kojoqUmD4NDzhuXaUEUz8UhgeK3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oNPK9evqoS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-04"
+                            "release_date": "2021-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.2,
+                                        "end": 175.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ความเศร้าโศกของคนหล่อวัยกลางคน",
                             "image": "https://image.tmdb.org/t/p/original/5SdqqCz6ExAjJSaeLemQfxff7Q7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rrE867XjC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-11"
+                            "release_date": "2021-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 165.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - กลั่นยาลับ",
                             "image": "https://image.tmdb.org/t/p/original/acQhdkyDknwHmP6OzfvN14kPucD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tJ6xwnDA88/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-18"
+                            "release_date": "2021-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.3,
+                                        "end": 113.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การจัดอันดับพื้นที่ย่อย",
                             "image": "https://image.tmdb.org/t/p/original/jJIygE3kYQmE50UEgBu2IFcsdtd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8Kjm2cc4kX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-25"
+                            "release_date": "2021-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ไม่กินก็ต้องถูกกิน",
                             "image": "https://image.tmdb.org/t/p/original/1GXgJpLvpWwidVFAjXJdMKG3WMh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NqMFSaCyFK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-01"
+                            "release_date": "2021-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 118.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - หมู่บ้านที่ผีหลบซ่อน",
                             "image": "https://image.tmdb.org/t/p/original/tddj0cjLtCY3YQSrtf36SwxheX3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RK8ygCYLMW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-08"
+                            "release_date": "2021-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ลาก่อนนะ",
                             "image": "https://image.tmdb.org/t/p/original/pyQMXauyiF767uWHG0K2gH5ccrq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZqcCDI8CbN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-15"
+                            "release_date": "2021-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 104.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ใต้แสงจันทร์",
                             "image": "https://image.tmdb.org/t/p/original/labur9NDw5fUgsnFkEOhX1MNbZP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LTHETZ7jrC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-22"
+                            "release_date": "2021-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.3,
+                                        "end": 143.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1414.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -107,84 +277,254 @@
                             "image": "https://image.tmdb.org/t/p/original/zw21ulawI2xjBbyUrsTbEU9bKDD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tP6bT9b/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-07"
+                            "release_date": "2021-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.7,
+                                        "end": 135
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Black Spider of Disaster",
                             "image": "https://image.tmdb.org/t/p/original/dZmhrXhl2LNZmns1fXG3aao6FCR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/t7yw4rGL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-14"
+                            "release_date": "2021-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.9,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.9,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Human Shock",
                             "image": "https://image.tmdb.org/t/p/original/jNTQHpQrZSKSxESMAuAQZ4U5uav.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CADuWj3M/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-21"
+                            "release_date": "2021-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.1,
+                                        "end": 130.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.1,
+                                        "end": 1412.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Too Late",
                             "image": "https://image.tmdb.org/t/p/original/6cGpr8NWl0oBXJjuhdFTddbmv6a.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jTZXiOUr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-07-28"
+                            "release_date": "2021-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.2,
+                                        "end": 191.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Greedy Wagon's Journey",
                             "image": "https://image.tmdb.org/t/p/original/kojoqUmD4NDzhuXaUEUz8UhgeK3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/N7kfuiRO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-04"
+                            "release_date": "2021-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.2,
+                                        "end": 175.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Melancholy of Handsome Middle-Aged Men",
                             "image": "https://image.tmdb.org/t/p/original/5SdqqCz6ExAjJSaeLemQfxff7Q7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/I7m8wDyK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-11"
+                            "release_date": "2021-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 165.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Wondrous Medicine Production",
                             "image": "https://image.tmdb.org/t/p/original/acQhdkyDknwHmP6OzfvN14kPucD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3Lpu1ntz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-18"
+                            "release_date": "2021-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.2,
+                                        "end": 113.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Demiplane Ranking",
                             "image": "https://image.tmdb.org/t/p/original/jJIygE3kYQmE50UEgBu2IFcsdtd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0KKL23lS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-08-25"
+                            "release_date": "2021-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.2,
+                                        "end": 177.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Eat or Be Eaten",
                             "image": "https://image.tmdb.org/t/p/original/1GXgJpLvpWwidVFAjXJdMKG3WMh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AMEHkBIe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-01"
+                            "release_date": "2021-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 118.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Hidden Ogre Village",
                             "image": "https://image.tmdb.org/t/p/original/tddj0cjLtCY3YQSrtf36SwxheX3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VCSZGhcR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-08"
+                            "release_date": "2021-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Goodbye",
                             "image": "https://image.tmdb.org/t/p/original/pyQMXauyiF767uWHG0K2gH5ccrq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Y08bLfJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-15"
+                            "release_date": "2021-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 104.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.3,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Guided by the Moon...",
                             "image": "https://image.tmdb.org/t/p/original/labur9NDw5fUgsnFkEOhX1MNbZP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/z7lEuoUC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2021-09-22"
+                            "release_date": "2021-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.3,
+                                        "end": 143.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

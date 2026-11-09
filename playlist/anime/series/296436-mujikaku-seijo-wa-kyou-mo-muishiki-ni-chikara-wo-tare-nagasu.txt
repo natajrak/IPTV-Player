@@ -16,84 +16,254 @@
                             "image": "https://image.tmdb.org/t/p/original/xSvW5XxBhZZT3mkniSVWswVaGVy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CGc3XPQIMH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-06-30"
+                            "release_date": "2026-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 170.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.3,
+                                        "end": 1431.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Bloodthirty Second Prince",
                             "image": "https://image.tmdb.org/t/p/original/1IzH3EiWnZWPa3IJLj8A4ao5fOD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oYqTskWeAZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-07"
+                            "release_date": "2026-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.2,
+                                        "end": 182.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.2,
+                                        "end": 1409.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Founder's Day Fete",
                             "image": "https://image.tmdb.org/t/p/original/t8UWROf20oE6MbVlCsGptnyYqs1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mlthMQPpkh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-14"
+                            "release_date": "2026-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.3,
+                                        "end": 112.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1390.5,
+                                        "end": 1480
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Red Eyes and Ruby",
                             "image": "https://image.tmdb.org/t/p/original/7i0qcwwWlMAUZMI68LmodcPF7fW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yMxhCkjJ2j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-21"
+                            "release_date": "2026-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.2,
+                                        "end": 188.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1420.2,
+                                        "end": 1509.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Hidden Divinity",
                             "image": "https://image.tmdb.org/t/p/original/pSVnX5jJmiIwyqdGUoaClJdvSTf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pOhiyXNiA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-28"
+                            "release_date": "2026-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 172.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - First Prince Gilbert",
                             "image": "https://image.tmdb.org/t/p/original/8f3RDq4grgg3sNaJWfHKN3aCxBC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/C3OuZuF8K/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-04"
+                            "release_date": "2026-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 100.3,
+                                        "end": 189.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1405.3,
+                                        "end": 1495
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Waver of the Perfect Young Lady",
                             "image": "https://image.tmdb.org/t/p/original/goYdnLGdO6YNzW9r67ciBiQuakK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/P3DmVeflDn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-11"
+                            "release_date": "2026-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.2,
+                                        "end": 158.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1420.3,
+                                        "end": 1510
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Jonathan's Scheme",
                             "image": "https://image.tmdb.org/t/p/original/ez7AjxUUcnUE8TYybfDKN9bN18x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/r4M0LALBtQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-18"
+                            "release_date": "2026-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.3,
+                                        "end": 242.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Exposed Sin",
                             "image": "https://image.tmdb.org/t/p/original/ndH9Uy4MKMkEtFM0I62j7I0yZU0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Fk7PeNKAXa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-25"
+                            "release_date": "2026-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 150.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1390.2,
+                                        "end": 1479.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Saintly Trials",
                             "image": "https://image.tmdb.org/t/p/original/dcXUEVTL4tCOHUD7nnEEW9HqqMN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xE0s4CiUB6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-01"
+                            "release_date": "2026-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.4,
+                                        "end": 158.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Perfect Young Lady's Resolve",
                             "image": "https://image.tmdb.org/t/p/original/2qL9AsjBCZ0WQtwWB0PJkYchlH0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/p0e6PfEvjW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-08"
+                            "release_date": "2026-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.1,
+                                        "end": 133.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329,
+                                        "end": 1411.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Executing the Revenge",
                             "image": "https://image.tmdb.org/t/p/original/yQTshCCOo8LNLBjigiRgXhE8yHw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pjaTHd03Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-15"
+                            "release_date": "2026-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.9,
+                                        "end": 181.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

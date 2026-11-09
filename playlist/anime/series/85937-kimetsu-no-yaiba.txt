@@ -552,77 +552,221 @@
                             "image": "https://image.tmdb.org/t/p/original/yHvD7Yhaxcn0Mc3BSI0yAFVrYT8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/84sQ282O/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-05"
+                            "release_date": "2021-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 2 - ลอบเร้นเข้าย่านโคมแดง",
                             "image": "https://image.tmdb.org/t/p/original/mTtIdiS9ntOjlBFaZxGRu5qkZdF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NsNocOGj/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-12"
+                            "release_date": "2021-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.5,
+                                        "end": 240
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.4,
+                                        "end": 1379
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ผู้ใดกัน",
                             "image": "https://image.tmdb.org/t/p/original/1pEUWW6ynwjeCthb7NqQlSMtxso.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/zfk0zJ1c/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-19"
+                            "release_date": "2021-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 158.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1172.7,
+                                        "end": 1260
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ค่ำคืนนี้",
                             "image": "https://image.tmdb.org/t/p/original/oyZd3BMT8pH83PLLG07njxhKfkO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0LSdRqOD/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-26"
+                            "release_date": "2021-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.3,
+                                        "end": 175.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.9,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ออกไปลุยอย่างอลังการ!",
                             "image": "https://image.tmdb.org/t/p/original/xHobu2pJtnRePBxrvxafUHXKJNr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/v2pnXGQ5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-02"
+                            "release_date": "2022-01-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.3,
+                                        "end": 114
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ความทรงจำที่ทับซ้อน",
                             "image": "https://image.tmdb.org/t/p/original/9jSSKfsWXEPwiSz8eCMQK8St5gc.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/cii0cPPk/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-09"
+                            "release_date": "2022-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.3,
+                                        "end": 170.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.6,
+                                        "end": 1379.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เปลี่ยนรูปลักษณ์",
                             "image": "https://image.tmdb.org/t/p/original/6IVxJBaIAOboW9HXzx0Kr0DevAZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/nOALVDNO/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-16"
+                            "release_date": "2022-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 139.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.2,
+                                        "end": 1380.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - รวมพล",
                             "image": "https://image.tmdb.org/t/p/original/5UvxFzLy40MGDue1fvTDFmz2WNj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0t7xTHy2/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-23"
+                            "release_date": "2022-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 161.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.1,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ถ้าโค่นอสูรข้างขึ้นได้ล่ะก็",
                             "image": "https://image.tmdb.org/t/p/original/8qmQglGIAYFk3cPGONQrr3EpxQ7.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/BPDNdmnh/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-30"
+                            "release_date": "2022-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 126.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.4,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ไม่ยอมแพ้เด็ดขาด",
                             "image": "https://image.tmdb.org/t/p/original/sn1028m8SPhF9OkfvXpnD11xar7.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0oW6GxVr/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-02-06"
+                            "release_date": "2022-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 131
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ไม่ว่าจะเกิดใหม่อีกกี่ครั้ง",
                             "image": "https://image.tmdb.org/t/p/original/rO0yt4BIcSZRuIwPlK0QsyhjPZ3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/57zNpqF7/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-02-13"
+                            "release_date": "2022-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1782,
+                                        "end": 1845.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -637,77 +781,221 @@
                             "image": "https://image.tmdb.org/t/p/original/yHvD7Yhaxcn0Mc3BSI0yAFVrYT8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0v9XGSCE/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-05"
+                            "release_date": "2021-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 2 - Infiltrating the Entertainment District",
                             "image": "https://image.tmdb.org/t/p/original/mTtIdiS9ntOjlBFaZxGRu5qkZdF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/M9FjCBSS/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-12"
+                            "release_date": "2021-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 150.3,
+                                        "end": 240
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - What Are You?",
                             "image": "https://image.tmdb.org/t/p/original/1pEUWW6ynwjeCthb7NqQlSMtxso.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SLwwCFwl/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-19"
+                            "release_date": "2021-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 158.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1172.6,
+                                        "end": 1260.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Tonight",
                             "image": "https://image.tmdb.org/t/p/original/oyZd3BMT8pH83PLLG07njxhKfkO.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/XTJRcudb/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2021-12-26"
+                            "release_date": "2021-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.3,
+                                        "end": 175.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.3,
+                                        "end": 1380.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Things Are Gonna Get Real Flashy!!",
                             "image": "https://image.tmdb.org/t/p/original/xHobu2pJtnRePBxrvxafUHXKJNr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/DGhXD7kQ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-02"
+                            "release_date": "2022-01-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.3,
+                                        "end": 114.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Layered Memories",
                             "image": "https://image.tmdb.org/t/p/original/9jSSKfsWXEPwiSz8eCMQK8St5gc.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/3jxZPn7e/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-09"
+                            "release_date": "2022-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 170.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.6,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Transformation",
                             "image": "https://image.tmdb.org/t/p/original/6IVxJBaIAOboW9HXzx0Kr0DevAZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/H7EOI265/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-16"
+                            "release_date": "2022-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 139
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.5,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Gathering",
                             "image": "https://image.tmdb.org/t/p/original/5UvxFzLy40MGDue1fvTDFmz2WNj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/RMqcRnYf/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-23"
+                            "release_date": "2022-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 161
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.2,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Defeating an Upper Rank Demon",
                             "image": "https://image.tmdb.org/t/p/original/8qmQglGIAYFk3cPGONQrr3EpxQ7.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/mnUHhNpu/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-01-30"
+                            "release_date": "2022-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 126
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.7,
+                                        "end": 1380
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Never Give Up",
                             "image": "https://image.tmdb.org/t/p/original/sn1028m8SPhF9OkfvXpnD11xar7.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/TD51pN2c/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-02-06"
+                            "release_date": "2022-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 131
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - No Matter How Many Lives",
                             "image": "https://image.tmdb.org/t/p/original/rO0yt4BIcSZRuIwPlK0QsyhjPZ3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/HlZeDiUn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2022-02-13"
+                            "release_date": "2022-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1787,
+                                        "end": 1857.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -734,77 +1022,232 @@
                             "image": "https://image.tmdb.org/t/p/original/cqDCLZ050JmmumJyTA9FbuQe6a3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Y0URM1YF0r/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-09"
+                            "release_date": "2023-04-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2666,
+                                        "end": 2755
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - โยริอิจิรุ่นที่ 0",
                             "image": "https://image.tmdb.org/t/p/original/uvT1yTTx3rfAIP8AtqxtSM0ZxRB.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/sdHhhXRdlH/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-16"
+                            "release_date": "2023-04-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.8,
+                                        "end": 166.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.1,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - คาตานะที่มีมานานกว่า 300 ปี",
                             "image": "https://image.tmdb.org/t/p/original/wquxWyBwsXG3lWrDjg7TQKSRfew.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NiTSQQrty/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-23"
+                            "release_date": "2023-04-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.4,
+                                        "end": 212
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - โทคิโทวคุง ขอบคุณนะ",
                             "image": "https://image.tmdb.org/t/p/original/7CJiq7TcX6V6OcY9SnhMQMs0exV.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/00jzcQWlMp/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-30"
+                            "release_date": "2023-04-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.3,
+                                        "end": 176.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.6,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ดาบสีแดงชาด",
                             "image": "https://image.tmdb.org/t/p/original/7DvvdeA0bY3VIhicNYRuD19W28N.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/b6gBfBvxcL/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-07"
+                            "release_date": "2023-05-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.4,
+                                        "end": 199
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.5,
+                                        "end": 1396.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - จะเป็นเสาหลักไม่ใช่เหรอ",
                             "image": "https://image.tmdb.org/t/p/original/o0HAhA3zeNsPQPtAnoigJlpCCuk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/X6tZxtEFPt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-14"
+                            "release_date": "2023-05-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 116
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.5,
+                                        "end": 1401.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - คนชั่วช้า",
                             "image": "https://image.tmdb.org/t/p/original/7jOdHvdpD5oKGsRgixuMCJ5P5vJ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/KLRl7Y1OW/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-21"
+                            "release_date": "2023-05-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.3,
+                                        "end": 126.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.8,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - อักษร มุ ของมุอิจิโร่",
                             "image": "https://image.tmdb.org/t/p/original/twKgIalhN0PeahBx8mwk8UaMhvh.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8s8EocWcg3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-28"
+                            "release_date": "2023-05-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.7,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.9,
+                                        "end": 1405.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - เสาหลักหมอก โทคิโทว มุอิจิโร่",
                             "image": "https://image.tmdb.org/t/p/original/6EgVImJC0fn0jshgw12NHRf5Rzd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/daKdNlEGwd/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-04"
+                            "release_date": "2023-06-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1297.9,
+                                        "end": 1387.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - เสาหลักความรัก คันโรจิ มิสึริ",
                             "image": "https://image.tmdb.org/t/p/original/iKD90AUxGHcLHGvbuSKfqq76rbE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/YEBkgfSINe/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-11"
+                            "release_date": "2023-06-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.1,
+                                        "end": 136
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.7,
+                                        "end": 1395.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - สายสัมพันธ์ที่ถูกประสาน ฟ้าสลัวและเช้าที่สดใส",
                             "image": "https://image.tmdb.org/t/p/original/kFvPNnB8215j0xudEtFXa7oJ8F6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/4rFVzPyf1p/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-18"
+                            "release_date": "2023-06-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2913.4,
+                                        "end": 2993.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -819,77 +1262,232 @@
                             "image": "https://image.tmdb.org/t/p/original/cqDCLZ050JmmumJyTA9FbuQe6a3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/uqFtygOP/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-09"
+                            "release_date": "2023-04-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2666,
+                                        "end": 2755
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Yoriichi Type Zero",
                             "image": "https://image.tmdb.org/t/p/original/uvT1yTTx3rfAIP8AtqxtSM0ZxRB.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/HIZ7IiAv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-16"
+                            "release_date": "2023-04-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.3,
+                                        "end": 166.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A Sword From Over 300 Years Ago",
                             "image": "https://image.tmdb.org/t/p/original/wquxWyBwsXG3lWrDjg7TQKSRfew.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8Q3we0S9l8/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-23"
+                            "release_date": "2023-04-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.3,
+                                        "end": 212
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.7,
+                                        "end": 1396.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Thank You, Tokito",
                             "image": "https://image.tmdb.org/t/p/original/7CJiq7TcX6V6OcY9SnhMQMs0exV.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Q34Vc4C2Xy/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-04-30"
+                            "release_date": "2023-04-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.3,
+                                        "end": 176.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.6,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Bright Red Sword",
                             "image": "https://image.tmdb.org/t/p/original/7DvvdeA0bY3VIhicNYRuD19W28N.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/ryn0bYmMfP/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-07"
+                            "release_date": "2023-05-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.4,
+                                        "end": 199.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.6,
+                                        "end": 1396.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Aren't You Going to Become a Hashira?",
                             "image": "https://image.tmdb.org/t/p/original/o0HAhA3zeNsPQPtAnoigJlpCCuk.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/YDSY84lmIA/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-14"
+                            "release_date": "2023-05-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 116.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.6,
+                                        "end": 1402
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Awful Villain",
                             "image": "https://image.tmdb.org/t/p/original/7jOdHvdpD5oKGsRgixuMCJ5P5vJ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/CbfFxg1Yj1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-21"
+                            "release_date": "2023-05-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.4,
+                                        "end": 126.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.1,
+                                        "end": 1395.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Mu in Muichiro",
                             "image": "https://image.tmdb.org/t/p/original/twKgIalhN0PeahBx8mwk8UaMhvh.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/mtlVANaZXf/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-05-28"
+                            "release_date": "2023-05-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.3,
+                                        "end": 158.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1405.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Mist Hashira: Muichiro Tokito",
                             "image": "https://image.tmdb.org/t/p/original/6EgVImJC0fn0jshgw12NHRf5Rzd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NGZmfRGI/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-04"
+                            "release_date": "2023-06-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.4,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1297.9,
+                                        "end": 1387.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Love Hashira: Mitsuri Kanroji",
                             "image": "https://image.tmdb.org/t/p/original/iKD90AUxGHcLHGvbuSKfqq76rbE.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/QH7gnbGFXz/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-11"
+                            "release_date": "2023-06-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.4,
+                                        "end": 135.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - A Connected Bond: Daybreak and First Light",
                             "image": "https://image.tmdb.org/t/p/original/kFvPNnB8215j0xudEtFXa7oJ8F6.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/rcf1lq7BvC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-06-18"
+                            "release_date": "2023-06-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2912.7,
+                                        "end": 2993.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -916,56 +1514,160 @@
                             "image": "https://image.tmdb.org/t/p/original/rgDvHS8LHTHuU4Xx64sSVvA39gZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/6FJV3ugnu/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-12"
+                            "release_date": "2024-05-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2638,
+                                        "end": 2726.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ความเจ็บปวดของเสาหลักวารี โทมิโอกะ กิยู",
                             "image": "https://image.tmdb.org/t/p/original/wJPkCpsVFmMS6lAgBbLW5zs8Q3f.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0TjbKk4P1D/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-19"
+                            "release_date": "2024-05-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 193.3,
+                                        "end": 281.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.5,
+                                        "end": 1395.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ทันจิโร่ฟื้นตัวเต็มพิกัด",
                             "image": "https://image.tmdb.org/t/p/original/mNiT7VrfYxQXbgVqEEWtyM2EgRu.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NjWZgyOgW5/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-26"
+                            "release_date": "2024-05-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1295.1,
+                                        "end": 1385.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ทำให้มีรอยยิ้มได้",
                             "image": "https://image.tmdb.org/t/p/original/bQQ0uQ5AJ7sYDbirDIzB33J7FgF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/g99vgSFiZC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-02"
+                            "release_date": "2024-06-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 134.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1246,
+                                        "end": 1334.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ถึงขั้นกลืนกินอสูร",
                             "image": "https://image.tmdb.org/t/p/original/iiKJxsJOT69R86Y5QFtUUQmeha.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/yzUkkKds24/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-09"
+                            "release_date": "2024-06-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 160.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.2,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สุดแกร่งแห่งหน่วยพิฆาตอสูร",
                             "image": "https://image.tmdb.org/t/p/original/jwAiNnEDDgGathvC8VDTmfXqybH.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/z6n8URqifR/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-16"
+                            "release_date": "2024-06-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 150
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.2,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เสาหลักหินผา ฮิเมจิมะ เกียวเม",
                             "image": "https://image.tmdb.org/t/p/original/1rw2hmzC7yJwtDfXuP9MIYQvJWQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/PiPemCaD2F/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-23"
+                            "release_date": "2024-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118.3,
+                                        "end": 207.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1605.7,
+                                        "end": 1694.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - เสาหลักรวมพล",
                             "image": "https://image.tmdb.org/t/p/original/a8QEWBNIfRzXN7g5WOdrPS3QeKy.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/kpJWCe61ye/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-30"
+                            "release_date": "2024-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -980,56 +1682,160 @@
                             "image": "https://image.tmdb.org/t/p/original/rgDvHS8LHTHuU4Xx64sSVvA39gZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/5UtkBOSpVP/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-12"
+                            "release_date": "2024-05-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2638,
+                                        "end": 2726.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Water Hashira Giyu Tomioka's Pain",
                             "image": "https://image.tmdb.org/t/p/original/wJPkCpsVFmMS6lAgBbLW5zs8Q3f.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/cfyOCXaTWo/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-19"
+                            "release_date": "2024-05-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 193.3,
+                                        "end": 283.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.3,
+                                        "end": 1395.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Fully Recovered Tanjiro Joins the Hashira Training!!",
                             "image": "https://image.tmdb.org/t/p/original/mNiT7VrfYxQXbgVqEEWtyM2EgRu.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0ODMQG5QSU/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-05-26"
+                            "release_date": "2024-05-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.4,
+                                        "end": 1402.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - To Bring a Smile to One's Face",
                             "image": "https://image.tmdb.org/t/p/original/bQQ0uQ5AJ7sYDbirDIzB33J7FgF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/j8gz24JYu/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-02"
+                            "release_date": "2024-06-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 134.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1246.1,
+                                        "end": 1334.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - I Even Ate Demons…",
                             "image": "https://image.tmdb.org/t/p/original/iiKJxsJOT69R86Y5QFtUUQmeha.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/tD9nI8O5M/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-09"
+                            "release_date": "2024-06-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.3,
+                                        "end": 160.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.2,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Strongest of the Demon Slayer Corps",
                             "image": "https://image.tmdb.org/t/p/original/jwAiNnEDDgGathvC8VDTmfXqybH.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/h2OWnYl5Wj/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-16"
+                            "release_date": "2024-06-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 150.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1296.1,
+                                        "end": 1385
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Stone Hashira: Gyōmei Himejima",
                             "image": "https://image.tmdb.org/t/p/original/1rw2hmzC7yJwtDfXuP9MIYQvJWQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/9XMWsQ2ooy/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-23"
+                            "release_date": "2024-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 118.3,
+                                        "end": 207.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1595.7,
+                                        "end": 1684.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Hashira Unite",
                             "image": "https://image.tmdb.org/t/p/original/a8QEWBNIfRzXN7g5WOdrPS3QeKy.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/ezDjSDss5R/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2024-06-30"
+                            "release_date": "2024-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"

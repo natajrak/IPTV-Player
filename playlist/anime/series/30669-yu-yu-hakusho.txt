@@ -19,175 +19,550 @@
                             "image": "https://image.tmdb.org/t/p/original/tEySQcsIJkpOKyfemL3KGIW2EHd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4yEAQkaf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4yEAQkaf",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-10-10"
+                            "release_date": "1992-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1420.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Koenma Appears",
                             "image": "https://image.tmdb.org/t/p/original/gNKSVhs0aBVEqzb9B4M9S2maQvG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFgh6Wfrb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFgh6Wfrb",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-10-17"
+                            "release_date": "1992-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Kuwabara: A Promise Between Men",
                             "image": "https://image.tmdb.org/t/p/original/47eRd5ROgRkK4Yamk1HErIdMweU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJW0zEI00%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJW0zEI00",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-10-24"
+                            "release_date": "1992-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Requirements for Lovers",
                             "image": "https://image.tmdb.org/t/p/original/dPfwOqlcUq24madFIl8vmJjAIOY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FfaEfEM3W%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FfaEfEM3W",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-10-31"
+                            "release_date": "1992-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Yusuke's Back",
                             "image": "https://image.tmdb.org/t/p/original/t9TFiGD1NwkvnDJyIFu4xUFBxYl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fo68ME3j4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fo68ME3j4",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-11-07"
+                            "release_date": "1992-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Three Monsters",
                             "image": "https://image.tmdb.org/t/p/original/tehNHzNvHHsqFKtoS2mzsSaN4Md.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6vw2B7Ae%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6vw2B7Ae",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-11-14"
+                            "release_date": "1992-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Gouki and Kurama",
                             "image": "https://image.tmdb.org/t/p/original/y68NnR8vyP1T0caPbsohHPgqvLY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FmrphqA9B%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FmrphqA9B",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-11-21"
+                            "release_date": "1992-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Three Eyes of Hiei",
                             "image": "https://image.tmdb.org/t/p/original/58qP9kXPd8PjuHVBgUczBIlGyx4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6kgKIVOl%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6kgKIVOl",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-11-28"
+                            "release_date": "1992-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Search Begins",
                             "image": "https://image.tmdb.org/t/p/original/ftTV8XqEgUW5zktBJWr4NOOkkQS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F66nMK53i%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F66nMK53i",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-12-05"
+                            "release_date": "1992-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.7,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Kuwabara's Spirit Sword",
                             "image": "https://image.tmdb.org/t/p/original/ry9N0eKwOSC17wwmbOZMYsJhBjA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FNeIAJvhj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FNeIAJvhj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-12-12"
+                            "release_date": "1992-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Hard Fights for Yusuke",
                             "image": "https://image.tmdb.org/t/p/original/fmxHTaGATPTZibpnTnRSCg7LJAl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FFFvsyavK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FFFvsyavK",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-12-19"
+                            "release_date": "1992-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.1,
+                                        "end": 1422.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Rando Rises, Kuwabara Falls",
                             "image": "https://image.tmdb.org/t/p/original/gnZ3t2nOinFQ2io35Q4PzTVr9Dt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZR8iFUpu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZR8iFUpu",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1992-12-26"
+                            "release_date": "1992-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Yusuke vs. Rando: 99 Attacks",
                             "image": "https://image.tmdb.org/t/p/original/iNGTzI3mMf36Qfm9Ga4LC3erx3J.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FIBHY4A69%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FIBHY4A69",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-01-09"
+                            "release_date": "1993-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The Beasts of Maze Castle",
                             "image": "https://image.tmdb.org/t/p/original/uwLX37JzFTFASM6oG9hcxl3pR6Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVdvaP4cU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVdvaP4cU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-01-16"
+                            "release_date": "1993-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Genbu, the Stone Beast",
                             "image": "https://image.tmdb.org/t/p/original/wIGzR96pkmUaW7XKxmu8KJDYtLD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FrY4fYYQX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FrY4fYYQX",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-01-23"
+                            "release_date": "1993-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Byakko, the White Tiger",
                             "image": "https://image.tmdb.org/t/p/original/zJpkjg68mZC8i2dEKUlucqUsBI2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F0e24eohY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F0e24eohY",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-01-30"
+                            "release_date": "1993-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Byakko's Lair",
                             "image": "https://image.tmdb.org/t/p/original/qVIEoyUZzCiuD8UckVlSg6WINDl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnSzz8JNt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnSzz8JNt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-02-06"
+                            "release_date": "1993-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Seiryu, the Blue Dragon",
                             "image": "https://image.tmdb.org/t/p/original/ttOpd9FeSDrdXi0VjPdOhYbexsW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fz2xHm2HY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fz2xHm2HY",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-02-13"
+                            "release_date": "1993-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Suzaku, Leader of the Beasts",
                             "image": "https://image.tmdb.org/t/p/original/iKAAlT8d1mRizNgPjtJgZqPlQns.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FppAQgTr0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FppAQgTr0",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-02-20"
+                            "release_date": "1993-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Seven Ways to Die",
                             "image": "https://image.tmdb.org/t/p/original/mmaIb7jOavWn1ZO8ZCQqMcrSaJl.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqQYUvILu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqQYUvILu",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-02-27"
+                            "release_date": "1993-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Yusuke's Sacrifice",
                             "image": "https://image.tmdb.org/t/p/original/v4oSiBVE7so2VselS1eZqCPhxiz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FoRuS0GbJ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FoRuS0GbJ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-03-06"
+                            "release_date": "1993-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Lamenting Beauty",
                             "image": "https://image.tmdb.org/t/p/original/oI8bc3TD3rA3LHgOhjWjb6p1Uqy.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZp1tb65R%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZp1tb65R",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-03-13"
+                            "release_date": "1993-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The Toguro Brothers Gang",
                             "image": "https://image.tmdb.org/t/p/original/5qRGXkvKKSNwrksh556obAA42Gg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FUb9kBQq1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FUb9kBQq1",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-03-20"
+                            "release_date": "1993-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - The Deadly Triad",
                             "image": "https://image.tmdb.org/t/p/original/rPQnIfmMOz7h4AGjGtr2IIGdx8T.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMwgpn396%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMwgpn396",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-03-27"
+                            "release_date": "1993-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Kuwabara's Fight of Love",
                             "image": "https://image.tmdb.org/t/p/original/5FzrcE9z9el2xCfMn7qOXRN5PCo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMSZiEIVs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMSZiEIVs",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1993-04-10"
+                            "release_date": "1993-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1421.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -734,112 +1109,352 @@
                             "image": "https://image.tmdb.org/t/p/original/clK2lDVP5yuT47da7OKSHNyo6Nf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fa6GnPfjV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fa6GnPfjV",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-08-20"
+                            "release_date": "1994-08-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Three Strangers, Three Kings",
                             "image": "https://image.tmdb.org/t/p/original/tEI3TtMC9RGeRFAY2o4cXqghS1T.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FWA5zScqQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FWA5zScqQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-08-27"
+                            "release_date": "1994-08-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.4,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Departing Living World",
                             "image": "https://image.tmdb.org/t/p/original/uC1ypcqByIebrFc1RMiUPYSBPrd.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4Z32x028%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4Z32x028",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-09-03"
+                            "release_date": "1994-09-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Return to Demon World",
                             "image": "https://image.tmdb.org/t/p/original/d8W5ml2YHKbgVXBFNPV5IcL7ICI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F4gxylURu%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F4gxylURu",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-09-10"
+                            "release_date": "1994-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Haunted by the Past",
                             "image": "https://image.tmdb.org/t/p/original/88iKFjZOyasyPkotliO9sOdpXqp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhsKi6h43%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhsKi6h43",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-09-17"
+                            "release_date": "1994-09-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Secret of the Jagan",
                             "image": "https://image.tmdb.org/t/p/original/uLsTOnsr9EHqNAGdtjUyEOjzGgR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMVeORvxQ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMVeORvxQ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-09-24"
+                            "release_date": "1994-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Reunion of the Bandits",
                             "image": "https://image.tmdb.org/t/p/original/aKE2jQpHg5TTA5dYdpZBdtPd48o.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQSap0uby%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQSap0uby",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-10-01"
+                            "release_date": "1994-10-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Torn Between Identities",
                             "image": "https://image.tmdb.org/t/p/original/vjbsC6MmsdfvVMsdZyNoFraEyfq.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FV2WSL42S%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FV2WSL42S",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-10-08"
+                            "release_date": "1994-10-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Inheritance",
                             "image": "https://image.tmdb.org/t/p/original/3blTToGsN8uOyrItq0UyW2k1GlL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYp7RvZN3%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYp7RvZN3",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-10-15"
+                            "release_date": "1994-10-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Every Demon For Himself",
                             "image": "https://image.tmdb.org/t/p/original/yymTr6bYBufmK2pJJTb5b6b4dbR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZX4jEYlT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZX4jEYlT",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-10-22"
+                            "release_date": "1994-10-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Preliminaries",
                             "image": "https://image.tmdb.org/t/p/original/gro6HM7KGhCu4MIS8h2NdmBVpEs.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FM3yHI0ty%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FM3yHI0ty",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-10-29"
+                            "release_date": "1994-10-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Battle of Father and Son",
                             "image": "https://image.tmdb.org/t/p/original/cJDanOdoE4sVsYnmMFlTgkpgFgC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlFkTV35v%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlFkTV35v",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-11-05"
+                            "release_date": "1994-11-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - The Demon World Tournament Begins",
                             "image": "https://image.tmdb.org/t/p/original/nmdgAfgdZH5gEDvURLihgMPQMg1.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSXphHbSS%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSXphHbSS",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-11-12"
+                            "release_date": "1994-11-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.6,
+                                        "end": 1423.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Farewell, Kurama",
                             "image": "https://image.tmdb.org/t/p/original/4tTKRHCoC4z5OyRfADJIr3ia0sW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FJr6ApZwt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FJr6ApZwt",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-11-19"
+                            "release_date": "1994-11-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Love and War",
                             "image": "https://image.tmdb.org/t/p/original/l4QlkLyb67aR36qN65VU89REOPc.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FMRhvAejA%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FMRhvAejA",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-11-26"
+                            "release_date": "1994-11-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - A Reason to Fight",
                             "image": "https://image.tmdb.org/t/p/original/vKe1PELX1uxpCEzlSWBVjXtfC1N.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLfWUOhga%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLfWUOhga",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-12-03"
+                            "release_date": "1994-12-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1423.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Closure",
@@ -853,7 +1468,22 @@
                             "image": "https://image.tmdb.org/t/p/original/7BS6JSZkyzxRqG39huZhA7YhpYI.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fz8Yk5lHL%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fz8Yk5lHL",
                             "referer": "https://anime-th.com/",
-                            "release_date": "1994-12-17"
+                            "release_date": "1994-12-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 88.8
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1292,
+                                        "end": 1346.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

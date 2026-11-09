@@ -16,63 +16,198 @@
                             "image": "https://image.tmdb.org/t/p/original/cdo3OjS2knsXVgSNlKjAOB9KYDh.jpg",
                             "url": "https://sv2.team-indy.net/video/xsYyGFLGay/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-05"
+                            "release_date": "2026-07-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ...Thank You",
                             "image": "https://image.tmdb.org/t/p/original/zG3q0Cip4hGvgJMTjpOX7b6oLdX.jpg",
                             "url": "https://sv2.team-indy.net/video/aGlSvjwpbE/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-12"
+                            "release_date": "2026-07-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Cufflinks and a Music Box",
                             "image": "https://image.tmdb.org/t/p/original/bCFevGALcjU5G0dm3vvc5NTUyQM.jpg",
                             "url": "https://sv2.team-indy.net/video/QblB5vHkA4/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-19"
+                            "release_date": "2026-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 124.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.2,
+                                        "end": 1344.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Behind a Smile",
                             "image": "https://image.tmdb.org/t/p/original/CjheVbHACfO4kjXuhWpalq0F7f.jpg",
                             "url": "https://sv2.team-indy.net/video/LIZKsQ2LWS/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-26"
+                            "release_date": "2026-07-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21.2,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Sound of Distant Rain",
                             "image": "https://image.tmdb.org/t/p/original/6gCXZkcbhlBjnlXDXwYzFb97FzN.jpg",
                             "url": "https://sv2.team-indy.net/video/bgoAecnmdx/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-02"
+                            "release_date": "2026-08-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213.2,
+                                        "end": 1302.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Trap Hidden at the Soirée",
                             "image": "https://image.tmdb.org/t/p/original/kfg1sHZBCFYRzqIZuCPJ04qcxE4.jpg",
                             "url": "https://sv2.team-indy.net/video/gQ27vEHMS/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-09"
+                            "release_date": "2026-08-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 152.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - An Unexpected Gift",
                             "image": "https://image.tmdb.org/t/p/original/1OIsi40ehWpoLZfrU3W8IuVNtG4.jpg",
                             "url": "https://sv2.team-indy.net/video/bmtZV5vWie/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-16"
+                            "release_date": "2026-08-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.2,
+                                        "end": 215.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.3,
+                                        "end": 1368.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Misunderstandings and Falsehoods",
                             "image": "https://image.tmdb.org/t/p/original/i3FQZbTpP6cieNDF0BiExiJrwPr.jpg",
                             "url": "https://sv2.team-indy.net/video/3Lxb4WM6G/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-23"
+                            "release_date": "2026-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1367.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Jarmo's Vow",
                             "image": "https://image.tmdb.org/t/p/original/sUKfV1vJeWhcLejj5tFCyfdg9Ww.jpg",
                             "url": "https://sv2.team-indy.net/video/CFICoDRXb/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-30"
+                            "release_date": "2026-08-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.1,
+                                        "end": 117.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1152.1,
+                                        "end": 1241.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Julius's Wish",
@@ -86,14 +221,44 @@
                             "image": "https://image.tmdb.org/t/p/original/oxTZdcqd192rLYZK47JkDhkgXnt.jpg",
                             "url": "https://sv2.team-indy.net/video/w0zyVlLKkn/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-13"
+                            "release_date": "2026-09-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.5,
+                                        "end": 160.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1280.2,
+                                        "end": 1337.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - A Promise on the Night of Falling Stars",
                             "image": "https://image.tmdb.org/t/p/original/gL53BuZKuHTNi1F3u1Q0nA8DiCZ.jpg",
                             "url": "https://sv2.team-indy.net/video/2HiyxhD4UI/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-20"
+                            "release_date": "2026-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.6,
+                                        "end": 131.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1252.2,
+                                        "end": 1317.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +273,264 @@
                             "image": "https://image.tmdb.org/t/p/original/cdo3OjS2knsXVgSNlKjAOB9KYDh.jpg",
                             "url": "https://sv2.team-indy.net/video/uzD6v5B5iC/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-05"
+                            "release_date": "2026-07-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1367.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - ...Thank You",
                             "image": "https://image.tmdb.org/t/p/original/zG3q0Cip4hGvgJMTjpOX7b6oLdX.jpg",
                             "url": "https://sv2.team-indy.net/video/ePWTW8GDp6/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-12"
+                            "release_date": "2026-07-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1367.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Cufflinks and a Music Box",
                             "image": "https://image.tmdb.org/t/p/original/bCFevGALcjU5G0dm3vvc5NTUyQM.jpg",
                             "url": "https://sv2.team-indy.net/video/zemtxweUAr/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-19"
+                            "release_date": "2026-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 124.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.2,
+                                        "end": 1344.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Behind a Smile",
                             "image": "https://image.tmdb.org/t/p/original/CjheVbHACfO4kjXuhWpalq0F7f.jpg",
                             "url": "https://sv2.team-indy.net/video/efD61kxIkY/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-26"
+                            "release_date": "2026-07-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21.2,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Sound of Distant Rain",
                             "image": "https://image.tmdb.org/t/p/original/6gCXZkcbhlBjnlXDXwYzFb97FzN.jpg",
                             "url": "https://sv2.team-indy.net/video/BtvsfsLqcZ/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-02"
+                            "release_date": "2026-08-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213.2,
+                                        "end": 1302.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Trap Hidden at the Soirée",
                             "image": "https://image.tmdb.org/t/p/original/kfg1sHZBCFYRzqIZuCPJ04qcxE4.jpg",
                             "url": "https://sv2.team-indy.net/video/Md8wQHOrGt/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-09"
+                            "release_date": "2026-08-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 152.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1367.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - An Unexpected Gift",
                             "image": "https://image.tmdb.org/t/p/original/1OIsi40ehWpoLZfrU3W8IuVNtG4.jpg",
                             "url": "https://sv2.team-indy.net/video/PS0xxr4N7F/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-16"
+                            "release_date": "2026-08-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.2,
+                                        "end": 215.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.3,
+                                        "end": 1368
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Misunderstandings and Falsehoods",
                             "image": "https://image.tmdb.org/t/p/original/i3FQZbTpP6cieNDF0BiExiJrwPr.jpg",
                             "url": "https://sv2.team-indy.net/video/D6jWfzjb4k/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-23"
+                            "release_date": "2026-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.2,
+                                        "end": 1367.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Jarmo's Vow",
                             "image": "https://image.tmdb.org/t/p/original/sUKfV1vJeWhcLejj5tFCyfdg9Ww.jpg",
                             "url": "https://sv2.team-indy.net/video/hDgJVIFzD5/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-30"
+                            "release_date": "2026-08-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.2,
+                                        "end": 119.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1154.2,
+                                        "end": 1243.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Julius's Wish",
                             "image": "https://image.tmdb.org/t/p/original/eiwV08ct67Cq6gpga9Fem22C8An.jpg",
                             "url": "https://sv2.team-indy.net/video/wHdybFf0Un/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-06"
+                            "release_date": "2026-09-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.3,
+                                        "end": 134.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1252.3,
+                                        "end": 1341.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Trapped...",
                             "image": "https://image.tmdb.org/t/p/original/oxTZdcqd192rLYZK47JkDhkgXnt.jpg",
                             "url": "https://sv2.team-indy.net/video/hIT9XMzY8m/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-13"
+                            "release_date": "2026-09-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.2,
+                                        "end": 163.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1253.2,
+                                        "end": 1344.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - A Promise on the Night of Falling Stars",
                             "image": "https://image.tmdb.org/t/p/original/gL53BuZKuHTNi1F3u1Q0nA8DiCZ.jpg",
                             "url": "https://sv2.team-indy.net/video/rez0eFbtuC/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-20"
+                            "release_date": "2026-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.2,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1233.1,
+                                        "end": 1321.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

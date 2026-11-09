@@ -15,168 +15,573 @@
                             "image": "https://image.tmdb.org/t/p/original/aO6sV0b2LOdkOZVj1VD2lRBB9TW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7WhCFxTu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-09"
+                            "release_date": "2022-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.3,
+                                        "end": 185
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.1,
+                                        "end": 1450.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - มาเริ่มกันเลยไหม",
                             "image": "https://image.tmdb.org/t/p/original/pwNWx4h7uUXbW1PnyBW9dkHg0hL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EFod3c8I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-16"
+                            "release_date": "2022-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 115.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.2,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - เรามาคบกันไหม",
                             "image": "https://image.tmdb.org/t/p/original/dp5LW39n5aHAeIYzDA0Wlr9bUD7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/VCjTTAkI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-23"
+                            "release_date": "2022-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.3,
+                                        "end": 180.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.2,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - อันนี้ของแฟนเหรอ",
                             "image": "https://image.tmdb.org/t/p/original/kUEerTu9P62sL6cL3oifMzqxLns.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4hqtLLud/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-01-30"
+                            "release_date": "2022-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.3,
+                                        "end": 157
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.1,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - มันอาจเป็นเพราะหน้าอกปลอมที่ทำมาอย่างดี",
                             "image": "https://image.tmdb.org/t/p/original/tdGGot681Qk4X5hhcQH2AmtOB0K.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M6gntu4j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-06"
+                            "release_date": "2022-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 256.2,
+                                        "end": 346
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.1,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ถามจริง",
                             "image": "https://image.tmdb.org/t/p/original/tEppwk2Iv2mDNsNm1QfptJMj6GZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IXRLsktw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-13"
+                            "release_date": "2022-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430,
+                                        "end": 1450.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เดตที่บ้านกับคนที่เรารักดีที่สุด",
                             "image": "https://image.tmdb.org/t/p/original/7vlUSaoHN1ChGDXxYi7t8VIy4jx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jtJYjg8b/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-20"
+                            "release_date": "2022-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 159.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ภาพย้อนแสงนี่เยี่ยมไปเลย",
                             "image": "https://image.tmdb.org/t/p/original/eCXQtrSFR3sj1SVcmayumanw16E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XVzal4lU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-02-27"
+                            "release_date": "2022-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430,
+                                        "end": 1450.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - หลายสิ่งเกิดขึ้นหลังจากที่ผมเห็นรูปนั้น",
                             "image": "https://image.tmdb.org/t/p/original/7NP8lm9tKh1j6Se4leCdbjqHcph.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yNbWGxHt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-06"
+                            "release_date": "2022-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.3,
+                                        "end": 231.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.2,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - เราต่างมีปัญหาที่ต้องเผชิญ",
                             "image": "https://image.tmdb.org/t/p/original/5gIuKHyeVYXLZDaDWb82An12dDM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zzv2XRre/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-13"
+                            "release_date": "2022-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.1,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ในโรงแรมแห่งความรัก",
                             "image": "https://image.tmdb.org/t/p/original/oI4JzPWg41rwfKnY9nFDQRfCEjU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Vtc0PQUW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-20"
+                            "release_date": "2022-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.3,
+                                        "end": 135.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430,
+                                        "end": 1450.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - สาวคอสเพลย์ที่รัก",
                             "image": "https://image.tmdb.org/t/p/original/iDV1nJ1wBzchT4LgpMaZ7HfHtpQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D4PMFWkI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2022-03-27"
+                            "release_date": "2022-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 150.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1103.3,
+                                        "end": 1192.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1430.1,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Wakana Gojo, 15 Years Old, Teenager",
                             "image": "https://image.tmdb.org/t/p/original/nvE5IzEBN8jlFLuyNJABsArrkmv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/E6mW1MiEe3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-06"
+                            "release_date": "2025-07-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.5,
+                                        "end": 226
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - You Can Equip Boobs",
                             "image": "https://image.tmdb.org/t/p/original/fCDUWhSAVELzLZB2WofcCCosiRI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QZg0zlRvIm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-13"
+                            "release_date": "2025-07-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 323.2,
+                                        "end": 413
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - I Wuuuuv Slice-of-Life Scenes! ♡♡♡",
                             "image": "https://image.tmdb.org/t/p/original/qDfXEY9m57KbhwDrYoRoc85CWml.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/D9FxHrEJGV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-20"
+                            "release_date": "2025-07-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.2,
+                                        "end": 95.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Has All My Measurements Memorized",
                             "image": "https://image.tmdb.org/t/p/original/6O03noxbuGyiiREZtgBd7GuIAiP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Qg7rEOMPWU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-27"
+                            "release_date": "2025-07-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 305.3,
+                                        "end": 395
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - 800 Million",
                             "image": "https://image.tmdb.org/t/p/original/gTbOWHwTK4m1lxIoLc3bduSPZUC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1uiqMF6DYg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-03"
+                            "release_date": "2025-08-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.3,
+                                        "end": 218
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - I'll Make It Happen, No Matter What with These Two Hands",
                             "image": "https://image.tmdb.org/t/p/original/gDJZ5A5fYGUyXRm5AEBym2bytzu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/235AohlYaz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-10"
+                            "release_date": "2025-08-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.2,
+                                        "end": 95
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Capture Those Delicious Memories!",
                             "image": "https://image.tmdb.org/t/p/original/wZ9QVvuChQpmDllCdFTCVvAseMO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yngyVKo4t0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-17"
+                            "release_date": "2025-08-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.2,
+                                        "end": 95
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - The Only Way I Can Think of to Express That Gratitude Is With Money",
                             "image": "https://image.tmdb.org/t/p/original/oh3UBYo9NoHNk8HdnO6zvvIf4RZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pWc3SyWWmM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-24"
+                            "release_date": "2025-08-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 140
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Because I Don't Intend to Sleep Tonight",
                             "image": "https://image.tmdb.org/t/p/original/75sYB8mEw29gUFKcthwI2fNphFA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OIhEq9D1w/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-31"
+                            "release_date": "2025-08-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 213.2,
+                                        "end": 303
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - So We're Gonna Do It All Right Now?!",
                             "image": "https://image.tmdb.org/t/p/original/tQCCkqPVjHhJu6NxGlvNf703yZi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sakj3SvxQ4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-07"
+                            "release_date": "2025-09-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.2,
+                                        "end": 95
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - I Didn't Think Anything Good Would Ever Happen to Me",
                             "image": "https://image.tmdb.org/t/p/original/vi9o3PZN9fKct1NrbxKMpP9aUK8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/U3jjiKgKLS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-14"
+                            "release_date": "2025-09-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.3,
+                                        "end": 180.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Dear My Dress-Up Darling",
                             "image": "https://image.tmdb.org/t/p/original/zLlymDGY6YwNpbPTfpJOritPWql.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OllH7UV0hD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-21"
+                            "release_date": "2025-09-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.2,
+                                        "end": 94.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1355.8,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

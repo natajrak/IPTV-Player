@@ -15,84 +15,264 @@
                             "image": "https://image.tmdb.org/t/p/original/xOOxyNQI0FvIdfn7EFaIPA4GkUe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/w3Ts9scSJd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-11"
+                            "release_date": "2017-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 154.3,
+                                        "end": 244.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - First Journey, and Samurai",
                             "image": "https://image.tmdb.org/t/p/original/T9eNihryC6ogwc5I6LE5bo2cJE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mCOM91SZGK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-18"
+                            "release_date": "2017-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.3,
+                                        "end": 170.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Shougi Board, and Underground Ruins",
                             "image": "https://image.tmdb.org/t/p/original/7l04IWFrBFAVDhwLDdbDDZTrPEA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Y2lalEas1C/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-25"
+                            "release_date": "2017-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.3,
+                                        "end": 253.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Engagement, and an Uninvited Visitor",
                             "image": "https://image.tmdb.org/t/p/original/a6BDA4V94ng5R62LonCJGPKYcea.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dGWHlWW8qA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-01"
+                            "release_date": "2017-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 131.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Slime Castle, and New Functions",
                             "image": "https://image.tmdb.org/t/p/original/nwXFP6ttdotssX33K8a3gDj7YTF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wm95ZooRsZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-08"
+                            "release_date": "2017-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.3,
+                                        "end": 176.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Moving, and a Dragon",
                             "image": "https://image.tmdb.org/t/p/original/8Ga4aciCt36ri61Xf7axoAca5IF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PrPUT1oiUV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-15"
+                            "release_date": "2017-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 139.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Nation of Beastmen, and an Observer",
                             "image": "https://image.tmdb.org/t/p/original/beMGvFnMhvjfDpWyjpLmqKh9RCo.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jUsNpwXg58/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-22"
+                            "release_date": "2017-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.3,
+                                        "end": 121.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Daily Life, and Onward to Eashen",
                             "image": "https://image.tmdb.org/t/p/original/wwOscYH7LXP4qlZEynmGkKIxdt2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sKYvW0HU6k/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-29"
+                            "release_date": "2017-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.3,
+                                        "end": 224.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Oedo, and the Immortal Gem",
                             "image": "https://image.tmdb.org/t/p/original/x41gq0SS9kgtmIpv66SZ4o97Qr9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ECF4b4FDQn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-05"
+                            "release_date": "2017-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.3,
+                                        "end": 128.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Ocean, and Vacations",
                             "image": "https://image.tmdb.org/t/p/original/3NsNRlmoHHPV904zfTnFS6OJlmG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZKuXXoa4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-12"
+                            "release_date": "2017-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 158.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Panties, and an Aerial Garden",
                             "image": "https://image.tmdb.org/t/p/original/aV7v6lysbyBHLYF9qsqYfRKSlSL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qjd9nBsSOa/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-19"
+                            "release_date": "2017-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.4,
+                                        "end": 150.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Decisions, and With My Smartphone",
                             "image": "https://image.tmdb.org/t/p/original/5ppMtRwgTKTozBEZlQ9BnDkbGsM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bzU7gzvJby/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-26"
+                            "release_date": "2017-09-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.4,
+                                        "end": 150.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1268.2,
+                                        "end": 1357.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -115,84 +295,264 @@
                             "image": "https://image.tmdb.org/t/p/original/zf4nkvMsq5GsnSlrYhDHB92efhs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dZ0ftq0mGb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-04"
+                            "release_date": "2023-04-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.3,
+                                        "end": 229
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Deserted Survivors and the Workshop",
                             "image": "https://image.tmdb.org/t/p/original/16dBEw7CY0XR3XtetZg140JEmfZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qJJiXdLG2m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-11"
+                            "release_date": "2023-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.3,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Collecting Books and a Library Café",
                             "image": "https://image.tmdb.org/t/p/original/fUpbxbhxdFn8HcbcByBbDhPGeVE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zf87DpgK0e/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-17"
+                            "release_date": "2023-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.3,
+                                        "end": 216
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.2,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Upheaval in the Castle and an Imperial Princess",
                             "image": "https://image.tmdb.org/t/p/original/ywitEkgM0YklJPu8X3RiFQYMHRN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tszqosLhSs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-24"
+                            "release_date": "2023-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 125
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Fifth Wife And A Newly Founded Nation",
                             "image": "https://image.tmdb.org/t/p/original/qqYQKiZwCtkbZEw0GEEfr049ks.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XFIUNpGK9I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-01"
+                            "release_date": "2023-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Alchemy Ward and an Unexpected Reunion",
                             "image": "https://image.tmdb.org/t/p/original/4NsFyWeePlJtIKtSK9sxnvfEZwO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Rl4SPB8J9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-08"
+                            "release_date": "2023-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146.3,
+                                        "end": 236
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Hangar and Frame Gears",
                             "image": "https://image.tmdb.org/t/p/original/84AQx4SpB84418lfMR1QXdE3dCZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NVoBztcxqC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-15"
+                            "release_date": "2023-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Two Princes and the Small Fiancée",
                             "image": "https://image.tmdb.org/t/p/original/eMnhkrnj4hvc2ymwcM25F1lT9hm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pJwkTkUFSY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-22"
+                            "release_date": "2023-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.3,
+                                        "end": 174.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Day-Off Dates and the Female Knight",
                             "image": "https://image.tmdb.org/t/p/original/9qU0CpzgzTm1eADyXz5mxtxSwNY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/k1I4puq66V/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-29"
+                            "release_date": "2023-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.3,
+                                        "end": 202
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Amnesia and the Mystic Eye of Petrification",
                             "image": "https://image.tmdb.org/t/p/original/aEoThT3MGxxgHOZpxE0XogNmTUA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rdrAloL3l4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-05"
+                            "release_date": "2023-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.2,
+                                        "end": 260
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Sister From Another World and a Sparkling First Love",
                             "image": "https://image.tmdb.org/t/p/original/eri61ZYdt3dOBAiFKLJBkQCZXG1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Lp9ushsPoX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-12"
+                            "release_date": "2023-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 154.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1431.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Birth of a Prince and With My Smartphone",
                             "image": "https://image.tmdb.org/t/p/original/vIR9VRmPENVxP2r09bfa9Q3LR2R.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2IxZcNw9aE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-19"
+                            "release_date": "2023-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.3,
+                                        "end": 167.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -207,84 +567,264 @@
                             "image": "https://image.tmdb.org/t/p/original/zf4nkvMsq5GsnSlrYhDHB92efhs.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/c64vzKR6Nn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-04"
+                            "release_date": "2023-04-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.2,
+                                        "end": 229.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Deserted Survivors and the Workshop",
                             "image": "https://image.tmdb.org/t/p/original/16dBEw7CY0XR3XtetZg140JEmfZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zAmsXqIG5j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-11"
+                            "release_date": "2023-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.3,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Collecting Books and a Library Café",
                             "image": "https://image.tmdb.org/t/p/original/fUpbxbhxdFn8HcbcByBbDhPGeVE.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KOUTNzYku2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-17"
+                            "release_date": "2023-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.2,
+                                        "end": 216
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.2,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Upheaval in the Castle and an Imperial Princess",
                             "image": "https://image.tmdb.org/t/p/original/ywitEkgM0YklJPu8X3RiFQYMHRN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ae4TRp288l/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-04-24"
+                            "release_date": "2023-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 125
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Fifth Wife And A Newly Founded Nation",
                             "image": "https://image.tmdb.org/t/p/original/qqYQKiZwCtkbZEw0GEEfr049ks.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KnA14qiPR2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-01"
+                            "release_date": "2023-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 192
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Alchemy Ward and an Unexpected Reunion",
                             "image": "https://image.tmdb.org/t/p/original/4NsFyWeePlJtIKtSK9sxnvfEZwO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uyTr4n3H9V/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-08"
+                            "release_date": "2023-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146.3,
+                                        "end": 236.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Hangar and Frame Gears",
                             "image": "https://image.tmdb.org/t/p/original/84AQx4SpB84418lfMR1QXdE3dCZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uHw3U4WotB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-15"
+                            "release_date": "2023-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 178.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.4,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Two Princes and the Small Fiancée",
                             "image": "https://image.tmdb.org/t/p/original/eMnhkrnj4hvc2ymwcM25F1lT9hm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6UGSY4dK1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-22"
+                            "release_date": "2023-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 174.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Day-Off Dates and the Female Knight",
                             "image": "https://image.tmdb.org/t/p/original/9qU0CpzgzTm1eADyXz5mxtxSwNY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yISArlX64/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-05-29"
+                            "release_date": "2023-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.3,
+                                        "end": 202.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.2,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Amnesia and the Mystic Eye of Petrification",
                             "image": "https://image.tmdb.org/t/p/original/aEoThT3MGxxgHOZpxE0XogNmTUA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nfq705SHJ9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-05"
+                            "release_date": "2023-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.3,
+                                        "end": 260.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Sister From Another World and a Sparkling First Love",
                             "image": "https://image.tmdb.org/t/p/original/eri61ZYdt3dOBAiFKLJBkQCZXG1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4n9o9iA096/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-12"
+                            "release_date": "2023-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 154.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Birth of a Prince and With My Smartphone",
                             "image": "https://image.tmdb.org/t/p/original/vIR9VRmPENVxP2r09bfa9Q3LR2R.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/peIoTGpeuE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-06-19"
+                            "release_date": "2023-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 167.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341.3,
+                                        "end": 1432
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

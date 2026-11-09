@@ -419,154 +419,499 @@
                             "image": "https://image.tmdb.org/t/p/original/2TS6F38wpdMW49zwjDSgYxnuWSW.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/kWOp7oYD/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-10-23"
+                            "release_date": "2002-10-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.7,
+                                        "end": 91.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.3,
+                                        "end": 1296.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Hyotei Presses Near",
                             "image": "https://image.tmdb.org/t/p/original/z7OISpeHvTURtqTDQEIi2YK84nT.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/vwc370K/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-10-30"
+                            "release_date": "2002-10-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.7,
+                                        "end": 105.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.1,
+                                        "end": 1297.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Doubles for Three",
                             "image": "https://image.tmdb.org/t/p/original/dZHhTIQ85xMR548m2n6zBfYWlYZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/4RnCF9Z/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-11-06"
+                            "release_date": "2002-11-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.7,
+                                        "end": 102.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1296.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1346.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Scud Serve",
                             "image": "https://image.tmdb.org/t/p/original/4PM4fhsud0aLHaGw2Xymbkq8AtN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/DZLpVfR3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-11-13"
+                            "release_date": "2002-11-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.7,
+                                        "end": 161.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.9,
+                                        "end": 1295.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Worst Compatibility",
                             "image": "https://image.tmdb.org/t/p/original/cRdG2VEiKIFvFNNNtIZ0u2CR8As.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/99BhmUKK/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-11-20"
+                            "release_date": "2002-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.8,
+                                        "end": 131.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.8,
+                                        "end": 1297.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Hidden Trouble",
                             "image": "https://image.tmdb.org/t/p/original/3nKmVTLYzxRju1l30XNLR219qT1.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/wM6LB9em/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-11-27"
+                            "release_date": "2002-11-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.7,
+                                        "end": 110.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.5,
+                                        "end": 1296
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Power vs. Power",
                             "image": "https://image.tmdb.org/t/p/original/f3UwU6qi5POcQwcovnTEwdjZAnz.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GsIUzJNX/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-12-04"
+                            "release_date": "2002-12-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.7,
+                                        "end": 144.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.8,
+                                        "end": 1295.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1346.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Duel of Hadoukyuu",
                             "image": "https://image.tmdb.org/t/p/original/csUIXwVF7xcu3pKEJKp4rtEHu1q.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/lD1vZESr/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-12-11"
+                            "release_date": "2002-12-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.7,
+                                        "end": 107.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.2,
+                                        "end": 1295.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Disappearing Serve",
                             "image": "https://image.tmdb.org/t/p/original/lLCv8cTqMNBo0sRAH0wg1I8f16e.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/HJ3rj5cn/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-12-18"
+                            "release_date": "2002-12-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.7,
+                                        "end": 119
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1295.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Last Triple Counter",
                             "image": "https://image.tmdb.org/t/p/original/xxfO0Sc0TSTKkZchIXr2m7YXZM2.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SIxle2Ej/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2002-12-25"
+                            "release_date": "2002-12-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.8,
+                                        "end": 91.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.9,
+                                        "end": 1295.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Teni-Puri",
                             "image": "https://image.tmdb.org/t/p/original/iXfJjsNHrJjPceQyM4jOaSnE2NC.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/OGKMy5sI/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-01-08"
+                            "release_date": "2003-01-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 7.7,
+                                        "end": 82
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.5,
+                                        "end": 1296
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1346.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Become Seigaku's Pillar of Support!",
                             "image": "https://image.tmdb.org/t/p/original/cEI3eEBAdwibgtQvDwyOHbL3VHG.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SYJ8cZoN/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-01-15"
+                            "release_date": "2003-01-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 117.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.3,
+                                        "end": 1296.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Rondo Towards Destruction",
                             "image": "https://image.tmdb.org/t/p/original/k5uKOhsS459DGvVELzOW6q4ZyFT.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/FEvtmF7X/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-01-22"
+                            "release_date": "2003-01-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.1,
+                                        "end": 101.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.1,
+                                        "end": 1296.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - The Last Shot",
                             "image": "https://image.tmdb.org/t/p/original/hvmXsTuLQMwbLjzNC9vCJbZtDOH.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/SHoXLefc/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-01-29"
+                            "release_date": "2003-01-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.2,
+                                        "end": 83.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.7,
+                                        "end": 1296.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - The Never Ending Tie-Break",
                             "image": "https://image.tmdb.org/t/p/original/w6e5RCTuHA2HKU37y01D7b3kCan.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/F5GV2Ly/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-02-05"
+                            "release_date": "2003-02-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 77.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.8,
+                                        "end": 1296.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Who will be a Regular?",
                             "image": "https://image.tmdb.org/t/p/original/kaYe3kyL5O1lJLFFietGdsqF8IR.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/o4pTni7R/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-02-12"
+                            "release_date": "2003-02-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 87.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.2,
+                                        "end": 1296
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Tennis vs. Ping-Pong",
                             "image": "https://image.tmdb.org/t/p/original/aacX5z2hwlkjqpuheeeQFsbUgxa.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/0hggI7XQ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-02-19"
+                            "release_date": "2003-02-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.7,
+                                        "end": 95.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.7,
+                                        "end": 1296.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - It's a Date",
                             "image": "https://image.tmdb.org/t/p/original/tkfsyY5ej9RS9rfEd53nCNrxw1u.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/RjKdCilt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-02-26"
+                            "release_date": "2003-02-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 135.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1296.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Kaoru becomes Ryoma",
                             "image": "https://image.tmdb.org/t/p/original/wlNNIISQ4oQMbHQJYHS0pyDsB2l.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/yAEdlgMS/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-03-05"
+                            "release_date": "2003-03-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 127.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.9,
+                                        "end": 1296.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Tezuka's Decision",
                             "image": "https://image.tmdb.org/t/p/original/nzw65GzugGZPOUBf5W51V6zICO8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/4YqtvH4c/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-03-12"
+                            "release_date": "2003-03-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.7,
+                                        "end": 116.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1296.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - A Message for Echizen",
                             "image": "https://image.tmdb.org/t/p/original/sRKx61LNlFy8RS3VLlJTXbY9jWx.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/CLbfbjDw/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-03-19"
+                            "release_date": "2003-03-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.7,
+                                        "end": 98.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.4,
+                                        "end": 1296
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Farewell, Tezuka Kunimitsu",
                             "image": "https://image.tmdb.org/t/p/original/xwt2F8RhNu2sYIL1VjGADh4O0Gd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/naI7Vc6K/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2003-03-26"
+                            "release_date": "2003-03-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.7,
+                                        "end": 103.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.1,
+                                        "end": 1296.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -1267,91 +1612,281 @@
                             "image": "https://image.tmdb.org/t/p/original/tGOPVymyauHxjaB9XI1AvBfqyGA.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/3xY29kJX/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-01-12"
+                            "release_date": "2005-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.5,
+                                        "end": 1294.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Eternal Rivals! Momoshiro vs. Kaidoh",
                             "image": "https://image.tmdb.org/t/p/original/ycYkDMqaCAywHzIr4YYdYPNgv0C.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/95bPW8I/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2004-01-19"
+                            "release_date": "2004-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57,
+                                        "end": 131.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.5,
+                                        "end": 1294.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Ryoma's Decision",
                             "image": "https://image.tmdb.org/t/p/original/bJArpggvDWjeX6Dw7BFGO8RftGZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GZStHtNA/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-01-26"
+                            "release_date": "2005-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218,
+                                        "end": 1294.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Wavering Thoughts",
                             "image": "https://image.tmdb.org/t/p/original/gMWe35OXBBOLZKupyGbLrSrzd5J.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/L5totB8a/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-01-26"
+                            "release_date": "2005-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 74.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.8,
+                                        "end": 1294.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Burn, Echizen!",
                             "image": "https://image.tmdb.org/t/p/original/bSxVIuaQ1mVK9ipq1FJfQYkMI9y.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/M3iqPZSM/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-02-02"
+                            "release_date": "2005-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.1,
+                                        "end": 1294.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - To my Dear Friend...",
                             "image": "https://image.tmdb.org/t/p/original/oHQWVD1aWwi2QWiApqZbC5v8er3.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/aRgeMd1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-02-09"
+                            "release_date": "2005-02-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.3,
+                                        "end": 103.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219,
+                                        "end": 1294.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Goodbye, Seigaku!",
                             "image": "https://image.tmdb.org/t/p/original/vytkDrSsghpSQ8kUdA1qNzxJnba.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/FvuQsrg4/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-02-16"
+                            "release_date": "2005-02-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.5,
+                                        "end": 120.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.8,
+                                        "end": 1294.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Samurai New York",
                             "image": "https://image.tmdb.org/t/p/original/2npd1uPJvcKsDE8lvi8aWRHm0Fx.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/wnyW9Ge1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-02-23"
+                            "release_date": "2005-02-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 76.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.8,
+                                        "end": 1294.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Tezuka Kunimitsu vs. Fuji Syusuke",
                             "image": "https://image.tmdb.org/t/p/original/9p3NNDa6DEhuOoCOqiNdDcrElHU.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/GLUuv6q8/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-03-02"
+                            "release_date": "2005-03-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.3,
+                                        "end": 1294.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Third Year's True Heart",
                             "image": "https://image.tmdb.org/t/p/original/9EOSZ9CD6tFygJurHf0VW1Dwr9Q.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EgQ6U6C4/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-03-09"
+                            "release_date": "2005-03-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 75.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.3,
+                                        "end": 1294.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Climax",
                             "image": "https://image.tmdb.org/t/p/original/4iXCXumoX93DLjjtRDaW2l9xVzF.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/1L7JY2H1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-03-16"
+                            "release_date": "2005-03-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 74.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218.8,
+                                        "end": 1294.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Unforgettable Promise",
                             "image": "https://image.tmdb.org/t/p/original/7d5wdUI5Q7dT2UcJBoAwngLoWyp.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/F9VCgPWE/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-03-30"
+                            "release_date": "2005-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 74.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.1,
+                                        "end": 1294.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Farewell, Prince",
                             "image": "https://image.tmdb.org/t/p/original/7jb6JB1rK35IQxL738qpcAlzVtP.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/WOLEEQtP/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2005-03-30"
+                            "release_date": "2005-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 74.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

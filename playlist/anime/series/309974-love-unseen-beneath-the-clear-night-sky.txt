@@ -16,84 +16,259 @@
                             "image": "https://image.tmdb.org/t/p/original/mcmbm0qc0TIlO8cHqJSIV4Cxsnp.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PEvRNQDPxu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-06"
+                            "release_date": "2026-07-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 16.2,
+                                        "end": 105.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.3,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Fuyutsuki Koharu",
                             "image": "https://image.tmdb.org/t/p/original/2mMguEL4fzTav8mfx0aaomrLZyQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Np6re5NNR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-13"
+                            "release_date": "2026-07-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.4,
+                                        "end": 1440.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Yellow Bookmark",
                             "image": "https://image.tmdb.org/t/p/original/yZQtgZpukUc3oaISUcEFCyRBfa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1b4kLzFr7D/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-20"
+                            "release_date": "2026-07-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 140.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.3,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - First Date",
                             "image": "https://image.tmdb.org/t/p/original/5KPxEWWrXh8LanfqkzovB5cLLcw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TH5yGxICqQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-07-27"
+                            "release_date": "2026-07-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.3,
+                                        "end": 213.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1418.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Aerial Fireworks",
                             "image": "https://image.tmdb.org/t/p/original/9G67bDkf8clM3HT0iwsbwwZFIEw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bCp6ToZp5c/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.7,
+                                        "end": 125.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.2,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Empty Terrace Seat",
                             "image": "https://image.tmdb.org/t/p/original/AnUauaDMJVp0S9P7bEdA8Mwwy8J.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Yoq9N3JQqb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.2,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Transparent",
                             "image": "https://image.tmdb.org/t/p/original/tHhR6iLorsoIzcBKh0esnztAQk8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PeptnsQQbi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 128.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1161.3,
+                                        "end": 1251.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Pangs of Love",
                             "image": "https://image.tmdb.org/t/p/original/dHgD0qA1twrcxDRaS6NyDI855H3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8mUdspwxdX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.2,
+                                        "end": 158.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.3,
+                                        "end": 1440.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Alone",
                             "image": "https://image.tmdb.org/t/p/original/5Hz8BydIhjyofRhTMETFpyoSt6O.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NH3wdMiWdD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-08-31"
+                            "release_date": "2026-08-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 87.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1348.1,
+                                        "end": 1436.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Stay By Her Side",
                             "image": "https://image.tmdb.org/t/p/original/g2ekLKT3UpK1LNdW4SIHJBqoWrt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nA4HOoS5mU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-07"
+                            "release_date": "2026-09-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 151.8,
+                                        "end": 241.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.9,
+                                        "end": 1432.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Sorano Kakeru",
                             "image": "https://image.tmdb.org/t/p/original/cRbhLsxtsSYGo4WBtNFtIEanzfM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3UpjmaECsT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-14"
+                            "release_date": "2026-09-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.3,
+                                        "end": 1437.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Memory of a Lifetime",
                             "image": "https://image.tmdb.org/t/p/original/jPjAxsI4FWDgFcNwJrGaE1TSJmZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PRy0jEjTjs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-21"
+                            "release_date": "2026-09-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1176.2,
+                                        "end": 1257.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

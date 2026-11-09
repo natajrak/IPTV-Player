@@ -16,84 +16,243 @@
                             "image": "https://image.tmdb.org/t/p/original/n6PE7WDBKP4AA1o3NXpGdiIWW90.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RcoDQgnBLt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-01-06"
+                            "release_date": "2012-01-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1406.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - I'm Done Being Human!",
                             "image": "https://image.tmdb.org/t/p/original/y7LiMwl4GqyRQyNR7vFLf1gonAu.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KkL9Dghu94/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-01-13"
+                            "release_date": "2012-01-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 171.4,
+                                        "end": 260.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I Made a Friend!",
                             "image": "https://image.tmdb.org/t/p/original/mQs4o0Lls5zaZMVGzhcUc06IeL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RZIzJSZ7uu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-01-20"
+                            "release_date": "2012-01-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.3,
+                                        "end": 147.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.9,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - I'm Saving My Friend!",
                             "image": "https://image.tmdb.org/t/p/original/icmGQ1i72QsiOvQQ4wXEBuDkmiL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uC9BZrOQBo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-01-27"
+                            "release_date": "2012-01-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.3,
+                                        "end": 188.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - I Will Defeat My Ex-girlfriend!",
                             "image": "https://image.tmdb.org/t/p/original/kW5dbfBU5c7jhQkS1s0TE6kfOnm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o3Pca14CFo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-02-03"
+                            "release_date": "2012-02-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 3.2,
+                                        "end": 92.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - I Work as a Devil!",
                             "image": "https://image.tmdb.org/t/p/original/2VE70GSq5yrz4HvzAbapvvZZDMf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1wAHbSeEgw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-02-10"
+                            "release_date": "2012-02-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.3,
+                                        "end": 173.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - I Get a Familiar!",
                             "image": "https://image.tmdb.org/t/p/original/apUUUMyHJEQUuv27lThX1bDIJau.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bDm9pKUWIf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-02-17"
+                            "release_date": "2012-02-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.3,
+                                        "end": 119.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - I Pick a Fight!",
                             "image": "https://image.tmdb.org/t/p/original/pOqwhBlydJpV6kUkg5qOFkkiV8e.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JBoVCzFseT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-02-24"
+                            "release_date": "2012-02-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.4,
+                                        "end": 206.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - I've Begun My Training!",
                             "image": "https://image.tmdb.org/t/p/original/wkUfTENeQnZsOOhYPPEIOQdZxd7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NRmKcbfRZX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-03-02"
+                            "release_date": "2012-03-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.3,
+                                        "end": 153.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Showdown Begins!",
                             "image": "https://image.tmdb.org/t/p/original/vUzZJY3r4jTPK8gyrYGsyILCdoS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6dqoPJHl2j/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-03-09"
+                            "release_date": "2012-03-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Acclaimed Battle Continues!",
                             "image": "https://image.tmdb.org/t/p/original/1jo0n3TAZEiA3kEiicxoEni6JA6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2A0D0uyeiD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-03-16"
+                            "release_date": "2012-03-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.3,
+                                        "end": 117.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - I'm Here to Keep My Promise!",
                             "image": "https://image.tmdb.org/t/p/original/9wamgE5hRoBYqC0kMCKqvlmle0w.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wle1IRISvL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2012-03-23"
+                            "release_date": "2012-03-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -119,84 +278,254 @@
                             "image": "https://image.tmdb.org/t/p/original/mrFC2SVhGp92wCPeRfwqzedYzLY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rxtNdjwR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-07-07"
+                            "release_date": "2013-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.3,
+                                        "end": 190.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1508,
+                                        "end": 1599.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The Holy Sword Is Here!",
                             "image": "https://image.tmdb.org/t/p/original/reQrIKSEuLCrbqVFwyDlwddYkox.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/o6Ica651/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-07-14"
+                            "release_date": "2013-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.3,
+                                        "end": 182.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.7,
+                                        "end": 1596.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - I'll Destroy the Holy Sword!",
                             "image": "https://image.tmdb.org/t/p/original/iduWJsUDGrfGLTPJTfHA8RDi7f8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YOKa7RdV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-07-21"
+                            "release_date": "2013-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.3,
+                                        "end": 168.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.8,
+                                        "end": 1596.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - A Strong Enemy Appeared!",
                             "image": "https://image.tmdb.org/t/p/original/yxgKRNOuhaKHkBtdbAJ0x6Vxx9H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LWTVCnFw/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-07-28"
+                            "release_date": "2013-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.7,
+                                        "end": 1596.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Decisive Battle at Kuoh Academy!",
                             "image": "https://image.tmdb.org/t/p/original/15TDQov8V541wFlaIhnuDRU8GRx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cxRv9XSO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-08-04"
+                            "release_date": "2013-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.3,
+                                        "end": 193.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1507.8,
+                                        "end": 1597.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Go! Occult Research Club!",
                             "image": "https://image.tmdb.org/t/p/original/ug4fK0Jgu2ae64CyOaFMmgQmOkm.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ehvRVdyz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-08-11"
+                            "release_date": "2013-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Summer! Bathing Suits! I'm in Trouble!",
                             "image": "https://image.tmdb.org/t/p/original/t5PZWacd7aYYeT35D3sj75pRfKD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SCmjCFYm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-08-18"
+                            "release_date": "2013-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.4,
+                                        "end": 223.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1507.7,
+                                        "end": 1597.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Open House Begins!",
                             "image": "https://image.tmdb.org/t/p/original/6J3NqJ7RKl5c7Zm6qF6bXUUGKPg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1jiSMgmQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-08-25"
+                            "release_date": "2013-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 143.4,
+                                        "end": 232.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.8,
+                                        "end": 1596.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - I Have a Junior!",
                             "image": "https://image.tmdb.org/t/p/original/sQJlI9PqHCy836OPzPhmBcQdHOC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MphtJajI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-09-01"
+                            "release_date": "2013-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.4,
+                                        "end": 203.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.8,
+                                        "end": 1596.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Various Three-way Deadlocks!",
                             "image": "https://image.tmdb.org/t/p/original/91PRKotW1cCyw9nrPoN8oUcn8l1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oboKaNw0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-09-08"
+                            "release_date": "2013-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.3,
+                                        "end": 137.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1506.7,
+                                        "end": 1596.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Leaders' Summit Begins!",
                             "image": "https://image.tmdb.org/t/p/original/mMXWM5cp06zOQ7TsMNs4K0vGQbj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bpGABFG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-09-15"
+                            "release_date": "2013-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.4,
+                                        "end": 228.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1507.8,
+                                        "end": 1597.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Clash of the Twin Sky Dragons!",
                             "image": "https://image.tmdb.org/t/p/original/owM0EM9QLEJqsIMM8E6KX00CZrz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QRgGIia3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2013-09-22"
+                            "release_date": "2013-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.3,
+                                        "end": 164.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -222,84 +551,254 @@
                             "image": "https://image.tmdb.org/t/p/original/u3AdEaYh1aNrGkWWbYIhFNbSJvt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gdD2d3fu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-04-04"
+                            "release_date": "2015-04-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 177.2,
+                                        "end": 276.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Young Devils Gather",
                             "image": "https://image.tmdb.org/t/p/original/nEUDwZu5eLvzxbDtMceG6GLQSO5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LSBnA1pb/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-04-11"
+                            "release_date": "2015-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.2,
+                                        "end": 117.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Cat and Dragon",
                             "image": "https://image.tmdb.org/t/p/original/wz1bwfAo0yZLeyXOR6TClWFg4HJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/k0Hj6C0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-04-18"
+                            "release_date": "2015-04-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 122
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Interception, Commence!",
                             "image": "https://image.tmdb.org/t/p/original/vssG6A1I9t1UyXHBAdAxPn6jpHa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/z6Xymjag/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-04-25"
+                            "release_date": "2015-04-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.4,
+                                        "end": 117
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Last Day of Summer Break!",
                             "image": "https://image.tmdb.org/t/p/original/pPF2rjJCxOOSvcCiswmgbPDO3DY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wJKmn580/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-05-02"
+                            "release_date": "2015-05-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Second Trimester Has Started!",
                             "image": "https://image.tmdb.org/t/p/original/i8E9Dj15xp3Vtsshl9buVwlJNGx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yjXPfiWn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-05-09"
+                            "release_date": "2015-05-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.4,
+                                        "end": 146
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Night Before Battle!",
                             "image": "https://image.tmdb.org/t/p/original/jHjnzqIffQrQVCenZo7GC5tkQnM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LpTqb90G/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-05-16"
+                            "release_date": "2015-05-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 169.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - We Will Save Asia!",
                             "image": "https://image.tmdb.org/t/p/original/bUA2IkMEMxPCX2spsQx7yayFpfF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/s4r3tDBp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-05-23"
+                            "release_date": "2015-05-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 144.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Dragon of Dragon",
                             "image": "https://image.tmdb.org/t/p/original/raP7PAAu5xrwQLOfNPEPAqy93Wt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZboglevO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-05-30"
+                            "release_date": "2015-05-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.3,
+                                        "end": 230
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Occult Club Disappears?!",
                             "image": "https://image.tmdb.org/t/p/original/AhUyMGAOaq40heDG1aJWNAto2mB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZlDXV3dR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-06-06"
+                            "release_date": "2015-06-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.3,
+                                        "end": 113
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - I Will Fight!",
                             "image": "https://image.tmdb.org/t/p/original/muOFOhASjqg2QwVrp6kj2XMcxw4.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xCX2NEGL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-06-13"
+                            "release_date": "2015-06-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.3,
+                                        "end": 196
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Any Time, for All Time!",
                             "image": "https://image.tmdb.org/t/p/original/jjLg5jBpw8hVzm8PrLMWkQ72L.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zAAGgcLe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2015-06-20"
+                            "release_date": "2015-06-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 138.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -325,91 +824,275 @@
                             "image": "https://image.tmdb.org/t/p/original/xhhWtaH6IokbAkmFX0K2nuaxapP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FFjCe8uLwH/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-04-10"
+                            "release_date": "2018-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 2 - That’s Right, Let’s Go to Kyoto",
                             "image": "https://image.tmdb.org/t/p/original/ccwC7NDg8oXCyuIFHMFBMIWJrmW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TAO1IIh9wl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-04-17"
+                            "release_date": "2018-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 128.6,
+                                        "end": 217.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - School Trip, an Abrupt Attack",
                             "image": "https://image.tmdb.org/t/p/original/etQj5HUd6wy0qbWMlOet9FSmdm8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AIYlRxQdQ6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-04-24"
+                            "release_date": "2018-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1426.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Party of Heroes",
                             "image": "https://image.tmdb.org/t/p/original/yPm1dUw66oD4Ybg6NKEUq6WDCGM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/i18jvxmMKL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-05-01"
+                            "release_date": "2018-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 115.3,
+                                        "end": 204.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Showdown! Gremory Family vs. Hero Faction in Kyoto",
                             "image": "https://image.tmdb.org/t/p/original/lmvJ2L3yp538ljz2aWhJntcj4XU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yP9zbQAWF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-05-08"
+                            "release_date": "2018-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.6,
+                                        "end": 133.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1426.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - My Potential Released!",
                             "image": "https://image.tmdb.org/t/p/original/gNQS2b2Pbjes1P4htn8v24Gprvr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/P6GiRB9nQM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-05-15"
+                            "release_date": "2018-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.6,
+                                        "end": 115.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1426.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The School Trip is in Pandemonium",
                             "image": "https://image.tmdb.org/t/p/original/qZVVo1fVCoBpGRJZDuLbbw8zwIn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Z6c0hbMR6E/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-05-22"
+                            "release_date": "2018-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.1,
+                                        "end": 134.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1426
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - We are Preparing for the School Festival!",
                             "image": "https://image.tmdb.org/t/p/original/5CGqzXGn5ubVb6V5WU3M73yvWwJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/h7DIBKmZf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-05-29"
+                            "release_date": "2018-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 54.1,
+                                        "end": 129.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.1,
+                                        "end": 1426.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Girl's Heart is Complicated",
                             "image": "https://image.tmdb.org/t/p/original/6REb80EVtKcwhicuzek4ZSDyaPL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EYc7MkTFoS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-06-05"
+                            "release_date": "2018-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52.3,
+                                        "end": 141.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Deciding Battle of the Strongest Youth, Begins!",
                             "image": "https://image.tmdb.org/t/p/original/hnTY2uKv7ObCuZjTjqWoY3Z6Y7e.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4dPIw9oImh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-06-12"
+                            "release_date": "2018-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 114.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1425.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - As a Family Member of Rias Gremory",
                             "image": "https://image.tmdb.org/t/p/original/h9cl71IijjT2DNFXf8vinIuaqg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NSY5LR07al/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-06-19"
+                            "release_date": "2018-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.3,
+                                        "end": 121.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Man Against Man",
                             "image": "https://image.tmdb.org/t/p/original/42pfCCQSCxN24vxiXWqqr2xKzdB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UTlkwPys0u/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-06-26"
+                            "release_date": "2018-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.3,
+                                        "end": 111.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.2,
+                                        "end": 1425.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Lion Heart of the School Festival",
                             "image": "https://image.tmdb.org/t/p/original/dSQWXi54cdPq112WhgYbcwf051.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/X6lj8Uu5Ke/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2018-07-03"
+                            "release_date": "2018-07-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41,
+                                        "end": 129.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1157.3,
+                                        "end": 1246.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

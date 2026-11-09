@@ -596,84 +596,244 @@
                             "image": "https://image.tmdb.org/t/p/original/dBS9trCTsM0TDRqGWROMfxSh69W.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/ybjVnQLAdk/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-06"
+                            "release_date": "2023-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59,
+                                        "end": 149.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - นาเดีย",
                             "image": "https://image.tmdb.org/t/p/original/tpihwS5i6YRilDYD501a9a6rhHM.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/8qmyWkFuGG/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-13"
+                            "release_date": "2023-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - พี่น้องเผ่าฮาคุโกะ",
                             "image": "https://image.tmdb.org/t/p/original/ke53laX0I3cQhsp0y8n8BW6lkFl.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/sv4z2jt7Hf/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-20"
+                            "release_date": "2023-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.3,
+                                        "end": 190.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - แผนการจับผู้กล้าหอก",
                             "image": "https://image.tmdb.org/t/p/original/cnKV7Asfwf1fGNFRJumFOEX8kVt.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/KneQW8Grr1/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-27"
+                            "release_date": "2023-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 128.3,
+                                        "end": 217.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - แต่ละเส้นทาง",
                             "image": "https://image.tmdb.org/t/p/original/6x4r829HeaF9X9y119AHrcp8WIe.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/j0Cn4loBN/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-03"
+                            "release_date": "2023-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.3,
+                                        "end": 205.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1412
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - หัวหอกแห่งความแข็งแกร่ง",
                             "image": "https://image.tmdb.org/t/p/original/41yMsRf0S7fDjFp7Vt9lDLp4zMj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/poCl5WqzHC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-10"
+                            "release_date": "2023-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 98,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เด็กสาวกับมังกร",
                             "image": "https://image.tmdb.org/t/p/original/vR4lOB162O60hXPTT8pSuybfMjr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/3G9mpcDkY/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-17"
+                            "release_date": "2023-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 236.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.6,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - รังของมังกร",
                             "image": "https://image.tmdb.org/t/p/original/neFN4JMqFAkjnHXMhZU3mlpzwDI.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/92bFJXDv4A/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-24"
+                            "release_date": "2023-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.7,
+                                        "end": 186.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.8,
+                                        "end": 1412.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - มังกรมาร",
                             "image": "https://image.tmdb.org/t/p/original/se3qM16oCkehRfwq8ZenrH3TjKN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/UeRmXxvpVv/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-01"
+                            "release_date": "2023-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1420.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - เพอร์เฟ็กต์ ไฮด์ จัสติส",
                             "image": "https://image.tmdb.org/t/p/original/p8RhvYYa396rFRFcl6g0oMoRevp.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Qj5aK474a/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-08"
+                            "release_date": "2023-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.4,
+                                        "end": 1420.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ความถูกต้องปะทะความถูกต้อง",
                             "image": "https://image.tmdb.org/t/p/original/p2n9jaEfH8C1txGxNoaWUsAkXFw.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/j9DfFlmB1v/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-15"
+                            "release_date": "2023-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 129.7,
+                                        "end": 218.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - เหล่าผู้ที่ควรปกป้อง",
                             "image": "https://image.tmdb.org/t/p/original/pHwncx2bylpW5BXe6KahBgb3xoL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/LzqoOatViA/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-22"
+                            "release_date": "2023-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.5,
+                                        "end": 1411.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -688,84 +848,244 @@
                             "image": "https://image.tmdb.org/t/p/original/dBS9trCTsM0TDRqGWROMfxSh69W.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Jbek4Yr7nt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-06"
+                            "release_date": "2023-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59,
+                                        "end": 149.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Nadia",
                             "image": "https://image.tmdb.org/t/p/original/tpihwS5i6YRilDYD501a9a6rhHM.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/xsHY6gtB6i/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-13"
+                            "release_date": "2023-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The White Tiger Siblings",
                             "image": "https://image.tmdb.org/t/p/original/ke53laX0I3cQhsp0y8n8BW6lkFl.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/OAkfqnpLEW/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-20"
+                            "release_date": "2023-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.3,
+                                        "end": 190.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Operation to Capture the Spear Hero",
                             "image": "https://image.tmdb.org/t/p/original/cnKV7Asfwf1fGNFRJumFOEX8kVt.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/oFLKCYFyvX/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-10-27"
+                            "release_date": "2023-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 128.3,
+                                        "end": 217.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Each of Their Paths",
                             "image": "https://image.tmdb.org/t/p/original/6x4r829HeaF9X9y119AHrcp8WIe.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/EZUMwCYwVj/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-03"
+                            "release_date": "2023-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.3,
+                                        "end": 205.6
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1341.8,
+                                        "end": 1396.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Where You Point Your Strength",
                             "image": "https://image.tmdb.org/t/p/original/41yMsRf0S7fDjFp7Vt9lDLp4zMj.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/NQLqDP6BJU/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-10"
+                            "release_date": "2023-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 98,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Girl and the Dragon",
                             "image": "https://image.tmdb.org/t/p/original/vR4lOB162O60hXPTT8pSuybfMjr.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/LE7B8he5Mi/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-17"
+                            "release_date": "2023-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146,
+                                        "end": 236.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Dragon's Den",
                             "image": "https://image.tmdb.org/t/p/original/neFN4JMqFAkjnHXMhZU3mlpzwDI.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/MLxrEQlO0E/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-11-24"
+                            "release_date": "2023-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.7,
+                                        "end": 186.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Emperor Dragon",
                             "image": "https://image.tmdb.org/t/p/original/se3qM16oCkehRfwq8ZenrH3TjKN.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/q07zTNfBNQ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-01"
+                            "release_date": "2023-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Perfect Hidden Justice",
                             "image": "https://image.tmdb.org/t/p/original/p8RhvYYa396rFRFcl6g0oMoRevp.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/Tg1cWVtRTp/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-08"
+                            "release_date": "2023-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Justice VS Justice",
                             "image": "https://image.tmdb.org/t/p/original/p2n9jaEfH8C1txGxNoaWUsAkXFw.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/2wcUmJj5vc/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-15"
+                            "release_date": "2023-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 129.7,
+                                        "end": 218.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Ones We Must Protect",
                             "image": "https://image.tmdb.org/t/p/original/pHwncx2bylpW5BXe6KahBgb3xoL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/AcaEyeiO1s/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2023-12-22"
+                            "release_date": "2023-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.5,
+                                        "end": 1411.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -788,84 +1108,249 @@
                             "image": "https://image.tmdb.org/t/p/original/mz1q3UqS5jeilDk1tKvKkYOUnzJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fBsiU7J487/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-09"
+                            "release_date": "2025-07-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 258.3,
+                                        "end": 347.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Official Welcome",
                             "image": "https://image.tmdb.org/t/p/original/2G5OwqHd8Uq22NQiLodG11iKw4t.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Iuk3Krl31I/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-16"
+                            "release_date": "2025-07-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.3,
+                                        "end": 1410.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - A True People",
                             "image": "https://image.tmdb.org/t/p/original/uWPXyVRpVUZV5Y7x7u39WMGy8XO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WOaT81cel3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-23"
+                            "release_date": "2025-07-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Entrusted Power",
                             "image": "https://image.tmdb.org/t/p/original/c6nv7YNlS7QhWtm6ZioPuCRIoGc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5IVckCkrDS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-30"
+                            "release_date": "2025-07-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.3,
+                                        "end": 245.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - White Tiger",
                             "image": "https://image.tmdb.org/t/p/original/m3aJ1ikPpH49mbwwXlj6rlsl0Uw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ZTgNq54a3k/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-06"
+                            "release_date": "2025-08-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.3,
+                                        "end": 187.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Leaving Port",
                             "image": "https://image.tmdb.org/t/p/original/sqrq2cq9rUlzWklhL3qBqQVPI3g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nZTtTm9Elp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-13"
+                            "release_date": "2025-08-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.3,
+                                        "end": 224.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Arriving in Q'ten Lo",
                             "image": "https://image.tmdb.org/t/p/original/tV8KLYtfXT8yq2XlzxGtYfEHkTO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TtD43YIC3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-20"
+                            "release_date": "2025-08-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.3,
+                                        "end": 174.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.4,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Orochi",
                             "image": "https://image.tmdb.org/t/p/original/v9ml9oJUhB48ZXchnaGJa9YvoYR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DTDJnxUwTK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-27"
+                            "release_date": "2025-08-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Zodia",
                             "image": "https://image.tmdb.org/t/p/original/AjqQxLf3dgdohT2u5pmCTGFznaZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uTQYR9WmNi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-03"
+                            "release_date": "2025-09-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 115.3,
+                                        "end": 204.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Prayers",
                             "image": "https://image.tmdb.org/t/p/original/jsO0IrOXEqnSRDWCEzKciw8uWar.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KMMez8vC8H/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-10"
+                            "release_date": "2025-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Oracle Miko",
                             "image": "https://image.tmdb.org/t/p/original/sqa7O1836rnY9WmnnI0R0zUp7Qr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fTXXUtWkNn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-17"
+                            "release_date": "2025-09-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.3,
+                                        "end": 262.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Return of the Emperor",
                             "image": "https://image.tmdb.org/t/p/original/g8p5WHPpRF6SLZVFvWkBUlFREDI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vDqVAP8bEN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-24"
+                            "release_date": "2025-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.3,
+                                        "end": 1392.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -880,84 +1365,249 @@
                             "image": "https://image.tmdb.org/t/p/original/mz1q3UqS5jeilDk1tKvKkYOUnzJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NjIOKK8MmM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-09"
+                            "release_date": "2025-07-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 258.2,
+                                        "end": 347.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Official Welcome",
                             "image": "https://image.tmdb.org/t/p/original/2G5OwqHd8Uq22NQiLodG11iKw4t.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jmqfod8f9B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-16"
+                            "release_date": "2025-07-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.2,
+                                        "end": 164.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - A True People",
                             "image": "https://image.tmdb.org/t/p/original/uWPXyVRpVUZV5Y7x7u39WMGy8XO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uRog4QsLtd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-23"
+                            "release_date": "2025-07-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 155.3,
+                                        "end": 244.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Entrusted Power",
                             "image": "https://image.tmdb.org/t/p/original/c6nv7YNlS7QhWtm6ZioPuCRIoGc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qPylkZBTZQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-30"
+                            "release_date": "2025-07-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.3,
+                                        "end": 245.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - White Tiger",
                             "image": "https://image.tmdb.org/t/p/original/m3aJ1ikPpH49mbwwXlj6rlsl0Uw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OIuwoN1gAZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-06"
+                            "release_date": "2025-08-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.3,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Leaving Port",
                             "image": "https://image.tmdb.org/t/p/original/sqrq2cq9rUlzWklhL3qBqQVPI3g.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/H3uobTwk4W/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-13"
+                            "release_date": "2025-08-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.2,
+                                        "end": 224.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Arriving in Q'ten Lo",
                             "image": "https://image.tmdb.org/t/p/original/tV8KLYtfXT8yq2XlzxGtYfEHkTO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SnKY2pxYrR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-20"
+                            "release_date": "2025-08-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.3,
+                                        "end": 174.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Orochi",
                             "image": "https://image.tmdb.org/t/p/original/v9ml9oJUhB48ZXchnaGJa9YvoYR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lXadGEMkV6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-27"
+                            "release_date": "2025-08-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Zodia",
                             "image": "https://image.tmdb.org/t/p/original/AjqQxLf3dgdohT2u5pmCTGFznaZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nSiw6XOFBZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-03"
+                            "release_date": "2025-09-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 115.3,
+                                        "end": 204.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Prayers",
                             "image": "https://image.tmdb.org/t/p/original/jsO0IrOXEqnSRDWCEzKciw8uWar.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/MfkyG1Wq9R/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-10"
+                            "release_date": "2025-09-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Oracle Miko",
                             "image": "https://image.tmdb.org/t/p/original/sqa7O1836rnY9WmnnI0R0zUp7Qr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OnHDaIJsSA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-17"
+                            "release_date": "2025-09-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.3,
+                                        "end": 262.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Return of the Emperor",
                             "image": "https://image.tmdb.org/t/p/original/g8p5WHPpRF6SLZVFvWkBUlFREDI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ai6E6ddp75/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-24"
+                            "release_date": "2025-09-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.2,
+                                        "end": 1392.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

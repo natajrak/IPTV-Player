@@ -16,84 +16,249 @@
                             "image": "https://image.tmdb.org/t/p/original/nbFAo3fI3VPV1FPVwhsxiuMIP9Y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRsMfja26%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRsMfja26",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-04-06"
+                            "release_date": "2021-04-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319,
+                                        "end": 1409.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Air in Spring and...",
                             "image": "https://image.tmdb.org/t/p/original/pFogrsWO8I0dmvabaqMGu96luoz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1MOkr4MT%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1MOkr4MT",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-04-13"
+                            "release_date": "2021-04-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 129.2,
+                                        "end": 218.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1267.3,
+                                        "end": 1356.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Summer in Jura",
                             "image": "https://image.tmdb.org/t/p/original/kWTQVfTfmH4XpqZbip1vcmvqcKu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHTwxELZV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHTwxELZV",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-04-20"
+                            "release_date": "2021-04-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 168.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Day in a Swimsuit",
                             "image": "https://image.tmdb.org/t/p/original/dyG2K871CZ3PxwXz4VrpaR8WW1n.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FjRAZJW07%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FjRAZJW07",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-04-27"
+                            "release_date": "2021-04-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.2,
+                                        "end": 178.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.7,
+                                        "end": 1406.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Return of the Summer Festival",
                             "image": "https://image.tmdb.org/t/p/original/1v6rTc13PCkAanCIv0Abpbptz9M.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FbSOGBC3c%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FbSOGBC3c",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-05-04"
+                            "release_date": "2021-05-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.3,
+                                        "end": 200.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1265,
+                                        "end": 1356.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Changes",
                             "image": "https://image.tmdb.org/t/p/original/6I8VruX8l4kyUUrtm5QDoBIazkE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fn1y9R8RP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fn1y9R8RP",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-05-11"
+                            "release_date": "2021-05-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1272.7,
+                                        "end": 1360.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Here Comes the Demon Lord!",
                             "image": "https://image.tmdb.org/t/p/original/lTi9b5NN7CFHVmctKPOEsFTUtk2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuKmto3OK%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuKmto3OK",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-05-18"
+                            "release_date": "2021-05-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 169.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1248.7,
+                                        "end": 1337.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - A Fruitful Autumn",
                             "image": "https://image.tmdb.org/t/p/original/e00PdwYZ6vGEPi5WUh2Dr1PERdj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOxf1zvPM%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOxf1zvPM",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-05-25"
+                            "release_date": "2021-05-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 148.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1241.3,
+                                        "end": 1331.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Arrival of Winter",
                             "image": "https://image.tmdb.org/t/p/original/Nvu8ZLv3dioUwzchGy612Wq06V.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FT9Bv7q7e%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FT9Bv7q7e",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-06-01"
+                            "release_date": "2021-06-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1258.5,
+                                        "end": 1347.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Snow Blankets the City of Monsters",
                             "image": "https://image.tmdb.org/t/p/original/4I2JiGQ4id12HB3zDgzEo5L9ai4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9Vl8CwTN%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9Vl8CwTN",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-06-08"
+                            "release_date": "2021-06-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.3,
+                                        "end": 131.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1299.7,
+                                        "end": 1386.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Where Is Santa Claus?",
                             "image": "https://image.tmdb.org/t/p/original/9c00GbYh9w67zM1CCGvq72N35ld.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fb9JoEqqh%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fb9JoEqqh",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-06-15"
+                            "release_date": "2021-06-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.2,
+                                        "end": 160.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1243.7,
+                                        "end": 1330.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Enjoying New Year's to the Fullest",
                             "image": "https://image.tmdb.org/t/p/original/tKG563qPPHHN5w8ydpZt2s35BOs.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FiSmf8NRv%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FiSmf8NRv",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2021-06-22"
+                            "release_date": "2021-06-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 148.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

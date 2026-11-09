@@ -277,77 +277,237 @@
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxSi50FUp%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxSi50FUp",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-04-05",
-                            "image": "https://image.tmdb.org/t/p/original/tv9P5KL0A1UlRj82Jp8Ht29Vnzp.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/tv9P5KL0A1UlRj82Jp8Ht29Vnzp.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.4,
+                                        "end": 80.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1471.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ซากุระกับเสียงที่หายไปของโทโมโยะ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdZvGof6O%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdZvGof6O",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-04-12",
-                            "image": "https://image.tmdb.org/t/p/original/oE5axERjHC9mYJwzrrs8ophuu9D.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/oE5axERjHC9mYJwzrrs8ophuu9D.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.5,
+                                        "end": 1469.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - การเก็บสตรอเบอรี่แสนสนุกของซากุระ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6h5TmdDt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6h5TmdDt",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-04-19",
-                            "image": "https://image.tmdb.org/t/p/original/rayrbyAssfAzh1sWmWxe8cHqPpU.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/rayrbyAssfAzh1sWmWxe8cHqPpU.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - วันไข้ขึ้นสูงของซากุระ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F3JuSbW00%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F3JuSbW00",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-04-26",
-                            "image": "https://image.tmdb.org/t/p/original/gSm6NvqqbrKMlpWINyjL6b7W5PT.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/gSm6NvqqbrKMlpWINyjL6b7W5PT.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.1,
+                                        "end": 80.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ซากุระ กับ ซากุระในความฝัน",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FETsNjfU4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FETsNjfU4",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-05-10",
-                            "image": "https://image.tmdb.org/t/p/original/AruVpVO2Q8oWv3fl50GH82lB0UF.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/AruVpVO2Q8oWv3fl50GH82lB0UF.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.3,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ซากุระ กับ เชาหลาง กับ ทะเลทราย",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FHxPjCPgd%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FHxPjCPgd",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-05-17",
-                            "image": "https://image.tmdb.org/t/p/original/opV7uCjO0bX54ZrRlhAQ8rKA3T5.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/opV7uCjO0bX54ZrRlhAQ8rKA3T5.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.3,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ซากุระกับงานโรงเรียนที่มืดมิด",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FS8hMad5L%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FS8hMad5L",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-05-24",
-                            "image": "https://image.tmdb.org/t/p/original/s62t7fIXk0ooBcNp7Vf7wxiuCb6.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/s62t7fIXk0ooBcNp7Vf7wxiuCb6.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.7,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1398.1,
+                                        "end": 1467.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ซากุระอำลาเหม่ยหลิง",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FTq1mw4vg%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FTq1mw4vg",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-05-31",
-                            "image": "https://image.tmdb.org/t/p/original/hlq9179liAyYAdR0vfZCV81qv2O.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/hlq9179liAyYAdR0vfZCV81qv2O.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 7.8,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ซากุระ กับ เคโระกับอาจารย์พิศวง",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fanf2LePD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fanf2LePD",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-06-07",
-                            "image": "https://image.tmdb.org/t/p/original/rHK7wBy4FoNomkW8w2o1ZWg2j6c.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/rHK7wBy4FoNomkW8w2o1ZWg2j6c.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ซากุระ กับ โคลว์การ์ดใบสุดท้าย",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F03uNZnzO%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F03uNZnzO",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-06-14",
-                            "image": "https://image.tmdb.org/t/p/original/4YvjyoOGF8iKC7obD3u2arsX9ob.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/4YvjyoOGF8iKC7obD3u2arsX9ob.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ซากุระ กับ คำพิพากษาสุดท้าย",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FhXHQzWYw%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FhXHQzWYw",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-06-21",
-                            "image": "https://image.tmdb.org/t/p/original/eW5fJ1lGu3frNQNCqHRBu15pyjC.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/eW5fJ1lGu3frNQNCqHRBu15pyjC.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -370,168 +530,518 @@
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fvj8fLTB1%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fvj8fLTB1",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-09-07",
-                            "image": "https://image.tmdb.org/t/p/original/y86btfWs0gupZAmU4pDuupI0eeb.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/y86btfWs0gupZAmU4pDuupI0eeb.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ซากุระ กับ กุญแจแห่งดวงดาว ที่ถือกำเนิด",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F48XbBKS2%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F48XbBKS2",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-09-14",
-                            "image": "https://image.tmdb.org/t/p/original/b7gL4XAXlRt7PbZ9BT3Wos9Tsct.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/b7gL4XAXlRt7PbZ9BT3Wos9Tsct.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ซากุระ กับ เปียโนอันตราย",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyMBSipWs%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyMBSipWs",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-09-21",
-                            "image": "https://image.tmdb.org/t/p/original/hUErCcz8gYwRm2Idpw9q3bq1bze.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/hUErCcz8gYwRm2Idpw9q3bq1bze.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ซากุระ กับ เชาหลาง กับ ด้ายที่มองไม่เห็น",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fil06y8K6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fil06y8K6",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-09-28",
-                            "image": "https://image.tmdb.org/t/p/original/u8BdBH7Qm7JipAs3lc0P7ahBDIz.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/u8BdBH7Qm7JipAs3lc0P7ahBDIz.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.4,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ซากุระ กับ ตุ๊กตาตัวใหญ่",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FnKnE7tLB%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FnKnE7tLB",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-10-05",
-                            "image": "https://image.tmdb.org/t/p/original/oyUE3vljmt6t93G3zLBNTo3kzfa.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/oyUE3vljmt6t93G3zLBNTo3kzfa.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 10.8,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ซากุระ กับ การเตือนภัยแกะ !",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzDjajwtf%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzDjajwtf",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-10-12",
-                            "image": "https://image.tmdb.org/t/p/original/lL1gZMiDy3mMMKJ0C5OiXpKPjJY.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/lL1gZMiDy3mMMKJ0C5OiXpKPjJY.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.3,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ซากุระ กับ จักรยานที่ตื่นเตลิด",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYnoGtikx%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYnoGtikx",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-10-19",
-                            "image": "https://image.tmdb.org/t/p/original/jl4dl45ZOpYigOdug52b0gSUc2K.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/jl4dl45ZOpYigOdug52b0gSUc2K.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1470.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ซากุระ กับ ปฏิทินแห่งความทรงจำ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F05ElEuXm%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F05ElEuXm",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-10-26",
-                            "image": "https://image.tmdb.org/t/p/original/yXhAEwCfuhPo72CyFlS10OjZDIy.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/yXhAEwCfuhPo72CyFlS10OjZDIy.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.8,
+                                        "end": 81.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ซากุระ กับ ซากุระในแดนมหัศจรรย์",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fn6dACEO4%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fn6dACEO4",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-11-02",
-                            "image": "https://image.tmdb.org/t/p/original/f9cas7L41MfvOwwNPobIkZ2lUEv.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/f9cas7L41MfvOwwNPobIkZ2lUEv.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 11.3,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ซากุระ กับ เคโระ กับการพบปะเพราะขนม",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6iaEmwy7%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6iaEmwy7",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-11-09",
-                            "image": "https://image.tmdb.org/t/p/original/dZbYiU9uYtcA1s4jnAJEuFX8o5b.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/dZbYiU9uYtcA1s4jnAJEuFX8o5b.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ซากุระ กับ เชาหลาง กับ ลิฟต์",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fa5I7wxuX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fa5I7wxuX",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-11-16",
-                            "image": "https://image.tmdb.org/t/p/original/j22sIxMUi3xMFYdJnKly4H98xGP.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/j22sIxMUi3xMFYdJnKly4H98xGP.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 6.8,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ซากุระ กับ วิกฤติของทั้งสอง",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FRGqZ9qEl%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FRGqZ9qEl",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-11-30",
-                            "image": "https://image.tmdb.org/t/p/original/iLyqYGf0DUDysgHjMTCAm74ROx3.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/iLyqYGf0DUDysgHjMTCAm74ROx3.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.6,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ซากุระ กับ โทโมโยะ กับ กับดักลูกบอล",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F1SApmmXV%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F1SApmmXV",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-12-07",
-                            "image": "https://image.tmdb.org/t/p/original/dTLeHPsh6BXqmS20ed2lRbZjA35.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/dTLeHPsh6BXqmS20ed2lRbZjA35.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.6,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - ซากุระ กับ เพื่อนคนสำคัญ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FM2eGsjU8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FM2eGsjU8",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-12-14",
-                            "image": "https://image.tmdb.org/t/p/original/qnZKCC6tJPxkjjHLKV7thngIx5M.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/qnZKCC6tJPxkjjHLKV7thngIx5M.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ซากุระ กับ การ์ดกับของขวัญ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F6pMRHp9J%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F6pMRHp9J",
                             "referer": "https://fairyanime.net/",
                             "release_date": "1999-12-21",
-                            "image": "https://image.tmdb.org/t/p/original/hgW6QwJhl3z5tVH9usaGXOwFCME.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/hgW6QwJhl3z5tVH9usaGXOwFCME.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ซากุระ กับ เซียมซีประหลาด",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FPOpE9j2T%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FPOpE9j2T",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-01-04",
-                            "image": "https://image.tmdb.org/t/p/original/kDrUftwZCvTs5e54bybSraW7zWp.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/kDrUftwZCvTs5e54bybSraW7zWp.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ซากุระ กับ สระว่ายน้ำ กับคลื่นยักษ์",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlAvTlZyD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlAvTlZyD",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-01-11",
-                            "image": "https://image.tmdb.org/t/p/original/6c3ZnZuXcXQEZYQGcLauMqrY7VL.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/6c3ZnZuXcXQEZYQGcLauMqrY7VL.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ซากุระ กับ บทเรียนสกีในพายุหิมะ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdMBOaA38%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdMBOaA38",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-01-18",
-                            "image": "https://image.tmdb.org/t/p/original/2jWEst6QJQXk52zlCLO0mXsEbWi.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/2jWEst6QJQXk52zlCLO0mXsEbWi.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.4,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1399.9,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ซากุระ กับ ยุกิโตะ กับ พลังที่เหือดหายไป",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FVGSA005K%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FVGSA005K",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-02-15",
-                            "image": "https://image.tmdb.org/t/p/original/sRa3EHVBHLQmSBWNCqhRjYQoqde.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/sRa3EHVBHLQmSBWNCqhRjYQoqde.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.4,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1414.8,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - คนที่ซากุระรักที่สุด",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FcZqf5VoZ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FcZqf5VoZ",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-02-22",
-                            "image": "https://image.tmdb.org/t/p/original/nUptrzdYsbWRmnHxBR2SJFyeHx3.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/nUptrzdYsbWRmnHxBR2SJFyeHx3.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - ซากุระ กับ เชาหลาง กับ ศาลเจ้าสึกิมิเนะ",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FxUsNGVIX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FxUsNGVIX",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-02-29",
-                            "image": "https://image.tmdb.org/t/p/original/qys0I9725FrVVtKkL7dr7d65nkp.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/qys0I9725FrVVtKkL7dr7d65nkp.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1469.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ซากุระ กับ โคลว์รีดในอดีต",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F7Unja9q9%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F7Unja9q9",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-03-07",
-                            "image": "https://image.tmdb.org/t/p/original/wAan4bdvtv9zRRpQMSGii2qe2Ao.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/wAan4bdvtv9zRRpQMSGii2qe2Ao.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1472.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ซากุระ กับ โคลว์รีดในปัจจุบัน",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FQ6UknWap%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FQ6UknWap",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-03-14",
-                            "image": "https://image.tmdb.org/t/p/original/nBGpHHREvmA86sSkSAXsUvDvzJ8.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/nBGpHHREvmA86sSkSAXsUvDvzJ8.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 81.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1400.2,
+                                        "end": 1470.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - ซากุระ กับ ความรู้สึกที่แท้จริง",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdnEOyTJt%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdnEOyTJt",
                             "referer": "https://fairyanime.net/",
                             "release_date": "2000-03-21",
-                            "image": "https://image.tmdb.org/t/p/original/rjcLEa6dwpCQFF36BJfdIktlAp0.jpg"
+                            "image": "https://image.tmdb.org/t/p/original/rjcLEa6dwpCQFF36BJfdIktlAp0.jpg",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

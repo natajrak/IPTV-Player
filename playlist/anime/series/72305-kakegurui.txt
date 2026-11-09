@@ -16,84 +16,314 @@
                             "image": "https://image.tmdb.org/t/p/original/wrQOqpqaD6U9EBae5j1SBVCSKF5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aguG9Z8m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-01"
+                            "release_date": "2017-07-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 117.4,
+                                        "end": 212.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.2,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1512.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - สาวน้อยผู้น่าเบื่อ",
                             "image": "https://image.tmdb.org/t/p/original/11XxR1G3vIvBjVfWUWw939WqtII.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zJsZEm9i/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-08"
+                            "release_date": "2017-07-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 92.4,
+                                        "end": 187.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.4,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.2,
+                                        "end": 1512.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - สาวน้อยตาตี่",
                             "image": "https://image.tmdb.org/t/p/original/k6gWjVHvztBB4g9eVVrRC2Zqbls.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ReM8q06u/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-15"
+                            "release_date": "2017-07-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 185.4,
+                                        "end": 280.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.1,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1512.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - สาวน้อยผู้กลายเป็นสัตว์เลี้ยง",
                             "image": "https://image.tmdb.org/t/p/original/iGdtOju4XdKP3weRPasNJbvgywi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XKUCCtRt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-22"
+                            "release_date": "2017-07-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.4,
+                                        "end": 145.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.5,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.2,
+                                        "end": 1512.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - สาวน้อยผู้กลายเป็นมนุษย์",
                             "image": "https://image.tmdb.org/t/p/original/ns5IofYPGzGOh8snSYgqORrEvIq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ha1zBBdg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-29"
+                            "release_date": "2017-07-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 168.4,
+                                        "end": 263.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1512.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สาวน้อยผู้เชื้อเชิญ",
                             "image": "https://image.tmdb.org/t/p/original/hMWZInFVyOgwGNfY3LKH3W5yugH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DEt7gRA3/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-12"
+                            "release_date": "2017-08-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.3,
+                                        "end": 278.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1355.9,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.1,
+                                        "end": 1512.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - สาวน้อยผู้ปฏิเสธ",
                             "image": "https://image.tmdb.org/t/p/original/jo6VfYIeSKacBddHqDNM3nU2BlP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wqfNIoWq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-19"
+                            "release_date": "2017-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.4,
+                                        "end": 205.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.1,
+                                        "end": 1514.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - สาวน้อยผู้เต้นด้วยความรัก",
                             "image": "https://image.tmdb.org/t/p/original/7YfdtmpZNXkPf4LiaXSWVe7e8xA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/cVIBN7cG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-26"
+                            "release_date": "2017-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 160.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.2,
+                                        "end": 1516.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - สาวน้อยผู้มีความฝัน",
                             "image": "https://image.tmdb.org/t/p/original/jwGb8wmSGdTzSG0vQoZyth99E8f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2DYGUVOu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-02"
+                            "release_date": "2017-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.4,
+                                        "end": 113.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.2,
+                                        "end": 1514.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - สาวน้อยผู้ตัดสินใจ",
                             "image": "https://image.tmdb.org/t/p/original/gtHdSwmbKfAUWPe9E0S2O95ulQ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IzmvRwm4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-09"
+                            "release_date": "2017-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.4,
+                                        "end": 117.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.4,
+                                        "end": 1447.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.2,
+                                        "end": 1512.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - สาวน้อยผู้เดิมพันด้วยชีวิต",
                             "image": "https://image.tmdb.org/t/p/original/zUH4StVMfyDxzBrZLljWqQo2Tnd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1G3mgsfd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-16"
+                            "release_date": "2017-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.3,
+                                        "end": 164.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.1,
+                                        "end": 1512.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - สาวน้อยเซียนพนัน",
                             "image": "https://image.tmdb.org/t/p/original/mR8BdywB0Aj8BUS8dr7TUbWUOh3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Iy5luj27/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-23"
+                            "release_date": "2017-09-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 154.3,
+                                        "end": 249.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.4,
+                                        "end": 1498.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -108,84 +338,259 @@
                             "image": "https://image.tmdb.org/t/p/original/wrQOqpqaD6U9EBae5j1SBVCSKF5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tM3avngV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-01"
+                            "release_date": "2017-07-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 129.3,
+                                        "end": 223.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1372.4,
+                                        "end": 1458.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Boring Woman",
                             "image": "https://image.tmdb.org/t/p/original/11XxR1G3vIvBjVfWUWw939WqtII.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/esMjxChn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-08"
+                            "release_date": "2017-07-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 92.4,
+                                        "end": 187.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1366.7,
+                                        "end": 1457.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Slit-Eyed Woman",
                             "image": "https://image.tmdb.org/t/p/original/k6gWjVHvztBB4g9eVVrRC2Zqbls.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aRK4T3E9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-15"
+                            "release_date": "2017-07-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 211.4,
+                                        "end": 291.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.8,
+                                        "end": 1468.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Woman Who Became Livestock",
                             "image": "https://image.tmdb.org/t/p/original/iGdtOju4XdKP3weRPasNJbvgywi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/NvhKteZx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-22"
+                            "release_date": "2017-07-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 75.9,
+                                        "end": 161.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.7,
+                                        "end": 1468.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Woman Who Became Human",
                             "image": "https://image.tmdb.org/t/p/original/ns5IofYPGzGOh8snSYgqORrEvIq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/l2xGWvEo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-07-29"
+                            "release_date": "2017-07-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 179.7,
+                                        "end": 284.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.6,
+                                        "end": 1468.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Tempting Woman",
                             "image": "https://image.tmdb.org/t/p/original/hMWZInFVyOgwGNfY3LKH3W5yugH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/at6erhMg/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-12"
+                            "release_date": "2017-08-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 194.5,
+                                        "end": 300.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1378.9,
+                                        "end": 1468.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Refusing Women",
                             "image": "https://image.tmdb.org/t/p/original/jo6VfYIeSKacBddHqDNM3nU2BlP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SCPdKXWf/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-19"
+                            "release_date": "2017-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 121.5,
+                                        "end": 221.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.9,
+                                        "end": 1468.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Love-Dancing Woman",
                             "image": "https://image.tmdb.org/t/p/original/7YfdtmpZNXkPf4LiaXSWVe7e8xA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yisUwuBo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-08-26"
+                            "release_date": "2017-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.6,
+                                        "end": 171.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.6,
+                                        "end": 1468.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Dreaming Woman",
                             "image": "https://image.tmdb.org/t/p/original/jwGb8wmSGdTzSG0vQoZyth99E8f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QlbMYosJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-02"
+                            "release_date": "2017-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.4,
+                                        "end": 128.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Selective Woman",
                             "image": "https://image.tmdb.org/t/p/original/gtHdSwmbKfAUWPe9E0S2O95ulQ9.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/L1FuJ3eG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-09"
+                            "release_date": "2017-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.5,
+                                        "end": 133.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.9,
+                                        "end": 1468.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Woman Who Bets Her Life",
                             "image": "https://image.tmdb.org/t/p/original/zUH4StVMfyDxzBrZLljWqQo2Tnd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/d2pFmpLk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-16"
+                            "release_date": "2017-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.5,
+                                        "end": 185.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.9,
+                                        "end": 1468.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Gambling Woman",
                             "image": "https://image.tmdb.org/t/p/original/mR8BdywB0Aj8BUS8dr7TUbWUOh3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XZJDSo6J/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2017-09-23"
+                            "release_date": "2017-09-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 165.5,
+                                        "end": 261
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1379.9,
+                                        "end": 1468.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -208,84 +613,319 @@
                             "image": "https://image.tmdb.org/t/p/original/eHKTkI9lqHSNzvYuZj48lSUMsoi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Vwzj2r2f/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-09"
+                            "release_date": "2019-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.3,
+                                        "end": 153.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.4,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1510.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - เหล่าสาวน้อยแห่งตระกูลโมโมบามิ",
                             "image": "https://image.tmdb.org/t/p/original/rS9KxP2vILUJPUhfjlrexdGe11V.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nfb00zzU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-16"
+                            "release_date": "2019-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.8,
+                                        "end": 263.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.5,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1516.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - สาวน้อยผู้ห้ามแตะต้อง",
                             "image": "https://image.tmdb.org/t/p/original/28bbLSVpRn4E96RPgh3UCCR3jMa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/3E8EeE5m/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-23"
+                            "release_date": "2019-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.9,
+                                        "end": 136.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.4,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1510.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - สาวน้อยโทรจิต",
                             "image": "https://image.tmdb.org/t/p/original/5FLBbwqHCoZzvlNHxFVomrN0z6f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/b2cufOCd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-30"
+                            "release_date": "2019-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.8,
+                                        "end": 131.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1516.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - สาวน้อยผู้เปลี่ยนไป",
                             "image": "https://image.tmdb.org/t/p/original/kGlDaahyQ7uiNDl7VSfT5Lf8ACi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oeSQLr0J/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-06"
+                            "release_date": "2019-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 312.8,
+                                        "end": 402.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.1,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1510.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สาวน้อยผู้เป็นดาราฮอลลีวูด",
                             "image": "https://image.tmdb.org/t/p/original/30t0gEPIGg73Ujx8sFAU9fjNMaW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2XCrUqI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-13"
+                            "release_date": "2019-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1514.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - สาวน้อยผู้ทรยศ",
                             "image": "https://image.tmdb.org/t/p/original/7HZttX9h2mbtmkfi8AWZLASy7jQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/CytCdjLv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-20"
+                            "release_date": "2019-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.8,
+                                        "end": 104.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1508.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - สาวน้อยผู้ไม่แพ้",
                             "image": "https://image.tmdb.org/t/p/original/yiC5uXIlDb0583EWGAPVCCVe3RK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uaRS3OlX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-27"
+                            "release_date": "2019-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.8,
+                                        "end": 128.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.3,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1508.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - สาวน้อยผู้อยู่เคียงข้าง",
                             "image": "https://image.tmdb.org/t/p/original/qMnRTtlmj6ejllEk1Iv8Svwijyc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BtBAxobi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-06"
+                            "release_date": "2019-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.8,
+                                        "end": 127.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.1,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1514.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - สาวน้อยจอมตรรกะ",
                             "image": "https://image.tmdb.org/t/p/original/3WMrG55SYF2UY4ss86mU5UldFc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RDRqNqcs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-13"
+                            "release_date": "2019-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.8,
+                                        "end": 121.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1510.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - สาวน้อยเจ้าของกากบาท",
                             "image": "https://image.tmdb.org/t/p/original/oBvpn3H4EUtOICF6nAdzF5Vsm8x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/vG9tE1Ar/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-20"
+                            "release_date": "2019-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.9,
+                                        "end": 191.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.8,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1514.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - สาวน้อยผู้ไร้ค่า",
                             "image": "https://image.tmdb.org/t/p/original/wUcNz6BaOSLXqUlg72GdmwNnona.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M8UoHv8A/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-27"
+                            "release_date": "2019-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.8,
+                                        "end": 243.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1370.1,
+                                        "end": 1518.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -300,84 +940,319 @@
                             "image": "https://image.tmdb.org/t/p/original/eHKTkI9lqHSNzvYuZj48lSUMsoi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rm6CS8lF/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-09"
+                            "release_date": "2019-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.3,
+                                        "end": 152.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.4,
+                                        "end": 1446.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1464.4,
+                                        "end": 1483.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Momobami Clan Girls",
                             "image": "https://image.tmdb.org/t/p/original/rS9KxP2vILUJPUhfjlrexdGe11V.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zmR0kRkC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-16"
+                            "release_date": "2019-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 173.9,
+                                        "end": 263.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.5,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1486.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Untouchable Girl",
                             "image": "https://image.tmdb.org/t/p/original/28bbLSVpRn4E96RPgh3UCCR3jMa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6iQgEzO2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-23"
+                            "release_date": "2019-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.9,
+                                        "end": 136.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.4,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1484.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Connected Girls",
                             "image": "https://image.tmdb.org/t/p/original/5FLBbwqHCoZzvlNHxFVomrN0z6f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FIq7vPV9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-30"
+                            "release_date": "2019-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1486.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Changing Girl",
                             "image": "https://image.tmdb.org/t/p/original/kGlDaahyQ7uiNDl7VSfT5Lf8ACi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/LYm37bS4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-06"
+                            "release_date": "2019-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 312.8,
+                                        "end": 402.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.2,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1482.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Hollywood Girl",
                             "image": "https://image.tmdb.org/t/p/original/30t0gEPIGg73Ujx8sFAU9fjNMaW.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KjxoB7HZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-13"
+                            "release_date": "2019-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1486.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Traitorous Girl",
                             "image": "https://image.tmdb.org/t/p/original/7HZttX9h2mbtmkfi8AWZLASy7jQ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oWOXmRvn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-20"
+                            "release_date": "2019-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.8,
+                                        "end": 104.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1482.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Undefeatable Girl",
                             "image": "https://image.tmdb.org/t/p/original/yiC5uXIlDb0583EWGAPVCCVe3RK.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oSIyAnVu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-27"
+                            "release_date": "2019-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.8,
+                                        "end": 128.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.3,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1482.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Adjacent Girl",
                             "image": "https://image.tmdb.org/t/p/original/qMnRTtlmj6ejllEk1Iv8Svwijyc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/julIFCid/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-06"
+                            "release_date": "2019-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.9,
+                                        "end": 127.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1358.2,
+                                        "end": 1447.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1486.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Logical Girl",
                             "image": "https://image.tmdb.org/t/p/original/3WMrG55SYF2UY4ss86mU5UldFc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dXdcYkXu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-13"
+                            "release_date": "2019-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.8,
+                                        "end": 121.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.4,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.4,
+                                        "end": 1484.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The X Girl",
                             "image": "https://image.tmdb.org/t/p/original/oBvpn3H4EUtOICF6nAdzF5Vsm8x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DQomHjMx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-20"
+                            "release_date": "2019-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.8,
+                                        "end": 191.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.7,
+                                        "end": 1447.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1465.3,
+                                        "end": 1484.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Zero Girl",
                             "image": "https://image.tmdb.org/t/p/original/wUcNz6BaOSLXqUlg72GdmwNnona.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BDXDRu8P/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-27"
+                            "release_date": "2019-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.9,
+                                        "end": 243.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1369.9,
+                                        "end": 1486.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

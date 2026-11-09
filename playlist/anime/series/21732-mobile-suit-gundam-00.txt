@@ -16,175 +16,545 @@
                             "image": "https://image.tmdb.org/t/p/original/AjTJHoXSzXlcVe512CdAdAqTnA2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ffb54113f70ebbd54191749ef%2Ffb54113f70ebbd54191749ef.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-10-06"
+                            "release_date": "2007-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125,
+                                        "end": 215.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.9,
+                                        "end": 1412.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Gundam Meister",
                             "image": "https://image.tmdb.org/t/p/original/78nTb08sDFMNAwPpIO7YIaqY1lB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fc48bef604865cffeb8a7e2cd%2Fc48bef604865cffeb8a7e2cd.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-10-13"
+                            "release_date": "2007-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.8,
+                                        "end": 203.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The Changing World",
                             "image": "https://image.tmdb.org/t/p/original/dfqjy93XSjvKPazGeclfdNbKmY7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F11c2ae7b5864c77c119789da%2F11c2ae7b5864c77c119789da.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-10-20"
+                            "release_date": "2007-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.8,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327,
+                                        "end": 1413
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Foreign Negotiations",
                             "image": "https://image.tmdb.org/t/p/original/rOwOTDYD1YDVOymSVgYf9emr7GO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fe3341c0ba66207865ffefddb%2Fe3341c0ba66207865ffefddb.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-10-27"
+                            "release_date": "2007-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.9,
+                                        "end": 166.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Breakaway Limit Zone",
                             "image": "https://image.tmdb.org/t/p/original/pzUycjUjA4RUAnAVAzvjYZajFal.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4458d1c98b4cf0804ac39b32%2F4458d1c98b4cf0804ac39b32.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-11-03"
+                            "release_date": "2007-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.3,
+                                        "end": 160.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.3,
+                                        "end": 1413.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Seven Swords",
                             "image": "https://image.tmdb.org/t/p/original/mw3AANeb0qROilee7jkiW2DUMaj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Febe10b65041a75bb0d9fd558%2Febe10b65041a75bb0d9fd558.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-11-10"
+                            "release_date": "2007-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146.6,
+                                        "end": 232.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1413.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Unrepayable Soul",
                             "image": "https://image.tmdb.org/t/p/original/nowo4C8QsgTUDSjNOXJf4o9HG3G.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2158155ae25b659b2c0dcb96%2F2158155ae25b659b2c0dcb96.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-11-17"
+                            "release_date": "2007-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.6,
+                                        "end": 156.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Indiscriminate Retaliation",
                             "image": "https://image.tmdb.org/t/p/original/g1SMakZKA07NPYrGumDkl3cla7C.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9fac323e73f6ab993b96b145%2F9fac323e73f6ab993b96b145.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-11-24"
+                            "release_date": "2007-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.9,
+                                        "end": 163.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - The Dignity of a Great Nation",
                             "image": "https://image.tmdb.org/t/p/original/5xex0dUnKWwaQ5US56tgqbL81e6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F862801c925f460edec0004a8%2F862801c925f460edec0004a8.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-12-01"
+                            "release_date": "2007-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.7,
+                                        "end": 120.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1412.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Operation Gundam Capture",
                             "image": "https://image.tmdb.org/t/p/original/fF9VcSTwAKfh0qcaNTBK3v7gGj7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9d5243f4568dbc5bd2e37590%2F9d5243f4568dbc5bd2e37590.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-12-08"
+                            "release_date": "2007-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.7,
+                                        "end": 190.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Allelujah",
                             "image": "https://image.tmdb.org/t/p/original/xN1Fywu9HNS3hMZ4sIKw7V1ITYQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9aed25349d32ecd9adbcd969%2F9aed25349d32ecd9adbcd969.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-12-15"
+                            "release_date": "2007-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.6,
+                                        "end": 174.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Towards the End of Doctrine",
                             "image": "https://image.tmdb.org/t/p/original/r78nVv8RmmJXXqLfX0GYG8kau5Z.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F15b882a0c71ccfcab10dc105%2F15b882a0c71ccfcab10dc105.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2007-12-22"
+                            "release_date": "2007-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.5,
+                                        "end": 171.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Return of the Saint",
                             "image": "https://image.tmdb.org/t/p/original/wcaTON1PUz1YVKWwTMfX7cgrOY5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F30a036eadc5d89338d7a555b%2F30a036eadc5d89338d7a555b.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-01-05"
+                            "release_date": "2008-01-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.1,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.2,
+                                        "end": 1412.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Dawn of Determination",
                             "image": "https://image.tmdb.org/t/p/original/dkf3FqIo2P2t0GUMIlpMJmXFnlC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F34399980e3aeb660a53a95cd%2F34399980e3aeb660a53a95cd.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-01-12"
+                            "release_date": "2008-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 72.2,
+                                        "end": 161.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Broken Wings",
                             "image": "https://image.tmdb.org/t/p/original/7wCWf5OfA04sx0DYyzUtcSMaXVD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fe22b4b7a31b1f6f6b1ebbd0a%2Fe22b4b7a31b1f6f6b1ebbd0a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-01-19"
+                            "release_date": "2008-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.1,
+                                        "end": 173.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1356.3,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Trinity",
                             "image": "https://image.tmdb.org/t/p/original/wjiBn59H6qYTnAoUd7kYfb58xwu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F1d880a9e7f19cb32a1eab5a5%2F1d880a9e7f19cb32a1eab5a5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-01-26"
+                            "release_date": "2008-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1343.7,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Throne Strikes",
                             "image": "https://image.tmdb.org/t/p/original/pEXuV4KhxLfCiQAOB2s0WEc5jUR.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F53d3c4d5ba3741ca5bc57638%2F53d3c4d5ba3741ca5bc57638.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-02-02"
+                            "release_date": "2008-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.9,
+                                        "end": 1412.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Spearhead of Malice",
                             "image": "https://image.tmdb.org/t/p/original/oVUPde8u9kfRmGftqadZeevfyr8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F6e64e5a6956a62a7d26746d3%2F6e64e5a6956a62a7d26746d3.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-02-09"
+                            "release_date": "2008-02-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 103.2,
+                                        "end": 192.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.1,
+                                        "end": 1412.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Bonds",
                             "image": "https://image.tmdb.org/t/p/original/3aajdWj1smHxHppYbJRLdcVC4ed.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F5e6f299e7128fe993d68a389%2F5e6f299e7128fe993d68a389.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-02-16"
+                            "release_date": "2008-02-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.2,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Blade of Revolution",
                             "image": "https://image.tmdb.org/t/p/original/6XyLnPwhlmdTXINA8gWwlmLKZyD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F92b979a13a9c7ed6225e8372%2F92b979a13a9c7ed6225e8372.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-02-23"
+                            "release_date": "2008-02-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Road to Ruin",
                             "image": "https://image.tmdb.org/t/p/original/rVFVCdLCTPngsi0lF45nzpaRypF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F84b9c2dea2393b7ef53cae6e%2F84b9c2dea2393b7ef53cae6e.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-03-01"
+                            "release_date": "2008-03-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.3,
+                                        "end": 133.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1412.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Trans-Am",
                             "image": "https://image.tmdb.org/t/p/original/Aj5JWA2NfQfb1Q4vG23uVT1IPlC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fb5aa934a7b45449ec85ec492%2Fb5aa934a7b45449ec85ec492.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-03-08"
+                            "release_date": "2008-03-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 108.2,
+                                        "end": 200.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.9,
+                                        "end": 1413.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - The World Stands Still",
                             "image": "https://image.tmdb.org/t/p/original/i0T9X4xo8Fy0LNs9HaZLk7HW2Hg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4ec0a18dc7916d2d0a1fd46c%2F4ec0a18dc7916d2d0a1fd46c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-03-15"
+                            "release_date": "2008-03-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 126.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1412.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - The Never-Ending Poem",
                             "image": "https://image.tmdb.org/t/p/original/hdEVHiUkH8yoljKwc35sgXrnfT8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F607a8ee4eb06ff1cb9649783%2F607a8ee4eb06ff1cb9649783.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-03-22"
+                            "release_date": "2008-03-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1412.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Setsuna",
                             "image": "https://image.tmdb.org/t/p/original/xBEpxZvRTyTgpn3d4roKBIatyRt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd03dfa1ff46d84d0a67cfeff%2Fd03dfa1ff46d84d0a67cfeff.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-03-29"
+                            "release_date": "2008-03-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -207,175 +577,535 @@
                             "image": "https://image.tmdb.org/t/p/original/dKrmlUQ3EXTweePRPoM7IsI3vxC.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F0379e73bb79f8859df3859d5%2F0379e73bb79f8859df3859d5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-10-05"
+                            "release_date": "2008-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.1,
+                                        "end": 1355.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Twin Drive",
                             "image": "https://image.tmdb.org/t/p/original/fUyLEnvXoQT0qiWySmmUswlzyfu.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ff3b363012ab18fd97692a0d5%2Ff3b363012ab18fd97692a0d5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-10-12"
+                            "release_date": "2008-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.3,
+                                        "end": 188.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.5,
+                                        "end": 1390.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Operation Allelujah Rescue",
                             "image": "https://image.tmdb.org/t/p/original/l6PMlFowYaBMwZTBClqGghyx6Ej.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ffd76af41310a629fb87b89a2%2Ffd76af41310a629fb87b89a2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-10-19"
+                            "release_date": "2008-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 116.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.1,
+                                        "end": 1356.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - A Reason to Battle",
                             "image": "https://image.tmdb.org/t/p/original/5XiUwC7afNbZueFGKeRmL60J6dk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fcc0953e0d20889fa96eaf803%2Fcc0953e0d20889fa96eaf803.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-10-26"
+                            "release_date": "2008-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.2,
+                                        "end": 230.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1297.9,
+                                        "end": 1385.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - A Homeland Burns",
                             "image": "https://image.tmdb.org/t/p/original/mrfpts9y4KtmTw54jt2r1Vzgq6W.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F278224f68c84c5d41f37f3ef%2F278224f68c84c5d41f37f3ef.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-11-02"
+                            "release_date": "2008-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.3,
+                                        "end": 172.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1308.4,
+                                        "end": 1395.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Scar",
                             "image": "https://image.tmdb.org/t/p/original/4XMRhM2WJZlzjGKgcZPJelgziXE.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F409cced091880914a2f5bd6d%2F409cced091880914a2f5bd6d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-11-09"
+                            "release_date": "2008-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.3,
+                                        "end": 126.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.8,
+                                        "end": 1404.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - With Reunions and Departure",
                             "image": "https://image.tmdb.org/t/p/original/ijyRD93m3nnc7iRSVY2d1b4OGpy.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F134e4f853d9b85bc1835b450%2F134e4f853d9b85bc1835b450.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-11-16"
+                            "release_date": "2008-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.4,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1275.7,
+                                        "end": 1362.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Pure Distortion",
                             "image": "https://image.tmdb.org/t/p/original/36wnJ70XPXznUOHfYBnf7MwBVOh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fe438ccd1dea43013ec0bbaba%2Fe438ccd1dea43013ec0bbaba.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-11-23"
+                            "release_date": "2008-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 110.3,
+                                        "end": 204.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.7,
+                                        "end": 1402.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Indelible Past",
                             "image": "https://image.tmdb.org/t/p/original/1NBnBD44CpJVc2Xl1cIeXjI9X4y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fed6e6dcf04d8fdd182688238%2Fed6e6dcf04d8fdd182688238.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-11-30"
+                            "release_date": "2008-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 80.2,
+                                        "end": 174.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.5,
+                                        "end": 1389.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - The Light of Heaven",
                             "image": "https://image.tmdb.org/t/p/original/wdPyxPRszcb9V9pP4l2HJDHmWBo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2f04eedacf3a220f023c26f6%2F2f04eedacf3a220f023c26f6.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-12-07"
+                            "release_date": "2008-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.2,
+                                        "end": 200.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.9,
+                                        "end": 1352.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Voice of 00",
                             "image": "https://image.tmdb.org/t/p/original/y67cCvuOFW2T9Nmo58L7yn4ZGlV.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fcf18142226ca6341a0134f52%2Fcf18142226ca6341a0134f52.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-12-14"
+                            "release_date": "2008-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.4,
+                                        "end": 1351.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Waiting in Space",
                             "image": "https://image.tmdb.org/t/p/original/atOjmT1PfsvuvD5fksf5FaXyJLm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2835d8a86fc9a5257dceadf2%2F2835d8a86fc9a5257dceadf2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-12-21"
+                            "release_date": "2008-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 168.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1248.8,
+                                        "end": 1336
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Battle in Memento Mori",
                             "image": "https://image.tmdb.org/t/p/original/s1l7evQxHCmPcWqCglg7q8Ivvlq.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F3b7eed2327be5d6a52aaa65a%2F3b7eed2327be5d6a52aaa65a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2008-12-28"
+                            "release_date": "2008-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 89.2,
+                                        "end": 180.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1257.9,
+                                        "end": 1345.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - A Song Is Heard",
                             "image": "https://image.tmdb.org/t/p/original/rheOHw9QMB5W8Q0WxTgjGfdIIhm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F8476bb63d408e7c8c6c616ab%2F8476bb63d408e7c8c6c616ab.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-01-11"
+                            "release_date": "2009-01-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 99.2,
+                                        "end": 188.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Victory Song of the Resistance",
                             "image": "https://image.tmdb.org/t/p/original/meAc9IOh5hWTrPUUTd36i8GeNMF.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F1805e88d7b31a36e97fd2057%2F1805e88d7b31a36e97fd2057.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-01-18"
+                            "release_date": "2009-01-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.9,
+                                        "end": 188.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1297.1,
+                                        "end": 1377.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Prologue to Tragedy",
                             "image": "https://image.tmdb.org/t/p/original/lFoZw4a143K8Fi9kR73xEHMhvJt.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F36e5bb9b186d93c932351c57%2F36e5bb9b186d93c932351c57.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-01-25"
+                            "release_date": "2009-01-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.2,
+                                        "end": 188.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1253,
+                                        "end": 1341.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - In the Midst of Scattered Light",
                             "image": "https://image.tmdb.org/t/p/original/z7owc1fE6NFrMnrcWeOPPGD3KKa.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4f6f84b79421f9f4f29a9e3d%2F4f6f84b79421f9f4f29a9e3d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-02-01"
+                            "release_date": "2009-02-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.3,
+                                        "end": 171.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1246.3,
+                                        "end": 1326.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Mixed Feelings",
                             "image": "https://image.tmdb.org/t/p/original/ke9qyuj1OsZFEl4bTUM42Jo2taD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F19b8e0a25fff7cb2f71e471e%2F19b8e0a25fff7cb2f71e471e.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-02-08"
+                            "release_date": "2009-02-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 159.3,
+                                        "end": 253.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1307.5,
+                                        "end": 1387.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Shadow of the Innovators",
                             "image": "https://image.tmdb.org/t/p/original/27KTtOFtznRzFlVYHiuAuOw9mhk.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F5131e0f98d85f334ace3da38%2F5131e0f98d85f334ace3da38.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-02-15"
+                            "release_date": "2009-02-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.2,
+                                        "end": 200.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1204.9,
+                                        "end": 1285.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Anew Return",
                             "image": "https://image.tmdb.org/t/p/original/1XBRUyCTNeNeSNFGSnXqKjFoSx1.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9dc107e4a27c4868c4ff0093%2F9dc107e4a27c4868c4ff0093.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-02-22"
+                            "release_date": "2009-02-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.2,
+                                        "end": 243.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1293.6,
+                                        "end": 1373.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The Door to Innovation",
                             "image": "https://image.tmdb.org/t/p/original/4eWHX2rNAuAXLowImhje0MqUbw6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd1f8466e74a9577d7273038a%2Fd1f8466e74a9577d7273038a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-03-01"
+                            "release_date": "2009-03-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116,
+                                        "end": 210.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1237.8,
+                                        "end": 1326.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - For the Future's Sake",
                             "image": "https://image.tmdb.org/t/p/original/gDb3QwuTRuC7Xh9tAZYUvh15QUh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F861b65f42435045e7dbbbb2d%2F861b65f42435045e7dbbbb2d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-03-08"
+                            "release_date": "2009-03-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 196.2,
+                                        "end": 290.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1263.5,
+                                        "end": 1352
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - Flower of Life",
                             "image": "https://image.tmdb.org/t/p/original/5kLho17YLDO6WzpZeLEGjoin25f.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa9e51523d3ccd2ca1440731a%2Fa9e51523d3ccd2ca1440731a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-03-15"
+                            "release_date": "2009-03-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 103.2,
+                                        "end": 201.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.4,
+                                        "end": 1405.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Beyond",
                             "image": "https://image.tmdb.org/t/p/original/gnE3QI3d0w7T3VG11QgWPMuqcn3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F7fc8c15bd94896c284024698%2F7fc8c15bd94896c284024698.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-03-22"
+                            "release_date": "2009-03-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.2,
+                                        "end": 171.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.8,
+                                        "end": 1349.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Revival",
                             "image": "https://image.tmdb.org/t/p/original/729aLlQdwjyjNsm4sffpfai8jXQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fcbed56af3a73b4ce885ad2d8%2Fcbed56af3a73b4ce885ad2d8.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2009-03-29"
+                            "release_date": "2009-03-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.1,
+                                        "end": 177.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
