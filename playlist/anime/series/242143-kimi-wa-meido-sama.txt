@@ -471,13 +471,9 @@
                             "referer": "https://indy-anime.net/",
                             "release_date": "2024-12-01",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
-                                    {
-                                        "type": "ed",
-                                        "start": 1241,
-                                        "end": 1279.5
-                                    },
                                     {
                                         "type": "ed",
                                         "start": 1379.7,
