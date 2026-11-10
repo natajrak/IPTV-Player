@@ -153,9 +153,30 @@ const RESOLVERS = {
     };
     const epResp = await fetchWithRetry(epUrl, { headers: epHeaders, redirect: "follow" }, "ep page");
     const epHtml = await epResp.text();
-    const iframeMatch = epHtml.match(/<iframe[^>]+src="(https?:\/\/[^"]*anifume\.com\/player[^"]*)"/i);
-    if (!iframeMatch) throw new Error("ไม่พบ iframe player ใน ep page");
-    const iframeUrl = iframeMatch[1];
+    const iframeRe = /<iframe[^>]+src="(https?:\/\/[^"]*anifume\.com\/player[^"]*)"/i;
+    let iframeUrl = epHtml.match(iframeRe)?.[1];
+    if (!iframeUrl) {
+      /** หน้าแบบใหม่ (พ.ย. 2026): player ถูกโหลดผ่าน $.ajax ตัวแรก (mainv) — endpoint ตอบเฉพาะเมื่อมี X-Requested-With */
+      const ajaxMatch = epHtml.match(/\burl:\s*"(\/[^"]+\?u=[^"]+)"/);
+      if (!ajaxMatch) throw new Error("ไม่พบ iframe / ajax player ใน ep page");
+      const ajaxResp = await fetchWithRetry(
+        new URL(ajaxMatch[1], epUrl).href,
+        {
+          headers: {
+            ...epHeaders,
+            "Accept": "*/*",
+            "Referer": epUrl,
+            "X-Requested-With": "XMLHttpRequest",
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+          },
+          redirect: "follow",
+        },
+        "player ajax",
+      );
+      iframeUrl = (await ajaxResp.text()).match(iframeRe)?.[1];
+      if (!iframeUrl) throw new Error("ไม่พบ iframe player ใน ajax response");
+    }
 
     const playerResp = await fetchWithRetry(
       iframeUrl,

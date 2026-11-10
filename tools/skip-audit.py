@@ -245,7 +245,34 @@ def _resolve_akuma_local(station):
     return origin + m.group(1), origin + '/'
 
 
-LOCAL_RESOLVERS = {'kurokamii': _resolve_akuma_local, 'anime-hdzero': _resolve_akuma_local}
+ANIFUME_IFRAME_RE = re.compile(r'<iframe[^>]+src="(https?://[^"]*anifume\.com/player[^"]*)"', re.I)
+
+
+def _resolve_anifume_local(station):
+    """anifume: หน้าตอน → iframe player (หน้าแบบใหม่โหลดผ่าน $.ajax ตัวแรก ต้องส่ง X-Requested-With) → "file" ตัวแรก (720p)
+    ลอจิกเดียวกับ RESOLVERS.anifume ใน worker — ลิงก์ MP4 มีลายเซ็นหมดอายุ จึง resolve ใหม่ทุกครั้ง"""
+    ep_url = station['url']
+    html = _http_get(ep_url, 'https://anifume.com/').decode('utf-8', 'replace')
+    m = ANIFUME_IFRAME_RE.search(html)
+    if not m:
+        a = re.search(r'\burl:\s*"(/[^"]+\?u=[^"]+)"', html)
+        if not a:
+            raise RuntimeError('ไม่พบ iframe / ajax player ใน ep page')
+        req = urllib.request.Request(urllib.parse.urljoin(ep_url, a.group(1)), headers={
+            'User-Agent': UA, 'Referer': ep_url, 'X-Requested-With': 'XMLHttpRequest'})
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            m = ANIFUME_IFRAME_RE.search(resp.read().decode('utf-8', 'replace'))
+        if not m:
+            raise RuntimeError('ไม่พบ iframe player ใน ajax response')
+    player = _http_get(m.group(1), ep_url).decode('utf-8', 'replace')
+    f = re.search(r'"file"\s*:\s*"([^"]+)"', player)
+    if not f:
+        raise RuntimeError('ไม่พบ "file" ใน iframe')
+    return f.group(1).replace('\\/', '/'), 'https://anifume.com/'
+
+
+LOCAL_RESOLVERS = {'kurokamii': _resolve_akuma_local, 'anime-hdzero': _resolve_akuma_local,
+                   'anifume': _resolve_anifume_local}
 
 
 def resolve_stream(station):
