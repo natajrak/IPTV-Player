@@ -1151,7 +1151,11 @@
                             "url": "https://app.akuma-stream.com/watch/5318e2a5-a8c7-437e-8fdb-3058b7c5ba60",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-10"
+                            "release_date": "2021-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 2 - หลับใหล",
@@ -1159,7 +1163,22 @@
                             "url": "https://app.akuma-stream.com/watch/12ae430f-5c79-4669-8f31-bb8f3b0f5e60",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-17"
+                            "release_date": "2021-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 166
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1243.3,
+                                        "end": 1333.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ถ้าหากเป็นจริงได้ละก็",
@@ -1167,7 +1186,22 @@
                             "url": "https://app.akuma-stream.com/watch/7bdf11b5-632d-4451-a609-9170328a1bfd",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-24"
+                            "release_date": "2021-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.4,
+                                        "end": 153.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1384.4,
+                                        "end": 1474.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ดูถูก",
@@ -1175,7 +1209,22 @@
                             "url": "https://app.akuma-stream.com/watch/98365ff2-e758-42db-a44a-186f7acf6198",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-07"
+                            "release_date": "2021-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.2,
+                                        "end": 223
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.2,
+                                        "end": 1380.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - มุ่งหน้า",
@@ -1183,7 +1232,22 @@
                             "url": "https://app.akuma-stream.com/watch/a1e64976-80fc-4d8d-a5ea-e8811a459455",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-14"
+                            "release_date": "2021-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.2,
+                                        "end": 234
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1136.3,
+                                        "end": 1226.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - อาคาสะ",
@@ -1191,7 +1255,22 @@
                             "url": "https://app.akuma-stream.com/watch/ef3de62d-cdbd-4d17-9f48-7509fa539045",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-21"
+                            "release_date": "2021-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.6,
+                                        "end": 183
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1293.2,
+                                        "end": 1382.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - จงแผดเผาหัวใจ",
@@ -1215,7 +1294,11 @@
                             "url": "https://app.akuma-stream.com/watch/a457b938-1d68-49aa-b6ad-7bc571349dcf",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-10"
+                            "release_date": "2021-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 2 - Deep Sleep",
@@ -1223,7 +1306,22 @@
                             "url": "https://app.akuma-stream.com/watch/470e88d5-cc02-44ca-832b-142ec1953906",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-17"
+                            "release_date": "2021-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 166
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1243.3,
+                                        "end": 1333.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Should Have Been",
@@ -1231,7 +1329,22 @@
                             "url": "https://app.akuma-stream.com/watch/3ff50c2b-2ae6-4354-9b8a-30bd1acc83a2",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-10-24"
+                            "release_date": "2021-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.4,
+                                        "end": 153.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1384.4,
+                                        "end": 1474.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Insult",
@@ -1239,7 +1352,22 @@
                             "url": "https://app.akuma-stream.com/watch/869d35a6-b105-4328-9700-1370655dd161",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-07"
+                            "release_date": "2021-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.2,
+                                        "end": 223
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.2,
+                                        "end": 1380.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Move Forward!",
@@ -1247,7 +1375,22 @@
                             "url": "https://app.akuma-stream.com/watch/9a912bf5-20fc-4a8f-bf8d-a8f2af6c52af",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-14"
+                            "release_date": "2021-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.2,
+                                        "end": 234
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1137.1,
+                                        "end": 1226.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Akaza",
@@ -1255,7 +1398,22 @@
                             "url": "https://app.akuma-stream.com/watch/118dccf4-530d-48b0-b7d2-8278b16227fb",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-21"
+                            "release_date": "2021-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.6,
+                                        "end": 183
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1293.2,
+                                        "end": 1382.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Set Your Heart Ablaze",
@@ -1263,7 +1421,17 @@
                             "url": "https://app.akuma-stream.com/watch/a300021b-95cb-4985-8ad6-d5d2f805a896",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2021-11-28"
+                            "release_date": "2021-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 14.5,
+                                        "end": 58.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -871,7 +871,22 @@
                             "url": "https://app.akuma-stream.com/watch/89c92562-7d35-4e66-a4d6-5694f4ca3a87",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-04-11"
+                            "release_date": "2020-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 215.2,
+                                        "end": 304.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - การแข่งขันคัดเลือกบลู",
@@ -879,7 +894,22 @@
                             "url": "https://app.akuma-stream.com/watch/d9efb0a2-c188-41e4-9efc-063951b8e1fc",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-04-18"
+                            "release_date": "2020-04-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 97.2,
+                                        "end": 186.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - กลุ่มเชฟเที่ยงคืน",
@@ -887,7 +917,22 @@
                             "url": "https://app.akuma-stream.com/watch/6c124215-002d-43b6-b4b8-b29a759c79fd",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-07-18"
+                            "release_date": "2020-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.3,
+                                        "end": 126.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.2,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - มื้อสุดท้าย",
@@ -895,7 +940,22 @@
                             "url": "https://app.akuma-stream.com/watch/271d72ee-0015-4931-b1b0-95884b26d456",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-07-25"
+                            "release_date": "2020-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158.2,
+                                        "end": 247.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.2,
+                                        "end": 1414.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ศึกร้านสะดวกซื้อ",
@@ -903,7 +963,22 @@
                             "url": "https://app.akuma-stream.com/watch/d6f122af-ebc9-4dbe-b2dd-9a83c4610217",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-08-01"
+                            "release_date": "2020-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - คริสต์มาสกลางฤดูร้อน",
@@ -911,7 +986,22 @@
                             "url": "https://app.akuma-stream.com/watch/4b96dddd-57ed-421e-b569-d978a95fe93a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-08-08"
+                            "release_date": "2020-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 196.2,
+                                        "end": 285.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ครอสไนฟ์",
@@ -919,7 +1009,22 @@
                             "url": "https://app.akuma-stream.com/watch/d79360ba-13c1-40e6-abdc-bdba59350269",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-08-15"
+                            "release_date": "2020-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1294,
+                                        "end": 1371.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - จันทร์ครึ่งเสี้ยวที่หายไป",
@@ -927,7 +1032,22 @@
                             "url": "https://app.akuma-stream.com/watch/7a15f48e-6cee-4db9-bd04-2b30d3df680b",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-08-22"
+                            "release_date": "2020-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.8,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - สูญสิ้นความหวัง",
@@ -935,7 +1055,22 @@
                             "url": "https://app.akuma-stream.com/watch/800c6c78-14e3-4180-83ab-a7a424f94deb",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-08-29"
+                            "release_date": "2020-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.3,
+                                        "end": 134.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.4,
+                                        "end": 1367.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - พ่อผู้ก้าวข้ามอุปสรรค",
@@ -943,7 +1078,22 @@
                             "url": "https://app.akuma-stream.com/watch/ee422868-2a5f-4e3d-af2e-0fe13be284ef",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-09-05"
+                            "release_date": "2020-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.2,
+                                        "end": 154.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.8,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - รสชาติแห่งความล้มเหลว",
@@ -951,7 +1101,22 @@
                             "url": "https://app.akuma-stream.com/watch/b1f6df00-9915-4426-a97c-3a6a9d5a8bbc",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-09-12"
+                            "release_date": "2020-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.8,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - หินที่ดีที่สุด",
@@ -959,7 +1124,22 @@
                             "url": "https://app.akuma-stream.com/watch/e1b4433b-aa54-4d5e-b268-c5270bcfb8ff",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-09-19"
+                            "release_date": "2020-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.2,
+                                        "end": 180.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.7,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - โซมะ ยอดนักปรุง",
@@ -967,7 +1147,11 @@
                             "url": "https://app.akuma-stream.com/watch/6b4c1974-d230-4152-8668-3be5bd40c5be",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2020-09-26"
+                            "release_date": "2020-09-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
