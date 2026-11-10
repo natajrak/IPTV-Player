@@ -44,7 +44,22 @@
                             "image": "https://image.tmdb.org/t/p/original/801UUNL5prJhGNuO5yE6dkiCHXj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxL3FIcWRGQW1qam5xUXF1dDhxYjBlNFQxOFMzTXp2SXRlRmRLV1ZTUUlXeHNQdEl2T1MvUzVnUSt2L0dSOXhKUg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-10-29"
+                            "release_date": "2023-10-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.4,
+                                        "end": 130.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ราชาอัศวินแห่งเครื่องเขียน",
@@ -58,7 +73,22 @@
                             "image": "https://image.tmdb.org/t/p/original/wVgQiWOwR38KW2Yg32nxG0oHRs8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxM3NyVnJLT3NDZnlodUlZRHBZS2JwRHowaEdDNitNK25vcy9BZU9aNEFYZWZweHRxdFhBbHVXQXpUMGdUZnlueg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-11-12"
+                            "release_date": "2023-11-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.2,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239.2,
+                                        "end": 1329
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - 300 ลิมิต บทเพลงแห่งความคลุ้มคลั่ง",
@@ -72,14 +102,44 @@
                             "image": "https://image.tmdb.org/t/p/original/z4kItR68niGXJ8cWqLuImEydkyP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxTXkrS0ZmVVRGQUUyNFlIMXQ2VEtwMFBxTytTQVJ3NTdhODdjQndwMW13OHU0bm9EWnF0MGd5NmF1Y3RLTUJhSA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-11-26"
+                            "release_date": "2023-11-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 213.2,
+                                        "end": 302.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.7,
+                                        "end": 1374
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ปล้นสุสานกันเถอะ!!",
                             "image": "https://image.tmdb.org/t/p/original/nen1lUA9HCXC8nIUDEOmXZmLZFZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mjyjabqFTJ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2023-12-03"
+                            "release_date": "2023-12-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1277.8,
+                                        "end": 1367.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - แสงเจิดจรัสที่แท้จริง",
@@ -93,7 +153,22 @@
                             "image": "https://image.tmdb.org/t/p/original/7NdNyHHGPm6tgTgghiWrxbD5kT0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxb3RoSHpUc3BxNUViNmpxcFpzbnJHZUJpejdCYXpYSm9YVmRpbzFqOUlRcFVxcTRUYkV2aEpvVnVURUtocU1UdQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-12-17"
+                            "release_date": "2023-12-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 130.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1205.3,
+                                        "end": 1296
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ที่อยู่ตรงนั้นมีแค่ความอาวรณ์",
@@ -114,21 +189,71 @@
                             "image": "https://image.tmdb.org/t/p/original/28TnUtcCtgaFbut5SLwZysObGGT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FS3kreWtaZkJRN2Z1dk5SMTRSN1hHZz09xxxxdytmNEd1Q1BCbUZNSC9PZUd1TWNKZ0U3MGljajhKVWNWQ3RaTXI4b0FvU3d1MGlUOXJDRERnc3A1VDkxVFdPdg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 10.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - หมาป่าทมิฬพิชิตราตรี",
                             "image": "https://image.tmdb.org/t/p/original/3Fm7PCgMZ76OhwMRtdC8E53Na9k.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxSEJTbGJibkNSOG94TXRySmtLU0o3cGF1WG5VV1kvVGNSN0lSVVJ2ZGk3WFFpSWRCT1dNVnJxNXV5Y2o3d21nMg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-01-28"
+                            "release_date": "2024-01-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333.3,
+                                        "end": 1422.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ทุ่มเทความรู้สึกในชั่วพริบตา พาร์ทสาม",
                             "image": "https://image.tmdb.org/t/p/original/p90w8NaO1tD2vxgRGWgVPiSxU39.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxcWpOZjJxSlhxa2ZYYUg1UGI3bHh3MVVuZE03OEl0eFJVUDhkWWczSjBDenhOaGFaYUJtOGFDb2w2eWtwdndOdg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.2,
+                                        "end": 1422.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ทุ่มเทความรู้สึกในชั่วพริบตา พาร์ทสี่",
@@ -149,35 +274,115 @@
                             "image": "https://image.tmdb.org/t/p/original/sxkBsV99blbhZF6ze99n52kdHSp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxcTlXOU54OXlkdloySmM0V0FkMWVFT0JuWXowSFY2RkM1ZVh2a0NyYzZnK25XVTZ0WTZ4UjlTSWhrb2lLb1BnUw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 10.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1318.1,
+                                        "end": 1407.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - ธุระ การเลี้ยงดูและการพิชิต",
                             "image": "https://image.tmdb.org/t/p/original/pNGzb7fV8TdlVSK99rMxo4j85jH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FQ0grMjlPODVHaDlqQTVGRXpnLzZNQT09xxxxUnhXMjBrRHhXR0hZUWQ1TDM2cDBKa2tlenpSYjloRHIvSjVEMCtWeSs0TVl6cHk1YzJwWXFSK05ySkVIejI5Qw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.1,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1220.2,
+                                        "end": 1310.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ว็อคกิ้ง ออฟ เดอะ แอร์คลีนเนอร์",
                             "image": "https://image.tmdb.org/t/p/original/mRV7YO0rFxCbaE32l4SVmzXa1cW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FNDQzNDQ4ZjNZeVFYNWJOV1BNN3dmZz09xxxxTDVsamFnQXN4Tk9Nd1hXL0g2MXA3ZWV1YzlZeHA0cXVCNEJQWmpYQXhsUnJQaFAyZEdJQjRudnlTZmpmeUJxLw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.5,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1407
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - นกกับกระต่าย ปะทะ กะโหลกประสานเสียง",
                             "image": "https://image.tmdb.org/t/p/original/8kyU47rHE5xEHx6eToMoZZY2SeW.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FekZTNStDV0F5MXZrNi90K1FpN1BXQT09xxxxSEpqaXBSM0F0Y1lnN1JCd1Z2VEx3MjY3cFh4Ymg0STJoZzhnTHJ1YUw0ckxUcjJ6anJUa1VzWGNZMHF4aGN5Zg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.2,
+                                        "end": 1349.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - แรร์ไอเทมนั้นมีน้ำหนักมากกว่าชีวิต",
                             "image": "https://image.tmdb.org/t/p/original/cs0JsVUmQWsP3gAstAuH0AxE8yK.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FOXVvZVJqL2pDbmNmY2lBcDhvalZWZz09xxxxWjhkcEpjbzdRamRSM1o3ajBMYWY3dndOa2hrZmUxTzd1UWJnZVJCb3AxWmFtWmpONllHNkVSR1JheXZaTjRjZQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.1,
+                                        "end": 1404.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ผู้เบิกความมืดของโลก",
@@ -205,14 +410,44 @@
                             "image": "https://image.tmdb.org/t/p/original/ixsms5MmCKOBn6BHqyGNP9e3zyp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxRmRRUG9PT25WQVJpd00xWm5FUXN6VytsTUg0cU90RDhwUXdTT2hPbmFRU2ErU1l4Rlk4RXR5Rm1hVjdaSHpEQQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-10-27"
+                            "release_date": "2024-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1421.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - When Humanity Dreams of the Impossible and Takes to the Skies",
                             "image": "https://image.tmdb.org/t/p/original/1ncrYwV1THKwwgylGlgM4sa1brL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxL0xrTGtuSnlCSTlyR2JVUGhINVBjUWx5N2kxSzFLN2F1Q1M0enRocURtdUFFNEJJTDlERXlKT1JSanRWWXpwMA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.7,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - The Impetus of Hunger; the Persistence of Thirst",
@@ -226,21 +461,66 @@
                             "image": "https://image.tmdb.org/t/p/original/acWJnyrw4ygJmY2JnDscWwx5AJT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxaVU2ajVZaktvQlVwcmJZd1BPMzIybDlxcDVramNvejkyV1BoVkR3U0hSbkNVVmw4UzFkRFNydHo5ZjZ3bDJCeA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49,
+                                        "end": 137.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1309
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 32 - The Wings in a Draw",
                             "image": "https://image.tmdb.org/t/p/original/gekL0AsLdqzfbODmoY7cDq7XxGr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxcUlyUzVuNVRBVEJIQlZSVVdWU1lKYnRTZ1ZHVGhvU0FzWVpCOHVubzFKTTEzUVREZm1peDJKemlEOXZ2OFA1eg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.4,
+                                        "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.9,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 33 - The Lion Catches a Rabbit with Its Full Strength; the Crab Catches a Phoenix with a Pizza Cutter",
                             "image": "https://image.tmdb.org/t/p/original/sXuwOcrdo2CftItm1J5GOYZpQG6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxUXNVMkMyd0g4UUJlaUxZcTAvMmVLZFpjcTNNT2VUQWlsUE1OSDhmWGI4anZUdStjVVplaGVYbTBaaUtwSmdScA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52,
+                                        "end": 140.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 34 - Run, Fueled by Impatience",
@@ -254,21 +534,66 @@
                             "image": "https://image.tmdb.org/t/p/original/jJzNYKn2KJNUFTCFVlJvwCEf5Lj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxcmxkTzFiYXdSMjU1amZpQTNHVmRBcmZsdFFJMEZ1Vm9Ya1l0K0lNRUE4RkJCbHBVQTh2bkZJU0lsajBQUTVONQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.4,
+                                        "end": 128.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 36 - Embrace the Lamplight of Ambition (1)",
                             "image": "https://image.tmdb.org/t/p/original/bobLLf4vAjTsPjx5hOzi9cMGFgo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxRDhzM255VDBNS2hMSnpwOXMxeVdINklCRURHMEl1MGZxYkM0SGF1OUZFZVExdiswcXlGak5Qbm1KaC9mbERjVg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 37 - Embrace the Lamplight of Ambition (2)",
                             "image": "https://image.tmdb.org/t/p/original/c87whK6FVT8Snnq3buWRA7bMngm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxcEQ0Q3VZV0svc3RzUURrdWo3WTY0NUh1TnlWeGsrUU50SC9PUWFTSWt5eWJ2WEpKUEJWdDV2L1RmL083QTd1ag%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-29"
+                            "release_date": "2024-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.4,
+                                        "end": 123.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.2,
+                                        "end": 1399.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 38 - Embrace the Lamplight of Ambition (3)",
@@ -282,14 +607,44 @@
                             "image": "https://image.tmdb.org/t/p/original/kM0Q9pUVVvIBzRmWajmfIEzhsY8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxTW5qcDluZ2Y4cllncjZnSXZRWEFWYWp5ZTJjb0FKRThQWDRISTVQTmVYdkUvREk4dlN5Q2NobzlkZkRqUkVpdg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-01-12"
+                            "release_date": "2025-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.5,
+                                        "end": 187.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 40 - Embrace the Lamplight of Ambition, Part 5",
                             "image": "https://image.tmdb.org/t/p/original/qVa9pxXyeXqAFaQY8BZyIkvSiw8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxc3JzT3k2SzlmcjI3ZyszajllaTR0QmxkT1R0SFh1NVZqMFFaaEl5dXpBWktTVnc0L01XVDJsRkI2ek9zVlBSSA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-01-19"
+                            "release_date": "2025-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 41 - What Do You Play Games For? Their Answers",
@@ -303,35 +658,110 @@
                             "image": "https://image.tmdb.org/t/p/original/kJYGP7hcn4w8YXMaWI1lyrbL8X3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxbFA5S1lIa1R5Z1BXdk8vNHkrNGF0cElQam1BUTROdExsTVpDSmJ0RkFIMk00cVllS0F0OFFDNExCdlZoWFljZw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-02"
+                            "release_date": "2025-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1419.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 43 - The Crimson Whale Meets the Monster Fish",
                             "image": "https://image.tmdb.org/t/p/original/aSNss4neEYCbsoJYuQXiEixihbB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxaGRqL0tXQ0dDSnlpcnFUeGQzSjJWSWtSZENoZ2xaUWE3eGR6V29adWFpZkZ5WGlQSUJiR0h6ZTlOSzBTc044bA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-09"
+                            "release_date": "2025-02-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 44 - Revive, Broken City, Your Peace At an End",
                             "image": "https://image.tmdb.org/t/p/original/m8Ch2bd0bAhORftN4cqfFffON67.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxWDcrMFU2NUlIcUtiazlQb0x5RWo2RlQvd1haZHBTdmJhQ3NFNlZUdktCZnJFei91dTM3ajB3NTRqVCs1UUgrVA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-16"
+                            "release_date": "2025-02-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 45 - Time to Fillet a Dragon Fish",
                             "image": "https://image.tmdb.org/t/p/original/5iixTEX7EjZCupJ2bLog5OVV13M.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxeGtmMkxWb2k4V1hjSFd2TWVDWFhVUDBSYnlHaWpjVWs5VWtlYWIzVHIzSFAzOFBjOWxZM1kxZUhvUEk5Qm53RA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-23"
+                            "release_date": "2025-02-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 152.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1305.1,
+                                        "end": 1392.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 46 - Venturing Wolves Then From the Seas to the Skyscrapers",
                             "image": "https://image.tmdb.org/t/p/original/zzGdFrje2TOOJxe4PZU5svQyXBQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxWlpucUJyUytkbkhadCtSYkYrZTU5anREaUgyTkozWTl6V3dXRFpMTzdQZ3NEdzBQMGhHOGdXZTJLUEtVYnlQUw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-02"
+                            "release_date": "2025-03-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 47 - The Light Blazes Brightly, But for Just an Instant",
@@ -345,21 +775,66 @@
                             "image": "https://image.tmdb.org/t/p/original/prQ9RvNAgeEWKlUGAXBXEgSSA3y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxeE1VTnN3b3hST3lIYk51aDdMU2tYaWx0Kzc0M0YxN0l4M3ZHTWtmWFhNTGorNDRrczNuVWt1WVNKa3QwNjBWSQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-16"
+                            "release_date": "2025-03-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 49 - Great King of the Deep, I Humbly Seek to Crush You",
                             "image": "https://image.tmdb.org/t/p/original/wfOCc9t3ttGvXFNEQfbleZgfYLD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxTmM0SFVWRlNZcXg4RGVpZ2duMklUUkwwTXFOMHRnMUJ5S29EcW5Yc1hrZUE0dnI4V0RTaHhBd1cxamxUelNhTw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-23"
+                            "release_date": "2025-03-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.9,
+                                        "end": 124.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.4,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 50 - The Anonymous (Asinine) A-Team and a Crisis",
                             "image": "https://image.tmdb.org/t/p/original/uZ6IUfFIROm0GjpX0TPGsKrIjHS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxSkVtdUdZVjc4ZWdrUU1lSTVqUWFBNENYa0JBdGdlQmhXdS8zNlQ2bTFWZ0wzT3JUcmVDOGdDSTFqZG9vdWJsUg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-30"
+                            "release_date": "2025-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1357.2,
+                                        "end": 1388.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -388,21 +863,66 @@
                             "image": "https://image.tmdb.org/t/p/original/9Y6qao7KeBA0UlcdVrmclR3SUPD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxV1cvd1BQZzIxNlVLa0crWmtMQUxjTStHWG83RkZsTWVOd3N1Ukp2ZlplRWNyOFA5Tk5TR2JzekpQTFhHM1VLdQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-10-15"
+                            "release_date": "2023-10-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.7,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - A Trash Game Realignment of Elevated Tastes",
                             "image": "https://image.tmdb.org/t/p/original/qdRbZFPYRJoTycMRYCC9afEwkt8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxUmpvNnZnM0xMbmhhSU1JcDNqZlVmL3RRU0ZvQjgyN01qY0FVS01WaDZVbDUzdkNXT1F3cDJudnFxZXl3U3Z3eg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-10-22"
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.2,
+                                        "end": 1364
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Lo, Thou Art Assailed on All Sides",
                             "image": "https://image.tmdb.org/t/p/original/801UUNL5prJhGNuO5yE6dkiCHXj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxZEwvTmJXT3U4ZDBRU2cxRnBHY0tPM2xudkJrYjJMc0MvQ0dkY0hxdmxhcFozUENablN2emo3WThFYWNHVFhoYQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-10-29"
+                            "release_date": "2023-10-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21,
+                                        "end": 130.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Writing Tool Knight-Queen",
@@ -430,14 +950,44 @@
                             "image": "https://image.tmdb.org/t/p/original/z4kItR68niGXJ8cWqLuImEydkyP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTW9pYzJHVWJsWjA2VXdsQmk3RGpwdz09xxxxRHp0bjRsZE03cTczK3BjUlg5ck4yVm44bDA2b1Zid2pnU3RnR2VNR2tFaHprRStqai8rUFdkY2E1ZHR0bGQ2UA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-11-26"
+                            "release_date": "2023-11-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 213.2,
+                                        "end": 302.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.7,
+                                        "end": 1374
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Let's Go Tomb Raiding!!",
                             "image": "https://image.tmdb.org/t/p/original/nen1lUA9HCXC8nIUDEOmXZmLZFZ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxSTJWb0FKNU8yVW9sU2N5em85N204RzRSUCtMaUs0K2RmaWo5RkJoWXFoYVo0QWZEL3o1ekhvdmY4K1RLQ1MyaA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-12-03"
+                            "release_date": "2023-12-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1277.3,
+                                        "end": 1367.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Glimmer of Truth",
@@ -451,14 +1001,44 @@
                             "image": "https://image.tmdb.org/t/p/original/7NdNyHHGPm6tgTgghiWrxbD5kT0.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxQThFdjhrM1doWmh4b3p1dGRoR0ZnZlU2S1lwVkh6enlmSWFiZnlDQUN1ek8zUTFaY1VTOFdTZHV4M1YreXpDTQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-12-17"
+                            "release_date": "2023-12-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1205.6,
+                                        "end": 1295.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Only Resentments About the End of Life Remain",
                             "image": "https://image.tmdb.org/t/p/original/qqZFExzjqSFMikALqFlsKU7zsis.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxbHg1Qko2SHFzem92K0IwTFZZNlFJbWtNQW83aGdnTElHdm1TazE3R2g3MDJoOEFVbUNHbXZvTHZ6VllaZnZLZQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2023-12-24"
+                            "release_date": "2023-12-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1207.2,
+                                        "end": 1294.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Squish",
@@ -472,21 +1052,66 @@
                             "image": "https://image.tmdb.org/t/p/original/28TnUtcCtgaFbut5SLwZysObGGT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxcE5vbk1oWXJtdElSMGVJN3ZSN0lQUlUwQTFUR21kWmdUeUhQU0NTa0EzaGFpWS9mQTQzbVZiM1Z1WmNXZUZ1Vg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-01-21"
+                            "release_date": "2024-01-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Putting Feelings Into a Moment (2)",
                             "image": "https://image.tmdb.org/t/p/original/3Fm7PCgMZ76OhwMRtdC8E53Na9k.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxMFBYSVRieTJyUWR2aktNd05BcGxCNEs1blNURFF5eDR6VnJXTldEZVMvV2w3ZXE3SHowNFVYdnhwcURPZzg4QQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-01-28"
+                            "release_date": "2024-01-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333.3,
+                                        "end": 1422.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Putting Feelings Into a Moment (3)",
                             "image": "https://image.tmdb.org/t/p/original/p90w8NaO1tD2vxgRGWgVPiSxU39.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxb1JPV09RN1c5WmlISm83L1dza0lZRUNMajV4WmpIVHYzYUJnU21xMW1xNVlQazdtcmR1WDVkNks4bXdUamx2Yg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-02-04"
+                            "release_date": "2024-02-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1334.1,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Putting Feelings Into a Moment (4)",
@@ -500,7 +1125,22 @@
                             "image": "https://image.tmdb.org/t/p/original/dSgVDs03axBDfOA04duszylnFEf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FSXNDR0RWNmtTdlp1WERhNkVITjBvUT09xxxxUzFpS0Jud3B1ZEo5RStxTlVuT1IyUGp4ZDhmOUtsUTM4c2ZzTU5qeTIya0dSQlVJWVNsYmM0K0tUOEU1UHdMSg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1333.2,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Current Situations and Next Steps",
@@ -514,7 +1154,22 @@
                             "image": "https://image.tmdb.org/t/p/original/pNGzb7fV8TdlVSK99rMxo4j85jH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2Fb084VVltRmpwUFJqWHBrSGJpcENlUT09xxxxL0JxU0l6eTZUZ0NhSzIwZUJ1dHpKTVB4c0ExbmRGWUlYUlNlUURRWDFRVTFva3J1Z0xSQ0dSeHR2NmtLWHgvZA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-03-03"
+                            "release_date": "2024-03-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.1,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.8,
+                                        "end": 1310.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - The Walking Air Purifier",
@@ -577,28 +1232,88 @@
                             "image": "https://image.tmdb.org/t/p/original/sqzmKGqxChBqR1APnBfqug0dP8j.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxelRWQ1FsNUFLaEhUb0lWWFZZS3p4QXNjOFFld3ZpcEVoQ2svdHpqdUNYLzNCZngrMzBLdStlSE1xM2NhWXRXSw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.1,
+                                        "end": 124.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.9,
+                                        "end": 1359.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 31 - After the Fierce Battle, Despair",
                             "image": "https://image.tmdb.org/t/p/original/acWJnyrw4ygJmY2JnDscWwx5AJT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxbzFQbkZyVXFwTVZObkRLZlhmRnpLY3NLbkVqeEZRbjJLbFJpOTBUMDE5b0ZrUEVJK3N4ekVjbVZWd1VIdjZIUg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-17"
+                            "release_date": "2024-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.1,
+                                        "end": 137.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1219.4,
+                                        "end": 1309.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 32 - The Wings in a Draw",
                             "image": "https://image.tmdb.org/t/p/original/gekL0AsLdqzfbODmoY7cDq7XxGr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxUERwUjErdVE1c1pWNGk4SkN0eSt6OXlJb1dIT1NGQkhOMzdFLzJ2US9kdi9GRFlncWlTNkhIeHhDN2x1WlQrZw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-11-24"
+                            "release_date": "2024-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50,
+                                        "end": 138.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 33 - The Lion Catches a Rabbit with Its Full Strength; the Crab Catches a Phoenix with a Pizza Cutter",
                             "image": "https://image.tmdb.org/t/p/original/sXuwOcrdo2CftItm1J5GOYZpQG6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxSWpVRWx1T2dWZUNsMC9rNTI4OW5wbi95MVJhZkQzSGVQRDA5djBYTFNSSk5KOXM3RUlMWlNlOWRnSU94SS82eg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-01"
+                            "release_date": "2024-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 140.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 34 - Run, Fueled by Impatience",
@@ -612,35 +1327,110 @@
                             "image": "https://image.tmdb.org/t/p/original/jJzNYKn2KJNUFTCFVlJvwCEf5Lj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxOEtqcXVOaUNIclRaWEp2Q2FFbXFSQTUzaThYWkVyRDNtUkxId0FYc2c5SkpxYVJ0emdBSTlGS2k3ZDBBTCtYZA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-15"
+                            "release_date": "2024-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 128.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 36 - Embrace the Lamplight of Ambition (1)",
                             "image": "https://image.tmdb.org/t/p/original/bobLLf4vAjTsPjx5hOzi9cMGFgo.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxaFdTZ29lQXpRTjgxOWl6Mm5kMFhkWmszWUg5dHR5cVVtdzgvbk81ek1zTnkzZnh1b0k1OUdVRjQ3L0ZURWRtSA%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-22"
+                            "release_date": "2024-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 37 - Embrace the Lamplight of Ambition (2)",
                             "image": "https://image.tmdb.org/t/p/original/c87whK6FVT8Snnq3buWRA7bMngm.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxTkR3ci85azRjb0k5MWhiT1IwRzY1Y1FBYTY1QTFNcDhzYkozbEdrZnZGN3M0TEpSZUkyNityMGs4WGxjdUErNw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2024-12-29"
+                            "release_date": "2024-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.2,
+                                        "end": 123.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.1,
+                                        "end": 1399.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 38 - Embrace the Lamplight of Ambition (3)",
                             "image": "https://image.tmdb.org/t/p/original/qLXq4DZKDzwuYHHbkuMsOROj0GH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxVmJQRWE2cnFwb0tlUXhNbjlZdDF6K3BhZmFrUWxDTTJQQWVlcWtHWk1VcTUxZmIzSWk0QkVxMXp6SThFZnVPTQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-01-05"
+                            "release_date": "2025-01-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.5,
+                                        "end": 123.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 39 - Embrace the Lamplight of Ambition (4)",
                             "image": "https://image.tmdb.org/t/p/original/kM0Q9pUVVvIBzRmWajmfIEzhsY8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxc1JDYzFrdWVqWXVkbVhzSU1vcFRLVHZxbm1EcytHc1JFbFpjdXNPYk0zZU12TEpvZUFRbmhsMzVSMzlZdURCVQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-01-12"
+                            "release_date": "2025-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 98.5,
+                                        "end": 187.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1422.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 40 - Embrace the Lamplight of Ambition, Part 5",
@@ -661,35 +1451,110 @@
                             "image": "https://image.tmdb.org/t/p/original/kJYGP7hcn4w8YXMaWI1lyrbL8X3.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxanZ2Mm0zNDYzWVZCclBJMXh6dGMwRzN5ZWJoeFczYW1Wd1dWckh6VTA0WkRoSGFwdmRVZDZPdmE0QS9VY1hrNw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-02"
+                            "release_date": "2025-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1419
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 43 - The Crimson Whale Meets the Monster Fish",
                             "image": "https://image.tmdb.org/t/p/original/aSNss4neEYCbsoJYuQXiEixihbB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxQ2lFeVhmREs5MWNqcWhPNzJGU1k1REg2ZWUxMmJHZzRyUXEyOTFudVJtaVEwVGZXQnFFTXdwV3hUTCtmOVNNeQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-09"
+                            "release_date": "2025-02-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 44 - Revive, Broken City, Your Peace At an End",
                             "image": "https://image.tmdb.org/t/p/original/m8Ch2bd0bAhORftN4cqfFffON67.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxWlQ2dGYyTU4yTWZYTnYxN2NRZUNLR3BGNjhpb1FzdW9qdENycmtZWjVHSHZlOHhyUDd1MkROUXUyY1Aya3N2Nw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-16"
+                            "release_date": "2025-02-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1421.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 45 - Time to Fillet a Dragon Fish",
                             "image": "https://image.tmdb.org/t/p/original/5iixTEX7EjZCupJ2bLog5OVV13M.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxZzlFSERFcC95Y05oM1Yxc2xYWWNlMTJRWGdLODdhQmxtREdZaFhjNktlMDgzZXhnZ0pPdVJ4TGxrRXhpUGk5cg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-02-23"
+                            "release_date": "2025-02-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.5,
+                                        "end": 152.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.3,
+                                        "end": 1392.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 46 - Venturing Wolves Then From the Seas to the Skyscrapers",
                             "image": "https://image.tmdb.org/t/p/original/zzGdFrje2TOOJxe4PZU5svQyXBQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxRGx2ZDNUd3lBNzUvbEJORWxTM1J2SDlQN2VJZGsrWHU0VHRjTUFGSzRlVzRuVGxrYmJQdjZiMzI2Wmt6TGFKYw%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-02"
+                            "release_date": "2025-03-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 47 - The Light Blazes Brightly, But for Just an Instant",
@@ -710,14 +1575,44 @@
                             "image": "https://image.tmdb.org/t/p/original/wfOCc9t3ttGvXFNEQfbleZgfYLD.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxd2FxM0c1dVVHSlUvVjEvakg5dmg3T3Uwb3ZGSmJUZnFlcktnMnQ1dWRiOUY2RFd5bEwrclcxWGF2TjZsQ2xEUQ%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-23"
+                            "release_date": "2025-03-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1383.8,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 50 - The Anonymous (Asinine) A-Team and a Crisis",
                             "image": "https://image.tmdb.org/t/p/original/uZ6IUfFIROm0GjpX0TPGsKrIjHS.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fcdn2.maimeorder.com%2Fhls%2FTXhrb0J1QWt0Zm1NSlY4TG5MU0Jldz09xxxxRVpDZ1Q4R0FERFYyMDRhUlVYZUJuL1F2bUZGRU9xRjJGaVh3djZOK0d3RmJYTm92dTVOZnpSamZGd25qUTlTUg%3D%3D.txt&referer=https%3A%2F%2Fanimemami.xyz%2F",
                             "referer": "https://animemami.xyz/",
-                            "release_date": "2025-03-30"
+                            "release_date": "2025-03-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1357.2,
+                                        "end": 1388.7
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
