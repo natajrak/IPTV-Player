@@ -17,7 +17,17 @@
                             "url": "https://app.akuma-stream.com/watch/70a2b354-df9b-41d5-aa3d-29e78d0f11e9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-07"
+                            "release_date": "2026-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Good Game",
@@ -25,7 +35,22 @@
                             "url": "https://app.akuma-stream.com/watch/787c9b2d-0335-4e78-aa34-4b5363ca00ad",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-14"
+                            "release_date": "2026-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 151
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.3,
+                                        "end": 1322.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Late-Night Locals",
@@ -33,7 +58,22 @@
                             "url": "https://app.akuma-stream.com/watch/ff4fb8ed-c209-4601-a24d-1dbb21a4d440",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-21"
+                            "release_date": "2026-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.2,
+                                        "end": 229.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Late-Night Study Sessions",
@@ -41,7 +81,22 @@
                             "url": "https://app.akuma-stream.com/watch/e7d4c0d8-179e-4f60-a797-e5aa61db1882",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-07-28"
+                            "release_date": "2026-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.3,
+                                        "end": 184.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Night Before",
@@ -49,7 +104,22 @@
                             "url": "https://app.akuma-stream.com/watch/f4a013fe-3842-4c09-a7f8-4791c0da7773",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-04"
+                            "release_date": "2026-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - A Noble Duel",
@@ -57,7 +127,22 @@
                             "url": "https://app.akuma-stream.com/watch/df2a2a21-111b-414b-8438-2df029642734",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-11"
+                            "release_date": "2026-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Lesser Devil",
@@ -65,7 +150,22 @@
                             "url": "https://app.akuma-stream.com/watch/28602216-ff9f-4681-8661-56e44e2e1669",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-18"
+                            "release_date": "2026-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158.3,
+                                        "end": 247.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Guaranteed to Lose",
@@ -73,7 +173,22 @@
                             "url": "https://app.akuma-stream.com/watch/f8921821-5bec-4b7b-af4a-79f95bc18e1d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-08-25"
+                            "release_date": "2026-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.2,
+                                        "end": 175.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Playing for Fun",
@@ -81,7 +196,22 @@
                             "url": "https://app.akuma-stream.com/watch/9e9884c2-d52d-4224-ae0d-01f93169face",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-01"
+                            "release_date": "2026-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 172.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - But I Did Think It",
@@ -89,7 +219,22 @@
                             "url": "https://app.akuma-stream.com/watch/2b16f711-9f21-4a5f-a32f-08381ce9fea4",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-08"
+                            "release_date": "2026-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 183.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - The Beast",
@@ -97,7 +242,22 @@
                             "url": "https://app.akuma-stream.com/watch/c97c9f7b-2107-495e-8c72-e8950015f50c",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-15"
+                            "release_date": "2026-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.3,
+                                        "end": 222.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Good Luck, Have Fun!",
@@ -105,7 +265,17 @@
                             "url": "https://app.akuma-stream.com/watch/c10960a3-2f20-4335-be18-5b73acc00a56",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2026-09-22"
+                            "release_date": "2026-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
