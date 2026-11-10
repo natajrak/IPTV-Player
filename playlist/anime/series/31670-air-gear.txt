@@ -107,14 +107,39 @@
                             "image": "https://image.tmdb.org/t/p/original/zyKaJG97oB1Qk0i42QVVX0BTF29.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOf5GjjR6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOf5GjjR6",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2006-07-11"
+                            "release_date": "2006-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1,
+                                        "end": 79.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - I'll Cut Off the Shackle of Thorns!",
                             "image": "https://image.tmdb.org/t/p/original/5EBZH1CmY5QwJnnv4Jb5R6ecssw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fs8wPbDBD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fs8wPbDBD",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2006-07-18"
+                            "release_date": "2006-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 79.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345,
+                                        "end": 1436.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Let's Go, Kogarasumaru!",
@@ -184,7 +209,17 @@
                             "image": "https://image.tmdb.org/t/p/original/6fAJVeKTECUv0tICfEPmRwgkcEM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FEclcUqcY%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FEclcUqcY",
                             "referer": "https://fairyanime.net/",
-                            "release_date": "2006-09-26"
+                            "release_date": "2006-09-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1405.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

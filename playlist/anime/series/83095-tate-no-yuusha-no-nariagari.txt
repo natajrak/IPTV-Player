@@ -16,175 +16,513 @@
                             "image": "https://image.tmdb.org/t/p/original/fY3CFbtAmNEW0eaKUoqAJy0j1kb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/s4OfDl02/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-09"
+                            "release_date": "2019-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2744.9,
+                                        "end": 2835.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ทาสสาว",
                             "image": "https://image.tmdb.org/t/p/original/1RJ6KQWKanRyyW4Zdwg076ICfYa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BQOAM9fe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-16"
+                            "release_date": "2019-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.3,
+                                        "end": 1379.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - คลื่นหายนะ",
                             "image": "https://image.tmdb.org/t/p/original/mhbX3YS2ZQ1nZO5xJp1WZIJLhit.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ur01vo11/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-23"
+                            "release_date": "2019-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 140.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - เพลงกล่อมใจยามค่ำ",
                             "image": "https://image.tmdb.org/t/p/original/3XG0HDeodVIt2XnckUSVZLjQeZC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/6lRQSF6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-30"
+                            "release_date": "2019-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.3,
+                                        "end": 222.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ฟิโล",
                             "image": "https://image.tmdb.org/t/p/original/jvruUEIujDILqkpK8K9Pmh27076.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YhLIWGFn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-06"
+                            "release_date": "2019-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 190.2,
+                                        "end": 279.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สมาชิกใหม่",
                             "image": "https://image.tmdb.org/t/p/original/89Qdf9EHEjny6jtFvJpGNmmJhtn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O1xSMIW2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-13"
+                            "release_date": "2019-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 139.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ผู้อารักขานกวิเศษ",
                             "image": "https://image.tmdb.org/t/p/original/5WWuEzmYMaCKtVFqIlm97GSTEyY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bLY5s4ZA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-20"
+                            "release_date": "2019-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.4,
+                                        "end": 1392.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - โล่ต้องคำสาป",
                             "image": "https://image.tmdb.org/t/p/original/olNVrXVzrv0YbdrkED5rA4T63hM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/doClfAQd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-27"
+                            "release_date": "2019-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - เมลตี้",
                             "image": "https://image.tmdb.org/t/p/original/cg3oWZ9h4ZNNdPni5Oy9qc84xXx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/d2PqJ47f/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-06"
+                            "release_date": "2019-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.3,
+                                        "end": 194.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ความสับสนอลหม่าน",
                             "image": "https://image.tmdb.org/t/p/original/l0QoGILrOtqRd3j3zevXsQn1nHG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iDxUNUQd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-13"
+                            "release_date": "2019-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - คลื่นระลอกสอง",
                             "image": "https://image.tmdb.org/t/p/original/tvHyi53bq5B6a9GB5ZEtSihNNOX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/UuB3NScn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-20"
+                            "release_date": "2019-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164.3,
+                                        "end": 253.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - สาวชุดดำ",
                             "image": "https://image.tmdb.org/t/p/original/nbVoVBe26qYyD0g1BXIwEWxxodj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/W8HN9iCe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-27"
+                            "release_date": "2019-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ปีศาจโล่",
                             "image": "https://image.tmdb.org/t/p/original/ymRZHbDyK3UtcfCIe9K4kx2PtOg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2tsghWJW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-03"
+                            "release_date": "2019-04-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 74.3,
+                                        "end": 163.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - เวียนวนในความทรงจำ",
                             "image": "https://image.tmdb.org/t/p/original/iNBlZurX1mjpJolfDuBar79uul0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/06UNvJm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-10"
+                            "release_date": "2019-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.3,
+                                        "end": 226.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ราฟทาเลีย",
                             "image": "https://image.tmdb.org/t/p/original/t0y9S2tkGp6ZKM1NVGGGoIzpowZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FFJ8HCNZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-17"
+                            "release_date": "2019-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.3,
+                                        "end": 172.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ราชินีฟิโลเลียล",
                             "image": "https://image.tmdb.org/t/p/original/fug0Xb8LghtSXK3CAnoWXTxvfjO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EdirdeiY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-24"
+                            "release_date": "2019-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - สัญญาด้วยวาจา",
                             "image": "https://image.tmdb.org/t/p/original/6iPH7BkoOB1oHRjAH88OaEBiUQj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mxoV4MER/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-01"
+                            "release_date": "2019-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.4,
+                                        "end": 1363.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - แผนซ้อนแผน",
                             "image": "https://image.tmdb.org/t/p/original/r9e2zkKsE3ur94fVqV3H99AdOip.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/22GEafjK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-08"
+                            "release_date": "2019-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.3,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - สี่ผู้กล้าศักดิ์สิทธิ์",
                             "image": "https://image.tmdb.org/t/p/original/mRwFpm78B8HvUrdUTnzJ90rQDcD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iXYsKDLQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-15"
+                            "release_date": "2019-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1403.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ความดีปะทะความชั่ว",
                             "image": "https://image.tmdb.org/t/p/original/YajDAXdBLyyEOb5ROGGPSzyS3E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/M8kcgEmS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-22"
+                            "release_date": "2019-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - นาโอฟุมิกลับมาอย่างผู้มีชัย",
                             "image": "https://image.tmdb.org/t/p/original/1mnonU19oWG6QwE2XQuXOloSLI6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yxlxZJdP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-29"
+                            "release_date": "2019-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 22 - การประชุมเหล่าผู้กล้า",
                             "image": "https://image.tmdb.org/t/p/original/m7pYjTMJPgrAg6uBChbawdRdXZb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5LdTKzhx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-05"
+                            "release_date": "2019-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.3,
+                                        "end": 173.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.5,
+                                        "end": 1379.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - เกาะคาลมิรา",
                             "image": "https://image.tmdb.org/t/p/original/iW8jZqVct7NXPUXbEjzERdZDQtw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/f5tvKiRo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-12"
+                            "release_date": "2019-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.3,
+                                        "end": 156.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - ผู้พิทักษ์จากอีกโลก",
                             "image": "https://image.tmdb.org/t/p/original/hRQPcTDNR5Cejz36lIJiuUqIYto.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JDtDBquR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-19"
+                            "release_date": "2019-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ผู้กล้าโล่ผงาด",
                             "image": "https://image.tmdb.org/t/p/original/pdKDwMpMp9B0tbPCpo6WDhXbxxA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7LRbR5ec/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-26"
+                            "release_date": "2019-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -199,175 +537,513 @@
                             "image": "https://image.tmdb.org/t/p/original/fY3CFbtAmNEW0eaKUoqAJy0j1kb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DXoiXBFz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-09"
+                            "release_date": "2019-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 2774.6,
+                                        "end": 2865.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Slave Girl",
                             "image": "https://image.tmdb.org/t/p/original/1RJ6KQWKanRyyW4Zdwg076ICfYa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TgCAiLhN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-16"
+                            "release_date": "2019-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.1,
+                                        "end": 1379.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Wave of Catastrophe",
                             "image": "https://image.tmdb.org/t/p/original/mhbX3YS2ZQ1nZO5xJp1WZIJLhit.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KU4ki7aK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-23"
+                            "release_date": "2019-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.3,
+                                        "end": 140.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Lullaby at Dawn",
                             "image": "https://image.tmdb.org/t/p/original/3XG0HDeodVIt2XnckUSVZLjQeZC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qvkxZF2X/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-01-30"
+                            "release_date": "2019-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.3,
+                                        "end": 222.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Filo",
                             "image": "https://image.tmdb.org/t/p/original/jvruUEIujDILqkpK8K9Pmh27076.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Nw7TIRh9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-06"
+                            "release_date": "2019-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 190.2,
+                                        "end": 279.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - A New Comrade",
                             "image": "https://image.tmdb.org/t/p/original/89Qdf9EHEjny6jtFvJpGNmmJhtn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KqPO51N0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-13"
+                            "release_date": "2019-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 139.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Savior of the Heavenly Fowl",
                             "image": "https://image.tmdb.org/t/p/original/5WWuEzmYMaCKtVFqIlm97GSTEyY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/58CcAz0X/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-20"
+                            "release_date": "2019-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.2,
+                                        "end": 1392.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Curse Shield",
                             "image": "https://image.tmdb.org/t/p/original/olNVrXVzrv0YbdrkED5rA4T63hM.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zZHCNOW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-02-27"
+                            "release_date": "2019-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 154.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Melty",
                             "image": "https://image.tmdb.org/t/p/original/cg3oWZ9h4ZNNdPni5Oy9qc84xXx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uetwrxQm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-06"
+                            "release_date": "2019-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.3,
+                                        "end": 194.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - In the Midst of Turmoil",
                             "image": "https://image.tmdb.org/t/p/original/l0QoGILrOtqRd3j3zevXsQn1nHG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gveUYryS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-13"
+                            "release_date": "2019-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.1,
+                                        "end": 1415.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Catastrophe Returns",
                             "image": "https://image.tmdb.org/t/p/original/tvHyi53bq5B6a9GB5ZEtSihNNOX.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dTSVk4IL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-20"
+                            "release_date": "2019-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164.2,
+                                        "end": 253.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Raven Invader",
                             "image": "https://image.tmdb.org/t/p/original/nbVoVBe26qYyD0g1BXIwEWxxodj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JgYBiGG8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-03-27"
+                            "release_date": "2019-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - The Devil of the Shield",
                             "image": "https://image.tmdb.org/t/p/original/ymRZHbDyK3UtcfCIe9K4kx2PtOg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gc3U4zoy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-03"
+                            "release_date": "2019-04-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.1,
+                                        "end": 164.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.6,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Everlasting Memory",
                             "image": "https://image.tmdb.org/t/p/original/iNBlZurX1mjpJolfDuBar79uul0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IfvxVU8z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-10"
+                            "release_date": "2019-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.7,
+                                        "end": 227
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Raphtalia",
                             "image": "https://image.tmdb.org/t/p/original/t0y9S2tkGp6ZKM1NVGGGoIzpowZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iSJyRy2u/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-17"
+                            "release_date": "2019-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.7,
+                                        "end": 173.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Filolial Queen",
                             "image": "https://image.tmdb.org/t/p/original/fug0Xb8LghtSXK3CAnoWXTxvfjO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sjUuATyP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-04-24"
+                            "release_date": "2019-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - A Promise Made",
                             "image": "https://image.tmdb.org/t/p/original/6iPH7BkoOB1oHRjAH88OaEBiUQj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PkoxdZJ6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-01"
+                            "release_date": "2019-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.2,
+                                        "end": 1363.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - A Conspiracy Linked",
                             "image": "https://image.tmdb.org/t/p/original/r9e2zkKsE3ur94fVqV3H99AdOip.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nGh6dU6Z/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-08"
+                            "release_date": "2019-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.2,
+                                        "end": 170.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - The Four Cardinal Heroes",
                             "image": "https://image.tmdb.org/t/p/original/mRwFpm78B8HvUrdUTnzJ90rQDcD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5ZFBVJqA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-15"
+                            "release_date": "2019-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 178.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.5,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Battle of Good and Evil",
                             "image": "https://image.tmdb.org/t/p/original/YajDAXdBLyyEOb5ROGGPSzyS3E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1PlnPEgN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-22"
+                            "release_date": "2019-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Naofumi's Triumphant Return",
                             "image": "https://image.tmdb.org/t/p/original/1mnonU19oWG6QwE2XQuXOloSLI6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/G7uRe8Oq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-05-29"
+                            "release_date": "2019-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "Ep. 22 - Four Heroes Council",
                             "image": "https://image.tmdb.org/t/p/original/m7pYjTMJPgrAg6uBChbawdRdXZb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wD7AByiQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-05"
+                            "release_date": "2019-06-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.9,
+                                        "end": 176
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.8,
+                                        "end": 1379.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Cal Mira Archipelago",
                             "image": "https://image.tmdb.org/t/p/original/iW8jZqVct7NXPUXbEjzERdZDQtw.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qAK1HZyq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-12"
+                            "release_date": "2019-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.5,
+                                        "end": 157.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Guardians of Another World",
                             "image": "https://image.tmdb.org/t/p/original/hRQPcTDNR5Cejz36lIJiuUqIYto.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XE2PbBJn/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-19"
+                            "release_date": "2019-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.8,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - The Rising of the Shield Hero",
                             "image": "https://image.tmdb.org/t/p/original/pdKDwMpMp9B0tbPCpo6WDhXbxxA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/28bp4p2K/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2019-06-26"
+                            "release_date": "2019-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"

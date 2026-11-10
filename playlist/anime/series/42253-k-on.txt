@@ -812,168 +812,528 @@
                             "image": "https://image.tmdb.org/t/p/original/sZJamTpk4Gub8ePBLCKAAF1lAEg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd4226b26323063ee57f79e9c%2Fd4226b26323063ee57f79e9c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-07"
+                            "release_date": "2010-04-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - Clean-up!",
                             "image": "https://image.tmdb.org/t/p/original/xnaLR4q0ie09DfbqasVrYxsok9e.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa58a3cfba59cff10bdb5c598%2Fa58a3cfba59cff10bdb5c598.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-14"
+                            "release_date": "2010-04-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.2,
+                                        "end": 201.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Drummer!",
                             "image": "https://image.tmdb.org/t/p/original/iS7BhqVp7LzylOs9nBhqcqDO2yp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fc2d58d180d3988bf3506e245%2Fc2d58d180d3988bf3506e245.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-21"
+                            "release_date": "2010-04-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Field Trip!",
                             "image": "https://image.tmdb.org/t/p/original/d3uUaU2KfPN742N2dnMffahfO3e.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ff87c80eae37055033b776bfc%2Ff87c80eae37055033b776bfc.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-28"
+                            "release_date": "2010-04-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.2,
+                                        "end": 119.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Staying Behind!",
                             "image": "https://image.tmdb.org/t/p/original/8BMQwJ7SKhuVPjohyxWPk4KHvzB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F3167c1054629a3179b79a7c5%2F3167c1054629a3179b79a7c5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-05"
+                            "release_date": "2010-05-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.2,
+                                        "end": 123.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Rainy Season!",
                             "image": "https://image.tmdb.org/t/p/original/r2EXk9I8up4ktxOv253TNNO4ASM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9bb8e24e3e460ba2133ed30c%2F9bb8e24e3e460ba2133ed30c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-12"
+                            "release_date": "2010-05-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Tea Party!",
                             "image": "https://image.tmdb.org/t/p/original/pROa3YUegKdbnwHhXGG5B9IlNc5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Febf825a0a60125ac5346b7cb%2Febf825a0a60125ac5346b7cb.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-19"
+                            "release_date": "2010-05-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.2,
+                                        "end": 130.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Career!",
                             "image": "https://image.tmdb.org/t/p/original/yzbQHgi1ydFoPap447M9EXoSymY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fcce5ca5e1296cc0b4927ff9c%2Fcce5ca5e1296cc0b4927ff9c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-26"
+                            "release_date": "2010-05-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Finals!",
                             "image": "https://image.tmdb.org/t/p/original/uSAIW2HqXw33WPN0LVGAjQUAV9P.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F92c4338298bb4f28f56cbbbb%2F92c4338298bb4f28f56cbbbb.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-02"
+                            "release_date": "2010-06-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Teacher!",
                             "image": "https://image.tmdb.org/t/p/original/dDl0USilDNNJfWb7gBPRQreAkOB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fbadc19aa7a147042cb14f235%2Fbadc19aa7a147042cb14f235.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-09"
+                            "release_date": "2010-06-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.2,
+                                        "end": 107.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Hot!",
                             "image": "https://image.tmdb.org/t/p/original/uqb6nFHlybK051OZMqC4qJ9j4X2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd0de07a0ce22f691b3c71cc2%2Fd0de07a0ce22f691b3c71cc2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-16"
+                            "release_date": "2010-06-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.2,
+                                        "end": 121.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Summer Festival!",
                             "image": "https://image.tmdb.org/t/p/original/vvnQJgXUwyfPjiviS0iLQ8JmFk4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F99cd1206bc8077c811dec027%2F99cd1206bc8077c811dec027.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-23"
+                            "release_date": "2010-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.3,
+                                        "end": 134.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Late Summer Greeting Card!",
                             "image": "https://image.tmdb.org/t/p/original/dP2XkXFd9682ilNDMfFVWkZgImp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fe39c85bab3f691b5ade8cca4%2Fe39c85bab3f691b5ade8cca4.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-30"
+                            "release_date": "2010-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.2,
+                                        "end": 174.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Summer Training!",
                             "image": "https://image.tmdb.org/t/p/original/qf6EDOvpPTDp43Huai700ckPUfz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F05ef03d129a627ea296571d2%2F05ef03d129a627ea296571d2.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-07"
+                            "release_date": "2010-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 221.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Marathon Tournament!",
                             "image": "https://image.tmdb.org/t/p/original/guD1OMHurzF852CiVd9vuFUr9VJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F864f44204797c4b211486287%2F864f44204797c4b211486287.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-14"
+                            "release_date": "2010-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 122.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Upperclassmen!",
                             "image": "https://image.tmdb.org/t/p/original/9ygxfVfE3tYNMpiq0hfz1US5kt8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2f0c51b91ada84ef478b7415%2F2f0c51b91ada84ef478b7415.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-21"
+                            "release_date": "2010-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 126.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - No Club Room!",
                             "image": "https://image.tmdb.org/t/p/original/pTmbffrFA3Ov1wjkZI7meOXYYte.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F1eb9399b8de0e3431ef1447d%2F1eb9399b8de0e3431ef1447d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-28"
+                            "release_date": "2010-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Leading Role!",
                             "image": "https://image.tmdb.org/t/p/original/xW6J1pjfIZ8XHFb8h3SDIxzyzKw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9ef102bdd28d3f8c42439fb9%2F9ef102bdd28d3f8c42439fb9.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-04"
+                            "release_date": "2010-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Romeo and Juliet!",
                             "image": "https://image.tmdb.org/t/p/original/eqX3b80TQ3wcxd55UlIp2mpHGUx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4606599250140b66c7481fc6%2F4606599250140b66c7481fc6.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-11"
+                            "release_date": "2010-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Yet Another School Festival!",
                             "image": "https://image.tmdb.org/t/p/original/owSNTzI4Oans5x4r0QUAjXvPcjr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F031eb89b173d8ba0cf25ae5d%2F031eb89b173d8ba0cf25ae5d.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-18"
+                            "release_date": "2010-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.2,
+                                        "end": 118.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Graduation Yearbook!",
                             "image": "https://image.tmdb.org/t/p/original/oYXjwrXAGXoE1wnE4m3LvSZuJvO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fdf8fd7331d4520adfbd85c3e%2Fdf8fd7331d4520adfbd85c3e.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-25"
+                            "release_date": "2010-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Entrance Exam!",
                             "image": "https://image.tmdb.org/t/p/original/yDMasAMqn48gtiTiO8CtR0ju9Yi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F9af11dd6f91943a0109db80a%2F9af11dd6f91943a0109db80a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-01"
+                            "release_date": "2010-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.2,
+                                        "end": 162.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - After School!",
                             "image": "https://image.tmdb.org/t/p/original/g14CMfNMoxa9YR8RMA1b9P2CC4o.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fd39656b41bfc738b47134e34%2Fd39656b41bfc738b47134e34.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-08"
+                            "release_date": "2010-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.7,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Graduation Ceremony!",
                             "image": "https://image.tmdb.org/t/p/original/gtXQ6yeUwq8o5nY1nstAWQAVhjP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F865af011754f03f1b09a1b40%2F865af011754f03f1b09a1b40.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-15"
+                            "release_date": "2010-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -988,168 +1348,528 @@
                             "image": "https://image.tmdb.org/t/p/original/sZJamTpk4Gub8ePBLCKAAF1lAEg.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F1be37e35cdcb9fecba0b1c59%2F1be37e35cdcb9fecba0b1c59.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-07"
+                            "release_date": "2010-04-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Clean-up!",
                             "image": "https://image.tmdb.org/t/p/original/xnaLR4q0ie09DfbqasVrYxsok9e.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4ffb02e96b4c1efbf6b571e5%2F4ffb02e96b4c1efbf6b571e5.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-14"
+                            "release_date": "2010-04-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.2,
+                                        "end": 201.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Drummer!",
                             "image": "https://image.tmdb.org/t/p/original/iS7BhqVp7LzylOs9nBhqcqDO2yp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F7d178806eb9e2caddfbc8970%2F7d178806eb9e2caddfbc8970.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-21"
+                            "release_date": "2010-04-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Field Trip!",
                             "image": "https://image.tmdb.org/t/p/original/d3uUaU2KfPN742N2dnMffahfO3e.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fec2295651ea45e581a08acf8%2Fec2295651ea45e581a08acf8.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-04-28"
+                            "release_date": "2010-04-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.2,
+                                        "end": 119.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.6,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Staying Behind!",
                             "image": "https://image.tmdb.org/t/p/original/8BMQwJ7SKhuVPjohyxWPk4KHvzB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Ffd79edd17e2553196973c127%2Ffd79edd17e2553196973c127.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-05"
+                            "release_date": "2010-05-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.2,
+                                        "end": 123.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Rainy Season!",
                             "image": "https://image.tmdb.org/t/p/original/r2EXk9I8up4ktxOv253TNNO4ASM.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa61ec9926ff23fb344094a8a%2Fa61ec9926ff23fb344094a8a.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-12"
+                            "release_date": "2010-05-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Tea Party!",
                             "image": "https://image.tmdb.org/t/p/original/pROa3YUegKdbnwHhXGG5B9IlNc5.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F6180eac09c92caf33dd9e4b9%2F6180eac09c92caf33dd9e4b9.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-19"
+                            "release_date": "2010-05-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.2,
+                                        "end": 1419.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Career!",
                             "image": "https://image.tmdb.org/t/p/original/yzbQHgi1ydFoPap447M9EXoSymY.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F3ae1c35d2b71d28cbf7abe13%2F3ae1c35d2b71d28cbf7abe13.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-05-26"
+                            "release_date": "2010-05-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Finals!",
                             "image": "https://image.tmdb.org/t/p/original/uSAIW2HqXw33WPN0LVGAjQUAV9P.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2e77e3417dd6778c9a1d0dfb%2F2e77e3417dd6778c9a1d0dfb.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-02"
+                            "release_date": "2010-06-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Teacher!",
                             "image": "https://image.tmdb.org/t/p/original/dDl0USilDNNJfWb7gBPRQreAkOB.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F3890aeb51f1cfbfea0597f21%2F3890aeb51f1cfbfea0597f21.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-09"
+                            "release_date": "2010-06-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.2,
+                                        "end": 107.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Hot!",
                             "image": "https://image.tmdb.org/t/p/original/uqb6nFHlybK051OZMqC4qJ9j4X2.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F2faf6a668e37e299005712f1%2F2faf6a668e37e299005712f1.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-16"
+                            "release_date": "2010-06-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.2,
+                                        "end": 121.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Summer Festival!",
                             "image": "https://image.tmdb.org/t/p/original/vvnQJgXUwyfPjiviS0iLQ8JmFk4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F212de843d4b3acc8af1684ed%2F212de843d4b3acc8af1684ed.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-23"
+                            "release_date": "2010-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 45.2,
+                                        "end": 134.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Late Summer Greeting Card!",
                             "image": "https://image.tmdb.org/t/p/original/dP2XkXFd9682ilNDMfFVWkZgImp.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fa3bd19872e26c1d70e83ed31%2Fa3bd19872e26c1d70e83ed31.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-06-30"
+                            "release_date": "2010-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.2,
+                                        "end": 174.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Summer Training!",
                             "image": "https://image.tmdb.org/t/p/original/qf6EDOvpPTDp43Huai700ckPUfz.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F216b71d3f63009a0138ef5cb%2F216b71d3f63009a0138ef5cb.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-07"
+                            "release_date": "2010-07-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 221.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Marathon Tournament!",
                             "image": "https://image.tmdb.org/t/p/original/guD1OMHurzF852CiVd9vuFUr9VJ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F97058aac10f74be150de4fb6%2F97058aac10f74be150de4fb6.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-14"
+                            "release_date": "2010-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 122.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Upperclassmen!",
                             "image": "https://image.tmdb.org/t/p/original/9ygxfVfE3tYNMpiq0hfz1US5kt8.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F85aa7d5c488992e9ad9759c3%2F85aa7d5c488992e9ad9759c3.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-21"
+                            "release_date": "2010-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.2,
+                                        "end": 126.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - No Club Room!",
                             "image": "https://image.tmdb.org/t/p/original/pTmbffrFA3Ov1wjkZI7meOXYYte.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F8c5d55834261950045ec9714%2F8c5d55834261950045ec9714.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-07-28"
+                            "release_date": "2010-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Leading Role!",
                             "image": "https://image.tmdb.org/t/p/original/xW6J1pjfIZ8XHFb8h3SDIxzyzKw.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fdbcc2854e02c2ddb1874e54c%2Fdbcc2854e02c2ddb1874e54c.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-04"
+                            "release_date": "2010-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Romeo and Juliet!",
                             "image": "https://image.tmdb.org/t/p/original/eqX3b80TQ3wcxd55UlIp2mpHGUx.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F60cd91ccd6c3ec2d7799d39f%2F60cd91ccd6c3ec2d7799d39f.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-11"
+                            "release_date": "2010-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.2,
+                                        "end": 130.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Yet Another School Festival!",
                             "image": "https://image.tmdb.org/t/p/original/owSNTzI4Oans5x4r0QUAjXvPcjr.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fdd8cee2fd577181944b5baa4%2Fdd8cee2fd577181944b5baa4.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-18"
+                            "release_date": "2010-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.2,
+                                        "end": 118.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Graduation Yearbook!",
                             "image": "https://image.tmdb.org/t/p/original/oYXjwrXAGXoE1wnE4m3LvSZuJvO.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fcc855319a769fc4ef0b7666b%2Fcc855319a769fc4ef0b7666b.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-08-25"
+                            "release_date": "2010-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - Entrance Exam!",
                             "image": "https://image.tmdb.org/t/p/original/yDMasAMqn48gtiTiO8CtR0ju9Yi.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F4b75b764d8c62e61848757db%2F4b75b764d8c62e61848757db.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-01"
+                            "release_date": "2010-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.2,
+                                        "end": 162.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - After School!",
                             "image": "https://image.tmdb.org/t/p/original/g14CMfNMoxa9YR8RMA1b9P2CC4o.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2F8142ccfcb45a0aa22364d796%2F8142ccfcb45a0aa22364d796.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-08"
+                            "release_date": "2010-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.9,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Graduation Ceremony!",
                             "image": "https://image.tmdb.org/t/p/original/gtXQ6yeUwq8o5nY1nstAWQAVhjP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fmain.108player.com%2Fnewplaylist%2Fb4db6eb01cd03f73416eb158%2Fb4db6eb01cd03f73416eb158.m3u8&referer=https%3A%2F%2Fwww.anime108.com%2F",
                             "referer": "https://www.anime108.com/",
-                            "release_date": "2010-09-15"
+                            "release_date": "2010-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
