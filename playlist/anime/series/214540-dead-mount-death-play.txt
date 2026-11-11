@@ -17,7 +17,17 @@
                             "url": "https://app.akuma-stream.com/watch/837a93c2-7d80-47a3-8ff4-9682d5ffa195",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-04-11"
+                            "release_date": "2023-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1289.8,
+                                        "end": 1373.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - โลกใบใหม่",
@@ -25,7 +35,22 @@
                             "url": "https://app.akuma-stream.com/watch/7e12cff5-83c7-4551-b756-66c99388b3c8",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-04-18"
+                            "release_date": "2023-04-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 212.2,
+                                        "end": 302
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.2,
+                                        "end": 1393.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - จอมเวท",
@@ -33,7 +58,22 @@
                             "url": "https://app.akuma-stream.com/watch/c5323081-c1f5-4b55-a50c-85550520fbbe",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-04-25"
+                            "release_date": "2023-04-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.2,
+                                        "end": 121
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.1,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - หมาบ้า",
@@ -41,7 +81,22 @@
                             "url": "https://app.akuma-stream.com/watch/3b8d38be-0408-40ff-921d-acde3831ca4e",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-05-02"
+                            "release_date": "2023-05-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.2,
+                                        "end": 222
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ปีศาจ",
@@ -49,7 +104,22 @@
                             "url": "https://app.akuma-stream.com/watch/6bad9e28-d352-4ead-ab68-dff49700c4c5",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-05-09"
+                            "release_date": "2023-05-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.3,
+                                        "end": 260
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1302.7,
+                                        "end": 1393.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ผู้จุดไฟ",
@@ -57,7 +127,17 @@
                             "url": "https://app.akuma-stream.com/watch/5e6e4afd-7be4-45e4-87b0-686dd7fb2e7d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-05-16"
+                            "release_date": "2023-05-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 143
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - นักมายากล",
@@ -65,7 +145,22 @@
                             "url": "https://app.akuma-stream.com/watch/24ecb991-b050-4ad4-b89e-48b9daeb2723",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-05-23"
+                            "release_date": "2023-05-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.3,
+                                        "end": 138
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - นักฆ่า",
@@ -73,7 +168,22 @@
                             "url": "https://app.akuma-stream.com/watch/b175243d-6259-4a85-b626-32cd12a5e652",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-05-30"
+                            "release_date": "2023-05-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 23.2,
+                                        "end": 113
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ป้ายบอกทาง",
@@ -81,7 +191,17 @@
                             "url": "https://app.akuma-stream.com/watch/a9287ef8-326a-497b-a7b1-60b5f2f63345",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-06-06"
+                            "release_date": "2023-06-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 134
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - สัญลักษณ์",
@@ -89,7 +209,17 @@
                             "url": "https://app.akuma-stream.com/watch/d25b627b-89f9-42f5-bcba-cde0370afbc5",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-06-13"
+                            "release_date": "2023-06-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 155
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - จุดเริ่มต้น",
@@ -97,7 +227,22 @@
                             "url": "https://app.akuma-stream.com/watch/a846bd2c-9c01-4333-87d7-d70cc3011527",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-06-20"
+                            "release_date": "2023-06-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.2,
+                                        "end": 226
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.1,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - สถานที่ศักดิ์สิทธิ์",
@@ -105,7 +250,22 @@
                             "url": "https://app.akuma-stream.com/watch/73d31989-5ce9-4cd4-a48f-958f97d9f2f0",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-06-27"
+                            "release_date": "2023-06-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 183.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.6,
+                                        "end": 1397
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - กลุ่มผู้บุกรุก",
@@ -113,7 +273,22 @@
                             "url": "https://app.akuma-stream.com/watch/5b4c6499-f54e-464d-a84e-f76286aa4afd",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-10-10"
+                            "release_date": "2023-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.2,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - ซากศพ",
@@ -121,7 +296,22 @@
                             "url": "https://app.akuma-stream.com/watch/fe66fb37-6930-4820-bcfc-e976422c5bf5",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-10-17"
+                            "release_date": "2023-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.3,
+                                        "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - แวมไพร์",
@@ -129,7 +319,22 @@
                             "url": "https://app.akuma-stream.com/watch/1b3c7efb-8ee0-4944-a1b2-f53c50572606",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-10-24"
+                            "release_date": "2023-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.2,
+                                        "end": 198.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - เล่ห์เหลี่ยม",
@@ -137,7 +342,17 @@
                             "url": "https://app.akuma-stream.com/watch/63007fb9-c6ff-4e04-b975-4e0b1f17db3a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-10-31"
+                            "release_date": "2023-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35,
+                                        "end": 120.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - เสาหลัก",
@@ -145,7 +360,22 @@
                             "url": "https://app.akuma-stream.com/watch/3554955c-465c-42dc-997c-fddcbf73319b",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-11-07"
+                            "release_date": "2023-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 314.2,
+                                        "end": 403.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - การแก้แค้น",
@@ -153,7 +383,22 @@
                             "url": "https://app.akuma-stream.com/watch/512232b9-5647-48a8-b89e-b389656e11c6",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-11-14"
+                            "release_date": "2023-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.2,
+                                        "end": 135.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - เพื่อน",
@@ -161,7 +406,22 @@
                             "url": "https://app.akuma-stream.com/watch/2a184335-c356-4068-9cf2-ec37de67cdd9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-11-21"
+                            "release_date": "2023-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.2,
+                                        "end": 128.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ผู้มาเยือน",
@@ -169,7 +429,22 @@
                             "url": "https://app.akuma-stream.com/watch/ff4e9cd4-6b63-4920-84bc-c3577a7a553a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-11-28"
+                            "release_date": "2023-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - วิญญาณ",
@@ -177,7 +452,22 @@
                             "url": "https://app.akuma-stream.com/watch/1572e6c7-0b41-4b72-99ee-55bbd8e6e150",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-12-05"
+                            "release_date": "2023-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1415.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - กรรม",
@@ -185,7 +475,17 @@
                             "url": "https://app.akuma-stream.com/watch/b9881fa7-4eea-43a1-9cfd-162e71132e81",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-12-12"
+                            "release_date": "2023-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ประกาศสงคราม",
@@ -193,7 +493,22 @@
                             "url": "https://app.akuma-stream.com/watch/f8291762-2465-46e4-b56b-1aec002f69c3",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-12-19"
+                            "release_date": "2023-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.2,
+                                        "end": 116.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - สงครามชินจูกุ",
@@ -201,7 +516,17 @@
                             "url": "https://app.akuma-stream.com/watch/3d1b4128-b74a-486f-a1bc-ac8990dc6883",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2023-12-26"
+                            "release_date": "2023-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.2,
+                                        "end": 194.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

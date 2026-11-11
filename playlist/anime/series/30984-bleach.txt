@@ -7926,7 +7926,11 @@
                             "url": "https://app.akuma-stream.com/watch/b80f1f7d-bf1e-4a13-bc5a-fadc62782a7c",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-10-11"
+                            "release_date": "2022-10-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 2 - แกนหิน",
@@ -7934,7 +7938,22 @@
                             "url": "https://app.akuma-stream.com/watch/26bc4404-85ad-4be0-a5f8-8a6cd3e0a82f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-10-18"
+                            "release_date": "2022-10-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.9,
+                                        "end": 141.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1348.6,
+                                        "end": 1441.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - การเดินขบวนของดวงดาว",
@@ -7942,7 +7961,22 @@
                             "url": "https://app.akuma-stream.com/watch/9d5afec9-06f1-4730-82df-d752d8eed19d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-10-25"
+                            "release_date": "2022-10-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 126.6,
+                                        "end": 215.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.7,
+                                        "end": 1441.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - พิฆาตเงาดำ",
@@ -7950,7 +7984,22 @@
                             "url": "https://app.akuma-stream.com/watch/7263f6ca-bce2-4db4-a196-eab579131869",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-11-01"
+                            "release_date": "2022-11-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 168,
+                                        "end": 260.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.1,
+                                        "end": 1443.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - โทสะราวกับสายฟ้า",
@@ -7958,7 +8007,22 @@
                             "url": "https://app.akuma-stream.com/watch/b6f00343-ce40-4db0-a403-38f6c1b6d289",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-11-08"
+                            "release_date": "2022-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 138.2,
+                                        "end": 230.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.9,
+                                        "end": 1401.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ไฟ",
@@ -7966,7 +8030,22 @@
                             "url": "https://app.akuma-stream.com/watch/206a197e-9c52-43b9-b9e9-c6ab6844bce6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-11-15"
+                            "release_date": "2022-11-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.2,
+                                        "end": 122.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.4,
+                                        "end": 1442.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - กำเนิดจากความมืด",
@@ -7974,7 +8053,22 @@
                             "url": "https://app.akuma-stream.com/watch/c2ef5abe-03fb-44d5-bbb8-393970cc730b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-11-22"
+                            "release_date": "2022-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 132.8,
+                                        "end": 221
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.2,
+                                        "end": 1444.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ยุทธการเด็ดดาว \"ซีโร่ มิกซ์\"",
@@ -7982,7 +8076,22 @@
                             "url": "https://app.akuma-stream.com/watch/a7f4c178-0e0e-4dec-9c25-6da697309539",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-11-29"
+                            "release_date": "2022-11-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82,
+                                        "end": 171.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.8,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - หลั่งริน",
@@ -7990,7 +8099,22 @@
                             "url": "https://app.akuma-stream.com/watch/27ceac52-e18d-4d8e-b82b-c5f9049a6c03",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-12-06"
+                            "release_date": "2022-12-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.2,
+                                        "end": 136.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1347.8,
+                                        "end": 1435.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - สงคราม",
@@ -7998,7 +8122,22 @@
                             "url": "https://app.akuma-stream.com/watch/ec9ae977-3393-45f7-953c-37f932fdda3d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-12-13"
+                            "release_date": "2022-12-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.4,
+                                        "end": 143.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1171.3,
+                                        "end": 1263.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - เหนือสายฝน",
@@ -8006,7 +8145,22 @@
                             "url": "https://app.akuma-stream.com/watch/5ad069f1-8208-4cca-9c25-565d8db60e3c",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-12-20"
+                            "release_date": "2022-12-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81.1,
+                                        "end": 170.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1418.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - เหนือสายฝน - ความจริงเดือนมิถุนายน",
@@ -8014,7 +8168,22 @@
                             "url": "https://app.akuma-stream.com/watch/c0ca7617-06d7-40b6-953c-2b51c06bc05e",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-12-27"
+                            "release_date": "2022-12-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146.9,
+                                        "end": 236.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1148.2,
+                                        "end": 1236.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ข้าก็คือดาบ",
@@ -8022,7 +8191,17 @@
                             "url": "https://app.akuma-stream.com/watch/5b9c269b-bda2-4e15-9d3f-2d1dc9e5f13a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2022-12-27"
+                            "release_date": "2022-12-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 112.2,
+                                        "end": 203.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - เก้าวันสุดท้าย",
@@ -8030,7 +8209,22 @@
                             "url": "https://app.akuma-stream.com/watch/06f21583-f5a8-4506-8a31-a09b1a39bf86",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-07-08"
+                            "release_date": "2023-07-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.2,
+                                        "end": 1417.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ความสงบสุขกลางเงามืด",
@@ -8038,7 +8232,27 @@
                             "url": "https://app.akuma-stream.com/watch/4cd34d53-b4ad-402a-84a0-fb7b0964f41f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-07-15"
+                            "release_date": "2023-07-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.8,
+                                        "end": 166.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1263.5,
+                                        "end": 1352.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1437.9,
+                                        "end": 1450.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ต้นเหตุที่ทำให้ถึงตาย",
@@ -8046,7 +8260,27 @@
                             "url": "https://app.akuma-stream.com/watch/e7bd6f9a-4bd0-4bdf-8868-e3ca0423b793",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-07-22"
+                            "release_date": "2023-07-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.2,
+                                        "end": 226.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264,
+                                        "end": 1353.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1437.4,
+                                        "end": 1450.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - หัวใจของหมาป่า",
@@ -8054,7 +8288,27 @@
                             "url": "https://app.akuma-stream.com/watch/d020c0af-53d8-40e9-94a0-d8adcbcc83c0",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-07-29"
+                            "release_date": "2023-07-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.2,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1229.3,
+                                        "end": 1318.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1438.7,
+                                        "end": 1451.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ความโกรธเกรี้ยวข้างเวที",
@@ -8062,7 +8316,22 @@
                             "url": "https://app.akuma-stream.com/watch/3b056c24-96c7-4000-83bc-bd3173a14c6b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-08-05"
+                            "release_date": "2023-08-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.2,
+                                        "end": 222.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1229.3,
+                                        "end": 1321
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - หมอกสีขาว",
@@ -8070,7 +8339,22 @@
                             "url": "https://app.akuma-stream.com/watch/8df4ea96-446d-4ea3-aa1b-a6ab6baa289d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-08-12"
+                            "release_date": "2023-08-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.2,
+                                        "end": 242.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1437,
+                                        "end": 1449.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ข้าคือเคมปาจิ",
@@ -8078,7 +8362,27 @@
                             "url": "https://app.akuma-stream.com/watch/f242f4c1-2638-49f2-980e-2a20a98a9ac1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-08-19"
+                            "release_date": "2023-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1206.3,
+                                        "end": 1296.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1437.3,
+                                        "end": 1450.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - ดาวที่กระจัดกระจาย",
@@ -8086,7 +8390,27 @@
                             "url": "https://app.akuma-stream.com/watch/31feb120-ff42-4f58-aeee-858e5d9889e6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-08-26"
+                            "release_date": "2023-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.2,
+                                        "end": 136.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.9,
+                                        "end": 1419.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1429.6,
+                                        "end": 1442.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ทัพซอมบี้รุกราน",
@@ -8094,7 +8418,27 @@
                             "url": "https://app.akuma-stream.com/watch/e71fa632-d2ad-4c7f-9a12-fc39fa403538",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-09-09"
+                            "release_date": "2023-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 207.2,
+                                        "end": 297.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325,
+                                        "end": 1421.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1442.7,
+                                        "end": 1455.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ทัพซอมบี้รุกราน 2",
@@ -8102,7 +8446,27 @@
                             "url": "https://app.akuma-stream.com/watch/f4163408-7b8c-43d3-bcb2-c258d67fdfa1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-09-16"
+                            "release_date": "2023-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.2,
+                                        "end": 281.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1298.7,
+                                        "end": 1388.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1439.4,
+                                        "end": 1452.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - กระหายจะชนะ จนรู้เมื่อสายไป",
@@ -8110,7 +8474,27 @@
                             "url": "https://app.akuma-stream.com/watch/e6316c79-9967-476f-a5b0-c033ee413d12",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-09-23"
+                            "release_date": "2023-09-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 279.2,
+                                        "end": 368.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.4,
+                                        "end": 1419.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1441.2,
+                                        "end": 1454.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ผู้พิชิต",
@@ -8118,7 +8502,27 @@
                             "url": "https://app.akuma-stream.com/watch/2753df80-889e-4891-9c19-f54a56394882",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-09-30"
+                            "release_date": "2023-09-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 116.2,
+                                        "end": 205.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1256.2,
+                                        "end": 1345.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1438.7,
+                                        "end": 1451.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - ดำมืด",
@@ -8126,7 +8530,27 @@
                             "url": "https://app.akuma-stream.com/watch/7bc5ad67-ce87-42d1-bc80-cad394f6fec4",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-09-30"
+                            "release_date": "2023-09-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 154
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1102,
+                                        "end": 1193.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1446.1,
+                                        "end": 1459
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - A",
@@ -8134,7 +8558,22 @@
                             "url": "https://app.akuma-stream.com/watch/41cdba9d-0261-4559-bda8-c5d3127921a8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-05"
+                            "release_date": "2024-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1149.2,
+                                        "end": 1238.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - KILL THE KING",
@@ -8142,7 +8581,22 @@
                             "url": "https://app.akuma-stream.com/watch/9c7012f1-2c5b-4ec7-b9d3-6c48ab016c36",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-12"
+                            "release_date": "2024-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 160.3,
+                                        "end": 249.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.3,
+                                        "end": 1415.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - THE DARK ARM",
@@ -8150,7 +8604,22 @@
                             "url": "https://app.akuma-stream.com/watch/aad1eed0-3518-4301-87a1-82c9d896f893",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-19"
+                            "release_date": "2024-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.2,
+                                        "end": 1418.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - THE BETRAYER",
@@ -8158,7 +8627,22 @@
                             "url": "https://app.akuma-stream.com/watch/ae0ecc79-e66c-4854-b50d-f86f4ee8d406",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-26"
+                            "release_date": "2024-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.3,
+                                        "end": 230.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1214.3,
+                                        "end": 1303.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - AGAINST THE JUDGEMENT",
@@ -8166,7 +8650,22 @@
                             "url": "https://app.akuma-stream.com/watch/5b5dd318-0749-4f6f-b06f-35ba26ab71b7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-02"
+                            "release_date": "2024-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 129.1,
+                                        "end": 218.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.2,
+                                        "end": 1434.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 32 - THE HOLY NEWBORN",
@@ -8174,7 +8673,22 @@
                             "url": "https://app.akuma-stream.com/watch/6df458bb-0c9c-4f35-be6f-1101b4fce52d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-09"
+                            "release_date": "2024-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.3,
+                                        "end": 1414.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 33 - GATE OF THE SUN",
@@ -8182,7 +8696,22 @@
                             "url": "https://app.akuma-stream.com/watch/7ad029d8-e637-46ef-a754-5656a1afb57b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-16"
+                            "release_date": "2024-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 82.2,
+                                        "end": 171.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1327.3,
+                                        "end": 1417.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 34 - BABY, HOLD YOUR HAND",
@@ -8190,7 +8719,22 @@
                             "url": "https://app.akuma-stream.com/watch/39784041-826b-431f-93b5-b9cb94c2b8c9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-23"
+                            "release_date": "2024-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 136.3,
+                                        "end": 225.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326.2,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 35 - DON'T CHASE A SHADOW",
@@ -8198,7 +8742,22 @@
                             "url": "https://app.akuma-stream.com/watch/bf68d5a0-be22-420a-9ac3-475d6d7284ae",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-30"
+                            "release_date": "2024-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.3,
+                                        "end": 223.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.9,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 36 - BABY, HOLD YOUR HAND 2 [NEVER ENDING MY DREAM]",
@@ -8206,7 +8765,22 @@
                             "url": "https://app.akuma-stream.com/watch/9759c234-3f17-42db-9ba1-48463e38e57d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-07"
+                            "release_date": "2024-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 248.2,
+                                        "end": 337.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1230.5,
+                                        "end": 1319.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 37 - SHADOWS GONE",
@@ -8214,7 +8788,22 @@
                             "url": "https://app.akuma-stream.com/watch/58915c4a-d625-4b3d-9e30-d3bac060f7e8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-14"
+                            "release_date": "2024-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.2,
+                                        "end": 175.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1324.7,
+                                        "end": 1416.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 38 - FRIEND",
@@ -8222,7 +8811,22 @@
                             "url": "https://app.akuma-stream.com/watch/9dd9821f-5c93-4824-a726-d523ec066637",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-21"
+                            "release_date": "2024-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1406.1,
+                                        "end": 1496.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 39 - THE VISIBLE ANSWER",
@@ -8230,7 +8834,22 @@
                             "url": "https://app.akuma-stream.com/watch/ec14ea78-c22d-4eab-b945-6d3632f55416",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-28"
+                            "release_date": "2024-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.2,
+                                        "end": 128.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.1,
+                                        "end": 1391.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 40 - MY LAST WORDS",
@@ -8238,7 +8857,22 @@
                             "url": "https://app.akuma-stream.com/watch/65ffcd6c-3df0-4d26-bf98-fef62e0d51ad",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-29"
+                            "release_date": "2024-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.2,
+                                        "end": 128.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1303.1,
+                                        "end": 1391.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 41 - GOD OF THUNDER",
@@ -8246,7 +8880,17 @@
                             "url": "https://app.akuma-stream.com/watch/e338e0e7-3e71-4602-9843-8eb3b6dabfa8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-07-25"
+                            "release_date": "2026-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.1,
+                                        "end": 168.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 42 - SON OF DARKNESS",
@@ -8254,7 +8898,17 @@
                             "url": "https://app.akuma-stream.com/watch/51e2019e-5dfe-4a22-953b-67462568caa7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-01"
+                            "release_date": "2026-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.9,
+                                        "end": 181.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 43 - BLOOD FOR MY BONE",
@@ -8262,7 +8916,17 @@
                             "url": "https://app.akuma-stream.com/watch/1f88e718-0abc-47e9-8cb1-4fa00b312ca4",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-08"
+                            "release_date": "2026-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 109.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 44 - THE PERFECT CRIMSON",
@@ -8270,7 +8934,22 @@
                             "url": "https://app.akuma-stream.com/watch/63ec3e4e-b708-4511-8212-69a28a336ae3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-15"
+                            "release_date": "2026-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.9,
+                                        "end": 139.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1106.4,
+                                        "end": 1195.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 45 - DEFEND YOU",
@@ -8278,7 +8957,17 @@
                             "url": "https://app.akuma-stream.com/watch/b0b32341-174b-40ef-b32d-4b159a6d9410",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-22"
+                            "release_date": "2026-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.3,
+                                        "end": 126.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 46 - THE END",
@@ -8286,7 +8975,22 @@
                             "url": "https://app.akuma-stream.com/watch/1f8d384d-1ad3-403c-9020-489314a5645f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-29"
+                            "release_date": "2026-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 201.2,
+                                        "end": 290.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1207,
+                                        "end": 1278.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 47 - THE END 2",
@@ -8294,7 +8998,17 @@
                             "url": "https://app.akuma-stream.com/watch/e292f424-dd5d-41ca-aae5-7c37caee1dba",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-09-05"
+                            "release_date": "2026-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 86.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 48 - THE END TWO WORLD",
@@ -8302,7 +9016,17 @@
                             "url": "https://app.akuma-stream.com/watch/884cbb93-8403-4b35-8ebe-7633a7941c63",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-09-12"
+                            "release_date": "2026-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 81,
+                                        "end": 170.3
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

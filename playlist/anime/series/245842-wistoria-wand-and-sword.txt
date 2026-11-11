@@ -659,84 +659,259 @@
                             "image": "https://image.tmdb.org/t/p/original/4dXjmZEc5E5vnmtNakUkXUwOycL.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fw4oTPEG8%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fw4oTPEG8",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-12"
+                            "release_date": "2026-04-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 185.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Party from Hell Begins",
                             "image": "https://image.tmdb.org/t/p/original/agHni8bXYgbfgubrY8CZOunuNNP.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F9vBMeHun%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F9vBMeHun",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-19"
+                            "release_date": "2026-04-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 325.2,
+                                        "end": 414.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.2,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - One Single Magic Spell",
                             "image": "https://image.tmdb.org/t/p/original/jcWwwsyoT9MQ1omZGkCj55qwY7.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FtflFIzRU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FtflFIzRU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-04-26"
+                            "release_date": "2026-04-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 225.2,
+                                        "end": 314.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - And the Story Begins",
                             "image": "https://image.tmdb.org/t/p/original/uQ4JpkO41ep8y2qrTC2A35SQb8P.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FrYHbES0z%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FrYHbES0z",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-03"
+                            "release_date": "2026-05-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.2,
+                                        "end": 223.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1176.1,
+                                        "end": 1250.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Day of Departure",
                             "image": "https://image.tmdb.org/t/p/original/n58ZJ6ndXo5JE4AX7ESdbuqdZXj.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FtZze8wel%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FtZze8wel",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-10"
+                            "release_date": "2026-05-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 122.2,
+                                        "end": 211.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.5,
+                                        "end": 1410.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The First Bloom",
                             "image": "https://image.tmdb.org/t/p/original/ajHpWD7UXZgx5KtDqxfmu0f8vWH.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FqryJ2XsP%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FqryJ2XsP",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-17"
+                            "release_date": "2026-05-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.4,
+                                        "end": 1410.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - He Said He Would No Longer Hang His Head",
                             "image": "https://image.tmdb.org/t/p/original/7eLtJWYOstQcZOXKWySGRTlhSl4.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyrxBijZU%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyrxBijZU",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-24"
+                            "release_date": "2026-05-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 240.2,
+                                        "end": 329.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.6,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Teachings of the Witch",
                             "image": "https://image.tmdb.org/t/p/original/k7pERtJLcU3ifLx8y7dOYYht97Q.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FZSRAUr9D%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FZSRAUr9D",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-05-31"
+                            "release_date": "2026-05-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 17.2,
+                                        "end": 106.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.6,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Page to Be Turned",
                             "image": "https://image.tmdb.org/t/p/original/lAniGriJtY09MTnKtZyn4m7Eq3n.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FTUEpt8UR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FTUEpt8UR",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-07"
+                            "release_date": "2026-06-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 297.3,
+                                        "end": 386.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.5,
+                                        "end": 1410.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Hoping, Blooming, Thundering",
                             "image": "https://image.tmdb.org/t/p/original/8WdgT0FAh933MtMvXGpM8ZAMmra.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FzzV6XAld%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FzzV6XAld",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-14"
+                            "release_date": "2026-06-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 267.2,
+                                        "end": 356.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1216.1,
+                                        "end": 1302.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - A Roar of Ice and Lightning",
                             "image": "https://image.tmdb.org/t/p/original/ytZ5o7GVQQjWWBdwNzSNyWpouiQ.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkGTN30Up%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkGTN30Up",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-21"
+                            "release_date": "2026-06-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 190.2,
+                                        "end": 279.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.6,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - A Story of a Dream with No End",
                             "image": "https://image.tmdb.org/t/p/original/pfVVGqY2gUZCL9Hsf0OJ00bCA1h.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FC1HIfiwX%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FC1HIfiwX",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-06-28"
+                            "release_date": "2026-06-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 16.2,
+                                        "end": 105.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1216.6,
+                                        "end": 1305.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

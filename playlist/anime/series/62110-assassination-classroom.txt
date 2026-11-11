@@ -17,7 +17,22 @@
                             "url": "https://app.akuma-stream.com/watch/5f47a0e7-d629-4f3c-bb2d-91836b69099b",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-01-10"
+                            "release_date": "2015-01-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 200.2,
+                                        "end": 289.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.5,
+                                        "end": 1376
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ชั่วโมงเบสบอล",
@@ -25,7 +40,22 @@
                             "url": "https://app.akuma-stream.com/watch/aa4c90d5-aab8-42d6-927f-f2518e651fac",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-01-17"
+                            "release_date": "2015-01-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 105.3,
+                                        "end": 194.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.7,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ชั่วโมงคาร์ม่า",
@@ -33,7 +63,22 @@
                             "url": "https://app.akuma-stream.com/watch/28076685-3cb9-405f-8820-d79c98832fb4",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-01-31"
+                            "release_date": "2015-01-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 239.3,
+                                        "end": 328.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.3,
+                                        "end": 1377.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ชั่วโมงของผู้ใหญ่",
@@ -41,7 +86,22 @@
                             "url": "https://app.akuma-stream.com/watch/94a1e375-8e16-4326-9fbe-29c17d8b19f8",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-02-07"
+                            "release_date": "2015-02-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.9,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.9,
+                                        "end": 1377.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ชั่วโมงประชุม",
@@ -49,7 +109,22 @@
                             "url": "https://app.akuma-stream.com/watch/aaaf6044-7943-40f0-9916-79cd944750c9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-02-14"
+                            "release_date": "2015-02-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.4,
+                                        "end": 178.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.4,
+                                        "end": 1375.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ชั่วโมงสอบ",
@@ -57,7 +132,22 @@
                             "url": "https://app.akuma-stream.com/watch/b2602f5e-61c3-4617-bb4c-6a008b82dc5d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-02-21"
+                            "release_date": "2015-02-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 92.2,
+                                        "end": 181.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1376.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ชั่วโมงทัศนศึกษา / ชั่วโมงที่ 1",
@@ -65,7 +155,22 @@
                             "url": "https://app.akuma-stream.com/watch/27593a92-1547-4d47-99fb-5721bab5e5e1",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-02-28"
+                            "release_date": "2015-02-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.3,
+                                        "end": 126.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1376.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ชั่วโมงทัศนศึกษา / ชั่วโมงที่ 2",
@@ -73,7 +178,22 @@
                             "url": "https://app.akuma-stream.com/watch/14ddc90d-01e3-4166-ba11-99fd69895c40",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-03-07"
+                            "release_date": "2015-03-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 35.3,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1204.3,
+                                        "end": 1295
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ชั่วโมงนักเรียนย้ายมาใหม่",
@@ -81,7 +201,22 @@
                             "url": "https://app.akuma-stream.com/watch/99c60ff6-a3d8-4f8e-930c-38919556d3ab",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-03-14"
+                            "release_date": "2015-03-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.2,
+                                        "end": 190.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1223.2,
+                                        "end": 1314.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ชั่วโมงแอลอาร์",
@@ -89,7 +224,22 @@
                             "url": "https://app.akuma-stream.com/watch/2fe1628f-7709-4c2a-82f2-6c8c7b889f53",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-03-21"
+                            "release_date": "2015-03-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.9,
+                                        "end": 141.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.8,
+                                        "end": 1377.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ชั่วโมงนักเรียนย้ายมาใหม่ / ชั่วโมงที่ 2",
@@ -97,7 +247,22 @@
                             "url": "https://app.akuma-stream.com/watch/1919f53f-cd3c-47c6-a31b-4fb3d5ff126e",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-03-28"
+                            "release_date": "2015-03-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 19.5,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1374.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ชั่วโมงงานแข่งบอล",
@@ -105,7 +270,22 @@
                             "url": "https://app.akuma-stream.com/watch/bd59ae4c-9ce6-4bb4-89d8-647560115707",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-04-11"
+                            "release_date": "2015-04-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.3,
+                                        "end": 190.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ชั่วโมงพรสวรรค์",
@@ -113,7 +293,22 @@
                             "url": "https://app.akuma-stream.com/watch/c59c6ddd-f5fe-4e3e-a966-3149f0f4bb54",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-04-18"
+                            "release_date": "2015-04-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 145.3,
+                                        "end": 234.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - ชั่วโมงวิสัยทัศน์",
@@ -121,7 +316,22 @@
                             "url": "https://app.akuma-stream.com/watch/f53f9e5d-1ff6-47ed-ab56-d4308cad0c9c",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-04-25"
+                            "release_date": "2015-04-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 195.2,
+                                        "end": 284.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.1,
+                                        "end": 1374.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ชั่วโมงปลายภาค",
@@ -129,7 +339,22 @@
                             "url": "https://app.akuma-stream.com/watch/f7c0f1c3-eb5f-4d6f-8291-60e7cf10f20f",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-05-02"
+                            "release_date": "2015-05-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.3,
+                                        "end": 229.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ชั่วโมงปิดการศึกษา / เทอม 1",
@@ -137,7 +362,22 @@
                             "url": "https://app.akuma-stream.com/watch/5a8a071d-a4cc-480a-85c2-b42242b32519",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-05-09"
+                            "release_date": "2015-05-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.1,
+                                        "end": 183.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.2,
+                                        "end": 1376.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ชั่วโมงเกาะ",
@@ -145,7 +385,22 @@
                             "url": "https://app.akuma-stream.com/watch/0564a81d-491c-4029-9400-a3f6ff58b52d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-05-16"
+                            "release_date": "2015-05-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.3,
+                                        "end": 127.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ชั่วโมงปฏิบัติการ",
@@ -153,7 +408,22 @@
                             "url": "https://app.akuma-stream.com/watch/8a0cf81e-00ff-4f64-9a62-24d16da25a71",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-05-23"
+                            "release_date": "2015-05-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1223.3,
+                                        "end": 1312.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ชั่วโมงปีศาจ",
@@ -161,7 +431,22 @@
                             "url": "https://app.akuma-stream.com/watch/1922bdf4-cb30-4611-ac36-692a22afc4e9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-05-30"
+                            "release_date": "2015-05-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 139.8,
+                                        "end": 229.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286,
+                                        "end": 1377.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ชั่วโมงคาร์ม่า / ชั่วโมงที่ 2",
@@ -169,7 +454,22 @@
                             "url": "https://app.akuma-stream.com/watch/a729c5df-48d6-4e19-922b-433cc88a304e",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-06-06"
+                            "release_date": "2015-06-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 42.8,
+                                        "end": 132.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286,
+                                        "end": 1377
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - ชั่วโมงทากาโอกะ",
@@ -177,7 +477,22 @@
                             "url": "https://app.akuma-stream.com/watch/2674f598-fdf7-4b3d-bf9f-92de82277298",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-06-13"
+                            "release_date": "2015-06-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.2,
+                                        "end": 185.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ชั่วโมงนางิสะ",
@@ -185,7 +500,22 @@
                             "url": "https://app.akuma-stream.com/watch/e06ff518-0d24-477b-a302-3db69be1ee1d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2015-06-20"
+                            "release_date": "2015-06-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.8,
+                                        "end": 118.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.1,
+                                        "end": 1375.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -209,7 +539,22 @@
                             "url": "https://app.akuma-stream.com/watch/e59bf980-b3ec-4fae-95fc-2dc3af3626a2",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-01-08"
+                            "release_date": "2016-01-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.4,
+                                        "end": 1375.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ชั่วโมงคาเอเดะ",
@@ -217,7 +562,22 @@
                             "url": "https://app.akuma-stream.com/watch/56b74780-df77-4f4e-8791-aed6ff525938",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-01-15"
+                            "release_date": "2016-01-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 69.2,
+                                        "end": 158.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ชั่วโมงอิโตนะ โฮริเบะ",
@@ -225,7 +585,22 @@
                             "url": "https://app.akuma-stream.com/watch/b452ab2c-8d34-4473-97bc-d03bb9c0b893",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-01-22"
+                            "release_date": "2016-01-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.7,
+                                        "end": 102.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1374.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ชั่วโมงหมุน",
@@ -233,7 +608,22 @@
                             "url": "https://app.akuma-stream.com/watch/c89b2427-b8ee-4363-8154-ab830622d754",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-01-29"
+                            "release_date": "2016-01-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 86.2,
+                                        "end": 175.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.4,
+                                        "end": 1375.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ชั่วโมงผู้นำ",
@@ -241,7 +631,22 @@
                             "url": "https://app.akuma-stream.com/watch/b7c04cd4-f5cd-4689-b125-6c49d5e06f21",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-02-05"
+                            "release_date": "2016-02-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 181.2,
+                                        "end": 270.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1374.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - ชั่วโมงก่อนและหลัง",
@@ -249,7 +654,22 @@
                             "url": "https://app.akuma-stream.com/watch/65b98955-e8f9-4378-91c4-53f2bd49cf14",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-02-12"
+                            "release_date": "2016-02-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 124.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.3,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - ชั่วโมงเทพแห่งความตาย ตอน 1",
@@ -257,7 +677,22 @@
                             "url": "https://app.akuma-stream.com/watch/3d5fb667-fdfb-4e5d-b6e7-d50b008269d3",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-02-19"
+                            "release_date": "2016-02-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.3,
+                                        "end": 129.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1286.3,
+                                        "end": 1375.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ชั่วโมงเทพแห่งความตาย ตอน 2",
@@ -265,7 +700,22 @@
                             "url": "https://app.akuma-stream.com/watch/bc389f35-d53e-4007-b597-e468c69a743b",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-02-26"
+                            "release_date": "2016-02-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.4,
+                                        "end": 1374.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ชั่วโมงรอบที่สอง",
@@ -273,7 +723,22 @@
                             "url": "https://app.akuma-stream.com/watch/a8ab8fb7-58f4-4fd5-9bdd-73b062659241",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-03-04"
+                            "release_date": "2016-03-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 172.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.5,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ชั่วโมงงานโรงเรียน",
@@ -281,7 +746,17 @@
                             "url": "https://app.akuma-stream.com/watch/b274062e-594b-4cf6-9bbd-b5a42a616507",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-03-11"
+                            "release_date": "2016-03-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ชั่วโมงปลายภาค ชั่วโมงที่ 2",
@@ -289,7 +764,22 @@
                             "url": "https://app.akuma-stream.com/watch/fce0c080-e88b-4a94-92d1-bd1b71883876",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-03-18"
+                            "release_date": "2016-03-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 146.3,
+                                        "end": 235.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.3,
+                                        "end": 1374.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ชั่วโมงคิดนอกกรอบ",
@@ -297,7 +787,22 @@
                             "url": "https://app.akuma-stream.com/watch/7c27b740-2632-43c5-8891-09065f7ee3b2",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-03-25"
+                            "release_date": "2016-03-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.2,
+                                        "end": 121.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1246.2,
+                                        "end": 1335.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - ชั่วโมงใช้ชีวิต",
@@ -305,7 +810,22 @@
                             "url": "https://app.akuma-stream.com/watch/52462501-8910-432c-b0e0-8ad60a3bc75d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-04-01"
+                            "release_date": "2016-04-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.3,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.2,
+                                        "end": 1353.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - ชั่วโมงตัวตนลับ",
@@ -313,7 +833,22 @@
                             "url": "https://app.akuma-stream.com/watch/e0b45290-8f18-4f8f-b2ef-39b654ecfb00",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-04-08"
+                            "release_date": "2016-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.2,
+                                        "end": 127.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1284.6,
+                                        "end": 1374.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ชั่วโมงสารภาพ",
@@ -321,7 +856,22 @@
                             "url": "https://app.akuma-stream.com/watch/42ac0e9c-c609-460e-8f7f-5657e98fd342",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-04-22"
+                            "release_date": "2016-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.5,
+                                        "end": 132.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.5,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ชั่วโมงอดีต",
@@ -329,7 +879,17 @@
                             "url": "https://app.akuma-stream.com/watch/19c24613-d886-48a2-9353-10607637ef88",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-04-29"
+                            "release_date": "2016-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1377.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ชั่วโมงแตกแยก",
@@ -337,7 +897,22 @@
                             "url": "https://app.akuma-stream.com/watch/e3cd698e-5e96-4756-8a13-1ffa81a16b8a",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-05-06"
+                            "release_date": "2016-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1376.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - ชั่วโมงผลลัพธ์",
@@ -345,7 +920,22 @@
                             "url": "https://app.akuma-stream.com/watch/bfb2262a-bc46-404c-a12e-29e49e1d466c",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-05-13"
+                            "release_date": "2016-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 53.3,
+                                        "end": 142.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1067,
+                                        "end": 1155.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ชั่วโมงอวกาศ",
@@ -353,7 +943,22 @@
                             "url": "https://app.akuma-stream.com/watch/db21af70-7d2c-487d-8cf4-2861a60104a9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-05-20"
+                            "release_date": "2016-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.2,
+                                        "end": 160.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1124,
+                                        "end": 1166.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ชั่วโมงวาเลนไทน์",
@@ -361,7 +966,22 @@
                             "url": "https://app.akuma-stream.com/watch/47ef2312-5b01-4ce8-938c-d5f3ccf4c5dd",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-05-27"
+                            "release_date": "2016-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 168.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - ชั่วโมงเชื่อใจ",
@@ -369,7 +989,17 @@
                             "url": "https://app.akuma-stream.com/watch/317eaeb4-5ebf-4ace-ad06-d325927c28d9",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-06-03"
+                            "release_date": "2016-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.3,
+                                        "end": 136.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - ชั่วโมงสุขสันต์วันเกิด",
@@ -377,7 +1007,22 @@
                             "url": "https://app.akuma-stream.com/watch/8e3ddf8f-9f01-46c2-87e6-2795fae2134f",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-06-10"
+                            "release_date": "2016-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.3,
+                                        "end": 123.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.2,
+                                        "end": 1377.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ชั่วโมงบอสใหญ่",
@@ -385,7 +1030,22 @@
                             "url": "https://app.akuma-stream.com/watch/3c5f4bec-8d6b-4ace-94d4-f729b25f1e8f",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-06-17"
+                            "release_date": "2016-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.3,
+                                        "end": 136.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313,
+                                        "end": 1376.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - ชั่วโมงจบการศึกษา",
@@ -393,7 +1053,17 @@
                             "url": "https://app.akuma-stream.com/watch/046ddbf3-da0b-47c7-aa27-6839db6fceb5",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-06-24"
+                            "release_date": "2016-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.2,
+                                        "end": 1374.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ชั่วโมงเส้นทางอนาคต",
@@ -401,7 +1071,17 @@
                             "url": "https://app.akuma-stream.com/watch/5e0e41cf-71f6-4c56-a244-7ec45ff97469",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2016-07-01"
+                            "release_date": "2016-07-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.2,
+                                        "end": 190.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
