@@ -1246,7 +1246,22 @@
                             "image": "https://image.tmdb.org/t/p/original/xt4OCxJqpYVIhgsDFvh1hP4CCZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/2j29vqVwDD/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-11-08"
+                            "release_date": "2026-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 129.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1405
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

@@ -40,28 +40,88 @@
                             "image": "https://image.tmdb.org/t/p/original/xcK0Z03aRoYhuR2b4e8GZTpvEAT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2Fk538ojMJ%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2Fk538ojMJ",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-04-26"
+                            "release_date": "2015-04-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.2,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.3,
+                                        "end": 1439.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - บลัดแฮมเมอร์จอมบดขยี้",
                             "image": "https://image.tmdb.org/t/p/original/wnz9MpStyl4Le6yewQTyQJyY8hn.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FeihdlH8F%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FeihdlH8F",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-05-03"
+                            "release_date": "2015-05-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.1,
+                                        "end": 193.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.6,
+                                        "end": 1439.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - อย่าหลงลืมจนลบเลือนกันไป",
                             "image": "https://image.tmdb.org/t/p/original/smxSoTvh8sOQN1IycimnrUR76tA.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FyrEKWHdi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FyrEKWHdi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-05-10"
+                            "release_date": "2015-05-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 114.2,
+                                        "end": 203.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.8,
+                                        "end": 1440.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - เอเดน สังเวียนเดือด",
                             "image": "https://image.tmdb.org/t/p/original/A77idlqRXWCATrUCKNOPMhqO4Ab.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FuUkSy9Hj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FuUkSy9Hj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2015-05-17"
+                            "release_date": "2015-05-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 222.4,
+                                        "end": 312
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.3,
+                                        "end": 1439.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - วันอันยาวนานของแซด (ตอนที่ 1)",
@@ -122,7 +182,17 @@
                             "image": "https://image.tmdb.org/t/p/original/nSVfrLzw3MZLFgZKZWOPgTh299y.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FLWg8WuDR%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FLWg8WuDR",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-10-08"
+                            "release_date": "2017-10-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1140.5,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - การปรากฏของโรงพยาบาลลึกลับ",
@@ -136,7 +206,11 @@
                             "image": "https://image.tmdb.org/t/p/original/zgYrwIJxeaYJW20NBzVBt37wf6v.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FkXBmFmVD%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FkXBmFmVD",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-10-22"
+                            "release_date": "2017-10-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         },
                         {
                             "name": "ตอน 4 - ภารกิจของมนุษย์หมาป่า: บุกช่วยเชน",
@@ -164,7 +238,22 @@
                             "image": "https://image.tmdb.org/t/p/original/2KpV8oSmwCtkyai5ibYxK7VDKIf.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FvZgZvADj%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FvZgZvADj",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-11-19"
+                            "release_date": "2017-11-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 36.5,
+                                        "end": 125.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1416.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - การต่อสู้อย่างสิ้นหวังในจุดสำคัญ ตอน 1",
@@ -178,14 +267,44 @@
                             "image": "https://image.tmdb.org/t/p/original/q2bYiz8RDaFHVmjmzxswSOikve6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FlkMdDlqI%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FlkMdDlqI",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-12-03"
+                            "release_date": "2017-12-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.5,
+                                        "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.9,
+                                        "end": 1406.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - คุณแม่ขาลุย",
                             "image": "https://image.tmdb.org/t/p/original/lWgJHwHBarUBrRQd7M1EqycoNV6.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FYbCq3Pme%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FYbCq3Pme",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-12-10"
+                            "release_date": "2017-12-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.5,
+                                        "end": 165.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1326,
+                                        "end": 1410.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - พลังแห่งดวงตา ภาพหลอนที่มองเห็น ตอน 1",
@@ -199,7 +318,22 @@
                             "image": "https://image.tmdb.org/t/p/original/2LOeQN1ZeM4j25ondVI61BOBKT.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2F8Hpg3CZ0%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2F8Hpg3CZ0",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2017-12-24"
+                            "release_date": "2017-12-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.6,
+                                        "end": 185.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1354,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
