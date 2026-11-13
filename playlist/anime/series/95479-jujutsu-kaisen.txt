@@ -17,7 +17,17 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJRAGUBY_z_LYNdMOJD8Bhmo",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-03"
+                            "release_date": "2020-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 52,
+                                        "end": 137.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - เพื่อตนเอง",
@@ -25,7 +35,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJZrMI7PI2sLoUtcmsPLDRmE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-10"
+                            "release_date": "2020-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 331.1,
+                                        "end": 416.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1280.5,
+                                        "end": 1366.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - หญิงเหล็ก",
@@ -41,7 +66,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJVqmNJuXOYHor37K3ON8XVI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-24"
+                            "release_date": "2020-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 167.8,
+                                        "end": 253.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1213,
+                                        "end": 1301
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - ครรภ์คำสาปต้องกำจัด 2",
@@ -49,7 +89,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJTpBVjbtUK7Jl8d2s5Ogos0",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-31"
+                            "release_date": "2020-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.4,
+                                        "end": 222.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1218,
+                                        "end": 1304
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - หลังฝน",
@@ -57,7 +112,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJdjKsERM_-1NEc3ZQmVAo1U",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-07"
+                            "release_date": "2020-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 32.8,
+                                        "end": 119.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1242.2,
+                                        "end": 1330.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - จู่โจม",
@@ -65,7 +135,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJcNYymbVqm_HeOUgM1pQUxE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-14"
+                            "release_date": "2020-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 124.9,
+                                        "end": 210.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1212.9,
+                                        "end": 1300.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - น่าเบื่อ",
@@ -73,7 +158,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJdcwcbNnaKYESO1xwYwwixU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-21"
+                            "release_date": "2020-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191,
+                                        "end": 276.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1159.8,
+                                        "end": 1245.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ลูกปลากับกรรมสนอง",
@@ -81,7 +181,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJdeeiJPwmElawIjn_9aZm2U",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-28"
+                            "release_date": "2020-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 264.6,
+                                        "end": 350
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1241.8,
+                                        "end": 1329.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - กลายร่างอย่างค่อยเป็นค่อยไป",
@@ -89,7 +204,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJbANUzroBxn3rTzXz7WWWOg",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-05"
+                            "release_date": "2020-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 164.3,
+                                        "end": 248.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1217.6,
+                                        "end": 1301.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - หัวโบราณ",
@@ -97,7 +227,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJZn_5cp5lzPqqEWfeQpBdEw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-12"
+                            "release_date": "2020-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 137.8,
+                                        "end": 226.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1310.2,
+                                        "end": 1399.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - แด่เธอในสักวันหนึ่ง",
@@ -105,7 +250,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJZ5m21xPACtIMmxYqCjaFiU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-19"
+                            "release_date": "2020-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 117.2,
+                                        "end": 206.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1264.8,
+                                        "end": 1353.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - เจอกันพรุ่งนี้",
@@ -113,7 +273,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJYfz2PA_khVs9yP0iMGi0rc",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-26"
+                            "release_date": "2020-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 290.2,
+                                        "end": 379.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.8,
+                                        "end": 1326.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - งานแลกเปลี่ยนกระชับมิตรโรงเรียนพี่น้องเกียวโต: การแข่งขันแบบทีม 0",
@@ -121,7 +296,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJSi4bTKvIUX8JZ1j51U5JyM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-16"
+                            "release_date": "2021-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 204.2,
+                                        "end": 293.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235,
+                                        "end": 1326.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - งานแลกเปลี่ยนกระชับมิตรโรงเรียนพี่น้องเกียวโต: การแข่งขันแบบทีม 1",
@@ -129,7 +319,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJTTI7kK00FqIZedGfHpHwwU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-23"
+                            "release_date": "2021-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.3,
+                                        "end": 237.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1337
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - งานแลกเปลี่ยนกระชับมิตรโรงเรียนพี่น้องเกียวโต: การแข่งขันแบบทีม 2",
@@ -137,7 +342,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJWA61izNRo7K9-IVk9ipFzI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-30"
+                            "release_date": "2021-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 232.7,
+                                        "end": 322.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1234.7,
+                                        "end": 1326.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - งานแลกเปลี่ยนกระชับมิตรโรงเรียนพี่น้องเกียวโต: การแข่งขันแบบทีม 3",
@@ -145,7 +365,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJYpUNeC6RguclBxTjFTWv5o",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-06"
+                            "release_date": "2021-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.3,
+                                        "end": 1327.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - นักปราชญ์",
@@ -153,7 +388,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJb4vcQacqg_dJc5nsJGLOWk",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-13"
+                            "release_date": "2021-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158.3,
+                                        "end": 247.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235,
+                                        "end": 1326.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - ประกายทมิฬ",
@@ -161,7 +411,17 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJTlSmomumQCwurRf8Gw-OAA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-20"
+                            "release_date": "2021-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1235.2,
+                                        "end": 1327
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ไม่ได้มาตรฐาน",
@@ -169,7 +429,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJWeCQswK6huOST9GNMtb9eo",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-27"
+                            "release_date": "2021-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1275.1,
+                                        "end": 1366.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - จูจุทสึ โคชิเอน",
@@ -177,7 +452,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJZxv5jjghxc8cK7Uo32b6N4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-06"
+                            "release_date": "2021-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 312.8,
+                                        "end": 402
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.6,
+                                        "end": 1366.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - จุดเริ่มต้นของการเชื่อฟังอย่างงมงาย",
@@ -185,7 +475,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJaSpCBpLIKPbrwU4qUbtLcc",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-13"
+                            "release_date": "2021-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.7,
+                                        "end": 120.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.3,
+                                        "end": 1337.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - จุดเริ่มต้นของการเชื่อฟังอย่างงมงาย 2",
@@ -193,7 +498,22 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJc8mqQHhbTgS9T55cFRHhHk",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-20"
+                            "release_date": "2021-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 347.2,
+                                        "end": 436.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1235,
+                                        "end": 1326.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - สมรู้ร่วมคิด",
@@ -201,7 +521,17 @@
                             "url": "https://anifume.com/40217/-HuyunP9YZ9cIyuv_hdsJWSfJvX8Km0Uwxa1hfxHGt0",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-27"
+                            "release_date": "2021-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.7,
+                                        "end": 222.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ซ่อนเล็บ",
@@ -209,7 +539,17 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOKwLLVXLaKJumO0QYIIUjX4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-06"
+                            "release_date": "2023-07-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - ซ่อนเล็บ 2",
@@ -217,7 +557,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOMuM71-L9LyqVKwGPviV1O4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-13"
+                            "release_date": "2023-07-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.2,
+                                        "end": 283.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - ซ่อนเล็บ 3",
@@ -225,7 +580,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOMpiHufJjoP1Yv9NyM-y7o8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-20"
+                            "release_date": "2023-07-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 171.2,
+                                        "end": 263.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.3,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - ซ่อนเล็บ 4",
@@ -233,7 +603,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOGACIb-3dlVVaCCS1gakr0k",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-27"
+                            "release_date": "2023-07-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78,
+                                        "end": 166.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1183.2,
+                                        "end": 1272.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - อกาลมรณะ",
@@ -241,7 +626,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOAHYK1AyR4CLGjX63yVjepM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-08-03"
+                            "release_date": "2023-08-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.7,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - ก็ประมาณนั้น",
@@ -249,7 +649,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOPNp58jCxIeBDYzCArRNpis",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-08-31"
+                            "release_date": "2023-08-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 299.3,
+                                        "end": 388.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - เทศกาลยามเย็น",
@@ -257,7 +672,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOM29KtcLPvJ5g_Jy5NhPZBM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-07"
+                            "release_date": "2023-09-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 32 - อุบัติการณ์ชิบูยะ",
@@ -265,7 +695,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOEMLEvgM6JlplaPqo6IsfKY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-15"
+                            "release_date": "2023-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.2,
+                                        "end": 252.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 33 - อุบัติการณ์ชิบูยะ เปิดประตู",
@@ -273,7 +718,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOJMqAwbE9hQLIpv4fZSmLwM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-22"
+                            "release_date": "2023-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.2,
+                                        "end": 145.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 34 - สับสน",
@@ -281,7 +741,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOC8XCgFAnm4Xzg16yt4yGtE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-29"
+                            "release_date": "2023-09-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.2,
+                                        "end": 272.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.2,
+                                        "end": 1389.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 35 - เข้าทรง",
@@ -289,7 +764,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOBIWTD2oSVWOfOCxT5-iRAo",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-06"
+                            "release_date": "2023-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 285,
+                                        "end": 374.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 36 - ดาบไร้คม",
@@ -297,7 +787,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOH95p1EHpkrj7dniq8ga0Rk",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-12"
+                            "release_date": "2023-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.8,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 37 - เกล็ดสีชาด",
@@ -305,7 +810,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOOmRf_7nce9zfVX7qSjTTL4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-19"
+                            "release_date": "2023-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.5,
+                                        "end": 1393.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 38 - สั่นคลอน",
@@ -313,7 +833,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOPrdHIXSOr6lke3YObLgC7U",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-26"
+                            "release_date": "2023-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 326.8,
+                                        "end": 415.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.8,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 39 - สั่นคลอน 2",
@@ -321,7 +856,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOIWMIMRAydUhV-EJ-3Q7fTs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-02"
+                            "release_date": "2023-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 271.2,
+                                        "end": 360.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 40 - ฟ้าผ่า",
@@ -329,7 +879,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOGhz7BTr6rM_hp8eTk2fKhI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-09"
+                            "release_date": "2023-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.5,
+                                        "end": 102.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 41 - ฟ้าผ่า พาร์ท 2",
@@ -337,7 +902,17 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOFrvWzQntalLr1SCoEHGUz0",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-16"
+                            "release_date": "2023-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.4,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 42 - ผิดหรือถูก",
@@ -345,7 +920,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOLz2gY2VXninjnq3GUt9haI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-23"
+                            "release_date": "2023-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.2,
+                                        "end": 193.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 43 - ผิดหรือถูก พาร์ท 2",
@@ -353,7 +943,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOJvs5C4aRvTBzx1Pg5q_khU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-30"
+                            "release_date": "2023-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 150.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.1,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 44 - ผิดหรือถูก พาร์ท 3",
@@ -361,7 +966,17 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOIqZgdhW94h9pmzMCtL9MUE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-07"
+                            "release_date": "2023-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 306.2,
+                                        "end": 395.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 45 - แปลงร่าง",
@@ -369,7 +984,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNONr_kO1jj30Ck9UtliWD5so",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-14"
+                            "release_date": "2023-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 219.2,
+                                        "end": 308.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 46 - แปลงร่าง พาร์ท 2",
@@ -377,7 +1007,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOOXO9jmmCIxuJOsAyO6Ox9Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-22"
+                            "release_date": "2023-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 406.2,
+                                        "end": 479.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 47 - อุบัติการณ์ชิบุยะ ปิดประตู",
@@ -385,7 +1030,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOO6kGo66OupSrZIdSP1awLg",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-28"
+                            "release_date": "2023-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 82.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 48 - Execution",
@@ -393,7 +1053,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUawLLVXLaKJumO0QYIIUjX4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-09"
+                            "release_date": "2026-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 224.5,
+                                        "end": 315.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.8,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 49 - One More Time",
@@ -401,7 +1076,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUcuM71-L9LyqVKwGPviV1O4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-09"
+                            "release_date": "2026-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 50 - About the Culling Game",
@@ -409,7 +1099,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUcpiHufJjoP1Yv9NyM-y7o8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-16"
+                            "release_date": "2026-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 51 - Perfect Preparation",
@@ -417,7 +1122,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUWACIb-3dlVVaCCS1gakr0k",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-23"
+                            "release_date": "2026-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1580.1,
+                                        "end": 1669.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 52 - Passion",
@@ -425,7 +1145,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUQHYK1AyR4CLGjX63yVjepM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-30"
+                            "release_date": "2026-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 380.2,
+                                        "end": 469.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.6,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 53 - Cog",
@@ -433,7 +1168,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUfNp58jCxIeBDYzCArRNpis",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-06"
+                            "release_date": "2026-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 198.2,
+                                        "end": 287.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 54 - Tokyo Colony No. 1",
@@ -441,7 +1191,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUc29KtcLPvJ5g_Jy5NhPZBM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-13"
+                            "release_date": "2026-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.2,
+                                        "end": 273.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 55 - Tokyo Colony No. 1 (2)",
@@ -449,7 +1214,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUUMLEvgM6JlplaPqo6IsfKY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-27"
+                            "release_date": "2026-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.7,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 56 - Tokyo Colony No. 1 (3)",
@@ -457,7 +1237,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUZMqAwbE9hQLIpv4fZSmLwM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-06"
+                            "release_date": "2026-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1228.8,
+                                        "end": 1318.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 57 - Tokyo Colony No. 1 (4)",
@@ -465,7 +1260,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUS8XCgFAnm4Xzg16yt4yGtE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-13"
+                            "release_date": "2026-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 58 - Tokyo Colony No. 1 (5)",
@@ -473,7 +1283,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnURIWTD2oSVWOfOCxT5-iRAo",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-20"
+                            "release_date": "2026-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 270.5,
+                                        "end": 359.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 59 - Sendai Colony",
@@ -481,7 +1306,17 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUX95p1EHpkrj7dniq8ga0Rk",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-27"
+                            "release_date": "2026-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1619.1,
+                                        "end": 1710
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -497,7 +1332,17 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTGHxnyQw01xBtmN01lGn6lw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-03"
+                            "release_date": "2020-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.5,
+                                        "end": 154.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - For Myself",
@@ -505,7 +1350,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTDDLQPp23Cb9wmE8svQG3hI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-10"
+                            "release_date": "2020-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 355.6,
+                                        "end": 444.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1345.5,
+                                        "end": 1434.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Girl of Steel",
@@ -513,7 +1373,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTLH0Y-2KBj9dhOOxUEnz5Ms",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-17"
+                            "release_date": "2020-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 202.5,
+                                        "end": 291.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1377.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Curse Womb Must Die",
@@ -521,7 +1396,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTBIlh1hYAY1OsllrLUU5LiY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-24"
+                            "release_date": "2020-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 185.5,
+                                        "end": 274.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.6,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Curse Womb Must Die -II-",
@@ -529,7 +1419,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTE1PCT_ZTzlw2qpQkXEIwDg",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-10-31"
+                            "release_date": "2020-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 153.6,
+                                        "end": 242.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - After Rain",
@@ -537,7 +1442,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTAdFXRhV9snobgLhinDYE_M",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-07"
+                            "release_date": "2020-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.5,
+                                        "end": 134.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1407.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Assault",
@@ -545,7 +1465,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTODgzzRX8Tdamu-Z2j51VEQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-14"
+                            "release_date": "2020-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 140.5,
+                                        "end": 230.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Boredom",
@@ -553,7 +1488,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTLN1P9vYxNHxlosVUBPOFkE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-21"
+                            "release_date": "2020-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 209.5,
+                                        "end": 298.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1229.6,
+                                        "end": 1318.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Small Fry and Reverse Retribution",
@@ -561,7 +1511,22 @@
                             "url": "https://anifume.com/40217/2KvJb0zBw0Bwee59vfMiTBfiTsUdngXuXgC7DpisTWA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-11-28"
+                            "release_date": "2020-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 286.5,
+                                        "end": 375.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1407.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Idle Transfiguration",
@@ -569,7 +1534,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFmxK-yBY7I4eIURzBugzKSI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-05"
+                            "release_date": "2020-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.5,
+                                        "end": 269.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Narrow-minded",
@@ -577,7 +1557,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFmHxnyQw01xBtmN01lGn6lw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-12"
+                            "release_date": "2020-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.8,
+                                        "end": 236.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - To You, Someday",
@@ -585,7 +1580,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFjDLQPp23Cb9wmE8svQG3hI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-19"
+                            "release_date": "2020-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.5,
+                                        "end": 216.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.5,
+                                        "end": 1377.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Tomorrow",
@@ -593,7 +1603,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFrH0Y-2KBj9dhOOxUEnz5Ms",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2020-12-26"
+                            "release_date": "2020-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 300.6,
+                                        "end": 389.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.6,
+                                        "end": 1344.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Kyoto Sister School Exchange Event - Group Battle 0 -",
@@ -601,7 +1626,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFhIlh1hYAY1OsllrLUU5LiY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-16"
+                            "release_date": "2021-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 214.6,
+                                        "end": 303.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1255.7,
+                                        "end": 1347.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Kyoto Sister School Exchange Event - Group Battle 1 -",
@@ -609,7 +1649,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFk1PCT_ZTzlw2qpQkXEIwDg",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-23"
+                            "release_date": "2021-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 147.2,
+                                        "end": 237.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1337
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Kyoto Sister School Exchange Event - Group Battle 2 -",
@@ -617,7 +1672,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFgdFXRhV9snobgLhinDYE_M",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-01-30"
+                            "release_date": "2021-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 233.2,
+                                        "end": 323.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1337
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - Kyoto Sister School Exchange Event - Group Battle 3 -",
@@ -625,7 +1695,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFuDgzzRX8Tdamu-Z2j51VEQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-06"
+                            "release_date": "2021-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1335
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Sage",
@@ -633,7 +1718,22 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFrN1P9vYxNHxlosVUBPOFkE",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-13"
+                            "release_date": "2021-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 158.2,
+                                        "end": 247.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.6,
+                                        "end": 1336.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - Black Flash",
@@ -641,7 +1741,17 @@
                             "url": "https://anifume.com/40217/6RIvAxSA8pYQKPRKcJ6qFhfiTsUdngXuXgC7DpisTWA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-20"
+                            "release_date": "2021-02-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1337
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Nonstandard",
@@ -649,7 +1759,22 @@
                             "url": "https://anifume.com/40217/a7_ODbFxhUarh7JzRYMNOGxK-yBY7I4eIURzBugzKSI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-02-27"
+                            "release_date": "2021-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.1,
+                                        "end": 1376.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Jujutsu Koshien",
@@ -657,7 +1782,22 @@
                             "url": "https://anifume.com/40217/a7_ODbFxhUarh7JzRYMNOGHxnyQw01xBtmN01lGn6lw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-06"
+                            "release_date": "2021-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 313.2,
+                                        "end": 402.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1285.1,
+                                        "end": 1376.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - The Origin of Blind Obedience",
@@ -665,7 +1805,22 @@
                             "url": "https://anifume.com/40217/a7_ODbFxhUarh7JzRYMNODDLQPp23Cb9wmE8svQG3hI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-13"
+                            "release_date": "2021-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.6,
+                                        "end": 120.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.3,
+                                        "end": 1337.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - The Origin of Blind Obedience -II-",
@@ -673,7 +1828,22 @@
                             "url": "https://anifume.com/40217/a7_ODbFxhUarh7JzRYMNOLH0Y-2KBj9dhOOxUEnz5Ms",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-20"
+                            "release_date": "2021-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 347.2,
+                                        "end": 436.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1245.2,
+                                        "end": 1336.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Accomplices",
@@ -681,7 +1851,17 @@
                             "url": "https://anifume.com/40217/a7_ODbFxhUarh7JzRYMNOBIlh1hYAY1OsllrLUU5LiY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2021-03-27"
+                            "release_date": "2021-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 133.5,
+                                        "end": 222.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - Hidden Inventory",
@@ -689,7 +1869,17 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOKI2BNeltU7y6wJLsED4S8E",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-06"
+                            "release_date": "2023-07-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 26 - Hidden Inventory 2",
@@ -697,7 +1887,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOGPXt3eEawkA_xW9jRUkaJU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-13"
+                            "release_date": "2023-07-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.2,
+                                        "end": 283.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 27 - Hidden Inventory 3",
@@ -705,7 +1910,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOId0Lw_xeMAZKT99XcQ1MsY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-20"
+                            "release_date": "2023-07-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 171.2,
+                                        "end": 263.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.7,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 28 - Hidden Inventory 4",
@@ -713,7 +1933,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNONcDQXVa6rmJI1YTNpwcD50",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-07-27"
+                            "release_date": "2023-07-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 166.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1183.2,
+                                        "end": 1272.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 29 - Premature Death",
@@ -721,7 +1956,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOKLQ3fpuQLI4vL2IaAColN8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-08-03"
+                            "release_date": "2023-08-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 91.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 30 - It's Like That",
@@ -729,7 +1979,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOA2MunWmwqOCtqEER0WJq-Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-08-31"
+                            "release_date": "2023-08-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 299.3,
+                                        "end": 388.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 31 - Evening Festival",
@@ -737,7 +2002,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNONTDlI4aSAPpbu9g2ywhufQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-07"
+                            "release_date": "2023-09-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 125.2,
+                                        "end": 214.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 32 - Shibuya Incident",
@@ -745,7 +2025,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNODpsLR3UInfGu_PP2iWp0J8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-15"
+                            "release_date": "2023-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 163.2,
+                                        "end": 252.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 33 - Shibuya Incident - Gate, Open",
@@ -753,7 +2048,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOBwJRF0bLo7UTrDDcnUVFXA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-22"
+                            "release_date": "2023-09-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.2,
+                                        "end": 145.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 34 - Pandemonium",
@@ -761,7 +2071,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOC256o_jaFnpC5-DBXTkeBw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-09-29"
+                            "release_date": "2023-09-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 180.2,
+                                        "end": 272.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.2,
+                                        "end": 1389.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 35 - Seance",
@@ -769,7 +2094,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOMva_X7cGU5phZ98KiVnLjA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-06"
+                            "release_date": "2023-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 284.4,
+                                        "end": 374.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 36 - Dull Knife",
@@ -777,7 +2117,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOBNQhzHNIR6phgpZngeCP70",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-12"
+                            "release_date": "2023-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.2,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.4,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 37 - Red Scale",
@@ -785,7 +2140,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOK6xzTc1cGo67EEaVEtCLIA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-19"
+                            "release_date": "2023-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.4,
+                                        "end": 1393.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 38 - Fluctuations",
@@ -793,7 +2163,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOHTnQPaY5KnX0RWB3Utku5I",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-10-26"
+                            "release_date": "2023-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 326.1,
+                                        "end": 415.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 39 - Fluctuations (2)",
@@ -801,7 +2186,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOMQIvUNswwTN8RMs7eDi9Fs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-02"
+                            "release_date": "2023-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 271.6,
+                                        "end": 360.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 40 - Thunderclap",
@@ -809,7 +2209,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOB0eAdrQTzVyc1V_d646tRU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-09"
+                            "release_date": "2023-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.6,
+                                        "end": 102.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 41 - Thunderclap (2)",
@@ -817,7 +2232,17 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOCzvvup2JBli0Qle_Tq7HOc",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-16"
+                            "release_date": "2023-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.5,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 42 - Right and Wrong",
@@ -825,7 +2250,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOMTwKY0x5CZ71NKVcQ--nx0",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-23"
+                            "release_date": "2023-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 104.2,
+                                        "end": 193.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 43 - Right and Wrong (2)",
@@ -833,7 +2273,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNONBTsoQvgt24-eSDEPLKbTs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-11-30"
+                            "release_date": "2023-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 61.2,
+                                        "end": 150.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 44 - Right and Wrong (3)",
@@ -841,7 +2296,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOPsyI1GVEgeXe68I3TZP5qI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-07"
+                            "release_date": "2023-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 306.2,
+                                        "end": 395.4
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1356.1,
+                                        "end": 1396
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 45 - Metamorphosis",
@@ -849,7 +2319,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNONgTwyL3zY26WvheHRDJoXI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-14"
+                            "release_date": "2023-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 219.2,
+                                        "end": 308.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 46 - Metamorphosis (2)",
@@ -857,7 +2342,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOCLHX1WHPMCSY8R9FAED_WA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-22"
+                            "release_date": "2023-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 406.2,
+                                        "end": 479.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 47 - Shibuya Incident - Gate, Close",
@@ -865,7 +2365,22 @@
                             "url": "https://anifume.com/40704/a7_ODbFxhUarh7JzRYMNOJUZ0p-BrtPhoU5dxlfU__8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2023-12-28"
+                            "release_date": "2023-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.8,
+                                        "end": 81.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 48 - Execution",
@@ -873,7 +2388,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUaI2BNeltU7y6wJLsED4S8E",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-09"
+                            "release_date": "2026-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 224.5,
+                                        "end": 315.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.9,
+                                        "end": 1419.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 49 - One More Time",
@@ -881,7 +2411,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUWPXt3eEawkA_xW9jRUkaJU",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-09"
+                            "release_date": "2026-01-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 50 - About the Culling Game",
@@ -889,7 +2434,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUYd0Lw_xeMAZKT99XcQ1MsY",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-16"
+                            "release_date": "2026-01-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 51 - Perfect Preparation",
@@ -897,7 +2457,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUdcDQXVa6rmJI1YTNpwcD50",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-23"
+                            "release_date": "2026-01-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1580.1,
+                                        "end": 1669.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 52 - Passion",
@@ -905,7 +2480,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUaLQ3fpuQLI4vL2IaAColN8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-01-30"
+                            "release_date": "2026-01-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 380.1,
+                                        "end": 469.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.1,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 53 - Cog",
@@ -913,7 +2503,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUQ2MunWmwqOCtqEER0WJq-Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-06"
+                            "release_date": "2026-02-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 198.2,
+                                        "end": 287.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.4,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 54 - Tokyo Colony No. 1",
@@ -921,7 +2526,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUdTDlI4aSAPpbu9g2ywhufQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-13"
+                            "release_date": "2026-02-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 183.2,
+                                        "end": 273.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 55 - Tokyo Colony No. 1 (2)",
@@ -929,7 +2549,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUTpsLR3UInfGu_PP2iWp0J8",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-02-27"
+                            "release_date": "2026-02-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.5,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 56 - Tokyo Colony No. 1 (3)",
@@ -937,7 +2572,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnURwJRF0bLo7UTrDDcnUVFXA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-06"
+                            "release_date": "2026-03-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1228.8,
+                                        "end": 1318.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 57 - Tokyo Colony No. 1 (4)",
@@ -945,7 +2595,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUS256o_jaFnpC5-DBXTkeBw",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-13"
+                            "release_date": "2026-03-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 92.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 58 - Tokyo Colony No. 1 (5)",
@@ -953,7 +2618,22 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnUcva_X7cGU5phZ98KiVnLjA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-20"
+                            "release_date": "2026-03-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 270.5,
+                                        "end": 359.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1404.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 59 - Sendai Colony",
@@ -961,7 +2641,17 @@
                             "url": "https://anifume.com/41419/st7zPO5IWVK7gMJvvlPnURNQhzHNIR6phgpZngeCP70",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2026-03-27"
+                            "release_date": "2026-03-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1623.6,
+                                        "end": 1710
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

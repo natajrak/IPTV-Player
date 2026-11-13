@@ -16,84 +16,253 @@
                             "image": "https://image.tmdb.org/t/p/original/r5LjUXSYANLC5f6X9qgvAjeEP2X.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/oACnQ8mc/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-10-05"
+                            "release_date": "2015-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.2,
+                                        "end": 280.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.2,
+                                        "end": 1419.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - หุ่นยนต์ผู้สันโดษ",
                             "image": "https://image.tmdb.org/t/p/original/mps2UuPnmkxOco5oQePVlwioZKG.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/f2OYLdrF/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-10-12"
+                            "release_date": "2015-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.3,
+                                        "end": 209.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1418.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - นักวิทยาศาตร์ผู้หมกมุ่น",
                             "image": "https://image.tmdb.org/t/p/original/ywv8d7mCxSnmnS56LNUBjfPzFRd.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/STp4W3p3/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-10-19"
+                            "release_date": "2015-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 148.3,
+                                        "end": 237.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.6,
+                                        "end": 1410.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - นินจายุคใหม่",
                             "image": "https://image.tmdb.org/t/p/original/kHLdWCkIwT8tw7HPZaNXYoYMpeL.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/QcpGAiSd/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-10-26"
+                            "release_date": "2015-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.2,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.5,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - สุดยอดอาจารย์",
                             "image": "https://image.tmdb.org/t/p/original/5xdo0OwyWm9oNv2tX6aKj9Gr3Tw.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/KH57vgFH/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-11-02"
+                            "release_date": "2015-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.2,
+                                        "end": 159.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1322.4,
+                                        "end": 1411.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - เมืองสยอง",
                             "image": "https://image.tmdb.org/t/p/original/oApEUMM4nfTqyXvaVozqCa3B5uQ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/FrplHfPJ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-11-09"
+                            "release_date": "2015-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 189.2,
+                                        "end": 279.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1277.7,
+                                        "end": 1367.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - สุดยอดลูกศิษย์",
                             "image": "https://image.tmdb.org/t/p/original/z1Nxh00HGfLCHHPuJ1FcunsR6DY.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/aEFmuRNB/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-11-16"
+                            "release_date": "2015-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.2,
+                                        "end": 168.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.6,
+                                        "end": 1421.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ราชาทะเลลึก",
                             "image": "https://image.tmdb.org/t/p/original/vFT8L7RU6U5Il9SvTS1oEU9nhj8.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/26LD98O/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-11-23"
+                            "release_date": "2015-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.3,
+                                        "end": 220.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.5,
+                                        "end": 1440.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ความยุติธรรมที่ไม่สั่นคลอน",
                             "image": "https://image.tmdb.org/t/p/original/d5h1EgV1xIjlioPnb0exwLYy1ev.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/HZZDSGBt/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-11-30"
+                            "release_date": "2015-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.3,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.4,
+                                        "end": 1410.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - ภัยมหันต์",
                             "image": "https://image.tmdb.org/t/p/original/AbWf8PdF1stcXiOwQXCAP7qGo8u.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/CG2D5mnC/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-12-07"
+                            "release_date": "2015-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.9,
+                                        "end": 166.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1350.4,
+                                        "end": 1440
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - ผู้ยึดครองแห่งจักรวาล",
                             "image": "https://image.tmdb.org/t/p/original/5QqxkbKwSCQOW2XXaoyEpMaKtiZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/rhahhfLZ/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-12-14"
+                            "release_date": "2015-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.2,
+                                        "end": 224.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1351,
+                                        "end": 1440.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - ฮีโร่ผู้ไร้เทียมทาน",
                             "image": "https://image.tmdb.org/t/p/original/31qHOAENzfEmYmtbhSahPez9MkZ.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/WvhWC3ZK/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2015-12-21"
+                            "release_date": "2015-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -109,7 +278,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS23TNVU5UGgmpr6MnCBxjwOA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-10-05"
+                            "release_date": "2015-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 191.3,
+                                        "end": 280.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1429.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Lone Cyborg",
@@ -117,7 +301,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS2xCwcuAs6ys99MbMmMFTnZ4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-10-12"
+                            "release_date": "2015-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 120.3,
+                                        "end": 209.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1339.2,
+                                        "end": 1427.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Obsessive Scientist",
@@ -125,7 +324,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS24WXE--0DlKCrhXAeEd8Zco",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-10-19"
+                            "release_date": "2015-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 148.2,
+                                        "end": 237.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - The Modern Ninja",
@@ -133,7 +347,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS255Ftev-vKywiZl3nU7Cm18",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-10-26"
+                            "release_date": "2015-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1340.3,
+                                        "end": 1429.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Ultimate Master",
@@ -141,7 +370,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS26RpigTXE4foj2zjIfuDj9I",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-11-02"
+                            "release_date": "2015-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.4,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Terrifying City",
@@ -149,7 +393,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS29a4q3jP1nGfYiyxlyU6XE4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-11-09"
+                            "release_date": "2015-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 189.3,
+                                        "end": 278.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.3,
+                                        "end": 1377.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Ultimate Disciple",
@@ -157,7 +416,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS21JwD4gQiklHP2BtLtOZ7GM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-11-16"
+                            "release_date": "2015-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 79.3,
+                                        "end": 168.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1342.3,
+                                        "end": 1431.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Deep Sea King",
@@ -165,7 +439,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS24vlBAy694XS1MP9n-McjsM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-11-23"
+                            "release_date": "2015-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.2,
+                                        "end": 220.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.3,
+                                        "end": 1449.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Unyielding Justice",
@@ -173,7 +462,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS2941ZqW1NI5ljGmqr2gutIQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-11-30"
+                            "release_date": "2015-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 113.2,
+                                        "end": 202.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1420.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Unparalleled Peril",
@@ -181,7 +485,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS2y1Wa2nD9ktKVuQy2eo8yAs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-12-07"
+                            "release_date": "2015-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.3,
+                                        "end": 1449.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Dominator of the Universe",
@@ -189,7 +508,22 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS2_CfAFFprRuwGbWapiHgxYI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-12-14"
+                            "release_date": "2015-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.2,
+                                        "end": 224.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.5,
+                                        "end": 1449.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - The Strongest Hero",
@@ -197,7 +531,11 @@
                             "url": "https://anifume.com/1366/PZWBrHpK06_Sih6QHMMS26lBZe4js9gSD7x21f3Bg2Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2015-12-21"
+                            "release_date": "2015-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -478,7 +816,17 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT3TNVU5UGgmpr6MnCBxjwOA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-04-10"
+                            "release_date": "2019-04-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1321.6,
+                                        "end": 1411
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Human Monster",
@@ -486,7 +834,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBTxCwcuAs6ys99MbMmMFTnZ4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-04-17"
+                            "release_date": "2019-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 220.3,
+                                        "end": 309.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1222.6,
+                                        "end": 1312.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Hunt Begins",
@@ -494,7 +857,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT4WXE--0DlKCrhXAeEd8Zco",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-04-24"
+                            "release_date": "2019-04-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.8,
+                                        "end": 117.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.6,
+                                        "end": 1359.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Metal Bat",
@@ -502,7 +880,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT55Ftev-vKywiZl3nU7Cm18",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-05-01"
+                            "release_date": "2019-05-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 109.3,
+                                        "end": 198.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.4,
+                                        "end": 1405.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Martial Arts Tournament",
@@ -510,7 +903,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT6RpigTXE4foj2zjIfuDj9I",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-05-08"
+                            "release_date": "2019-05-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111.3,
+                                        "end": 200.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1278.3,
+                                        "end": 1367.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - The Uprising of the Monsters",
@@ -518,7 +926,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT9a4q3jP1nGfYiyxlyU6XE4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-05-15"
+                            "release_date": "2019-05-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.3,
+                                        "end": 190.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1291.3,
+                                        "end": 1380.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Class S Heroes",
@@ -526,7 +949,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT1JwD4gQiklHP2BtLtOZ7GM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-05-22"
+                            "release_date": "2019-05-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 115.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1403.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Strong Ones Fight Back",
@@ -534,7 +972,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT4vlBAy694XS1MP9n-McjsM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-05-29"
+                            "release_date": "2019-05-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 84.3,
+                                        "end": 173.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.4,
+                                        "end": 1424.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Ultimate Dilemma",
@@ -542,7 +995,17 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT941ZqW1NI5ljGmqr2gutIQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-06-12"
+                            "release_date": "2019-06-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 118.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - The Encircling Net of Justice",
@@ -550,7 +1013,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBTy1Wa2nD9ktKVuQy2eo8yAs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-06-19"
+                            "release_date": "2019-06-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 96.3,
+                                        "end": 185.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.3,
+                                        "end": 1424.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Everyone's Dignity",
@@ -558,7 +1036,22 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT_CfAFFprRuwGbWapiHgxYI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-06-26"
+                            "release_date": "2019-06-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 159.3,
+                                        "end": 249.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1335.5,
+                                        "end": 1424.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Cleaning Up the Disciple's Mess",
@@ -566,7 +1059,17 @@
                             "url": "https://anifume.com/35062/rgB7RCP1eOK-gvw4Y0YBT6lBZe4js9gSD7x21f3Bg2Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2019-07-03"
+                            "release_date": "2019-07-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.2,
+                                        "end": 1408.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -595,8 +1098,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 23,
-                                        "end": 100.7
+                                        "start": 9.8,
+                                        "end": 100.5
                                     },
                                     {
                                         "type": "ed",
@@ -617,8 +1120,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 23,
-                                        "end": 100.6
+                                        "start": 9.9,
+                                        "end": 100.5
                                     },
                                     {
                                         "type": "ed",
@@ -639,8 +1142,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 23,
-                                        "end": 100.6
+                                        "start": 9.9,
+                                        "end": 100.5
                                     },
                                     {
                                         "type": "ed",
@@ -661,8 +1164,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 23.1,
-                                        "end": 100.6
+                                        "start": 9.9,
+                                        "end": 100.5
                                     },
                                     {
                                         "type": "ed",
@@ -700,8 +1203,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 23.1,
-                                        "end": 100.6
+                                        "start": 9.8,
+                                        "end": 100.5
                                     },
                                     {
                                         "type": "ed",
@@ -722,8 +1225,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 146,
-                                        "end": 223.6
+                                        "start": 134.2,
+                                        "end": 223.5
                                     },
                                     {
                                         "type": "ed",
@@ -744,8 +1247,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 99,
-                                        "end": 176.6
+                                        "start": 87.2,
+                                        "end": 176.5
                                     },
                                     {
                                         "type": "ed",
@@ -766,8 +1269,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 143.1,
-                                        "end": 220.6
+                                        "start": 131.2,
+                                        "end": 220.5
                                     },
                                     {
                                         "type": "ed",
@@ -805,8 +1308,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 102.3,
-                                        "end": 179.6
+                                        "start": 90.2,
+                                        "end": 179.5
                                     },
                                     {
                                         "type": "ed",
@@ -827,8 +1330,8 @@
                                 "segments": [
                                     {
                                         "type": "op",
-                                        "start": 113,
-                                        "end": 188.7
+                                        "start": 101.2,
+                                        "end": 190.6
                                     },
                                     {
                                         "type": "ed",
@@ -852,7 +1355,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ3TNVU5UGgmpr6MnCBxjwOA",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-10-12"
+                            "release_date": "2025-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.8,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.1,
+                                        "end": 1355.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - Monster Traits",
@@ -860,7 +1378,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQxCwcuAs6ys99MbMmMFTnZ4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-10-19"
+                            "release_date": "2025-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.9,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1248.2,
+                                        "end": 1337.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Organism Limits",
@@ -868,7 +1401,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ4WXE--0DlKCrhXAeEd8Zco",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-10-26"
+                            "release_date": "2025-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.9,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Counterattack Signal",
@@ -876,7 +1424,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ55Ftev-vKywiZl3nU7Cm18",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-11-02"
+                            "release_date": "2025-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.9,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Monster King",
@@ -884,7 +1447,17 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ6RpigTXE4foj2zjIfuDj9I",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-11-09"
+                            "release_date": "2025-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Motley Heroes",
@@ -892,7 +1465,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ9a4q3jP1nGfYiyxlyU6XE4",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-11-16"
+                            "release_date": "2025-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 9.8,
+                                        "end": 100.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1256.1,
+                                        "end": 1345.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Counterstrike",
@@ -900,7 +1488,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ1JwD4gQiklHP2BtLtOZ7GM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-11-23"
+                            "release_date": "2025-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 134.2,
+                                        "end": 223.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1306.1,
+                                        "end": 1395.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Ninja Tale",
@@ -908,7 +1511,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ4vlBAy694XS1MP9n-McjsM",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-11-30"
+                            "release_date": "2025-11-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Brave Child",
@@ -916,7 +1534,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ941ZqW1NI5ljGmqr2gutIQ",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-12-07"
+                            "release_date": "2025-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.2,
+                                        "end": 220.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Immortal Bloodbath",
@@ -924,7 +1557,17 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQy1Wa2nD9ktKVuQy2eo8yAs",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-12-14"
+                            "release_date": "2025-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.6,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Top Dragons",
@@ -932,7 +1575,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ_CfAFFprRuwGbWapiHgxYI",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-12-21"
+                            "release_date": "2025-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Ultimate Lifeform",
@@ -940,7 +1598,22 @@
                             "url": "https://anifume.com/41392/Vdw8Axej9z6V33K6OKiTQ6lBZe4js9gSD7x21f3Bg2Q",
                             "resolver": "anifume",
                             "referer": "https://anifume.com/",
-                            "release_date": "2025-12-28"
+                            "release_date": "2025-12-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.2,
+                                        "end": 190.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1215.3,
+                                        "end": 1304.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
