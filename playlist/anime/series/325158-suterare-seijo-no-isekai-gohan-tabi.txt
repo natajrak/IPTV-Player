@@ -112,7 +112,22 @@
                             "url": "https://app.akuma-stream.com/watch/d4c7ac9c-4707-4a18-852a-bdd8f35be372",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-03"
+                            "release_date": "2026-08-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 43.2,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - We Like Conger Eel, but We Love Freshwater Eel, Too!",
@@ -120,7 +135,22 @@
                             "url": "https://app.akuma-stream.com/watch/a3392133-1093-483e-903e-6aad80608255",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-10"
+                            "release_date": "2026-08-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 93.2,
+                                        "end": 182.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.8
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
