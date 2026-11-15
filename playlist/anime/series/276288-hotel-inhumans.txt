@@ -749,7 +749,22 @@
                             "url": "https://app.akuma-stream.com/watch/b7852021-f88d-4298-9ea3-98570d2d28c9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-08"
+                            "release_date": "2026-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.9,
+                                        "end": 130.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1194.2,
+                                        "end": 1283.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Motorcycle Diaries 1",
@@ -757,7 +772,22 @@
                             "url": "https://app.akuma-stream.com/watch/c5bcc22c-6ad9-4d25-a0cf-cc2bbc86f9ee",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-15"
+                            "release_date": "2026-11-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.2,
+                                        "end": 239.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1320.3,
+                                        "end": 1409.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

@@ -664,14 +664,44 @@
                             "image": "https://image.tmdb.org/t/p/original/c83QAXrIQ7C3Qs2CoBupoXMGDwM.jpg",
                             "url": "https://sv2.team-indy.net/video/5ObJKnmTm2/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-08"
+                            "release_date": "2026-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 193.2,
+                                        "end": 282.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.3,
+                                        "end": 1543.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - Christmas Eve",
                             "image": "https://image.tmdb.org/t/p/original/qNIVIR40JchFf6hSL1igIDIFkm9.jpg",
                             "url": "https://sv2.team-indy.net/video/Uk6SkPAEk/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-15"
+                            "release_date": "2026-11-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 341.2,
+                                        "end": 430.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1529.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },

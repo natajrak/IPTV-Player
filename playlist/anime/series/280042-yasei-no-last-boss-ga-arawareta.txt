@@ -356,7 +356,22 @@
                             "url": "https://app.akuma-stream.com/watch/a89e578d-dce1-427a-97dd-89e2bb5f80c3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-10-31"
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.2,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -788,7 +803,22 @@
                             "url": "https://app.akuma-stream.com/watch/d25a8109-03f8-488d-850d-33bdd612cb1a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-21"
+                            "release_date": "2026-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

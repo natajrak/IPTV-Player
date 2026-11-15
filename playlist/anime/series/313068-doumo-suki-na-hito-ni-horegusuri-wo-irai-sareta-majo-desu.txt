@@ -61,7 +61,22 @@
                             "image": "https://image.tmdb.org/t/p/original/8ISCGvGQqbDJ9oRo4ebbEIa2Grh.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FSKASiebi%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FSKASiebi",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2026-10-19"
+                            "release_date": "2026-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 94.2,
+                                        "end": 186.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -185,7 +200,17 @@
                             "image": "https://image.tmdb.org/t/p/original/lK7cNFZyRHfa8VR0rXC7LJDSm5c.jpg",
                             "url": "https://sv2.team-indy.net/video/uVH4fZkVLq/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-09"
+                            "release_date": "2026-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
