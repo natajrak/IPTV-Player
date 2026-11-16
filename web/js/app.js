@@ -1194,7 +1194,7 @@ function queueFocusRefresh() {
 
 /* ===== Render node ===== */
 function renderNode(node, title, options = {}) {
-  const { page = null, sort = null } = options;
+  const { page = null, sort = null, chunk = 0 } = options;
   lastNode = node;
   lastTitle = title;
   updateBreadcrumb(title);
@@ -1217,12 +1217,22 @@ function renderNode(node, title, options = {}) {
     currentSortOrder = sort === "za" ? "za" : "az";
     renderBrowsableStations(node.stations, title, node);
   } else if (node.stations?.length) {
-    renderStations(node.stations, node.referer, title);
+    renderStations(node.stations, node.referer, title, chunk);
   } else {
     showError("ไม่พบข้อมูลใน playlist นี้");
     return;
   }
   showGrid();
+}
+
+/** ชื่อที่ใช้ตอนเข้าไปใน group (breadcrumb / navHistory title / sectionTitle ของหน้าตอน) */
+function groupNavTitle(group) {
+  const sn = group.season_name;
+  return sn?.en
+    ? sn.th
+      ? `${sn.en} [${sn.th}]`
+      : sn.en
+    : group.name || "...";
 }
 
 /* ===== Render group cards (with pagination) ===== */
@@ -1361,6 +1371,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
         : null,
     });
 
+    card.dataset.groupName = group.name || group.info || "";
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       const prevNode = { groups, referer: null };
@@ -1372,11 +1383,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
         url: lastFetchUrl || null,
         focusIdx: [...grid.querySelectorAll(".card")].indexOf(card),
       });
-      const navTitle = sn?.en
-        ? sn.th
-          ? `${sn.en} [${sn.th}]`
-          : sn.en
-        : group.name || "...";
+      const navTitle = groupNavTitle(group);
       if (group.url && !group.groups && !group.stations) {
         fetchAndRender(group.url, navTitle);
       } else {
@@ -1564,9 +1571,15 @@ function goBackOneStep() {
   const prev = navHistory.pop();
   if (!prev) return;
   /** กลับมาแล้ว focus การ์ดเรื่องที่เลือกไว้ (สำคัญกับรีโมท TV) แทนการ์ดแรก */
-  const restoreCard = prev.focusIdx >= 0;
+  const restoreCard = prev.focusIdx >= 0 || prev.focusName != null;
   if (restoreCard)
-    pendingGridFocus = () => gridView.querySelectorAll(".card")[prev.focusIdx];
+    pendingGridFocus = () => {
+      const cards = gridView.querySelectorAll(".card");
+      const byName =
+        prev.focusName != null &&
+        Array.from(cards).find((c) => c.dataset.groupName === prev.focusName);
+      return byName || cards[prev.focusIdx];
+    };
   if (prev.url) {
     fetchAndRender(prev.url, prev.title, false, null, {
       page: prev.page,
@@ -1594,7 +1607,11 @@ function renderEpisodeRangeBar(total, activeChunk, pos) {
   return `<nav class="range-bar" data-pos="${pos}" aria-label="ช่วงตอน">${chips}</nav>`;
 }
 
+/** รายการตอนที่ grid แสดงอยู่ล่าสุด — ใช้ตอนปิด player เพื่อกลับมา focus ตอนที่เล่นค้างไว้ */
+let stationsView = null;
+
 function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
+  stationsView = { stations, referer, sectionTitle };
   const total = stations.length;
   const useChunks = total > EPISODE_CHUNK_SIZE;
   const chunkCount = useChunks ? Math.ceil(total / EPISODE_CHUNK_SIZE) : 1;
@@ -1621,6 +1638,7 @@ function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
       sub: null,
       landscape: true,
     });
+    card.dataset.epIndex = String(i);
 
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
@@ -4244,7 +4262,61 @@ function cancelUpnext() {
   upnextToast.classList.add("hidden");
 }
 
+/**
+ * หลังปิด player ให้ focus การ์ดตอนที่เล่นอยู่ล่าสุด (เล่นต่อเนื่องจากตอน 2 ถึง 5 → focus ตอน 5)
+ * - อยู่ในรายการเดียวกับหน้าที่แสดง: เปลี่ยนช่วงตอน (chunk) ถ้าการ์ดไม่อยู่ในช่วงที่แสดง
+ * - เล่นต่อข้าม season: เปิดหน้าตอนของ season นั้นแทน และแก้ navHistory ให้ย้อนกลับไปถูก season
+ * - กรณีอื่น (หนังหลายภาค, AV, ไม่พบ) ใช้ focus ปกติ
+ */
+function focusEpisodeAfterClose(stations, index) {
+  if (!stationsView || !Array.isArray(stations) || !stations[index]) return;
+  if (!gridView.querySelector(".card[data-ep-index]")) return;
+  const chunk = Math.floor(index / EPISODE_CHUNK_SIZE);
+  const target = () =>
+    gridView.querySelector(`.card[data-ep-index="${index}"]`);
+
+  if (stationsView.stations === stations) {
+    if (!target())
+      renderStations(
+        stations,
+        stationsView.referer,
+        stationsView.sectionTitle,
+        chunk,
+      );
+    pendingGridFocus = target;
+    return;
+  }
+
+  const seasonEntry = navHistory[navHistory.length - 1];
+  const seriesEntry = navHistory[navHistory.length - 2];
+  const shownInSeason = seasonEntry?.node?.groups?.some(
+    (lang) => lang?.stations === stationsView.stations,
+  );
+  if (!shownInSeason || !Array.isArray(seriesEntry?.node?.groups)) return;
+  const season = seriesEntry.node.groups.find(
+    (s) =>
+      Array.isArray(s?.groups) && s.groups.some((l) => l?.stations === stations),
+  );
+  if (!season) return;
+  const lang = season.groups.find((l) => l?.stations === stations);
+
+  navHistory[navHistory.length - 1] = {
+    ...seasonEntry,
+    node: { groups: season.groups, referer: null },
+    title: groupNavTitle(season),
+    url: null,
+    page: 0,
+    focusIdx: -1,
+    focusName: lang.name || lang.info || "",
+  };
+  seriesEntry.focusName = season.name || season.info || "";
+  pendingGridFocus = target;
+  renderNode(lang, groupNavTitle(lang), { chunk });
+}
+
 function closePlayer() {
+  const lastStations = moviePartMode ? null : currentStations;
+  const lastIndex = currentIndex;
   playEpisodeEpoch++;
   cancelUpnext();
   // Close PiP if open
@@ -4294,6 +4366,7 @@ function closePlayer() {
   moviePartQueueTrack = "";
   moviePartLoadToken++;
   moviePartCache = {};
+  focusEpisodeAfterClose(lastStations, lastIndex);
   queueFocusRefresh();
 }
 

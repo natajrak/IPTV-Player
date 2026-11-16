@@ -943,7 +943,8 @@ function renderNode(node, title, options = {}) {
   var _node$groups, _node$stations, _node$stations2;
   const {
     page = null,
-    sort = null
+    sort = null,
+    chunk = 0
   } = options;
   lastNode = node;
   lastTitle = title;
@@ -961,12 +962,16 @@ function renderNode(node, title, options = {}) {
     currentSortOrder = sort === "za" ? "za" : "az";
     renderBrowsableStations(node.stations, title, node);
   } else if ((_node$stations2 = node.stations) !== null && _node$stations2 !== void 0 && _node$stations2.length) {
-    renderStations(node.stations, node.referer, title);
+    renderStations(node.stations, node.referer, title, chunk);
   } else {
     showError("ไม่พบข้อมูลใน playlist นี้");
     return;
   }
   showGrid();
+}
+function groupNavTitle(group) {
+  const sn = group.season_name;
+  return sn !== null && sn !== void 0 && sn.en ? sn.th ? `${sn.en} [${sn.th}]` : sn.en : group.name || "...";
 }
 function renderGroups(groups, sectionTitle, parentNode) {
   var _document$getElementB3, _gridView$querySelect, _gridView$querySelect2;
@@ -1058,6 +1063,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
       seasonCompletion,
       status: isTrack ? group.status === "completed" ? "completed" : "ongoing" : null
     });
+    card.dataset.groupName = group.name || group.info || "";
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       const prevNode = {
@@ -1072,7 +1078,7 @@ function renderGroups(groups, sectionTitle, parentNode) {
         url: lastFetchUrl || null,
         focusIdx: [...grid.querySelectorAll(".card")].indexOf(card)
       });
-      const navTitle = sn !== null && sn !== void 0 && sn.en ? sn.th ? `${sn.en} [${sn.th}]` : sn.en : group.name || "...";
+      const navTitle = groupNavTitle(group);
       if (group.url && !group.groups && !group.stations) {
         fetchAndRender(group.url, navTitle);
       } else {
@@ -1232,8 +1238,12 @@ function goBackOneStep() {
   }
   const prev = navHistory.pop();
   if (!prev) return;
-  const restoreCard = prev.focusIdx >= 0;
-  if (restoreCard) pendingGridFocus = () => gridView.querySelectorAll(".card")[prev.focusIdx];
+  const restoreCard = prev.focusIdx >= 0 || prev.focusName != null;
+  if (restoreCard) pendingGridFocus = () => {
+    const cards = gridView.querySelectorAll(".card");
+    const byName = prev.focusName != null && Array.from(cards).find(c => c.dataset.groupName === prev.focusName);
+    return byName || cards[prev.focusIdx];
+  };
   if (prev.url) {
     fetchAndRender(prev.url, prev.title, false, null, {
       page: prev.page,
@@ -1261,8 +1271,14 @@ function renderEpisodeRangeBar(total, activeChunk, pos) {
   }
   return `<nav class="range-bar" data-pos="${pos}" aria-label="ช่วงตอน">${chips}</nav>`;
 }
+let stationsView = null;
 function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
   var _document$getElementB4;
+  stationsView = {
+    stations,
+    referer,
+    sectionTitle
+  };
   const total = stations.length;
   const useChunks = total > EPISODE_CHUNK_SIZE;
   const chunkCount = useChunks ? Math.ceil(total / EPISODE_CHUNK_SIZE) : 1;
@@ -1283,6 +1299,7 @@ function renderStations(stations, referer, sectionTitle, chunkIndex = 0) {
       sub: null,
       landscape: true
     });
+    card.dataset.epIndex = String(i);
     card.addEventListener("click", () => {
       if (searchReturnState) clearSearchReturnState();
       openPlayer(stations, i, referer, sectionTitle);
@@ -3276,7 +3293,44 @@ function cancelUpnext() {
   clearInterval(upnextCountdown);
   upnextToast.classList.add("hidden");
 }
+function focusEpisodeAfterClose(stations, index) {
+  var _seasonEntry$node2, _seriesEntry$node2;
+  if (!stationsView || !Array.isArray(stations) || !stations[index]) return;
+  if (!gridView.querySelector(".card[data-ep-index]")) return;
+  const chunk = Math.floor(index / EPISODE_CHUNK_SIZE);
+  const target = () => gridView.querySelector(`.card[data-ep-index="${index}"]`);
+  if (stationsView.stations === stations) {
+    if (!target()) renderStations(stations, stationsView.referer, stationsView.sectionTitle, chunk);
+    pendingGridFocus = target;
+    return;
+  }
+  const seasonEntry = navHistory[navHistory.length - 1];
+  const seriesEntry = navHistory[navHistory.length - 2];
+  const shownInSeason = seasonEntry === null || seasonEntry === void 0 || (_seasonEntry$node2 = seasonEntry.node) === null || _seasonEntry$node2 === void 0 || (_seasonEntry$node2 = _seasonEntry$node2.groups) === null || _seasonEntry$node2 === void 0 ? void 0 : _seasonEntry$node2.some(lang => (lang === null || lang === void 0 ? void 0 : lang.stations) === stationsView.stations);
+  if (!shownInSeason || !Array.isArray(seriesEntry === null || seriesEntry === void 0 || (_seriesEntry$node2 = seriesEntry.node) === null || _seriesEntry$node2 === void 0 ? void 0 : _seriesEntry$node2.groups)) return;
+  const season = seriesEntry.node.groups.find(s => Array.isArray(s === null || s === void 0 ? void 0 : s.groups) && s.groups.some(l => (l === null || l === void 0 ? void 0 : l.stations) === stations));
+  if (!season) return;
+  const lang = season.groups.find(l => (l === null || l === void 0 ? void 0 : l.stations) === stations);
+  navHistory[navHistory.length - 1] = _objectSpread(_objectSpread({}, seasonEntry), {}, {
+    node: {
+      groups: season.groups,
+      referer: null
+    },
+    title: groupNavTitle(season),
+    url: null,
+    page: 0,
+    focusIdx: -1,
+    focusName: lang.name || lang.info || ""
+  });
+  seriesEntry.focusName = season.name || season.info || "";
+  pendingGridFocus = target;
+  renderNode(lang, groupNavTitle(lang), {
+    chunk
+  });
+}
 function closePlayer() {
+  const lastStations = moviePartMode ? null : currentStations;
+  const lastIndex = currentIndex;
   playEpisodeEpoch++;
   cancelUpnext();
   if (docPipWindow) {
@@ -3323,6 +3377,7 @@ function closePlayer() {
   moviePartQueueTrack = "";
   moviePartLoadToken++;
   moviePartCache = {};
+  focusEpisodeAfterClose(lastStations, lastIndex);
   queueFocusRefresh();
 }
 function destroyHls() {
