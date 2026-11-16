@@ -159,7 +159,22 @@
                             "image": "https://image.tmdb.org/t/p/original/62mF05BRnYebwnvHKZunZuirqvz.jpg",
                             "url": "https://sv2.team-indy.net/video/qGOMJ6wuo/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-20"
+                            "release_date": "2026-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.2,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -301,7 +316,22 @@
                             "url": "https://app.akuma-stream.com/watch/872c7ab3-4205-4dbe-80cb-cc241018e157",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-13"
+                            "release_date": "2026-11-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.3,
+                                        "end": 127.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - Episode 8",
@@ -309,7 +339,22 @@
                             "url": "https://app.akuma-stream.com/watch/aea4f5b0-cffe-42ab-b432-9e5f8cef0891",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-20"
+                            "release_date": "2026-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

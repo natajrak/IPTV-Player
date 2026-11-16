@@ -1214,7 +1214,17 @@
                             "image": "https://image.tmdb.org/t/p/original/wr6b0gP5nRqZNnjcRZt1rVQ0IZ8.jpg",
                             "url": "https://sv2.team-indy.net/video/7XFIn4g6Th/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-09-28"
+                            "release_date": "2026-09-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.3,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -156,7 +156,22 @@
                             "url": "https://app.akuma-stream.com/watch/59c3d91c-b0ba-4c12-b220-075942a86d9f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-16"
+                            "release_date": "2026-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.6,
+                                        "end": 175.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1304.4,
+                                        "end": 1393.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },

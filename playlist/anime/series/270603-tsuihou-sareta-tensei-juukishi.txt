@@ -256,7 +256,22 @@
                             "image": "https://image.tmdb.org/t/p/original/r7wrLFD3GMtc3UYYGbaPyrNGNLG.jpg",
                             "url": "https://moji.abcdxzy.xyz:8443/vod/hSpJrg99Y7/video.mp4/playlist.m3u8",
                             "referer": "https://animeyour.com/",
-                            "release_date": "2026-09-18"
+                            "release_date": "2026-09-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 131.3,
+                                        "end": 222.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.4,
+                                        "end": 1389.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -683,7 +698,22 @@
                             "image": "https://image.tmdb.org/t/p/original/cEHg0Nsw0168AN0QxVTUBG3Zzvw.jpg",
                             "url": "https://sv2.team-indy.net/video/J926ldxkdn/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-13"
+                            "release_date": "2026-11-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.2,
+                                        "end": 177.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.6,
+                                        "end": 1389.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

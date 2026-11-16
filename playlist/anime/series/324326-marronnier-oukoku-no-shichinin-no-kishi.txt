@@ -151,14 +151,54 @@
                             "image": "https://image.tmdb.org/t/p/original/rK2TuUTezWuggzih6o1VWmfcFKf.jpg",
                             "url": "https://sv2.team-indy.net/video/7EFhWXivum/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-07"
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 149.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.2,
+                                        "end": 1478.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1494.2,
+                                        "end": 1571.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Message",
                             "image": "https://image.tmdb.org/t/p/original/5MwQzYXpv6QgWxU8PIFrE8dL5Ag.jpg",
                             "url": "https://sv2.team-indy.net/video/OMxCmv95hr/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-14"
+                            "release_date": "2026-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -313,7 +353,27 @@
                             "url": "https://app.akuma-stream.com/watch/21c13ec6-74b4-4610-9f5f-84b000032ee3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-07"
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Message",
@@ -321,7 +381,27 @@
                             "url": "https://app.akuma-stream.com/watch/c529155c-504f-49cd-b601-08efd8f57dd9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-14"
+                            "release_date": "2026-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
