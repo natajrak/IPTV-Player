@@ -204,8 +204,16 @@ const btnForward = document.getElementById("btn-forward");
 const btnNextEp = document.getElementById("btn-next-ep");
 const btnMute = document.getElementById("btn-mute");
 const volumeSlider = document.getElementById("volume-slider");
-/** iOS ตั้ง video.volume จากเว็บไม่ได้ (อ่านกลับได้ 1 เสมอ) → ซ่อนแถบเสียง เหลือปุ่ม mute */
+/**
+ * iOS/iPadOS ตั้ง video.volume จากเว็บไม่ได้ → ซ่อนแถบเสียง เหลือปุ่ม mute
+ * ตรวจจากตัวเครื่องด้วย เพราะ iOS รุ่นใหม่อ่านค่า volume ที่ตั้งกลับได้ ทำให้ probe อย่างเดียวจับไม่ได้
+ * (iPadOS บอกตัวเป็น Mac → แยกด้วย maxTouchPoints)
+ */
+const IS_IOS_DEVICE =
+  /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 if (
+  IS_IOS_DEVICE ||
   (() => {
     const probe = document.createElement("video");
     probe.volume = 0.5;

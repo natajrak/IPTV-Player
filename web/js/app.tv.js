@@ -170,7 +170,8 @@ const btnForward = document.getElementById("btn-forward");
 const btnNextEp = document.getElementById("btn-next-ep");
 const btnMute = document.getElementById("btn-mute");
 const volumeSlider = document.getElementById("volume-slider");
-if ((() => {
+const IS_IOS_DEVICE = /iPhone|iPad|iPod/.test(navigator.userAgent) || navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+if (IS_IOS_DEVICE || (() => {
   const probe = document.createElement("video");
   probe.volume = 0.5;
   return probe.volume !== 0.5;
