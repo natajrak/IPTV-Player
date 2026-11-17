@@ -266,6 +266,7 @@ async function runUpdateMeta(ctx) {
       console.log(`\n✅ Season ${sNum}: ${enEps.length} ตอน | poster: ${seasonPoster !== tmdbPoster ? 'season-specific' : 'show-level'}`);
     }
 
+    if (split && season.image) seasonPoster = season.image;
     if (doPoster) season.image = seasonPoster;
 
     const tracks = season.groups?.length ? season.groups : [season];

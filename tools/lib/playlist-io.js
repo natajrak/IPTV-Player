@@ -190,6 +190,7 @@ function buildOrMergePlaylist({
 
       season.groups = season.groups || [];
       const existingTrack = season.groups.find((g) => g.name === trackName);
+      const trackImage = isSplitSeason(season) && season.image ? season.image : seasonPosterUrl;
       if (epOffset > 0 && existingTrack && Array.isArray(existingTrack.stations)) {
         const fetchedLabels = new Set(stations.map(stationLabelOf).filter(Boolean));
         const kept = existingTrack.stations.filter((s) => !fetchedLabels.has(stationLabelOf(s)));
@@ -198,7 +199,7 @@ function buildOrMergePlaylist({
         const merged = [...kept, ...stations];
         merged.sort((a, b) => episodeNumOf(a) - episodeNumOf(b) || partOf(a) - partOf(b));
         existingTrack.stations = merged;
-        existingTrack.image = seasonPosterUrl;
+        existingTrack.image = trackImage;
         if (trackReferer && existingTrack.referer) {
           const oldRefs = existingTrack.referer.split(',').map((s) => s.trim());
           if (!oldRefs.includes(trackReferer)) {
@@ -210,6 +211,7 @@ function buildOrMergePlaylist({
         console.log(`\n🔀 Append ${stations.length} ตอนเข้า "${trackName}" (รวม ${merged.length} ตอน)`);
       } else {
         if (isSplitSeason(season) && existingTrack?.status) newTrack.status = existingTrack.status;
+        newTrack.image = trackImage;
         season.groups = season.groups.filter((g) => g.name !== trackName);
         season.groups.push(newTrack);
       }
