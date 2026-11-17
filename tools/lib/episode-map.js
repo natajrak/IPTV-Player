@@ -45,9 +45,9 @@ function parseLabelList(raw) {
   return new Set(String(raw || '').split(',').map(normalizeLabel).filter(Boolean));
 }
 
-/** เรียง label ตอนตามเลขตอนแล้วตาม part: "11(2/2)" มาหลัง "11(1/2)" */
+/** เรียง label ตอนตามเลขตอนแล้วตาม part: "11(2/2)" มาหลัง "11(1/2)", "11.5" มาหลัง "11" */
 function compareLabels(a, b) {
-  const re = /^(\d+)(?:\((\d+)\/\d+\))?/;
+  const re = /^(\d+(?:\.\d+)?)(?:\((\d+)\/\d+\))?/;
   const pa = re.exec(normalizeLabel(a));
   const pb = re.exec(normalizeLabel(b));
   if (!pa || !pb) return 0;

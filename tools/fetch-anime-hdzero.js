@@ -543,7 +543,8 @@ async function main() {
       const targetSeasonName = seasonName || 'Season 1';
       const affectedSeason = (playlist.groups || []).find((g) => utils.matchesSeasonName(g.name, targetSeasonName));
       if (affectedSeason && split) {
-        const firstAired = stations.map((s) => s.release_date).filter(Boolean).sort((a, b) => a.localeCompare(b))[0];
+        const firstAired = (affectedSeason.groups || []).flatMap((t) => t.stations || [])
+          .map((s) => s.release_date).filter(Boolean).sort((a, b) => a.localeCompare(b))[0];
         if (firstAired) affectedSeason.release_date = firstAired;
       } else if (affectedSeason && seasonAirDate) {
         affectedSeason.release_date = seasonAirDate;

@@ -22,10 +22,16 @@ function loadPrevious(filePath, chainBase = '') {
   return loadPlaylist(filePath);
 }
 
-/** label ตอนจากชื่อ station: "ตอน 11 (1/2) - ชื่อ" → "11(1/2)" (ไม่มีเลขคืน null) */
+/** label ตอนจากชื่อ station: "ตอน 11 (1/2) - ชื่อ" → "11(1/2)", "ตอน 11.5" → "11.5" (ไม่มีเลขคืน null) */
 function stationLabelOf(station) {
-  const m = /(?:ตอน|Ep\.?)\s*(\d+(?:\s*\(\d+\/\d+\))?)/i.exec(String(station?.name || ''));
+  const m = /(?:ตอน|Ep\.?)\s*(\d+(?:\.\d+)?(?:\s*\(\d+\/\d+\))?)/i.exec(String(station?.name || ''));
   return m ? m[1].replace(/\s+/g, '') : null;
+}
+
+/** เลขตอนสำหรับเรียง: "ตอน 11.5 - ชื่อ" → 11.5 (ไม่มีเลขคืน 0) */
+function episodeNumOf(station) {
+  const m = /(?:ตอน|Ep\.?)\s*(\d+(?:\.\d+)?)/i.exec(String(station?.name || ''));
+  return m ? Number(m[1]) : 0;
 }
 
 /** ลำดับ part ของตอนที่เว็บแบ่ง: "ตอน 11 (2/2)" → 2, ตอนปกติ → 0 */
@@ -190,11 +196,7 @@ function buildOrMergePlaylist({
         const replaced = existingTrack.stations.length - kept.length;
         if (replaced > 0) console.log(`\n♻️  แทน ${replaced} ตอนเดิมที่เลขตอนตรงกับรอบนี้ (ไม่ต่อท้ายซ้ำ)`);
         const merged = [...kept, ...stations];
-        merged.sort((a, b) => {
-          const aNum = parseInt(a.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
-          const bNum = parseInt(b.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
-          return aNum - bNum || partOf(a) - partOf(b);
-        });
+        merged.sort((a, b) => episodeNumOf(a) - episodeNumOf(b) || partOf(a) - partOf(b));
         existingTrack.stations = merged;
         existingTrack.image = seasonPosterUrl;
         if (trackReferer && existingTrack.referer) {
