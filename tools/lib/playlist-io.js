@@ -22,6 +22,18 @@ function loadPrevious(filePath, chainBase = '') {
   return loadPlaylist(filePath);
 }
 
+/** label ตอนจากชื่อ station: "ตอน 11 (1/2) - ชื่อ" → "11(1/2)" (ไม่มีเลขคืน null) */
+function stationLabelOf(station) {
+  const m = /(?:ตอน|Ep\.?)\s*(\d+(?:\s*\(\d+\/\d+\))?)/i.exec(String(station?.name || ''));
+  return m ? m[1].replace(/\s+/g, '') : null;
+}
+
+/** ลำดับ part ของตอนที่เว็บแบ่ง: "ตอน 11 (2/2)" → 2, ตอนปกติ → 0 */
+function partOf(station) {
+  const m = /(?:ตอน|Ep\.?)\s*\d+\s*\((\d+)\/\d+\)/i.exec(String(station?.name || ''));
+  return m ? Number(m[1]) : 0;
+}
+
 function savePlaylist(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 4), 'utf-8');
 }
@@ -104,8 +116,18 @@ function stampPlaylist(playlist, tmdbResult, isMovie) {
 function buildOrMergePlaylist({
   outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
   trackName, trackReferer = null, tmdbSeasonName = null,
-  seasonName, seasonNum, epOffset = 0, splitEps = '',
+  seasonName, seasonNum, epOffset = 0, splitEps = '', seasonConfig = null,
 }) {
+  /**
+   * config ของ season ที่แยกจาก TMDB season ใหญ่ (ep_offset, tmdb_season, missing_eps, external_eps, skip_src)
+   * เก็บลงไฟล์ให้รอบถัดไป/CMS ใช้ — ค่าว่างไม่ทับค่าเดิม
+   */
+  const stampSeasonConfig = (season) => {
+    for (const [key, value] of Object.entries(seasonConfig || {})) {
+      const empty = value == null || value === '' || (Array.isArray(value) && value.length === 0);
+      if (!empty) season[key] = value;
+    }
+  };
   // เก็บ split config ลง season เพื่อให้ CMS prefill ตอน update รอบถัดไป
   // (ไม่ลบค่าเดิมเมื่อรันโดยไม่ใส่ flag — กันเผลอทำ hint หาย)
   // โหมด append (epOffset>0) ต้อง merge กับค่าเดิม ไม่ทับทิ้ง เพราะรอบนี้ตรวจเฉพาะช่วงใหม่
@@ -163,11 +185,15 @@ function buildOrMergePlaylist({
       season.groups = season.groups || [];
       const existingTrack = season.groups.find((g) => g.name === trackName);
       if (epOffset > 0 && existingTrack && Array.isArray(existingTrack.stations)) {
-        const merged = [...existingTrack.stations, ...stations];
+        const fetchedLabels = new Set(stations.map(stationLabelOf).filter(Boolean));
+        const kept = existingTrack.stations.filter((s) => !fetchedLabels.has(stationLabelOf(s)));
+        const replaced = existingTrack.stations.length - kept.length;
+        if (replaced > 0) console.log(`\n♻️  แทน ${replaced} ตอนเดิมที่เลขตอนตรงกับรอบนี้ (ไม่ต่อท้ายซ้ำ)`);
+        const merged = [...kept, ...stations];
         merged.sort((a, b) => {
           const aNum = parseInt(a.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
           const bNum = parseInt(b.name?.match(/(?:ตอน|Ep\.?)\s*(\d+)/i)?.[1]) || 0;
-          return aNum - bNum;
+          return aNum - bNum || partOf(a) - partOf(b);
         });
         existingTrack.stations = merged;
         existingTrack.image = seasonPosterUrl;
@@ -181,6 +207,7 @@ function buildOrMergePlaylist({
         }
         console.log(`\n🔀 Append ${stations.length} ตอนเข้า "${trackName}" (รวม ${merged.length} ตอน)`);
       } else {
+        if (isSplitSeason(season) && existingTrack?.status) newTrack.status = existingTrack.status;
         season.groups = season.groups.filter((g) => g.name !== trackName);
         season.groups.push(newTrack);
       }
@@ -191,6 +218,7 @@ function buildOrMergePlaylist({
         return 0;
       });
       stampSplitEps(season);
+      stampSeasonConfig(season);
       console.log(`\n🔀 Merge "${trackName}" เข้าไฟล์เดิม (${season.groups.length} tracks)`);
       return existing;
     }
@@ -204,6 +232,7 @@ function buildOrMergePlaylist({
     groups: [newTrack],
   };
   stampSplitEps(newSeason);
+  stampSeasonConfig(newSeason);
   return {
     name: seriesTitle,
     image: posterUrl,
@@ -421,11 +450,19 @@ function markSeasonTrackComplete({ playlist, seasonName, trackName, tmdbEpCount 
   if (!playlist || !tmdbEpCount || tmdbEpCount <= 0) return;
   const targetSeason = seasonName || 'Season 1';
   const season = (playlist.groups || []).find((g) => g && matchesSeasonName(g.name, targetSeason));
-  if (!season) return;
+  if (!season || isSplitSeason(season)) return;
   const tracks = Array.isArray(season.groups) && season.groups.length > 0 ? season.groups : [season];
   const track = tracks.find((t) => t && t.name === trackName);
   if (!track) return;
   markTrackComplete(track, tmdbEpCount);
+}
+
+/**
+ * season ที่แยกออกมาจาก TMDB season ใหญ่ (มี ep_offset ในไฟล์) — จำนวนตอน TMDB ทั้ง season ใช้ตัดสิน "จบแล้ว" ไม่ได้
+ * สถานะ track ของ season แบบนี้ตั้งเอง (CMS คลิก badge) ไม่คำนวณทับ
+ */
+function isSplitSeason(season) {
+  return season?.ep_offset != null;
 }
 
 function resolvePlaylistFile({ playlistDir, fname }) {
@@ -448,4 +485,6 @@ module.exports = {
   resolvePlaylistFile,
   markSeasonTrackComplete,
   deriveCompletionMeta,
+  isSplitSeason,
+  stationLabelOf,
 };

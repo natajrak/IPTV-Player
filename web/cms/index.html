@@ -1814,9 +1814,11 @@ function badge(name, rf = null) {
     const track = isSub ? 'subth' : 'th';
     const mainAttr = rf.mainSlug ? ` data-main-slug="${esc(rf.mainSlug)}"` : '';
     const splitAttr = rf.splitEps ? ` data-split="${esc(rf.splitEps)}"` : '';
+    const offsetAttr = rf.epOffset !== '' && rf.epOffset != null ? ` data-ep-offset="${esc(rf.epOffset)}"` : '';
+    const tmdbSeasonAttr = rf.tmdbSeason !== '' && rf.tmdbSeason != null ? ` data-tmdb-season="${esc(rf.tmdbSeason)}"` : '';
     return `<span class="${cls} badge-refetchable" title="Refetch stream URLs"
       data-refetch="${esc(rf.referer)}" data-slug="${esc(rf.filename)}"
-      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}"${mainAttr}${splitAttr}>${esc(name)}</span>`;
+      data-season="${rf.season}" data-track="${track}" data-tab="${esc(rf.tabId)}"${mainAttr}${splitAttr}${offsetAttr}${tmdbSeasonAttr}>${esc(name)}</span>`;
   }
   return `<span class="${cls}">${esc(name)}</span>`;
 }
@@ -2111,7 +2113,10 @@ function renderSeries(wrap, stats, items, tmdbKind, tabId = '') {
       const sznNum = /specials/i.test(sznName) ? 0 : (parseInt(sznName.match(/\d+/)?.[0]) || (si + 1));
       const trackBadges = tracks.map(t => {
         const ep = t.stations?.length || 0;
-        const rf = t.referer ? { referer: t.referer, filename, season: sznNum, tabId, splitEps: season.split_eps || '' } : null;
+        const rf = t.referer ? {
+          referer: t.referer, filename, season: sznNum, tabId, splitEps: season.split_eps || '',
+          epOffset: season.ep_offset ?? '', tmdbSeason: season.tmdb_season ?? '',
+        } : null;
         const completed = t.status === 'completed';
         const cls = `badge-ep${completed ? ' completed' : ''}${IS_LOCAL ? ' clickable' : ''}`;
         const epAttrs = IS_LOCAL
@@ -3918,12 +3923,16 @@ function scriptFromReferer(url) {
   return null;
 }
 
-function openRefetchModal(referer, filename, season, track, tabId, mainSlug = '', splitEps = '') {
+/**
+ * splitSeason: season ที่แยกจาก TMDB season ใหญ่ ({ epOffset, tmdbSeason } จาก ep_offset/tmdb_season ในไฟล์)
+ * — ต้องส่งต่อให้สคริปต์ ไม่งั้นเลขตอนเริ่มนับ 1 ใหม่
+ */
+function openRefetchModal(referer, filename, season, track, tabId, mainSlug = '', splitEps = '', splitSeason = {}) {
   const isSeries  = TABS[tabId]?.kind === 'series';
   const m = filename.match(/^(\d+)-(.+)$/);
   const tmdbId = m ? m[1] : '';
   const slug   = m ? m[2] : filename;
-  rfCtx = { tabId, tmdbId, mainSlug };
+  rfCtx = { tabId, tmdbId, mainSlug, epOffset: splitSeason.epOffset || '', tmdbSeason: splitSeason.tmdbSeason || '' };
   const detected  = scriptFromReferer(referer);
   const scripts   = ADD_SCRIPTS[tabId] || [];
 
@@ -3962,6 +3971,8 @@ function buildRfCmd() {
   const args   = [url, `--track=${track}`, `--type=${rfCtx.tabId}`, `--season=${season}`, `--output=${fname}.txt`];
   if (rfCtx.tmdbId) args.push(`--tmdb-id=${rfCtx.tmdbId}`);
   if (rfCtx.mainSlug) args.push(`--main-slug=${rfCtx.mainSlug}`);
+  if (rfCtx.tmdbSeason !== '') args.push(`--tmdb-season=${rfCtx.tmdbSeason}`);
+  if (rfCtx.epOffset !== '') args.push(`--ep-offset=${rfCtx.epOffset}`);
   const rfSplitVal = document.getElementById('rf-split').value.trim();
   if (rfSplitVal) args.push(`--split-eps=${rfSplitVal}`);
   if (!rfSplitVal && document.getElementById('rf-auto-split').checked) args.push('--auto-split');
@@ -4040,7 +4051,8 @@ document.addEventListener('click', e => {
   const b = e.target.closest('.badge-refetchable[data-refetch]');
   if (!b || !IS_LOCAL) return;
   e.stopPropagation();
-  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '', b.dataset.split || '');
+  openRefetchModal(b.dataset.refetch, b.dataset.slug, parseInt(b.dataset.season) || 1, b.dataset.track || 'th', b.dataset.tab || '', b.dataset.mainSlug || '', b.dataset.split || '',
+    { epOffset: b.dataset.epOffset || '', tmdbSeason: b.dataset.tmdbSeason || '' });
 });
 
 // Episode-count click → toggle track status (ongoing ↔ completed)

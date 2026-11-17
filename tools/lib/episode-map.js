@@ -35,25 +35,55 @@ function parseSplitEps(raw) {
   return map;
 }
 
-/** สร้าง mapping source index → { epNum, label } */
-function buildEpisodeMap({ sourceCount, epOffset = 0, splitEps = '' }) {
+/** label ไม่มีช่องว่าง ใช้เทียบกัน: "11 (1/2)" → "11(1/2)" */
+function normalizeLabel(label) {
+  return String(label ?? '').replace(/\s+/g, '');
+}
+
+/** "1041, 1187(1/2)" → Set { "1041", "1187(1/2)" } (config missing_eps / external_eps ของ season) */
+function parseLabelList(raw) {
+  return new Set(String(raw || '').split(',').map(normalizeLabel).filter(Boolean));
+}
+
+/** เรียง label ตอนตามเลขตอนแล้วตาม part: "11(2/2)" มาหลัง "11(1/2)" */
+function compareLabels(a, b) {
+  const re = /^(\d+)(?:\((\d+)\/\d+\))?/;
+  const pa = re.exec(normalizeLabel(a));
+  const pb = re.exec(normalizeLabel(b));
+  if (!pa || !pb) return 0;
+  return (Number(pa[1]) - Number(pb[1])) || (Number(pa[2] || 0) - Number(pb[2] || 0));
+}
+
+/**
+ * สร้าง mapping source index → { epNum, label }
+ * exclude: label ที่ไม่ได้มาจากแหล่งนี้ (เว็บไม่มี / ใช้ตอนจากแหล่งอื่น) — ข้ามเลขนั้นโดยไม่กิน source
+ */
+function buildEpisodeMap({ sourceCount, epOffset = 0, splitEps = '', exclude = null }) {
   const splits = splitEps instanceof Map ? splitEps : parseSplitEps(splitEps);
+  const skip = exclude instanceof Set ? exclude : parseLabelList(exclude);
   const out = [];
   let epNum = 1 + epOffset;
   let part = 0;
-  for (let i = 0; i < sourceCount; i++) {
+  const next = () => {
     const totalParts = splits.get(epNum) || 1;
+    let entry;
     if (totalParts > 1) {
       part += 1;
-      out.push({ epNum, label: `${epNum} (${part}/${totalParts})` });
+      entry = { epNum, label: `${epNum} (${part}/${totalParts})` };
       if (part >= totalParts) {
         epNum += 1;
         part = 0;
       }
     } else {
-      out.push({ epNum, label: String(epNum) });
+      entry = { epNum, label: String(epNum) };
       epNum += 1;
     }
+    return entry;
+  };
+  for (let i = 0; i < sourceCount; i++) {
+    let entry = next();
+    while (skip.has(normalizeLabel(entry.label))) entry = next();
+    out.push(entry);
   }
   return out;
 }
@@ -266,4 +296,5 @@ async function applyMeasuredSplit({ stations, tmdbEpisodes, epOffset = 0, isDubb
 module.exports = {
   parseSplitEps, buildEpisodeMap, suggestSplitEps, resolveAutoSplit,
   buildMeasuredMap, applyMeasuredSplit,
+  normalizeLabel, parseLabelList, compareLabels,
 };

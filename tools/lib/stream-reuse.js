@@ -8,7 +8,7 @@
  * ไม่ใช้ลิงก์เดิมเลย (ดึงใหม่ทุกตอน) เมื่อ:
  *   - track เดิมมาจากแหล่งอื่น (referer ของ track ไม่มี URL ที่ดึงรอบนี้) — url/referer/resolver เป็นของอีกเว็บ
  *   - โหมด append (epOffset > 0 และมี track อยู่แล้ว) ที่ไม่ได้มาจาก chain — ไฟล์ที่สร้างก่อน offsetEpisodeLabel ตั้งชื่อตอนต่อภาค
- *     โดยไม่รวม offset label จึงอาจชนกับตอนของภาคก่อน
+ *     โดยไม่รวม offset label จึงอาจชนกับตอนของภาคก่อน (ยกเว้น season แยกที่มี ep_offset ในไฟล์ — ใช้เลขรวมเสมอ)
  *
  * รอบถัดไปของ chain ใน CMS (chainBase) ใช้ลิงก์เดิมได้ — previous คือสำเนาไฟล์ก่อนรอบแรกที่ยังมีตอนของรอบนี้ครบ
  * ยกเว้น track ที่มี label ซ้ำแม้แต่ตอนเดียว (ไฟล์เก่าที่ตั้งชื่อตอนต่อภาคไม่รวม offset) — label ที่ไม่ซ้ำก็อาจเป็นตอนของภาคอื่น ดึงใหม่ทุกตอน
@@ -81,7 +81,10 @@ function createStreamReuse({ enabled, previous, trackName, sourceUrl, seasonName
     return entry;
   };
 
-  const appendMode = !!enabled && !!previous && !chainBase && epOffset > 0 && trackIndex(seasonName, !seasonNum).exists;
+  /** season แยก (มี ep_offset ในไฟล์) ตั้งชื่อตอนด้วยเลขรวมเสมอ label จึงไม่ชนกับภาคอื่น ใช้ลิงก์เดิมได้ */
+  const splitSeason = findSeason(seasonName, !seasonNum)?.ep_offset != null;
+  const appendMode = !!enabled && !!previous && !chainBase && epOffset > 0 && !splitSeason
+    && trackIndex(seasonName, !seasonNum).exists;
   const active = !!enabled && !!previous && !appendMode;
 
   return {

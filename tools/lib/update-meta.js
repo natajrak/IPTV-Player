@@ -234,20 +234,32 @@ async function runUpdateMeta(ctx) {
     playlist.image = tmdbPoster;
   }
 
+  /** season แยกหลาย season ใช้ TMDB season เดียวกัน — ดึงครั้งเดียว */
+  const tmdbSeasonCache = new Map();
+  const loadTmdbSeason = (num) => {
+    if (!tmdbSeasonCache.has(num)) tmdbSeasonCache.set(num, tmdb.getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, num));
+    return tmdbSeasonCache.get(num);
+  };
+
   for (const season of seasonsToUpdate) {
-    const sNum = /specials/i.test(season.name) ? 0 : (parseInt(season.name?.match(/\d+/)?.[0]) || 1);
+    const split = io.isSplitSeason(season);
+    const sNum = split && season.tmdb_season != null
+      ? Number(season.tmdb_season)
+      : (/specials/i.test(season.name) ? 0 : (parseInt(season.name?.match(/\d+/)?.[0]) || 1));
 
     let enEps = [];
     let thEps = [];
     let seasonPoster = tmdbPoster;
     if (doPoster || doCover || doTitle) {
-      const tmdbSeason = await tmdb.getTmdbSeasonBilingual(tmdbResult.id, tmdbKey, sNum);
+      const tmdbSeason = await loadTmdbSeason(sNum);
       enEps = tmdbSeason.enEpisodes;
       thEps = tmdbSeason.thEpisodes;
       if (tmdbSeason.poster) seasonPoster = tmdbSeason.poster;
-      if (tmdbSeason.seasonName) season.season_name = tmdbSeason.seasonName;
-      else delete season.season_name;
-      if (tmdbSeason.air_date) season.release_date = tmdbSeason.air_date;
+      if (!split) {
+        if (tmdbSeason.seasonName) season.season_name = tmdbSeason.seasonName;
+        else delete season.season_name;
+        if (tmdbSeason.air_date) season.release_date = tmdbSeason.air_date;
+      }
       // (season.updated_at is computed later by stampPlaylist as MAX of station.release_date
       //  values actually present in the playlist — not TMDB's full episode list which
       //  may include unreleased future episodes.)
@@ -271,9 +283,8 @@ async function runUpdateMeta(ctx) {
         const nameMatch = station.name.match(/(?:ตอน|Ep\.?)\s*([\d.]+(?:\s*\(\d+\/\d+\))?)/i);
         const stationEpNum = nameMatch ? parseInt(nameMatch[1]) : (i + 1);
         const stationLabel = nameMatch ? nameMatch[1] : String(i + 1);
-        const tmdbEp = !isNaN(stationEpNum)
-          ? (tmdbEps.find((e) => e.episode_number === stationEpNum) || tmdbEps[i])
-          : tmdbEps[i];
+        const byNumber = Number.isNaN(stationEpNum) ? null : tmdbEps.find((e) => e.episode_number === stationEpNum);
+        const tmdbEp = byNumber || (split ? null : tmdbEps[i]);
         if (doTitle && tmdbEp?.name) {
           station.name = buildStationName(stationLabel, tmdbEp.name, dubbed);
         }
@@ -286,10 +297,16 @@ async function runUpdateMeta(ctx) {
 
       // Mark track.status = 'completed' when this track has all TMDB episodes for its language
       // (พากย์ไทย vs thEps; ซับไทย vs enEps)
-      markTrackComplete(track, tmdbEps.length);
+      if (!split) markTrackComplete(track, tmdbEps.length);
 
       const updated = [doPoster && 'poster', doTitle && 'title', doCover && 'cover'].filter(Boolean).join('+');
       console.log(`  ✅ [${updated}] "${track.name || 'stations'}" (${track.stations.length} ตอน${track.status === 'completed' ? ' ✓ จบแล้ว' : ''})`);
+    }
+
+    if (split) {
+      const firstAired = tracks.flatMap((t) => t.stations || []).map((s) => s.release_date).filter(Boolean)
+        .sort((a, b) => a.localeCompare(b))[0];
+      if (firstAired) season.release_date = firstAired;
     }
   }
 
