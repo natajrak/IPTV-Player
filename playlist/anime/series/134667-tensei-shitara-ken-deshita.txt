@@ -705,7 +705,22 @@
                             "name": "Ep. 8 - The Island Kingdom's Got Problems",
                             "url": "https://sv2.team-indy.net/video/jWm9z9cqay/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-26"
+                            "release_date": "2026-11-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 127.2,
+                                        "end": 216.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.1,
+                                        "end": 1413.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
