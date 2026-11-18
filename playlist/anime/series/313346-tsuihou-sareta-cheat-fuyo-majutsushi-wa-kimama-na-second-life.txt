@@ -107,7 +107,22 @@
                             "url": "https://app.akuma-stream.com/watch/08562e46-5f38-47c6-a0d8-b2fefba0289f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-04"
+                            "release_date": "2026-11-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 31.3,
+                                        "end": 120.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -248,7 +263,22 @@
                             "image": "https://image.tmdb.org/t/p/original/yHVJcUpFFLJNqcrmc3Xavpz75fX.jpg",
                             "url": "https://sv2.team-indy.net/video/FUWkV52PQE/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-18"
+                            "release_date": "2026-11-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 133.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

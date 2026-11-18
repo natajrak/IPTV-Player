@@ -158,7 +158,22 @@
                             "url": "https://app.akuma-stream.com/watch/71fb34a4-06a4-4c66-a8e9-0d2546731464",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-17"
+                            "release_date": "2026-08-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.3,
+                                        "end": 147.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1341,
+                                        "end": 1414.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - Stew & Ikura: \"Who Do You Choose, Me or Her?!\" Rice: \"I Love You Both!\"",
@@ -166,7 +181,22 @@
                             "url": "https://app.akuma-stream.com/watch/71be87c9-69a0-4b4b-93da-ddf570c075ea",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-08-24"
+                            "release_date": "2026-08-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1325.2,
+                                        "end": 1414.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
