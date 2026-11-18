@@ -29,7 +29,15 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
-const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.hostname === "192.168.1.101";
+function isLocalHost(host) {
+  if (host === "localhost" || /\.local$/i.test(host)) return true;
+  const m = /^(\d{1,3})\.(\d{1,3})\.\d{1,3}\.\d{1,3}$/.exec(host);
+  if (!m) return false;
+  const a = Number(m[1]);
+  const b = Number(m[2]);
+  return a === 127 || a === 10 || a === 192 && b === 168 || a === 172 && b >= 16 && b <= 31;
+}
+const IS_LOCAL_DEV = isLocalHost(location.hostname);
 function toLocalHlsProxy(url) {
   if (!IS_LOCAL_DEV || !/\/api\/hls-proxy\?/i.test(String(url || ""))) return url;
   try {

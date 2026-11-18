@@ -27,10 +27,19 @@ const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE =
   "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
-const IS_LOCAL_DEV =
-  location.hostname === "127.0.0.1" ||
-  location.hostname === "localhost" ||
-  location.hostname === "192.168.1.101";
+/**
+ * เปิดผ่าน server.js ในเครื่อง/วง LAN: localhost, 127.x, IP ส่วนตัว (10.x, 172.16–31.x, 192.168.x) หรือ *.local
+ * → โหลด playlist จากเครื่อง และใช้ HLS proxy ของ server.js
+ */
+function isLocalHost(host) {
+  if (host === "localhost" || /\.local$/i.test(host)) return true;
+  const m = /^(\d{1,3})\.(\d{1,3})\.\d{1,3}\.\d{1,3}$/.exec(host);
+  if (!m) return false;
+  const a = Number(m[1]);
+  const b = Number(m[2]);
+  return a === 127 || a === 10 || (a === 192 && b === 168) || (a === 172 && b >= 16 && b <= 31);
+}
+const IS_LOCAL_DEV = isLocalHost(location.hostname);
 /**
  * เปิดผ่าน server.js ในเครื่อง → stream ที่ห่อ hls-proxy (Vercel) เปลี่ยนไปใช้ /api/hls-proxy ของ server.js แทน
  * playlist ยังเก็บ URL ของ Vercel ไว้เหมือนเดิม
