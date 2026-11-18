@@ -8,6 +8,7 @@ const os           = require('os');
 const url          = require('url');
 const { spawn }    = require('child_process');
 const { createSkipAuto, SKIP_TABS } = require('./tools/lib/skip-auto');
+const { handleLocalHlsProxy } = require('./tools/lib/local-hls-proxy');
 
 const PORT      = process.env.PORT || 4000;
 const ROOT      = __dirname;
@@ -118,6 +119,12 @@ const server = http.createServer(async (req, res) => {
 
   const parsed   = new URL(req.url, `http://localhost:${PORT}`);
   const pathname = decodeURIComponent(parsed.pathname);
+
+  // ── GET /api/hls-proxy ── HLS proxy ในเครื่อง (หมวด AV) — แทน Vercel เมื่อเปิด player ผ่าน server นี้
+  if ((req.method === 'GET' || req.method === 'HEAD') && pathname === '/api/hls-proxy') {
+    await handleLocalHlsProxy(req, res, PORT);
+    return;
+  }
 
   // ── POST /api/run-fetch ────────────────────────────────────────
   if (req.method === 'POST' && pathname === '/api/run-fetch') {

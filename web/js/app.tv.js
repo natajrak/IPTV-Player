@@ -30,6 +30,15 @@ const pathBeforeWeb = location.pathname.split("/web/")[0] || "";
 const SITE_BASE_PATH = pathBeforeWeb === "/" ? "" : pathBeforeWeb;
 const RAW_GITHUB_BASE = "https://raw.githubusercontent.com/natajrak/IPTV-Player/refs/heads/main/";
 const IS_LOCAL_DEV = location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.hostname === "192.168.1.101";
+function toLocalHlsProxy(url) {
+  if (!IS_LOCAL_DEV || !/\/api\/hls-proxy\?/i.test(String(url || ""))) return url;
+  try {
+    const u = new URL(url);
+    return `${location.origin}${u.pathname}${u.search}`;
+  } catch (_unused) {
+    return url;
+  }
+}
 const PLAYLIST_URL = IS_LOCAL_DEV ? `${SITE_BASE_PATH}/playlist/main.txt` : `${RAW_GITHUB_BASE}playlist/main.txt`;
 const IS_NATIVE_APP = new URLSearchParams(location.search).get("app") === "1";
 if (IS_NATIVE_APP) document.documentElement.classList.add("bkl-app");
@@ -1369,7 +1378,7 @@ function attachHoverPreview(card, coverUrl) {
     if (video) {
       try {
         video.pause();
-      } catch (_unused) {}
+      } catch (_unused2) {}
       video.remove();
       video = null;
     }
@@ -1395,7 +1404,7 @@ function attachHoverPreview(card, coverUrl) {
         video.playsInline = true;
         wrap.appendChild(video);
         video.play().catch(() => {});
-      } catch (_unused2) {}
+      } catch (_unused3) {}
     }), PREVIEW_HOVER_DELAY);
   });
   card.addEventListener("mouseleave", teardown);
@@ -1711,7 +1720,7 @@ function _fetchPartStations() {
       const stations = (_node$stations3 = node.stations) !== null && _node$stations3 !== void 0 && _node$stations3.length ? node.stations : ((_node$groups2 = node.groups) === null || _node$groups2 === void 0 || (_node$groups2 = _node$groups2[0]) === null || _node$groups2 === void 0 ? void 0 : _node$groups2.stations) || [];
       moviePartCache[url] = stations;
       return stations;
-    } catch (_unused4) {
+    } catch (_unused5) {
       return [];
     }
   });
@@ -2024,6 +2033,7 @@ function setupVideoSource(url, referer, {
   startTime = 0,
   autoplay = true
 } = {}) {
+  url = toLocalHlsProxy(url);
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
   const isDirectMediaUrl = /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
   const hasHlsRuntime = typeof Hls !== "undefined";
@@ -2364,6 +2374,7 @@ function parseVttThumbnails(vttText, resolveImg) {
 }
 function getPreviewUrls(streamUrl) {
   if (!streamUrl) return null;
+  streamUrl = toLocalHlsProxy(streamUrl);
   let raw = streamUrl;
   let wrap = u => u;
   try {
@@ -2377,7 +2388,7 @@ function getPreviewUrls(streamUrl) {
         return w.href;
       };
     }
-  } catch (_unused3) {
+  } catch (_unused4) {
     return null;
   }
   const match = raw.match(/^(https?:\/\/.+\/)video\.m3u8(?:[?#]|$)/);

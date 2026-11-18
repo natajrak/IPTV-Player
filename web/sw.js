@@ -1,4 +1,4 @@
-const CACHE_NAME = "bkl-play-v78";
+const CACHE_NAME = "bkl-play-v79";
 const PLAYLIST_CACHE = "bkl-playlists-v1";
 const APP_SHELL = [
   "./",
@@ -72,6 +72,7 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(req.url);
 
   if (req.method !== "GET") return;
+  if (url.pathname.startsWith("/api/")) return;
 
   // Cross-origin: cache เฉพาะ playlist hosts ที่ระบุ (GitHub Raw)
   if (url.origin !== self.location.origin) {

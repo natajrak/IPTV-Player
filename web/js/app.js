@@ -31,6 +31,19 @@ const IS_LOCAL_DEV =
   location.hostname === "127.0.0.1" ||
   location.hostname === "localhost" ||
   location.hostname === "192.168.1.101";
+/**
+ * เปิดผ่าน server.js ในเครื่อง → stream ที่ห่อ hls-proxy (Vercel) เปลี่ยนไปใช้ /api/hls-proxy ของ server.js แทน
+ * playlist ยังเก็บ URL ของ Vercel ไว้เหมือนเดิม
+ */
+function toLocalHlsProxy(url) {
+  if (!IS_LOCAL_DEV || !/\/api\/hls-proxy\?/i.test(String(url || ""))) return url;
+  try {
+    const u = new URL(url);
+    return `${location.origin}${u.pathname}${u.search}`;
+  } catch {
+    return url;
+  }
+}
 const PLAYLIST_URL = IS_LOCAL_DEV
   ? `${SITE_BASE_PATH}/playlist/main.txt`
   : `${RAW_GITHUB_BASE}playlist/main.txt`;
@@ -2559,6 +2572,7 @@ function setupVideoSource(
   referer,
   { forceNative = false, startTime = 0, autoplay = true } = {},
 ) {
+  url = toLocalHlsProxy(url);
   const isHlsUrl = /\.m3u8($|\?)/i.test(String(url || ""));
   const isDirectMediaUrl =
     /\.(mp4|webm|ogg|mov|m4v|avi|mp3|aac|wav)($|\?)/i.test(String(url || ""));
@@ -3024,6 +3038,7 @@ function parseVttThumbnails(vttText, resolveImg) {
  */
 function getPreviewUrls(streamUrl) {
   if (!streamUrl) return null;
+  streamUrl = toLocalHlsProxy(streamUrl);
   let raw = streamUrl;
   let wrap = (u) => u;
   try {
