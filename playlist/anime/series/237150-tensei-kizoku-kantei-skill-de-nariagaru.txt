@@ -600,7 +600,17 @@
                             "url": "https://app.akuma-stream.com/watch/816d7ecd-febc-4e87-9011-6f41aca7a45a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-09-27"
+                            "release_date": "2026-09-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - Canarre in Crisis",
@@ -608,7 +618,22 @@
                             "url": "https://app.akuma-stream.com/watch/a367791b-c401-4ea5-a254-10cfce7c2964",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-10-04"
+                            "release_date": "2026-10-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 205.2,
+                                        "end": 294.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - Zaht and Braham",
@@ -616,7 +641,22 @@
                             "url": "https://app.akuma-stream.com/watch/2f1e9c4d-707b-4425-8ced-067c44125fa7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-10-11"
+                            "release_date": "2026-10-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1404.6
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
