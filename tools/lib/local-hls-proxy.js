@@ -35,15 +35,31 @@ async function handleLocalHlsProxy(req, res, port) {
     return;
   }
 
-  const outHeaders = {};
-  response.headers.forEach((value, name) => { outHeaders[name] = value; });
-  res.writeHead(response.status, outHeaders);
-  if (!response.body || req.method === 'HEAD') {
-    if (response.body) response.body.cancel().catch(() => {});
-    res.end();
+  const cancelBody = () => { if (response.body) response.body.cancel().catch(() => {}); };
+
+  /** ผู้ชมยกเลิกไประหว่างรอต้นทาง (seek / เปลี่ยนตอน) → pipe ลง socket ที่ปิดแล้วจะ throw จน server ดับ */
+  if (res.destroyed || res.writableEnded) {
+    cancelBody();
     return;
   }
-  pipeline(Readable.fromWeb(response.body), res, () => {});
+
+  let src = null;
+  try {
+    const outHeaders = {};
+    response.headers.forEach((value, name) => { outHeaders[name] = value; });
+    res.writeHead(response.status, outHeaders);
+    if (!response.body || req.method === 'HEAD') {
+      cancelBody();
+      res.end();
+      return;
+    }
+    src = Readable.fromWeb(response.body);
+    pipeline(src, res, () => {});
+  } catch {
+    if (src) src.destroy();
+    else cancelBody();
+    res.destroy();
+  }
 }
 
 module.exports = { handleLocalHlsProxy };
