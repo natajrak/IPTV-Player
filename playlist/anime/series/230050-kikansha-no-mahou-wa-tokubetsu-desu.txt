@@ -388,16 +388,60 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 6 - Arch Wizard",
+                            "image": "https://image.tmdb.org/t/p/original/y2CiwnwGoHAIBkIsL2ff7sPT9Zy.jpg",
+                            "url": "https://sv2.team-indy.net/video/07NsDihzMI/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.2,
+                                        "end": 238.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 7 - Awakening",
+                            "image": "https://image.tmdb.org/t/p/original/qSbxGylXkQUKYQRrc8ld27e05GZ.jpg",
+                            "url": "https://sv2.team-indy.net/video/ZngRUbQGDS/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1421
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-08",
-            "updated_at": "2026-11-05T00:00:00.000Z"
+            "updated_at": "2026-11-19T00:00:00.000Z"
         }
     ],
     "release_date": "2023-10-08",
-    "updated_at": "2026-11-05T00:00:00.000Z",
+    "updated_at": "2026-11-19T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",
