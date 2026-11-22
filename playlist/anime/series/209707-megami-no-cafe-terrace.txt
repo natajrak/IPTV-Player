@@ -784,7 +784,11 @@
                             "url": "https://app.akuma-stream.com/watch/5d5c21c4-7fca-4cbd-8137-14ee78d9168a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-09-20"
+                            "release_date": "2024-09-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
