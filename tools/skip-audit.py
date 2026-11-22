@@ -808,7 +808,7 @@ def _hls_key(uri, referer):
 def _segment_ts(seg_url, key, referer):
     """TS ของ segment หนึ่ง — ไม่เข้ารหัส: โหลดตรงแล้วตัด header ปลอม (_strip_to_ts)
     AES-128 (moji.abcdxzy ของ anime-your, 2026-11-23): ให้ ffmpeg ถอดผ่าน m3u8 ชั่วคราวที่มีแค่ key + segment นี้
-    โหลด key กับ segment เองแล้วถอดจากไฟล์ local (IV ตามสเปก: ค่า IV ใน tag หรือเลข media sequence ของ segment) — ไม่งั้นถอดเสียง/ภาพของ segment ไม่ได้เลย
+    โหลด key กับ segment เองแล้วถอดจากไฟล์ local (ffmpeg รันใน td อ้างไฟล์แบบ relative — ไม่มี drive letter/backslash ของ Windows ใน URL) (IV ตามสเปก: ค่า IV ใน tag หรือเลข media sequence ของ segment) — ไม่งั้นถอดเสียง/ภาพของ segment ไม่ได้เลย
     แล้วเช็คเวลาท้ายตอนไม่ผ่านทุกครั้ง ED จึงไม่เคยถูกขยับตามจุดตัดภาพ"""
     if not key:
         return _strip_to_ts(_http_get(seg_url, referer))
@@ -819,13 +819,12 @@ def _segment_ts(seg_url, key, referer):
         for name, data in (('seg.key', _hls_key(key['uri'], referer)), ('seg.ts', _http_get(seg_url, referer))):
             with open(os.path.join(td, name), 'wb') as f:
                 f.write(data)
-        m3u8 = os.path.join(td, 'seg.m3u8')
-        with open(m3u8, 'w', encoding='utf-8') as f:
+        with open(os.path.join(td, 'seg.m3u8'), 'w', encoding='utf-8', newline='\n') as f:
             f.write(f'#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:60\n#EXT-X-KEY:METHOD=AES-128,URI="seg.key",IV={iv}\n'
                     '#EXTINF:60,\nseg.ts\n#EXT-X-ENDLIST\n')
         cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-protocol_whitelist', 'file,crypto',
-               '-allowed_extensions', 'ALL', '-i', m3u8, '-map', '0', '-c', 'copy', '-f', 'mpegts', 'pipe:1']
-        out = subprocess.run(cmd, capture_output=True, timeout=120)
+               '-allowed_extensions', 'ALL', '-i', 'seg.m3u8', '-map', '0', '-c', 'copy', '-f', 'mpegts', 'pipe:1']
+        out = subprocess.run(cmd, capture_output=True, timeout=120, cwd=td)
     if out.returncode != 0 or not out.stdout:
         raise RuntimeError('ถอด segment AES-128 ไม่ได้: ' + out.stderr.decode('utf-8', 'replace').strip()[-200:])
     return out.stdout
@@ -1892,7 +1891,7 @@ def cmd_report(args):
     stations = {(track_name(season, track), i): st for season, track in walk_tracks(playlist) for i, st in enumerate(track.get('stations') or [])}
     _cross_track_check(report, {'stations': stations, 'feats': feats, 'cache_dir': cache_dir} if args.visual else None)
     if args.out:
-        with open(args.out, 'w', encoding='utf-8') as f:
+        with open(args.out, 'w', encoding='utf-8', newline='\n') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
     print_report(report)
 
@@ -2253,7 +2252,7 @@ def cmd_apply(args):
     out = json.dumps(playlist, ensure_ascii=False, indent=4)
     if raw.endswith('\n'):
         out += '\n'
-    with open(args.playlist, 'w', encoding='utf-8') as f:
+    with open(args.playlist, 'w', encoding='utf-8', newline='\n') as f:
         f.write(out)
     if args.json_out:
         _write_json_out(args.json_out, args.playlist, changes, marked)
@@ -2327,7 +2326,7 @@ def _write_json_out(path, playlist_path, changes, marked=()):
         ],
         'marked': [{'track': tn, 'label': label} for tn, label in marked],
     }
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
 
