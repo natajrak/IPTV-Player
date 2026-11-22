@@ -73,6 +73,7 @@ intro = หน้าเปิด/splash ของเว็บต้นทาง�
     ขอบเริ่มที่ยืนยันด้วยจุดตัดภาพแล้ว (_snap_to_video) ใช้ +VISUAL_START_SHIFT_SEC (0.2 วิ) แทน — ผู้ใช้ 2026-11-07: ข้ามให้เร็วขึ้นได้
     เพราะจุดตัดภาพแม่น ±0.1 วิ; และค่าเดิมที่ต่างจากขอบที่ยืนยันด้วยภาพเกิน VISUAL_FIX_TOL_SEC (0.3 วิ) ถือว่าต้องแก้ (fix) ไม่รอถึง tolerance 1.5 วิ
     (ค่าจาก build เก่าของ Misanthrope เร็วกว่าภาพ 0.6–0.9 วิ ค้างอยู่เพราะต่างไม่ถึง 1.5 วิ)
+    ขอบเริ่ม ED ที่เทียบภาพกับตอนข้างเคียงไม่ได้ → จุดตัดภาพแรงจุดแรกในช่วงเงียบหน้าเพลง (_silence_cut, ผู้ใช้ 2026-11-23) ใช้ +0.2 วิ และ tolerance 0.3 วิ เช่นกัน
 """
 
 import argparse
@@ -703,7 +704,7 @@ def _locate_audio(ref_bands, ref_t0, bands, expect_t):
 
 
 def _hls_media(url, referer):
-    """[(เริ่ม, ยาว, segment url)] จาก variant ที่เล็กที่สุด — [] เมื่อไม่มี หรือเป็น EXT-X-BYTERANGE
+    """[(เริ่ม, ยาว, segment url, key หรือ None)] จาก variant ที่เล็กที่สุด — [] เมื่อไม่มี หรือเป็น EXT-X-BYTERANGE
     (ทั้งเรื่องอยู่ไฟล์เดียว เช่น akuma-cdn ระดับ GB — segment url เดียวกันทุกท่อน โหลดตรงๆ ไม่ได้)"""
     text = _http_get(url, referer).decode('utf-8', 'replace')
     kind, items = _parse_m3u8(text, url)
@@ -716,8 +717,8 @@ def _hls_media(url, referer):
     if '#EXT-X-BYTERANGE' in text:
         return []
     out, cum = [], 0.0
-    for d, u in items:
-        out.append((cum, d, u))
+    for d, u, k in items:
+        out.append((cum, d, u, k))
         cum += d
     return out
 
@@ -730,10 +731,10 @@ def _tail_seek_error(url, referer, tail_bands, tail_offset, tail):
     'nomatch': หา segment ในเสียงท้ายไม่เจอ (คลาดเกิน SEEK_SEARCH_SEC หรือเสียงเสีย); 'error': โหลด/ถอดไม่ได้ชั่วคราว"""
     try:
         probe = tail_offset + tail / 2
-        seg = next(((start, u) for start, d, u in _hls_media(url, referer) if start <= probe < start + d), None)
+        seg = next(((start, u, k) for start, d, u, k in _hls_media(url, referer) if start <= probe < start + d), None)
         if not seg:
             return 'unverifiable', None
-        data = _strip_to_ts(_http_get(seg[1], referer))
+        data = _segment_ts(seg[1], seg[2], referer)
         with tempfile.TemporaryDirectory() as td:
             wav = os.path.join(td, 's.wav')
             res = subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-i', 'pipe:0', '-vn', '-ac', '1', '-ar', str(SR), wav],
@@ -768,13 +769,66 @@ def _parse_m3u8(text, base):
         return 'master', sorted(variants)
     segs = []
     dur = None
+    key = None
+    seq = 0
     for l in lines:
-        if l.startswith('#EXTINF:'):
+        if l.startswith('#EXT-X-MEDIA-SEQUENCE:'):
+            seq = int(l.split(':', 1)[1])
+        elif l.startswith('#EXT-X-KEY:'):
+            key = _parse_key(l, base)
+        elif l.startswith('#EXTINF:'):
             dur = float(l[8:].split(',')[0])
         elif not l.startswith('#') and dur is not None:
-            segs.append((dur, urllib.parse.urljoin(base, l)))
+            segs.append((dur, urllib.parse.urljoin(base, l), key and {**key, 'seq': seq}))
             dur = None
+            seq += 1
     return 'media', segs
+
+
+def _parse_key(line, base):
+    """#EXT-X-KEY → {'method', 'uri' (absolute), 'iv'} หรือ None (METHOD=NONE)"""
+    attrs = dict(re.findall(r'([A-Z0-9-]+)=("[^"]*"|[^,]*)', line.split(':', 1)[1]))
+    attrs = {k: v.strip('"') for k, v in attrs.items()}
+    method = attrs.get('METHOD', 'NONE')
+    if method == 'NONE':
+        return None
+    return {'method': method, 'uri': urllib.parse.urljoin(base, attrs.get('URI', '')), 'iv': attrs.get('IV')}
+
+
+_KEY_CACHE = {}
+
+
+def _hls_key(uri, referer):
+    """key AES-128 ของ playlist — ทุก segment ใช้ key เดียวกัน โหลดครั้งเดียวต่อ URI"""
+    if uri not in _KEY_CACHE:
+        _KEY_CACHE[uri] = _http_get(uri, referer)
+    return _KEY_CACHE[uri]
+
+
+def _segment_ts(seg_url, key, referer):
+    """TS ของ segment หนึ่ง — ไม่เข้ารหัส: โหลดตรงแล้วตัด header ปลอม (_strip_to_ts)
+    AES-128 (moji.abcdxzy ของ anime-your, 2026-11-23): ให้ ffmpeg ถอดผ่าน m3u8 ชั่วคราวที่มีแค่ key + segment นี้
+    โหลด key กับ segment เองแล้วถอดจากไฟล์ local (IV ตามสเปก: ค่า IV ใน tag หรือเลข media sequence ของ segment) — ไม่งั้นถอดเสียง/ภาพของ segment ไม่ได้เลย
+    แล้วเช็คเวลาท้ายตอนไม่ผ่านทุกครั้ง ED จึงไม่เคยถูกขยับตามจุดตัดภาพ"""
+    if not key:
+        return _strip_to_ts(_http_get(seg_url, referer))
+    if key['method'] != 'AES-128':
+        raise RuntimeError(f'segment เข้ารหัสแบบ {key["method"]} ถอดไม่ได้')
+    iv = key['iv'] or f'0x{key["seq"]:032x}'
+    with tempfile.TemporaryDirectory() as td:
+        for name, data in (('seg.key', _hls_key(key['uri'], referer)), ('seg.ts', _http_get(seg_url, referer))):
+            with open(os.path.join(td, name), 'wb') as f:
+                f.write(data)
+        m3u8 = os.path.join(td, 'seg.m3u8')
+        with open(m3u8, 'w', encoding='utf-8') as f:
+            f.write(f'#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:60\n#EXT-X-KEY:METHOD=AES-128,URI="seg.key",IV={iv}\n'
+                    '#EXTINF:60,\nseg.ts\n#EXT-X-ENDLIST\n')
+        cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-protocol_whitelist', 'file,crypto',
+               '-allowed_extensions', 'ALL', '-i', m3u8, '-map', '0', '-c', 'copy', '-f', 'mpegts', 'pipe:1']
+        out = subprocess.run(cmd, capture_output=True, timeout=120)
+    if out.returncode != 0 or not out.stdout:
+        raise RuntimeError('ถอด segment AES-128 ไม่ได้: ' + out.stderr.decode('utf-8', 'replace').strip()[-200:])
+    return out.stdout
 
 
 def _strip_to_ts(data):
@@ -799,26 +853,26 @@ def _extract_via_segments(url, referer, head, tail, hw, tw):
         kind, items = _parse_m3u8(_http_get(url, referer).decode('utf-8', 'replace'), url)
     if not items:
         raise RuntimeError('media playlist ไม่มี segment')
-    duration = sum(d for d, _ in items)
+    duration = sum(d for d, *_ in items)
     head_segs, cum = [], 0.0
-    for d, u in items:
+    for d, u, k in items:
         if cum >= head:
             break
-        head_segs.append(u)
+        head_segs.append((u, k))
         cum += d
     tail_offset = max(0.0, duration - tail)
     tail_segs, cum, tail_start = [], 0.0, 0.0
-    for d, u in items:
+    for d, u, k in items:
         if cum + d > tail_offset and tail_offset > 0:
             if not tail_segs:
                 tail_start = cum
-            tail_segs.append(u)
+            tail_segs.append((u, k))
         cum += d
     if tail_offset == 0:
         tail_segs = []
-    def decode(seg_url):
+    def decode(seg):
         """ถอดเสียงทีละ segment (timestamp ของแต่ละ segment อาจเริ่มใหม่ที่ 0 ต่อกันเป็นไฟล์เดียวไม่ได้) → PCM s16le mono 8 kHz"""
-        data = _strip_to_ts(_http_get(seg_url, referer))
+        data = _segment_ts(*seg, referer)
         cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-i', 'pipe:0', '-vn', '-ac', '1', '-ar', str(SR), '-f', 's16le', 'pipe:1']
         out = subprocess.run(cmd, input=data, capture_output=True, timeout=120)
         if out.returncode != 0 or len(out.stdout) < 2 * SR:
@@ -940,6 +994,8 @@ def detect_track(episodes, feats, start_shift=0.0, end_shift=0.0):
         ed = _extend_ed_tail(_consensus(tail_regions), fi) if fi['tail_offset'] > 0 else None
         if ed:
             ed['clipped'] = bool(ed['start'] - fi['tail_offset'] <= 1.0)
+            if not ed['clipped']:
+                _mark_lead_silence(ed, fi)
             ed['clean_start'] = _clean_start(fi, ed, [(r[3], r[4]) for r in tail_regions if _overlap(ed['start'], ed['song_end'], r[0], r[1]) >= 0.5])
         credits = _detect_credits(fi) if fi['tail_offset'] > 0 else None
         if credits and ed and credits['start'] - ed['end'] <= CREDITS_MERGE_GAP_SEC:
@@ -1232,10 +1288,10 @@ def _frames_via_segments(url, referer, t0, length):
     total = int(round(length * VISUAL_FPS))
     out = np.zeros((total, VISUAL_H, VISUAL_W), dtype=np.uint8)
     filled = np.zeros(total, dtype=bool)
-    for s0, d, seg_url in items:
+    for s0, d, seg_url, key in items:
         if s0 + d <= t0 or s0 >= t0 + length:
             continue
-        data = _strip_to_ts(_http_get(seg_url, referer))
+        data = _segment_ts(seg_url, key, referer)
         cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-i', 'pipe:0', '-an',
                '-vf', f'fps={VISUAL_FPS},scale={VISUAL_W}:{VISUAL_H},format=gray', '-f', 'rawvideo', 'pipe:1']
         res = subprocess.run(cmd, input=data, capture_output=True, timeout=120)
@@ -1448,10 +1504,15 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
         others = [frames[(order[j], kind, side)] for j in range(pos - NEIGHBOR_SPAN, pos + NEIGHBOR_SPAN + 1)
                   if j != pos and 0 <= j < len(order) and (order[j], kind, side) in frames]
         found = _visual_edge(win, others, side, edges[key][3])
-        if not found:
-            continue
         r = det[idx]
         region = r[kind]
+        silence = False
+        if not found and kind == 'ed' and side == 0 and region.get('lead_silence') \
+                and not (region.get('trimmed') or region.get('extended') or region.get('from_end')):
+            tau = _silence_cut(win, edges[key][0], region['lead_silence'])
+            found, silence = (tau, None) if tau is not None else None, True
+        if not found:
+            continue
         tau = found[0]
         if side == 0:
             new = round(max(0.0, edges[key][0] + tau + VISUAL_START_SHIFT_SEC), 1)
@@ -1468,7 +1529,10 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
             region['end'] = new
             if 'song_end' in region:
                 region['song_end'] = new
-        region.setdefault('visual', {})['start' if side == 0 else 'end'] = round(tau, 2)
+        if silence:
+            region['silence_cut'] = round(tau, 2)
+        else:
+            region.setdefault('visual', {})['start' if side == 0 else 'end'] = round(tau, 2)
         snapped += 1
     log(f'  🎞 ขอบตามจุดตัดภาพ {snapped}/{len(edges)} ขอบ (ดึงภาพได้ {len(frames)})')
 
@@ -1484,6 +1548,46 @@ def _shift(region, start_delta, end_delta):
         if r.get('clean_start') is not None:
             r['clean_start'] = round(r['clean_start'] + start_delta, 1)
     return region
+
+
+def _mark_lead_silence(ed, fi):
+    """ช่วงเงียบหน้าเพลงปิด (ก่อนปรับขอบ) → ed['lead_silence'] = (เริ่มเงียบ, เพลงเริ่ม) ให้ _snap_to_video หาจุดตัดภาพในช่วงนี้
+    ช่วงเงียบนี้ปนฉากจบที่กำลังเฟดกับต้นภาพ ED ที่เพลงยังไม่ขึ้น — เกณฑ์ SILENCE_FLOOR ต่ำมากจนเสียงฉากที่กำลังเฟดนับเป็นเงียบ
+    (The Eminence in Shadow S2 ตอน 4: เงียบ 1328.8 ภาพตัดเข้า ED 1330.04 เพลง 1330.5 — ผู้ใช้อนุมัติ 2026-11-23)
+    ขอบเสียงอยู่ในช่วงเงียบ (_extend_over_silence ครอบไว้) หรือหยุดก่อนเข้าช่วงเงียบไม่เกิน SILENCE_BLIP_SEC"""
+    bands = fi['tail']['bands']
+    if not len(bands):
+        return
+    quiet = np.log(np.exp(bands.astype(np.float32)).sum(axis=1)) < SILENCE_FLOOR
+    to = fi['tail_offset']
+    k = int(round((ed['start'] - to) * FPS))
+    stop = min(len(quiet), int(round((_song_end(ed) - to) * FPS)))
+    lead = next((i for i in range(max(0, k), min(stop, k + int(SILENCE_BLIP_SEC * FPS) + 1)) if quiet[i]), None)
+    if lead is None:
+        return
+    j = lead
+    while j < stop and quiet[j]:
+        j += 1
+    if j > lead:
+        ed['lead_silence'] = (round(to + lead / FPS, 2), round(to + j / FPS, 2))
+
+
+def _silence_cut(win, t, lead_silence):
+    """จุดตัดภาพแรง (เกณฑ์เดียวกับ _visual_edge) จุดแรกในช่วงเงียบหน้าเพลง — τ วินาทีจากขอบเสียง t หรือ None
+    ใช้เมื่อเทียบภาพกับตอนข้างเคียงไม่ได้ (ภาพ ED ต่างกันทุกตอน เช่น The Eminence in Shadow) แต่จุดเข้า ED เป็นภาพตัดชัด
+    จุดแรก = ฉากจบ→ภาพ ED; จุดตัดหลังจากนั้นในช่วงเงียบเป็นจังหวะภาพต้น ED (Eminence S1: ฉาก→จอดำ 1330.0 แล้วดำ→สว่างทีละขั้น 1330.3, 1330.7–1330.9)"""
+    frames, centre = win
+    diff = np.abs(np.diff(frames.astype(np.float32), axis=0)).mean(axis=(1, 2))
+    local = np.array([np.median(diff[max(0, k - VISUAL_FPS):k + VISUAL_FPS + 1]) for k in range(len(diff))])
+    floor = VISUAL_CUT_FACTOR * np.minimum(np.median(diff), local) + VISUAL_CUT_MIN
+    s0, s1 = lead_silence
+    for k in range(len(diff)):
+        tau = (k + 1 - centre) / VISUAL_FPS
+        if diff[k] <= floor[k] or diff[k] < diff[max(0, k - 2):k + 3].max():
+            continue
+        if s0 - SILENCE_BLIP_SEC <= t + tau <= s1:
+            return tau
+    return None
 
 
 def _extend_ed_tail(ed, fi):
@@ -1700,7 +1804,7 @@ def verdict(existing, detected, tol, error=None):
         visual = detected.get('visual') or {}
         ds = round(detected['start'] - float(existing['start']), 1)
         de = round(detected['end'] - float(existing['end']), 1)
-        tol_s = VISUAL_FIX_TOL_SEC if visual.get('start') is not None else tol
+        tol_s = VISUAL_FIX_TOL_SEC if visual.get('start') is not None or detected.get('silence_cut') is not None else tol
         tol_e = VISUAL_FIX_TOL_SEC if visual.get('end') is not None else tol
         return ('ok' if abs(ds) <= tol_s and abs(de) <= tol_e else 'fix'), ds, de
     if existing and not detected:
@@ -1883,6 +1987,9 @@ def _adopt_other_track(ep, kind, dt, od, other_track, pair=None, other_duration=
     dt.pop('visual', None)
     if od.get('visual'):
         dt['visual'] = dict(od['visual'])
+    dt.pop('silence_cut', None)
+    if od.get('silence_cut') is not None:
+        dt['silence_cut'] = od['silence_cut']
     ep[kind]['from_track'] = other_track.split('/')[-1]
     if ep[kind]['existing']:
         v, ds, de = verdict(ep[kind]['existing'], dt, DEFAULT_TOLERANCE)
@@ -1980,6 +2087,8 @@ def print_report(report):
                     notes.append(f'{kind} ต้นเพลงอยู่ก่อนช่วงเสียงท้ายที่ดึงมา ขยายตามความยาวกลาง {dt["extended"]:.1f}s')
                 if dt and dt.get('visual'):
                     notes.append(f'{kind} ตามจุดตัดภาพ ' + ' '.join(f'{k} {v:+.2f}s' for k, v in dt['visual'].items()))
+                if dt and dt.get('silence_cut') is not None:
+                    notes.append(f'{kind} เริ่มที่จุดตัดภาพในช่วงเงียบหน้าเพลง {dt["silence_cut"]:+.2f}s')
                 if dt and dt.get('from_end'):
                     notes.append(f'{kind} ขยายต้นเพลงย้อนจากจุดจบตามความยาวเพลงเต็ม {dt["from_end"]:.1f}s')
                 if dt and dt.get('to_eof'):

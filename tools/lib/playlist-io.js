@@ -122,8 +122,9 @@ function stampPlaylist(playlist, tmdbResult, isMovie) {
 function buildOrMergePlaylist({
   outputPath, seriesTitle, posterUrl, seasonPosterUrl, stations,
   trackName, trackReferer = null, tmdbSeasonName = null,
-  seasonName, seasonNum, epOffset = 0, splitEps = '', seasonConfig = null,
+  seasonName, seasonNum, epOffset = 0, splitEps = '', seasonConfig = null, mergeByLabel = false,
 }) {
+  /** mergeByLabel: แทน/เพิ่มทีละตอนตาม label เหมือนโหมด append (--abs-episodes — track หนึ่งมาจากหลายหน้าเว็บ) */
   /**
    * config ของ season ที่แยกจาก TMDB season ใหญ่ (ep_offset, tmdb_season, missing_eps, external_eps, skip_src)
    * เก็บลงไฟล์ให้รอบถัดไป/CMS ใช้ — ค่าว่างไม่ทับค่าเดิม
@@ -191,7 +192,7 @@ function buildOrMergePlaylist({
       season.groups = season.groups || [];
       const existingTrack = season.groups.find((g) => g.name === trackName);
       const trackImage = isSplitSeason(season) && season.image ? season.image : seasonPosterUrl;
-      if (epOffset > 0 && existingTrack && Array.isArray(existingTrack.stations)) {
+      if ((epOffset > 0 || mergeByLabel) && existingTrack && Array.isArray(existingTrack.stations)) {
         const fetchedLabels = new Set(stations.map(stationLabelOf).filter(Boolean));
         const kept = existingTrack.stations.filter((s) => !fetchedLabels.has(stationLabelOf(s)));
         const replaced = existingTrack.stations.length - kept.length;
@@ -201,10 +202,12 @@ function buildOrMergePlaylist({
         existingTrack.stations = merged;
         existingTrack.image = trackImage;
         if (trackReferer && existingTrack.referer) {
-          const oldRefs = existingTrack.referer.split(',').map((s) => s.trim());
-          if (!oldRefs.includes(trackReferer)) {
-            existingTrack.referer = oldRefs.concat(trackReferer).join(',');
+          const norm = (u) => u.replace(/\/+$/, '');
+          const refs = existingTrack.referer.split(',').map((u) => u.trim()).filter(Boolean);
+          for (const u of trackReferer.split(',').map((x) => x.trim()).filter(Boolean)) {
+            if (!refs.some((r) => norm(r) === norm(u))) refs.push(u);
           }
+          existingTrack.referer = refs.join(',');
         } else if (trackReferer) {
           existingTrack.referer = trackReferer;
         }

@@ -53,6 +53,7 @@ function parseArgs(argv = process.argv) {
 
   const seasonMap = get('--season-map');
   const multiSeason = args.includes('--multi-season');
+  const absEpisodes = args.includes('--abs-episodes');
 
   const chainBase = get('--chain-base');
 
@@ -86,6 +87,7 @@ function parseArgs(argv = process.argv) {
     autoSplit,
     seasonMap,
     multiSeason,
+    absEpisodes,
     partNum,
     typeArg,
     chainBase,

@@ -24,6 +24,7 @@
  *   --auto-split      ตรวจจับตอนพิเศษเองจาก runtime ของ TMDB — ใช้เมื่อจำนวนตอน
  *                     ลงตัวเป๊ะเท่านั้น (ถ้าใส่ --split-eps เองจะใช้ค่าที่ใส่)
  *   --only-new        ใช้ stream URL เดิมของตอนที่มีในไฟล์อยู่แล้ว ดึงใหม่เฉพาะตอนใหม่ (series)
+ *   --abs-episodes    เลขตอนบนเว็บเป็นเลขรวมทั้งเรื่อง → แบ่งลง season ตามช่วงสะสมของ TMDB (lib/abs-episodes.js)
  *
  * ─── หมายเหตุ ────────────────────────────────────────────────────────────
  *   - Stream หลัก: server 👑 (MP4 ตรง) https://sv2.team-indy.net/video/{HASH}/video.mp4
@@ -49,6 +50,7 @@ const { buildEpisodeMap, applyMeasuredSplit } = require('./lib/episode-map');
 const { prepareMultiSeason, episodeAt, writeMultiSeason } = require('./lib/season-map');
 const { carryOverFetchedSkips } = require('./lib/skip-times');
 const { createStreamReuse } = require('./lib/stream-reuse');
+const absMode = require('./lib/abs-episodes');
 
 loadEnv(__dirname);
 
@@ -56,7 +58,7 @@ const cli = parseArgs();
 let { seriesUrl, tmdbKey, customOutput, mainSlugArg, idPrefixArg,
       trackName, isDubbedTrack, seasonNum, seasonName,
       updateMeta, updateMetaMode, noTouch, forceTmdbId, tmdbSeasonNum,
-      epOffset, splitEps, autoSplit, seasonMap, multiSeason, typeArg, filterTrack, onlyNew } = cli;
+      epOffset, splitEps, autoSplit, seasonMap, multiSeason, absEpisodes, typeArg, filterTrack, onlyNew } = cli;
 const epOffsetArg = cli.get('--ep-offset');
 
 if (!seriesUrl && !updateMeta) {
@@ -280,6 +282,9 @@ async function main() {
   }
 
   try {
+    const absFlagError = absMode.checkAbsFlags({ absEpisodes, hasFlag: cli.hasFlag, isMovie });
+    if (absFlagError) throw new Error(absFlagError);
+
     const urls = seriesUrl.split(',').map((u) => u.trim()).filter(Boolean);
     const isMultiUrl = urls.length > 1;
     let rawTitle = '', rawPoster = '';
@@ -290,7 +295,8 @@ async function main() {
       const result = await parseSeriesPage(urls[ui]);
       if (ui === 0) { rawTitle = result.title; rawPoster = result.posterImg; }
 
-      utils.continueLabelNumbering(episodes, result.episodes);
+      for (const ep of result.episodes) ep.pageUrl = urls[ui];
+      if (!absEpisodes) utils.continueLabelNumbering(episodes, result.episodes);
       episodes.push(...result.episodes);
       if (isMultiUrl) console.log(`  ✅ พบ ${result.episodes.length} ตอน (รวม ${episodes.length})`);
     }
@@ -376,7 +382,16 @@ async function main() {
       }
     }
 
-    const ms = await prepareMultiSeason({
+    const abs = absEpisodes ? absMode.assignEpisodes({ episodes, tmdbShow }) : null;
+    const absData = abs
+      ? await absMode.loadSeasonData({ ...abs, tmdbShow, tmdbKey, isDubbedTrack, posterUrl })
+      : null;
+    if (abs) {
+      episodes = abs.items.map((it) => it.ep);
+      if (cli.hasFlag('--season')) console.log('ℹ️  --abs-episodes: ไม่ใช้ --season (season มาจากเลขตอนรวม)');
+    }
+
+    const ms = abs ? null : await prepareMultiSeason({
       sourceCount: episodes.length, tmdbShow, tmdbKey, isDubbedTrack, posterUrl,
       multiSeason, seasonMap, isMovie,
       ignoredFlags: {
@@ -398,6 +413,8 @@ async function main() {
     const resolvedIdPrefix = idPrefixArg || String(tmdbShow?.id || '');
     const outputFile = resolvedIdPrefix ? `${resolvedIdPrefix}-${slugFile}` : slugFile;
     const outputPath = path.resolve(PLAYLIST_DIR, outputFile);
+    const absFileError = absMode.checkAbsFile({ absEpisodes, outputPath });
+    if (absFileError) throw new Error(absFileError);
 
     const reuse = createStreamReuse({
       enabled: onlyNew && !isMovie, previous: io.loadPrevious(outputPath, cli.chainBase), chainBase: !!cli.chainBase,
@@ -414,7 +431,9 @@ async function main() {
       process.stdout.write(`  ตอน ${epLabel}/${episodes.length}...`);
 
       let tmdbEpNum, label, tmdbEp;
-      if (ms) {
+      if (abs) {
+        ({ label, tmdbEp } = absMode.tmdbEpisodeOf(absData.get(abs.items[i].seasonNum), abs.items[i].abs));
+      } else if (ms) {
         ({ label, tmdbEp } = episodeAt(ms, i));
       } else if (epMap) {
         ({ epNum: tmdbEpNum, label } = epMap[i]);
@@ -427,7 +446,8 @@ async function main() {
           : null;
       }
 
-      const old = reuse.find(label, { notUrls: [ep.url], season: ms ? `Season ${ms.assign[i].seasonNum}` : null });
+      const epSeason = abs ? abs.items[i].seasonNum : ms ? ms.assign[i].seasonNum : null;
+      const old = reuse.find(label, { notUrls: [ep.url], season: epSeason ? `Season ${epSeason}` : null });
       let streamUrl = old?.url || null;
       if (old) {
         process.stdout.write(' ♻️  ใช้ลิงก์เดิม');
@@ -460,7 +480,7 @@ async function main() {
     }
     reuse.summary();
 
-    if (autoSplit && !splitEps && !isMovie && !ms) {
+    if (autoSplit && !splitEps && !isMovie && !ms && !abs) {
       resolvedSplitEps = await applyMeasuredSplit({ stations, tmdbEpisodes, epOffset, isDubbedTrack });
     }
 
@@ -498,6 +518,24 @@ async function main() {
         updatedAt: mainPlaylist.updated_at,
         seasonCount: null, completion: null,
         partCount: mainPlaylist.part_count ?? null,
+      });
+    } else if (abs) {
+      const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);
+      if (!stations.length) throw new Error('--abs-episodes: ไม่มีตอนที่ลง season ของ TMDB ได้เลย');
+      const playlist = absMode.writeAbsEpisodes({
+        items: abs.items, stations, data: absData, outputPath, seriesTitle, posterUrl, trackName,
+      });
+      carryOverFetchedSkips({ playlist, seasons: [...absData.keys()], previous: previousPlaylist });
+      io.stampPlaylist(playlist, tmdbShow, false);
+      fs.writeFileSync(outputPath, JSON.stringify(playlist, null, 4), 'utf-8');
+      console.log(`\n📁 บันทึกไฟล์: ${outputPath}`);
+      io.updateIndex({
+        indexPath: INDEX_PATH, githubRawBase: GITHUB_RAW_BASE,
+        seriesTitle, posterUrl, filename: outputFile, upsert: true,
+        releaseDate: playlist.release_date || '',
+        updatedAt: playlist.updated_at,
+        seasonCount: playlist.season_count ?? null,
+        completion: playlist.completion ?? null,
       });
     } else if (ms) {
       const previousPlaylist = io.loadPrevious(outputPath, cli.chainBase);

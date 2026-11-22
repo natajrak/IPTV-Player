@@ -21,7 +21,7 @@
                                 "edited": true,
                                 "segments": [
                                     {
-                                        "type": "ed",
+                                        "type": "op",
                                         "start": 1013.5,
                                         "end": 1073.5
                                     },
@@ -40,7 +40,8 @@
                             "referer": "https://animeyour.com/",
                             "release_date": "2022-10-12",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
                                     {
                                         "type": "op",
@@ -49,7 +50,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1329.5,
+                                        "start": 1330.5,
                                         "end": 1440
                                     }
                                 ]

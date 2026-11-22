@@ -46,7 +46,9 @@ const REPORT_TIMEOUT_MS = 30 * 60 * 1000;
 const REPORT_MS_PER_STATION = 4 * 60 * 1000;
 const APPLY_TIMEOUT_MS = 60 * 1000;
 const WAIT_POLL_MS = 1000;
-const EXTRA_PATH = ['/opt/homebrew/bin', '/usr/local/bin'];
+const IS_WINDOWS = process.platform === 'win32';
+/** ที่ติดตั้ง ffmpeg ของ Homebrew (mac) — Windows ใช้ PATH ของระบบตามเดิม */
+const EXTRA_PATH = IS_WINDOWS ? [] : ['/opt/homebrew/bin', '/usr/local/bin'];
 const KIND_SEGMENT_TYPES = { op: ['op', 'mixed-op'], ed: ['ed', 'mixed-ed'], intro: ['intro'] };
 const WORKER_ORIGIN = 'https://shy-haze-2452.natajrak-p.workers.dev';
 const WORKER_RESET_DELAY_MS = 2 * 60 * 1000;
@@ -56,9 +58,9 @@ function argValue(args, flag) {
   return a ? a.slice(flag.length + 1) : '';
 }
 
-/** season/track ที่ fetch ครั้งนี้เขียน — ต้องระบุ --season และ --track และไม่ใช่โหมดหลาย season ไม่งั้น null */
+/** season/track ที่ fetch ครั้งนี้เขียน — ต้องระบุ --season และ --track และไม่ใช่โหมดหลาย season (--multi-season/--season-map/--abs-episodes) ไม่งั้น null */
 function targetTrackOf(args) {
-  if (args.includes('--multi-season') || argValue(args, '--season-map')) return null;
+  if (args.includes('--multi-season') || args.includes('--abs-episodes') || argValue(args, '--season-map')) return null;
   const seasonNum = parseInt(argValue(args, '--season'), 10);
   const trackArg = argValue(args, '--track');
   if (!Number.isFinite(seasonNum) || !trackArg) return null;
@@ -124,7 +126,9 @@ const toBangkokTime = (ms) => new Date(ms).toLocaleString('th-TH', { timeZone: '
  */
 function createSkipAuto({ root, playlistDirOf }) {
   const toolsDir = path.join(root, 'tools');
-  const python = path.join(toolsDir, '.venv-skip', 'bin', 'python');
+  const python = IS_WINDOWS
+    ? path.join(toolsDir, '.venv-skip', 'Scripts', 'python.exe')
+    : path.join(toolsDir, '.venv-skip', 'bin', 'python');
   const script = path.join(toolsDir, 'skip-audit.py');
   const workDir = path.join(toolsDir, '.skip-audit-cache', 'auto');
   const logPath = path.join(toolsDir, '.skip-audit-cache', 'auto-jobs.log');
@@ -235,7 +239,9 @@ function createSkipAuto({ root, playlistDirOf }) {
 
   function run(args, timeoutMs) {
     return new Promise((resolve) => {
-      const env = { ...process.env, PATH: [...EXTRA_PATH, process.env.PATH || ''].join(':'), PYTHONUNBUFFERED: '1' };
+      /** PYTHONUTF8: Windows ใช้ encoding ของ locale (cp1252/cp874) กับ stdout ที่ต่อ pipe — print ข้อความไทย/สัญลักษณ์แล้ว UnicodeEncodeError ทุกงาน */
+      const env = { ...process.env, PYTHONUNBUFFERED: '1', PYTHONUTF8: '1' };
+      if (EXTRA_PATH.length) env.PATH = [...EXTRA_PATH, process.env.PATH || ''].join(path.delimiter);
       const proc = spawn(python, [script, ...args], { cwd: toolsDir, env });
       activeProc = proc;
       let stdout = '';
@@ -253,10 +259,11 @@ function createSkipAuto({ root, playlistDirOf }) {
     });
   }
 
-  /** หยุด python พร้อม ffmpeg/ffprobe ที่มันเรียก (process ลูกโดยตรง) */
+  /** หยุด python พร้อม ffmpeg/ffprobe ที่มันเรียก — mac: pkill ลูกโดยตรง, Windows: taskkill ทั้ง tree */
   function killTree(proc) {
     try {
-      spawnSync('pkill', ['-TERM', '-P', String(proc.pid)]);
+      if (IS_WINDOWS) spawnSync('taskkill', ['/PID', String(proc.pid), '/T', '/F']);
+      else spawnSync('pkill', ['-TERM', '-P', String(proc.pid)]);
     } catch {}
     try {
       proc.kill();
