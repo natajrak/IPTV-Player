@@ -17,8 +17,14 @@
                             "referer": "https://animeyour.com/",
                             "release_date": "2022-10-05",
                             "skip": {
-                                "source": "audit",
+                                "source": "manual",
+                                "edited": true,
                                 "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1012.5,
+                                        "end": 1073.5
+                                    },
                                     {
                                         "type": "ed",
                                         "start": 1330,
