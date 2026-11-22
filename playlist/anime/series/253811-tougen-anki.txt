@@ -16,168 +16,518 @@
                             "image": "https://image.tmdb.org/t/p/original/2GzS012iY43EIijGpk7vMQx8qd4.jpg",
                             "url": "https://sv2.team-indy.net/video/j2iZuegLHv/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-11"
+                            "release_date": "2025-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1344.4,
+                                        "end": 1433
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ถ้าอยากไปถึงเป้าหมาย ก็ต้องชนะไปเรื่อยๆ",
                             "image": "https://image.tmdb.org/t/p/original/wQqR7ohZVpQaGgqky3TkVsZSeO1.jpg",
                             "url": "https://sv2.team-indy.net/video/EAefXJlLj/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-18"
+                            "release_date": "2025-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.2,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1360.4,
+                                        "end": 1434.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - ปลดปล่อยคราสโลหิต",
                             "image": "https://image.tmdb.org/t/p/original/kInybbaSdSPdFw4yZ9aUTuPlJvI.jpg",
                             "url": "https://sv2.team-indy.net/video/XU7n2JiBah/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-25"
+                            "release_date": "2025-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - จงให้ความร่วมมือซะ",
                             "image": "https://image.tmdb.org/t/p/original/pzpIfkSloYxiduWdc1friR8aMdH.jpg",
                             "url": "https://sv2.team-indy.net/video/lmJZTbrN4g/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-01"
+                            "release_date": "2025-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 175.2,
+                                        "end": 264.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1111.3,
+                                        "end": 1200.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Bad News",
                             "image": "https://image.tmdb.org/t/p/original/pRPYAQK14xBTOoX4RBQerlUrdkT.jpg",
                             "url": "https://sv2.team-indy.net/video/IeiZwGJ7HC/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-08"
+                            "release_date": "2025-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Even the Loner Path Has Its Limits",
                             "image": "https://image.tmdb.org/t/p/original/7ApHssm8Al5io22Ug7UIhFkSLu.jpg",
                             "url": "https://sv2.team-indy.net/video/tP1OxM5Of/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-15"
+                            "release_date": "2025-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 172.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - The Beauty is a Beast",
                             "image": "https://image.tmdb.org/t/p/original/kJbrmuADG4gIMox8TdIB0FtImyB.jpg",
                             "url": "https://sv2.team-indy.net/video/eJfdHr6n2J/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-22"
+                            "release_date": "2025-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.2,
+                                        "end": 233.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Unreliable Hero",
                             "image": "https://image.tmdb.org/t/p/original/jAl8pnnmjkwWTMlVW2DKhFMVxa6.jpg",
                             "url": "https://sv2.team-indy.net/video/viC0NVGIJY/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-29"
+                            "release_date": "2025-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.3,
+                                        "end": 259.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Momotaro Spirit",
                             "image": "https://image.tmdb.org/t/p/original/aP9DzvfKhiC1pgVJA0ZKGONL7jQ.jpg",
                             "url": "https://sv2.team-indy.net/video/I6kPtGvTzK/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-05"
+                            "release_date": "2025-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.2,
+                                        "end": 140.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Kishin's Child",
                             "image": "https://image.tmdb.org/t/p/original/tRr5ZzZ3ONK7OrcHIR1npaXoD1t.jpg",
                             "url": "https://sv2.team-indy.net/video/sMSFEINyXY/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-12"
+                            "release_date": "2025-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.1,
+                                        "end": 135
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316,
+                                        "end": 1405.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Thank You!",
                             "image": "https://image.tmdb.org/t/p/original/ir83eQh8vGz7sGP7DPXI6KIskYG.jpg",
                             "url": "https://sv2.team-indy.net/video/ErdObnxEuN/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-19"
+                            "release_date": "2025-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Day of the Storm",
                             "image": "https://image.tmdb.org/t/p/original/lmPJ118wfFKyZz3Fn3jOaupSRsO.jpg",
                             "url": "https://sv2.team-indy.net/video/7YguMAnOsV/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-26"
+                            "release_date": "2025-09-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 114.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.3,
+                                        "end": 1408.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Mikado, Like Gate of the Gods",
                             "image": "https://image.tmdb.org/t/p/original/ej71zJZ1wNJAMM4n8MJ0UyOwB7o.jpg",
                             "url": "https://sv2.team-indy.net/video/MrlQuwsmW4/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-03"
+                            "release_date": "2025-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.2,
+                                        "end": 189.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1229.5,
+                                        "end": 1318.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Personal Rule",
                             "image": "https://image.tmdb.org/t/p/original/eOmlT7q3eXDtos41M3kaMuThcmF.jpg",
                             "url": "https://sv2.team-indy.net/video/xvYC3C5dl/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-10"
+                            "release_date": "2025-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.8,
+                                        "end": 145.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Found You",
                             "image": "https://image.tmdb.org/t/p/original/z8NC3dLzbVr4KJa2i8ubhFaU7eV.jpg",
                             "url": "https://sv2.team-indy.net/video/b7Z7G098WB/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-24"
+                            "release_date": "2025-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.6,
+                                        "end": 1436.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Not So Bad",
                             "image": "https://image.tmdb.org/t/p/original/pFJsGgZXnuwo72MHN6YEguzB1P4.jpg",
                             "url": "https://sv2.team-indy.net/video/DGJwOo5ZMn/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-31"
+                            "release_date": "2025-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.5,
+                                        "end": 230.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - The Vengeful Oni",
                             "image": "https://image.tmdb.org/t/p/original/55ACWUo2GUE6RyYzE5LHBLzpyTW.jpg",
                             "url": "https://sv2.team-indy.net/video/lRPk9q3WZl/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-07"
+                            "release_date": "2025-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.5,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - Haunted by Doubt",
                             "image": "https://image.tmdb.org/t/p/original/97oimAncHfsPfUaS9raWYWrVhHq.jpg",
                             "url": "https://sv2.team-indy.net/video/hucUB68nYI/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-14"
+                            "release_date": "2025-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 195.2,
+                                        "end": 285.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1240.3,
+                                        "end": 1329.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - The Voice of the Weak",
                             "image": "https://image.tmdb.org/t/p/original/s0vAuM9ohXBy18snjY9Ydg7wz8I.jpg",
                             "url": "https://sv2.team-indy.net/video/igMZklnX8i/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-21"
+                            "release_date": "2025-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.2,
+                                        "end": 151.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - Rage vs. Rage",
                             "image": "https://image.tmdb.org/t/p/original/72KoiqgwzOU6RbCvOkDkphWYgYf.jpg",
                             "url": "https://sv2.team-indy.net/video/T4wTLScR54/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-28"
+                            "release_date": "2025-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 124.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - Flawless Fortune",
                             "image": "https://image.tmdb.org/t/p/original/zUJ4tEzruTgoUmFT9DGcogucVuG.jpg",
                             "url": "https://sv2.team-indy.net/video/RpN21heGJU/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-05"
+                            "release_date": "2025-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 165.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.5,
+                                        "end": 1436.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - A Futile Battle",
                             "image": "https://image.tmdb.org/t/p/original/tV2yq6dChBxLMwddddQxdoL5vfT.jpg",
                             "url": "https://sv2.team-indy.net/video/aLh5Cj285O/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-12"
+                            "release_date": "2025-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.2,
+                                        "end": 191.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.4,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - My Friend",
                             "image": "https://image.tmdb.org/t/p/original/koAPeZjUErtn9TozcoZNLAPZOks.jpg",
                             "url": "https://sv2.team-indy.net/video/PwAnr940er/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-19"
+                            "release_date": "2025-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.5,
+                                        "end": 1436.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - Until We Meet Again",
                             "image": "https://image.tmdb.org/t/p/original/hsENUWU3QG5g8daioIl9iKntvcL.jpg",
                             "url": "https://sv2.team-indy.net/video/oM5Qn64738/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-26"
+                            "release_date": "2025-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1093.6,
+                                        "end": 1182.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -192,168 +542,518 @@
                             "image": "https://image.tmdb.org/t/p/original/2GzS012iY43EIijGpk7vMQx8qd4.jpg",
                             "url": "https://sv2.team-indy.net/video/ThqypwqYF/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-11"
+                            "release_date": "2025-07-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1344.3,
+                                        "end": 1433
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - If You Want to Make It, Keep On Winning",
                             "image": "https://image.tmdb.org/t/p/original/wQqR7ohZVpQaGgqky3TkVsZSeO1.jpg",
                             "url": "https://sv2.team-indy.net/video/ybc6W2OtKR/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-18"
+                            "release_date": "2025-07-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1361.3,
+                                        "end": 1435.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Blood Eclipse Release",
                             "image": "https://image.tmdb.org/t/p/original/kInybbaSdSPdFw4yZ9aUTuPlJvI.jpg",
                             "url": "https://sv2.team-indy.net/video/AmFIFzVTn0/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-07-25"
+                            "release_date": "2025-07-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Work with Me",
                             "image": "https://image.tmdb.org/t/p/original/pzpIfkSloYxiduWdc1friR8aMdH.jpg",
                             "url": "https://sv2.team-indy.net/video/S3NOi2dPwi/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-01"
+                            "release_date": "2025-08-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 176.2,
+                                        "end": 265.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1112.3,
+                                        "end": 1201.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Bad News",
                             "image": "https://image.tmdb.org/t/p/original/pRPYAQK14xBTOoX4RBQerlUrdkT.jpg",
                             "url": "https://sv2.team-indy.net/video/L7LKuWN4I9/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-08"
+                            "release_date": "2025-08-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60.3,
+                                        "end": 149.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Even the Loner Path Has Its Limits",
                             "image": "https://image.tmdb.org/t/p/original/7ApHssm8Al5io22Ug7UIhFkSLu.jpg",
                             "url": "https://sv2.team-indy.net/video/ItCrdqpUK4/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-15"
+                            "release_date": "2025-08-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 83.2,
+                                        "end": 172.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - The Beauty is a Beast",
                             "image": "https://image.tmdb.org/t/p/original/kJbrmuADG4gIMox8TdIB0FtImyB.jpg",
                             "url": "https://sv2.team-indy.net/video/LZ3tBYexrB/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-22"
+                            "release_date": "2025-08-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 144.2,
+                                        "end": 233.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Unreliable Hero",
                             "image": "https://image.tmdb.org/t/p/original/jAl8pnnmjkwWTMlVW2DKhFMVxa6.jpg",
                             "url": "https://sv2.team-indy.net/video/G6JJZDAtKk/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-08-29"
+                            "release_date": "2025-08-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 170.2,
+                                        "end": 259.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Momotaro Spirit",
                             "image": "https://image.tmdb.org/t/p/original/aP9DzvfKhiC1pgVJA0ZKGONL7jQ.jpg",
                             "url": "https://sv2.team-indy.net/video/D5GbVpDVna/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-05"
+                            "release_date": "2025-09-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 51.2,
+                                        "end": 138
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Kishin's Child",
                             "image": "https://image.tmdb.org/t/p/original/tRr5ZzZ3ONK7OrcHIR1npaXoD1t.jpg",
                             "url": "https://sv2.team-indy.net/video/hyw99D6u2m/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-12"
+                            "release_date": "2025-09-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 49.2,
+                                        "end": 138.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.1,
+                                        "end": 1406.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Thank You!",
                             "image": "https://image.tmdb.org/t/p/original/ir83eQh8vGz7sGP7DPXI6KIskYG.jpg",
                             "url": "https://sv2.team-indy.net/video/2262zoXgJe/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-19"
+                            "release_date": "2025-09-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Day of the Storm",
                             "image": "https://image.tmdb.org/t/p/original/lmPJ118wfFKyZz3Fn3jOaupSRsO.jpg",
                             "url": "https://sv2.team-indy.net/video/aric5upps4/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-09-26"
+                            "release_date": "2025-09-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 114.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1319.2,
+                                        "end": 1408.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - Mikado, Like Gate of the Gods",
                             "image": "https://image.tmdb.org/t/p/original/ej71zJZ1wNJAMM4n8MJ0UyOwB7o.jpg",
                             "url": "https://sv2.team-indy.net/video/Nuxoy9rTUG/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-03"
+                            "release_date": "2025-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 101.2,
+                                        "end": 191
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1229.2,
+                                        "end": 1318.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 14 - Personal Rule",
                             "image": "https://image.tmdb.org/t/p/original/eOmlT7q3eXDtos41M3kaMuThcmF.jpg",
                             "url": "https://sv2.team-indy.net/video/fG2F2H6w03/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-10"
+                            "release_date": "2025-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 56.2,
+                                        "end": 146.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Found You",
                             "image": "https://image.tmdb.org/t/p/original/z8NC3dLzbVr4KJa2i8ubhFaU7eV.jpg",
                             "url": "https://sv2.team-indy.net/video/2AhlFB9rem/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-24"
+                            "release_date": "2025-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.4,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 16 - Not So Bad",
                             "image": "https://image.tmdb.org/t/p/original/pFJsGgZXnuwo72MHN6YEguzB1P4.jpg",
                             "url": "https://sv2.team-indy.net/video/vv83BkImdu/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-10-31"
+                            "release_date": "2025-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 141.2,
+                                        "end": 230.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 17 - The Vengeful Oni",
                             "image": "https://image.tmdb.org/t/p/original/55ACWUo2GUE6RyYzE5LHBLzpyTW.jpg",
                             "url": "https://sv2.team-indy.net/video/TuMd4C59aQ/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-07"
+                            "release_date": "2025-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 18 - Haunted by Doubt",
                             "image": "https://image.tmdb.org/t/p/original/97oimAncHfsPfUaS9raWYWrVhHq.jpg",
                             "url": "https://sv2.team-indy.net/video/Y2HZXfClAO/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-14"
+                            "release_date": "2025-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 195.2,
+                                        "end": 285
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1240.2,
+                                        "end": 1329.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - The Voice of the Weak",
                             "image": "https://image.tmdb.org/t/p/original/s0vAuM9ohXBy18snjY9Ydg7wz8I.jpg",
                             "url": "https://sv2.team-indy.net/video/deZG2BPu08/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-21"
+                            "release_date": "2025-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 62.2,
+                                        "end": 151.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 20 - Rage vs. Rage",
                             "image": "https://image.tmdb.org/t/p/original/72KoiqgwzOU6RbCvOkDkphWYgYf.jpg",
                             "url": "https://sv2.team-indy.net/video/BtbZvEJdz6/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-11-28"
+                            "release_date": "2025-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 125.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1436
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Flawless Fortune",
                             "image": "https://image.tmdb.org/t/p/original/zUJ4tEzruTgoUmFT9DGcogucVuG.jpg",
                             "url": "https://sv2.team-indy.net/video/PlEGkIcjFx/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-05"
+                            "release_date": "2025-12-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 76.2,
+                                        "end": 165.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 22 - A Futile Battle",
                             "image": "https://image.tmdb.org/t/p/original/tV2yq6dChBxLMwddddQxdoL5vfT.jpg",
                             "url": "https://sv2.team-indy.net/video/3Okz4awfyT/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-12"
+                            "release_date": "2025-12-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.2,
+                                        "end": 192.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.3,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - My Friend",
                             "image": "https://image.tmdb.org/t/p/original/koAPeZjUErtn9TozcoZNLAPZOks.jpg",
                             "url": "https://sv2.team-indy.net/video/6kxQqEk8lj/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-19"
+                            "release_date": "2025-12-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1346.2,
+                                        "end": 1435.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Until We Meet Again",
                             "image": "https://image.tmdb.org/t/p/original/hsENUWU3QG5g8daioIl9iKntvcL.jpg",
                             "url": "https://sv2.team-indy.net/video/w8AXIBMh6t/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2025-12-26"
+                            "release_date": "2025-12-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "ed",
+                                        "start": 1093.9,
+                                        "end": 1182.8
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"

@@ -17,7 +17,22 @@
                             "url": "https://app.akuma-stream.com/watch/3af93753-3949-4f7e-8f30-3b8b17c00732",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-08"
+                            "release_date": "2023-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.3,
+                                        "end": 231.6
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1326.2,
+                                        "end": 1414.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - A Promise with Grandma",
@@ -25,7 +40,22 @@
                             "url": "https://app.akuma-stream.com/watch/e08dcaec-937d-4df0-92c7-7fe4bc992ac3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-15"
+                            "release_date": "2023-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.3,
+                                        "end": 166.6
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1333.1,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - Opening",
@@ -33,7 +63,17 @@
                             "url": "https://app.akuma-stream.com/watch/d95206e8-a426-4d39-b7a6-9e2b0d1f0c98",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-22"
+                            "release_date": "2023-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.3,
+                                        "end": 162.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - Cherry Blossom Festival!",
@@ -41,7 +81,17 @@
                             "url": "https://app.akuma-stream.com/watch/840a92be-f8c9-4830-95a1-942349a4c7f2",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-29"
+                            "release_date": "2023-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Day Off",
@@ -49,7 +99,22 @@
                             "url": "https://app.akuma-stream.com/watch/0bb26a43-5654-4371-9af3-729496cfa6af",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-06"
+                            "release_date": "2023-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1421.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Two Months!",
@@ -57,7 +122,22 @@
                             "url": "https://app.akuma-stream.com/watch/0c4f5a67-2eb0-4df5-964e-c99668457b6d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-13"
+                            "release_date": "2023-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.4,
+                                        "end": 146.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.4,
+                                        "end": 1421.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - A Year in My Life",
@@ -65,7 +145,17 @@
                             "url": "https://app.akuma-stream.com/watch/1681083e-23f6-4298-b999-6efad5407bef",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-20"
+                            "release_date": "2023-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.3,
+                                        "end": 157.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - A Beach Hut!",
@@ -73,7 +163,22 @@
                             "url": "https://app.akuma-stream.com/watch/0e150540-c14a-46e8-8c90-b9714441fb9b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-27"
+                            "release_date": "2023-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.3,
+                                        "end": 238.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.4,
+                                        "end": 1379.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Riho and Her Past",
@@ -81,7 +186,22 @@
                             "url": "https://app.akuma-stream.com/watch/0a86e193-4049-4491-a3ff-98a0041b4284",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-03"
+                            "release_date": "2023-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.4,
+                                        "end": 180.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.4,
+                                        "end": 1406.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Ouka and Kikka",
@@ -89,7 +209,22 @@
                             "url": "https://app.akuma-stream.com/watch/292f4fab-fa3d-448e-98cb-ec68d1fbacfb",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-10"
+                            "release_date": "2023-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.4,
+                                        "end": 176.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1406.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Fireworks of Love",
@@ -97,7 +232,22 @@
                             "url": "https://app.akuma-stream.com/watch/444802e6-a878-43e7-a226-dae00f85843a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-17"
+                            "release_date": "2023-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.4,
+                                        "end": 136.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.2,
+                                        "end": 1377.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - Two Encounters",
@@ -105,7 +255,11 @@
                             "url": "https://app.akuma-stream.com/watch/99644301-cbb0-456c-8eaa-bc7cf530d183",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-24"
+                            "release_date": "2023-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
@@ -121,7 +275,17 @@
                             "url": "https://app.akuma-stream.com/watch/112a3bb9-6e90-4aeb-99a9-e93833872a7f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-08"
+                            "release_date": "2023-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 142.2,
+                                        "end": 231.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - A Promise with Grandma",
@@ -129,7 +293,17 @@
                             "url": "https://app.akuma-stream.com/watch/88e2d010-1faf-4fef-b7f5-a3665e0eabdf",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-15"
+                            "release_date": "2023-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 77.2,
+                                        "end": 166.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Opening",
@@ -137,7 +311,17 @@
                             "url": "https://app.akuma-stream.com/watch/05a4f810-b825-43f9-a6db-880d0edfb581",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-22"
+                            "release_date": "2023-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 73.3,
+                                        "end": 162.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Cherry Blossom Festival!",
@@ -145,7 +329,17 @@
                             "url": "https://app.akuma-stream.com/watch/e35f5c4e-79cc-4031-9754-c4552d252873",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-04-29"
+                            "release_date": "2023-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 65.3,
+                                        "end": 154.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - Day Off",
@@ -153,7 +347,22 @@
                             "url": "https://app.akuma-stream.com/watch/7ac166e8-3fca-4753-b478-3fdb113f4b14",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-06"
+                            "release_date": "2023-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 88.3,
+                                        "end": 177.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1421.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Two Months!",
@@ -161,7 +370,22 @@
                             "url": "https://app.akuma-stream.com/watch/fcd1b1ac-3345-4147-983b-da2098a612da",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-13"
+                            "release_date": "2023-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1421.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - A Year in My Life",
@@ -169,7 +393,17 @@
                             "url": "https://app.akuma-stream.com/watch/4845c0b5-644b-4ff5-832d-69360dd9f1d1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-20"
+                            "release_date": "2023-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 68.2,
+                                        "end": 157.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - A Beach Hut!",
@@ -177,7 +411,22 @@
                             "url": "https://app.akuma-stream.com/watch/aeb60b0c-4024-4b8a-9769-eda7cbbcb930",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-05-27"
+                            "release_date": "2023-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 149.3,
+                                        "end": 238.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1290.3,
+                                        "end": 1379.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - Riho and Her Past",
@@ -185,7 +434,22 @@
                             "url": "https://app.akuma-stream.com/watch/180d69e4-58da-414f-b2e9-83e6a8a7b9ee",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-03"
+                            "release_date": "2023-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 91.3,
+                                        "end": 180.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1406.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Ouka and Kikka",
@@ -193,7 +457,22 @@
                             "url": "https://app.akuma-stream.com/watch/c58c4a8a-ea3a-4d6c-a629-1a1594c6222d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-10"
+                            "release_date": "2023-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 176.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.2,
+                                        "end": 1406.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - Fireworks of Love",
@@ -201,7 +480,22 @@
                             "url": "https://app.akuma-stream.com/watch/cef4f64e-7f99-4e31-8499-341e06de26a1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-17"
+                            "release_date": "2023-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.3,
+                                        "end": 136.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1288.2,
+                                        "end": 1377.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Two Encounters",
@@ -209,7 +503,11 @@
                             "url": "https://app.akuma-stream.com/watch/b190464f-e428-4edb-a8a7-eebecd007bf5",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-06-24"
+                            "release_date": "2023-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": []
+                            }
                         }
                     ],
                     "status": "completed"
