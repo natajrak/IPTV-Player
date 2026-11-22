@@ -164,16 +164,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 8 - Duel",
+                            "image": "https://image.tmdb.org/t/p/original/7npcAGrJwL2d15k5YM2Tj4HdMCD.jpg",
+                            "url": "https://sv2.team-indy.net/video/MEIgQi9tze/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.2,
+                                        "end": 116.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1282.6,
+                                        "end": 1371
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-04",
-            "updated_at": "2026-11-15T00:00:00.000Z"
+            "updated_at": "2026-11-22T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-04",
-    "updated_at": "2026-11-15T00:00:00.000Z",
+    "updated_at": "2026-11-22T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

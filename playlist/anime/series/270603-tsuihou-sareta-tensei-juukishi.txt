@@ -272,6 +272,13 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 13 - Lacoryna, City of Adventurers",
+                            "image": "https://image.tmdb.org/t/p/original/7JMkQTaoAD0Z5vRRxQp6cFvJ0J9.jpg",
+                            "url": "https://moji.abcdxzy.xyz:8443/vod/9Dj99Yi5Jt/video.mp4/playlist.m3u8",
+                            "referer": "https://animeyour.com/",
+                            "release_date": "2026-09-25"
                         }
                     ]
                 },
@@ -720,7 +727,22 @@
                             "image": "https://image.tmdb.org/t/p/original/c1YweJZcvXqRLoBPVPiBCit2vf4.jpg",
                             "url": "https://sv2.team-indy.net/video/kIgAzdTNhy/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-20"
+                            "release_date": "2026-11-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 135.2,
+                                        "end": 224.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1300.2,
+                                        "end": 1389.4
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

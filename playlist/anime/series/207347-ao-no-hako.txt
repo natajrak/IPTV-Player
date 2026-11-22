@@ -702,6 +702,28 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 32 - I Need to Tell You Something",
+                            "image": "https://image.tmdb.org/t/p/original/S2QfFGwXoN27RhIzuawhSuDH4K.jpg",
+                            "url": "https://sv2.team-indy.net/video/C85JV8RWyE/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1331.1,
+                                        "end": 1535.2
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -1269,11 +1291,11 @@
                 }
             ],
             "release_date": "2024-10-03",
-            "updated_at": "2026-11-15T00:00:00.000Z"
+            "updated_at": "2026-11-22T00:00:00.000Z"
         }
     ],
     "release_date": "2024-10-03",
-    "updated_at": "2026-11-15T00:00:00.000Z",
+    "updated_at": "2026-11-22T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

@@ -372,6 +372,29 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "ตอน 18 - The Twelve Heavenly Star, Sagittarius Appeared!",
+                            "image": "https://image.tmdb.org/t/p/original/vdVuszMNzPoMw4EXnl1AaVxBIW.jpg",
+                            "url": "https://app.akuma-stream.com/watch/149e9b9a-f987-4ec0-a110-23ad5455bf5b",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 115.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -819,16 +842,39 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 21 - The Vampire Princess, Benetnasch Appeared!",
+                            "image": "https://image.tmdb.org/t/p/original/xKE024hUTBdGTuFdpE10vMbmICP.jpg",
+                            "url": "https://app.akuma-stream.com/watch/df0c0440-902f-4ba7-ad63-574444036b21",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2025-10-04",
-            "updated_at": "2026-11-21T00:00:00.000Z"
+            "updated_at": "2026-11-28T00:00:00.000Z"
         }
     ],
     "release_date": "2025-10-04",
-    "updated_at": "2026-11-21T00:00:00.000Z",
+    "updated_at": "2026-11-28T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",

@@ -184,16 +184,38 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 9 - Fia, to Sutherland",
+                            "image": "https://image.tmdb.org/t/p/original/tNRzj7OUeh3kf1Fy3DmwIeGtmTW.jpg",
+                            "url": "https://sv2.team-indy.net/video/ElOf40uPhC/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 85.2,
+                                        "end": 174.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1323.7,
+                                        "end": 1415.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-03",
-            "updated_at": "2026-11-21T00:00:00.000Z"
+            "updated_at": "2026-11-28T00:00:00.000Z"
         }
     ],
     "release_date": "2026-10-03",
-    "updated_at": "2026-11-21T00:00:00.000Z",
+    "updated_at": "2026-11-28T00:00:00.000Z",
     "season_count": 1,
     "completion": {
         "status": "incomplete",
