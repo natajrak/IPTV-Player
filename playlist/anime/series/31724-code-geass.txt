@@ -12,207 +12,582 @@
                 {
                     "name": "พากย์ไทย",
                     "image": "https://image.tmdb.org/t/p/original/jSk1zsthAJ16F4i8e3LDXPwlrk2.jpg",
-                    "referer": "https://animehdzero.net/anime/470",
+                    "referer": "https://ahdzero.com/anime/6998",
                     "stations": [
                         {
                             "name": "ตอน 1 - The Day a New Demon was Born",
                             "image": "https://image.tmdb.org/t/p/original/7743zcmvllIdjT9xP3eGCJrkwpb.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0781e17d-57b7-4be1-a7a3-076486ceb71a",
+                            "url": "https://app.akuma-stream.com/watch/7e94c3a1-db97-4a2a-9eeb-f6864c8a0259",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-10-05"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-10-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.3,
+                                        "end": 193.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1357.8,
+                                        "end": 1447.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - The White Knight Awakens",
                             "image": "https://image.tmdb.org/t/p/original/slXDfYleN9CpptEnk3rIZ1bW0jb.jpg",
-                            "url": "https://control.akuma-stream.com/watch/ce89fbe0-cee7-47d1-ad64-0fe157a032ac",
+                            "url": "https://app.akuma-stream.com/watch/49853ee7-3694-410b-8d67-5654b0a772f4",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-10-12"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-10-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.3,
+                                        "end": 123.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - The False Classmate",
                             "image": "https://image.tmdb.org/t/p/original/iXyNONTe6vRsCmeEPFQ15LAw1fN.jpg",
-                            "url": "https://control.akuma-stream.com/watch/50934123-db2b-4e10-ae3f-90ff5f40943f",
+                            "url": "https://app.akuma-stream.com/watch/d259a5d4-f7a7-4135-8e05-313e449bfec4",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-10-19"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-10-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.3,
+                                        "end": 124.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - His Name is Zero",
                             "image": "https://image.tmdb.org/t/p/original/1YfshRFqiioIAfo2thM0iHYp4lE.jpg",
-                            "url": "https://control.akuma-stream.com/watch/662256ee-dec0-40fb-9321-632aeb2e2d62",
+                            "url": "https://app.akuma-stream.com/watch/2109e758-c867-4596-b7bb-5eddf57cba27",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-10-26"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-10-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.4,
+                                        "end": 129.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.4,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - The Princess and the Witch",
                             "image": "https://image.tmdb.org/t/p/original/x5Wx2DmNnx7PrVFaMnQGpket5cz.jpg",
-                            "url": "https://control.akuma-stream.com/watch/5c25f7ea-0799-40ab-ba6b-928c240b9a79",
+                            "url": "https://app.akuma-stream.com/watch/c5fa913f-8daf-490e-8533-bdd92258c2bd",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-11-02"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-11-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 70.3,
+                                        "end": 160.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.6,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - The Stolen Mask",
                             "image": "https://image.tmdb.org/t/p/original/kOVnpAgYzvE4nbsTfRr1Lq0GEWU.jpg",
-                            "url": "https://control.akuma-stream.com/watch/d6133ced-3bd4-4a37-a9f5-5448399c99c5",
+                            "url": "https://app.akuma-stream.com/watch/96647603-e70f-46b4-891b-dfb4c08211ef",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-11-09"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-11-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.3,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - Attack Cornelia",
                             "image": "https://image.tmdb.org/t/p/original/yY4NhL6oMyvozFKWgKrR5WoPniP.jpg",
-                            "url": "https://control.akuma-stream.com/watch/c2e8c491-afa6-4232-b79d-403693378841",
+                            "url": "https://app.akuma-stream.com/watch/78405428-d3bc-4854-8926-346439467f37",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-11-16"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-11-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 130.4,
+                                        "end": 220.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - The Black Knights",
                             "image": "https://image.tmdb.org/t/p/original/5Gt3v3hKTkH5ytbZdAJfuzXepbQ.jpg",
-                            "url": "https://control.akuma-stream.com/watch/35d7a3db-2676-4345-ba49-d4d536387dee",
+                            "url": "https://app.akuma-stream.com/watch/bd1a79c6-c049-48e3-9be4-214d07259f0e",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-11-23"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-11-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 129.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - Refrain",
                             "image": "https://image.tmdb.org/t/p/original/jaIpq2Fb6X41NqOE79JuKIrKTfa.jpg",
-                            "url": "https://control.akuma-stream.com/watch/2e85701f-eca6-4063-b2a0-932c855acd3a",
+                            "url": "https://app.akuma-stream.com/watch/fcc1f755-b67a-445e-985b-c93890579184",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-12-07"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-12-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.9,
+                                        "end": 124.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - Guren Dances",
                             "image": "https://image.tmdb.org/t/p/original/xNtjHZk5iPes7l1GJ3iUzOjyVP0.jpg",
-                            "url": "https://control.akuma-stream.com/watch/5fbdeedd-ded8-428f-afad-b38504cdf0b9",
+                            "url": "https://app.akuma-stream.com/watch/1f07b105-54ef-4582-b968-b38b15fc8742",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-12-14"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-12-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.8,
+                                        "end": 124.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - Battle for Narita",
                             "image": "https://image.tmdb.org/t/p/original/zzca9NdYKuaRt1N0oGf9SfocOS8.jpg",
-                            "url": "https://control.akuma-stream.com/watch/8c88f223-58f4-422c-a277-e38cef7384f1",
+                            "url": "https://app.akuma-stream.com/watch/cd6deff4-1e15-49a0-a71c-814d27cc9526",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2006-12-21"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2006-12-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 63.3,
+                                        "end": 150.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - The Messenger from Kyoto",
                             "image": "https://image.tmdb.org/t/p/original/51gv7uAUWM6McBO280KO4pplYZ3.jpg",
-                            "url": "https://control.akuma-stream.com/watch/b436cde0-5337-4110-9275-1badb5312eb0",
+                            "url": "https://app.akuma-stream.com/watch/89024ce6-4d88-4691-91a4-1b5c0b3c3d53",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-01-04"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-01-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 38.3,
+                                        "end": 126.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - Shirley at Gunpoint",
                             "image": "https://image.tmdb.org/t/p/original/fO1AnhafwAlvx0qeZSnH2ecGHLW.jpg",
-                            "url": "https://control.akuma-stream.com/watch/b15100f8-fe79-43a3-b3cd-32bf6a98f296",
+                            "url": "https://app.akuma-stream.com/watch/db17f031-14a6-4027-b73c-d798c1ae70da",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-01-11"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-01-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.5,
+                                        "end": 140.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.2,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - Geass vs. Geass",
                             "image": "https://image.tmdb.org/t/p/original/3m4AQqm5CZYb12AdQtCDh0oOf4C.jpg",
-                            "url": "https://control.akuma-stream.com/watch/9174bba2-dc3c-44e2-86bb-1a424dac94bb",
+                            "url": "https://app.akuma-stream.com/watch/868faffa-2b2d-41ca-b424-1e6e353459e2",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-01-18"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-01-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 140.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.1,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - Cheering Mao",
                             "image": "https://image.tmdb.org/t/p/original/iWzBQtQqo0m0rAcSM97SXC5aSmI.jpg",
-                            "url": "https://control.akuma-stream.com/watch/06d808bb-c8b3-40c0-8ee9-6dfb35cef76f",
+                            "url": "https://app.akuma-stream.com/watch/13ddbb76-8401-42ae-99cf-7cc05206fd9c",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-01-25"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-01-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.6,
+                                        "end": 130.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - Nunnally Held Hostage",
                             "image": "https://image.tmdb.org/t/p/original/87q1x8uiuJOe8VUkJYgEjC9jx6p.jpg",
-                            "url": "https://control.akuma-stream.com/watch/8344f0b4-cc55-41f4-90df-731685befdee",
+                            "url": "https://app.akuma-stream.com/watch/aa298059-e10f-44cc-bdd0-4d3244121d29",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-02-01"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-02-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 47.3,
+                                        "end": 130.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1336.8,
+                                        "end": 1428.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - Knight",
                             "image": "https://image.tmdb.org/t/p/original/nayjMU2vW7a0Ktxfonb9EVv2DMS.jpg",
-                            "url": "https://control.akuma-stream.com/watch/2b27f076-85af-4455-99c7-7e03a1007199",
+                            "url": "https://app.akuma-stream.com/watch/cc3bb232-d676-4146-a829-dc4f7f349bf9",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-02-08"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-02-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.2,
+                                        "end": 120.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.2,
+                                        "end": 1428.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - I Order you, Suzaku Kururugi",
                             "image": "https://image.tmdb.org/t/p/original/7D5PwXEMXk9Q906RtApIrnS5ZWY.jpg",
-                            "url": "https://control.akuma-stream.com/watch/e0cb2ca3-4202-4c9b-aa16-79d724dbf8b3",
+                            "url": "https://app.akuma-stream.com/watch/abff6b56-bed7-4a4c-8bb3-107b42a756be",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-02-22"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-02-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 37.1,
+                                        "end": 121.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.1,
+                                        "end": 1427.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - Island of the Gods",
                             "image": "https://image.tmdb.org/t/p/original/pH0iK1U0U2L88ztKCSpeSZmP7yp.jpg",
-                            "url": "https://control.akuma-stream.com/watch/62743c1a-3488-4cf0-906c-251ec50da369",
+                            "url": "https://app.akuma-stream.com/watch/38ebd423-03e6-471e-a93b-f3a9a010d796",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-03-01"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-03-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.2,
+                                        "end": 120.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1338.3,
+                                        "end": 1427.5
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "name": "ตอน 20 - Battle for  Kyushu",
+                            "name": "ตอน 20 - Battle for Kyushu",
                             "image": "https://image.tmdb.org/t/p/original/55MobtYAYtaSTHVHtrU2m5NBqIY.jpg",
-                            "url": "https://control.akuma-stream.com/watch/396c8a9f-10d3-46df-b90f-da7598e5c543",
+                            "url": "https://app.akuma-stream.com/watch/328f7c07-7024-44bd-aa77-345a5f5dc6b9",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-03-08"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-03-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 50.3,
+                                        "end": 140.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - The School Festival Declaration",
                             "image": "https://image.tmdb.org/t/p/original/4Zi4b8HEdwi1J5sXqgJ5Af9wMwn.jpg",
-                            "url": "https://control.akuma-stream.com/watch/ae308fe9-0d94-4f5d-92c4-daeee3c3797b",
+                            "url": "https://app.akuma-stream.com/watch/c3513d18-cb1d-42cd-9cee-c47099f0a93f",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-03-15"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-03-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 33.7,
+                                        "end": 120.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.6,
+                                        "end": 1428.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - Bloodstained Euphy",
                             "image": "https://image.tmdb.org/t/p/original/gVPmHFRD8LPblWfRjHJx1sfolt0.jpg",
-                            "url": "https://control.akuma-stream.com/watch/2e2389ab-bab1-43a3-903b-d492ccfc47ee",
+                            "url": "https://app.akuma-stream.com/watch/c7d37f5b-a121-4236-8ba6-9b651e04bf37",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-03-22"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-03-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 87.3,
+                                        "end": 177.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.8,
+                                        "end": 1427.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - At Least with Sorrow",
                             "image": "https://image.tmdb.org/t/p/original/zTLuhiG4rzfGSSeTXpbaTTon9yn.jpg",
-                            "url": "https://control.akuma-stream.com/watch/be525a66-8842-4abc-9167-77d5925c9d36",
+                            "url": "https://app.akuma-stream.com/watch/9b3313cc-89fb-4fef-a9e5-4f84a7929391",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-03-29"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-03-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 18.7,
+                                        "end": 109.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - The Collapsing Stage",
                             "image": "https://image.tmdb.org/t/p/original/iszwAEeiZwmLPi875TojXNYVttF.jpg",
-                            "url": "https://control.akuma-stream.com/watch/72796cd1-cf77-41d5-be5d-1ee8946fb4b9",
+                            "url": "https://app.akuma-stream.com/watch/580ff6f5-1cfe-48ed-895a-a69d45fca5a4",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-07-28"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 184.6,
+                                        "end": 267.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.5,
+                                        "end": 1427.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - Zero",
                             "image": "https://image.tmdb.org/t/p/original/zdtl6hkKb1dac4PU53ijwrxu0sn.jpg",
-                            "url": "https://control.akuma-stream.com/watch/e91b1152-2d0d-4266-8934-81a97e243924",
+                            "url": "https://app.akuma-stream.com/watch/8d60ae5d-116b-414a-bc82-7b7586662a9b",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
-                            "release_date": "2007-07-28"
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2007-07-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 199.6,
+                                        "end": 286.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1337.2,
+                                        "end": 1447.4
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -231,206 +606,206 @@
                 {
                     "name": "พากย์ไทย",
                     "image": "https://image.tmdb.org/t/p/original/wtDXWzKIsQ0ZNrtAqlJH8hCqJDH.jpg",
-                    "referer": "https://animehdzero.net/anime/471",
+                    "referer": "https://ahdzero.com/anime/6999",
                     "stations": [
                         {
                             "name": "ตอน 1 - The Day a Demon Awakens",
                             "image": "https://image.tmdb.org/t/p/original/70suga2bp7o1gEm1NCWQKNtkjOQ.jpg",
-                            "url": "https://control.akuma-stream.com/watch/3bcfc402-f4e5-4fc9-a516-feef40980a04",
+                            "url": "https://app.akuma-stream.com/watch/9b447ebd-feff-4911-9659-069a48430bc5",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-04-06"
                         },
                         {
                             "name": "ตอน 2 - Plan for Independent Japan",
                             "image": "https://image.tmdb.org/t/p/original/sJ65CKrpSzQk37jd3OP8GAffHxL.jpg",
-                            "url": "https://control.akuma-stream.com/watch/52328c4d-7770-4593-9d38-cf568423fbc2",
+                            "url": "https://app.akuma-stream.com/watch/674fde12-5e51-4894-8a55-6f9e4eaa9444",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-04-13"
                         },
                         {
                             "name": "ตอน 3 - Imprisoned in Campus",
                             "image": "https://image.tmdb.org/t/p/original/S3xdIwlR6skKEWQVpYRD2rvz0n.jpg",
-                            "url": "https://control.akuma-stream.com/watch/3c09ed55-be02-4f43-8118-c024f62918ac",
+                            "url": "https://app.akuma-stream.com/watch/e3ecca29-70bd-444c-b31a-82b08d95c078",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-04-20"
                         },
                         {
                             "name": "ตอน 4 - Counterattack at the Gallows",
                             "image": "https://image.tmdb.org/t/p/original/a3Z3omowGkXlQtJsCOnFILQN0l6.jpg",
-                            "url": "https://control.akuma-stream.com/watch/8952a98f-9795-44f3-86d2-ba4fac131e35",
+                            "url": "https://app.akuma-stream.com/watch/04c9e72f-68e1-473f-9b9d-cc62dcba060f",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-04-27"
                         },
                         {
                             "name": "ตอน 5 - Knights of the Round",
                             "image": "https://image.tmdb.org/t/p/original/iob4hKMosgeuCjzzyBncCVbhHN3.jpg",
-                            "url": "https://control.akuma-stream.com/watch/06edd36b-77f8-40c9-b313-735fd130a00c",
+                            "url": "https://app.akuma-stream.com/watch/1640c667-642c-4b9f-84c7-7c46de8f3d01",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-05-04"
                         },
                         {
                             "name": "ตอน 6 - Surprise Attack over the Pacific",
                             "image": "https://image.tmdb.org/t/p/original/jm2Ncff2o01EHOT4bkQL79y8iD9.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0df696fb-a966-4821-846d-ab81203e4144",
+                            "url": "https://app.akuma-stream.com/watch/949690b9-1275-4781-a01d-af76ddaee5fe",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-05-11"
                         },
                         {
                             "name": "ตอน 7 - The Abandoned Mask",
                             "image": "https://image.tmdb.org/t/p/original/8jqNkkMmSsGN0n4I0gKBxgNnFMA.jpg",
-                            "url": "https://control.akuma-stream.com/watch/3ea582ae-188a-41dd-bb93-04881997986f",
+                            "url": "https://app.akuma-stream.com/watch/2ea2fea6-ca8d-4cb5-a1d2-dc44e0fa02c1",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-05-18"
                         },
                         {
                             "name": "ตอน 8 - One Million Miracles",
                             "image": "https://image.tmdb.org/t/p/original/jqlcqauI4R7Iqt3IItDVskUXlu2.jpg",
-                            "url": "https://control.akuma-stream.com/watch/736d2fc2-53c9-42a1-9f06-94327b9e50a0",
+                            "url": "https://app.akuma-stream.com/watch/108c256a-65b5-4b54-8beb-542b1d43395b",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-05-25"
                         },
                         {
-                            "name": "ตอน 9 - A Bride in the Vermillion Forbidden City",
+                            "name": "ตอน 9 - A Bride in the Vermilion Forbidden City",
                             "image": "https://image.tmdb.org/t/p/original/tog5XVKfQ9MWMCxuqr0uwMvIchi.jpg",
-                            "url": "https://control.akuma-stream.com/watch/3c64e2d4-a50a-47d8-868c-995fc3115f6c",
+                            "url": "https://app.akuma-stream.com/watch/528d0b2c-1810-4810-a526-25d134234236",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-06-08"
                         },
                         {
                             "name": "ตอน 10 - When Shen Hu Wins Glory",
                             "image": "https://image.tmdb.org/t/p/original/Nae8Zu6jwDceJv0pv43CC374nA.jpg",
-                            "url": "https://control.akuma-stream.com/watch/197c085b-3e06-4d42-a797-d2a2e9592c94",
+                            "url": "https://app.akuma-stream.com/watch/b70b0c7c-497e-41c8-97bc-aa5ce4d72c66",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-06-15"
                         },
                         {
                             "name": "ตอน 11 - Power of Passion",
                             "image": "https://image.tmdb.org/t/p/original/3KnFxTys27gsq9EBv4Ry3yZ5tY8.jpg",
-                            "url": "https://control.akuma-stream.com/watch/ca99f3cf-18f3-4ea8-b54e-2456f369e56e",
+                            "url": "https://app.akuma-stream.com/watch/6b4254f1-fa4d-4082-8e64-9093bafed5c6",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-06-22"
                         },
                         {
                             "name": "ตอน 12 - Love Attack!",
                             "image": "https://image.tmdb.org/t/p/original/6r65G5KRYI9ct3eHdUEg5TRzpBD.jpg",
-                            "url": "https://control.akuma-stream.com/watch/2e007455-3e7e-4f01-95b4-930730329339",
+                            "url": "https://app.akuma-stream.com/watch/de7cc3f6-2c91-4293-8db6-89d1dd448406",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-06-29"
                         },
                         {
                             "name": "ตอน 13 - Assassin from the Past",
-                            "image": "https://image.tmdb.org/t/p/original/nYRDiqH4YTRTQbS4FxVsQ1UKAPR.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0145fad7-6d68-4377-ae75-0c5d31c7edec",
+                            "image": "https://image.tmdb.org/t/p/original/8zSLgH4wD5802v3vkrXwXwc1R2E.jpg",
+                            "url": "https://app.akuma-stream.com/watch/29406564-b0df-4f6a-8619-e604b48eae40",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-07-06"
                         },
                         {
                             "name": "ตอน 14 - Geass Hunt",
                             "image": "https://image.tmdb.org/t/p/original/2dIe5hBqY8FqX7ZlbQ8zMY4m93w.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0676212f-a1bc-4e62-8bcb-c4aecd68b2c9",
+                            "url": "https://app.akuma-stream.com/watch/bfec91eb-f220-4860-9ec6-6b6e136949d8",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-07-13"
                         },
                         {
-                            "name": "ตอน 15 - The C's World",
+                            "name": "ตอน 15 - The Cs' World",
                             "image": "https://image.tmdb.org/t/p/original/8ycfdZxumOiX3PfG3o09uIMPzTI.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0e09f496-339d-444b-abd8-1161a56ff12a",
+                            "url": "https://app.akuma-stream.com/watch/38a656a3-0f93-424f-86bd-3a047e04eed3",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-07-20"
                         },
                         {
                             "name": "ตอน 16 - United Federation of Nations Resolution Number One",
                             "image": "https://image.tmdb.org/t/p/original/7xyK25qDuwigovOhMnUKPqQWwnm.jpg",
-                            "url": "https://control.akuma-stream.com/watch/434c0d6b-4f42-47b6-b4d9-0a773861e65b",
+                            "url": "https://app.akuma-stream.com/watch/e8e642fc-fd7d-4bc8-9dde-81f638038c9e",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-07-27"
                         },
                         {
                             "name": "ตอน 17 - The Taste of Humiliation",
                             "image": "https://image.tmdb.org/t/p/original/zzsCaZUC75YBBSewl9vK0aclADN.jpg",
-                            "url": "https://control.akuma-stream.com/watch/779e2418-bfc0-4537-9b69-55f10c818d51",
+                            "url": "https://app.akuma-stream.com/watch/0fa6dc03-36f8-45b5-8549-93d17ec34389",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-08-03"
                         },
                         {
                             "name": "ตอน 18 - Final Battle Tokyo II",
                             "image": "https://image.tmdb.org/t/p/original/rEGGsiJj8lTdnMLV6yIuPu8o3Qu.jpg",
-                            "url": "https://control.akuma-stream.com/watch/8684b122-1bb0-446b-a0f8-81b9af2e41cf",
+                            "url": "https://app.akuma-stream.com/watch/3e40f343-6363-477d-8ef8-58bea7ed4acd",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-08-10"
                         },
                         {
                             "name": "ตอน 19 - Betrayal",
                             "image": "https://image.tmdb.org/t/p/original/lj7jBh1aFFXO2PR4PWhY1FLkfuP.jpg",
-                            "url": "https://control.akuma-stream.com/watch/747e706e-d39e-46fc-ac90-455f78e20530",
+                            "url": "https://app.akuma-stream.com/watch/3b5d0160-282c-45d3-9196-31eec1849c6a",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-08-17"
                         },
                         {
                             "name": "ตอน 20 - Emperor Dismissed",
                             "image": "https://image.tmdb.org/t/p/original/zmy6LHZpXdCkAALc3XGQkPn69RU.jpg",
-                            "url": "https://control.akuma-stream.com/watch/0c68e96f-8606-4cff-9d3f-b94dbf722999",
+                            "url": "https://app.akuma-stream.com/watch/deca6a17-5137-4810-94fe-2442a3dcb822",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-08-24"
                         },
                         {
                             "name": "ตอน 21 - The Ragnarök Connection",
                             "image": "https://image.tmdb.org/t/p/original/pMNGzGQTschnVxuGQ3rKGZO7U2m.jpg",
-                            "url": "https://control.akuma-stream.com/watch/d9a3ec06-10f0-469a-87da-2f6ee510aeab",
+                            "url": "https://app.akuma-stream.com/watch/48f196dc-3f7e-43a8-9d80-63def1fb5525",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-08-31"
                         },
                         {
                             "name": "ตอน 22 - Emperor Lelouch",
                             "image": "https://image.tmdb.org/t/p/original/9cXd1gLuamBR3avfGGGLFownhGj.jpg",
-                            "url": "https://control.akuma-stream.com/watch/c64b7f26-4b50-4ac0-83e0-068f71bdacec",
+                            "url": "https://app.akuma-stream.com/watch/5417b522-b0da-43ce-b7d0-8944858f5544",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-09-07"
                         },
                         {
                             "name": "ตอน 23 - Schneizel's Guise",
                             "image": "https://image.tmdb.org/t/p/original/uHzLURxZ097fZwC9Oto7npKx3Lk.jpg",
-                            "url": "https://control.akuma-stream.com/watch/70231395-3a7b-4f4b-a572-8bd25eef1ecd",
+                            "url": "https://app.akuma-stream.com/watch/7ce9c72a-2438-421a-9ca5-a5857178ca89",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-09-14"
                         },
                         {
                             "name": "ตอน 24 - The Grip of Damocles",
                             "image": "https://image.tmdb.org/t/p/original/lq4NkzGgVdworhsZ6dypJA250pF.jpg",
-                            "url": "https://control.akuma-stream.com/watch/f9ddb5d1-460a-4635-94e7-99f4b4103399",
+                            "url": "https://app.akuma-stream.com/watch/22016d7c-597a-4618-9b52-ddaa905f8278",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-09-21"
                         },
                         {
                             "name": "ตอน 25 - Re;",
                             "image": "https://image.tmdb.org/t/p/original/wjFdoHUFfMyQEp9H55kqIPImo0J.jpg",
-                            "url": "https://control.akuma-stream.com/watch/69db3fb6-b282-424a-ad75-4e72cbd4ac0d",
+                            "url": "https://app.akuma-stream.com/watch/8f415941-0f03-463c-b248-1f65a94960ee",
                             "resolver": "anime-hdzero",
-                            "referer": "https://animehdzeroo.net/",
+                            "referer": "https://ahdzero.com/",
                             "release_date": "2008-09-28"
                         }
                     ],

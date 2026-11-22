@@ -654,6 +654,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     }
     if (!reportTracks.size) return finish(job, 'done', 'ไม่มีตอนใหม่เหลือในไฟล์');
     const reportTimeout = Math.max(REPORT_TIMEOUT_MS, reportStations * REPORT_MS_PER_STATION);
+    log(`start #${job.id}${job.recheck ? ' (ตรวจใหม่)' : ''} ${scopeText(job)} — ${total} ตอน (report ${reportStations} station, timeout ${Math.round(reportTimeout / 60000)} นาที)`);
 
     fs.mkdirSync(workDir, { recursive: true });
     const reportPath = path.join(workDir, `report-${job.id}.json`);
