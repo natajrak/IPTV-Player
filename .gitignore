@@ -7,4 +7,8 @@ serve-web.bat
 tools/node_modules/
 tools/*.log
 tools/.venv-skip/
-tools/.skip-audit-cache/
+tools/.skip-audit-cache/*
+!tools/.skip-audit-cache/broken-streams.md
+!tools/.skip-audit-cache/auto/
+tools/.skip-audit-cache/auto/*
+!tools/.skip-audit-cache/auto/rechecked.json

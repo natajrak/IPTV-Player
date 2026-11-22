@@ -4807,12 +4807,18 @@ function recheckState(coverage, r) {
   return 'st-todo';
 }
 
-/** สถานะปุ่มตรวจใหม่ในตาราง: รอคิว/กำลังตรวจ หรือปุ่มปกติที่มีสีตามผลและ tooltip บอกผลล่าสุด */
+/**
+ * สถานะปุ่มตรวจใหม่ในตาราง: รอคิว/กำลังตรวจ หรือปุ่มปกติที่มีสีตามผลและ tooltip บอกผลล่าสุด
+ * นับทุกงานของ season — ทั้งตรวจใหม่ทั้ง season (recheck) และงานตรวจตอนใหม่หลัง fetch (season ที่ยังไม่มี skip ไม่งั้นไม่มี icon ให้เห็นเลย)
+ */
 function applyRecheckButtons() {
   if (!skipStatus) return;
   const active = new Map();
   for (const j of [skipStatus.running, ...skipStatus.queue]) {
-    if (j?.recheck) active.set(`${j.fileRel}|${j.season}`, j.status === 'running' ? 'กำลังตรวจ OP/ED ใหม่' : 'รอคิวตรวจ OP/ED ใหม่');
+    if (!j) continue;
+    const what = j.recheck ? 'OP/ED ใหม่' : 'OP/ED ตอนใหม่';
+    const key = `${j.fileRel}|${j.season}`;
+    if (j.status === 'running' || !active.has(key)) active.set(key, j.status === 'running' ? `กำลังตรวจ ${what}` : `รอคิวตรวจ ${what}`);
   }
   for (const key of recheckPending) if (!active.has(key)) active.set(key, 'รอคิวตรวจ OP/ED ใหม่');
   document.querySelectorAll('.recheck-btn[data-file]').forEach(btn => {
