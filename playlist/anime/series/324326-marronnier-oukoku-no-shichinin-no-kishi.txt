@@ -205,7 +205,27 @@
                             "image": "https://image.tmdb.org/t/p/original/ceCd1NUHdfLFlVMwIs6mEjF4ArX.jpg",
                             "url": "https://sv2.team-indy.net/video/0GyekVlUQ/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-21"
+                            "release_date": "2026-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1387.2,
+                                        "end": 1476.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1492.1,
+                                        "end": 1567.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -416,7 +436,27 @@
                             "url": "https://app.akuma-stream.com/watch/6d1e1081-8d27-437b-8b5f-4c87211b7987",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2026-11-21"
+                            "release_date": "2026-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
