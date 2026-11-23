@@ -276,6 +276,8 @@ const searchResults = document.getElementById("search-results");
 const appSplash = document.getElementById("app-splash");
 const ptrIndicator = document.getElementById("ptr");
 const ptrRing = ptrIndicator.querySelector(".ptr-ring");
+const ptrArc = ptrIndicator.querySelector(".ptr-arc");
+const appMain = document.getElementById("app-main");
 let avActiveGenre = null;
 let avActiveActress = null;
 logo.addEventListener("click", () => {
@@ -1506,7 +1508,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, {
     sort: currentSortOrder,
     count: total
   })}
-    <div class="card-grid landscape browse"></div>
+    <div class="card-grid landscape"></div>
     ${renderPaginationNav(currentPage, totalPages)}`;
   const grid = gridView.querySelector(".card-grid");
   (_document$getElementB5 = document.getElementById("section-back")) === null || _document$getElementB5 === void 0 || _document$getElementB5.addEventListener("click", goBackOneStep);
@@ -1791,7 +1793,7 @@ function _fetchPartStations() {
       const stations = (_node$stations3 = node.stations) !== null && _node$stations3 !== void 0 && _node$stations3.length ? node.stations : ((_node$groups2 = node.groups) === null || _node$groups2 === void 0 || (_node$groups2 = _node$groups2[0]) === null || _node$groups2 === void 0 ? void 0 : _node$groups2.stations) || [];
       moviePartCache[url] = stations;
       return stations;
-    } catch (_unused5) {
+    } catch (_unused6) {
       return [];
     }
   });
@@ -3550,24 +3552,89 @@ function hideAppSplash() {
 setTimeout(hideAppSplash, APP_SPLASH_MAX_MS);
 const IS_STANDALONE = window.navigator.standalone === true || typeof window.matchMedia === "function" && window.matchMedia("(display-mode: standalone)").matches;
 const PTR_THRESHOLD = 64;
-const PTR_MAX = 100;
+const PTR_MAX = 150;
+const PTR_RESISTANCE = 0.9;
+const PTR_SLOP = 10;
+const PTR_HOLD_MS = 450;
+const PTR_FADE_MS = 150;
+const PTR_RELEASE_MS = 280;
+const PTR_ARC_LEN = 2 * Math.PI * 15;
+const PTR_REDUCED_MOTION = typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
 let _ptrStart = null;
 let _ptrActive = false;
+let _ptrOrigin = 0;
 let _ptrDist = 0;
+let _ptrFrame = 0;
+let _ptrCleanupTimer = null;
 function isPullToRefreshBlocked(target) {
   return !playerOverlay.classList.contains("hidden") || !searchResults.classList.contains("hidden") || !!document.querySelector(".av-filter-dropdown:not(.hidden)") || !!(target.closest && target.closest("input, textarea, select"));
 }
+function ptrReducedMotion() {
+  return !!(PTR_REDUCED_MOTION && PTR_REDUCED_MOTION.matches);
+}
+function ptrRubberBand(raw) {
+  if (raw <= 0) return 0;
+  return PTR_MAX * (1 - 1 / (raw * PTR_RESISTANCE / PTR_MAX + 1));
+}
+function placePull(dist) {
+  const reduced = ptrReducedMotion();
+  const indicatorY = reduced ? PTR_THRESHOLD - 48 : dist - 48;
+  ptrIndicator.style.transform = `translateY(${indicatorY}px)`;
+  appMain.style.transform = reduced ? "" : `translate3d(0, ${dist}px, 0)`;
+}
 function renderPullIndicator(dist) {
-  ptrIndicator.style.transform = `translateY(${dist - 48}px)`;
-  ptrIndicator.style.opacity = String(Math.min(1, dist / PTR_THRESHOLD));
-  ptrRing.style.transform = `rotate(${dist * 4}deg)`;
-  ptrIndicator.classList.toggle("ready", dist >= PTR_THRESHOLD);
+  const progress = Math.min(1, dist / PTR_THRESHOLD);
+  placePull(dist);
+  ptrIndicator.style.opacity = String(Math.min(1, progress * 1.5));
+  ptrArc.style.strokeDashoffset = String(PTR_ARC_LEN * (1 - progress));
+  ptrRing.style.transform = ptrReducedMotion() ? "" : `rotate(${progress * 180}deg)`;
+  const ready = dist >= PTR_THRESHOLD;
+  if (ready && !ptrIndicator.classList.contains("ready") && navigator.vibrate) {
+    try {
+      navigator.vibrate(10);
+    } catch (_unused5) {}
+  }
+  ptrIndicator.classList.toggle("ready", ready);
+}
+function schedulePullRender() {
+  if (_ptrFrame) return;
+  _ptrFrame = requestAnimationFrame(() => {
+    _ptrFrame = 0;
+    if (_ptrActive) renderPullIndicator(_ptrDist);
+  });
+}
+function cancelPullFrame() {
+  if (_ptrFrame) cancelAnimationFrame(_ptrFrame);
+  _ptrFrame = 0;
 }
 function resetPullIndicator() {
+  cancelPullFrame();
+  document.body.classList.remove("ptr-pulling");
   ptrIndicator.classList.remove("pulling", "ready");
   ptrIndicator.style.transform = "";
   ptrIndicator.style.opacity = "";
+  appMain.style.transform = "";
+  clearTimeout(_ptrCleanupTimer);
+  _ptrCleanupTimer = setTimeout(() => {
+    ptrRing.style.transform = "";
+    ptrArc.style.strokeDashoffset = "";
+  }, PTR_RELEASE_MS);
+}
+function startPullRefresh() {
+  cancelPullFrame();
+  clearTimeout(_ptrCleanupTimer);
+  document.body.classList.remove("ptr-pulling");
+  document.body.classList.add("ptr-settling");
+  ptrIndicator.classList.remove("pulling", "ready");
+  ptrIndicator.classList.add("refreshing");
   ptrRing.style.transform = "";
+  ptrArc.style.strokeDashoffset = "";
+  ptrIndicator.style.opacity = "1";
+  placePull(PTR_THRESHOLD);
+  setTimeout(() => {
+    appMain.classList.add("ptr-leaving");
+    setTimeout(() => location.reload(), PTR_FADE_MS);
+  }, PTR_HOLD_MS);
 }
 if (IS_STANDALONE) {
   document.addEventListener("touchstart", e => {
@@ -3588,17 +3655,20 @@ if (IS_STANDALONE) {
     const dx = e.touches[0].clientX - _ptrStart.x;
     const dy = e.touches[0].clientY - _ptrStart.y;
     if (!_ptrActive) {
-      if (dy < -10 || Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+      if (dy < -PTR_SLOP || Math.abs(dx) > PTR_SLOP && Math.abs(dx) > Math.abs(dy)) {
         _ptrStart = null;
         return;
       }
-      if (dy < 10 || Math.abs(dy) < Math.abs(dx) * 1.5 || window.scrollY > 0) return;
+      if (dy < PTR_SLOP || Math.abs(dy) < Math.abs(dx) * 1.5 || window.scrollY > 0) return;
       _ptrActive = true;
+      _ptrOrigin = dy;
+      clearTimeout(_ptrCleanupTimer);
+      document.body.classList.add("ptr-pulling");
       ptrIndicator.classList.add("pulling");
     }
     if (e.cancelable) e.preventDefault();
-    _ptrDist = Math.max(0, Math.min(PTR_MAX, (dy - 10) * 0.5));
-    renderPullIndicator(_ptrDist);
+    _ptrDist = ptrRubberBand(dy - _ptrOrigin);
+    schedulePullRender();
   }, {
     passive: false
   });
@@ -3607,12 +3677,8 @@ if (IS_STANDALONE) {
     _ptrStart = null;
     _ptrActive = false;
     if (!wasActive) return;
-    if (e.type === "touchend" && _ptrDist >= PTR_THRESHOLD) {
-      ptrIndicator.classList.remove("pulling", "ready");
-      ptrIndicator.classList.add("refreshing");
-      ptrIndicator.style.transform = `translateY(${PTR_THRESHOLD - 48}px)`;
-      ptrIndicator.style.opacity = "1";
-      location.reload();
+    if (e.type === "touchend" && ptrIndicator.classList.contains("ready")) {
+      startPullRefresh();
       return;
     }
     resetPullIndicator();

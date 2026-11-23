@@ -28,7 +28,12 @@
 
   <!-- Pull-to-refresh indicator (standalone) -->
   <div id="ptr" aria-hidden="true">
-    <div class="ptr-ring"></div>
+    <div class="ptr-ring">
+      <svg class="ptr-svg" viewBox="0 0 36 36" width="32" height="32" focusable="false">
+        <circle class="ptr-track" cx="18" cy="18" r="15" />
+        <circle class="ptr-arc" cx="18" cy="18" r="15" transform="rotate(-90 18 18)" />
+      </svg>
+    </div>
   </div>
 
   <!-- Header -->
@@ -153,7 +158,7 @@
       document.head.appendChild(hlsFallback);
     }
   </script>
-  <script src="js/app.tv.js?v=94"></script>
+  <script src="js/app.tv.js?v=95"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

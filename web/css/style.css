@@ -591,8 +591,35 @@ button:focus:not(:focus-visible),
     pointer-events: none;
     opacity: 0;
     transform: translateY(-48px);
-    transition: transform .25s ease, opacity .25s ease;
+    transition: transform var(--ptr-release-ms) var(--ptr-ease), opacity var(--ptr-release-ms) var(--ptr-ease);
   }
+
+  #app-main {
+    transition: transform var(--ptr-release-ms) var(--ptr-ease), opacity .15s ease-out;
+  }
+}
+
+:root {
+  --ptr-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ptr-release-ms: 280ms;
+}
+
+body.ptr-pulling #app-main,
+body.ptr-pulling #ptr {
+  will-change: transform, opacity;
+}
+
+body.ptr-pulling #app-main {
+  transition: none;
+}
+
+body.ptr-settling #app-main,
+body.ptr-settling #ptr {
+  transition-duration: 200ms;
+}
+
+#app-main.ptr-leaving {
+  opacity: .35;
 }
 
 #app-splash.fade-out {
@@ -615,18 +642,63 @@ button:focus:not(:focus-visible),
   width: 32px;
   height: 32px;
   margin-top: 8px;
-  border: 3px solid rgba(255, 255, 255, .15);
-  border-top-color: rgba(255, 255, 255, .5);
-  border-radius: 50%;
 }
 
-#ptr.ready .ptr-ring {
-  border-top-color: rgba(255, 255, 255, .95);
+.ptr-svg {
+  display: block;
+  overflow: visible;
+  transform-origin: 50% 50%;
+}
+
+.ptr-track,
+.ptr-arc {
+  fill: none;
+  stroke-width: 3;
+}
+
+.ptr-track {
+  stroke: rgba(255, 255, 255, .12);
+}
+
+.ptr-arc {
+  stroke: rgba(255, 255, 255, .7);
+  stroke-linecap: round;
+  stroke-dasharray: 94.25;
+  stroke-dashoffset: 94.25;
+  transition: stroke .15s ease-out;
+}
+
+#ptr.ready .ptr-arc,
+#ptr.refreshing .ptr-arc {
+  stroke: var(--accent);
+}
+
+#ptr.ready .ptr-svg {
+  animation: ptr-pop .15s var(--ptr-ease);
+}
+
+#ptr.refreshing .ptr-arc {
+  stroke-dashoffset: 66;
 }
 
 #ptr.refreshing .ptr-ring {
-  border-top-color: rgba(255, 255, 255, .95);
   animation: player-spin .8s linear infinite;
+}
+
+@keyframes ptr-pop {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #ptr.ready .ptr-svg {
+    animation: none;
+  }
+
+  #ptr.refreshing .ptr-ring {
+    animation-duration: 1.6s;
+  }
 }
 
 /* ===== Spinner ===== */
@@ -2060,12 +2132,8 @@ button:focus:not(:focus-visible),
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 
+  /* หน้ารายชื่อตอน + หน้ารายการ AV: บังคับ 2 คอลัมน์บนมือถือ (minmax 0 กันชื่อยาวดัน grid ล้นจอ) */
   .card-grid.landscape {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  /* หน้ารายการ AV: บังคับ 2 คอลัมน์บนมือถือ (minmax 0 กันชื่อยาวดัน grid ล้นจอ) */
-  .card-grid.landscape.browse {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 10px;
     gap: 10px;

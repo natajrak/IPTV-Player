@@ -365,6 +365,8 @@ const searchResults = document.getElementById("search-results");
 const appSplash = document.getElementById("app-splash");
 const ptrIndicator = document.getElementById("ptr");
 const ptrRing = ptrIndicator.querySelector(".ptr-ring");
+const ptrArc = ptrIndicator.querySelector(".ptr-arc");
+const appMain = document.getElementById("app-main");
 
 let avActiveGenre = null;
 let avActiveActress = null;
@@ -1918,7 +1920,7 @@ function renderBrowsableStations(
     sort: currentSortOrder,
     count: total,
   })}
-    <div class="card-grid landscape browse"></div>
+    <div class="card-grid landscape"></div>
     ${renderPaginationNav(currentPage, totalPages)}`;
 
   const grid = gridView.querySelector(".card-grid");
@@ -4648,11 +4650,30 @@ const IS_STANDALONE =
 
 /** ระยะดึง (หลังหักแรงต้าน, px) ที่ปล่อยแล้ว reload */
 const PTR_THRESHOLD = 64;
-/** ระยะดึงสูงสุดที่ตัวบอกสถานะเลื่อนตาม (px) */
-const PTR_MAX = 100;
+/** เส้นกำกับของแรงต้านแบบยางยืด — ระยะที่เนื้อหาเลื่อนเข้าใกล้แต่ไม่ถึง (px) */
+const PTR_MAX = 150;
+/** ความชันช่วงแรกของแรงต้าน (ระยะเลื่อนต่อระยะนิ้ว) */
+const PTR_RESISTANCE = 0.9;
+/** นิ้วต้องลากเท่านี้ก่อนจะนับเป็นการดึงรีเฟรช (px) */
+const PTR_SLOP = 10;
+/** เวลาที่ spinner ค้างให้เห็นก่อนเริ่ม fade (ms) */
+const PTR_HOLD_MS = 450;
+/** เวลา fade เนื้อหาก่อน reload (ms) */
+const PTR_FADE_MS = 150;
+/** ระยะเด้งกลับ ต้องตรงกับ --ptr-release-ms ใน style.css (ms) */
+const PTR_RELEASE_MS = 280;
+/** เส้นรอบวงของ .ptr-arc (r = 15) */
+const PTR_ARC_LEN = 2 * Math.PI * 15;
+const PTR_REDUCED_MOTION =
+  typeof window.matchMedia === "function"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : null;
 let _ptrStart = null;
 let _ptrActive = false;
+let _ptrOrigin = 0;
 let _ptrDist = 0;
+let _ptrFrame = 0;
+let _ptrCleanupTimer = null;
 
 /** ไม่ให้ดึงรีเฟรชตอน player / ผลค้นหา / dropdown filter เปิดอยู่ หรือแตะบนช่องกรอก */
 function isPullToRefreshBlocked(target) {
@@ -4664,20 +4685,84 @@ function isPullToRefreshBlocked(target) {
   );
 }
 
-/** วาดตัวบอกสถานะตามระยะดึง */
-function renderPullIndicator(dist) {
-  ptrIndicator.style.transform = `translateY(${dist - 48}px)`;
-  ptrIndicator.style.opacity = String(Math.min(1, dist / PTR_THRESHOLD));
-  ptrRing.style.transform = `rotate(${dist * 4}deg)`;
-  ptrIndicator.classList.toggle("ready", dist >= PTR_THRESHOLD);
+function ptrReducedMotion() {
+  return !!(PTR_REDUCED_MOTION && PTR_REDUCED_MOTION.matches);
 }
 
-/** ปล่อยนิ้วไม่ถึงระยะ → เด้งตัวบอกสถานะกลับ */
+/** แรงต้านแบบยางยืด: ช่วงแรกตามนิ้วเกือบ 1:1 แล้วหนืดขึ้นเรื่อยๆ เข้าใกล้ PTR_MAX */
+function ptrRubberBand(raw) {
+  if (raw <= 0) return 0;
+  return PTR_MAX * (1 - 1 / ((raw * PTR_RESISTANCE) / PTR_MAX + 1));
+}
+
+/** วางตัวบอกสถานะ (และเนื้อหา ถ้าไม่ได้เปิด reduced motion) ที่ระยะ dist */
+function placePull(dist) {
+  const reduced = ptrReducedMotion();
+  const indicatorY = reduced ? PTR_THRESHOLD - 48 : dist - 48;
+  ptrIndicator.style.transform = `translateY(${indicatorY}px)`;
+  appMain.style.transform = reduced ? "" : `translate3d(0, ${dist}px, 0)`;
+}
+
+/** วาดตัวบอกสถานะตามระยะดึง: เส้นรอบวงเต็มเมื่อถึง threshold */
+function renderPullIndicator(dist) {
+  const progress = Math.min(1, dist / PTR_THRESHOLD);
+  placePull(dist);
+  ptrIndicator.style.opacity = String(Math.min(1, progress * 1.5));
+  ptrArc.style.strokeDashoffset = String(PTR_ARC_LEN * (1 - progress));
+  ptrRing.style.transform = ptrReducedMotion() ? "" : `rotate(${progress * 180}deg)`;
+  const ready = dist >= PTR_THRESHOLD;
+  if (ready && !ptrIndicator.classList.contains("ready") && navigator.vibrate) {
+    try {
+      navigator.vibrate(10);
+    } catch {}
+  }
+  ptrIndicator.classList.toggle("ready", ready);
+}
+
+function schedulePullRender() {
+  if (_ptrFrame) return;
+  _ptrFrame = requestAnimationFrame(() => {
+    _ptrFrame = 0;
+    if (_ptrActive) renderPullIndicator(_ptrDist);
+  });
+}
+
+function cancelPullFrame() {
+  if (_ptrFrame) cancelAnimationFrame(_ptrFrame);
+  _ptrFrame = 0;
+}
+
+/** ปล่อยนิ้วไม่ถึงระยะ → เด้งตัวบอกสถานะและเนื้อหากลับ แล้วล้าง inline style เมื่อเด้งเสร็จ */
 function resetPullIndicator() {
+  cancelPullFrame();
+  document.body.classList.remove("ptr-pulling");
   ptrIndicator.classList.remove("pulling", "ready");
   ptrIndicator.style.transform = "";
   ptrIndicator.style.opacity = "";
+  appMain.style.transform = "";
+  clearTimeout(_ptrCleanupTimer);
+  _ptrCleanupTimer = setTimeout(() => {
+    ptrRing.style.transform = "";
+    ptrArc.style.strokeDashoffset = "";
+  }, PTR_RELEASE_MS);
+}
+
+/** ปล่อยนิ้วเกินระยะ → เนื้อหาค้างที่ threshold, spinner หมุนให้เห็นก่อน แล้ว fade ลงก่อน reload */
+function startPullRefresh() {
+  cancelPullFrame();
+  clearTimeout(_ptrCleanupTimer);
+  document.body.classList.remove("ptr-pulling");
+  document.body.classList.add("ptr-settling");
+  ptrIndicator.classList.remove("pulling", "ready");
+  ptrIndicator.classList.add("refreshing");
   ptrRing.style.transform = "";
+  ptrArc.style.strokeDashoffset = "";
+  ptrIndicator.style.opacity = "1";
+  placePull(PTR_THRESHOLD);
+  setTimeout(() => {
+    appMain.classList.add("ptr-leaving");
+    setTimeout(() => location.reload(), PTR_FADE_MS);
+  }, PTR_HOLD_MS);
 }
 
 if (IS_STANDALONE) {
@@ -4707,18 +4792,21 @@ if (IS_STANDALONE) {
       const dx = e.touches[0].clientX - _ptrStart.x;
       const dy = e.touches[0].clientY - _ptrStart.y;
       if (!_ptrActive) {
-        if (dy < -10 || (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy))) {
+        if (dy < -PTR_SLOP || (Math.abs(dx) > PTR_SLOP && Math.abs(dx) > Math.abs(dy))) {
           _ptrStart = null;
           return;
         }
-        if (dy < 10 || Math.abs(dy) < Math.abs(dx) * 1.5 || window.scrollY > 0)
+        if (dy < PTR_SLOP || Math.abs(dy) < Math.abs(dx) * 1.5 || window.scrollY > 0)
           return;
         _ptrActive = true;
+        _ptrOrigin = dy;
+        clearTimeout(_ptrCleanupTimer);
+        document.body.classList.add("ptr-pulling");
         ptrIndicator.classList.add("pulling");
       }
       if (e.cancelable) e.preventDefault();
-      _ptrDist = Math.max(0, Math.min(PTR_MAX, (dy - 10) * 0.5));
-      renderPullIndicator(_ptrDist);
+      _ptrDist = ptrRubberBand(dy - _ptrOrigin);
+      schedulePullRender();
     },
     { passive: false },
   );
@@ -4728,12 +4816,8 @@ if (IS_STANDALONE) {
     _ptrStart = null;
     _ptrActive = false;
     if (!wasActive) return;
-    if (e.type === "touchend" && _ptrDist >= PTR_THRESHOLD) {
-      ptrIndicator.classList.remove("pulling", "ready");
-      ptrIndicator.classList.add("refreshing");
-      ptrIndicator.style.transform = `translateY(${PTR_THRESHOLD - 48}px)`;
-      ptrIndicator.style.opacity = "1";
-      location.reload();
+    if (e.type === "touchend" && ptrIndicator.classList.contains("ready")) {
+      startPullRefresh();
       return;
     }
     resetPullIndicator();
