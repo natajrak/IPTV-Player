@@ -37,14 +37,34 @@
                             "image": "https://image.tmdb.org/t/p/original/wQmSXAqjjvaOARv3wNuNjcDLxFG.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FdPxCpMFb%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FdPxCpMFb",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2010-04-17"
+                            "release_date": "2010-04-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 90.2,
+                                        "end": 179.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - Aegis, the Resentment",
                             "image": "https://image.tmdb.org/t/p/original/8tC97eB7ytHEDA6jlMl72qiM9kU.jpg",
                             "url": "https://shy-haze-2452.natajrak-p.workers.dev/?url=https%3A%2F%2Fanime.tonytonychopper.net%2Ffile2%2FOFxGBol6%2F&referer=https%3A%2F%2Fanime.tonytonychopper.net%2Fv2%2FOFxGBol6",
                             "referer": "https://anime-th.com/",
-                            "release_date": "2010-05-20"
+                            "release_date": "2010-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 198.1,
+                                        "end": 287.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - Hammer, the Dual-Edge",
