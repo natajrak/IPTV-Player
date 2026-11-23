@@ -3775,13 +3775,19 @@ playerVideo.addEventListener("leavepictureinpicture", () =>
 
 /* ===== Auto-hide UI ===== */
 let idleTimer = null;
+/** เมาส์ค้างอยู่บนแถบควบคุม/หัว player → ไม่ auto-hide (นับเฉพาะ mouse — touch แตะแล้ว hover ค้าง) */
+let mouseOverPlayerControls = false;
 
 function showPlayerUI() {
   hideSeekOnlyUI();
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
   // ไม่ auto-hide ตอนแผงเลือกตอนเปิดอยู่ — ผู้ใช้กำลังเลือก ไม่ควรให้หายเอง
-  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
+  if (
+    !playerVideo.paused &&
+    epPanel.classList.contains("hidden") &&
+    !mouseOverPlayerControls
+  ) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -3832,6 +3838,19 @@ function hideSeekOnlyUI({ fade = false } = {}) {
 }
 
 playerOverlay.addEventListener("mousemove", showPlayerUI);
+["player-bar", "player-header"].forEach((id) => {
+  const el = document.getElementById(id);
+  el.addEventListener("pointerenter", (e) => {
+    if (e.pointerType !== "mouse") return;
+    mouseOverPlayerControls = true;
+    clearTimeout(idleTimer);
+  });
+  el.addEventListener("pointerleave", (e) => {
+    if (e.pointerType !== "mouse") return;
+    mouseOverPlayerControls = false;
+    if (playerOverlay.classList.contains("show-ui")) showPlayerUI();
+  });
+});
 /**
  * แตะตอนแถบควบคุมซ่อนอยู่ = แค่เรียกแถบขึ้นมา ไม่สลับเล่น/หยุด
  * (เรียกแถบตอนยกนิ้วใน endSwipe — ถ้าเป็น swipe จะไม่เรียก)
@@ -4550,6 +4569,7 @@ function closePlayer() {
   hideSeekOnlyUI();
   resetSkipSegments({ restoreFocus: false });
   clearTimeout(idleTimer);
+  mouseOverPlayerControls = false;
   document.body.style.overflow = "";
   crossSeasonQueue = [];
   crossSeasonIndex = -1;

@@ -2884,11 +2884,12 @@ btnPip.addEventListener("click", togglePip);
 playerVideo.addEventListener("enterpictureinpicture", () => btnPip.classList.add("active"));
 playerVideo.addEventListener("leavepictureinpicture", () => btnPip.classList.remove("active"));
 let idleTimer = null;
+let mouseOverPlayerControls = false;
 function showPlayerUI() {
   hideSeekOnlyUI();
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
-  if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
+  if (!playerVideo.paused && epPanel.classList.contains("hidden") && !mouseOverPlayerControls) {
     idleTimer = setTimeout(() => {
       playerOverlay.classList.remove("show-ui");
       epPanel.classList.add("hidden");
@@ -2923,6 +2924,19 @@ function hideSeekOnlyUI({
   playerOverlay.classList.remove("seek-only", "seek-only-out");
 }
 playerOverlay.addEventListener("mousemove", showPlayerUI);
+["player-bar", "player-header"].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener("pointerenter", e => {
+    if (e.pointerType !== "mouse") return;
+    mouseOverPlayerControls = true;
+    clearTimeout(idleTimer);
+  });
+  el.addEventListener("pointerleave", e => {
+    if (e.pointerType !== "mouse") return;
+    mouseOverPlayerControls = false;
+    if (playerOverlay.classList.contains("show-ui")) showPlayerUI();
+  });
+});
 let _tapRevealedUI = false;
 playerOverlay.addEventListener("touchstart", () => {
   _tapRevealedUI = !playerOverlay.classList.contains("show-ui");
@@ -3476,6 +3490,7 @@ function closePlayer() {
     restoreFocus: false
   });
   clearTimeout(idleTimer);
+  mouseOverPlayerControls = false;
   document.body.style.overflow = "";
   crossSeasonQueue = [];
   crossSeasonIndex = -1;
