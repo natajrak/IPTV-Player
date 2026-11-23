@@ -17,7 +17,22 @@
                             "url": "https://app.akuma-stream.com/watch/141a6752-7a20-48d6-bfcb-b3d6025e797f",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-04-08"
+                            "release_date": "2014-04-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 111,
+                                        "end": 201.5
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1338,
+                                        "end": 1372.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - The Mask of Madness",
@@ -25,7 +40,22 @@
                             "url": "https://app.akuma-stream.com/watch/a5ee5f51-e674-4ba3-abcf-a21e7308b9ab",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-04-15"
+                            "release_date": "2014-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 21.3,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1348.1,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - The Children of Fate",
@@ -33,7 +63,22 @@
                             "url": "https://app.akuma-stream.com/watch/a41eae41-5e01-439c-b665-addc8be3d0a1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-04-22"
+                            "release_date": "2014-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 156.3,
+                                        "end": 245.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 4 - Black Bullet",
@@ -41,7 +86,17 @@
                             "url": "https://app.akuma-stream.com/watch/dc06b116-cb3c-40d7-b6cd-03831e8e3ee3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-04-29"
+                            "release_date": "2014-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.3,
+                                        "end": 128.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 5 - The Crimson Black Assassin",
@@ -49,7 +104,22 @@
                             "url": "https://app.akuma-stream.com/watch/e790b113-f262-4c63-9167-6a108eb25f8b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-05-06"
+                            "release_date": "2014-05-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 71.2,
+                                        "end": 160.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 6 - Tragic Irony",
@@ -57,7 +127,22 @@
                             "url": "https://app.akuma-stream.com/watch/87120e6a-6118-4160-8b91-0f67726905c5",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-05-13"
+                            "release_date": "2014-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.2,
+                                        "end": 103.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.3,
+                                        "end": 1419.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - In the Still of the Moonlit Night, the Dawn Sky",
@@ -65,7 +150,22 @@
                             "url": "https://app.akuma-stream.com/watch/c4d7bf5a-0734-4375-aa44-e757bc00baa1",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-05-20"
+                            "release_date": "2014-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "mixed-op",
+                                        "start": 34.3,
+                                        "end": 124
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The Monument on the Border",
@@ -73,7 +173,22 @@
                             "url": "https://app.akuma-stream.com/watch/35ea8a11-e1d5-4e37-847f-316efb934d73",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-05-27"
+                            "release_date": "2014-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 64.2,
+                                        "end": 153.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.3,
+                                        "end": 1420
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - The Protectors of the Barrier",
@@ -81,7 +196,22 @@
                             "url": "https://app.akuma-stream.com/watch/a2f89a74-d0a2-45f1-b7d2-d6c4c2310ab8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-06-03"
+                            "release_date": "2014-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 43.3,
+                                        "end": 132.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 10 - Tokyo Area Defensive Battle",
@@ -89,7 +219,22 @@
                             "url": "https://app.akuma-stream.com/watch/32b12803-fb0f-4a73-8c75-7aa7f02cc27e",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-06-10"
+                            "release_date": "2014-06-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.2,
+                                        "end": 116.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 11 - The Heart of Taurus, the Spear of Light",
@@ -97,7 +242,22 @@
                             "url": "https://app.akuma-stream.com/watch/003e79ee-a303-46ea-8df8-c7a6901ff10d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-06-17"
+                            "release_date": "2014-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 44.3,
+                                        "end": 133.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Crisis Point",
@@ -105,7 +265,22 @@
                             "url": "https://app.akuma-stream.com/watch/68804236-081f-4c3c-8c10-d1218f03b0f9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-06-24"
+                            "release_date": "2014-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 78.2,
+                                        "end": 167.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1349.2,
+                                        "end": 1419.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 13 - The Ones Who Aspired to Be Gods",
@@ -113,7 +288,17 @@
                             "url": "https://app.akuma-stream.com/watch/8fc5a762-2ed1-425b-8ef0-74421555a4b9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2014-07-01"
+                            "release_date": "2014-07-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.2,
+                                        "end": 118.6
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
