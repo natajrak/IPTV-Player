@@ -44,6 +44,8 @@ const MAX_ATTEMPTS = 3;
 const HISTORY_SIZE = 20;
 const REPORT_TIMEOUT_MS = 30 * 60 * 1000;
 const REPORT_MS_PER_STATION = 4 * 60 * 1000;
+/** จำนวนตอนที่ skip-audit report ดึง/วิเคราะห์พร้อมกัน */
+const REPORT_WORKERS = 6;
 const APPLY_TIMEOUT_MS = 60 * 1000;
 const WAIT_POLL_MS = 1000;
 const IS_WINDOWS = process.platform === 'win32';
@@ -660,7 +662,7 @@ function createSkipAuto({ root, playlistDirOf }) {
     const reportPath = path.join(workDir, `report-${job.id}.json`);
     const applyPaths = [];
     try {
-      const rep = await run(['report', job.file, '--out', reportPath, '--workers', '2', '--tracks', ...reportTracks], reportTimeout);
+      const rep = await run(['report', job.file, '--out', reportPath, '--workers', String(REPORT_WORKERS), '--tracks', ...reportTracks], reportTimeout);
       if (job.cancelled) return;
       if (rep.code !== 0 || !fs.existsSync(reportPath)) return finish(job, 'failed', `report ล้มเหลว (exit ${rep.code}): ${lastLine(rep.stderr)}`);
       const report = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));

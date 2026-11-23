@@ -86,6 +86,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import urllib.parse
 import urllib.request
@@ -617,7 +618,10 @@ def _load_cache(path, head, tail):
                 'tail': {'bands': z['tail_bands'], 'hashes': z['tail_hashes'], 'frames': int(z['tail_frames'])},
             }
     except Exception:
-        os.remove(path)
+        try:
+            os.remove(path)
+        except OSError:
+            pass
         return None
 
 
@@ -915,7 +919,7 @@ def load_or_build(station, head, tail, cache_dir):
 
 
 def _save_cache(path, head, tail, f):
-    tmp = path + f'.{os.getpid()}.tmp.npz'
+    tmp = path + f'.{os.getpid()}-{threading.get_ident()}.tmp.npz'
     np.savez(
         tmp, head=head, tail=tail, duration=f['duration'], tail_offset=f['tail_offset'], tail_checked=f['tail_checked'],
         head_bands=f['head']['bands'], head_hashes=f['head']['hashes'], head_frames=f['head']['frames'],
@@ -1240,7 +1244,7 @@ def _grab_frames(src, t0, length, path, ref=None):
             frames = None
     if frames is None or len(frames) < VISUAL_FPS * length * 0.9:
         return None
-    tmp = path + f'.{os.getpid()}.tmp.npy'
+    tmp = path + f'.{os.getpid()}-{threading.get_ident()}.tmp.npy'
     np.save(tmp, frames)
     os.replace(tmp, path)
     return frames
@@ -1471,6 +1475,18 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
     if not edges:
         return
     by_idx = {ep['idx']: ep for ep in episodes}
+    grabbed = {}
+    path_locks = defaultdict(threading.Lock)
+    locks_guard = threading.Lock()
+
+    def grab_once(src, t0, t1, path, ref):
+        """ตอนที่ URL ซ้ำกันได้ช่วงภาพเดียวกัน (path เดียวกัน) → ดึงครั้งเดียว ตอนที่เหลือรอแล้วใช้ผลเดิม"""
+        with locks_guard:
+            lock = path_locks[path]
+        with lock:
+            if path not in grabbed:
+                grabbed[path] = _grab_frames(src, t0, t1 - t0, path, ref)
+            return grabbed[path]
 
     def work(idx):
         """ภาพทุกขอบของตอน idx — ดึงไม่ได้ด้วยสาเหตุใดก็ตามคืนเท่าที่ได้ (ไม่ให้ report ล้ม)"""
@@ -1484,7 +1500,7 @@ def _snap_to_video(episodes, det, cache_dir, start_shift, end_shift, workers, fe
             for key in keys:
                 t, t0, t1, _ = edges[key]
                 path = os.path.join(cache_dir, f'{station_key(st)}-w{int(round(t0 * 10))}-{int(round(t1 * 10))}.npy')
-                frames = _grab_frames(src, t0, t1 - t0, path, _audio_ref((feats or {}).get(idx), t0, t1))
+                frames = grab_once(src, t0, t1, path, _audio_ref((feats or {}).get(idx), t0, t1))
                 if frames is not None and len(frames) >= (t1 - t0) * VISUAL_FPS * 0.9:
                     out[key] = (frames, int(round((t - t0) * VISUAL_FPS)))
         except Exception as e:
@@ -1833,24 +1849,26 @@ def cmd_report(args):
     feats = {}
     errors = {}
     done = 0
-
-    def work(job):
-        season, track, idx, st = job
-        return (track_name(season, track), idx), load_or_build(st, args.head, args.tail, cache_dir)
+    by_url = {}
+    for job in jobs:
+        by_url.setdefault(station_key(job[3]), []).append(job)
 
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(work, j): j for j in jobs}
+        futs = {ex.submit(load_or_build, group[0][3], args.head, args.tail, cache_dir): group for group in by_url.values()}
         for fut in as_completed(futs):
-            season, track, idx, st = futs[fut]
-            key = (track_name(season, track), idx)
-            done += 1
             try:
-                k, f = fut.result()
-                feats[k] = f
-                log(f'  [{done}/{len(jobs)}] ✓ {key[0]} · {st.get("name")}')
+                f, err = fut.result(), None
             except Exception as e:
-                errors[key] = str(e)
-                log(f'  [{done}/{len(jobs)}] ✗ {key[0]} · {st.get("name")} — {e}')
+                f, err = None, str(e)
+            for season, track, idx, st in futs[fut]:
+                key = (track_name(season, track), idx)
+                done += 1
+                if err is None:
+                    feats[key] = f
+                    log(f'  [{done}/{len(jobs)}] ✓ {key[0]} · {st.get("name")}')
+                else:
+                    errors[key] = err
+                    log(f'  [{done}/{len(jobs)}] ✗ {key[0]} · {st.get("name")} — {err}')
 
     report = {'playlist': os.path.realpath(args.playlist), 'name': playlist.get('name'), 'head': args.head, 'tail': args.tail,
               'tolerance': args.tolerance, 'start_shift': args.start_shift, 'end_shift': args.end_shift, 'tracks': []}
