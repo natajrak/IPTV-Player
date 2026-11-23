@@ -129,12 +129,67 @@ let currentSortMode = "updated";
 let privateUnlocked = false;
 const PRIVATE_UNLOCK_SALT = "bkl-play-2026-private-v1";
 const PRIVATE_UNLOCK_HASH = "185f94f034c271ba3a165be96f9c54fde01ddfef46f9de140e33102d0ce8fbfe";
+const SHA256_K = new Uint32Array([0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070, 0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2]);
+function rotr32(x, n) {
+  return x >>> n | x << 32 - n;
+}
+function sha256HexFallback(bytes) {
+  const padded = new Uint8Array(bytes.length + 9 + 63 >> 6 << 6);
+  padded.set(bytes);
+  padded[bytes.length] = 0x80;
+  const view = new DataView(padded.buffer);
+  const bitLen = bytes.length * 8;
+  view.setUint32(padded.length - 8, Math.floor(bitLen / 0x100000000));
+  view.setUint32(padded.length - 4, bitLen >>> 0);
+  const h = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
+  const w = new Uint32Array(64);
+  for (let off = 0; off < padded.length; off += 64) {
+    for (let i = 0; i < 16; i++) w[i] = view.getUint32(off + i * 4);
+    for (let i = 16; i < 64; i++) {
+      const x = w[i - 15];
+      const y = w[i - 2];
+      const s0 = rotr32(x, 7) ^ rotr32(x, 18) ^ x >>> 3;
+      const s1 = rotr32(y, 17) ^ rotr32(y, 19) ^ y >>> 10;
+      w[i] = w[i - 16] + s0 + w[i - 7] + s1;
+    }
+    let a = h[0];
+    let b = h[1];
+    let c = h[2];
+    let d = h[3];
+    let e = h[4];
+    let f = h[5];
+    let g = h[6];
+    let k = h[7];
+    for (let i = 0; i < 64; i++) {
+      const t1 = k + (rotr32(e, 6) ^ rotr32(e, 11) ^ rotr32(e, 25)) + (e & f ^ ~e & g) + SHA256_K[i] + w[i] >>> 0;
+      const t2 = (rotr32(a, 2) ^ rotr32(a, 13) ^ rotr32(a, 22)) + (a & b ^ a & c ^ b & c) >>> 0;
+      k = g;
+      g = f;
+      f = e;
+      e = d + t1 >>> 0;
+      d = c;
+      c = b;
+      b = a;
+      a = t1 + t2 >>> 0;
+    }
+    h[0] += a;
+    h[1] += b;
+    h[2] += c;
+    h[3] += d;
+    h[4] += e;
+    h[5] += f;
+    h[6] += g;
+    h[7] += k;
+  }
+  return Array.from(h).map(v => ("0000000" + v.toString(16)).slice(-8)).join("");
+}
 function sha256Hex(_x2) {
   return _sha256Hex.apply(this, arguments);
 }
 function _sha256Hex() {
   _sha256Hex = _asyncToGenerator(function* (text) {
     const buf = new TextEncoder().encode(text);
+    if (!(window.crypto && window.crypto.subtle)) return sha256HexFallback(buf);
     const hash = yield crypto.subtle.digest("SHA-256", buf);
     return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join("");
   });
@@ -218,6 +273,9 @@ const upnextCancelBtn = document.getElementById("upnext-cancel");
 const searchInput = document.getElementById("search-input");
 const searchClear = document.getElementById("search-clear");
 const searchResults = document.getElementById("search-results");
+const appSplash = document.getElementById("app-splash");
+const ptrIndicator = document.getElementById("ptr");
+const ptrRing = ptrIndicator.querySelector(".ptr-ring");
 let avActiveGenre = null;
 let avActiveActress = null;
 logo.addEventListener("click", () => {
@@ -433,7 +491,12 @@ searchInput.addEventListener("input", _asyncToGenerator(function* () {
   const q = searchInput.value.trim();
   activeSearchIdx = -1;
   if (!privateUnlocked && q.length >= 4 && q.length <= 32) {
-    const candidate = yield sha256Hex(q + PRIVATE_UNLOCK_SALT);
+    let candidate = "";
+    try {
+      candidate = yield sha256Hex(q + PRIVATE_UNLOCK_SALT);
+    } catch (err) {
+      console.warn("[unlock] hash failed:", err);
+    }
     if (candidate === PRIVATE_UNLOCK_HASH) {
       privateUnlocked = true;
       searchInput.value = "";
@@ -1443,7 +1506,7 @@ function renderBrowsableStations(stations, sectionTitle, parentNode, {
     sort: currentSortOrder,
     count: total
   })}
-    <div class="card-grid landscape"></div>
+    <div class="card-grid landscape browse"></div>
     ${renderPaginationNav(currentPage, totalPages)}`;
   const grid = gridView.querySelector(".card-grid");
   (_document$getElementB5 = document.getElementById("section-back")) === null || _document$getElementB5 === void 0 || _document$getElementB5.addEventListener("click", goBackOneStep);
@@ -2217,22 +2280,15 @@ function handlePlayerKeyboardShortcuts(e) {
     return true;
   }
   if (!ARROW_KEYS.has(key)) return false;
+  if (document.activeElement === playerSeek && (key === "ArrowLeft" || key === "ArrowRight")) {
+    seekBySeconds(key === "ArrowLeft" ? -5 : 5);
+    showSeekOnlyUI();
+    return true;
+  }
   if (!playerOverlay.classList.contains("show-ui")) {
     showPlayerUI();
     focusTVElement(isTVFocusable(document.activeElement) ? document.activeElement : btnPlayPause);
     return true;
-  }
-  if (document.activeElement === playerSeek) {
-    if (key === "ArrowLeft") {
-      seekBySeconds(-5);
-      showPlayerUI();
-      return true;
-    }
-    if (key === "ArrowRight") {
-      seekBySeconds(5);
-      showPlayerUI();
-      return true;
-    }
   }
   showPlayerUI();
   return false;
@@ -2284,11 +2340,11 @@ btnShuffle.addEventListener("click", () => {
 });
 playerVideo.addEventListener("play", () => {
   btnPlayPause.innerHTML = PLAYER_ICON_PAUSE;
-  showPlayerUI();
+  if (!playerOverlay.classList.contains("seek-only")) showPlayerUI();
 });
 playerVideo.addEventListener("pause", () => {
   btnPlayPause.innerHTML = PLAYER_ICON_PLAY;
-  showPlayerUI();
+  if (!playerOverlay.classList.contains("seek-only")) showPlayerUI();
 });
 playerVideo.addEventListener("error", () => {
   const mediaErr = playerVideo.error;
@@ -2827,6 +2883,7 @@ playerVideo.addEventListener("enterpictureinpicture", () => btnPip.classList.add
 playerVideo.addEventListener("leavepictureinpicture", () => btnPip.classList.remove("active"));
 let idleTimer = null;
 function showPlayerUI() {
+  hideSeekOnlyUI();
   playerOverlay.classList.add("show-ui");
   clearTimeout(idleTimer);
   if (!playerVideo.paused && epPanel.classList.contains("hidden")) {
@@ -2836,11 +2893,37 @@ function showPlayerUI() {
     }, 3000);
   }
 }
+const SEEK_ONLY_HIDE_MS = 1500;
+let seekOnlyTimer = null;
+function showSeekOnlyUI({
+  hold = false
+} = {}) {
+  playerOverlay.classList.remove("show-ui");
+  epPanel.classList.add("hidden");
+  clearTimeout(idleTimer);
+  clearTimeout(seekOnlyTimer);
+  playerOverlay.classList.remove("seek-only-out");
+  playerOverlay.classList.add("seek-only");
+  if (!hold) seekOnlyTimer = setTimeout(() => hideSeekOnlyUI({
+    fade: true
+  }), SEEK_ONLY_HIDE_MS);
+}
+const PLAYER_BAR_FADE_MS = 300;
+function hideSeekOnlyUI({
+  fade = false
+} = {}) {
+  clearTimeout(seekOnlyTimer);
+  if (fade && playerOverlay.classList.contains("seek-only")) {
+    playerOverlay.classList.add("seek-only-out");
+    seekOnlyTimer = setTimeout(() => hideSeekOnlyUI(), PLAYER_BAR_FADE_MS);
+    return;
+  }
+  playerOverlay.classList.remove("seek-only", "seek-only-out");
+}
 playerOverlay.addEventListener("mousemove", showPlayerUI);
 let _tapRevealedUI = false;
 playerOverlay.addEventListener("touchstart", () => {
   _tapRevealedUI = !playerOverlay.classList.contains("show-ui");
-  showPlayerUI();
 }, {
   passive: true
 });
@@ -2850,6 +2933,7 @@ let _swipeStart = null;
 let _swipeHandled = false;
 let _swipeWasPlaying = false;
 playerOverlay.addEventListener("touchstart", e => {
+  if (e.touches.length === 1) _swipeHandled = false;
   if (e.touches.length !== 1 || e.target.closest(SWIPE_EXCLUDE)) {
     _swipeStart = null;
     return;
@@ -2859,7 +2943,6 @@ playerOverlay.addEventListener("touchstart", e => {
     y: e.touches[0].clientY,
     time: playerVideo.currentTime
   };
-  _swipeHandled = false;
 }, {
   passive: true
 });
@@ -2870,6 +2953,9 @@ playerOverlay.addEventListener("touchmove", e => {
   if (!_swipeHandled) {
     if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
     _swipeHandled = true;
+    showSeekOnlyUI({
+      hold: true
+    });
     _swipeWasPlaying = !playerVideo.paused;
     if (_swipeWasPlaying) playerVideo.pause();
     _swipeStart.x = e.touches[0].clientX;
@@ -2885,8 +2971,12 @@ playerOverlay.addEventListener("touchmove", e => {
 });
 function endSwipe() {
   _swipeStart = null;
-  if (!_swipeHandled) return;
+  if (!_swipeHandled) {
+    showPlayerUI();
+    return;
+  }
   seekPreview.classList.add("hidden");
+  showSeekOnlyUI();
   if (_swipeWasPlaying) playerVideo.play().catch(() => {});
 }
 playerOverlay.addEventListener("touchend", endSwipe, {
@@ -3379,6 +3469,7 @@ function closePlayer() {
   playerVideo.onended = null;
   playerOverlay.classList.add("hidden");
   playerOverlay.classList.remove("show-ui");
+  hideSeekOnlyUI();
   resetSkipSegments({
     restoreFocus: false
   });
@@ -3436,17 +3527,102 @@ function showLoading() {
   gridView.classList.add("hidden");
 }
 function showGrid() {
+  hideAppSplash();
   loading.classList.add("hidden");
   errorView.classList.add("hidden");
   gridView.classList.remove("hidden");
   queueFocusRefresh();
 }
 function showError(msg) {
+  hideAppSplash();
   pendingGridFocus = null;
   loading.classList.add("hidden");
   gridView.classList.add("hidden");
   errorMsg.textContent = msg;
   errorView.classList.remove("hidden");
+}
+const APP_SPLASH_MAX_MS = 10000;
+function hideAppSplash() {
+  if (!appSplash || appSplash.classList.contains("fade-out")) return;
+  appSplash.classList.add("fade-out");
+  setTimeout(() => appSplash.remove(), 300);
+}
+setTimeout(hideAppSplash, APP_SPLASH_MAX_MS);
+const IS_STANDALONE = window.navigator.standalone === true || typeof window.matchMedia === "function" && window.matchMedia("(display-mode: standalone)").matches;
+const PTR_THRESHOLD = 64;
+const PTR_MAX = 100;
+let _ptrStart = null;
+let _ptrActive = false;
+let _ptrDist = 0;
+function isPullToRefreshBlocked(target) {
+  return !playerOverlay.classList.contains("hidden") || !searchResults.classList.contains("hidden") || !!document.querySelector(".av-filter-dropdown:not(.hidden)") || !!(target.closest && target.closest("input, textarea, select"));
+}
+function renderPullIndicator(dist) {
+  ptrIndicator.style.transform = `translateY(${dist - 48}px)`;
+  ptrIndicator.style.opacity = String(Math.min(1, dist / PTR_THRESHOLD));
+  ptrRing.style.transform = `rotate(${dist * 4}deg)`;
+  ptrIndicator.classList.toggle("ready", dist >= PTR_THRESHOLD);
+}
+function resetPullIndicator() {
+  ptrIndicator.classList.remove("pulling", "ready");
+  ptrIndicator.style.transform = "";
+  ptrIndicator.style.opacity = "";
+  ptrRing.style.transform = "";
+}
+if (IS_STANDALONE) {
+  document.addEventListener("touchstart", e => {
+    if (_ptrActive) resetPullIndicator();
+    _ptrStart = null;
+    _ptrActive = false;
+    _ptrDist = 0;
+    if (e.touches.length !== 1 || window.scrollY > 0 || ptrIndicator.classList.contains("refreshing") || isPullToRefreshBlocked(e.target)) return;
+    _ptrStart = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    };
+  }, {
+    passive: true
+  });
+  document.addEventListener("touchmove", e => {
+    if (!_ptrStart || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - _ptrStart.x;
+    const dy = e.touches[0].clientY - _ptrStart.y;
+    if (!_ptrActive) {
+      if (dy < -10 || Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+        _ptrStart = null;
+        return;
+      }
+      if (dy < 10 || Math.abs(dy) < Math.abs(dx) * 1.5 || window.scrollY > 0) return;
+      _ptrActive = true;
+      ptrIndicator.classList.add("pulling");
+    }
+    if (e.cancelable) e.preventDefault();
+    _ptrDist = Math.max(0, Math.min(PTR_MAX, (dy - 10) * 0.5));
+    renderPullIndicator(_ptrDist);
+  }, {
+    passive: false
+  });
+  const endPull = e => {
+    const wasActive = _ptrActive;
+    _ptrStart = null;
+    _ptrActive = false;
+    if (!wasActive) return;
+    if (e.type === "touchend" && _ptrDist >= PTR_THRESHOLD) {
+      ptrIndicator.classList.remove("pulling", "ready");
+      ptrIndicator.classList.add("refreshing");
+      ptrIndicator.style.transform = `translateY(${PTR_THRESHOLD - 48}px)`;
+      ptrIndicator.style.opacity = "1";
+      location.reload();
+      return;
+    }
+    resetPullIndicator();
+  };
+  document.addEventListener("touchend", endPull, {
+    passive: true
+  });
+  document.addEventListener("touchcancel", endPull, {
+    passive: true
+  });
 }
 function esc(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

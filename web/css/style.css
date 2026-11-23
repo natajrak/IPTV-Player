@@ -554,6 +554,81 @@ button:focus:not(:focus-visible),
   display: none !important;
 }
 
+/* ===== Splash + pull-to-refresh (เฉพาะ standalone / เปิดจาก home screen) ===== */
+#app-splash,
+#ptr {
+  display: none;
+}
+
+@media (display-mode: standalone) {
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  #app-splash {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    transition: opacity .3s;
+  }
+
+  #ptr {
+    display: flex;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-48px);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+}
+
+#app-splash.fade-out {
+  opacity: 0;
+}
+
+.app-splash-logo {
+  width: 40vw;
+  max-width: 480px;
+  height: auto;
+  opacity: .45;
+  animation: player-logo-pulse 1.6s ease-in-out infinite;
+}
+
+#ptr.pulling {
+  transition: none;
+}
+
+.ptr-ring {
+  width: 32px;
+  height: 32px;
+  margin-top: 8px;
+  border: 3px solid rgba(255, 255, 255, .15);
+  border-top-color: rgba(255, 255, 255, .5);
+  border-radius: 50%;
+}
+
+#ptr.ready .ptr-ring {
+  border-top-color: rgba(255, 255, 255, .95);
+}
+
+#ptr.refreshing .ptr-ring {
+  border-top-color: rgba(255, 255, 255, .95);
+  animation: player-spin .8s linear infinite;
+}
+
 /* ===== Spinner ===== */
 .spinner {
   width: 48px;
@@ -1221,6 +1296,26 @@ button:focus:not(:focus-visible),
 #player-overlay.show-ui #player-bar {
   opacity: 1;
   pointer-events: all;
+}
+
+/* โหมด seekbar อย่างเดียว (swipe scrub / กดซ้ายขวาบน seekbar): ซ่อนปุ่ม เหลือ seekbar ชิดขอบล่าง */
+#player-overlay.seek-only:not(.show-ui) #player-bar {
+  opacity: 1;
+  padding-top: 24px;
+  padding-bottom: 8px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+#player-overlay.seek-only.seek-only-out:not(.show-ui) #player-bar {
+  opacity: 0;
+}
+
+#player-overlay.seek-only:not(.show-ui) #player-progress-row {
+  margin-bottom: 0;
+}
+
+#player-overlay.seek-only:not(.show-ui) #player-btn-row {
+  display: none;
 }
 
 /* Progress bar */
@@ -1969,6 +2064,13 @@ button:focus:not(:focus-visible),
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
+  /* หน้ารายการ AV: บังคับ 2 คอลัมน์บนมือถือ (minmax 0 กันชื่อยาวดัน grid ล้นจอ) */
+  .card-grid.landscape.browse {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
+    gap: 10px;
+  }
+
   #upnext-toast {
     width: calc(100vw - 32px);
     right: 16px;
@@ -2000,6 +2102,27 @@ button:focus:not(:focus-visible),
   .page-btn.page-number {
     min-width: 34px;
     padding: 8px 9px;
+  }
+}
+
+/* โหมด seekbar อย่างเดียวบนจอสัมผัส (มือถือทุกแนว + จอแคบ): เส้นติดขอบล่าง ซ่อน thumb (ดูตำแหน่งจากแถบสี + preview) */
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+  #player-overlay.seek-only:not(.show-ui) #player-bar {
+    padding-bottom: 0;
+  }
+
+  #player-overlay.seek-only:not(.show-ui) #player-seek {
+    display: block;
+  }
+
+  #player-overlay.seek-only:not(.show-ui) #player-seek::-webkit-slider-thumb {
+    opacity: 0;
+    box-shadow: none;
+  }
+
+  #player-overlay.seek-only:not(.show-ui) #player-seek::-moz-range-thumb {
+    opacity: 0;
+    box-shadow: none;
   }
 }
 

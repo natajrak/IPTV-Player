@@ -21,6 +21,16 @@
 </head>
 <body>
 
+  <!-- Splash (เฉพาะตอนเปิดจาก home screen / standalone) -->
+  <div id="app-splash" aria-hidden="true">
+    <img class="app-splash-logo" src="images/logo/logo.png" alt="" />
+  </div>
+
+  <!-- Pull-to-refresh indicator (standalone) -->
+  <div id="ptr" aria-hidden="true">
+    <div class="ptr-ring"></div>
+  </div>
+
   <!-- Header -->
   <header id="app-header">
     <img class="logo" src="images/logo/logo.png" alt="BKL Play" />
@@ -143,7 +153,7 @@
       document.head.appendChild(hlsFallback);
     }
   </script>
-  <script src="js/app.tv.js?v=84"></script>
+  <script src="js/app.tv.js?v=94"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
