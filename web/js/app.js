@@ -3701,10 +3701,15 @@ playerOverlay.addEventListener(
   { passive: true },
 );
 
-// Swipe left/right บน player → real-time scrub (max 90s per full-width swipe)
+// Swipe left/right บน player → real-time scrub ตามสัดส่วน (ปัดเต็มจอ = ความยาวทั้งเรื่อง)
 // ไม่นับ swipe ที่เริ่มบนแถบควบคุม/แผงต่างๆ (ลาก seekbar, volume, เลื่อนแผงเลือกตอน)
 const SWIPE_EXCLUDE =
   "#player-header, #player-bar, #ep-panel, #skip-segment-btn, #upnext-toast";
+/**
+ * scrub ได้ไกลสุดถึง duration - ค่านี้ (วินาที): ถ้า seek ชนท้ายไฟล์ตอน pause จะไม่เกิด ended
+ * แล้ว play() ตอนยกนิ้วจะเริ่มเล่นใหม่จากต้นเรื่อง → เว้นไว้ให้เล่นจบเองแล้ว onended ทำงานปกติ
+ */
+const SWIPE_END_MARGIN = 1;
 let _swipeStart = null; // { x, y, time }
 let _swipeHandled = false;
 let _swipeWasPlaying = false;
@@ -3729,22 +3734,33 @@ playerOverlay.addEventListener(
 playerOverlay.addEventListener(
   "touchmove",
   (e) => {
-    if (!_swipeStart || e.touches.length !== 1) return;
+    if (
+      !_swipeStart ||
+      e.touches.length !== 1 ||
+      !(playerVideo.duration > 0 && isFinite(playerVideo.duration))
+    )
+      return;
     const dx = e.touches[0].clientX - _swipeStart.x;
     const dy = e.touches[0].clientY - _swipeStart.y;
 
     if (!_swipeHandled) {
-      if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
       _swipeHandled = true;
       _swipeWasPlaying = !playerVideo.paused;
       if (_swipeWasPlaying) playerVideo.pause();
+      _swipeStart.x = e.touches[0].clientX;
+      _swipeStart.time = playerVideo.currentTime;
     }
 
     e.preventDefault();
-    const secs = (dx / window.innerWidth) * 90;
+    const scrubDx = e.touches[0].clientX - _swipeStart.x;
+    const secs = (scrubDx / window.innerWidth) * playerVideo.duration;
     playerVideo.currentTime = Math.max(
       0,
-      Math.min(playerVideo.duration || 0, _swipeStart.time + secs),
+      Math.min(
+        playerVideo.duration - SWIPE_END_MARGIN,
+        _swipeStart.time + secs,
+      ),
     );
     showSeekPreviewAt(playerVideo.currentTime);
   },
@@ -3756,7 +3772,7 @@ function endSwipe() {
   _swipeStart = null;
   if (!_swipeHandled) return;
   seekPreview.classList.add("hidden");
-  if (_swipeWasPlaying) playerVideo.play();
+  if (_swipeWasPlaying) playerVideo.play().catch(() => {});
 }
 playerOverlay.addEventListener("touchend", endSwipe, { passive: true });
 playerOverlay.addEventListener("touchcancel", endSwipe, { passive: true });
