@@ -432,16 +432,33 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "Ep. 8 - Words of Destruction",
+                            "image": "https://image.tmdb.org/t/p/original/Ag8VcLB08VYvOqm9vsCHnWglXjU.jpg",
+                            "url": "https://sv2.team-indy.net/video/ANbdS0i5b7/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 46.3,
+                                        "end": 135.5
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
             ],
             "release_date": "2026-10-08",
-            "updated_at": "2026-11-19T00:00:00.000Z"
+            "updated_at": "2026-11-26T00:00:00.000Z"
         }
     ],
     "release_date": "2023-10-08",
-    "updated_at": "2026-11-19T00:00:00.000Z",
+    "updated_at": "2026-11-26T00:00:00.000Z",
     "season_count": 2,
     "completion": {
         "status": "incomplete",
