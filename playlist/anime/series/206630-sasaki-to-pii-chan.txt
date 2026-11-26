@@ -692,7 +692,22 @@
                             "image": "https://image.tmdb.org/t/p/original/mU6daezaLM0ZHPwdIAK4kpaArSQ.jpg",
                             "url": "https://sv2.team-indy.net/video/Ddj0P6Iec1/video.mp4",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-25"
+                            "release_date": "2026-11-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1330.2,
+                                        "end": 1419.9
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

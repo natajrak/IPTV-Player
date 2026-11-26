@@ -20,427 +20,1372 @@
                             "image": "https://image.tmdb.org/t/p/original/jQFsHzYKQDxvIpX42PqszYUmpn5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/S0KNC5Xxfu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-10-20"
+                            "release_date": "1999-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.9,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ยอดนักดาบปรากฏกาย นักล่าโจรสลัด โรโรโนอา โซโล",
                             "image": "https://image.tmdb.org/t/p/original/him2IAMOhTToCMGwCzBxHCD9cPf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HctUqOfa9H/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-11-17"
+                            "release_date": "1999-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.4,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1446.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - มอร์แกน ปะทะ ลูฟี่! สาวลึกลับคนนั้นเป็นใครกัน",
                             "image": "https://image.tmdb.org/t/p/original/x1sa7mhf3J7514uGnnGczYydCL0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Ssazu5uPec/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-11-24"
+                            "release_date": "1999-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - อดีตของลูฟี่ แชงคูส ผมแดงปรากฏตัว!",
                             "image": "https://image.tmdb.org/t/p/original/8gqdS3yFEL1OvMXbeyftGGphUSz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/r4JLgDHb7B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-12-08"
+                            "release_date": "1999-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.5,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.8,
+                                        "end": 1446.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - พลังพิศวงของโจรสลัดตัวตลก กัปตันบากี้!",
                             "image": "https://image.tmdb.org/t/p/original/1N8bpV584Hi4tv1oOLCEmVuaQBx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WeMp2ZegDz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-12-15"
+                            "release_date": "1999-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 6 - สถานการณ์คับขัน นักฝึกสัตว์ป่าโมจี้ ปะทะ ลูฟี่",
                             "image": "https://image.tmdb.org/t/p/original/qTE8AafunxIsQv9m4sK8VB7zGJa.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/EdNuRlJs4Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-12-29"
+                            "release_date": "1999-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.8,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - การดวลอันดุเดือด นักดาบโซโล ปะทะ นักกายกรรมคาบาจิ",
                             "image": "https://image.tmdb.org/t/p/original/bisy5k84xvYCquPx94Bz6MiO2jh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8ajSiGmjiX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-12-29"
+                            "release_date": "1999-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 8 - ใครจะเป็นผู้ชนะ การปะทะกันของพลังแห่งผลปีศาจ!",
                             "image": "https://image.tmdb.org/t/p/original/7tQnl9cLghQfRqgtx5i7oc1vZJZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rP7J6Q2ROM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "1999-12-29"
+                            "release_date": "1999-12-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - จอมโกหกผู้เที่ยงธรรม กัปตันอุซป",
                             "image": "https://image.tmdb.org/t/p/original/eEMUBvJRLhBqbJpNdORCnAATstc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Cl0U2UgD6v/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-01-12"
+                            "release_date": "2000-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.9,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 10 - คนประหลาดที่แข็งแกร่งที่สุด จังโก้ นักสะกดจิต!",
                             "image": "https://image.tmdb.org/t/p/original/7dlCYKECzQDn2DlJlspR1nWn9V6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/OXJi7zQAJK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-01-19"
+                            "release_date": "2000-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.3,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.3,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 11 - แผนลับถูกเปิดเผย พ่อบ้านโจรสลัด กัปตันคุโระ!",
                             "image": "https://image.tmdb.org/t/p/original/b08je5NHtJwFnU5zXAH242fEuPT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QhxxkemhRe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-01-26"
+                            "release_date": "2000-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 12.9,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.9,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - กลุ่มโจรสลัดแมวดำบุก การต่อสู้บนพื้นลาด",
                             "image": "https://image.tmdb.org/t/p/original/o1pUdqIr0CdNxZBg3Bn0sYqpfja.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mbnZverLi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-02-02"
+                            "release_date": "2000-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 13 - คู่พี่น้องสุดน่ากลัว! พี่น้องเนียบัน ปะทะ โซโล",
                             "image": "https://image.tmdb.org/t/p/original/5o58dYDGjB9dwpJiRxV5yZvQIoP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zSA883N7Nd/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-02-09"
+                            "release_date": "2000-02-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.4,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - ลูฟี่คืนสติ! คุณหนูคายะยอมเสี่ยงตาย",
                             "image": "https://image.tmdb.org/t/p/original/qxDzdk87cJ6PB1d8m9ERN3TWf41.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rhD3qWyJdx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-02-16"
+                            "release_date": "2000-02-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.4,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - จัดการคุโระซะ! การตัดสินใจทั้งน้ำตาของอุซป",
                             "image": "https://image.tmdb.org/t/p/original/1ovO4PrIv7kqnlzZ42ozTRNwSMi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Zt9Ssh8cQz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-02-23"
+                            "release_date": "2000-02-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.6,
+                                        "end": 112.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 16 - ปกป้องคายะให้ได้! วีรกรรมครั้งใหญ่ของกลุ่มโจรสลัดอุซป",
                             "image": "https://image.tmdb.org/t/p/original/bx1Edb8ItY1B7SaDT9yS3VugOzh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JsyXbJf2hG/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-03-01"
+                            "release_date": "2000-03-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 17 - ระเบิดความโกรธ! ศึกตัดสิน คุโระปะทะลูฟี่",
                             "image": "https://image.tmdb.org/t/p/original/fMBJQazBNwpA6dqWd0M78ELMsuZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TSacCvQnqr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-03-08"
+                            "release_date": "2000-03-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 18 - นายคือสัตว์ประหลาด! ไกม่อนกับผองเพื่อนตัวประหลาด",
                             "image": "https://image.tmdb.org/t/p/original/kxD9r4qzHAcwPmOMJ9txzp8dOrF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T3NkxaxHfp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-03-15"
+                            "release_date": "2000-03-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.1,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - อดีตของดาบ 3 เล่ม! คำสาบานระหว่างโซโลกับคุอินะ",
                             "image": "https://image.tmdb.org/t/p/original/4UJiy2qHw51qBcfT4wCiHwoe6of.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Kd6Hv9KQTr/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-03-22"
+                            "release_date": "2000-03-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.9,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - สุดยอดกุ๊ก! ซันจิแห่งภัตตาคารลอยทะเล",
                             "image": "https://image.tmdb.org/t/p/original/gUjPAnmZ2zEr2uJQaDN9Y84gqnC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qbTzAiYcHq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-04-12"
+                            "release_date": "2000-04-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.3,
+                                        "end": 111.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 21 - แขกที่ไม่ได้รับเชิญ! อาหารของซันจิ และความเมตตาแด่กิง",
                             "image": "https://image.tmdb.org/t/p/original/7a0bQdtRMeczMBFYXbTMkjnxFql.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FdbeVsxROA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-04-12"
+                            "release_date": "2000-04-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 29.6,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1373.4,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 22 - กลุ่มโจรสลัดที่แข็งแกร่งที่สุด กัปตันดอนครีก",
                             "image": "https://image.tmdb.org/t/p/original/ZK41o4OIPD2PYC3fjEUNQZ5d1j.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O6UdJFn6sT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-04-26"
+                            "release_date": "2000-04-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.2,
+                                        "end": 111.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.9,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 23 - ปกป้องบาราติเอ้! โจรสลัดผู้ยิ่งใหญ่ เชฟขาแดง",
                             "image": "https://image.tmdb.org/t/p/original/x3CIxzC7szHLmwg6EV8CHzwszuv.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AUrs0qnwbL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-05-03"
+                            "release_date": "2000-05-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.9,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 24 - ตาเหยี่ยวมิฮอว์ก! นักดาบโซโลจมลงสู่ทะเล",
                             "image": "https://image.tmdb.org/t/p/original/dsP1wWbhhCOs7OruKqOmOPxvN6L.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zIY7yXvuRt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-05-10"
+                            "release_date": "2000-05-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.8,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 25 - ลูกเตะมหากาฬ! ซันจิ ปะทะ กำแพงเหล็ก เพิร์ล!",
                             "image": "https://image.tmdb.org/t/p/original/8I3LPJDrLilieh1EXEXzuCQw6pV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/dJgSbNagG9/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-05-17"
+                            "release_date": "2000-05-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.8,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - ความฝันของเซฟกับซันจิ ทะเลแห่งฝัน ออลบูล",
                             "image": "https://image.tmdb.org/t/p/original/rrhh1TzYgqnGZ0a4OmnZiDdcCe5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JJQ6y2ybpy/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-05-24"
+                            "release_date": "2000-05-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 13.3,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.6,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - ปิศาจผู้เลือดเย็น กิง นายทัพใหญ่แห่งกองเรือโจรสลัด",
                             "image": "https://image.tmdb.org/t/p/original/3qioZkwBjjxTAVZq7wu4GIW4sGr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2p85A2fQsM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-05-31"
+                            "release_date": "2000-05-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.3,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1374.9,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - ฉันไม่ตายหรอก! ศึกอันดุเดือด ลูฟี่ ปะทะ ครีก",
                             "image": "https://image.tmdb.org/t/p/original/eEyhBf5cJ7iHVDJjfK2Sm3Tt31j.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ydhRQWBUMY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-06-07"
+                            "release_date": "2000-06-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.8,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 29 - การต่อสู้ที่เสี่ยงตาย กับหอกแห่งความมุ่งมั่น!",
                             "image": "https://image.tmdb.org/t/p/original/2wtjXYJ2823f3EDCPEOgEciY6Lt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/itPdvHUSsN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-06-21"
+                            "release_date": "2000-06-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 30 - ออกเดินทาง กุ๊กทะเลร่วมทางไปกับลูฟี่",
                             "image": "https://image.tmdb.org/t/p/original/59m5g59ttMAWhf67bq9vqfcx62y.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SOEJwZ2AOR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-06-28"
+                            "release_date": "2000-06-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - บุรุษผู้ชั่วร้ายที่สุดแห่งอีสบลู โจรสลัดมนุษย์เงือก อารอง",
                             "image": "https://image.tmdb.org/t/p/original/isZ805jKzB8wt1qig4SzoS2t96m.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/5EXxIF1MGk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-07-12"
+                            "release_date": "2000-07-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.2,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1446.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 32 - นางมารร้ายแห่งหมู่บ้านโคโคยาชิ เสนาธิการสาวของอารอง",
                             "image": "https://image.tmdb.org/t/p/original/sTRjaR522NEkOu2juGRqtCxBrMh.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QXo5SQlfVi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-07-19"
+                            "release_date": "2000-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.2,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.1,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 33 - อุซปตายเหรอ!? แล้วลูฟี่ยังไม่มาอีกเหรอ?",
                             "image": "https://image.tmdb.org/t/p/original/98jeknfqfW9AQVioEqrRXAyQZcS.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/iVRTeX2rCx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-07-19"
+                            "release_date": "2000-07-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 15.4,
+                                        "end": 110.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 34 - รวมพลครบทีม! ความจริงของนามิจากปากอุซป",
                             "image": "https://image.tmdb.org/t/p/original/cpkpAMYyi4OtLwu7FoAnCEochnY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xeVVOILisQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-07-26"
+                            "release_date": "2000-07-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 35 - อดีตที่ถูกปกปิด! นักสู้หญิง เบลเมล!",
                             "image": "https://image.tmdb.org/t/p/original/uJV7dayzJmBKF1LBHSCWsEHFqBH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/epgsldger/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-08-02"
+                            "release_date": "2000-08-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.4,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 36 - จงอยู่ต่อไป! สายสัมพันธ์ของ \"คุณแม่เบลเมล กับ นามิ\"",
                             "image": "https://image.tmdb.org/t/p/original/aJuGgd2nds1MOcQAcKRiVYngsEe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O4PnbN8Axs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-08-09"
+                            "release_date": "2000-08-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.6,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 37 - ลูฟี่พร้อมลุย จุดจบของสัญญาที่ถูกบิดพลิ้ว!",
                             "image": "https://image.tmdb.org/t/p/original/vhpPmkbQa2WASoU3ysGTbGV9ROc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ln7AhP4TO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-08-16"
+                            "release_date": "2000-08-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.7,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 38 - ลูฟี่แย่แล้ว มนุษย์เงือก ปะทะ กลุ่มโจรสลัดลูฟี่",
                             "image": "https://image.tmdb.org/t/p/original/vjbrVt5mPAr5BTJydbbUILRc9Yd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uJMWHvOXBN/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-08-23"
+                            "release_date": "2000-08-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.8,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 39 - ลูฟี่จมน้ำ โซโล ปะทะ หมึกยักษ์ฮัจจัง",
                             "image": "https://image.tmdb.org/t/p/original/vIEwxwXtYCCz14DHZeXiaJluNWV.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2dGXQUNZov/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-08-30"
+                            "release_date": "2000-08-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 40 - ศักดิ์ศรีของนักสู้ ซันจิกับอุซุปพบศึกหนัก",
                             "image": "https://image.tmdb.org/t/p/original/sHFMU7pQbfpB1m8X46LdyaOS7pO.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nr753fU6Cz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-09-06"
+                            "release_date": "2000-09-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 41 - ลูฟี่ลุยแหลก!!! ความมุ่งมั่นของนามิและหมวกฟาง",
                             "image": "https://image.tmdb.org/t/p/original/7dWGWAxqt9sx9GAqYiDLUNp4tqg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oB5CD0u1wD/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-09-13"
+                            "release_date": "2000-09-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.4,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.6,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 42 - ระเบิดศึก! การโจมตีจากใต้ทะเลของมนุษย์เงือกอารอง!",
                             "image": "https://image.tmdb.org/t/p/original/pDz4ikUgf6v0ZDT83DfDTRWUbzb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uIyS9GH70o/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-09-27"
+                            "release_date": "2000-09-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 20.1,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 43 - จักรวรรดิมนุษย์เงือกล่มสลาย! นามิคือพรรคพวกของฉัน",
                             "image": "https://image.tmdb.org/t/p/original/bYgszCXq8oBIWCmq2kUg0xx3ob6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/gdzdlIMpsR/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-09-27"
+                            "release_date": "2000-09-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.4,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 44 - ออกเดินทางด้วยรอยยิ้ม! ลาก่อนบ้านเกิด หมู่บ้านโคโคยาชิ",
                             "image": "https://image.tmdb.org/t/p/original/3odfZYUygc377xeIP1wc29G7k8q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YJqnT2vO2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-10-11"
+                            "release_date": "2000-10-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.4,
+                                        "end": 111.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.7,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 45 - ถูกตั้งค่าหัว ลูฟี่หมวกฟางดังก้องไปทั่วโลก",
                             "image": "https://image.tmdb.org/t/p/original/zudSaw2jWjeZdcsFqZXOZAtJKR7.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/1feQWsBlAQ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-10-25"
+                            "release_date": "2000-10-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 24.5,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 46 - ไล่ตามหมวกฟางไป การผจญภัยครั้งใหญ่ของบาร์กี้ตัวน้อย!",
                             "image": "https://image.tmdb.org/t/p/original/x9RD6hNiEYTh0wgSVBuy6AbT97q.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ExNdQidkMx/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-11-01"
+                            "release_date": "2000-11-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.8,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.7,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 47 - ขอโทษที่ให้คอย กัปตันบาร์กี้คืนชีพแล้ว",
                             "image": "https://image.tmdb.org/t/p/original/st3mXHLwFLXpJqsYWNoeL3RtRBJ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QDcbmaO3Vk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-11-08"
+                            "release_date": "2000-11-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 22.2,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 48 - เมืองแห่งจุดเริ่มต้นและจุดจบ ขึ้นฝั่งที่โร้กทาวน์",
                             "image": "https://image.tmdb.org/t/p/original/fM2lMSUMAKej9ZzrKJh96gvszCb.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/58CnEti4rX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-11-22"
+                            "release_date": "2000-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.7,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1446.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 49 - ซังไดคิเท็ตสึกับยูบาชิริ! ดาบใหม่ของโซโลและจ่าสาว",
                             "image": "https://image.tmdb.org/t/p/original/ob9wZYfIekvRFJMCSMdpGz7uJdg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Fkf3WREIto/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-11-22"
+                            "release_date": "2000-11-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.8,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.4,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 50 - อุซป ปะทะ แด๊ดดี้! การดวลกลางแสงตะวัน",
                             "image": "https://image.tmdb.org/t/p/original/wPp8pgICIMtO6170v7ZLPCSk9tU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/j1Ga6RMH3o/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-11-29"
+                            "release_date": "2000-11-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.8,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 51 - ศึกดวลเดือดกระทะเหล็ก! ซันจิ ปะทะ เชฟสาวสวย",
                             "image": "https://image.tmdb.org/t/p/original/v6LG9uvEPo202jxo9BIOFHoc98r.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SOyyTJevBX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-12-06"
+                            "release_date": "2000-12-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 26.9,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1373.8,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 52 - การล้างแค้นของบากี้! ชายผู้ยิ้มแย้มบนแท่นประหาร!",
                             "image": "https://image.tmdb.org/t/p/original/kA7mSWeR3xI60RczrROyDZQadmL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/90RDmQ0nz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2000-12-13"
+                            "release_date": "2000-12-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.3,
+                                        "end": 110.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1373.3,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 53 - เปิดฉากตำนาน! มุ่งสู่แกรนด์ไลน์!",
                             "image": "https://image.tmdb.org/t/p/original/PsBKljBaRrQ2z9SG607yGAIY5k.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sCiDxYmz/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-01-10"
+                            "release_date": "2001-01-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.2,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1373.7,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 54 - ลางสังหรณ์แห่งการผจญภัยครั้งใหม่ สาวน้อยปริศนาอาปิส",
                             "image": "https://image.tmdb.org/t/p/original/Aw8LKz3OpuFSek9XTr8pr4asa93.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7KLwAuxo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-01-17"
+                            "release_date": "2001-01-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 55 - สิ่งมีชีวิตแห่งปาฏิหาริย์ ความลับของอาปิส และเกาะแห่งความลับ",
                             "image": "https://image.tmdb.org/t/p/original/zcN96wZ7owc0JHXBXz7Htcmdje3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/sggGWsNC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-01-24"
+                            "release_date": "2001-01-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.2,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 56 - เอริกโจมตี! การหลบหนีจากเกาะเรือรบ!",
                             "image": "https://image.tmdb.org/t/p/original/51WQ9vmwcvfFcCNFTOQpdpYy6Lx.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/PLICZzXi/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-01-31"
+                            "release_date": "2001-01-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.5,
+                                        "end": 110.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 57 - เกาะเดียวดายในทะเลอันเวิ้งว้าง! ตำนานแห่งลอสต์ไอส์แลนด์",
                             "image": "https://image.tmdb.org/t/p/original/ybRBwe5rwxXoYFW0kcVYOpY0x38.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Xv4rHPYM/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-02-07"
+                            "release_date": "2001-02-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.8
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 58 - การดวลในเมืองร้าง! โซโล ปะทะ เอริก",
                             "image": "https://image.tmdb.org/t/p/original/bBPZptKwqjhsbvRF2NXUkB4I0pZ.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/84MWB3zZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-02-21"
+                            "release_date": "2001-02-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.3
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.3,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 59 - ลูฟี่โดนล้อมหมดทางหนี! แผนลับของผู้พันเนลสัน",
                             "image": "https://image.tmdb.org/t/p/original/qsvvwMu1A3dj5xOhBgkhW223qTA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mNVXyDAW/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-02-21"
+                            "release_date": "2001-02-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.3
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.1,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 60 - ระบำบนฟากฟ้า! ตำนานพันปีหวนคืน!",
                             "image": "https://image.tmdb.org/t/p/original/BfeKJEM4AF7gfZEjvQuH2O5kk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bI2lHV16/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-02-28"
+                            "release_date": "2001-02-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.3
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.6,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 61 - ข้อยุติแห่งความโกรธ! มุ่งหน้าฝ่าฟันข้ามแกรนด์ไลน์",
                             "image": "https://image.tmdb.org/t/p/original/4C5TJ0TKSJOLUxHaLN9YZrqoEmq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lRoEqixX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-03-07"
+                            "release_date": "2001-03-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.1,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.5,
+                                        "end": 1446.1
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -467,112 +1412,402 @@
                             "image": "https://image.tmdb.org/t/p/original/1rFrIJKBg5BUGFfM7xFdVjJFdyH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Eb3gKfir/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-03-21"
+                            "release_date": "2001-03-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 12.9
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.5,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.4,
+                                        "end": 1445.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 63 - คำสัญญาลูกผู้ชาย คำสาบานระหว่างลูฟี่กับปลาวาฬ",
                             "image": "https://image.tmdb.org/t/p/original/sU626nmlG4GFYsJ9VCem9CzZfle.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ArwvgJK/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-03-21"
+                            "release_date": "2001-03-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.2
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.7,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.2,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 64 - เมืองแห่งการต้อนรับโจรสลัด ขึ้นฝั่งที่วิสกี้พีก",
                             "image": "https://image.tmdb.org/t/p/original/6VcJfKCVSewtsTL1SYMajdeBi90.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/lULFHJnh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-04-15"
+                            "release_date": "2001-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.4
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.7,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1376.3,
+                                        "end": 1445.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 65 - สามดาบสะท้านโลกันต์ โซโล ปะทะ บาร็อกเวิร์กส",
                             "image": "https://image.tmdb.org/t/p/original/cBB42u3JIJlFMoBNamTdvhHp4nf.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/uhGXI00B/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-04-15"
+                            "release_date": "2001-04-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1375.9,
+                                        "end": 1446
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 66 - ศึกตัดสินของจริง ศึกใหญ่ไร้สาระ ระหว่าง ลูฟี่ และ โซโล",
                             "image": "https://image.tmdb.org/t/p/original/pnhaWi1VaJQ2v7FPLikXmpFkIj3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TzTotTu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-04-22"
+                            "release_date": "2001-04-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14.8,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 67 - ไปส่งองค์หญิงวีวี่ กลุ่มโจรสลัดลูฟี่ออกเดินทาง",
                             "image": "https://image.tmdb.org/t/p/original/13dwlYlGF9iYR6pQFfILCz5VY6f.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Lf4fc4w/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-04-29"
+                            "release_date": "2001-04-29",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.1,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 68 - พยายามเข้าโคบี้ บันทึกการต่อสู้ของทหารเรือโคบี้เม็ปโป้",
                             "image": "https://image.tmdb.org/t/p/original/xusCozsCpbu5obkaD15Jc5vwvkD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ylwEuW04/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-05-13"
+                            "release_date": "2001-05-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 27.7,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 69 - การตัดสินใจของโคบี้เม็ปโป้..หัวใจพ่อคนของนายพลการ์ป",
                             "image": "https://image.tmdb.org/t/p/original/qGmTXIkaxhdveDcRGrtIcCIqCJD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hgZzcuY/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-05-20"
+                            "release_date": "2001-05-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.8
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14.9,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 70 - เกาะยุคไดโนเสาร์ เงาที่ซ่อนอยู่ในลิตเติลการ์เด้น!",
                             "image": "https://image.tmdb.org/t/p/original/gKc3RzZtZgnWykpjJelKzeVys4E.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0KeGF2mA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-05-27"
+                            "release_date": "2001-05-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14.1,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 71 - ศึกตัดสินขนาดยักษ์! คนยักษ์ดอรี่ และโบรกี้!",
                             "image": "https://image.tmdb.org/t/p/original/pQjvSF7LQlC1x9iPQNw7uKtlXg8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/wFYNPZ1n/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-06-03"
+                            "release_date": "2001-06-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.6
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14.1,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 72 - ลูฟี่โกรธ! กับดักแสนชั่วในศึกตัดสินศักด์สิทธิ์!",
                             "image": "https://image.tmdb.org/t/p/original/dRbMQ7IXImyf3QYm3vD1VeZmcZR.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kKVGZLhl/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-06-17"
+                            "release_date": "2001-06-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.6
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 17.6,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 73 - โบรกี้ชนะทั้งน้ำตา ผลชี้ขาดของ \"เอลูบาบู\"",
                             "image": "https://image.tmdb.org/t/p/original/3mk8B6FgnOMh5KakYP0Jfdu8iBI.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oTRYKCAu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-06-24"
+                            "release_date": "2001-06-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.6
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 14,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 74 - เทียนปีศาจ! น้ำตาแห่งความเศร้า และน้ำตาแห่งความโกรธ",
                             "image": "https://image.tmdb.org/t/p/original/lqYtzXOYvlz7oE7AoviXahqdnJP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/qTJ5dWo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-07-15"
+                            "release_date": "2001-07-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 14.7
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 27.1,
+                                        "end": 110.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1385.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 75 - พลังผลปีศาจเล่นงานลูฟี่! กับดักสีลวงใจ!",
                             "image": "https://image.tmdb.org/t/p/original/6hnOjfyo5elQEElUxxWeNVevfAy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0egDytnE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-08-12"
+                            "release_date": "2001-08-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 76 - ได้เวลาเอาคืน! ความฉลาดของอุซปและกระสุนดินระเบิด!",
                             "image": "https://image.tmdb.org/t/p/original/tRLDQGGYGcBffAFGKaGbKVYyJrq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/e8XSe4de/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-08-19"
+                            "release_date": "2001-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 77 - ลาก่อน! เกาะคนยักษ์ มุ่งสู่อลาบัสต้า",
                             "image": "https://image.tmdb.org/t/p/original/tJ9kVDIMzGzrJxg0Q3EdzojRpdr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/e6Gh7OG5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-08-19"
+                            "release_date": "2001-08-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1384.9
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -598,98 +1833,318 @@
                             "image": "https://image.tmdb.org/t/p/original/fUE7i6vjlILHjAGC3shlDBjBk5H.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/RnC2MNEj/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-08-26"
+                            "release_date": "2001-08-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.4
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 28.1,
+                                        "end": 111.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 79 - เซอร์ไพรส์! เรือบลีคิงก์ และวาโปลผู้กินได้ทุกสิ่ง!",
                             "image": "https://image.tmdb.org/t/p/original/vZf3Er1IX1fvbqZUo8HZQWJv1uD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BnIMPRh/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-09-02"
+                            "release_date": "2001-09-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 28.3,
+                                        "end": 112
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.6,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 80 - เกาะที่ไม่มีหมองั้นเหรอ ผจญภัยในอาณาจักรที่ไม่มีแม้แต่ชื่อ!",
                             "image": "https://image.tmdb.org/t/p/original/opGcymuPmuQNmw6CUScm7cWSHDU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2Jz1dVcA/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-09-09"
+                            "release_date": "2001-09-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 81 - สบายมั้ยล่ะ หมอที่ทุกคนให้ฉายาว่า แม่มด!",
                             "image": "https://image.tmdb.org/t/p/original/yFhk9Zn3H6MgGsJrrX2GdiYywwy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/jdpolo21/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-09-16"
+                            "release_date": "2001-09-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 82 - ดอลตันลุกขึ้นสู้ กองทัพวาโปลเทียบฝั่ง!",
                             "image": "https://image.tmdb.org/t/p/original/eYY7rjE6hrfZ0sr3zmYgVSfhyOC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mGANecUe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-10-07"
+                            "release_date": "2001-10-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1388.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 83 - เกาะแห่งหิมะ ปีนเขาดรัมร็อกกี",
                             "image": "https://image.tmdb.org/t/p/original/8fe3J8cFlhDeJLv85pSUmw94KYA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/JkD3ftHo/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-10-14"
+                            "release_date": "2001-10-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1389
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 84 - เรนเดียร์จมูกน้ำเงิน ความลับของช็อปเปอร์",
                             "image": "https://image.tmdb.org/t/p/original/orQmsQFDNWUrY3JD0qC0bSCKCUY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/AFx7eyWT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-10-21"
+                            "release_date": "2001-10-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.3,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 85 - ความฝันอันโหดร้าย หมอเถื่อนฮีลลุค",
                             "image": "https://image.tmdb.org/t/p/original/m2WaaBfPqOU8B4BNmS2ojFlSP6x.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2MgHAaR0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-10-28"
+                            "release_date": "2001-10-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.8,
+                                        "end": 1387.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 86 - ดอกซากุระของฮีลลุค และความตั้งใจที่จะสานต่อ",
                             "image": "https://image.tmdb.org/t/p/original/4M1up8UW9bYaesRigpgfa1MNm7m.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/nzFqYj4u/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-11-04"
+                            "release_date": "2001-11-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.3,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 87 - ปะทะกองทัพวาโปล พลังของผลบาคุ บาคุ",
                             "image": "https://image.tmdb.org/t/p/original/iyYNVJg5vv3nHQJr1ZGjeVZwlw6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/7trHU880/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-11-11"
+                            "release_date": "2001-11-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2,
+                                        "end": 110.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.3,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 88 - ผลปีศาจสายพันธุ์สัตว์ ช็อปเปอร์และร่างแปลงทั้ง 7",
                             "image": "https://image.tmdb.org/t/p/original/c05wriQgHRIxxB3QeJczlUuNJly.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/V68aSZIp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-11-18"
+                            "release_date": "2001-11-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.2,
+                                        "end": 1387.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 89 - จุดจบของราชาโฉด ธงแห่งความยึดมั่นจะคงอยู่ตลอดกาล",
                             "image": "https://image.tmdb.org/t/p/original/lQ6SAiAf4Ppo4cJMoZ7MejVRPdi.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FgX7ecdc/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-11-25"
+                            "release_date": "2001-11-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.1,
+                                        "end": 1389.7
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 90 - ซากุระของฮีลลุค ปาฏิหาริย์แห่งดรัมร็อกกี",
                             "image": "https://image.tmdb.org/t/p/original/wl1q9fraeztdjWzUWXCNTAagTJY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tMPGivUT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-12-02"
+                            "release_date": "2001-12-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 13.5
+                                    },
+                                    {
+                                        "type": "op",
+                                        "start": 34.9,
+                                        "end": 112.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1390.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 91 - ลาก่อนเกาะดรัม พวกผมจะออกทะเลแล้วนะ",
                             "image": "https://image.tmdb.org/t/p/original/zzQ4QPQvJvDIDuke3yBTuj8Mpu5.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/kJkfBVFv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-12-09"
+                            "release_date": "2001-12-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 14.9,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.5,
+                                        "end": 1390.2
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -715,273 +2170,858 @@
                             "image": "https://image.tmdb.org/t/p/original/kSazgD8N3u3uhzrf7PScWOLj4Oc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FtQZBme6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-12-09"
+                            "release_date": "2001-12-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 93 - มุ่งสู่เมืองแห่งทราย กองกำลังทหารปฏิวัติและผงเรียกฝน!",
                             "image": "https://image.tmdb.org/t/p/original/vr9pdntxWrQVgRDL4vcbihBPzuN.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/KVXN8o5W/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-12-16"
+                            "release_date": "2001-12-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1387.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 94 - การพบกันอีกครั้งของเหล่าฮีโร นามนั้นคือเอสหมัดเพลิง!",
                             "image": "https://image.tmdb.org/t/p/original/vQ3a4Kd2voyp1BJXZwBUBpa5P4T.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2xYetY0P/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2001-12-23"
+                            "release_date": "2001-12-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1386.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 95 - เอสและลูฟี่ ความทรงจำอันแสนเร่าร้อน และบาดแผลของสองพี่น้อง",
                             "image": "https://image.tmdb.org/t/p/original/hoXzsLHR6wiesK0eg3uVrPy6TI6.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/FcHL6JIs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-01-06"
+                            "release_date": "2002-01-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1390.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 96 - เอลุมารุ เมืองแห่งสีเขียว และพะยูนกังฟู",
                             "image": "https://image.tmdb.org/t/p/original/9pbeL1c1gWSrCkZs7ExEtSIvNt2.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/QG5GFMOe/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-01-13"
+                            "release_date": "2002-01-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1382.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 97 - การผจญภัยในอาณาจักรแห่งทราย ปีศาจบนแผ่นดินอันแสนร้อนระอุ",
                             "image": "https://image.tmdb.org/t/p/original/qDjVHmYuLfZHypzY7LIiJiQOl5a.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/fVtkSycT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-01-20"
+                            "release_date": "2002-01-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.7,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 98 - กลุ่มโจรสลัดแห่งทะเลทรายปรากฏกาย เหล่าบุรุษผู้มีชีวิตอย่างเสรี",
                             "image": "https://image.tmdb.org/t/p/original/ggYAbWNwbfXy3q1S7kNhA6e5L6N.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/b4qT4v6d/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-01-27"
+                            "release_date": "2002-01-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.3,
+                                        "end": 110.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 99 - ความมุ่งมั่นจอมปลอม หัวใจของทหารกองกำลังปฏิวัติ คามิล",
                             "image": "https://image.tmdb.org/t/p/original/bWyN6OXMUqydLomx1MhVNbOgASl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/O50wYYr2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-02-03"
+                            "release_date": "2002-02-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 8.5,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 100 - นักรบแห่งกองกำลังปฏิวัติ โคซ่า ความฝันที่สาบานไว้กับวีวี่",
                             "image": "https://image.tmdb.org/t/p/original/5QrT0ejl7XukAK4O49KSNf0UNnr.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xoV7eBp1/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-02-10"
+                            "release_date": "2002-02-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 34.9,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 101 - ศึกตัดสินแห่งเปลวเพลิง เอส ปะทะ มนุษย์แมงป่อง",
                             "image": "https://image.tmdb.org/t/p/original/gH2eipXWGL1Ro69ZFYXwgt8dlbn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ca2LV7xS/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-02-17"
+                            "release_date": "2002-02-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 5.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.6,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 102 - ซากโบราณและเด็กหลงทาง วีวี่กับพรรคพวกและประเทศ",
                             "image": "https://image.tmdb.org/t/p/original/lNTrqp550z45A9a3g0f434UrBf8.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/8tYtBd93/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-02-24"
+                            "release_date": "2002-02-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 2.1,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 103 - รวมพลเฉพาะกิจ แปดนาฬิกาที่สไปเดอร์คาเฟ่!",
                             "image": "https://image.tmdb.org/t/p/original/s6YjR0XcH3Qb6vf4FE26PISmqvc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TOBmB7Dt/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-03-02"
+                            "release_date": "2002-03-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.3,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.2,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 104 - ลูฟี่ ปะทะ วีวี่ คำสาบานแห่งน้ำตา ที่เอามิตรภาพเป็นเดิมพัน!",
                             "image": "https://image.tmdb.org/t/p/original/tymdo327cTU04r3Z9qXltXOx4L.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bhFocjCU/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-03-10"
+                            "release_date": "2002-03-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 112.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1382.2
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 105 - เส้นทางสู่สงครามอลาบัสต้า เมืองแห่งฝัน..เรนเบส",
                             "image": "https://image.tmdb.org/t/p/original/m838H8PtFqSVvrPWm7rHhAXuZ6b.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2iU45q6c/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-03-17"
+                            "release_date": "2002-03-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 106 - ทะลวงเข้าเรนดินัส กับดักที่เล่นเอาถึงตาย",
                             "image": "https://image.tmdb.org/t/p/original/p3MpDepjxZjTDG0UriCy2FKYjKD.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/9JHDOUqv/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-03-24"
+                            "release_date": "2002-03-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 113.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.6,
+                                        "end": 1391.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 107 - เริ่มยุทธการยูโทเปีย..คณะปฏิวัติเริ่มเคลื่อนไหว",
                             "image": "https://image.tmdb.org/t/p/original/4yIX27RlS7wADKQrBchp16ND6Pq.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2q2oIvqq/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-04-14"
+                            "release_date": "2002-04-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 112.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1386.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 108 - จระเข้หัวกล้วยจอมโหด ปะทะ มิสเตอร์เจ้าชาย",
                             "image": "https://image.tmdb.org/t/p/original/l48xzyt96zIcG4amVIBSXjTfmjt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TtBKIia2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-04-21"
+                            "release_date": "2002-04-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 112.3
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 109 - กุญแจที่พาไปสู่อิสระ..ลูกบอลเทียนไข",
                             "image": "https://image.tmdb.org/t/p/original/mX03nTSgYEywSLql8C4rkIqxUEc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/2e9UzKU4/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-04-28"
+                            "release_date": "2002-04-28",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1386.1
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 110 - ศึกชี้ชะตาไร้ความปราณี..ลูฟี่ ปะทะ คร็อกโคไดล์",
                             "image": "https://image.tmdb.org/t/p/original/nyPw5Gu59cHqR8f619vKtmv9ptl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/mNQRQWzL/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-05-05"
+                            "release_date": "2002-05-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 111 - มุ่งหน้าไปสู่ปาฏิหาริย์..ดินแดนแห่งสัตว์ป่าอลาบัสต้า",
                             "image": "https://image.tmdb.org/t/p/original/xbKNlPFAc8hTG7FrDaiNXxp5AtG.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/YE0fOxA0/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-05-12"
+                            "release_date": "2002-05-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.6,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 112 - คณะปฏิวัติ ปะทะ ทหารรักษาอาณาจักร..ศึกตัดสินที่ \"อัลบาน่า\"",
                             "image": "https://image.tmdb.org/t/p/original/rFwyBtiisestPCTtJZo5XKKeRBF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/aQQAGNYT/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-05-19"
+                            "release_date": "2002-05-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1385.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 113 - อัลบาน่าตกอยู่ในวิกฤต..ศึกนองเลือดของหัวหน้ากาลู",
                             "image": "https://image.tmdb.org/t/p/original/e3qXwHZ16s5KzpjqWIDNO1nov8i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/DJcyZ6Ay/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-06-02"
+                            "release_date": "2002-06-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.4,
+                                        "end": 1385.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 114 - สาบานต่อความฝันของเพื่อน..ศึกตัดสินที่เนินตัวตุ่นเมืองเบอร์สี่",
                             "image": "https://image.tmdb.org/t/p/original/cUa0Sm81yG5oghhdVrJFXJuEhrc.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/yBuo8Y2Y/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-06-09"
+                            "release_date": "2002-06-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.5,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 115 - สุดยอดการแสดงวันนี้ มอนตาคิวเลียนแบบ",
                             "image": "https://image.tmdb.org/t/p/original/8sKMOByqr0hyXlDcyb2eXbha5Fk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/19P6Bm5T/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-06-16"
+                            "release_date": "2002-06-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.7,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 116 - แปลงร่างเป็นเพื่อน เพลงหมัดกะเทยของบอนเคร",
                             "image": "https://image.tmdb.org/t/p/original/rI1nJqbVMyOELY74Iqc0yR7wcyk.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pH6UFDBp/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-06-23"
+                            "release_date": "2002-06-23",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1386
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 117 - ระวังลมหมุนของนามิให้ดี..ระเบิดกระบองคุริมะ",
                             "image": "https://image.tmdb.org/t/p/original/iG675at7j7J6RuQ5E0gnDtblEQj.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/4CahoGgs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-06-30"
+                            "release_date": "2002-06-30",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1312.3,
+                                        "end": 1385.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 118 - ความลับที่สืบทอดกันมาในหมู่ราชา อาวุธโบราณ \"พูลตัน\"",
                             "image": "https://image.tmdb.org/t/p/original/5Ry8B0bOjkvbBkyxBuEQQcRDocH.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/F2DeqlxI/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-07-14"
+                            "release_date": "2002-07-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.4,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 119 - ความลับของความจริง..ลมหายใจของสรรพสิ่งและพลังที่ตัดเหล็ก",
                             "image": "https://image.tmdb.org/t/p/original/qvfbrSX3S3mMRmn3YthcJ5O9Wvz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/TYC14jPs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-07-21"
+                            "release_date": "2002-07-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.4,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 120 - การต่อสู้สิ้นสุดลง โคซ่ายอมยกธงขาว!",
                             "image": "https://image.tmdb.org/t/p/original/efBkiLEsYLQNkPhzLpKrE2bF8lY.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/IvS7fP6/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-08-04"
+                            "release_date": "2002-08-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1385.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 121 - หนทางแห่งเสียงของวีวี่ วีรสตรีร่ายรำลงมาแล้ว",
                             "image": "https://image.tmdb.org/t/p/original/ameJJ0DIj8ODexA5cAfnEgBku3i.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/WL8ppycs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-08-11"
+                            "release_date": "2002-08-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.1,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 122 - ศึกตัดสินครั้งที่ 2 จระเข้ทราย ปะทะ ลูฟี่ร่างน้ำ",
                             "image": "https://image.tmdb.org/t/p/original/y6SlEBoF6OmoWd7kontpI8dmUcA.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/xbGrm5bV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-08-18"
+                            "release_date": "2002-08-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1316.9,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 123 - ไอ้จระเข้โฉด ลูฟี่มุ่งหน้าไปสู่สุสานของราชวงศ์สิ",
                             "image": "https://image.tmdb.org/t/p/original/4bcCeaUjFM7qxsp843vHUkxKHZt.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pDva5u8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-08-25"
+                            "release_date": "2002-08-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 124 - บุกสู่ช่วงเวลาแห่งฝันร้าย ที่นี่คือฐานทัพลับของกลุ่มเม็ดทราย!",
                             "image": "https://image.tmdb.org/t/p/original/tS20ERg00ZbWItz9xslMcRiZ2Jz.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/bL8Zo1TP/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-09-01"
+                            "release_date": "2002-09-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 125 - ปีกแห่งเกียรติยศ นามของข้าคือทหารรักษาอาณาจักร เปรู!",
                             "image": "https://image.tmdb.org/t/p/original/bWoHHxSd88C4gp5IOKZi5WX8f5K.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rb3AyEck/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-09-08"
+                            "release_date": "2002-09-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 126 - ฝ่าไปให้ถึง วันที่ฝนจะตกลงสู่อลาบัสต้า!",
                             "image": "https://image.tmdb.org/t/p/original/2EZ9Mi2fkMoZwn2GLKvykA7HnSd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/T6aeSgC/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-09-15"
+                            "release_date": "2002-09-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.6,
+                                        "end": 1385.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 127 - ลาก่อนอาวุธทั้งหลาย! โจรสลัดกับความยุติธรรมที่มีอยู่น้อยนิด!",
                             "image": "https://image.tmdb.org/t/p/original/yL2CODaPrlRaG9DYtwaCIazBZXl.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/hEHNvmu/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-10-06"
+                            "release_date": "2002-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.9,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 128 - งานเลี้ยงแบบโจรสลัด ศึกหนีออกจากอลาบัสต้า!",
                             "image": "https://image.tmdb.org/t/p/original/k7dr41FiTjRU30zFRKXNOPMuGHC.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/GxsPVaqs/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-10-06"
+                            "release_date": "2002-10-06",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 129 - มันเริ่มตอนจากวันนั้น เรื่องราวการผจญภัยของวีวี่",
                             "image": "https://image.tmdb.org/t/p/original/jhsNO02qYM0UbI6A5AMYYRG4TCe.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/pi764Dq5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-10-20"
+                            "release_date": "2002-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1.6,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1313.9,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 130 - สัญญาณอันตราย สมาชิกคนที่ 7 คือ นิโค โรบิน",
                             "image": "https://image.tmdb.org/t/p/original/jF1biiqC6Ujs6fpCd4deZIcoXSP.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/HsrLgfYE/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-10-27"
+                            "release_date": "2002-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.2,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
@@ -1007,91 +3047,286 @@
                             "image": "https://image.tmdb.org/t/p/original/gDXQUv5E1hPYH239pxzYtRlKQAL.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/htxLFiEV/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-11-03"
+                            "release_date": "2002-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 108.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.7,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 132 - การสไตรก์ของต้นหน เพื่อความฝันไม่มีวันปล่อยให้หลุดมือ",
                             "image": "https://image.tmdb.org/t/p/original/aXZ4smdbJTSG0PBOmoiuZ37FLE3.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Wr6QQv0H/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-11-10"
+                            "release_date": "2002-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 133 - ฝันที่ได้รับช่วงต่อ แกงกะหรี่ของซันจิจอมอึด",
                             "image": "https://image.tmdb.org/t/p/original/t5HM8pL8DTDeFn82O1UmPqzqvYy.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/zXPGaspm/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-11-17"
+                            "release_date": "2002-11-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 134 - จะยิงมันขึ้นไปให้ได้ ดอกไม้ไฟของลูกผู้ชายชื่ออุซป",
                             "image": "https://image.tmdb.org/t/p/original/gPM0GOZvFbY9sSWsEUQS2sbQfhd.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/0D8qlTRO/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-11-24"
+                            "release_date": "2002-11-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 135 - ข่าวลือในหมู่นักล่าโจรสลัด เรื่องของนักดาบมหัศจรรย์โซโล!",
                             "image": "https://image.tmdb.org/t/p/original/p5Y72GBFUYagb8b2MmGjnh6Ayzg.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/XN6w2kOX/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-12-01"
+                            "release_date": "2002-12-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.6
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 136 - เซนี่แห่งเกาะแพะภูเขา และเรือที่มีอยู่บนยอดเขา!",
                             "image": "https://image.tmdb.org/t/p/original/cPG6UllCYT9NQemR83iVdIhFuTF.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/ANqml5f8/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-12-08"
+                            "release_date": "2002-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 137 - เก็บดอกได้ไหมเนี่ย? ความต้องการของเซนี่นักปล่อยเงินกู้!",
                             "image": "https://image.tmdb.org/t/p/original/xUIfp0wiipddX5beeMXs1YyvzoT.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/tywNsnPk/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-12-15"
+                            "release_date": "2002-12-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 138 - สมบัติของเกาะที่แท้จริง! กลุ่มโจรสลัดเซนี่ออกเดินทาง!",
                             "image": "https://image.tmdb.org/t/p/original/vtYaBOY9jnMViEs4pJZffM0lUO1.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/Z2dfqkG5/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2002-12-22"
+                            "release_date": "2002-12-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 139 - ตำนานหมอกสีรุ้งกับผู้เฒ่าแห่งเกาะลูลูก้า!",
                             "image": "https://image.tmdb.org/t/p/original/pH8SMOvU8UUC5YO3kQJ5UZWVEmn.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/loqpMV1r/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2003-01-05"
+                            "release_date": "2003-01-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 1,
+                                        "end": 110
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 140 - รูไดอาจับไร้เวลา! กลุ่มโจรสลัดฟักทอง!",
                             "image": "https://image.tmdb.org/t/p/original/vd5NkfteHdL6XTCWjLArGqO4Tk0.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/oRIVbHfZ/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2003-01-12"
+                            "release_date": "2003-01-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 110.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 141 - ค้นหาทางกลับบ้านเกิด! หนีออกจากสุสานเรือซึ่งไร้กาลเวลา!",
                             "image": "https://image.tmdb.org/t/p/original/52chUmHSBkZkySQVZagY3V4lFgB.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/rBvFEaS2/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2003-01-19"
+                            "release_date": "2003-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 142 - สู้กันสุดฤทธิ์ ความทะเยอทะยานของเวดตั้นและหอคอยสีรุ้ง",
                             "image": "https://image.tmdb.org/t/p/original/1P8C1ZioAbJq0KTyxGrAejZD9Z.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/SfJoBkei/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2003-01-26"
+                            "release_date": "2003-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 109.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.8,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 143 - และแล้วตำนานก็เริ่มขึ้น มุ่งสู่ทางสายรุ้งกันเถอะ",
                             "image": "https://image.tmdb.org/t/p/original/KNOLvQMcCI76Gnad0GapEtVFqU.jpg",
                             "url": "https://hls.animeindy.com:8443/vid/BxJDG2WB/video.mp4/playlist.m3u8",
                             "referer": "https://indy-anime.net/",
-                            "release_date": "2003-02-02"
+                            "release_date": "2003-02-02",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 111.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1315.3,
+                                        "end": 1385.5
+                                    }
+                                ]
+                            }
                         }
                     ],
                     "status": "completed"
