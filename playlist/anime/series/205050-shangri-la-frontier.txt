@@ -17,7 +17,22 @@
                             "url": "https://app.akuma-stream.com/watch/12e98fc4-839d-4ccd-92f1-96ec775f5821",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-01"
+                            "release_date": "2023-10-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 160.3,
+                                        "end": 249.9
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1353.7,
+                                        "end": 1403.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 2 - ผู้มีเอกลักษณ์",
@@ -25,7 +40,22 @@
                             "url": "https://app.akuma-stream.com/watch/e5f3024d-5180-432f-a892-3e189149c6f2",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-08"
+                            "release_date": "2023-10-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.2,
+                                        "end": 148
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.2,
+                                        "end": 1418.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 3 - หมาป่าทมิฬพิชิตราตรี",
@@ -33,7 +63,22 @@
                             "url": "https://app.akuma-stream.com/watch/b9914e5e-205c-40f3-b21f-23fc2aa11dfe",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-15"
+                            "release_date": "2023-10-15",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.1
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.6,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 4 - ชำระล้างค่านิยมด้วยเกมกาก",
@@ -41,7 +86,22 @@
                             "url": "https://app.akuma-stream.com/watch/f800df48-9833-4a39-956e-bf664fd3ce13",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-22"
+                            "release_date": "2023-10-22",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1274.2,
+                                        "end": 1363.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 5 - สุดท้ายแล้วคุณก็โดนล้อมไปด้วยคมหอก",
@@ -72,7 +132,22 @@
                             "url": "https://app.akuma-stream.com/watch/9ca0716d-b170-4540-b234-6e0f75a6ae72",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-11-05"
+                            "release_date": "2023-11-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.7,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 7 - สิ่งที่เหลืออยู่ของยุคสมัยแห่งพระเจ้า, ผู้แพ้ที่ยึดติด",
@@ -103,7 +178,22 @@
                             "url": "https://app.akuma-stream.com/watch/af30f8d2-aabb-4820-9fe5-27efeda0b32e",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-11-19"
+                            "release_date": "2023-11-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.8,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1185.2,
+                                        "end": 1274.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 9 - ทะเลไม้ที่สวยสง่า",
@@ -157,7 +247,27 @@
                             "url": "https://app.akuma-stream.com/watch/c66e75ab-91e4-4bfc-981a-c5e79c11b9b2",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-12-10"
+                            "release_date": "2023-12-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.3,
+                                        "end": 1421.9
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1509.9,
+                                        "end": 1523.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 12 - การเสียใจภายหลังจะเกิดขึ้นในอดีตเสมอ",
@@ -188,7 +298,22 @@
                             "url": "https://app.akuma-stream.com/watch/d8c5f148-379d-47fd-9db5-73a030a6fdd4",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-12-24"
+                            "release_date": "2023-12-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1206.3,
+                                        "end": 1295.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 14 - เล็กน้อย",
@@ -196,7 +321,22 @@
                             "url": "https://app.akuma-stream.com/watch/783abc7b-3885-45ec-bd96-9198edf565b6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1200.2,
+                                        "end": 1289.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 15 - ทุ่มเทความรู้สึกในชั่วพริบตา พาร์ทหนึ่ง",
@@ -278,7 +418,22 @@
                             "url": "https://app.akuma-stream.com/watch/17c4e939-e8b6-4a79-b0be-9b4a0eed0445",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.3,
+                                        "end": 114.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 19 - โลกที่ก้าวไปต่อ ฮีโร่ผู้ถูกเปิดเผย",
@@ -286,7 +441,27 @@
                             "url": "https://app.akuma-stream.com/watch/709e527e-d598-4f53-8827-3fffca7098ae",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-02-18"
+                            "release_date": "2024-02-18",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "intro",
+                                        "start": 0.5,
+                                        "end": 10.2
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 20 - ปัจจุบันและอนาคตของแต่ละคน",
@@ -414,7 +589,22 @@
                             "url": "https://app.akuma-stream.com/watch/8b1f8fef-e799-412e-a435-edfb9fd8f102",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-03-31"
+                            "release_date": "2024-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1203.1,
+                                        "end": 1291.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 26 - Half-Naked Birdman and the Gang in Golem Paradise",
@@ -422,7 +612,22 @@
                             "url": "https://app.akuma-stream.com/watch/9f71dd67-93fb-4c6f-b151-2ad11bfc44d7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-13"
+                            "release_date": "2024-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.3,
+                                        "end": 137.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1183.2,
+                                        "end": 1272.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 27 - The Uncompromising Gatekeeper",
@@ -430,7 +635,22 @@
                             "url": "https://app.akuma-stream.com/watch/d1a0bcbc-b4d5-47ed-8f37-bdb03f41770c",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-20"
+                            "release_date": "2024-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1273.2,
+                                        "end": 1362.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 28 - Accelerating Meetings, Surging Desire, and the Start of Various Threads",
@@ -484,7 +704,22 @@
                             "url": "https://app.akuma-stream.com/watch/3b58d7f1-b669-41cd-8560-e241502042b6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-10"
+                            "release_date": "2024-11-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.2,
+                                        "end": 1358.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 31 - After the Fierce Battle, Despair",
@@ -561,7 +796,22 @@
                             "url": "https://app.akuma-stream.com/watch/7840c5d7-028d-4c85-852b-07c0073fb8f8",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.2,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1226.2,
+                                        "end": 1315.3
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 35 - Track It Like a Bloodhound",
@@ -638,7 +888,22 @@
                             "url": "https://app.akuma-stream.com/watch/aa75c80a-7be7-4c58-842f-e5d9e2f8dc94",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-01-05"
+                            "release_date": "2025-01-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 30.6,
+                                        "end": 120.8
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 39 - Embrace the Lamplight of Ambition (4)",
@@ -692,7 +957,22 @@
                             "url": "https://app.akuma-stream.com/watch/5c92d2bf-6aaf-45e4-adb0-b1ded6722a56",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-01-26"
+                            "release_date": "2025-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 42 - A Straight Flush Mixed with Jokers",
@@ -815,7 +1095,22 @@
                             "url": "https://app.akuma-stream.com/watch/06b70c15-6729-4d69-9b12-3ee5fdf0655b",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-03-09"
+                            "release_date": "2025-03-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.2,
+                                        "end": 1358.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 48 - Malice at 100 Meters Per Second",
@@ -899,7 +1194,22 @@
                             "url": "https://app.akuma-stream.com/watch/a2bc5d15-001d-4388-adb1-34ee37a58093",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-01"
+                            "release_date": "2023-10-01",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 160.9,
+                                        "end": 250
+                                    },
+                                    {
+                                        "type": "mixed-ed",
+                                        "start": 1312.7,
+                                        "end": 1404
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 2 - A Peculiar One",
@@ -907,7 +1217,22 @@
                             "url": "https://app.akuma-stream.com/watch/d56d125b-72c2-40ea-afe3-c291d0966b22",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-10-08"
+                            "release_date": "2023-10-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 58.2,
+                                        "end": 148
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1329.2,
+                                        "end": 1418.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 3 - Black Wolf Nightslayer",
@@ -984,7 +1309,22 @@
                             "url": "https://app.akuma-stream.com/watch/3c95d89c-4286-462c-9fe7-5f85879663ef",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-11-05"
+                            "release_date": "2023-11-05",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.7,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 7 - Remnant of the Divinity: The Aberrant Loser",
@@ -992,7 +1332,22 @@
                             "url": "https://app.akuma-stream.com/watch/8abe191e-8e83-4d69-a934-3bbc48c39654",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-11-12"
+                            "release_date": "2023-11-12",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239.2,
+                                        "end": 1329
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 8 - The 300-Limit Pandemonium",
@@ -1000,7 +1355,22 @@
                             "url": "https://app.akuma-stream.com/watch/ed528d88-21ae-4d0f-909c-2caf9c2d0dbf",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-11-19"
+                            "release_date": "2023-11-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1185.6,
+                                        "end": 1275
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 9 - A Dazzling Sea of Trees",
@@ -1054,7 +1424,22 @@
                             "url": "https://app.akuma-stream.com/watch/01f6bd3e-a4f2-4ad9-a31a-4ec805d28de3",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2023-12-10"
+                            "release_date": "2023-12-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 40.9,
+                                        "end": 131
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.8,
+                                        "end": 1422
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 12 - Regrets Always Lie in the Past",
@@ -1108,7 +1493,22 @@
                             "url": "https://app.akuma-stream.com/watch/b5d7cf79-85c0-4cb2-a563-1eee9041619a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-01-07"
+                            "release_date": "2024-01-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 41.3,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1200.2,
+                                        "end": 1289.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 15 - Putting Feelings Into a Moment (1)",
@@ -1185,7 +1585,22 @@
                             "url": "https://app.akuma-stream.com/watch/be0250df-403f-4ba2-95ba-9c4d4110fbd9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-02-11"
+                            "release_date": "2024-02-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 25.2,
+                                        "end": 114.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1328.8,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 19 - The World Progresses, the Heroes Are Revealed",
@@ -1216,7 +1631,22 @@
                             "url": "https://app.akuma-stream.com/watch/c45be722-ded3-4fa4-80b7-c915794cdfeb",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-02-25"
+                            "release_date": "2024-02-25",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 90.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1407
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 21 - Errands, Cultivation, and Game Progress",
@@ -1247,7 +1677,22 @@
                             "url": "https://app.akuma-stream.com/watch/07461340-68e0-4f64-93a6-722ce7d64409",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-03-10"
+                            "release_date": "2024-03-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.4,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1317.3,
+                                        "end": 1407
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 23 - Bird and Rabbits VS Chorus of Skeletons",
@@ -1255,7 +1700,22 @@
                             "url": "https://app.akuma-stream.com/watch/09dcc92b-6a2e-49fe-96b6-f6e95786a70a",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-03-17"
+                            "release_date": "2024-03-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1259.6,
+                                        "end": 1348.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 24 - Rare Items, Worth More than Life Itself",
@@ -1263,7 +1723,22 @@
                             "url": "https://app.akuma-stream.com/watch/e89bc898-3fc6-4157-aeee-93b0ba7b920d",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-03-24"
+                            "release_date": "2024-03-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 39.5,
+                                        "end": 130.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1314.2,
+                                        "end": 1403.4
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 25 - Those Who Illuminate the World's Darkness",
@@ -1271,7 +1746,22 @@
                             "url": "https://app.akuma-stream.com/watch/8ad84010-f33d-4832-86b3-bf8589fc925e",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-03-31"
+                            "release_date": "2024-03-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1203.1,
+                                        "end": 1291.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 26 - Half-Naked Birdman and the Gang in Golem Paradise",
@@ -1279,7 +1769,22 @@
                             "url": "https://app.akuma-stream.com/watch/9077420b-7a00-46ac-8fd1-3a954ac4c8f7",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-13"
+                            "release_date": "2024-10-13",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 48.3,
+                                        "end": 138
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1183.2,
+                                        "end": 1273
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 27 - The Uncompromising Gatekeeper",
@@ -1287,7 +1792,22 @@
                             "url": "https://app.akuma-stream.com/watch/88267702-f1ed-4555-b9ca-7aa1c889b1d6",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-20"
+                            "release_date": "2024-10-20",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1273.2,
+                                        "end": 1362.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 28 - Accelerating Meetings, Surging Desire, and the Start of Various Threads",
@@ -1295,7 +1815,22 @@
                             "url": "https://app.akuma-stream.com/watch/df53afa5-a2ae-4f0e-a4a8-a1bb3b3acbb9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-10-27"
+                            "release_date": "2024-10-27",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1421.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 29 - When Humanity Dreams of the Impossible and Takes to the Skies",
@@ -1303,7 +1838,22 @@
                             "url": "https://app.akuma-stream.com/watch/e412e5de-65df-4779-897b-9282811050d9",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-11-03"
+                            "release_date": "2024-11-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 67.2,
+                                        "end": 156.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 30 - The Impetus of Hunger; the Persistence of Thirst",
@@ -1403,7 +1953,22 @@
                             "url": "https://app.akuma-stream.com/watch/16091099-9e6e-4863-96ad-5e16ecb00b06",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2024-12-08"
+                            "release_date": "2024-12-08",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 35.3,
+                                        "end": 124.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1226.2,
+                                        "end": 1315.5
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 35 - Track It Like a Bloodhound",
@@ -1526,7 +2091,22 @@
                             "url": "https://app.akuma-stream.com/watch/ec87dee6-b0f3-48e4-ba53-26b3c61f3938",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-01-19"
+                            "release_date": "2025-01-19",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.1,
+                                        "end": 1421.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 41 - What Do You Play Games For? Their Answers",
@@ -1534,7 +2114,22 @@
                             "url": "https://app.akuma-stream.com/watch/e5062d08-bff8-4dba-8051-0a82fc89efdf",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-01-26"
+                            "release_date": "2025-01-26",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.2,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 42 - A Straight Flush Mixed with Jokers",
@@ -1657,7 +2252,22 @@
                             "url": "https://app.akuma-stream.com/watch/d8084a14-e2a4-4177-aa9c-6aa31ca33c85",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-03-09"
+                            "release_date": "2025-03-09",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1269.1,
+                                        "end": 1358.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 48 - Malice at 100 Meters Per Second",
@@ -1665,7 +2275,22 @@
                             "url": "https://app.akuma-stream.com/watch/426b791b-ed96-4988-b5df-a9f103764048",
                             "resolver": "anime-hdzero",
                             "referer": "https://ahdzero.com/",
-                            "release_date": "2025-03-16"
+                            "release_date": "2025-03-16",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 0.5,
+                                        "end": 89.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1332.6,
+                                        "end": 1421.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "Ep. 49 - Great King of the Deep, I Humbly Seek to Crush You",

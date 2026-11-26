@@ -1058,7 +1058,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1276.8,
+                                        "start": 1276.2,
                                         "end": 1365.9
                                     }
                                 ]
@@ -1088,7 +1088,22 @@
                             "url": "https://app.akuma-stream.com/watch/5f8df263-4e1a-44d2-b007-a367d4d5f43d",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2018-09-04"
+                            "release_date": "2018-09-04",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 102.9,
+                                        "end": 192.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1266.1,
+                                        "end": 1355.9
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 49 - เหนือขีดจำกัด",
@@ -1096,7 +1111,22 @@
                             "url": "https://app.akuma-stream.com/watch/b0b301bf-4bae-4ba5-b747-00de8a5e39c5",
                             "resolver": "anime-hdzero",
                             "referer": "https://animehdzeroo.net/",
-                            "release_date": "2018-09-11"
+                            "release_date": "2018-09-11",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 95.2,
+                                        "end": 184.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1239.2,
+                                        "end": 1328.8
+                                    }
+                                ]
+                            }
                         },
                         {
                             "name": "ตอน 50 - สิ้นสุดการต่อสู้ จุดจบของความสิ้นหวัง",
@@ -1138,7 +1168,7 @@
                                     },
                                     {
                                         "type": "mixed-ed",
-                                        "start": 1272.9,
+                                        "start": 1272.2,
                                         "end": 1361.9
                                     }
                                 ]
@@ -3556,7 +3586,7 @@
                                     },
                                     {
                                         "type": "ed",
-                                        "start": 1328.7,
+                                        "start": 1329.2,
                                         "end": 1418.5
                                     }
                                 ]
