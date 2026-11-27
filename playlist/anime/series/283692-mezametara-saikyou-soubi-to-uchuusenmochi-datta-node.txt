@@ -1,183 +1,190 @@
 {
-    "name": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship! [目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい]",
-    "image": "https://image.tmdb.org/t/p/original/uF5ls69ae5oskSCGcEGtXgwHy6N.jpg",
-    "groups": [
+  "name": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship! [目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい]",
+  "image": "https://image.tmdb.org/t/p/original/u7ZpGNdkpqvCiMKjMiK3ghBiJxG.jpg",
+  "groups": [
+    {
+      "name": "Season 1",
+      "image": "https://image.tmdb.org/t/p/original/uF5ls69ae5oskSCGcEGtXgwHy6N.jpg",
+      "groups": [
         {
-            "name": "Season 1",
-            "image": "https://image.tmdb.org/t/p/original/uF5ls69ae5oskSCGcEGtXgwHy6N.jpg",
-            "groups": [
-                {
-                    "name": "ซับไทย",
-                    "image": "https://image.tmdb.org/t/p/original/uF5ls69ae5oskSCGcEGtXgwHy6N.jpg",
-                    "referer": "https://indy-anime.net/mezametara-saikyou-soubi-to-uchuusenmochi-datta/",
-                    "stations": [
-                        {
-                            "name": "Ep. 1 - First Space Colony Visit",
-                            "image": "https://image.tmdb.org/t/p/original/kkDx2SP47tzylSIadCemWp6vUX9.jpg",
-                            "url": "https://sv2.team-indy.net/video/YfIuH9l5K0/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-04",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 66.2,
-                                        "end": 155.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.4,
-                                        "end": 1420.1
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 2 - Mimi the Girl",
-                            "image": "https://image.tmdb.org/t/p/original/y20tsuAVOiDEVtuSFSxhTh0PLMi.jpg",
-                            "url": "https://sv2.team-indy.net/video/UrusoxzwqM/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-11",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 34.2,
-                                        "end": 123.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1307.2,
-                                        "end": 1396.6
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 3 - Elma",
-                            "image": "https://image.tmdb.org/t/p/original/x3LHeh7rAqITJrtzH9FuxOB1OCD.jpg",
-                            "url": "https://sv2.team-indy.net/video/hqVHjTGdI0/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-18",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 72.2,
-                                        "end": 161.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1290.5,
-                                        "end": 1379.6
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 4 - A New Daily Life",
-                            "image": "https://image.tmdb.org/t/p/original/wVqpyOVfxJBjJVfNXRmIChPBgON.jpg",
-                            "url": "https://sv2.team-indy.net/video/I4PUIiJNVd/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-25",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 86.2,
-                                        "end": 175.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.5,
-                                        "end": 1420
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 5 - The Singing Crystal",
-                            "image": "https://image.tmdb.org/t/p/original/hmOgMRjNXW5aqt6leKFKaMJV5qC.jpg",
-                            "url": "https://sv2.team-indy.net/video/Q8aAY9dKT0/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-01",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 79.5,
-                                        "end": 168.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.5,
-                                        "end": 1420.1
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 6 - The Arein System",
-                            "image": "https://image.tmdb.org/t/p/original/atHoO2eImdLy0Z0O8TGiOVNW38M.jpg",
-                            "url": "https://sv2.team-indy.net/video/E9sh5rfUSC/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-08",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 78.2,
-                                        "end": 167.6
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1302.3,
-                                        "end": 1392.1
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 7 - The Pirate-Hunting Unit",
-                            "image": "https://image.tmdb.org/t/p/original/gg7rqrcQ848y8ZYsLMCCypOYGco.jpg",
-                            "url": "https://sv2.team-indy.net/video/IzSMa5xhYx/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-15",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 153.2,
-                                        "end": 242.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1312.5,
-                                        "end": 1400.5
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ],
-            "release_date": "2026-10-04",
-            "updated_at": "2026-11-15T00:00:00.000Z"
+          "name": "ซับไทย",
+          "image": "https://image.tmdb.org/t/p/original/uF5ls69ae5oskSCGcEGtXgwHy6N.jpg",
+          "referer": "https://indy-anime.net/mezametara-saikyou-soubi-to-uchuusenmochi-datta/",
+          "stations": [
+            {
+              "name": "Ep. 1 - First Space Colony Visit",
+              "image": "https://image.tmdb.org/t/p/original/kkDx2SP47tzylSIadCemWp6vUX9.jpg",
+              "url": "https://sv2.team-indy.net/video/YfIuH9l5K0/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-04",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 66.2,
+                    "end": 155.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.4,
+                    "end": 1420.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 2 - Mimi the Girl",
+              "image": "https://image.tmdb.org/t/p/original/y20tsuAVOiDEVtuSFSxhTh0PLMi.jpg",
+              "url": "https://sv2.team-indy.net/video/UrusoxzwqM/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-11",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 34.2,
+                    "end": 123.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1307.2,
+                    "end": 1396.6
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 3 - Elma",
+              "image": "https://image.tmdb.org/t/p/original/x3LHeh7rAqITJrtzH9FuxOB1OCD.jpg",
+              "url": "https://sv2.team-indy.net/video/hqVHjTGdI0/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-18",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 72.2,
+                    "end": 161.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1290.5,
+                    "end": 1379.6
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 4 - A New Daily Life",
+              "image": "https://image.tmdb.org/t/p/original/wVqpyOVfxJBjJVfNXRmIChPBgON.jpg",
+              "url": "https://sv2.team-indy.net/video/I4PUIiJNVd/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-25",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 86.2,
+                    "end": 175.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.5,
+                    "end": 1420
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 5 - The Singing Crystal",
+              "image": "https://image.tmdb.org/t/p/original/hmOgMRjNXW5aqt6leKFKaMJV5qC.jpg",
+              "url": "https://sv2.team-indy.net/video/Q8aAY9dKT0/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-01",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 79.5,
+                    "end": 168.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.5,
+                    "end": 1420.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 6 - The Arein System",
+              "image": "https://image.tmdb.org/t/p/original/atHoO2eImdLy0Z0O8TGiOVNW38M.jpg",
+              "url": "https://sv2.team-indy.net/video/E9sh5rfUSC/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-08",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 78.2,
+                    "end": 167.6
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1302.3,
+                    "end": 1392.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 7 - The Pirate-Hunting Unit",
+              "image": "https://image.tmdb.org/t/p/original/gg7rqrcQ848y8ZYsLMCCypOYGco.jpg",
+              "url": "https://sv2.team-indy.net/video/IzSMa5xhYx/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-15",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 153.2,
+                    "end": 242.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1312.5,
+                    "end": 1400.5
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 8 - Sleeping Beauty",
+              "image": "https://image.tmdb.org/t/p/original/pEvmDQ1VNK4edAHahIGfSkChsYa.jpg",
+              "url": "https://sv2.team-indy.net/video/Q80MHtrWKF/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-22"
+            }
+          ]
         }
-    ],
-    "release_date": "2026-10-04",
-    "updated_at": "2026-11-15T00:00:00.000Z",
-    "season_count": 1,
-    "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": null
+      ],
+      "release_date": "2026-10-04",
+      "updated_at": "2026-11-15T00:00:00.000Z"
     }
+  ],
+  "release_date": "2026-10-04",
+  "updated_at": "2026-11-15T00:00:00.000Z",
+  "season_count": 1,
+  "completion": {
+    "status": "incomplete",
+    "season": 1,
+    "track": null
+  }
 }
