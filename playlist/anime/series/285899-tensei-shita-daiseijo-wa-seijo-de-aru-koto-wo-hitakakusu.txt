@@ -1,225 +1,232 @@
 {
-    "name": "A Tale of the Secret Saint [สตรีศักดิ์สิทธิ์เกิดใหม่ แต่ไม่ขอบอกใครนะคะ]",
-    "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
-    "groups": [
+  "name": "A Tale of the Secret Saint [สตรีศักดิ์สิทธิ์เกิดใหม่ แต่ไม่ขอบอกใครนะคะ]",
+  "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
+  "groups": [
+    {
+      "name": "Season 1",
+      "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
+      "groups": [
         {
-            "name": "Season 1",
-            "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
-            "groups": [
-                {
-                    "name": "ซับไทย",
-                    "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
-                    "referer": "https://indy-anime.net/tensei-shita-daiseijo-wa/",
-                    "stations": [
-                        {
-                            "name": "Ep. 1 - The Great Saint Awakens",
-                            "image": "https://image.tmdb.org/t/p/original/bhaXvXAXuKRLYw5jPpWBkbq9plk.jpg",
-                            "url": "https://sv2.team-indy.net/video/VB97IyGewB/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-03",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 32.5,
-                                        "end": 121.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.5,
-                                        "end": 1414.5
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 2 - Fia and the Knight Brigade",
-                            "image": "https://image.tmdb.org/t/p/original/6FEZygThdi0UAgOJsCxiIZWKuHl.jpg",
-                            "url": "https://sv2.team-indy.net/video/vsGMSm4Vox/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-10",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 46.5,
-                                        "end": 135.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1185.6,
-                                        "end": 1274.5
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 3 - The Saint's State of Being",
-                            "image": "https://image.tmdb.org/t/p/original/p1s6PduYdMArPftWlYVkjN2Z6TY.jpg",
-                            "url": "https://sv2.team-indy.net/video/iIiFQtVg5S/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-17",
-                            "skip": {
-                                "source": "manual",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 148.5,
-                                        "end": 237.5
-                                    }
-                                ],
-                                "none": [
-                                    "ed"
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 4 - The Fourth Monster Tamer Knight Brigade",
-                            "image": "https://image.tmdb.org/t/p/original/tFBbWONPUVLPLCoG4bQ7KcXFpsv.jpg",
-                            "url": "https://sv2.team-indy.net/video/P6N5bX35v9/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-24",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 158.5,
-                                        "end": 247.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.5,
-                                        "end": 1415
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 5 - Calamitous Monsters",
-                            "image": "https://image.tmdb.org/t/p/original/an713lUWXoZCMg3LMAX34yF07Az.jpg",
-                            "url": "https://sv2.team-indy.net/video/eZaufueOv9/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-10-31",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 112.5,
-                                        "end": 201.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.5,
-                                        "end": 1415
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 6 - A Plan to Capture the Black King",
-                            "image": "https://image.tmdb.org/t/p/original/ge04YFTDskpJPe09sJ4ZisjKXhM.jpg",
-                            "url": "https://sv2.team-indy.net/video/EDWge9zGC2/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-07",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 261.5,
-                                        "end": 350.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1415.1
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 7 - Zavilia",
-                            "image": "https://image.tmdb.org/t/p/original/7VMKM0uGzk29XThIgSYa0i5wmR0.jpg",
-                            "url": "https://sv2.team-indy.net/video/FPhSQ0AHX/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-14",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 150.5,
-                                        "end": 239.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.6,
-                                        "end": 1415.1
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 8 - My Adorable Friend",
-                            "image": "https://image.tmdb.org/t/p/original/AbpLdvAQSW3XvgRuCaJ3QGiNOp4.jpg",
-                            "url": "https://sv2.team-indy.net/video/mlhH5KgGaA/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-21",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 49.3,
-                                        "end": 138.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.2,
-                                        "end": 1415
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "Ep. 9 - Fia, to Sutherland",
-                            "image": "https://image.tmdb.org/t/p/original/tNRzj7OUeh3kf1Fy3DmwIeGtmTW.jpg",
-                            "url": "https://sv2.team-indy.net/video/ElOf40uPhC/video.mp4",
-                            "referer": "https://indy-anime.net/",
-                            "release_date": "2026-11-28",
-                            "skip": {
-                                "source": "audit",
-                                "segments": [
-                                    {
-                                        "type": "op",
-                                        "start": 85.2,
-                                        "end": 174.5
-                                    },
-                                    {
-                                        "type": "ed",
-                                        "start": 1325.3,
-                                        "end": 1415.1
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ],
-            "release_date": "2026-10-03",
-            "updated_at": "2026-11-28T00:00:00.000Z"
+          "name": "ซับไทย",
+          "image": "https://image.tmdb.org/t/p/original/1ETsQwBbwtaPN9SeczbQzg2mo0n.jpg",
+          "referer": "https://indy-anime.net/tensei-shita-daiseijo-wa/",
+          "stations": [
+            {
+              "name": "Ep. 1 - The Great Saint Awakens",
+              "image": "https://image.tmdb.org/t/p/original/bhaXvXAXuKRLYw5jPpWBkbq9plk.jpg",
+              "url": "https://sv2.team-indy.net/video/VB97IyGewB/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-03",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 32.5,
+                    "end": 121.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.5,
+                    "end": 1414.5
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 2 - Fia and the Knight Brigade",
+              "image": "https://image.tmdb.org/t/p/original/6FEZygThdi0UAgOJsCxiIZWKuHl.jpg",
+              "url": "https://sv2.team-indy.net/video/vsGMSm4Vox/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-10",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 46.5,
+                    "end": 135.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1185.6,
+                    "end": 1274.5
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 3 - The Saint's State of Being",
+              "image": "https://image.tmdb.org/t/p/original/p1s6PduYdMArPftWlYVkjN2Z6TY.jpg",
+              "url": "https://sv2.team-indy.net/video/iIiFQtVg5S/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-17",
+              "skip": {
+                "source": "manual",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 148.5,
+                    "end": 237.5
+                  }
+                ],
+                "none": [
+                  "ed"
+                ]
+              }
+            },
+            {
+              "name": "Ep. 4 - The Fourth Monster Tamer Knight Brigade",
+              "image": "https://image.tmdb.org/t/p/original/tFBbWONPUVLPLCoG4bQ7KcXFpsv.jpg",
+              "url": "https://sv2.team-indy.net/video/P6N5bX35v9/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-24",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 158.5,
+                    "end": 247.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.5,
+                    "end": 1415
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 5 - Calamitous Monsters",
+              "image": "https://image.tmdb.org/t/p/original/an713lUWXoZCMg3LMAX34yF07Az.jpg",
+              "url": "https://sv2.team-indy.net/video/eZaufueOv9/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-10-31",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 112.5,
+                    "end": 201.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.5,
+                    "end": 1415
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 6 - A Plan to Capture the Black King",
+              "image": "https://image.tmdb.org/t/p/original/ge04YFTDskpJPe09sJ4ZisjKXhM.jpg",
+              "url": "https://sv2.team-indy.net/video/EDWge9zGC2/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-07",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 261.5,
+                    "end": 350.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.6,
+                    "end": 1415.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 7 - Zavilia",
+              "image": "https://image.tmdb.org/t/p/original/7VMKM0uGzk29XThIgSYa0i5wmR0.jpg",
+              "url": "https://sv2.team-indy.net/video/FPhSQ0AHX/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-14",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 150.5,
+                    "end": 239.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.6,
+                    "end": 1415.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 8 - My Adorable Friend",
+              "image": "https://image.tmdb.org/t/p/original/AbpLdvAQSW3XvgRuCaJ3QGiNOp4.jpg",
+              "url": "https://sv2.team-indy.net/video/mlhH5KgGaA/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-21",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 49.3,
+                    "end": 138.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.2,
+                    "end": 1415
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 9 - Fia, to Sutherland",
+              "image": "https://image.tmdb.org/t/p/original/tNRzj7OUeh3kf1Fy3DmwIeGtmTW.jpg",
+              "url": "https://sv2.team-indy.net/video/ElOf40uPhC/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-11-28",
+              "skip": {
+                "source": "audit",
+                "segments": [
+                  {
+                    "type": "op",
+                    "start": 85.2,
+                    "end": 174.5
+                  },
+                  {
+                    "type": "ed",
+                    "start": 1325.3,
+                    "end": 1415.1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Ep. 10 - The Lament of Sutherland",
+              "image": "https://image.tmdb.org/t/p/original/lsb7shnFZ3uWhABKWtL73xDre5m.jpg",
+              "url": "https://sv2.team-indy.net/video/3IyZBRhApP/video.mp4",
+              "referer": "https://indy-anime.net/",
+              "release_date": "2026-12-05"
+            }
+          ]
         }
-    ],
-    "release_date": "2026-10-03",
-    "updated_at": "2026-11-28T00:00:00.000Z",
-    "season_count": 1,
-    "completion": {
-        "status": "incomplete",
-        "season": 1,
-        "track": null
+      ],
+      "release_date": "2026-10-03",
+      "updated_at": "2026-11-28T00:00:00.000Z"
     }
+  ],
+  "release_date": "2026-10-03",
+  "updated_at": "2026-11-28T00:00:00.000Z",
+  "season_count": 1,
+  "completion": {
+    "status": "incomplete",
+    "season": 1,
+    "track": null
+  }
 }
