@@ -1,483 +1,483 @@
 {
-  "name": "The Seven Knights of the Marronnier Kingdom [เจ็ดอัศวินแห่งอาณาจักรมาร์รอนเนียร์]",
-  "image": "https://image.tmdb.org/t/p/original/rYB2YdEaZKL08Bi91uZfZnCq8vv.jpg",
-  "groups": [
-    {
-      "name": "Season 1",
-      "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
-      "groups": [
+    "name": "The Seven Knights of the Marronnier Kingdom [เจ็ดอัศวินแห่งอาณาจักรมาร์รอนเนียร์]",
+    "image": "https://image.tmdb.org/t/p/original/rYB2YdEaZKL08Bi91uZfZnCq8vv.jpg",
+    "groups": [
         {
-          "name": "พากย์ไทย",
-          "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
-          "referer": "https://indy-anime.net/marronnier-oukoku-no-shichinin-no-kishi-dubth/",
-          "stations": [
-            {
-              "name": "ตอน 1 - The Seven Knights",
-              "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
-              "url": "https://sv2.team-indy.net/video/2AqIwKu1Qr/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-10-03",
-              "skip": {
-                "source": "manual",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1578.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 2 - Spring by the Lake",
-              "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
-              "url": "https://sv2.team-indy.net/video/MYpArYyLnU/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-10-10",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1578.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 3 - Recklessness",
-              "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
-              "url": "https://sv2.team-indy.net/video/SIEVV483L5/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-10-17",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 59.3,
-                    "end": 148.7
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1389.2,
-                    "end": 1478.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1494.2,
-                    "end": 1573.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 4 - Eleonora",
-              "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
-              "url": "https://sv2.team-indy.net/video/20eaAGV/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-10-24",
-              "skip": {
-                "source": "manual",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 60,
-                    "end": 150.7
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1390.2,
-                    "end": 1479.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1495.2,
-                    "end": 1568.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 5 - When We Go Home",
-              "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
-              "url": "https://sv2.team-indy.net/video/cLa30biVaL/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-10-31",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 156.7
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1580.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 6 - Red and Blue, Nights and Stars",
-              "image": "https://image.tmdb.org/t/p/original/rK2TuUTezWuggzih6o1VWmfcFKf.jpg",
-              "url": "https://sv2.team-indy.net/video/7EFhWXivum/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-11-07",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 59.2,
-                    "end": 149.4
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1389.2,
-                    "end": 1478.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1494.2,
-                    "end": 1571.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 7 - The Message",
-              "image": "https://image.tmdb.org/t/p/original/5MwQzYXpv6QgWxU8PIFrE8dL5Ag.jpg",
-              "url": "https://sv2.team-indy.net/video/OMxCmv95hr/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-11-14",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 156.4
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1576.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 8 - My Name’s Not Insomniac for Nothing",
-              "image": "https://image.tmdb.org/t/p/original/ceCd1NUHdfLFlVMwIs6mEjF4ArX.jpg",
-              "url": "https://sv2.team-indy.net/video/0GyekVlUQ/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-11-21",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 57.3,
-                    "end": 146.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1387.2,
-                    "end": 1476.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1492.1,
-                    "end": 1567.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "ตอน 9 - When Night Ends",
-              "image": "https://image.tmdb.org/t/p/original/4KZ4qmdoAeyWnoLQhphPf7MKpO8.jpg",
-              "url": "https://sv2.team-indy.net/video/NJLYB3QJit/video.mp4",
-              "referer": "https://indy-anime.net/",
-              "release_date": "2026-11-28"
-            }
-          ]
-        },
-        {
-          "name": "ซับไทย",
-          "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
-          "referer": "https://ahdzero.com/anime/7035",
-          "stations": [
-            {
-              "name": "Ep. 1 - The Seven Knights",
-              "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
-              "url": "https://app.akuma-stream.com/watch/637483e4-98a6-420d-af51-640a892cfc1e",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-10-03",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.5,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.1,
-                    "end": 1578.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 2 - Spring by the Lake",
-              "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
-              "url": "https://app.akuma-stream.com/watch/695cb9a7-e579-4d01-91ae-c158a33b9a0c",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-10-10",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.1,
-                    "end": 1578.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 3 - Recklessness",
-              "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
-              "url": "https://app.akuma-stream.com/watch/b583f64a-1a54-41be-b131-540166f15940",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-10-17",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.7
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1580.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 4 - Eleonora",
-              "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
-              "url": "https://app.akuma-stream.com/watch/8d3e4239-e24f-4fd1-a02c-5a0f43680e51",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-10-24",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 159.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.1,
-                    "end": 1574.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 5 - When We Go Home",
-              "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
-              "url": "https://app.akuma-stream.com/watch/f2f09a73-7c36-47a3-a49e-3c453ff5c220",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-10-31",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 157.6
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1580.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 6 - Red and Blue, Nights and Stars",
-              "image": "https://image.tmdb.org/t/p/original/rK2TuUTezWuggzih6o1VWmfcFKf.jpg",
-              "url": "https://app.akuma-stream.com/watch/21c13ec6-74b4-4610-9f5f-84b000032ee3",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-11-07",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 156.4
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1578.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 7 - The Message",
-              "image": "https://image.tmdb.org/t/p/original/5MwQzYXpv6QgWxU8PIFrE8dL5Ag.jpg",
-              "url": "https://app.akuma-stream.com/watch/c529155c-504f-49cd-b601-08efd8f57dd9",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-11-14",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 156.4
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1576.1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Ep. 8 - My Name’s Not Insomniac for Nothing",
-              "image": "https://image.tmdb.org/t/p/original/ceCd1NUHdfLFlVMwIs6mEjF4ArX.jpg",
-              "url": "https://app.akuma-stream.com/watch/6d1e1081-8d27-437b-8b5f-4c87211b7987",
-              "resolver": "anime-hdzero",
-              "referer": "https://ahdzero.com/",
-              "release_date": "2026-11-21",
-              "skip": {
-                "source": "audit",
-                "segments": [
-                  {
-                    "type": "op",
-                    "start": 66.3,
-                    "end": 155.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1396.2,
-                    "end": 1485.5
-                  },
-                  {
-                    "type": "ed",
-                    "start": 1501.2,
-                    "end": 1576.1
-                  }
-                ]
-              }
-            }
-          ]
+            "name": "Season 1",
+            "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
+            "groups": [
+                {
+                    "name": "พากย์ไทย",
+                    "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
+                    "referer": "https://indy-anime.net/marronnier-oukoku-no-shichinin-no-kishi-dubth/",
+                    "stations": [
+                        {
+                            "name": "ตอน 1 - The Seven Knights",
+                            "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
+                            "url": "https://sv2.team-indy.net/video/2AqIwKu1Qr/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-03",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 2 - Spring by the Lake",
+                            "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
+                            "url": "https://sv2.team-indy.net/video/MYpArYyLnU/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 3 - Recklessness",
+                            "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
+                            "url": "https://sv2.team-indy.net/video/SIEVV483L5/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.3,
+                                        "end": 148.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.2,
+                                        "end": 1478.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1494.2,
+                                        "end": 1573.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 4 - Eleonora",
+                            "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
+                            "url": "https://sv2.team-indy.net/video/20eaAGV/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-24",
+                            "skip": {
+                                "source": "manual",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 60,
+                                        "end": 150.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1390.2,
+                                        "end": 1479.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1495.2,
+                                        "end": 1568.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 5 - When We Go Home",
+                            "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
+                            "url": "https://sv2.team-indy.net/video/cLa30biVaL/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1580.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 6 - Red and Blue, Nights and Stars",
+                            "image": "https://image.tmdb.org/t/p/original/rK2TuUTezWuggzih6o1VWmfcFKf.jpg",
+                            "url": "https://sv2.team-indy.net/video/7EFhWXivum/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 59.2,
+                                        "end": 149.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1389.2,
+                                        "end": 1478.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1494.2,
+                                        "end": 1571.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 7 - The Message",
+                            "image": "https://image.tmdb.org/t/p/original/5MwQzYXpv6QgWxU8PIFrE8dL5Ag.jpg",
+                            "url": "https://sv2.team-indy.net/video/OMxCmv95hr/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 8 - My Name’s Not Insomniac for Nothing",
+                            "image": "https://image.tmdb.org/t/p/original/ceCd1NUHdfLFlVMwIs6mEjF4ArX.jpg",
+                            "url": "https://sv2.team-indy.net/video/0GyekVlUQ/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 57.3,
+                                        "end": 146.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1387.2,
+                                        "end": 1476.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1492.1,
+                                        "end": 1567.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ตอน 9 - When Night Ends",
+                            "image": "https://image.tmdb.org/t/p/original/4KZ4qmdoAeyWnoLQhphPf7MKpO8.jpg",
+                            "url": "https://sv2.team-indy.net/video/NJLYB3QJit/video.mp4",
+                            "referer": "https://indy-anime.net/",
+                            "release_date": "2026-11-28"
+                        }
+                    ]
+                },
+                {
+                    "name": "ซับไทย",
+                    "image": "https://image.tmdb.org/t/p/original/8G9iqjcYx4oGwEkpPOn8Hxj3dDz.jpg",
+                    "referer": "https://ahdzero.com/anime/7035",
+                    "stations": [
+                        {
+                            "name": "Ep. 1 - The Seven Knights",
+                            "image": "https://image.tmdb.org/t/p/original/lIl8sGoWBoiLdfDDeiFeIkJwgXe.jpg",
+                            "url": "https://app.akuma-stream.com/watch/637483e4-98a6-420d-af51-640a892cfc1e",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-03",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.5,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.1,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 2 - Spring by the Lake",
+                            "image": "https://image.tmdb.org/t/p/original/4PFPfIkQKeaHeKLvtaYzXTr6rtO.jpg",
+                            "url": "https://app.akuma-stream.com/watch/695cb9a7-e579-4d01-91ae-c158a33b9a0c",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-10",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.1,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 3 - Recklessness",
+                            "image": "https://image.tmdb.org/t/p/original/6cC7rpr5AcQHC89P4QkgOAo8D5c.jpg",
+                            "url": "https://app.akuma-stream.com/watch/b583f64a-1a54-41be-b131-540166f15940",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-17",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.7
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1580.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 4 - Eleonora",
+                            "image": "https://image.tmdb.org/t/p/original/z7r7YNNfGcr6mY8nSq2nMlm13RJ.jpg",
+                            "url": "https://app.akuma-stream.com/watch/8d3e4239-e24f-4fd1-a02c-5a0f43680e51",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-24",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 159.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.1,
+                                        "end": 1574.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 5 - When We Go Home",
+                            "image": "https://image.tmdb.org/t/p/original/qtIIZzZwSe58r6lSMzvunscvS5g.jpg",
+                            "url": "https://app.akuma-stream.com/watch/f2f09a73-7c36-47a3-a49e-3c453ff5c220",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-10-31",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 157.6
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1580.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 6 - Red and Blue, Nights and Stars",
+                            "image": "https://image.tmdb.org/t/p/original/rK2TuUTezWuggzih6o1VWmfcFKf.jpg",
+                            "url": "https://app.akuma-stream.com/watch/21c13ec6-74b4-4610-9f5f-84b000032ee3",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-07",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1578.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 7 - The Message",
+                            "image": "https://image.tmdb.org/t/p/original/5MwQzYXpv6QgWxU8PIFrE8dL5Ag.jpg",
+                            "url": "https://app.akuma-stream.com/watch/c529155c-504f-49cd-b601-08efd8f57dd9",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-14",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 156.4
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "Ep. 8 - My Name’s Not Insomniac for Nothing",
+                            "image": "https://image.tmdb.org/t/p/original/ceCd1NUHdfLFlVMwIs6mEjF4ArX.jpg",
+                            "url": "https://app.akuma-stream.com/watch/6d1e1081-8d27-437b-8b5f-4c87211b7987",
+                            "resolver": "anime-hdzero",
+                            "referer": "https://ahdzero.com/",
+                            "release_date": "2026-11-21",
+                            "skip": {
+                                "source": "audit",
+                                "segments": [
+                                    {
+                                        "type": "op",
+                                        "start": 66.3,
+                                        "end": 155.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1396.2,
+                                        "end": 1485.5
+                                    },
+                                    {
+                                        "type": "ed",
+                                        "start": 1501.2,
+                                        "end": 1576.1
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "release_date": "2026-10-03",
+            "updated_at": "2026-11-28T00:00:00.000Z"
         }
-      ],
-      "release_date": "2026-10-03",
-      "updated_at": "2026-11-21T00:00:00.000Z"
+    ],
+    "release_date": "2026-10-03",
+    "updated_at": "2026-11-28T00:00:00.000Z",
+    "season_count": 1,
+    "completion": {
+        "status": "incomplete",
+        "season": 1,
+        "track": null
     }
-  ],
-  "release_date": "2026-10-03",
-  "updated_at": "2026-11-21T00:00:00.000Z",
-  "season_count": 1,
-  "completion": {
-    "status": "incomplete",
-    "season": 1,
-    "track": null
-  }
 }
